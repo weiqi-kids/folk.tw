@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { getPoems, getAllusions, getSystems, interpretationById } from '../../lib/queries';
+import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById } from '../../lib/queries';
 
 export const getStaticPaths = (async () => {
   const poems = await getPoems();
@@ -15,6 +15,7 @@ const d = poem.data;
 
 const allusions = await getAllusions();
 const allusionById = new Map(allusions.map((a) => [a.id, a]));
+const allusionName = await allusionNameById(); // 不過濾 draft，供顯示典故名
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 
@@ -32,9 +33,10 @@ const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : n
 
   <article class="poem-detail">
     <header class="ph">
-      <h1>第 {d.no} 籤 · {d.ganzhi}</h1>
+      <h1>第 {d.no} 籤{(d.ganzhi || d.title) && ` · ${d.ganzhi ?? d.title}`}</h1>
       <div class="meta">
         <a class="tag" href={`/systems/${d.system.id}`}>{systemName.get(d.system.id)}</a>
+        {d.ganzhi && d.title && <span class="tag">{d.title}</span>}
         {d.gua && <span class="tag">{d.gua}卦</span>}
         {d.wuxing && <span class="tag">{d.wuxing.element}·{d.wuxing.season}·{d.wuxing.direction}</span>}
         {/* 吉凶輔標：小、次級；本系統多無原生定級（A.3-1） */}
@@ -71,7 +73,11 @@ const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : n
             return (
               <div class="card allusion">
                 <p class="aname">
-                  <a href={`/allusions/${a.ref.id}`}>{node?.data.name ?? a.ref.id}</a>
+                  {node ? (
+                    <a href={`/allusions/${a.ref.id}`}>{node.data.name}</a>
+                  ) : (
+                    <span>{allusionName.get(a.ref.id) ?? a.ref.id}</span>
+                  )}
                   {node?.data.source && <span class="muted">（{node.data.source}）</span>}
                 </p>
                 {a.note && <p class="muted small">記載：{a.note}</p>}

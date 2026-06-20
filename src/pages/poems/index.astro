@@ -2,30 +2,53 @@
 import Base from '../../layouts/Base.astro';
 import { getPoems, getSystems } from '../../lib/queries';
 
-const poems = (await getPoems()).sort((a, b) => a.data.no - b.data.no);
-const systems = await getSystems();
-const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+const poems = await getPoems();
+const systems = (await getSystems()).sort((a, b) => a.data.count - b.data.count);
+// 依籤系分組
+const bySystem = new Map<string, typeof poems>();
+for (const p of poems) {
+  const id = p.data.system.id;
+  (bySystem.get(id) ?? bySystem.set(id, []).get(id)!).push(p);
+}
+for (const list of bySystem.values()) list.sort((a, b) => a.data.no - b.data.no);
 ---
 
-<Base title="籤詩解碼" description="六十甲子籤全表：四句本文、卦頭故事典故、分項解。">
+<Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。">
   <h1>籤詩解碼</h1>
   <p class="muted">
-    {systemName.get('liushi_jiazi')}（共 {poems.length} 首）。籤詩四句屬公有領域；
-    卦頭故事採諸說並陳，分項解為本站撰寫或標源。
+    籤詩四句屬公有領域；卦頭故事採諸說並陳，賞析與分項解為本站撰寫或標源。
   </p>
-  <div class="grid cols poem-grid">
-    {
-      poems.map((p) => (
-        <a class="poem-cell card" href={`/poems/${p.id}`}>
-          <span class="no">第 {p.data.no} 籤</span>
-          <span class="gz">{p.data.ganzhi}{p.data.gua && ` · ${p.data.gua}`}</span>
-          <span class="first muted">{p.data.lines[0]}…</span>
-        </a>
-      ))
-    }
-  </div>
+  {
+    systems.map((s) => {
+      const list = bySystem.get(s.id) ?? [];
+      if (list.length === 0) return null;
+      return (
+        <section>
+          <h2>
+            <a href={`/systems/${s.id}`}>{s.data.name}</a>
+            <span class="count muted">（{list.length} 首）</span>
+          </h2>
+          <div class="grid cols poem-grid">
+            {list.map((p) => (
+              <a class="poem-cell card" href={`/poems/${p.id}`}>
+                <span class="no">第 {p.data.no} 籤</span>
+                <span class="gz">
+                  {p.data.ganzhi ?? p.data.title}
+                  {p.data.gua && ` · ${p.data.gua}`}
+                  {!p.data.ganzhi && p.data.fortune && ` · ${p.data.fortune}`}
+                </span>
+                <span class="first muted">{p.data.lines[0]}…</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
   <style>
-    .poem-grid { margin-top: 1.2rem; }
+    h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+    .count { font-size: 0.85rem; font-weight: 400; }
+    .poem-grid { margin-top: 1rem; }
     .poem-cell { display: flex; flex-direction: column; gap: 0.2rem; }
     .poem-cell .no { font-weight: 700; color: var(--ink); }
     .poem-cell .gz { color: var(--accent); font-size: 0.9rem; }

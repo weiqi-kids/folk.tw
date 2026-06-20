@@ -47,7 +47,7 @@ const s = system.data;
       {
         poems.map((p) => (
           <a class="card" href={`/poems/${p.id}`}>
-            第 {p.data.no} 籤 · {p.data.ganzhi}
+            第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}
           </a>
         ))
       }

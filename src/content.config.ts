@@ -128,7 +128,8 @@ const poems = defineCollection({
     id: z.string(), // `${system}-${no}`，如 liushi_jiazi-1
     system: reference('divinationSystems'),
     no: z.number(),
-    ganzhi: z.string(), // 籤名干支
+    ganzhi: z.string().optional(), // 籤名干支（六十甲子籤專屬；他系統可無）
+    title: z.string().optional(), // 籤題／古人（關帝籤等以歷史人物命題）
     wuxing: z
       .object({
         element: z.string(), // 五行
@@ -136,9 +137,9 @@ const poems = defineCollection({
         direction: z.string(), // 方位
       })
       .optional(),
-    gua: z.string().optional(), // 易經卦名
-    fortune: z.string().optional(), // 吉凶（六十甲子籤非原生，可選；A.3-1）
-    lines: z.array(z.string()).length(4), // 四句本文（公有領域）
+    gua: z.string().optional(), // 易經卦名（六十甲子籤專屬）
+    fortune: z.string().optional(), // 吉凶（六十甲子籤非原生；關帝籤有原生定級）
+    lines: z.array(z.string()).min(4).max(4), // 四句本文（公有領域）
     // 典故連結可多筆並陳、各掛源（A.0 各廟版本不一）
     allusions: z
       .array(

@@ -47,6 +47,11 @@ export async function getInterpretations() {
   return (await getCollection('interpretations')).filter((e) => !e.data.draft || !isProd);
 }
 
+/** 全部典故的 id→名稱（不過濾 draft），供籤頁顯示典故名（即使故事未撰） */
+export async function allusionNameById(): Promise<Map<string, string>> {
+  return new Map((await getCollection('allusions')).map((e) => [e.id, e.data.name]));
+}
+
 /** poemId → 該籤之白話賞析＋八項分項解（依 id join；本站原創，§6） */
 export async function interpretationById(): Promise<Map<string, CollectionEntry<'interpretations'>>> {
   const items = await getInterpretations();

@@ -1983,5 +1983,2805 @@
     ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
+  },
+  {
+    "id": "guandi_lingqian-1",
+    "system": "guandi_lingqian",
+    "no": 1,
+    "title": "漢高祖入關",
+    "fortune": "大吉",
+    "lines": [
+      "巍巍獨步向雲間",
+      "玉殿千官第一班",
+      "富貴榮華天付汝",
+      "福如東海壽如山"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_1",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/1",
+            "note": "維基文庫《關聖帝君靈籤》第一籤"
+          }
+        ],
+        "note": "古人：漢高祖入關；頁面另列「十八學士登瀛洲」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-2",
+    "system": "guandi_lingqian",
+    "no": 2,
+    "title": "張子房遊赤松",
+    "fortune": "上吉",
+    "lines": [
+      "盈虛消息總天時",
+      "自此君當百事宜",
+      "若問前程歸縮地",
+      "更須方寸好修為"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_2",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/2",
+            "note": "維基文庫《關聖帝君靈籤》第二籤"
+          }
+        ],
+        "note": "古人：張子房遊赤松；頁面另列「韓蘄王西湖騎驢」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-3",
+    "system": "guandi_lingqian",
+    "no": 3,
+    "title": "賈誼遇漢文帝",
+    "fortune": "中吉",
+    "lines": [
+      "衣食自然生處有",
+      "勸君不用苦勞心",
+      "但能孝悌存忠信",
+      "福祿來成禍不侵"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_3",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/3",
+            "note": "維基文庫《關聖帝君靈籤》第三籤"
+          }
+        ],
+        "note": "古人：賈誼遇漢文帝；頁面另列「張公藝九世同居」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-4",
+    "system": "guandi_lingqian",
+    "no": 4,
+    "title": "小秦王三跳澗",
+    "fortune": "下吉",
+    "lines": [
+      "去年百事頗相宜",
+      "若較今年時運衰",
+      "好把瓣香告神佛",
+      "莫教福謝悔無追"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_4",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/4",
+            "note": "維基文庫《關聖帝君靈籤》第四籤"
+          }
+        ],
+        "note": "古人：小秦王三跳澗；頁面另列「張翰憶鱸魚」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-5",
+    "system": "guandi_lingqian",
+    "no": 5,
+    "title": "呂蒙正守困",
+    "fortune": "中平",
+    "lines": [
+      "子有三般不自由",
+      "門庭蕭索冷如秋",
+      "若逢牛鼠交承日",
+      "萬事回春不用憂"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_5",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/5",
+            "note": "維基文庫《關聖帝君靈籤》第五籤"
+          }
+        ],
+        "note": "古人：呂蒙正守困"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-6",
+    "system": "guandi_lingqian",
+    "no": 6,
+    "title": "相如完璧歸趙",
+    "fortune": "下平",
+    "lines": [
+      "何勞鼓瑟更吹笙",
+      "寸步如登萬里程",
+      "彼此懷疑不相信",
+      "休將私意憶濃情"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_6",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/6",
+            "note": "維基文庫《關聖帝君靈籤》第六籤"
+          }
+        ],
+        "note": "古人：相如完璧歸趙；吉凶「下平」（各通行本或作「下下」，以維基文庫為準）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-7",
+    "system": "guandi_lingqian",
+    "no": 7,
+    "title": "呂洞賓煉丹",
+    "fortune": "大吉",
+    "lines": [
+      "仙風道骨本天生",
+      "又遇仙宗為主盟",
+      "指日丹成謝巖谷",
+      "一朝引領向天行"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_7",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/7",
+            "note": "維基文庫《關聖帝君靈籤》第七籤"
+          }
+        ],
+        "note": "古人：呂洞賓煉丹"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-8",
+    "system": "guandi_lingqian",
+    "no": 8,
+    "title": "大舜耕歷山",
+    "fortune": "上上",
+    "lines": [
+      "年來耕稼苦無收",
+      "今歲田疇定有秋",
+      "況遇太平無事日",
+      "士農工賈百無憂"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_8",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/8",
+            "note": "維基文庫《關聖帝君靈籤》第八籤"
+          }
+        ],
+        "note": "古人：大舜耕歷山；頁面另列「伊尹耕莘樂道」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-9",
+    "system": "guandi_lingqian",
+    "no": 9,
+    "title": "宋太祖陳橋即位",
+    "fortune": "大吉",
+    "lines": [
+      "望渠消息向長安",
+      "常把菱花仔細看",
+      "見說文書將入境",
+      "今朝喜色上眉端"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_9",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/9",
+            "note": "維基文庫《關聖帝君靈籤》第九籤"
+          }
+        ],
+        "note": "古人：宋太祖陳橋即位；頁面另列「張京兆畫眉」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-10",
+    "system": "guandi_lingqian",
+    "no": 10,
+    "title": "冉伯牛染病",
+    "fortune": "下吉",
+    "lines": [
+      "病患時時命蹇衰",
+      "何須打瓦共鑽龜",
+      "宜教重見一陽復",
+      "始可求神仗佛持"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_10",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/10",
+            "note": "維基文庫《關聖帝君靈籤》第十籤"
+          }
+        ],
+        "note": "古人：冉伯牛染病；頁面另列「孟郊五十登第」為副典"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-11",
+    "system": "guandi_lingqian",
+    "no": 11,
+    "title": "漢韓信",
+    "fortune": "下下",
+    "lines": [
+      "今年好事一番新",
+      "富貴榮華萃汝身",
+      "誰道機關難料處",
+      "到頭獨立轉傷神"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_11",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/11",
+            "note": "維基文庫《關聖帝君靈籤》第十一籤"
+          }
+        ],
+        "note": "古人：漢韓信（來源列為「漢韓信」，通稱韓信）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-12",
+    "system": "guandi_lingqian",
+    "no": 12,
+    "title": "蘇武牧羊",
+    "fortune": "中平",
+    "lines": [
+      "營為期望在春前",
+      "誰料秋來又不然",
+      "直遇清江貴公子",
+      "一生活計始安全"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_12",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/12",
+            "note": "維基文庫《關聖帝君靈籤》第十二籤"
+          }
+        ],
+        "note": "古人：蘇武牧羊"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-13",
+    "system": "guandi_lingqian",
+    "no": 13,
+    "title": "姜太公釣魚",
+    "fortune": "中平",
+    "lines": [
+      "君今庚甲未亨通",
+      "且向江頭作釣翁",
+      "玉兔重生應發跡",
+      "萬人頭上逞英雄"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_13",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/13",
+            "note": "維基文庫《關聖帝君靈籤》第十三籤"
+          }
+        ],
+        "note": "古人：姜太公釣魚（來源或作「姜太公釣魚」、「姜子牙釣魚」，取通行稱呼）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-14",
+    "system": "guandi_lingqian",
+    "no": 14,
+    "title": "郭華戀王月英",
+    "fortune": "下下",
+    "lines": [
+      "一見佳人便喜歡",
+      "誰知去後有多般",
+      "人情冷暖君休訝",
+      "歷涉應知行路難"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_14",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/14",
+            "note": "維基文庫《關聖帝君靈籤》第十四籤"
+          }
+        ],
+        "note": "古人：郭華戀王月英（民間故事，見《包公案》等）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-15",
+    "system": "guandi_lingqian",
+    "no": 15,
+    "title": "張君瑞憶鶯鶯",
+    "fortune": "中平",
+    "lines": [
+      "兩家門戶各相當",
+      "不是姻緣莫較量",
+      "直待春風好消息",
+      "卻調琴瑟向蘭房"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_15",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/15",
+            "note": "維基文庫《關聖帝君靈籤》第十五籤"
+          }
+        ],
+        "note": "古人：張君瑞憶鶯鶯（《西廂記》典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-16",
+    "system": "guandi_lingqian",
+    "no": 16,
+    "title": "王祥臥冰",
+    "fortune": "下下",
+    "lines": [
+      "官事悠悠難辨明",
+      "不如息了且歸耕",
+      "傍人煽惑君休信",
+      "此事當謀親弟兄"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_16",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/16",
+            "note": "維基文庫《關聖帝君靈籤》第十六籤"
+          }
+        ],
+        "note": "古人：王祥臥冰（二十四孝典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-17",
+    "system": "guandi_lingqian",
+    "no": 17,
+    "title": "石崇被難",
+    "fortune": "下下",
+    "lines": [
+      "田園價貫好商量",
+      "事到公庭彼此傷",
+      "縱使機關圖得勝",
+      "定為後世子孫殃"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_17",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/17",
+            "note": "維基文庫《關聖帝君靈籤》第十七籤"
+          }
+        ],
+        "note": "古人：石崇被難（西晉富豪石崇因財被難典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-18",
+    "system": "guandi_lingqian",
+    "no": 18,
+    "title": "孟嘗君招賢",
+    "fortune": "中平",
+    "lines": [
+      "知君指擬是空華",
+      "底事茫茫未有涯",
+      "牢把腳根踏實地",
+      "善為善應永無差"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_18",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/18",
+            "note": "維基文庫《關聖帝君靈籤》第十八籤"
+          }
+        ],
+        "note": "古人：孟嘗君招賢"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-19",
+    "system": "guandi_lingqian",
+    "no": 19,
+    "title": "劉智遠得岳氏",
+    "fortune": "上吉",
+    "lines": [
+      "嗟子從來未得時",
+      "今年星運頗相宜",
+      "營求動作都如意",
+      "和合婚姻誕貴兒"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_19",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/19",
+            "note": "維基文庫《關聖帝君靈籤》第十九籤"
+          }
+        ],
+        "note": "古人：劉智遠得岳氏（五代後漢高祖劉知遠典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-20",
+    "system": "guandi_lingqian",
+    "no": 20,
+    "title": "嚴子陵登釣臺",
+    "fortune": "下下",
+    "lines": [
+      "一生心事向誰論",
+      "十八灘頭說與君",
+      "世事盡從流水去",
+      "功名富貴等浮雲"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_20",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/20",
+            "note": "維基文庫《關聖帝君靈籤》第二十籤"
+          }
+        ],
+        "note": "古人：嚴子陵登釣臺（東漢隱士嚴光典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-21",
+    "system": "guandi_lingqian",
+    "no": 21,
+    "title": "孫龐鬥智結仇",
+    "fortune": "下下",
+    "lines": [
+      "與君夙昔結成冤",
+      "今日相逢那得緣",
+      "好把經文多諷誦",
+      "祈求戶內保嬋娟"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_21",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/21",
+            "note": "維基文庫《關聖帝君靈籤》第二十一籤"
+          }
+        ],
+        "note": "古人：孫龐鬥智結仇（戰國孫臏與龐涓典故）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-22",
+    "system": "guandi_lingqian",
+    "no": 22,
+    "title": "李太白遇唐明皇",
+    "fortune": "上吉",
+    "lines": [
+      "碧玉池中開白蓮",
+      "莊嚴色相自天然",
+      "生來骨格超凡俗",
+      "正是人間第一仙"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_22",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/22",
+            "note": "維基文庫《關聖帝君靈籤》第二十二籤"
+          }
+        ],
+        "note": "古人：李太白遇唐明皇"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-23",
+    "system": "guandi_lingqian",
+    "no": 23,
+    "title": "吳王愛西施",
+    "fortune": "下下",
+    "lines": [
+      "花開花謝在春風",
+      "貴賤窮通百歲中",
+      "羨子榮華今已矣",
+      "到頭萬事總成空"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_23",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/23",
+            "note": "維基文庫《關聖帝君靈籤》第二十三籤"
+          }
+        ],
+        "note": "古人：吳王愛西施"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-24",
+    "system": "guandi_lingqian",
+    "no": 24,
+    "title": "張騫誤入斗牛宮",
+    "fortune": "中平",
+    "lines": [
+      "一春萬事苦憂煎",
+      "夏裏營求始帖然",
+      "更遇秋成冬至後",
+      "恰如騎鶴與腰纏"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_24",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/24",
+            "note": "維基文庫《關聖帝君靈籤》第二十四籤"
+          }
+        ],
+        "note": "古人：張騫誤入斗牛宮（漢代張騫出使西域傳說）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-25",
+    "system": "guandi_lingqian",
+    "no": 25,
+    "title": "唐明皇遊月宮",
+    "fortune": "中平",
+    "lines": [
+      "寅午戍年多阻滯",
+      "亥子丑月漸亨嘉",
+      "更逢玉兔金雞會",
+      "枯木逢春自放花"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_25",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/25",
+            "note": "維基文庫《關聖帝君靈籤》第二十五籤"
+          }
+        ],
+        "note": "古人：唐明皇遊月宮"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-26",
+    "system": "guandi_lingqian",
+    "no": 26,
+    "title": "邵堯夫告天",
+    "fortune": "中吉",
+    "lines": [
+      "年來豐歉皆天數。",
+      "自是今年旱較多。",
+      "與子定期三日內。",
+      "田疇霑足雨滂沱。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_26",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/26",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：邵堯夫（邵雍），宋代易學家，傳說曾向天祈雨"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-27",
+    "system": "guandi_lingqian",
+    "no": 27,
+    "title": "江東得道",
+    "fortune": "下下",
+    "lines": [
+      "世間萬物各有主。",
+      "一粒一毫君莫取。",
+      "英雄豪傑自天生。",
+      "也須步步循規矩。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_27",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/27",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：羅隱（號江東），唐末詩人，傳說修真得道"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-28",
+    "system": "guandi_lingqian",
+    "no": 28,
+    "title": "相如題橋",
+    "fortune": "上吉",
+    "lines": [
+      "公侯將相本無種。",
+      "好把勤勞契上天。",
+      "人事盡從天理見。",
+      "才高豈得困林泉。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_28",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/28",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：司馬相如，漢代文學家，未遇時題橋立志，後以《子虛賦》受漢武帝賞識"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-29",
+    "system": "guandi_lingqian",
+    "no": 29,
+    "title": "司馬溫公嗟困",
+    "fortune": "上上",
+    "lines": [
+      "祖宗積德幾多年。",
+      "源遠流長慶自然。",
+      "若更操修無倦已。",
+      "天須還汝舊青氈。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_29",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/29",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：司馬光（溫國公），北宋政治家，著《資治通鑑》，曾遭貶謫困頓"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-30",
+    "system": "guandi_lingqian",
+    "no": 30,
+    "title": "柳毅傳書",
+    "fortune": "中吉",
+    "lines": [
+      "奉公謹守莫欺心。",
+      "自有亨通吉利臨。",
+      "目下營求且休矣。",
+      "秋期與子定佳音。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_30",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/30",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：唐傳奇《柳毅傳》，柳毅為龍女傳書，終成眷屬"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-31",
+    "system": "guandi_lingqian",
+    "no": 31,
+    "title": "蘇卿負信",
+    "fortune": "中吉",
+    "lines": [
+      "秋冬作事只尋常。",
+      "春到門庭漸吉昌。",
+      "千里信音符遠望。",
+      "萱堂快樂未渠央。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_31",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/31",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：蘇卿（蘇武），漢代出使匈奴，羈留十九年仍守節，後歸漢"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-32",
+    "system": "guandi_lingqian",
+    "no": 32,
+    "title": "周公解夢",
+    "fortune": "下下",
+    "lines": [
+      "勞心汨汨竟何歸。",
+      "疾病兼多是與非。",
+      "事到頭來渾似夢。",
+      "何如休要用心機。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_32",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/32",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：周公（姬旦），西周政治家，傳說能解夢；另有一說籤題為「馬皇后」，版本歧異，本檔以Wikisource為準"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-33",
+    "system": "guandi_lingqian",
+    "no": 33,
+    "title": "莊子慕道",
+    "fortune": "中平",
+    "lines": [
+      "不分南北與西東。",
+      "眼底昏昏耳似聾。",
+      "熟讀黃庭經一卷。",
+      "不論貴賤與窮通。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_33",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/33",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：莊子（莊周），道家代表人物，慕道自然，不分貴賤"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-34",
+    "system": "guandi_lingqian",
+    "no": 34,
+    "title": "蕭何追韓信",
+    "fortune": "中平",
+    "lines": [
+      "春夏纔過秋又冬。",
+      "紛紛謀慮攪心胸。",
+      "貴人垂手來相援。",
+      "休把私心情意濃。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_34",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/34",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：楚漢相爭，蕭何月夜追韓信，舉薦為大將，終助劉邦建漢"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-35",
+    "system": "guandi_lingqian",
+    "no": 35,
+    "title": "王昭君和番",
+    "fortune": "下下",
+    "lines": [
+      "一山如畫對清江。",
+      "門裏團圓事事雙。",
+      "誰料半途分折去。",
+      "空幃無語對銀缸。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_35",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/35",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：王昭君，漢代宮女，出塞和親匈奴，離鄉別親，客死異域"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-36",
+    "system": "guandi_lingqian",
+    "no": 36,
+    "title": "羅隱求官",
+    "fortune": "上吉",
+    "lines": [
+      "功名富貴自能為。",
+      "偶著仙鞭莫問伊。",
+      "萬里鵬程君有分。",
+      "吳山頂上好鑽龜。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_36",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/36",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：羅隱，唐末詩人，多次落第，後在吳越求官，終獲任用"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-37",
+    "system": "guandi_lingqian",
+    "no": 37,
+    "title": "邵堯夫祝香",
+    "fortune": "中平",
+    "lines": [
+      "焚香來告復何辭。",
+      "善惡平分汝自知。",
+      "屏卻昧公心裏事。",
+      "出門無礙是通時。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_37",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/37",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：邵堯夫（邵雍），宋代易學家，焚香問天，勸人行善去惡"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-38",
+    "system": "guandi_lingqian",
+    "no": 38,
+    "title": "孟姜女思夫",
+    "fortune": "下下",
+    "lines": [
+      "蛩吟唧唧守孤幃。",
+      "千里懸懸望信歸。",
+      "等得榮華公子到。",
+      "秋冬括括雨靡靡。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_38",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/38",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：孟姜女，民間傳說，丈夫萬喜良被徵築長城，孟姜女千里尋夫，哭倒長城"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-39",
+    "system": "guandi_lingqian",
+    "no": 39,
+    "title": "陶淵明賞菊",
+    "fortune": "下下",
+    "lines": [
+      "北山門下好安居。",
+      "若問終時慎厥初。",
+      "堪笑包藏許多事。",
+      "鱗鴻雖便莫修書。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_39",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/39",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：陶淵明，東晉詩人，歸隱田園，賞菊飲酒，著《歸去來兮辭》"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-40",
+    "system": "guandi_lingqian",
+    "no": 40,
+    "title": "漢光武陷昆陽",
+    "fortune": "上吉",
+    "lines": [
+      "新來換得好規模。",
+      "何用隨他步與趨。",
+      "只聽耳邊消息到。",
+      "崎嶇歷盡見亨衢。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_40",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/40",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：漢光武帝劉秀，昆陽之戰以少勝多，歷盡險阻終中興漢室"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-41",
+    "system": "guandi_lingqian",
+    "no": 41,
+    "title": "劉文龍求官",
+    "fortune": "中吉",
+    "lines": [
+      "自南自北自東西。",
+      "欲到天涯誰作梯。",
+      "遇鼠逢牛三弄笛。",
+      "好將名姓榜頭題。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_41",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/41",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：劉文龍，民間傳說人物，求官歷盡艱辛，終得功名"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-42",
+    "system": "guandi_lingqian",
+    "no": 42,
+    "title": "董永賣身",
+    "fortune": "中吉",
+    "lines": [
+      "我曾許汝事和諧。",
+      "誰料修為汝自乖。",
+      "但改新圖莫依舊。",
+      "營謀應得稱心懷。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_42",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/42",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：董永，漢代孝子，賣身葬父，七仙女下凡相助，民間孝行故事"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-43",
+    "system": "guandi_lingqian",
+    "no": 43,
+    "title": "玄德公黃鶴樓赴宴",
+    "fortune": "中吉",
+    "lines": [
+      "一紙官書火急催。",
+      "扁舟速下浪如雷。",
+      "雖然目下多驚險。",
+      "保汝平安去復回。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_43",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/43",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：劉備（玄德），三國典故，赴黃鶴樓赴宴，身陷險境，最終平安脫困"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-44",
+    "system": "guandi_lingqian",
+    "no": 44,
+    "title": "王莽篡漢",
+    "fortune": "中平",
+    "lines": [
+      "汝是人中最吉人。",
+      "誤為誤作損精神。",
+      "堅牢一念酬香願。",
+      "富貴榮華萃汝身。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_44",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/44",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：王莽，西漢外戚，篡漢自立新朝，以逾越為戒"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-45",
+    "system": "guandi_lingqian",
+    "no": 45,
+    "title": "高祖遇丁公",
+    "fortune": "中平",
+    "lines": [
+      "好將心地力耕耘。",
+      "彼此山頭總是墳。",
+      "陰地不如心地好。",
+      "修為到底卻輸君。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_45",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/45",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：漢高祖劉邦與丁公（季布從兄），丁公曾放走劉邦，漢立後劉邦反殺丁公以示信義"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-46",
+    "system": "guandi_lingqian",
+    "no": 46,
+    "title": "孤兒報冤",
+    "fortune": "中平",
+    "lines": [
+      "君是山中萬戶侯。",
+      "信知騎馬勝騎牛。",
+      "今朝馬上看山色。",
+      "爭似騎牛得自由。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_46",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/46",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：孤兒報父母之冤，民間關帝籤典故"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-47",
+    "system": "guandi_lingqian",
+    "no": 47,
+    "title": "楚漢爭鋒",
+    "fortune": "下下",
+    "lines": [
+      "與君萬語復千言。",
+      "祗欲平和雪爾冤。",
+      "訟則終凶君記取。",
+      "試於清夜把心捫。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_47",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/47",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：楚漢相爭，項羽與劉邦爭天下，以爭鬥兩敗俱傷為戒"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-48",
+    "system": "guandi_lingqian",
+    "no": 48,
+    "title": "趙五娘尋夫",
+    "fortune": "中平",
+    "lines": [
+      "登山涉水正天寒。",
+      "兄弟姻親那得安。",
+      "幸遇虎頭人一喚。",
+      "全家遂保汝重歡。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_48",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/48",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "典故：元雜劇《琵琶記》，趙五娘（趙貞女）千里尋夫蔡伯喈，歷盡艱辛終得重聚"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-49",
+    "system": "guandi_lingqian",
+    "no": 49,
+    "title": "張子房遁跡",
+    "fortune": "下下",
+    "lines": [
+      "彼此家居只一山。",
+      "如何似隔鬼門關。",
+      "日月如梭人易老。",
+      "許多勞碌不如閒。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_49",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/49",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：張良（字子房），漢初功臣，功成身退，遁跡修道，隨赤松子遊"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-50",
+    "system": "guandi_lingqian",
+    "no": 50,
+    "title": "蘇東波勸民",
+    "fortune": "上平",
+    "lines": [
+      "人說今年勝舊年。",
+      "也須步多要周旋。",
+      "一家和氣多生福。",
+      "萋菲讒言莫聽偏。"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_50",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/50",
+            "note": "關聖帝君靈籤通行本（清刊本），Wikisource"
+          }
+        ],
+        "note": "古人：蘇東坡（蘇軾），原文作「蘇東波」（波為坡之異體或刊刻訛字），宋代文人，任杭州知州時勸民賑災"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，清刊本，姑蘇鈕氏藏板）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-51",
+    "system": "guandi_lingqian",
+    "no": 51,
+    "title": "御溝流紅葉",
+    "fortune": "上吉",
+    "lines": [
+      "君今百事且隨緣",
+      "水到渠成聽自然",
+      "莫嘆年來不如意",
+      "喜逢新運稱心田"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_51",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/51",
+            "note": "維基文庫《關聖帝君靈籤》第五十一籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：唐宣宗時韓夫人題詩紅葉流御溝，于佑拾得唱和，天子賜婚"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-52",
+    "system": "guandi_lingqian",
+    "no": 52,
+    "title": "匡衡夜讀書",
+    "fortune": "上吉",
+    "lines": [
+      "兀坐幽居歎寂寥",
+      "孤燈掩映度清宵",
+      "萬金忽報秋光好",
+      "活計扁舟渡北朝"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_52",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/52",
+            "note": "維基文庫《關聖帝君靈籤》第五十二籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：漢匡衡鑿壁借光夜讀，後累官拜相"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-53",
+    "system": "guandi_lingqian",
+    "no": 53,
+    "title": "劉玄德入贅孫權妹",
+    "fortune": "下下",
+    "lines": [
+      "艱難險阻路蹊蹺",
+      "南鳥孤飛依北巢",
+      "今日貴人曾識面",
+      "相逢卻在夏秋交"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_53",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/53",
+            "note": "維基文庫《關聖帝君靈籤》第五十三籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：三國劉備入贅東吳，娶孫權之妹，客居異地如南鳥依北巢"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-54",
+    "system": "guandi_lingqian",
+    "no": 54,
+    "title": "蘇秦刺股",
+    "fortune": "中平",
+    "lines": [
+      "萬人叢裏逞英豪",
+      "便欲飛騰霄漢高",
+      "爭奈承流風未便",
+      "青燈黃卷且勤勞"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_54",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/54",
+            "note": "維基文庫《關聖帝君靈籤》第五十四籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：戰國蘇秦持錐刺股發奮讀書，後佩六國相印"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-55",
+    "system": "guandi_lingqian",
+    "no": 55,
+    "title": "包龍圖勸農",
+    "fortune": "中平",
+    "lines": [
+      "勤耕力作莫蹉跎",
+      "衣食隨時安分過",
+      "縱使經商收倍利",
+      "不如逐歲廩禾多"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_55",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/55",
+            "note": "維基文庫《關聖帝君靈籤》第五十五籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：宋包拯（包龍圖）重農勸民，官龍圖閣學士，重視耕稼"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-56",
+    "system": "guandi_lingqian",
+    "no": 56,
+    "title": "王樞密奸險",
+    "fortune": "下下",
+    "lines": [
+      "心頭理曲強詞遮",
+      "直欲欺官行路斜",
+      "一旦醜形臨月鏡",
+      "身投憲網莫咨嗟"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_56",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/56",
+            "note": "維基文庫《關聖帝君靈籤》第五十六籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：宋黃欽若（字定國）官至樞密，奸邪害正，以澶淵之役妒阻寇準"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-57",
+    "system": "guandi_lingqian",
+    "no": 57,
+    "title": "爛柯觀棋",
+    "fortune": "中平",
+    "lines": [
+      "事端百出慮雖長",
+      "莫聽人言自主張",
+      "一著仙機君記取",
+      "紛紛鬧裏更思量"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_57",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/57",
+            "note": "維基文庫《關聖帝君靈籤》第五十七籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：晉王質入山觀仙人下棋，斧柄爛盡方覺百年已過（爛柯山傳說）"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-58",
+    "system": "guandi_lingqian",
+    "no": 58,
+    "title": "蘇秦背劍",
+    "fortune": "上吉",
+    "lines": [
+      "蘇秦三寸足平生",
+      "富貴功名在此行",
+      "更好修為陰騭事",
+      "前程萬里自通亨"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_58",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/58",
+            "note": "維基文庫《關聖帝君靈籤》第五十八籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：蘇秦以三寸之舌說動六國，佩六國相印，以口才建功業"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-59",
+    "system": "guandi_lingqian",
+    "no": 59,
+    "title": "鄧伯道無兒",
+    "fortune": "中平",
+    "lines": [
+      "門衰戶冷苦伶仃",
+      "自嘆祈求不一靈",
+      "幸有祖宗陰騭在",
+      "香煙未斷續螟蛉"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_59",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/59",
+            "note": "維基文庫《關聖帝君靈籤》第五十九籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：晉鄧攸（字伯道）兵亂中捨子保姪，後官至尚書，終身無子"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-60",
+    "system": "guandi_lingqian",
+    "no": 60,
+    "title": "宋郊兄弟登第",
+    "fortune": "上上",
+    "lines": [
+      "羨君兄弟好名聲",
+      "只管謙撝莫自矜",
+      "丹詔槐黃相逼近",
+      "巍巍科甲兩同登"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_60",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/60",
+            "note": "維基文庫《關聖帝君靈籤》第六十籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：宋朝宋郊、宋郕兄弟因救蟻獲福報，兄弟同科登進士"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-61",
+    "system": "guandi_lingqian",
+    "no": 61,
+    "title": "蒯輒見韓信",
+    "fortune": "中平",
+    "lines": [
+      "嘯聚山林兇惡儔",
+      "善良無事苦煎憂",
+      "主人大笑出門去",
+      "不用干戈盜賊休"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_61",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/61",
+            "note": "維基文庫《關聖帝君靈籤》第六十一籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：漢蒯通（字蒯輒）勸韓信鼎足三分，韓信不從，後悔臨刑"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-62",
+    "system": "guandi_lingqian",
+    "no": 62,
+    "title": "韓信戰霸王",
+    "fortune": "中平",
+    "lines": [
+      "百千人面虎狼心",
+      "賴汝干戈用力深",
+      "得勝回時秋漸老",
+      "虎頭城裏喜相尋"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_62",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/62",
+            "note": "維基文庫《關聖帝君靈籤》第六十二籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：韓信統諸侯兵，九里山十面埋伏，圍楚霸王項籍於垓下，項籍自刎烏江"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-63",
+    "system": "guandi_lingqian",
+    "no": 63,
+    "title": "楊令公撞李陵碑",
+    "fortune": "中平",
+    "lines": [
+      "曩時敗北且圖南",
+      "筋力雖衰尚一堪",
+      "欲識生前君大數",
+      "前三三與後三三"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_63",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/63",
+            "note": "維基文庫《關聖帝君靈籤》第六十三籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：北宋楊業（楊令公），號楊無敵，因潘美妒陷絕境，撞李陵碑而亡"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-64",
+    "system": "guandi_lingqian",
+    "no": 64,
+    "title": "管鮑分金",
+    "fortune": "上上",
+    "lines": [
+      "吉人相遇本和同",
+      "況有持謀天水翁",
+      "人力不勞公論協",
+      "事成功倍笑談中"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_64",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/64",
+            "note": "維基文庫《關聖帝君靈籤》第六十四籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：春秋管仲與鮑叔牙合夥分金，鮑叔推薦管仲為齊相，一匡天下"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-65",
+    "system": "guandi_lingqian",
+    "no": 65,
+    "title": "呂蒙正木蘭和詩",
+    "fortune": "上上",
+    "lines": [
+      "朔風凜凜正窮冬",
+      "多羨門庭喜氣濃",
+      "更入新春人事後",
+      "衷言方得信先容"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_65",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/65",
+            "note": "維基文庫《關聖帝君靈籤》第六十五籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：宋呂蒙正微時在木蘭寺題詩，後舉進士第一，三居相位"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-66",
+    "system": "guandi_lingqian",
+    "no": 66,
+    "title": "杜甫遊春",
+    "fortune": "上上",
+    "lines": [
+      "耕耘只可在鄉邦",
+      "何用求謀向外方",
+      "見說今年新運好",
+      "門闌喜氣事雙雙"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_66",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/66",
+            "note": "維基文庫《關聖帝君靈籤》第六十六籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：唐詩人杜甫（字子美，杜陵人）遊春，寓意守鄉在地，福從內得"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-67",
+    "system": "guandi_lingqian",
+    "no": 67,
+    "title": "江遺囑兒",
+    "fortune": "中平",
+    "lines": [
+      "纔發君心天已知",
+      "何須問我決狐疑",
+      "願子改圖從孝悌",
+      "不愁家室不相宜"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_67",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/67",
+            "note": "維基文庫《關聖帝君靈籤》第六十七籤，清刊本，姑蘇鈕氏藏板；原文有■缺字"
+          }
+        ],
+        "note": "典故：江遺臨終囑兒改過從善、盡孝悌之道；具體人物原典缺字，不確定"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-68",
+    "system": "guandi_lingqian",
+    "no": 68,
+    "title": "錢大王販鹽",
+    "fortune": "中平",
+    "lines": [
+      "南販珍珠北販鹽",
+      "年來幾倍貨財添",
+      "勸君止此求田舍",
+      "心欲多時何日厭"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_68",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/68",
+            "note": "維基文庫《關聖帝君靈籤》第六十八籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：唐錢鏐（吳越開國之主）出身臨安販鹽，後平黃巢之亂建立勢力，封越王"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-69",
+    "system": "guandi_lingqian",
+    "no": 69,
+    "title": "孫龐鬥智",
+    "fortune": "下下",
+    "lines": [
+      "捨舟遵路總相宜",
+      "慎勿嬉遊逐貴兒",
+      "一夜樽前兄與弟",
+      "明朝仇敵又相隨"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_69",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/69",
+            "note": "維基文庫《關聖帝君靈籤》第六十九籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：戰國孫臏與龐涓同門，龐涓妒才，致孫臏受臏刑，後孫臏設計敗龐涓"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-70",
+    "system": "guandi_lingqian",
+    "no": 70,
+    "title": "王曾祈禱",
+    "fortune": "中平",
+    "lines": [
+      "雷雨風雲各有司",
+      "至誠禱告莫生疑",
+      "與君定約為霖日",
+      "正是蘊隆中伏時"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_70",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/70",
+            "note": "維基文庫《關聖帝君靈籤》第七十籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：北宋王曾（字孝先），咸平中三元及第，居官時旱輒禱雨必應"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-71",
+    "system": "guandi_lingqian",
+    "no": 71,
+    "title": "蘇武還鄉",
+    "fortune": "中平",
+    "lines": [
+      "喜鵲簷前報好音",
+      "知君千里欲歸心",
+      "繡幃重結鴛鴦帶",
+      "葉落霜飛寒色侵"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_71",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/71",
+            "note": "維基文庫《關聖帝君靈籤》第七十一籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：漢蘇武使匈奴被留十九年，持節不屈，後得歸漢"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-72",
+    "system": "guandi_lingqian",
+    "no": 72,
+    "title": "范蠡歸湖",
+    "fortune": "下下",
+    "lines": [
+      "河渠傍路有高低",
+      "可歎長途日已西",
+      "縱有榮華好時節",
+      "直須猴犬換金雞"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_72",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/72",
+            "note": "維基文庫《關聖帝君靈籤》第七十二籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：春秋范蠡助越滅吳後辭官歸隱，泛舟五湖，後於陶地致富稱陶朱公"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-73",
+    "system": "guandi_lingqian",
+    "no": 73,
+    "title": "王昭君憶漢帝",
+    "fortune": "下下",
+    "lines": [
+      "憶昔蘭房分半釵",
+      "而今忽把信音乖",
+      "痴心指望成連理",
+      "到底誰知事不諧"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_73",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/73",
+            "note": "維基文庫《關聖帝君靈籤》第七十三籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：漢王昭君和親遠嫁匈奴，心念故漢，事與願違"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-74",
+    "system": "guandi_lingqian",
+    "no": 74,
+    "title": "崔武求官",
+    "fortune": "上吉",
+    "lines": [
+      "崔巍崔魏復崔巍",
+      "履險如夷去復來",
+      "身似菩提心似鏡",
+      "長安一道放春回"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_74",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/74",
+            "note": "維基文庫《關聖帝君靈籤》第七十四籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：崔武求官，歷經險阻，修身持正終獲吉；具體人物來源待查"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-75",
+    "system": "guandi_lingqian",
+    "no": 75,
+    "title": "劉小姐愛蒙正",
+    "fortune": "中吉",
+    "lines": [
+      "生前結得好緣姻",
+      "一笑相逢情自親",
+      "相當人物無高下",
+      "得意休論富與貧"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_75",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/75",
+            "note": "維基文庫《關聖帝君靈籤》第七十五籤，清刊本，姑蘇鈕氏藏板"
+          }
+        ],
+        "note": "典故：宋呂蒙正未顯達時，樞密劉文茂之女劉小姐慧眼相許，後蒙正三居相位"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本，維基文庫）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-76",
+    "system": "guandi_lingqian",
+    "no": 76,
+    "title": "蕭何註律",
+    "fortune": "中平",
+    "lines": [
+      "三千法律八千文",
+      "此事何如說與君",
+      "善惡兩途君自作",
+      "一生禍福此中分"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_76",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/76",
+            "note": "中文維基文庫《關聖帝君靈籤》第76籤"
+          }
+        ],
+        "note": "古人：蕭何，漢初丞相，輔佐劉邦制定律法。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-77",
+    "system": "guandi_lingqian",
+    "no": 77,
+    "title": "呂后害韓信",
+    "fortune": "下下",
+    "lines": [
+      "木有根荄水有源",
+      "君當自此究其原",
+      "莫隨道路人閒話",
+      "訟到終凶是至言"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_77",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/77",
+            "note": "中文維基文庫《關聖帝君靈籤》第77籤"
+          }
+        ],
+        "note": "古人：呂后害韓信，韓信被呂雉設計誅殺於長樂宮。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-78",
+    "system": "guandi_lingqian",
+    "no": 78,
+    "title": "袁安守困",
+    "fortune": "下下",
+    "lines": [
+      "家道豊腴自飽溫",
+      "也須肚裏立乾坤",
+      "財多害己君當省",
+      "福有胚胎禍有門"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_78",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/78",
+            "note": "中文維基文庫《關聖帝君靈籤》第78籤"
+          }
+        ],
+        "note": "古人：袁安，東漢名臣，大雪守困不出、不擾民，後得舉薦。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-79",
+    "system": "guandi_lingqian",
+    "no": 79,
+    "title": "宋神宗誤圩牛頭山",
+    "fortune": "中平",
+    "lines": [
+      "乾亥來龍仔細看",
+      "坎居午向自當安",
+      "若移丑艮陰陽逆",
+      "門戶凋零家道難"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_79",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/79",
+            "note": "中文維基文庫《關聖帝君靈籤》第79籤"
+          }
+        ],
+        "note": "古人：宋神宗誤圩牛頭山，涉及風水堪輿典故。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-80",
+    "system": "guandi_lingqian",
+    "no": 80,
+    "title": "陶侃卜牛眠",
+    "fortune": "中平",
+    "lines": [
+      "一朝無事忽遭官",
+      "也是門衰墳未安",
+      "改換陰陽移禍福",
+      "勸君莫作等閒看"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_80",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/80",
+            "note": "中文維基文庫《關聖帝君靈籤》第80籤"
+          }
+        ],
+        "note": "古人：陶侃，晉代名將，母葬「牛眠地」風水吉穴而得貴。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-81",
+    "system": "guandi_lingqian",
+    "no": 81,
+    "title": "寇公任雷陽",
+    "fortune": "中平",
+    "lines": [
+      "假君財物自當還",
+      "謀賴心欺他自奸",
+      "幸有高臺明月鏡",
+      "請來對照破機關"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_81",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/81",
+            "note": "中文維基文庫《關聖帝君靈籤》第81籤"
+          }
+        ],
+        "note": "古人：寇準（寇公），北宋名臣，被貶雷州（雷陽）。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-82",
+    "system": "guandi_lingqian",
+    "no": 82,
+    "title": "宋仁宗認母",
+    "fortune": "上吉",
+    "lines": [
+      "彼亦儔中一輩賢",
+      "勸君特達與周旋",
+      "此時賓主歡相會",
+      "他日王侯卻並肩"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_82",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/82",
+            "note": "中文維基文庫《關聖帝君靈籤》第82籤"
+          }
+        ],
+        "note": "古人：宋仁宗認母，仁宗趙禎認生母李宸妃典故。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-83",
+    "system": "guandi_lingqian",
+    "no": 83,
+    "title": "諸葛孔明學道",
+    "fortune": "下下",
+    "lines": [
+      "隨分堂前赴粥饘",
+      "何須妄想苦憂煎",
+      "主張門戶誠難事",
+      "百歲安閒得幾年"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_83",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/83",
+            "note": "中文維基文庫《關聖帝君靈籤》第83籤"
+          }
+        ],
+        "note": "古人：諸葛孔明（諸葛亮），此籤以其學道隱居典故警示知足。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-84",
+    "system": "guandi_lingqian",
+    "no": 84,
+    "title": "須賈害范雎",
+    "fortune": "中平",
+    "lines": [
+      "箇中事緒更紛然",
+      "當局須知一著先",
+      "長舌婦人休酷聽",
+      "力行禮義要心堅"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_84",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/84",
+            "note": "中文維基文庫《關聖帝君靈籤》第84籤"
+          }
+        ],
+        "note": "古人：須賈害范雎，戰國時魏國須賈陷害范雎，范雎後入秦為相。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-85",
+    "system": "guandi_lingqian",
+    "no": 85,
+    "title": "姜女尋夫",
+    "fortune": "中平",
+    "lines": [
+      "一春風雨正瀟瀟",
+      "千里行人去路遙",
+      "移寡就多君得計",
+      "如何歸路轉無聊"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_85",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/85",
+            "note": "中文維基文庫《關聖帝君靈籤》第85籤"
+          }
+        ],
+        "note": "古人：孟姜女千里尋夫，典出秦代孟姜女哭倒長城傳說。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-86",
+    "system": "guandi_lingqian",
+    "no": 86,
+    "title": "管飽為賈",
+    "fortune": "上上",
+    "lines": [
+      "一舟行貨好招邀",
+      "積少成多自富饒",
+      "常把他人比自己",
+      "管須日後勝今朝"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_86",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/86",
+            "note": "中文維基文庫《關聖帝君靈籤》第86籤"
+          }
+        ],
+        "note": "古人：管仲與鮑叔牙合夥經商（管飽為賈），春秋時二人同心輔齊桓公。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-87",
+    "system": "guandi_lingqian",
+    "no": 87,
+    "title": "武侯與子敬同舟",
+    "fortune": "下下",
+    "lines": [
+      "陰裏詳看怪爾曹",
+      "舟中敵圖笑中刀",
+      "藩籬剖破渾無事",
+      "一種天生惜羽毛"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_87",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/87",
+            "note": "中文維基文庫《關聖帝君靈籤》第87籤"
+          }
+        ],
+        "note": "古人：諸葛孔明（武侯）與魯肅（子敬）同舟，三國時期敵我虛實之典。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-88",
+    "system": "guandi_lingqian",
+    "no": 88,
+    "title": "高文定守困",
+    "fortune": "上吉",
+    "lines": [
+      "從前作事總徒勞",
+      "纔見新春時漸遭",
+      "百計營求都得意",
+      "更須守己莫心高"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_88",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/88",
+            "note": "中文維基文庫《關聖帝君靈籤》第88籤"
+          }
+        ],
+        "note": "古人：高文定守困，民間戲曲或小說人物，具體出典待考。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-89",
+    "system": "guandi_lingqian",
+    "no": 89,
+    "title": "班超歸玉門關",
+    "fortune": "中平",
+    "lines": [
+      "樽前無事且高歌",
+      "時未來時奈若何",
+      "白馬渡江嘶日暮",
+      "虎頭城裏看巍峨"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_89",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/89",
+            "note": "中文維基文庫《關聖帝君靈籤》第89籤"
+          }
+        ],
+        "note": "古人：班超，東漢名將，出使西域三十年後歸玉門關。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-90",
+    "system": "guandi_lingqian",
+    "no": 90,
+    "title": "楊文廣陷柳州",
+    "fortune": "中平",
+    "lines": [
+      "崆峒城裏事如麻",
+      "無事如君有幾家",
+      "勸汝不須勤致禱",
+      "徒勞生事苦咨嘆"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_90",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/90",
+            "note": "中文維基文庫《關聖帝君靈籤》第90籤；末字「嘆」或作「歎」（異體字）"
+          }
+        ],
+        "note": "古人：楊文廣，北宋楊家將，陷柳州之典出自民間說部《楊家將》。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-91",
+    "system": "guandi_lingqian",
+    "no": 91,
+    "title": "趙子龍抱太子",
+    "fortune": "中平",
+    "lines": [
+      "佛說淘沙始見金",
+      "只緣君子不勞心",
+      "榮華總得詩書效",
+      "妙裏工夫仔細尋"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_91",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/91",
+            "note": "中文維基文庫《關聖帝君靈籤》第91籤"
+          }
+        ],
+        "note": "古人：趙子龍（趙雲），長坂坡單騎救阿斗（劉禪）。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-92",
+    "system": "guandi_lingqian",
+    "no": 92,
+    "title": "高祖治漢民",
+    "fortune": "下下",
+    "lines": [
+      "今年禾穀不如前",
+      "物價喧騰倍百年",
+      "災數流行多疫癘",
+      "一陽復後始安全"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_92",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/92",
+            "note": "中文維基文庫《關聖帝君靈籤》第92籤"
+          }
+        ],
+        "note": "古人：漢高祖劉邦治理漢民，以其開國治世為典。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-93",
+    "system": "guandi_lingqian",
+    "no": 93,
+    "title": "邵康節定陰陽",
+    "fortune": "中平",
+    "lines": [
+      "春來雨水太連綿",
+      "入夏晴乾雨又愆",
+      "節氣直交三伏始",
+      "喜逢滂沛足田園"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_93",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/93",
+            "note": "中文維基文庫《關聖帝君靈籤》第93籤"
+          }
+        ],
+        "note": "古人：邵康節（邵雍），北宋易學家，以卜算陰陽著名。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-94",
+    "system": "guandi_lingqian",
+    "no": 94,
+    "title": "提結過長者門",
+    "fortune": "中平",
+    "lines": [
+      "一般器用與人同",
+      "巧斲輪輿梓匠工",
+      "凡事有緣且隨分",
+      "秋冬方遇主人翁"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_94",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/94",
+            "note": "中文維基文庫《關聖帝君靈籤》第94籤；「提結過長者門」為籤題，非詩句"
+          }
+        ],
+        "note": "古人：提結過長者門，具體典故出典待考，或為民間關帝籤典故。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-95",
+    "system": "guandi_lingqian",
+    "no": 95,
+    "title": "張文遠求官",
+    "fortune": "中平",
+    "lines": [
+      "知君袖內有驪珠",
+      "生不逢辰亦強圖",
+      "可歎頭顱已如許",
+      "而今方得貴人扶"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_95",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/95",
+            "note": "中文維基文庫《關聖帝君靈籤》第95籤"
+          }
+        ],
+        "note": "古人：張文遠，或指張遼（字文遠），三國曹魏名將；求官典故出處待考。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-96",
+    "system": "guandi_lingqian",
+    "no": 96,
+    "title": "山濤見王衍",
+    "fortune": "上吉",
+    "lines": [
+      "婚姻子息莫嫌遲",
+      "但把精神仗佛持",
+      "四十年前須報應",
+      "功圓行滿育馨兒"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_96",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/96",
+            "note": "中文維基文庫《關聖帝君靈籤》第96籤"
+          }
+        ],
+        "note": "古人：山濤見王衍，晉代竹林七賢山濤識王衍為傾城之才。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-97",
+    "system": "guandi_lingqian",
+    "no": 97,
+    "title": "買臣五十富貴",
+    "fortune": "上上",
+    "lines": [
+      "五十功名心已灰",
+      "那知富貴逼人來",
+      "更行好事存方寸",
+      "壽比岡陵位鼎台"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_97",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/97",
+            "note": "中文維基文庫《關聖帝君靈籤》第97籤"
+          }
+        ],
+        "note": "古人：朱買臣，漢代人，五十歲始得富貴，典出《漢書·朱買臣傳》。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-98",
+    "system": "guandi_lingqian",
+    "no": 98,
+    "title": "薛仁貴投軍",
+    "fortune": "中平",
+    "lines": [
+      "經營百出費精神",
+      "南北奔馳運未新",
+      "玉兔交時當得意",
+      "恰如枯木再逢春"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_98",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/98",
+            "note": "中文維基文庫《關聖帝君靈籤》第98籤"
+          }
+        ],
+        "note": "古人：薛仁貴，唐代名將，投軍後征戰立功典故。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-99",
+    "system": "guandi_lingqian",
+    "no": 99,
+    "title": "百里奚投秦",
+    "fortune": "上上",
+    "lines": [
+      "貴人遭遇水雲鄉",
+      "冷淡交情滋味長",
+      "黃閣開時延故客",
+      "驊騮應得驟康莊"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_99",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/99",
+            "note": "中文維基文庫《關聖帝君靈籤》第99籤"
+          }
+        ],
+        "note": "古人：百里奚，春秋時虞國大夫，後入秦相秦穆公成霸業，典出《史記》。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
+  },
+  {
+    "id": "guandi_lingqian-100",
+    "system": "guandi_lingqian",
+    "no": 100,
+    "title": "唐明宗禱告天",
+    "fortune": "上上",
+    "lines": [
+      "我本天仙雷雨師",
+      "吉凶禍福我先知",
+      "至誠禱祝皆靈應",
+      "抽得終籤百事宜"
+    ],
+    "allusions": [
+      {
+        "ref": "gd_100",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikisource.org/wiki/%E9%97%9C%E8%81%96%E5%B8%9D%E5%90%9B%E9%9D%88%E7%B1%A4/100",
+            "note": "中文維基文庫《關聖帝君靈籤》第100籤"
+          }
+        ],
+        "note": "古人：唐明宗（李嗣源）禱告上天，以虔誠祈禱感動神明典故；第100籤為關帝靈籤終籤。"
+      }
+    ],
+    "version_source": "籤詩本文：公有領域（關帝靈籤通行本）",
+    "draft": false
   }
 ]
