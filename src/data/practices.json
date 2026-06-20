@@ -3,264 +3,1680 @@
     "id": "antaisui",
     "title": "安太歲",
     "category": "年度祈福",
-    "deities": ["taisui"],
+    "deities": [
+      "taisui"
+    ],
     "occasion": "沖犯太歲（生肖值年/沖太歲）",
-    "festival_ref": ["正月", "年尾謝太歲"],
-    "steps": [],
-    "offerings": [],
-    "joss_paper": ["太歲金", "壽金"],
+    "festival_ref": [
+      "正月",
+      "年尾謝太歲"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "至廟方登記，填寫姓名、農曆生日、住址",
+        "actor": "信眾",
+        "items": [],
+        "target": "廟方服務台",
+        "note": "廟方據此為信眾點燃太歲燈，掛牌入太歲殿",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "備供品，於太歲星君神前陳設",
+        "actor": "信眾",
+        "items": [
+          "清茶三杯",
+          "四果",
+          "麵線",
+          "糖果餅乾"
+        ],
+        "target": "太歲星君神位",
+        "note": "頂桌以素食為主，部分廟宇備壽金、刈金",
+        "taboo": [
+          "避免供奉葷食"
+        ]
+      },
+      {
+        "order": 3,
+        "action": "上香，向太歲星君稟報姓名、農曆生辰、住址，說明安太歲事由",
+        "actor": "信眾",
+        "items": [],
+        "target": "太歲星君",
+        "note": "一或三柱香，依廟方規定",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "擲筊確認太歲星君駕臨",
+        "actor": "信眾",
+        "items": [],
+        "target": "太歲星君",
+        "note": "得一正一反聖筊後進行下一步",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "香燒至三分之一時，雙手捧持金紙行三拜，燒化金紙禮成",
+        "actor": "信眾",
+        "items": [
+          "壽金",
+          "刈金"
+        ],
+        "target": "太歲星君",
+        "note": "部分廟宇有「太歲金」；農曆十二月廿四日前需回廟謝太歲，換新符牌",
+        "taboo": [
+          "太歲符不可高過神明位階"
+        ]
+      }
+    ],
+    "offerings": [
+      "清茶",
+      "四果",
+      "麵線",
+      "糖果餅乾"
+    ],
+    "joss_paper": [
+      "壽金",
+      "刈金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "全台通例",
+        "note": "農曆正月初一至元宵（最遲二月）前安太歲；立春後最宜；年底農曆十二月廿四日（或歲末送神前）回廟「謝太歲」",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.bailucky.com/an-tai-sui",
+            "note": "拜出好運來：安太歲完整流程"
+          },
+          {
+            "type": "web",
+            "ref": "https://www.uho.com.tw/article-68873.html",
+            "note": "Uho健康：2026安太歲懶人包"
+          }
+        ]
+      },
+      {
+        "area": "台北（龍山寺、行天宮）",
+        "note": "信眾量大，廟方多提供線上登記安太歲；龍山寺太歲殿為北台灣重要據點",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://chianchi-shop.com.tw/blog/protective-temples-2026-taiwan",
+            "note": "2026台北、台中、台南、高雄推薦廟宇整理"
+          }
+        ]
+      },
+      {
+        "area": "台南（大天后宮、開基武廟）",
+        "note": "台南廟宇太歲殿儀式莊嚴隆重，多以書寫疏文、廟方代辦為主",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://chianchi-shop.com.tw/blog/protective-temples-2026-taiwan",
+            "note": "同上"
+          }
+        ]
+      }
+    ],
     "summary": "生肖沖犯太歲者，年初至廟安奉太歲星君，年尾謝恩，藉以化解當年厄運。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=44",
+        "note": "內政部全國宗教資訊網：安太歲（條目）"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.bailucky.com/an-tai-sui",
+        "note": "拜出好運來：家中自安與廟宇代辦兩種方法"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.uho.com.tw/article-68873.html",
+        "note": "Uho優活健康：2026安太歲懶人包"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "diandeng",
     "title": "點光明燈/平安燈/文昌燈",
     "category": "年度祈福",
-    "deities": ["wenchang"],
+    "deities": [
+      "wenchang"
+    ],
     "occasion": "祈求平安、學業或財運，正月起點燈一年",
-    "festival_ref": ["正月"],
-    "steps": [],
-    "offerings": [],
-    "joss_paper": ["壽金"],
+    "festival_ref": [
+      "正月"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "持信眾姓名、出生年月日至廟方服務台登記點燈種類",
+        "actor": "信眾",
+        "items": [],
+        "target": "廟方服務台",
+        "note": "光明燈種類包括平安燈、文昌燈、財神燈等，依祈求事項選擇",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "繳費，廟方將姓名、農曆生辰、地址書入文疏",
+        "actor": "廟方人員",
+        "items": [],
+        "target": "光明燈燈位",
+        "note": "廟方依文疏在燈區點亮對應燈位，定期誦經超薦",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "本人親赴上香祈願（若能親至最佳，亦可委由廟方代辦）",
+        "actor": "信眾",
+        "items": [
+          "清茶",
+          "四果"
+        ],
+        "target": "主祀神明",
+        "note": "部分廟宇在正月初九、初一及十五舉行誦經法會，代替點燈者祈福",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "年底或燈期屆滿前回廟謝燈、收符，完成年度燈期",
+        "actor": "信眾",
+        "items": [
+          "壽金"
+        ],
+        "target": "主祀神明",
+        "note": "謝燈時燒化壽金表達感謝；部分廟宇年度自動續燈需另行告知停燈",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "清茶",
+      "四果"
+    ],
+    "joss_paper": [
+      "壽金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "全台通例",
+        "note": "正月初九（天公生）為最多廟宇點燈法會時間；北台灣廟宇多集中於農曆正月初八子時起點燈",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=41",
+            "note": "內政部全國宗教資訊網：點光明燈（條目）"
+          },
+          {
+            "type": "web",
+            "ref": "https://www.cashfeel.com.tw/article/%E5%AE%89%E5%A4%AA%E6%AD%B2-%E5%85%89%E6%98%8E%E7%87%88-%E8%B2%BB%E7%94%A8",
+            "note": "CashFeel安錢感：2026安太歲與光明燈懶人包"
+          }
+        ]
+      },
+      {
+        "area": "北台灣（龍山寺、行天宮、指南宮）",
+        "note": "文昌燈多集中於文昌帝君廟（如指南宮、台北孔廟附近），學生點燈需求旺盛",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://orange.udn.com/orange/story/121416/7648453",
+            "note": "橘世代：光明燈有效！光明燈種類與12大宮廟整理"
+          }
+        ]
+      },
+      {
+        "area": "南台灣（台南、高雄）",
+        "note": "台南開基武廟、大天后宮等廟宇點光明燈儀式較北部更強調書寫疏文與廟方代讀",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://orange.udn.com/orange/story/121416/7648453",
+            "note": "同上"
+          }
+        ]
+      }
+    ],
     "summary": "正月起於廟宇點燃光明燈、文昌燈，為家人祈求整年平安、學業進步或財運亨通。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=41",
+        "note": "內政部全國宗教資訊網：點光明燈（條目）"
+      },
+      {
+        "type": "web",
+        "ref": "https://orange.udn.com/orange/story/121416/7648453",
+        "note": "橘世代：光明燈種類、價錢與12大宮廟整理"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.edh.tw/article/32910",
+        "note": "早安健康：2026光明燈懶人包：點燈流程、禁忌與費用"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "shoujing",
     "title": "收驚",
     "category": "解厄",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "受驚嚇或嬰幼兒夜啼，請廟方或婆姆以米卦/香米收魂",
     "festival_ref": [],
-    "steps": [],
+    "steps": [
+      {
+        "order": 1,
+        "action": "至廟方或神壇說明收驚事由（受驚嚇、嬰兒夜啼、長期不安等），攜帶受術者衣物",
+        "actor": "信眾/家屬",
+        "items": [],
+        "target": "廟方執事者、法師或婆姆",
+        "note": "行天宮等大廟由志工執行，各廟無統一SOP；部分神壇可到府",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "執事者點香，取受術者衣物與觀魂米備用",
+        "actor": "法師/婆姆/廟方執事",
+        "items": [],
+        "target": "受術者（本人或衣物代替）",
+        "note": "香米（觀魂米）是閩南最普遍做法；道教法師亦使用符籙",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "唸收驚咒，以香米在受術者頭部、身前身後比劃，或畫符加持",
+        "actor": "法師/婆姆/廟方執事",
+        "items": [],
+        "target": "受術者",
+        "note": "完整法師施術包含：灑淨、開鞭、摔鹽米、唸收驚咒、打指；輕症可僅唸咒",
+        "taboo": [
+          "農曆七月（鬼月）一般不宜收驚，恐引入不淨"
+        ]
+      },
+      {
+        "order": 4,
+        "action": "觀察香米紋路判斷沖犯原因，告知家屬",
+        "actor": "法師/婆姆/廟方執事",
+        "items": [],
+        "target": "家屬",
+        "note": "米堆上的紋路可解釋驚著原因（各法師判讀方式不同）",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "化紙（焚燒刈金），完成科儀",
+        "actor": "信眾/法師",
+        "items": [
+          "刈金"
+        ],
+        "target": "神明/地方神",
+        "note": "重症需加做祭解、補運；嬰兒收驚後衣物通常繼續穿戴幾日",
+        "taboo": []
+      }
+    ],
     "offerings": [],
-    "joss_paper": ["刈金"],
+    "joss_paper": [
+      "刈金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "閩南（全台各地廟宇）",
+        "note": "最常見做法為香米收驚：執事者持米在受術者周身比劃，再觀米判因；行天宮等廟宇有標準化志工服務",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://vocus.cc/article/67f68c35fd897800018d5e96",
+            "note": "方格子：收驚的民俗奇幻冒險（閩南廟宇做法）"
+          },
+          {
+            "type": "web",
+            "ref": "https://www.lesson.com.tw/blog/detail/102",
+            "note": "台灣文民：神奇的收驚"
+          }
+        ]
+      },
+      {
+        "area": "道教紅頭法師（閩南、北部）",
+        "note": "複雜科儀含灑淨、開鞭、摔鹽米、唸收驚咒、打指、化紙；視嚴重程度分輕症（小收）與重症（大收，含祭煞、送草人）",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://hef.org.tw/journal374-5/",
+            "note": "人本教育基金會374期：收驚面面觀"
+          },
+          {
+            "type": "web",
+            "ref": "https://vocus.cc/article/67f68c35fd897800018d5e96",
+            "note": "方格子：收驚的民俗奇幻冒險"
+          }
+        ]
+      },
+      {
+        "area": "家族私傳（客家、各地）",
+        "note": "部分農村家庭有家傳收驚法，咒語、手法只在家族內流傳，不公開傳授，偏向原始巫醫不分形態；此類做法地區差異大，無統一記載",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://hef.org.tw/journal374-5/",
+            "note": "人本教育基金會374期：收驚面面觀"
+          }
+        ]
+      }
+    ],
     "summary": "受驚嚇者或夜啼嬰幼兒，請廟方乩童、婆姆以香米或米卦行收驚科儀，安定魂魄。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://vocus.cc/article/67f68c35fd897800018d5e96",
+        "note": "方格子：收驚的民俗奇幻冒險"
+      },
+      {
+        "type": "web",
+        "ref": "https://hef.org.tw/journal374-5/",
+        "note": "人本教育基金會期刊374期：收驚面面觀"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.lesson.com.tw/blog/detail/102",
+        "note": "台灣文民：神奇的收驚"
+      },
+      {
+        "type": "web",
+        "ref": "https://orange.udn.com/orange/story/121415/7313172",
+        "note": "橘世代：揭密收驚習俗（七月不宜收驚）"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "anshenwei",
     "title": "安神位/安公媽",
     "category": "居家",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "入厝或年節時安置家神神桌、爐位，並行晉火儀式",
-    "festival_ref": ["入厝時", "年節"],
-    "steps": [],
-    "offerings": ["三牲", "四果", "發粿", "米糕"],
-    "joss_paper": ["刈金", "福金"],
+    "festival_ref": [
+      "入厝時",
+      "年節"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "翻農民曆擇「安香」吉日，避開沖煞家主生肖之日時",
+        "actor": "信眾/擇日師",
+        "items": [],
+        "target": "神桌、神位空間",
+        "note": "多選上午7至11時陽氣旺盛時段",
+        "taboo": [
+          "日時煞向不可沖神明坐向"
+        ]
+      },
+      {
+        "order": 2,
+        "action": "確定神位方向，靠實牆、避對廁所廚房樓梯，神桌正上方不宜橫梁",
+        "actor": "信眾/風水師",
+        "items": [],
+        "target": "神桌位置",
+        "note": "神桌不可懸空或背對窗戶",
+        "taboo": [
+          "神桌正上方忌橫梁、廁所、樓梯"
+        ]
+      },
+      {
+        "order": 3,
+        "action": "安爐：用七張壽金淨爐，爐內放五寶，鋪香灰，插香默唸「安爐大吉，神光普照」",
+        "actor": "法師/信眾",
+        "items": [
+          "壽金"
+        ],
+        "target": "神明香爐",
+        "note": "捧神像繞香爐三遍，喊「進財！進官！進祿！」；神明爐兩側無耳，公媽爐兩側有耳，不可混淆",
+        "taboo": [
+          "神明爐與公媽爐不可互換"
+        ]
+      },
+      {
+        "order": 4,
+        "action": "全家點香，向外呼請神明及祖先降臨，將香插入各爐，請神位「過爐香」後安座調正",
+        "actor": "全家大小",
+        "items": [],
+        "target": "神明、祖先牌位",
+        "note": "祖先牌位不可高於神像；不同姓氏祖先以紅線隔開",
+        "taboo": [
+          "祖先牌位不可高於神明"
+        ]
+      },
+      {
+        "order": 5,
+        "action": "上供品祭拜，行三叩禮，燒化金紙完成安神",
+        "actor": "信眾",
+        "items": [
+          "三牲",
+          "四果",
+          "發粿",
+          "米糕",
+          "清茶"
+        ],
+        "target": "神明、祖先",
+        "note": "同日下午1至5時另拜地基主（備便菜三樣、兩碗飯、酒三杯）",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "三牲",
+      "四果",
+      "發粿",
+      "米糕",
+      "清茶"
+    ],
+    "joss_paper": [
+      "刈金",
+      "壽金",
+      "福金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "北台灣",
+        "note": "金紙以刈金、大銀、小銀為主，由大至小依序焚燒",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.bailucky.com/anshen",
+            "note": "拜出好運來：安神位完整指南（北台灣金紙習俗）"
+          }
+        ]
+      },
+      {
+        "area": "南台灣",
+        "note": "金紙多用九金、銀紙、蓮花金、蓮華銀、金白錢及經衣",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.bailucky.com/anshen",
+            "note": "拜出好運來：安神位完整指南（南台灣金紙習俗）"
+          }
+        ]
+      }
+    ],
     "summary": "遷入新居或年節期間，依方位擇吉安置神桌、祖先牌位及香爐，並行晉火儀式確立家神信仰空間。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://www.bailucky.com/anshen",
+        "note": "拜出好運來：安神位完整指南"
+      },
+      {
+        "type": "web",
+        "ref": "https://blog.udn.com/m5322793/171305416",
+        "note": "馮巖筑老師部落格：退神/安神位/安公媽"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.syuanyou.com/page/about/index.aspx?kind=35&lang=TW",
+        "note": "玹佑館：安神位注意事項、禁忌"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "ruocuo",
     "title": "入厝（新居）",
     "category": "居家",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "擇日遷入新居，拜地基主、安香、辦桌宴客",
-    "festival_ref": ["擇日"],
-    "steps": [],
-    "offerings": ["三牲", "四果", "紅龜粿", "發粿"],
-    "joss_paper": ["刈金", "福金"],
+    "festival_ref": [
+      "擇日"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "翻農民曆擇「入宅」吉日，確認不沖煞家人生肖",
+        "actor": "信眾/擇日師",
+        "items": [],
+        "target": "新居",
+        "note": "入厝吉日需農民曆標示「宜入宅」",
+        "taboo": [
+          "忌選沖煞家人生肖之日"
+        ]
+      },
+      {
+        "order": 2,
+        "action": "入厝前淨屋：開全部門窗，以米鹽混合從屋內角落灑至大門口，或燒艾草、沉香淨空間",
+        "actor": "信眾",
+        "items": [],
+        "target": "新居各房間",
+        "note": "灑完半小時後用新掃把掃起丟棄",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "吉時到達，親友各持「開門七寶」（柴米油鹽醬醋茶）依序進門，將零錢灑向屋內各角落",
+        "actor": "全家及親友",
+        "items": [],
+        "target": "新居",
+        "note": "進門時不踩門檻；先開燈、開爐灶，象徵新居有氣場",
+        "taboo": [
+          "進屋時勿踩門檻",
+          "入厝前勿帶刀具或先過夜"
+        ]
+      },
+      {
+        "order": 4,
+        "action": "安神位、上香祭拜家神；下午1至5時向廚房或後門口方向拜地基主",
+        "actor": "信眾",
+        "items": [
+          "三牲",
+          "四果",
+          "紅龜粿",
+          "發粿"
+        ],
+        "target": "家神、地基主",
+        "note": "地基主供品：兩碗白飯、便菜三樣、酒三杯；拜時面向屋內；擲筊確認後燒金紙",
+        "taboo": [
+          "地基主供桌朝向屋內，不可朝外"
+        ]
+      },
+      {
+        "order": 5,
+        "action": "開火煮甜湯圓或麵線，邀請親友共食，辦桌宴客，完成入厝",
+        "actor": "全家及親友",
+        "items": [
+          "湯圓",
+          "麵線"
+        ],
+        "target": "全家及賓客",
+        "note": "甜湯圓象徵圓滿，麵線象徵長壽；辦桌宴客為傳統習俗",
+        "taboo": [
+          "當日盡量不午睡",
+          "入厝後不即刻就寢，需在家走動"
+        ]
+      }
+    ],
+    "offerings": [
+      "三牲",
+      "四果",
+      "紅龜粿",
+      "發粿",
+      "湯圓",
+      "麵線"
+    ],
+    "joss_paper": [
+      "刈金",
+      "福金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "北台灣（地基主金紙）",
+        "note": "北台灣地基主金紙多用刈金、大銀、小銀",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.roomie.tw/posts/25014",
+            "note": "Roomie：搬家入厝、節氣必拜地基主（北台灣習俗）"
+          }
+        ]
+      },
+      {
+        "area": "南台灣（地基主金紙）",
+        "note": "南台灣地基主金紙多以九金、蓮花金、蓮花銀等為主",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.roomie.tw/posts/25014",
+            "note": "Roomie：搬家入厝、節氣必拜地基主（南台灣習俗）"
+          }
+        ]
+      },
+      {
+        "area": "客家入厝",
+        "note": "客家族群入厝習俗與閩南大同小異，但部分地區強調備發粄（發粿）象徵發財；地區細節待查",
+        "sources": []
+      }
+    ],
     "summary": "擇吉日遷入新居，先拜地基主、安香爐，再宴請親友辦桌，完成新居落戶的傳統儀禮。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://www.roomie.tw/posts/25014",
+        "note": "Roomie：搬家入厝地基主完整指南"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.lovefu.tw/pages/moving-in-ceremony",
+        "note": "LoveFu：簡單入厝5步驟"
+      },
+      {
+        "type": "web",
+        "ref": "https://livinglife.com.tw/article/62bc06dbbc28eb00325864d5",
+        "note": "信義居家：入厝儀式全攻略"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.movehome.com.tw/knowledges/house-entry-ceremony",
+        "note": "巨力搬家：2026入厝指南入厝儀式流程全攻略"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "pudu",
     "title": "普渡",
     "category": "歲時",
-    "deities": ["haoxiongdi", "sanguan"],
+    "deities": [
+      "haoxiongdi",
+      "sanguan"
+    ],
     "occasion": "中元七月公普或私普，供好兄弟孤食，燒經衣",
-    "festival_ref": ["中元七月"],
-    "steps": [],
-    "offerings": ["三牲", "四果", "糖果餅乾"],
-    "joss_paper": ["大銀", "小銀", "經衣", "往生錢"],
+    "festival_ref": [
+      "中元七月"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "於家門口或社區廣場朝外設置供桌，不可在室內普渡",
+        "actor": "信眾/社區居民",
+        "items": [],
+        "target": "供桌設置區域",
+        "note": "公普由社區管委會統籌；私普由各戶自行辦理；供桌前可備臉盆、清水、毛巾供好兄弟梳洗",
+        "taboo": [
+          "不可在室內普渡"
+        ]
+      },
+      {
+        "order": 2,
+        "action": "上午先祭拜家中神明，中午祭拜祖先，午後拜地基主，最後才拜普渡公及好兄弟",
+        "actor": "信眾",
+        "items": [],
+        "target": "神明→祖先→地基主→普渡公、好兄弟",
+        "note": "順序不可顛倒，神明、祖先在先，好兄弟在後",
+        "taboo": [
+          "順序不可顛倒"
+        ]
+      },
+      {
+        "order": 3,
+        "action": "每人持三炷香，恭請普渡公降臨，唸祈請文後擲筊確認",
+        "actor": "信眾",
+        "items": [],
+        "target": "普渡公",
+        "note": "公普由代表帶領全體誦讀祈請文",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "燒普渡公金紙（壽金、福金等），再換持一炷香祭拜好兄弟，由內而外於供品上插香",
+        "actor": "信眾",
+        "items": [
+          "壽金",
+          "福金"
+        ],
+        "target": "普渡公",
+        "note": "祭拜好兄弟時改持一炷香，以示陰陽有別",
+        "taboo": [
+          "不可嘻笑、胡鬧",
+          "態度需恭敬"
+        ]
+      },
+      {
+        "order": 5,
+        "action": "補香添酒三次，完成後燒經衣、銀紙，茶酒繞金爐桶外緣灑三圈後結束",
+        "actor": "信眾",
+        "items": [
+          "大銀",
+          "小銀",
+          "經衣",
+          "往生錢"
+        ],
+        "target": "好兄弟",
+        "note": "金紙需一張一張燒，不可整疊丟入；太陽下山前完成",
+        "taboo": [
+          "不可整疊金紙丟入爐",
+          "需於日落前結束"
+        ]
+      }
+    ],
+    "offerings": [
+      "三牲",
+      "四果",
+      "糖果餅乾"
+    ],
+    "joss_paper": [
+      "大銀",
+      "小銀",
+      "經衣",
+      "往生錢",
+      "壽金",
+      "福金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "台灣閩南（義民信仰圈外各地）",
+        "note": "七月十五（中元節）為最普遍普渡日；部分廟宇採「輪普」制度，各里/社區分日輪流舉辦公普；頭城、恆春有「搶孤」特殊儀式",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.twcenter.org.tw/thematic_series/history_class/tw_window/e02_20010827",
+            "note": "吳三連台灣史料基金會：農曆七月普渡與台灣社會（溫振華）"
+          },
+          {
+            "type": "web",
+            "ref": "https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%85%83%E7%AF%80",
+            "note": "維基百科：中元節（台灣習俗節）"
+          }
+        ]
+      },
+      {
+        "area": "客家（新埔枋寮義民廟圈）",
+        "note": "客家族群以義民爺信仰為核心，七月普渡帶有祭祀反清事件犧牲者的特殊意涵；輪值「爐主庄」每年輪流主辦義民祭，規模盛大",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.twcenter.org.tw/thematic_series/history_class/tw_window/e02_20010827",
+            "note": "吳三連台灣史料基金會：農曆七月普渡與台灣社會（溫振華）"
+          }
+        ]
+      },
+      {
+        "area": "基隆（雞籠中元祭）",
+        "note": "基隆中元祭規模最盛，分成「老大公廟開龕門」（七月初一）、「放水燈遊行」（十四日）、「水燈頭入水」及公普、關龕門（七月廿九）等連續儀式；以姓氏宗親輪流主辦",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E7%81%A3%E4%B8%AD%E5%85%83%E6%B3%95%E6%9C%83",
+            "note": "維基百科：臺灣中元法會"
+          }
+        ]
+      }
+    ],
     "summary": "農曆七月舉行公普或私普，備牲醴供品讓無主孤魂飽食，焚燒銀紙經衣超度好兄弟。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://www.sim.org.tw/festival34.html",
+        "note": "台灣民俗文化工作室：社區中元普渡祭拜參考流程"
+      },
+      {
+        "type": "web",
+        "ref": "https://shenghong1126.com.tw/pudu01/",
+        "note": "義聖香：中元普渡流程與供品禁忌"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.twcenter.org.tw/thematic_series/history_class/tw_window/e02_20010827",
+        "note": "吳三連台灣史料基金會：農曆七月普渡與台灣社會（溫振華）"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%85%83%E7%AF%80",
+        "note": "維基百科：中元節"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "buyun",
     "title": "補運/祭解/改運",
     "category": "解厄",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "運途不順時，請廟方行補運錢、改連經、過七星橋等科儀",
-    "festival_ref": ["不定", "年節"],
-    "steps": [],
-    "offerings": ["四果"],
-    "joss_paper": ["補運錢", "改連真經"],
+    "festival_ref": [
+      "不定",
+      "年節"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "至廟方或道壇填寫疏文，載明姓名、住址、農曆出生年月日時，說明補運緣由",
+        "actor": "信眾",
+        "items": [],
+        "target": "廟方/道壇",
+        "note": "疏文為補運科儀核心文件；部分廟宇可擲筊詢問補運金紙數量（天庫、地庫、水庫各多少萬）",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "準備替身（寫有生辰八字、附有頭髮指甲或衣物碎片的紙人或草人），攜帶個人舊衣物",
+        "actor": "信眾/法師",
+        "items": [],
+        "target": "替身",
+        "note": "替身用於承接信眾煞氣；部分法師在舊衣上作法後燒去厄運，或在新衣上蓋廟印帶回",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "法師/道士請神淨壇，宣讀疏文，稟告三界正神及主神信眾生辰八字與祭解事由",
+        "actor": "法師/道士",
+        "items": [],
+        "target": "三界神明",
+        "note": "道法二門派在北臺灣客家地區盛行，有「紙紮城關」（含五鬼關、天狗關、白虎關）等法器",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "主家手持替身，隨法師繞行百花橋（或補運橋）三圈，三上三下橋，象徵過關出運",
+        "actor": "信眾/法師",
+        "items": [],
+        "target": "替身",
+        "note": "向替身吐氣象徵將穢氣盡出；法師將替身從紙紮關限中破關而出",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "焚燒補運錢、改連真經及替身，謝壇完成科儀",
+        "actor": "信眾/法師",
+        "items": [
+          "補運錢",
+          "改連真經"
+        ],
+        "target": "神明",
+        "note": "傳統一年進行兩至三次，分別在開春和歲末；也可單次進行",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "四果"
+    ],
+    "joss_paper": [
+      "補運錢",
+      "改連真經"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "北台灣、桃竹苗（道法二門）",
+        "note": "道法二門派以紙紮城關（含五鬼關、天狗關、白虎關）為特色，流行於台北、新北、桃竹苗客家區、宜蘭及中部福佬客聚居地",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikipedia.org/zh-tw/%E7%A5%AD%E8%A7%A3",
+            "note": "維基百科：祭解（地區派系）"
+          }
+        ]
+      },
+      {
+        "area": "南台灣（各廟宇）",
+        "note": "補運多由廟宇執事或法師辦理，形式較簡化；台南開基玉皇宮等以「祭改」為廟方服務項目",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://jadeemperor.armsdatasolution.com/Introduction/lucky",
+            "note": "開基玉皇宮：祭改服務介紹"
+          }
+        ]
+      },
+      {
+        "area": "各地通例（補運日期）",
+        "note": "傳統年初（立春後）及歲末（年底謝神前）為補運旺季；亦可在元宵、中元、重陽等節氣前後進行",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.lesson.com.tw/blog/detail/116",
+            "note": "台灣文民：民間祭改補運的習俗"
+          },
+          {
+            "type": "web",
+            "ref": "https://www.businesstoday.com.tw/article/category/183030/post/202401250024/",
+            "note": "今周刊：2025補運3個日子"
+          }
+        ]
+      }
+    ],
     "summary": "運途不順或遭逢厄運時，至廟中請乩童或法師行補運、祭解科儀，焚補運錢改連經以轉化運勢。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=3",
+        "note": "內政部全國宗教資訊網：祭解（補運）條目"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E7%A5%AD%E8%A7%A3",
+        "note": "維基百科：祭解"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.lesson.com.tw/blog/detail/116",
+        "note": "台灣文民：民間祭改補運的習俗"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.sim.org.tw/festival152.html",
+        "note": "台灣民俗文化工作室：線上祭改補運注意事項"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "zuo16",
     "title": "做十六歲",
     "category": "生命禮俗",
-    "deities": ["qixing", "linshui"],
+    "deities": [
+      "qixing",
+      "linshui"
+    ],
     "occasion": "七月七日七娘媽誕，子女年滿十六出婆姐間，鑽七娘媽亭成年",
-    "festival_ref": ["七月七"],
-    "steps": [],
-    "offerings": ["四果", "湯圓", "糖果餅乾"],
-    "joss_paper": ["刈金", "經衣"],
+    "festival_ref": [
+      "七月七"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "農曆七月七日（七娘媽誕）準備祭品，至開隆宮或家中神壇上香，感謝七娘媽十六年庇護",
+        "actor": "家長/本人",
+        "items": [
+          "四果",
+          "湯圓",
+          "糖果餅乾",
+          "油飯",
+          "麻油雞"
+        ],
+        "target": "七娘媽（七星娘娘）",
+        "note": "特殊供品含胭脂水粉（香水、梳子、針線、鏡子等女性用品）；台南開隆宮為全台主要儀式場所",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "填寫感謝狀，參加廟方團拜儀式，點六炷香（天公爐3炷、七娘媽亭3炷）",
+        "actor": "本人/家長",
+        "items": [],
+        "target": "七娘媽",
+        "note": "開隆宮年度儀式含填感謝狀、成年禮團拜等固定流程",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "從七娘媽亭後方鑽入，繞行三圈：男生向左繞，女生向右繞；第三圈家人在亭前牽起小孩並摸頭",
+        "actor": "本人（滿16歲）/家長",
+        "items": [],
+        "target": "七娘媽亭",
+        "note": "此儀式象徵出婆姐間（脫離七娘媽庇護空間）、正式成年",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "填寫許願卡，繞喜鵲平安橋三圈，繫上許願卡；可摸全牛（台南開隆宮特有）",
+        "actor": "本人",
+        "items": [],
+        "target": "喜鵲平安橋",
+        "note": "「全牛」按部位摸有不同寓意（頭、角、腿、尾）；此環節為台南開隆宮特色",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "焚燒七娘媽亭與壽金，台南開隆宮另有「狀元騎馬繞境」（孔廟來回），領取成年禮證書，禮成",
+        "actor": "本人/家長",
+        "items": [
+          "刈金",
+          "經衣"
+        ],
+        "target": "七娘媽",
+        "note": "焚燒七娘媽亭象徵終結婆姐間守護，正式進入成年；狀元騎馬繞境為台南獨有活動",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "四果",
+      "湯圓",
+      "糖果餅乾"
+    ],
+    "joss_paper": [
+      "刈金",
+      "經衣"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "台南（開隆宮）",
+        "note": "全台最完整的做十六歲儀式保存地，為台南市登錄市定民俗；開隆宮是「全台第一間七娘媽廟」，習俗起源於清治時期五條港苦力十六歲始領全薪的社會慣例；含狀元騎馬繞境、摸全牛等台南獨有元素",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://lifeintainan.com/sixteen-tainan/",
+            "note": "南人幫：台南做十六歲（市定民俗、開隆宮）"
+          },
+          {
+            "type": "web",
+            "ref": "https://decing.tw/tainan-7mothers/",
+            "note": "熱血玩台南：台南開隆宮做十六歲成年禮"
+          },
+          {
+            "type": "web",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8",
+            "note": "臺灣宗教文化地圖：七娘媽生，做十六歲"
+          }
+        ]
+      },
+      {
+        "area": "泉州移民習俗（歷史源流）",
+        "note": "泉州原鄉在小孩生日當天（非七夕）舉行類似儀式；渡台後與七夕七娘媽誕結合，形成台南特色",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://zh.wikipedia.org/zh-tw/%E5%81%9A%E5%8D%81%E5%85%AD%E6%AD%B2",
+            "note": "維基百科：做十六歲（泉州習俗源流）"
+          }
+        ]
+      },
+      {
+        "area": "全台其他地區",
+        "note": "全台其他地區此習俗已大多失傳，台南為現存最完整傳承地；各地零星廟宇或有類似活動，但規模與完整度不及台南開隆宮",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://lifeintainan.com/sixteen-tainan/",
+            "note": "南人幫：台南做十六歲（習俗現況）"
+          }
+        ]
+      }
+    ],
     "summary": "子女年滿十六歲，於七娘媽誕辰舉行出婆姐間儀式，鑽過七娘媽亭象徵脫離庇護、正式成年。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E5%81%9A%E5%8D%81%E5%85%AD%E6%AD%B2",
+        "note": "維基百科：做十六歲"
+      },
+      {
+        "type": "web",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8",
+        "note": "內政部臺灣宗教文化地圖：七娘媽生，做十六歲"
+      },
+      {
+        "type": "web",
+        "ref": "https://lifeintainan.com/sixteen-tainan/",
+        "note": "南人幫：台南做十六歲全紀錄"
+      },
+      {
+        "type": "web",
+        "ref": "https://decing.tw/tainan-7mothers/",
+        "note": "熱血玩台南：台南開隆宮做十六歲"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "zaihua",
     "title": "栽花換斗",
     "category": "求子/轉胎",
-    "deities": ["zhusheng", "linshui"],
+    "deities": [
+      "zhusheng",
+      "linshui"
+    ],
     "occasion": "求子、保胎或民間轉胎性別俗信，至廟拜註生娘娘/臨水夫人",
     "festival_ref": [],
-    "steps": [],
-    "offerings": ["四果", "紅龜粿"],
-    "joss_paper": ["刈金", "壽金"],
+    "steps": [
+      {
+        "order": 1,
+        "action": "至臨水夫人廟或註生娘娘廟告知廟方求子/轉胎心願，安排栽花換斗科儀時間",
+        "actor": "信眾（求子者）",
+        "items": [],
+        "target": "廟方",
+        "note": "儀式耗時2至3小時，需由紅頭法師搭配女乩童或道士主持，不可自行操作",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "法師請神淨壇，書寫疏文（含主家姓名、生辰八字、所求事項），祭三十六宮婆姐，款待五方十煞",
+        "actor": "法師",
+        "items": [
+          "四果",
+          "紅龜粿"
+        ],
+        "target": "三十六宮婆姐",
+        "note": "婆姐象徵嬰孩守護者；此步驟確立儀式神聖空間",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "法師造百花橋（以長條木椅幻化），主家持替身繞行三圈、三上三下百花橋，向替身吐氣將穢氣轉移",
+        "actor": "信眾/法師",
+        "items": [],
+        "target": "百花橋/替身",
+        "note": "替身從紙紮關限中破關而出，象徵「過關」、「出運」",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "法師唸「梗花咒」（「身體健康、花欉勇健、紅花退開，白花著栽」），撕去銅蛇、鐵狗、黃蜂、尾蝶等損花之物",
+        "actor": "法師",
+        "items": [],
+        "target": "信眾花欉",
+        "note": "梗花為強化子宮功能，栽花為培植新花叢，剪花為變更性別（剪白花求男、剪紅花求女）",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "法師詢問期盼子嗣性別人數，剪下花叢上對應花朵，以紅紙包覆；主家將供案上花摘下做髮夾插戴三晚後收藏",
+        "actor": "信眾/法師",
+        "items": [
+          "刈金",
+          "壽金"
+        ],
+        "target": "信眾",
+        "note": "謝壇後主家捧花欉宮及紙錢至金爐焚化，儀式圓滿",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "四果",
+      "紅龜粿"
+    ],
+    "joss_paper": [
+      "刈金",
+      "壽金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "閩南（全台臨水夫人廟、註生娘娘廟）",
+        "note": "栽花換斗主要流行於閩南系廟宇，以臨水夫人（陳靖姑）信仰為主；台南、北港、台北等地皆有廟宇提供此服務",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=177",
+            "note": "內政部全國宗教資訊網：栽花換斗（條目）"
+          },
+          {
+            "type": "web",
+            "ref": "https://daybreaktarot.com/folkways/how-to-worship-zhusheng/",
+            "note": "微曦塔羅：換花求子與滿月還願全流程"
+          }
+        ]
+      },
+      {
+        "area": "客家地區",
+        "note": "客家族群中類似求子儀式多轉向向觀音菩薩或地方神祈求，栽花換斗科儀是否廣泛流行於客家廟宇，目前待查",
+        "sources": []
+      }
+    ],
     "summary": "有求子、保胎或轉換胎兒性別意願者，至廟中向註生娘娘或臨水夫人行栽花換斗科儀祈願。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=177",
+        "note": "內政部全國宗教資訊網：栽花換斗（條目）"
+      },
+      {
+        "type": "web",
+        "ref": "https://daybreaktarot.com/folkways/how-to-worship-zhusheng/",
+        "note": "微曦塔羅：換花求子與滿月還願全流程"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.thenewslens.com/article/158912/fullpage",
+        "note": "關鍵評論網：栽花換斗、臨水夫人信仰（漫畫幕後）"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "saomu",
     "title": "掃墓/培墓",
     "category": "歲時",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "清明節前後掃墓、培墓，掛紙並拜后土",
-    "festival_ref": ["清明"],
-    "steps": [],
-    "offerings": ["三牲", "四果", "清茶三杯"],
-    "joss_paper": ["刈金", "銀紙"],
+    "festival_ref": [
+      "清明"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "攜帶供品前往祖先墓地，確認周圍環境安全",
+        "actor": "子孫",
+        "items": [
+          "三牲",
+          "四果",
+          "清茶",
+          "酒"
+        ],
+        "target": "祖先墓塋",
+        "note": "台灣閩南人多於清明（泉州系）或農曆三月三日「古清明」（漳州系）；客家人提早至元宵後至清明前",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "先祭拜墓旁后土（土地神），燒化金紙、灑酒水",
+        "actor": "子孫",
+        "items": [
+          "刈金",
+          "福金"
+        ],
+        "target": "后土（土地神）",
+        "note": "后土在先，祖先在後，順序不可顛倒",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "清除雜草、整修墓地，培土加固（培墓），將五色墓紙或黃嘏紙（客家）以小石頭壓於墳頭",
+        "actor": "子孫",
+        "items": [],
+        "target": "祖先墳塋",
+        "note": "「掛紙」（掃墓）象徵子孫有人掃墓祭拜；客家人用黃嘏紙，閩南多用五色紙",
+        "taboo": [
+          "不可踩踏墓紙（客家禁忌）"
+        ]
+      },
+      {
+        "order": 4,
+        "action": "擺設供品，燃香點燭，稟告祖先子孫前來祭拜，傾訴家族現況",
+        "actor": "子孫",
+        "items": [
+          "三牲",
+          "四果",
+          "清茶",
+          "酒"
+        ],
+        "target": "祖先",
+        "note": "三牲供品：豬肉、全雞、全魚；拜後可剝撒蛋殼（部分家族習俗，象徵開啟新生活）",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "燒化銀紙，灑酒水，禮成後可點燃鞭炮（客家「打照墓」），並攜帶供品回家",
+        "actor": "子孫",
+        "items": [
+          "大銀",
+          "小銀"
+        ],
+        "target": "祖先",
+        "note": "客家人掃墓後放鞭炮（打照墓）告知鄰近民眾分食祭品；「培墓」（培土整墓）傳統上新葬後三年必做，或逢喜事（婚嫁、生育）時做",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "三牲",
+      "四果",
+      "清茶",
+      "酒"
+    ],
+    "joss_paper": [
+      "刈金",
+      "大銀",
+      "小銀",
+      "福金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "閩南泉州系（全台多數地區）",
+        "note": "清明節掃墓，以豬為主要三牲；台中以南部分地區吃潤餅（寒食節遺俗）",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://hakkanews.tw/2023/02/17/the-changing-of-the-grave-grave-grave-grave/",
+            "note": "客新聞：客家族群掃墓習俗的變遷（閩南對比）"
+          },
+          {
+            "type": "web",
+            "ref": "https://news.ltn.com.tw/news/lifeweekly/paper/1278018",
+            "note": "自由時報：清明節必知的事，掃墓須知及習俗"
+          }
+        ]
+      },
+      {
+        "area": "閩南漳州系",
+        "note": "農曆三月初三「古清明」（三月節/三日節）掃墓，非陽曆清明節",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://hakkanews.tw/2023/02/17/the-changing-of-the-grave-grave-grave-grave/",
+            "note": "客新聞：客家族群掃墓習俗的變遷（漳州系習俗）"
+          }
+        ]
+      },
+      {
+        "area": "客家（桃竹苗、六堆南客）",
+        "note": "「新地不過春社，老地不過清明」；北客（桃竹苗）元宵後即開始掛紙，苗栗多在元宵後；南客（高屏六堆）農曆二月掛紙；使用黃嘏紙（黃色墓紙）；染紅雞蛋敲碎撒墓土；客家祭品另備年糕、粄條；掃墓後放鞭炮「打照墓」，宗祠聚餐可達三十餘桌",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://web.tainan.gov.tw/hakka/news_content.aspx?n=26813&s=7984421",
+            "note": "台南市客家事務委員會：台南客家人的「掛紙」"
+          },
+          {
+            "type": "web",
+            "ref": "https://hakkanews.tw/2023/02/17/the-changing-of-the-grave-grave-grave-grave/",
+            "note": "客新聞：客家族群掃墓習俗的變遷"
+          },
+          {
+            "type": "web",
+            "ref": "https://opinion.udn.com/opinion/story/11373/3650024",
+            "note": "鳴人堂張靖委：六堆客家人掛紙日的擇定"
+          }
+        ]
+      }
+    ],
     "summary": "清明節前後，子孫至祖先墳塋掛紙、培土整墓，並備牲醴拜后土，表達慎終追遠之意。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://web.tainan.gov.tw/hakka/news_content.aspx?n=26813&s=7984421",
+        "note": "台南市客家事務委員會：台南客家人的「掛紙」"
+      },
+      {
+        "type": "web",
+        "ref": "https://hakkanews.tw/2023/02/17/the-changing-of-the-grave-grave-grave-grave/",
+        "note": "客新聞：客家族群掃墓習俗的變遷（何來美）"
+      },
+      {
+        "type": "web",
+        "ref": "https://opinion.udn.com/opinion/story/11373/3650024",
+        "note": "鳴人堂：六堆客家人掛紙日的擇定（張靖委）"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.wonann.com.tw/blog_page.php?id=1225",
+        "note": "萬安生命：清明掃墓流程（傳統墓園）"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "baizuxian",
     "title": "祭祖（年節拜公媽）",
     "category": "歲時",
-    "deities": ["zushen"],
+    "deities": [
+      "zushen"
+    ],
     "occasion": "除夕及各年節備牲禮、銀紙、茶飯祭拜祖先",
-    "festival_ref": ["除夕", "節日"],
-    "steps": [],
-    "offerings": ["三牲", "四果", "清茶三杯", "米糕", "麵線"],
-    "joss_paper": ["刈金", "大銀", "小銀"],
+    "festival_ref": [
+      "除夕",
+      "節日"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "備辦牲禮、菜飯、酒茶，擺設供桌於祖先牌位前",
+        "actor": "子孫",
+        "items": [
+          "三牲",
+          "四果",
+          "清茶",
+          "酒",
+          "米糕",
+          "麵線"
+        ],
+        "target": "祖先牌位",
+        "note": "除夕為年度最重要祭祖時機；筷子朝向祖先、飯匙附在飯上；傳統備6、8或12碗飯菜",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "點三炷香，誦念祝禱詞，稟報姓名，邀請歷代祖先享用供品",
+        "actor": "全家代表",
+        "items": [],
+        "target": "歷代祖先",
+        "note": "祝禱詞：「奉請□□歷代祖先，今天除夕，子孫○○○誠心準備菜飯、金紙敬拜祖先，祈求祖先保佑家中各房子孫四時無災、八節有慶……」",
+        "taboo": []
+      },
+      {
+        "order": 3,
+        "action": "重複上香三次，象徵三獻禮",
+        "actor": "全家代表",
+        "items": [],
+        "target": "祖先",
+        "note": "三次上香為傳統三獻禮儀；部分家族在主香後全家輪流上香",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "香燒至三分之一時擲筊，確認祖先享用完畢，再擲筊確認可化金",
+        "actor": "全家代表",
+        "items": [],
+        "target": "祖先",
+        "note": "得一正一反聖筊後方可焚燒金紙；不必強求三聖筊",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "燒化銀紙，將酒水繞金爐外圍灑下，收拾供品，禮成",
+        "actor": "全家代表",
+        "items": [
+          "刈金",
+          "大銀",
+          "小銀"
+        ],
+        "target": "祖先",
+        "note": "供品收回後全家共食，象徵祖孫同享",
+        "taboo": [
+          "避免供奉鳳梨（部分家族禁忌）"
+        ]
+      }
+    ],
+    "offerings": [
+      "三牲",
+      "四果",
+      "清茶",
+      "酒",
+      "米糕",
+      "麵線"
+    ],
+    "joss_paper": [
+      "刈金",
+      "大銀",
+      "小銀"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "北台灣",
+        "note": "金紙以大銀、小銀、刈金為主；除夕傳統上午9時前完成祭祖",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+            "note": "明心福旺閣：拜祖先拜公媽完整教學（北部金紙習俗）"
+          }
+        ]
+      },
+      {
+        "area": "南台灣",
+        "note": "金紙多以九金、九銀成對焚燒，搭配往生元寶與蓮花金/銀",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+            "note": "明心福旺閣：拜祖先拜公媽完整教學（南部金紙習俗）"
+          }
+        ]
+      },
+      {
+        "area": "客家祭祖",
+        "note": "客家族群祭祖供品另備年糕、粄條等米食；宗祠祭祖規模較閩南更強調家族集體性，常在宗祠舉行，見掃墓條目",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://hakkanews.tw/2023/02/17/the-changing-of-the-grave-grave-grave-grave/",
+            "note": "客新聞：客家族群掃墓習俗（供品差異）"
+          }
+        ]
+      }
+    ],
     "summary": "除夕及重要節日，子孫備辦牲禮、茶飯，焚燒銀紙，向祖先牌位行祭拜，延續家族慎終追遠傳統。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+        "note": "明心福旺閣：拜祖先/拜公媽完整教學"
+      },
+      {
+        "type": "web",
+        "ref": "https://health.gvm.com.tw/article/110016",
+        "note": "健康遠見：除夕拜祖先、地基主有學問"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.lyls.com.tw/News/Detail/10177",
+        "note": "禮儀生命：一年該拜幾次祖先？三大祭祖節日、時機、流程"
+      },
+      {
+        "type": "web",
+        "ref": "https://sim.org.tw/festival164.html",
+        "note": "台灣民俗文化工作室：過年拜拜習俗/拜祖先/除夕"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "baitiangong",
     "title": "拜天公",
     "category": "歲時/還願",
-    "deities": ["yuhuang"],
+    "deities": [
+      "yuhuang"
+    ],
     "occasion": "正月初九玉皇大帝聖誕，頂桌清素下桌葷，備天公金及全豬羊祭拜",
-    "festival_ref": ["正月初九"],
-    "steps": [],
-    "offerings": ["頂桌清素", "下桌葷", "紅龜粿", "發粿", "麵線"],
-    "joss_paper": ["天公金"],
+    "festival_ref": [
+      "正月初九"
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "action": "農曆正月初八（或初九）子時前架設頂下桌：頂桌以八仙桌墊高，四腳各放四疊壽金，前方綁「頭帶尾青甘蔗」，供天公燈座（三或五座）與香爐",
+        "actor": "全家",
+        "items": [
+          "壽金"
+        ],
+        "target": "頂桌（天公桌）",
+        "note": "頂桌擺設地點需「見天」（屋前、廟前或樓頂），下桌置於頂桌正前方",
+        "taboo": []
+      },
+      {
+        "order": 2,
+        "action": "頂桌備清素供品，下桌備葷食供品",
+        "actor": "全家",
+        "items": [
+          "頂桌清素",
+          "下桌葷",
+          "紅龜粿",
+          "發粿",
+          "麵線"
+        ],
+        "target": "頂桌（玉皇大帝）、下桌（天宮部屬）",
+        "note": "頂桌：鮮花、茶水三杯、壽麵三束、五果、五齋（金針木耳香菇冬粉土豆）、糖塔糖盞；下桌：茶或酒三杯、五牲或豬肉",
+        "taboo": [
+          "頂桌嚴禁葷食"
+        ]
+      },
+      {
+        "order": 3,
+        "action": "子時（初八晚11點）起，點燭、上香，第一柱香迎神，主祭者獻祝壽疏文並吟誦，插香入爐，跪拜九次，獻茶獻酒",
+        "actor": "全家（主祭者）",
+        "items": [],
+        "target": "玉皇大帝",
+        "note": "行三跪九叩之禮（最隆重禮儀）；疏文依廟方或法師版本",
+        "taboo": []
+      },
+      {
+        "order": 4,
+        "action": "第二柱香燒至一半時重複獻禮，第三柱香燒至一半時焚燒金紙、燃放鞭炮",
+        "actor": "全家",
+        "items": [
+          "天公金",
+          "壽金"
+        ],
+        "target": "玉皇大帝",
+        "note": "金紙依序：天公金（頂極金）為主，另燒壽金；九杯水中間三杯倒入大茶杯供全家飲用，其餘六杯灑地",
+        "taboo": []
+      },
+      {
+        "order": 5,
+        "action": "行九叩首禮感謝天公，下桌祭品另行祭拜天宮部屬，完成禮成，收撤供桌",
+        "actor": "全家",
+        "items": [],
+        "target": "玉皇大帝及天宮部屬",
+        "note": "儀式至清晨七時前完成；部分家庭至廟宇禮拜取代家祭",
+        "taboo": []
+      }
+    ],
+    "offerings": [
+      "頂桌清素",
+      "下桌葷",
+      "紅龜粿",
+      "發粿",
+      "麵線"
+    ],
+    "joss_paper": [
+      "天公金",
+      "壽金"
+    ],
     "taboo": [],
-    "regional": [],
+    "regional": [
+      {
+        "area": "閩南（台灣通例）",
+        "note": "正月初九天公生，頂下桌儀式廣泛流行；頂桌清素、下桌葷為基本配置；各廟宇在此日亦舉辦盛大祭典",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+            "note": "方格子：傳統頂下桌祭天禮儀"
+          },
+          {
+            "type": "web",
+            "ref": "https://www.mababy.com/knowledge-detail?id=15947",
+            "note": "媽咪寶貝：2026天公生拜天公由來、最佳時辰、供品準備"
+          }
+        ]
+      },
+      {
+        "area": "台南（台南天公廟、台灣首廟天壇）",
+        "note": "台南天壇（天公廟）為全台主要天公信仰據點，正月初九舉行盛大天公誕祭典，香客絡繹不絕；儀式規格較民間更為隆重",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.mababy.com/knowledge-detail?id=15947",
+            "note": "媽咪寶貝：2026拜天公"
+          }
+        ]
+      },
+      {
+        "area": "客家（正月初九）",
+        "note": "客家族群亦祭拜天公，但傳統祭典核心多在伯公（土地神）信仰；拜天公習俗與閩南相近，細節差異待查",
+        "sources": []
+      }
+    ],
     "summary": "正月初九玉皇大帝聖誕，家家戶戶設頂桌清素、下桌葷牲，備天公金焚燒，隆重祭拜天公以祈福許願。",
     "sources": [
       {
-        "type": "book",
-        "ref": "台灣民間信仰習俗（seed 主題基準）",
-        "note": "步驟與地區差異待引註補齊，E.6"
+        "type": "web",
+        "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+        "note": "方格子：傳統頂下桌祭天禮儀（無上誠意）"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.mababy.com/knowledge-detail?id=15947",
+        "note": "媽咪寶貝：2026天公生拜天公"
+      },
+      {
+        "type": "web",
+        "ref": "https://health.businessweekly.com.tw/article/ARTL003015590",
+        "note": "良醫健康：2026拜天公要準備什麼、怎麼說"
+      },
+      {
+        "type": "web",
+        "ref": "https://edh.tw/lohas/article/32280",
+        "note": "早安健康：初九天公生補財庫密技、供品與禁忌指南"
       }
     ],
-    "draft": true
+    "draft": false
   }
 ]

@@ -9,8 +9,13 @@ export const XIU_28 = [
 ] as const;
 
 // 值宿 =（JDN + XIU_ANCHOR）mod 28。
-// ⚠️ 待校準（C.5）：XIU_ANCHOR 須以一已知值宿日校準後鎖定 → ershiba verified=false 直到校準。
-export const XIU_ANCHOR = 0; // 佔位，待以官方資料校準
+// 校準來源（C.5）：以下兩個日期交叉驗證，兩者均得 ANCHOR = 13：
+//   • 2023-01-01 = 觜宿（宿序19）：來源 wannianrili.bmcx.com，JDN=2459946
+//   • 2026-06-20 = 張宿（宿序25）：來源 wannianrili.bmcx.com，JDN=2461212
+// 計算：(宿序 − JDN) mod 28，兩者皆得 13。
+// 注意：另一來源 huangli.com 在 2026-06-20 顯示「危」，但經分析是建除十二神而非廿八宿，
+// 不適用本公式。wannianrili.bmcx.com 廿八宿序列（1月、6月各一）內部一致，已採信。
+export const XIU_ANCHOR = 13;
 
 export function ershiba(jdn: number): string {
   const i = ((jdn + XIU_ANCHOR) % 28 + 28) % 28;

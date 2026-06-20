@@ -1,0 +1,146 @@
+{
+  "_note": "黃黑道十二神月支→青龍所在日支起神表。依《欽定協紀辨方書》卷七義例。格式：月建地支→青龍起始日支，順行十二辰推其餘十一神。全部 verified=false，待人工核對古文。",
+  "_source_base": "欽定協紀辨方書·義例五·黃道十二神（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07",
+
+  "twelve_gods_sequence": {
+    "_note": "十二神固定位次（從青龍起順行），此序列自青龍位起數，黃道神為序號1.2.4.6.8.11，黑道神為序號3.5.7.9.10.12",
+    "sequence": [
+      {"pos": 1, "name": "青龍", "class": "黃道", "auspicious": true},
+      {"pos": 2, "name": "明堂", "class": "黃道", "auspicious": true},
+      {"pos": 3, "name": "天刑", "class": "黑道", "auspicious": false},
+      {"pos": 4, "name": "朱雀", "class": "黑道", "auspicious": false},
+      {"pos": 5, "name": "金匱", "class": "黃道", "auspicious": true},
+      {"pos": 6, "name": "天德", "class": "黃道", "auspicious": true},
+      {"pos": 7, "name": "白虎", "class": "黑道", "auspicious": false},
+      {"pos": 8, "name": "玉堂", "class": "黃道", "auspicious": true},
+      {"pos": 9, "name": "天牢", "class": "黑道", "auspicious": false},
+      {"pos": 10, "name": "元武", "class": "黑道", "auspicious": false},
+      {"pos": 11, "name": "司命", "class": "黃道", "auspicious": true},
+      {"pos": 12, "name": "勾陳", "class": "黑道", "auspicious": false}
+    ],
+    "_source": "欽定協紀辨方書·義例五（四庫全書本/卷07）原文：「一青龍二明堂三天刑四朱雀五金匱六天德七白虎八玉堂九天牢十元武十一司命十二勾陳」"
+  },
+
+  "start_rule": {
+    "_note": "原文：「寅申青龍起子卯酉起寅辰戌起辰巳亥起午子午起申丑未起戌順行十二辰」",
+    "description": "月建地支決定青龍所在日支，再順行推其餘十一神",
+    "raw_text": "寅申青龍起子卯酉起寅辰戌起辰巳亥起午子午起申丑未起戌順行十二辰",
+    "sources": [
+      "欽定協紀辨方書·義例五·黃道十二神（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+    ]
+  },
+
+  "month_tables": [
+    {
+      "month_branch": "子",
+      "qinglong_day_branch": "申",
+      "_note": "子午月青龍起申，原文「子午起申」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "丑",
+      "qinglong_day_branch": "戌",
+      "_note": "丑未月青龍起戌，原文「丑未起戌」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "寅",
+      "qinglong_day_branch": "子",
+      "_note": "寅申月青龍起子，原文「寅申青龍起子」，並有「月起日則建寅之月子日為青龍」明文確認",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "卯",
+      "qinglong_day_branch": "寅",
+      "_note": "卯酉月青龍起寅，原文「卯酉起寅」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "辰",
+      "qinglong_day_branch": "辰",
+      "_note": "辰戌月青龍起辰，原文「辰戌起辰」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "巳",
+      "qinglong_day_branch": "午",
+      "_note": "巳亥月青龍起午，原文「巳亥起午」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "午",
+      "qinglong_day_branch": "申",
+      "_note": "子午月青龍起申，原文「子午起申」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "未",
+      "qinglong_day_branch": "戌",
+      "_note": "丑未月青龍起戌，原文「丑未起戌」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "申",
+      "qinglong_day_branch": "子",
+      "_note": "寅申月青龍起子，原文「寅申青龍起子」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "酉",
+      "qinglong_day_branch": "寅",
+      "_note": "卯酉月青龍起寅，原文「卯酉起寅」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "戌",
+      "qinglong_day_branch": "辰",
+      "_note": "辰戌月青龍起辰，原文「辰戌起辰」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    },
+    {
+      "month_branch": "亥",
+      "qinglong_day_branch": "午",
+      "_note": "巳亥月青龍起午，原文「巳亥起午」",
+      "sources": [
+        "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
+      ],
+      "verified": false
+    }
+  ],
+
+  "_usage_note": "使用方式：依月建地支查 month_branch，得 qinglong_day_branch（青龍所在日支），再依 twelve_gods_sequence 順行（子→丑→寅→...）推算各日支所對應之黃黑道神。例：建寅月，子日青龍，丑日明堂，寅日天刑，卯日朱雀，辰日金匱，巳日天德，午日白虎，未日玉堂，申日天牢，酉日元武，戌日司命，亥日勾陳。",
+  "_caution": "古代黃黑道在《協紀辨方書》中有辨訛說明，指傳統分類「一除危定執成開為黃道，建破平衡閉滿收為黑道」之說為誤，正確應以五行生死原理判斷。本表記錄原書義例篇所載起神表，非辨訛後之詮釋。"
+}

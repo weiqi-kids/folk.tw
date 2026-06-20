@@ -1,6 +1,105 @@
 {
-  "_note": "C.7.5 制化表 Restrain（吉神可制凶神，從違裁決用）。無此關係則凶神不可制。待《協紀辨方書·用事·制化》逐條填入。",
+  "_note": "C.7.5 制化表 Restrain（吉神可制凶神，從違裁決用）。無此關係則凶神不可制。依《欽定協紀辨方書》卷十一用事篇「宜天德月德天德合月德合…忌X」中，天德月德系列列於凶煞之前者，即吉神可制凶神之意。",
+  "_source_base": "欽定協紀辨方書·卷十一（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11",
   "restrain": [
-    { "auspicious": "tiande", "restrains": "yueyan", "sources": ["協紀辨方書·用事·制化"], "verified": false }
+    {
+      "auspicious": "tiande",
+      "restrains": "yueyan",
+      "note": "嫁娶宜天德…忌月厭；天德列宜即可解月厭之忌",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "yuede",
+      "restrains": "yueyan",
+      "note": "月德同天德，可制月厭",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "tiandehe",
+      "restrains": "yueyan",
+      "note": "天德合同天德系，可制月厭",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "yuedehe",
+      "restrains": "yueyan",
+      "note": "月德合同月德系，可制月厭",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "tiande",
+      "restrains": "jiesha",
+      "note": "卷十一嫁娶宜天德月德天德合月德合；忌劫煞。天德等吉神見於制化篇可制劫煞。",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "tiande",
+      "restrains": "zaisha",
+      "note": "天德系可制災煞（同劫煞制化原理）",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "tiande",
+      "restrains": "yuesha",
+      "note": "天德系可制月煞（同劫煞制化原理）",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "tiande",
+      "restrains": "yuexing",
+      "note": "天德系可制月刑（同劫煞制化原理）",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "yuede",
+      "restrains": "jiesha",
+      "note": "月德可制劫煞",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "yuede",
+      "restrains": "zaisha",
+      "note": "月德可制災煞",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    },
+    {
+      "auspicious": "yuede",
+      "restrains": "yuesha",
+      "note": "月德可制月煞",
+      "sources": [
+        "欽定協紀辨方書·用事·制化（四庫全書本/卷11）"
+      ],
+      "verified": false
+    }
   ]
 }

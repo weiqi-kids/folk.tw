@@ -7,22 +7,27 @@
 //
 // 執行：pnpm check:integrity
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const load = (name: string): any[] => JSON.parse(readFileSync(join(root, 'src/data', name), 'utf8'));
+// 典故已遷至每篇 md（glob collection）；id = 檔名 stem
+const allusionIdsFromDir = (): string[] =>
+  readdirSync(join(root, 'src/content/allusions'))
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.replace(/\.md$/, ''));
 
 const poems = load('poems.json');
-const allusions = load('allusions.json');
+const allusionIdList = allusionIdsFromDir();
 const systems = load('divination-systems.json');
 const deities = load('deities.json');
 const relations = load('deity-relations.json');
 const events = load('events.json');
 const practices = load('practices.json');
 
-const allusionIds = new Set(allusions.map((a) => a.id));
+const allusionIds = new Set(allusionIdList);
 const systemIds = new Set(systems.map((s) => s.id));
 const deityIds = new Set(deities.map((d) => d.id));
 
@@ -85,7 +90,7 @@ console.log(`  • 活動 draft（文資待核）：${draftEv.length} 筆 — ${
 console.log(`  • 習俗 draft（步驟/地區待引註）：${draftPr}/${practices.length} 筆`);
 
 console.log('\n=== 資料量 ===');
-console.log(`  籤 ${poems.length}｜典故 ${allusions.length}｜籤系 ${systems.length}｜神明 ${deities.length}｜關係 ${relations.length}｜活動 ${events.length}｜習俗 ${practices.length}`);
+console.log(`  籤 ${poems.length}｜典故 ${allusionIdList.length}｜籤系 ${systems.length}｜神明 ${deities.length}｜關係 ${relations.length}｜活動 ${events.length}｜習俗 ${practices.length}`);
 
 if (hardErrors) {
   console.error(`\n✗ 硬性錯誤 ${hardErrors} 筆，請修正。\n`);

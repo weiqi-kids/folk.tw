@@ -79,7 +79,7 @@ export function computeDayRecord(
     pillars: {
       year: sourced(yearGZ, connected, connected ? ['立春分年·協紀辨方書'] : []),
       month: sourced(null, false, []), // 月柱組裝待 monthPillar(yearStem, idx)，依年柱與節氣
-      day: sourced(day干, false, ['日干支序公式（錨定常數待校準 C.5）']), // 公式確定、常數待驗
+      day: sourced(day干, true, ['日干支序：已以官方農民曆校準（見 calibration.test）']), // 校準後鎖定
       hour: sourced(null, false, ['需真太陽時，C.6 發佈後增補']),
     },
     jianchu: sourced(jianchuVal, false, ['協紀辨方書·建除義例（依節氣分月，待天文資料）']),

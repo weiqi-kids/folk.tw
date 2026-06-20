@@ -4,11 +4,31 @@
     "system": "liushi_jiazi",
     "no": 1,
     "ganzhi": "甲子",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "乾",
-    "lines": ["日出便見風雲散", "光明清淨照世間", "一向前途通大道", "萬事清吉保平安"],
-    "allusions": [{"ref": "baogong", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《遇后龍袍》"}], "note": "包公請雷驚仁宗（包極審張世真）；另說：唐太宗坐享太平（見 A.0 版本宣告）"}],
-    "interpretation": {},
+    "lines": [
+      "日出便見風雲散",
+      "光明清淨照世間",
+      "一向前途通大道",
+      "萬事清吉保平安"
+    ],
+    "allusions": [
+      {
+        "ref": "baogong",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《遇后龍袍》"
+          }
+        ],
+        "note": "包公請雷驚仁宗（包極審張世真）；另說：唐太宗坐享太平（見 A.0 版本宣告）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -17,11 +37,31 @@
     "system": "liushi_jiazi",
     "no": 2,
     "ganzhi": "甲寅",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "蹇",
-    "lines": ["於今此景正當時", "看看欲吐百花魁", "若能遇得春色到", "一洒清吉脫塵埃"],
-    "allusions": [{"ref": "erdumei", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《二度梅》"}], "note": "陳東初祭梅得救"}],
-    "interpretation": {},
+    "lines": [
+      "於今此景正當時",
+      "看看欲吐百花魁",
+      "若能遇得春色到",
+      "一洒清吉脫塵埃"
+    ],
+    "allusions": [
+      {
+        "ref": "erdumei",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《二度梅》"
+          }
+        ],
+        "note": "陳東初祭梅得救"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -30,11 +70,31 @@
     "system": "liushi_jiazi",
     "no": 3,
     "ganzhi": "甲辰",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "訟",
-    "lines": ["勸君把定心莫虛", "天註衣祿自有餘", "和合重重常吉慶", "時來終遇得明珠"],
-    "allusions": [{"ref": "zhoudewu", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《周德武》"}], "note": "朱（周）德武入寺相分明"}],
-    "interpretation": {},
+    "lines": [
+      "勸君把定心莫虛",
+      "天註衣祿自有餘",
+      "和合重重常吉慶",
+      "時來終遇得明珠"
+    ],
+    "allusions": [
+      {
+        "ref": "zhoudewu",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《周德武》"
+          }
+        ],
+        "note": "朱（周）德武入寺相分明"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -43,11 +103,31 @@
     "system": "liushi_jiazi",
     "no": 4,
     "ganzhi": "甲午",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "臨",
-    "lines": ["風恬浪靜可行舟", "恰是中秋月一輪", "凡事不須多憂慮", "福祿自有慶家門"],
-    "allusions": [{"ref": "liuyi", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《柳毅傳書》"}], "note": "盧龍王次子招親"}],
-    "interpretation": {},
+    "lines": [
+      "風恬浪靜可行舟",
+      "恰是中秋月一輪",
+      "凡事不須多憂慮",
+      "福祿自有慶家門"
+    ],
+    "allusions": [
+      {
+        "ref": "liuyi",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《柳毅傳書》"
+          }
+        ],
+        "note": "盧龍王次子招親"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -56,11 +136,31 @@
     "system": "liushi_jiazi",
     "no": 5,
     "ganzhi": "甲申",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "革",
-    "lines": ["只恐前途命有變", "勸君作急可宜先", "且守長江無大事", "命逢太白守身邊"],
-    "allusions": [{"ref": "hanyu_languan", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "韓愈藍關，出典未標明"}], "note": "韓文公過秦嶺遇霜雪（出處另記王剪戰袁達）；出典未標明"}],
-    "interpretation": {},
+    "lines": [
+      "只恐前途命有變",
+      "勸君作急可宜先",
+      "且守長江無大事",
+      "命逢太白守身邊"
+    ],
+    "allusions": [
+      {
+        "ref": "hanyu_languan",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "韓愈藍關，出典未標明"
+          }
+        ],
+        "note": "韓文公過秦嶺遇霜雪（出處另記王剪戰袁達）；出典未標明"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "notes": "A.3-3：出典待考（韓愈藍關，出典未標明）；出處另記「王剪戰袁達」，兩者不一",
     "draft": false
@@ -70,11 +170,31 @@
     "system": "liushi_jiazi",
     "no": 6,
     "ganzhi": "甲戌",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "大有",
-    "lines": ["風雲致雨落洋洋", "天災時氣必有傷", "命內此事難和合", "更逢一足出外鄉"],
-    "allusions": [{"ref": "yuefei", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《岳飛傳》"}], "note": "烏精（烏靈聖母）"}],
-    "interpretation": {},
+    "lines": [
+      "風雲致雨落洋洋",
+      "天災時氣必有傷",
+      "命內此事難和合",
+      "更逢一足出外鄉"
+    ],
+    "allusions": [
+      {
+        "ref": "yuefei",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《岳飛傳》"
+          }
+        ],
+        "note": "烏精（烏靈聖母）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -83,11 +203,31 @@
     "system": "liushi_jiazi",
     "no": 7,
     "ganzhi": "乙丑",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "蒙",
-    "lines": ["雲開月出正分明", "不須進退問前程", "婚姻皆由天註定", "和合清吉萬事成"],
-    "allusions": [{"ref": "xue_rengui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛仁貴征東》"}], "note": "國公暗察白袍將（尉遲恭掛帥）"}],
-    "interpretation": {},
+    "lines": [
+      "雲開月出正分明",
+      "不須進退問前程",
+      "婚姻皆由天註定",
+      "和合清吉萬事成"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_rengui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛仁貴征東》"
+          }
+        ],
+        "note": "國公暗察白袍將（尉遲恭掛帥）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -96,11 +236,31 @@
     "system": "liushi_jiazi",
     "no": 8,
     "ganzhi": "乙卯",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "渙",
-    "lines": ["禾稻看看結成完", "此事必定兩相全", "回到家中寬心坐", "妻兒鼓舞樂團圓"],
-    "allusions": [{"ref": "xue_rengui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛仁貴征東》"}], "note": "薛仁貴回家"}],
-    "interpretation": {},
+    "lines": [
+      "禾稻看看結成完",
+      "此事必定兩相全",
+      "回到家中寬心坐",
+      "妻兒鼓舞樂團圓"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_rengui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛仁貴征東》"
+          }
+        ],
+        "note": "薛仁貴回家"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -109,11 +269,31 @@
     "system": "liushi_jiazi",
     "no": 9,
     "ganzhi": "乙巳",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "泰",
-    "lines": ["龍虎相隨在深山", "君爾何須背後看", "不知此去相愛愉", "他日與我卻無干"],
-    "allusions": [{"ref": "longhu_dou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《龍虎鬥》"}], "note": "龍虎爭鬥（龍虎相會）"}],
-    "interpretation": {},
+    "lines": [
+      "龍虎相隨在深山",
+      "君爾何須背後看",
+      "不知此去相愛愉",
+      "他日與我卻無干"
+    ],
+    "allusions": [
+      {
+        "ref": "longhu_dou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《龍虎鬥》"
+          }
+        ],
+        "note": "龍虎爭鬥（龍虎相會）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -122,11 +302,31 @@
     "system": "liushi_jiazi",
     "no": 10,
     "ganzhi": "乙未",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "豫",
-    "lines": ["花開結子一半枯", "可惜今年汝虛度", "漸漸日落西山去", "勸君不用向前途"],
-    "allusions": [{"ref": "yuefei", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《精忠岳傳》"}], "note": "岳飛掠秦檜"}],
-    "interpretation": {},
+    "lines": [
+      "花開結子一半枯",
+      "可惜今年汝虛度",
+      "漸漸日落西山去",
+      "勸君不用向前途"
+    ],
+    "allusions": [
+      {
+        "ref": "yuefei",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《精忠岳傳》"
+          }
+        ],
+        "note": "岳飛掠秦檜"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -135,11 +335,31 @@
     "system": "liushi_jiazi",
     "no": 11,
     "ganzhi": "乙酉",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "解",
-    "lines": ["靈雞漸漸見分明", "凡事且看子丑寅", "雲開月出照天下", "郎君即便見太平"],
-    "allusions": [{"ref": "hanyu_languan", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《神仙傳》《宣和遺事》"}], "note": "韓文公過秦嶺湘子掃霜雪"}],
-    "interpretation": {},
+    "lines": [
+      "靈雞漸漸見分明",
+      "凡事且看子丑寅",
+      "雲開月出照天下",
+      "郎君即便見太平"
+    ],
+    "allusions": [
+      {
+        "ref": "hanyu_languan",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《神仙傳》《宣和遺事》"
+          }
+        ],
+        "note": "韓文公過秦嶺湘子掃霜雪"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -148,11 +368,31 @@
     "system": "liushi_jiazi",
     "no": 12,
     "ganzhi": "乙亥",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "歸妹",
-    "lines": ["長江風浪漸漸靜", "于今得進可安寧", "必有貴人相扶助", "凶事脫出見太平"],
-    "allusions": [{"ref": "baitu_ji", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《白兔記》"}], "note": "劉智遠戰瓜精／投軍"}],
-    "interpretation": {},
+    "lines": [
+      "長江風浪漸漸靜",
+      "于今得進可安寧",
+      "必有貴人相扶助",
+      "凶事脫出見太平"
+    ],
+    "allusions": [
+      {
+        "ref": "baitu_ji",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《白兔記》"
+          }
+        ],
+        "note": "劉智遠戰瓜精／投軍"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -161,11 +401,31 @@
     "system": "liushi_jiazi",
     "no": 13,
     "ganzhi": "丙子",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "大壯",
-    "lines": ["命中正逢羅孛關", "用盡心機總未休", "作福問神難得過", "恰是行舟上高灘"],
-    "allusions": [{"ref": "chengdu_bo", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《桃花過渡》"}], "note": "撐渡伯行舟遇太歲"}],
-    "interpretation": {},
+    "lines": [
+      "命中正逢羅孛關",
+      "用盡心機總未休",
+      "作福問神難得過",
+      "恰是行舟上高灘"
+    ],
+    "allusions": [
+      {
+        "ref": "chengdu_bo",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《桃花過渡》"
+          }
+        ],
+        "note": "撐渡伯行舟遇太歲"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -174,11 +434,31 @@
     "system": "liushi_jiazi",
     "no": 14,
     "ganzhi": "丙寅",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "損",
-    "lines": ["財中漸漸見分明", "花開花謝結子成", "寬心且看月中桂", "郎君即便見太平"],
-    "allusions": [{"ref": "sanguo", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《三國演義》"}], "note": "桃園三結義"}],
-    "interpretation": {},
+    "lines": [
+      "財中漸漸見分明",
+      "花開花謝結子成",
+      "寬心且看月中桂",
+      "郎君即便見太平"
+    ],
+    "allusions": [
+      {
+        "ref": "sanguo",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《三國演義》"
+          }
+        ],
+        "note": "桃園三結義"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -187,11 +467,31 @@
     "system": "liushi_jiazi",
     "no": 15,
     "ganzhi": "丙辰",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "大過",
-    "lines": ["八十原來是太公", "看看晚景遇文王", "目下緊事休相問", "勸君且守待運通"],
-    "allusions": [{"ref": "taigong_wenwang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《封神演義》"}], "note": "渭水河太公釣魚（武吉挑柴）"}],
-    "interpretation": {},
+    "lines": [
+      "八十原來是太公",
+      "看看晚景遇文王",
+      "目下緊事休相問",
+      "勸君且守待運通"
+    ],
+    "allusions": [
+      {
+        "ref": "taigong_wenwang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《封神演義》"
+          }
+        ],
+        "note": "渭水河太公釣魚（武吉挑柴）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -200,11 +500,31 @@
     "system": "liushi_jiazi",
     "no": 16,
     "ganzhi": "丙午",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "無妄",
-    "lines": ["不須作福不須求", "用盡心機總未休", "陽世不知陰世事", "官法如爐不自由"],
-    "allusions": [{"ref": "xiyou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《西遊記》"}], "note": "李世民遊地府"}],
-    "interpretation": {},
+    "lines": [
+      "不須作福不須求",
+      "用盡心機總未休",
+      "陽世不知陰世事",
+      "官法如爐不自由"
+    ],
+    "allusions": [
+      {
+        "ref": "xiyou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《西遊記》"
+          }
+        ],
+        "note": "李世民遊地府"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -213,11 +533,31 @@
     "system": "liushi_jiazi",
     "no": 17,
     "ganzhi": "丙申",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "中孚",
-    "lines": ["舊恨重重未改為", "家中禍患不臨身", "須當謹防宜作福", "龍蛇交會得和合"],
-    "allusions": [{"ref": "zhuangzi_shiqi", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《大劈棺》"}], "note": "莊子破棺（莊子試妻）"}],
-    "interpretation": {},
+    "lines": [
+      "舊恨重重未改為",
+      "家中禍患不臨身",
+      "須當謹防宜作福",
+      "龍蛇交會得和合"
+    ],
+    "allusions": [
+      {
+        "ref": "zhuangzi_shiqi",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《大劈棺》"
+          }
+        ],
+        "note": "莊子破棺（莊子試妻）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -226,11 +566,31 @@
     "system": "liushi_jiazi",
     "no": 18,
     "ganzhi": "丙戌",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "睽",
-    "lines": ["君問中間此言因", "看看祿馬拱前程", "若得貴人多得利", "和合自有兩分明"],
-    "allusions": [{"ref": "suitang_qinshubao", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《歌仔冊》"}], "note": "楊管醉玉仝坐馬（秦叔寶救李淵）"}],
-    "interpretation": {},
+    "lines": [
+      "君問中間此言因",
+      "看看祿馬拱前程",
+      "若得貴人多得利",
+      "和合自有兩分明"
+    ],
+    "allusions": [
+      {
+        "ref": "suitang_qinshubao",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《歌仔冊》"
+          }
+        ],
+        "note": "楊管醉玉仝坐馬（秦叔寶救李淵）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -239,11 +599,31 @@
     "system": "liushi_jiazi",
     "no": 19,
     "ganzhi": "丁丑",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "屯",
-    "lines": ["富貴由命天註定", "心高必然誤君期", "不然且回依舊路", "雲開月出自分明"],
-    "allusions": [{"ref": "xiyou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《西遊記》"}], "note": "紅孩兒攔住路頭"}],
-    "interpretation": {},
+    "lines": [
+      "富貴由命天註定",
+      "心高必然誤君期",
+      "不然且回依舊路",
+      "雲開月出自分明"
+    ],
+    "allusions": [
+      {
+        "ref": "xiyou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《西遊記》"
+          }
+        ],
+        "note": "紅孩兒攔住路頭"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -252,11 +632,31 @@
     "system": "liushi_jiazi",
     "no": 20,
     "ganzhi": "丁卯",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "隨",
-    "lines": ["前途功名未得意", "只恐命內有交加", "兩家必定防損失", "勸君且退莫咨嗟"],
-    "allusions": [{"ref": "xiyou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《西遊記》"}], "note": "孫悟空大難火災"}],
-    "interpretation": {},
+    "lines": [
+      "前途功名未得意",
+      "只恐命內有交加",
+      "兩家必定防損失",
+      "勸君且退莫咨嗟"
+    ],
+    "allusions": [
+      {
+        "ref": "xiyou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《西遊記》"
+          }
+        ],
+        "note": "孫悟空大難火災"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -265,11 +665,31 @@
     "system": "liushi_jiazi",
     "no": 21,
     "ganzhi": "丁巳",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "夬",
-    "lines": ["十方佛法有靈通", "大難禍患不相同", "紅日當空常照耀", "還有貴人到家堂"],
-    "allusions": [{"ref": "zhushouchang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《二十四孝》"}], "note": "朱壽昌尋母在長亭"}],
-    "interpretation": {},
+    "lines": [
+      "十方佛法有靈通",
+      "大難禍患不相同",
+      "紅日當空常照耀",
+      "還有貴人到家堂"
+    ],
+    "allusions": [
+      {
+        "ref": "zhushouchang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《二十四孝》"
+          }
+        ],
+        "note": "朱壽昌尋母在長亭"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -278,11 +698,31 @@
     "system": "liushi_jiazi",
     "no": 22,
     "ganzhi": "丁未",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "升",
-    "lines": ["太公家業八十成", "月出光輝四海明", "命內自然逢大吉", "茅屋中間百事亨"],
-    "allusions": [{"ref": "taigong_wenwang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《封神演義》"}], "note": "周文王為姜太公拖車"}],
-    "interpretation": {},
+    "lines": [
+      "太公家業八十成",
+      "月出光輝四海明",
+      "命內自然逢大吉",
+      "茅屋中間百事亨"
+    ],
+    "allusions": [
+      {
+        "ref": "taigong_wenwang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《封神演義》"
+          }
+        ],
+        "note": "周文王為姜太公拖車"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -291,11 +731,31 @@
     "system": "liushi_jiazi",
     "no": 23,
     "ganzhi": "丁酉",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "益",
-    "lines": ["欲去長江水闊茫", "前途未遂運未通", "如今絲綸常在手", "只恐魚水不相逢"],
-    "allusions": [{"ref": "erdumei", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《二度梅》"}], "note": "周玉姊可遇陳春生"}],
-    "interpretation": {},
+    "lines": [
+      "欲去長江水闊茫",
+      "前途未遂運未通",
+      "如今絲綸常在手",
+      "只恐魚水不相逢"
+    ],
+    "allusions": [
+      {
+        "ref": "erdumei",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《二度梅》"
+          }
+        ],
+        "note": "周玉姊可遇陳春生"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -304,11 +764,31 @@
     "system": "liushi_jiazi",
     "no": 24,
     "ganzhi": "丁亥",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "師",
-    "lines": ["月出光輝四海明", "前途祿位見太平", "浮雲掃退終無事", "可保禍患不臨身"],
-    "allusions": [{"ref": "suitang_qinshubao", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《隋唐演義》"}], "note": "秦叔寶救李淵"}],
-    "interpretation": {},
+    "lines": [
+      "月出光輝四海明",
+      "前途祿位見太平",
+      "浮雲掃退終無事",
+      "可保禍患不臨身"
+    ],
+    "allusions": [
+      {
+        "ref": "suitang_qinshubao",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《隋唐演義》"
+          }
+        ],
+        "note": "秦叔寶救李淵"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -317,11 +797,31 @@
     "system": "liushi_jiazi",
     "no": 25,
     "ganzhi": "戊子",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "咸",
-    "lines": ["總是前途莫心勞", "求神問聖枉是多", "但看雞犬日過後", "不須作福事如何"],
-    "allusions": [{"ref": "xue_gang_fantang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛剛反唐》"}], "note": "鳳嬌觀音庵問籤中奸臣計"}],
-    "interpretation": {},
+    "lines": [
+      "總是前途莫心勞",
+      "求神問聖枉是多",
+      "但看雞犬日過後",
+      "不須作福事如何"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_gang_fantang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛剛反唐》"
+          }
+        ],
+        "note": "鳳嬌觀音庵問籤中奸臣計"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -330,11 +830,31 @@
     "system": "liushi_jiazi",
     "no": 26,
     "ganzhi": "戊寅",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "坎",
-    "lines": ["選出牡丹第一枝", "勸君折取莫遲疑", "世間若問相知處", "萬事逢春正及時"],
-    "allusions": [{"ref": "soushen", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《搜神記》"}], "note": "范丹洗浴遇賢妻"}],
-    "interpretation": {},
+    "lines": [
+      "選出牡丹第一枝",
+      "勸君折取莫遲疑",
+      "世間若問相知處",
+      "萬事逢春正及時"
+    ],
+    "allusions": [
+      {
+        "ref": "soushen",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《搜神記》"
+          }
+        ],
+        "note": "范丹洗浴遇賢妻"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -343,11 +863,31 @@
     "system": "liushi_jiazi",
     "no": 27,
     "ganzhi": "戊辰",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "履",
-    "lines": ["君爾寬心且自由", "門庭清吉家無憂", "財寶自然終吉利", "凡事無傷不用求"],
-    "allusions": [{"ref": "xue_gang_fantang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛剛反唐》"}], "note": "胡完救文氏母女"}],
-    "interpretation": {},
+    "lines": [
+      "君爾寬心且自由",
+      "門庭清吉家無憂",
+      "財寶自然終吉利",
+      "凡事無傷不用求"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_gang_fantang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛剛反唐》"
+          }
+        ],
+        "note": "胡完救文氏母女"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -356,11 +896,31 @@
     "system": "liushi_jiazi",
     "no": 28,
     "ganzhi": "戊午",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "小過",
-    "lines": ["於今莫作此當時", "虎落平陽被犬欺", "世間凡事何難定", "千山萬水也遲疑"],
-    "allusions": [{"ref": "lixiao_dahu", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《飛虎山》"}], "note": "李存孝打虎"}],
-    "interpretation": {},
+    "lines": [
+      "於今莫作此當時",
+      "虎落平陽被犬欺",
+      "世間凡事何難定",
+      "千山萬水也遲疑"
+    ],
+    "allusions": [
+      {
+        "ref": "lixiao_dahu",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《飛虎山》"
+          }
+        ],
+        "note": "李存孝打虎"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -369,11 +929,31 @@
     "system": "liushi_jiazi",
     "no": 29,
     "ganzhi": "戊申",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "噬嗑",
-    "lines": ["枯木可惜未逢春", "如今反在暗中藏", "寬心且守風霜退", "還君依舊作乾坤"],
-    "allusions": [{"ref": "sanguo", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《三國演義》"}], "note": "古城會關公斬蔡陽"}],
-    "interpretation": {},
+    "lines": [
+      "枯木可惜未逢春",
+      "如今反在暗中藏",
+      "寬心且守風霜退",
+      "還君依舊作乾坤"
+    ],
+    "allusions": [
+      {
+        "ref": "sanguo",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《三國演義》"
+          }
+        ],
+        "note": "古城會關公斬蔡陽"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -382,11 +962,31 @@
     "system": "liushi_jiazi",
     "no": 30,
     "ganzhi": "戊戌",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "明夷",
-    "lines": ["漸漸看此月中和", "過後須防未得高", "改變顏色前途去", "凡事必定見重勞"],
-    "allusions": [{"ref": "xiyou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《西遊記》"}], "note": "豬八戒拱稀柿衕（過柿山）"}],
-    "interpretation": {},
+    "lines": [
+      "漸漸看此月中和",
+      "過後須防未得高",
+      "改變顏色前途去",
+      "凡事必定見重勞"
+    ],
+    "allusions": [
+      {
+        "ref": "xiyou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《西遊記》"
+          }
+        ],
+        "note": "豬八戒拱稀柿衕（過柿山）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -395,11 +995,31 @@
     "system": "liushi_jiazi",
     "no": 31,
     "ganzhi": "己丑",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "既濟",
-    "lines": ["綠柳蒼蒼正當時", "任君此去作乾坤", "花果結實無殘謝", "福祿自有慶家門"],
-    "allusions": [{"ref": "mengjiangnu", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《七世夫妻》"}], "note": "孟姜女招親"}],
-    "interpretation": {},
+    "lines": [
+      "綠柳蒼蒼正當時",
+      "任君此去作乾坤",
+      "花果結實無殘謝",
+      "福祿自有慶家門"
+    ],
+    "allusions": [
+      {
+        "ref": "mengjiangnu",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《七世夫妻》"
+          }
+        ],
+        "note": "孟姜女招親"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -408,11 +1028,31 @@
     "system": "liushi_jiazi",
     "no": 32,
     "ganzhi": "己卯",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "頤",
-    "lines": ["龍虎相交在門前", "此事必定兩相連", "黃金忽然變成鐵", "何用作福問神仙"],
-    "allusions": [{"ref": "xue_rengui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛仁貴征東》"}], "note": "龍虎交會（典故敘述為薛仁貴遇九天玄女，源不一）；典故版本不一，見 A.3-2"}],
-    "interpretation": {},
+    "lines": [
+      "龍虎相交在門前",
+      "此事必定兩相連",
+      "黃金忽然變成鐵",
+      "何用作福問神仙"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_rengui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛仁貴征東》"
+          }
+        ],
+        "note": "龍虎交會（典故敘述為薛仁貴遇九天玄女，源不一）；典故版本不一，見 A.3-2"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -421,11 +1061,31 @@
     "system": "liushi_jiazi",
     "no": 33,
     "ganzhi": "己巳",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "蠱",
-    "lines": ["欲去長江水闊茫", "行舟把定未遭風", "戶內用心再作福", "看看魚水得相逢"],
-    "allusions": [{"ref": "tonggin_zhixue", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "出典未明"}], "note": "銅銀買紙靴；出典未明"}],
-    "interpretation": {},
+    "lines": [
+      "欲去長江水闊茫",
+      "行舟把定未遭風",
+      "戶內用心再作福",
+      "看看魚水得相逢"
+    ],
+    "allusions": [
+      {
+        "ref": "tonggin_zhixue",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "出典未明"
+          }
+        ],
+        "note": "銅銀買紙靴；出典未明"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "notes": "A.3-3：出典未明，依§5「無源不發佈」規則，出典欄待補",
     "draft": false
@@ -435,11 +1095,31 @@
     "system": "liushi_jiazi",
     "no": 34,
     "ganzhi": "己未",
-    "wuxing": {"element": "火", "season": "夏", "direction": "南"},
+    "wuxing": {
+      "element": "火",
+      "season": "夏",
+      "direction": "南"
+    },
     "gua": "未濟",
-    "lines": ["危險高山行過盡", "莫嫌此路有重重", "若見蘭桂漸漸發", "長蛇反轉變成龍"],
-    "allusions": [{"ref": "sanguo", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《三國演義》"}], "note": "曹操潼關遇馬超"}],
-    "interpretation": {},
+    "lines": [
+      "危險高山行過盡",
+      "莫嫌此路有重重",
+      "若見蘭桂漸漸發",
+      "長蛇反轉變成龍"
+    ],
+    "allusions": [
+      {
+        "ref": "sanguo",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《三國演義》"
+          }
+        ],
+        "note": "曹操潼關遇馬超"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -448,11 +1128,31 @@
     "system": "liushi_jiazi",
     "no": 35,
     "ganzhi": "己酉",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "坤",
-    "lines": ["此事何須用心機", "前途變怪自然知", "看看此去得和合", "漸漸脫出見太平"],
-    "allusions": [{"ref": "wuhan_qizhu", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《斬經堂》"}], "note": "吳漢殺妻為母救主（另說：貼金走路遇鬼）；兩說不一，見 A.3-2"}],
-    "interpretation": {},
+    "lines": [
+      "此事何須用心機",
+      "前途變怪自然知",
+      "看看此去得和合",
+      "漸漸脫出見太平"
+    ],
+    "allusions": [
+      {
+        "ref": "wuhan_qizhu",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《斬經堂》"
+          }
+        ],
+        "note": "吳漢殺妻為母救主（另說：貼金走路遇鬼）；兩說不一，見 A.3-2"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -461,11 +1161,31 @@
     "system": "liushi_jiazi",
     "no": 36,
     "ganzhi": "己亥",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "離",
-    "lines": ["福如東海壽如山", "君爾何須嘆苦難", "命內自然逢大吉", "祈保分明自平安"],
-    "allusions": [{"ref": "xue_rengui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛仁貴征東》"}], "note": "薛仁貴救駕（李世民落海灘）"}],
-    "interpretation": {},
+    "lines": [
+      "福如東海壽如山",
+      "君爾何須嘆苦難",
+      "命內自然逢大吉",
+      "祈保分明自平安"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_rengui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛仁貴征東》"
+          }
+        ],
+        "note": "薛仁貴救駕（李世民落海灘）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -474,11 +1194,31 @@
     "system": "liushi_jiazi",
     "no": 37,
     "ganzhi": "庚子",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "艮",
-    "lines": ["運逢得意身顯變", "君爾身中皆有益", "一向前途無難事", "決意之中保清吉"],
-    "allusions": [{"ref": "zhengde_lifeng", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《遊龍戲鳳》《梅龍鎮》"}], "note": "正德君戲李鳳姐"}],
-    "interpretation": {},
+    "lines": [
+      "運逢得意身顯變",
+      "君爾身中皆有益",
+      "一向前途無難事",
+      "決意之中保清吉"
+    ],
+    "allusions": [
+      {
+        "ref": "zhengde_lifeng",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《遊龍戲鳳》《梅龍鎮》"
+          }
+        ],
+        "note": "正德君戲李鳳姐"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -487,11 +1227,31 @@
     "system": "liushi_jiazi",
     "no": 38,
     "ganzhi": "庚寅",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "比",
-    "lines": ["名顯有意在中央", "不須祈禱心自安", "看看早晚日過後", "即時得意在其間"],
-    "allusions": [{"ref": "sanguo", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《三國演義》"}], "note": "劉備三顧孔明茅廬"}],
-    "interpretation": {},
+    "lines": [
+      "名顯有意在中央",
+      "不須祈禱心自安",
+      "看看早晚日過後",
+      "即時得意在其間"
+    ],
+    "allusions": [
+      {
+        "ref": "sanguo",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《三國演義》"
+          }
+        ],
+        "note": "劉備三顧孔明茅廬"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -500,11 +1260,31 @@
     "system": "liushi_jiazi",
     "no": 39,
     "ganzhi": "庚辰",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "觀",
-    "lines": ["意中若問神仙路", "勸爾且退望高樓", "寬心且守寬心坐", "必然遇得貴人扶"],
-    "allusions": [{"ref": "yangjiajiang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《楊家將演義》"}], "note": "楊文廣被困柳州城"}],
-    "interpretation": {},
+    "lines": [
+      "意中若問神仙路",
+      "勸爾且退望高樓",
+      "寬心且守寬心坐",
+      "必然遇得貴人扶"
+    ],
+    "allusions": [
+      {
+        "ref": "yangjiajiang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《楊家將演義》"
+          }
+        ],
+        "note": "楊文廣被困柳州城"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -513,11 +1293,31 @@
     "system": "liushi_jiazi",
     "no": 40,
     "ganzhi": "庚午",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "需",
-    "lines": ["平生富貴成祿位", "君家門戶定光輝", "此中必定無損失", "夫妻百歲喜相隨"],
-    "allusions": [{"ref": "sanyuanhui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "出典未標"}], "note": "三元會葛其量夫妻相會；出典未標"}],
-    "interpretation": {},
+    "lines": [
+      "平生富貴成祿位",
+      "君家門戶定光輝",
+      "此中必定無損失",
+      "夫妻百歲喜相隨"
+    ],
+    "allusions": [
+      {
+        "ref": "sanyuanhui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "出典未標"
+          }
+        ],
+        "note": "三元會葛其量夫妻相會；出典未標"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "notes": "A.3-3：出典未標，依§5「無源不發佈」規則，出典欄待補",
     "draft": false
@@ -527,11 +1327,31 @@
     "system": "liushi_jiazi",
     "no": 41,
     "ganzhi": "庚申",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "小畜",
-    "lines": ["今行到此實難推", "歌歌暢飲自徘徊", "雞犬相聞消息近", "婚姻夙世結成雙"],
-    "allusions": [{"ref": "xiyou", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《西遊記·劉全進瓜》"}], "note": "（出處作三伯探英台；典故敘述為劉全進瓜，兩者不一）；A.3-4：出處行與典故敘述不符，以校訂後典故「劉全進瓜《西遊記》」為準"}],
-    "interpretation": {},
+    "lines": [
+      "今行到此實難推",
+      "歌歌暢飲自徘徊",
+      "雞犬相聞消息近",
+      "婚姻夙世結成雙"
+    ],
+    "allusions": [
+      {
+        "ref": "xiyou",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《西遊記·劉全進瓜》"
+          }
+        ],
+        "note": "（出處作三伯探英台；典故敘述為劉全進瓜，兩者不一）；A.3-4：出處行與典故敘述不符，以校訂後典故「劉全進瓜《西遊記》」為準"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "notes": "A.3-4：出處行標「三伯探英台」，典故敘述為「劉全進瓜」，兩者不符；以典故欄校訂後版本為準，記出典《西遊記·劉全進瓜》",
     "draft": false
@@ -541,11 +1361,31 @@
     "system": "liushi_jiazi",
     "no": 42,
     "ganzhi": "庚戌",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "鼎",
-    "lines": ["一重江水一重山", "誰知此去路又難", "任他改求終不過", "是非終久未得安"],
-    "allusions": [{"ref": "mengjiangnu", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《七世夫妻》"}], "note": "孟姜女送寒衣哭倒萬里長城"}],
-    "interpretation": {},
+    "lines": [
+      "一重江水一重山",
+      "誰知此去路又難",
+      "任他改求終不過",
+      "是非終久未得安"
+    ],
+    "allusions": [
+      {
+        "ref": "mengjiangnu",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《七世夫妻》"
+          }
+        ],
+        "note": "孟姜女送寒衣哭倒萬里長城"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -554,11 +1394,31 @@
     "system": "liushi_jiazi",
     "no": 43,
     "ganzhi": "辛丑",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "井",
-    "lines": ["一年作事急如飛", "君爾寬心莫遲疑", "貴人還在千里外", "音信月中漸漸知"],
-    "allusions": [{"ref": "baitu_ji", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《白兔記》"}], "note": "咬臍郎井邊會母（李三娘）"}],
-    "interpretation": {},
+    "lines": [
+      "一年作事急如飛",
+      "君爾寬心莫遲疑",
+      "貴人還在千里外",
+      "音信月中漸漸知"
+    ],
+    "allusions": [
+      {
+        "ref": "baitu_ji",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《白兔記》"
+          }
+        ],
+        "note": "咬臍郎井邊會母（李三娘）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -567,11 +1427,31 @@
     "system": "liushi_jiazi",
     "no": 44,
     "ganzhi": "辛卯",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "剝",
-    "lines": ["客到前途多得利", "君爾何故兩相疑", "雖是中間逢進退", "月出光輝得運時"],
-    "allusions": [{"ref": "chensan_wuniang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《荔鏡傳》《陳三五娘》"}], "note": "洪益春留傘愛陳三"}],
-    "interpretation": {},
+    "lines": [
+      "客到前途多得利",
+      "君爾何故兩相疑",
+      "雖是中間逢進退",
+      "月出光輝得運時"
+    ],
+    "allusions": [
+      {
+        "ref": "chensan_wuniang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《荔鏡傳》《陳三五娘》"
+          }
+        ],
+        "note": "洪益春留傘愛陳三"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -580,11 +1460,31 @@
     "system": "liushi_jiazi",
     "no": 45,
     "ganzhi": "辛巳",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "晉",
-    "lines": ["花開今已結成果", "富貴榮華終到老", "君子小人相會合", "萬事清吉莫煩惱"],
-    "allusions": [{"ref": "kongzi_xiaoer", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《孔子演義》"}], "note": "孔夫子過番逢小兒"}],
-    "interpretation": {},
+    "lines": [
+      "花開今已結成果",
+      "富貴榮華終到老",
+      "君子小人相會合",
+      "萬事清吉莫煩惱"
+    ],
+    "allusions": [
+      {
+        "ref": "kongzi_xiaoer",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《孔子演義》"
+          }
+        ],
+        "note": "孔夫子過番逢小兒"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -593,11 +1493,31 @@
     "system": "liushi_jiazi",
     "no": 46,
     "ganzhi": "辛未",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "賁",
-    "lines": ["功名得意與君顯", "前途富貴喜安然", "若遇一輪明月照", "十五團圓光滿天"],
-    "allusions": [{"ref": "jiangzhongli", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《江中立》"}], "note": "江中立欽賜狀元"}],
-    "interpretation": {},
+    "lines": [
+      "功名得意與君顯",
+      "前途富貴喜安然",
+      "若遇一輪明月照",
+      "十五團圓光滿天"
+    ],
+    "allusions": [
+      {
+        "ref": "jiangzhongli",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《江中立》"
+          }
+        ],
+        "note": "江中立欽賜狀元"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -606,11 +1526,31 @@
     "system": "liushi_jiazi",
     "no": 47,
     "ganzhi": "辛酉",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "家人",
-    "lines": ["君爾何須問聖跡", "自己心中皆有益", "於今且看月中旬", "凶事脫出化成吉"],
-    "allusions": [{"ref": "xie_tianxiang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《謝天香》"}], "note": "柳永作官蔭妻兒（謝天香）"}],
-    "interpretation": {},
+    "lines": [
+      "君爾何須問聖跡",
+      "自己心中皆有益",
+      "於今且看月中旬",
+      "凶事脫出化成吉"
+    ],
+    "allusions": [
+      {
+        "ref": "xie_tianxiang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《謝天香》"
+          }
+        ],
+        "note": "柳永作官蔭妻兒（謝天香）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -619,11 +1559,31 @@
     "system": "liushi_jiazi",
     "no": 48,
     "ganzhi": "辛亥",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "否",
-    "lines": ["陽世作事未和同", "雲遮月色正朦朧", "心中意欲前途去", "只恐命內運未通"],
-    "allusions": [{"ref": "qingting_wang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "民間俚語"}], "note": "蜻蜓誤入蜘蛛網"}],
-    "interpretation": {},
+    "lines": [
+      "陽世作事未和同",
+      "雲遮月色正朦朧",
+      "心中意欲前途去",
+      "只恐命內運未通"
+    ],
+    "allusions": [
+      {
+        "ref": "qingting_wang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "民間俚語"
+          }
+        ],
+        "note": "蜻蜓誤入蜘蛛網"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -632,11 +1592,31 @@
     "system": "liushi_jiazi",
     "no": 49,
     "ganzhi": "壬子",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "遯",
-    "lines": ["言語雖多不可從", "風雲靜處未行龍", "暗中終得明消息", "君爾何須問重重"],
-    "allusions": [{"ref": "dongpo_foyin", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《東坡遊赤壁》"}], "note": "佛印稍婆答歌詩"}],
-    "interpretation": {},
+    "lines": [
+      "言語雖多不可從",
+      "風雲靜處未行龍",
+      "暗中終得明消息",
+      "君爾何須問重重"
+    ],
+    "allusions": [
+      {
+        "ref": "dongpo_foyin",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《東坡遊赤壁》"
+          }
+        ],
+        "note": "佛印稍婆答歌詩"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -645,11 +1625,31 @@
     "system": "liushi_jiazi",
     "no": 50,
     "ganzhi": "壬寅",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "節",
-    "lines": ["佛前發誓無異心", "且看前途得好音", "此物原來本是鐵", "也能變化得成金"],
-    "allusions": [{"ref": "soushen", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《搜神記》"}], "note": "宋定伯賣鬼（小兒路遇惡鬼）"}],
-    "interpretation": {},
+    "lines": [
+      "佛前發誓無異心",
+      "且看前途得好音",
+      "此物原來本是鐵",
+      "也能變化得成金"
+    ],
+    "allusions": [
+      {
+        "ref": "soushen",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《搜神記》"
+          }
+        ],
+        "note": "宋定伯賣鬼（小兒路遇惡鬼）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -658,11 +1658,31 @@
     "system": "liushi_jiazi",
     "no": 51,
     "ganzhi": "壬辰",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "震",
-    "lines": ["東西南北不堪行", "前途此事正可當", "勸君把定莫煩惱", "家門自有保安康"],
-    "allusions": [{"ref": "zhao_kuangyin", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《中國歷史演義》"}], "note": "趙匡胤河東大戰龍虎關"}],
-    "interpretation": {},
+    "lines": [
+      "東西南北不堪行",
+      "前途此事正可當",
+      "勸君把定莫煩惱",
+      "家門自有保安康"
+    ],
+    "allusions": [
+      {
+        "ref": "zhao_kuangyin",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《中國歷史演義》"
+          }
+        ],
+        "note": "趙匡胤河東大戰龍虎關"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -671,11 +1691,31 @@
     "system": "liushi_jiazi",
     "no": 52,
     "ganzhi": "壬午",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "困",
-    "lines": ["功名事業本由天", "不須掛念意懸懸", "若問中間遲與速", "風雲際會在眼前"],
-    "allusions": [{"ref": "xue_rengui", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛仁貴征東》"}], "note": "薛仁貴回家遇丁山"}],
-    "interpretation": {},
+    "lines": [
+      "功名事業本由天",
+      "不須掛念意懸懸",
+      "若問中間遲與速",
+      "風雲際會在眼前"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_rengui",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛仁貴征東》"
+          }
+        ],
+        "note": "薛仁貴回家遇丁山"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -684,11 +1724,31 @@
     "system": "liushi_jiazi",
     "no": 53,
     "ganzhi": "壬申",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "同人",
-    "lines": ["看君來問心中事", "積善之家慶有餘", "運亨財子雙雙至", "指日喜氣溢門閭"],
-    "allusions": [{"ref": "suqin", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《史記·蘇秦列傳》"}], "note": "蘇秦夫妻相會（蘇秦回家假不第）"}],
-    "interpretation": {},
+    "lines": [
+      "看君來問心中事",
+      "積善之家慶有餘",
+      "運亨財子雙雙至",
+      "指日喜氣溢門閭"
+    ],
+    "allusions": [
+      {
+        "ref": "suqin",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《史記·蘇秦列傳》"
+          }
+        ],
+        "note": "蘇秦夫妻相會（蘇秦回家假不第）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -697,11 +1757,31 @@
     "system": "liushi_jiazi",
     "no": 54,
     "ganzhi": "壬戌",
-    "wuxing": {"element": "土", "season": "年", "direction": "四方"},
+    "wuxing": {
+      "element": "土",
+      "season": "年",
+      "direction": "四方"
+    },
     "gua": "巽",
-    "lines": ["孤燈寂寂夜沉沉", "萬事清吉萬事成", "若逢陰中有善果", "燒得好香達神明"],
-    "allusions": [{"ref": "yanzhi_ji", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《念月英》"}], "note": "念月英相國寺（郭華買胭脂）"}],
-    "interpretation": {},
+    "lines": [
+      "孤燈寂寂夜沉沉",
+      "萬事清吉萬事成",
+      "若逢陰中有善果",
+      "燒得好香達神明"
+    ],
+    "allusions": [
+      {
+        "ref": "yanzhi_ji",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《念月英》"
+          }
+        ],
+        "note": "念月英相國寺（郭華買胭脂）"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -710,11 +1790,31 @@
     "system": "liushi_jiazi",
     "no": 55,
     "ganzhi": "癸丑",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "恒",
-    "lines": ["須知進退總言虛", "看看發暗未必全", "珠玉深藏還未變", "心中但得枉徒然"],
-    "allusions": [{"ref": "yanzhi_ji", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《胭脂記》"}], "note": "郭華醉酒誤佳期"}],
-    "interpretation": {},
+    "lines": [
+      "須知進退總言虛",
+      "看看發暗未必全",
+      "珠玉深藏還未變",
+      "心中但得枉徒然"
+    ],
+    "allusions": [
+      {
+        "ref": "yanzhi_ji",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《胭脂記》"
+          }
+        ],
+        "note": "郭華醉酒誤佳期"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -723,11 +1823,31 @@
     "system": "liushi_jiazi",
     "no": 56,
     "ganzhi": "癸卯",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "萃",
-    "lines": ["病中若得苦心勞", "到底完全總未遭", "去後不須回頭問", "心中事務盡消磨"],
-    "allusions": [{"ref": "yanguan_bing", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《歌仔冊》"}], "note": "楊管得病在西軒"}],
-    "interpretation": {},
+    "lines": [
+      "病中若得苦心勞",
+      "到底完全總未遭",
+      "去後不須回頭問",
+      "心中事務盡消磨"
+    ],
+    "allusions": [
+      {
+        "ref": "yanguan_bing",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《歌仔冊》"
+          }
+        ],
+        "note": "楊管得病在西軒"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "notes": "A.3-4：原始資料「楊管」誤作「楊戩/陽官」（視版本而異）；A.2 未收錄此籤，本工補建 allusion 節點 yanguan_bing；出典《歌仔冊》與第18籤同出典但故事不同",
     "draft": false
@@ -737,11 +1857,31 @@
     "system": "liushi_jiazi",
     "no": 57,
     "ganzhi": "癸巳",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "大畜",
-    "lines": ["勸君把定心莫虛", "前途清吉得運時", "到底中間無大事", "又遇神仙守安居"],
-    "allusions": [{"ref": "baishe", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《白蛇傳》"}], "note": "白蛇精遇許漢文"}],
-    "interpretation": {},
+    "lines": [
+      "勸君把定心莫虛",
+      "前途清吉得運時",
+      "到底中間無大事",
+      "又遇神仙守安居"
+    ],
+    "allusions": [
+      {
+        "ref": "baishe",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《白蛇傳》"
+          }
+        ],
+        "note": "白蛇精遇許漢文"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -750,11 +1890,31 @@
     "system": "liushi_jiazi",
     "no": 58,
     "ganzhi": "癸未",
-    "wuxing": {"element": "木", "season": "春", "direction": "東"},
+    "wuxing": {
+      "element": "木",
+      "season": "春",
+      "direction": "東"
+    },
     "gua": "漸",
-    "lines": ["蛇身意欲變成龍", "只恐命內運未通", "久病且作寬心坐", "言語雖多不可從"],
-    "allusions": [{"ref": "baishe", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《白蛇傳》"}], "note": "白蛇精詐言往南海遇漢文"}],
-    "interpretation": {},
+    "lines": [
+      "蛇身意欲變成龍",
+      "只恐命內運未通",
+      "久病且作寬心坐",
+      "言語雖多不可從"
+    ],
+    "allusions": [
+      {
+        "ref": "baishe",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《白蛇傳》"
+          }
+        ],
+        "note": "白蛇精詐言往南海遇漢文"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -763,11 +1923,31 @@
     "system": "liushi_jiazi",
     "no": 59,
     "ganzhi": "癸酉",
-    "wuxing": {"element": "金", "season": "秋", "direction": "西"},
+    "wuxing": {
+      "element": "金",
+      "season": "秋",
+      "direction": "西"
+    },
     "gua": "復",
-    "lines": ["有心作福莫遲疑", "求名清吉正當時", "此事必能成會合", "財寶自然喜相隨"],
-    "allusions": [{"ref": "dongyong", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《天仙配》"}], "note": "董永皇都市仙女送孩兒"}],
-    "interpretation": {},
+    "lines": [
+      "有心作福莫遲疑",
+      "求名清吉正當時",
+      "此事必能成會合",
+      "財寶自然喜相隨"
+    ],
+    "allusions": [
+      {
+        "ref": "dongyong",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《天仙配》"
+          }
+        ],
+        "note": "董永皇都市仙女送孩兒"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   },
@@ -776,11 +1956,31 @@
     "system": "liushi_jiazi",
     "no": 60,
     "ganzhi": "癸亥",
-    "wuxing": {"element": "水", "season": "冬", "direction": "北"},
+    "wuxing": {
+      "element": "水",
+      "season": "冬",
+      "direction": "北"
+    },
     "gua": "謙",
-    "lines": ["月出光輝本清吉", "浮雲總是蔽陰色", "戶內用心再作福", "當官分理便有益"],
-    "allusions": [{"ref": "xue_gang_fantang", "sources": [{"type": "book", "ref": "泰安宮媽祖聖籤版（卦頭故事）", "note": "《薛丁山征西》《薛剛反唐》"}], "note": "薛剛踢死太子驚崩聖駕"}],
-    "interpretation": {},
+    "lines": [
+      "月出光輝本清吉",
+      "浮雲總是蔽陰色",
+      "戶內用心再作福",
+      "當官分理便有益"
+    ],
+    "allusions": [
+      {
+        "ref": "xue_gang_fantang",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "泰安宮媽祖聖籤版（卦頭故事）",
+            "note": "《薛丁山征西》《薛剛反唐》"
+          }
+        ],
+        "note": "薛剛踢死太子驚崩聖駕"
+      }
+    ],
     "version_source": "籤詩本文：公有領域；典故：泰安宮媽祖聖籤版校對（A.0）",
     "draft": false
   }

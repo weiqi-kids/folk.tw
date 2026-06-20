@@ -2,11 +2,20 @@
   {
     "id": "mazu",
     "name": "媽祖",
-    "aliases": ["天上聖母", "天后", "天妃", "湄洲娘媽"],
+    "aliases": [
+      "天上聖母",
+      "天后",
+      "天妃",
+      "湄洲娘媽"
+    ],
     "category": "海神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["航海", "漁民", "救苦救難"],
+    "office": [
+      "航海",
+      "漁民",
+      "救苦救難"
+    ],
     "birthday_lunar": [
       {
         "date": "03-23",
@@ -33,9 +42,11 @@
     ],
     "iconography": [],
     "system": "媽祖系統",
-    "divination_systems": ["liushi_jiazi"],
+    "divination_systems": [
+      "liushi_jiazi"
+    ],
     "groups": [],
-    "summary": "原名林默，福建湄洲人，傳說因救助海難顯靈而受封，為台灣最普及的海洋守護女神，信仰由閩南移民渡海傳入，遍布全台廟宇。",
+    "summary": "原名林默，福建湄洲人，以救助海難顯靈得封「天上聖母」，為台灣最普及的海洋守護女神；信仰隨閩南移民渡台，職司航海、漁民與救苦救難，遍布全台各地廟宇。",
     "sources": [
       {
         "type": "book",
@@ -48,11 +59,19 @@
   {
     "id": "xuantian",
     "name": "玄天上帝",
-    "aliases": ["北極大帝", "真武大帝", "上帝公", "帝爺公"],
+    "aliases": [
+      "北極大帝",
+      "真武大帝",
+      "上帝公",
+      "帝爺公"
+    ],
     "category": "海神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["鎮邪驅魔", "北方水族"],
+    "office": [
+      "鎮邪驅魔",
+      "北方水族"
+    ],
     "birthday_lunar": [
       {
         "date": "03-03",
@@ -77,10 +96,12 @@
         ]
       }
     ],
-    "iconography": ["腳踏龜蛇"],
+    "iconography": [
+      "腳踏龜蛇"
+    ],
     "divination_systems": [],
     "groups": [],
-    "summary": "道教北方主神，以腳踏玄武（龜蛇）為典型造型，司鎮邪驅魔與統御北方水族，在台灣民間以「上帝公」之名廣受信奉。",
+    "summary": "道教北極主神，以腳踏龜蛇玄武為典型造型，職司鎮邪驅魔與統御北方水族；台灣民間慣以「上帝公」、「帝爺公」尊稱，信仰廣布全島。",
     "sources": [
       {
         "type": "book",
@@ -93,11 +114,16 @@
   {
     "id": "shuixian",
     "name": "水仙尊王",
-    "aliases": ["水仙王"],
+    "aliases": [
+      "水仙王"
+    ],
     "category": "海神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["航運", "水利"],
+    "office": [
+      "航運",
+      "水利"
+    ],
     "birthday_lunar": [
       {
         "date": "10-10",
@@ -114,7 +140,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "以大禹為首的水域守護神群，多將大禹等五王合祀，保佑航運與水利，常見於港口及水路沿線廟宇。",
+    "summary": "以治水之祖大禹為首的水域守護神群，統御航運與水利，多將數位水中聖賢合祀，常見於港口、水路沿線廟宇，別稱水仙王。",
     "sources": [
       {
         "type": "book",
@@ -127,16 +153,63 @@
   {
     "id": "longwang",
     "name": "四海龍王",
-    "aliases": ["龍王"],
+    "aliases": [
+      "龍王"
+    ],
     "category": "海神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["司雨", "水域"],
-    "birthday_lunar": [],
+    "office": [
+      "司雨",
+      "水域"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "01-06",
+        "kind": "聖誕",
+        "note": "農曆正月初六，祀典大天后宮記載四海龍王祭祀日。此日為該廟奉祀日，非廣泛通行聖誕。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "祀典大天后宮官網「神明介紹—四海龍王」https://www.gtainanmazu.org.tw/?act=menuinfo&ml_id=20211026030&cmd=detail&mi_id=20211029003",
+            "note": "原文：「祭祀日：正月六日」"
+          }
+        ]
+      },
+      {
+        "date": "06-13",
+        "kind": "聖誕",
+        "note": "農曆六月十三日，中國傳統（山東等地）視為龍王誕辰，以祭儀求雨；台灣廟宇較少以此日為正式聖誕，但文獻有載。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "Wikipedia「Dragon King」英文條目 https://en.wikipedia.org/wiki/Dragon_King",
+            "note": "原文：'Dragon processions have been held on the fifth and sixth moon of the lunisolar calendar all over China, especially on the 13th day of the sixth moon, held to be the Dragon King's birthday.'"
+          },
+          {
+            "type": "web",
+            "ref": "Qingdao fishermen celebrate Dragon King's birthday, China Daily Shandong Culture https://chinadaily.com.cn/m/shandong/shandongculture/2018-03/01/content_36085376.htm",
+            "note": "山東青島漁民以農曆六月十三祭龍王"
+          }
+        ]
+      },
+      {
+        "date": "10-10",
+        "kind": "聖誕",
+        "note": "農曆十月初十，澎湖漁民傳說海龍王誕辰，魚蝦往龍宮祝壽，漁民自動休息一天，俗稱「海龍王洗港日」。地方性傳說，非全台通行。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "台灣好神拜拜網「四海龍王」https://4book.com.tw/2022/09/19/%E5%9B%9B%E6%B5%B7%E9%BE%8D%E7%8E%8B/ 轉引nicecasio.pixnet.net部落格",
+            "note": "原文：「臺灣澎湖地區漁民，咸信農曆十月初十日是海龍王誕辰，魚蝦皆往龍宮祝壽，海裏撈不到漁獲，所以每當此日，漁民自動休息一天」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "統御四方海域與司掌降雨的神祇，位居海神與自然神交界，在台灣信仰中常與水域守護相關，聖誕日期待查。",
+    "summary": "統御東西南北四海海域、掌管降雨的神祇，地位居海神與自然神之交界，職司水域守護，在台灣民間信仰中與水利、漁業密切相關。",
     "sources": [
       {
         "type": "book",
@@ -144,16 +217,23 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "wangye",
     "name": "王爺（千歲）",
-    "aliases": ["代天巡狩", "某府千歲", "五府千歲"],
+    "aliases": [
+      "代天巡狩",
+      "某府千歲",
+      "五府千歲"
+    ],
     "category": "開拓神信仰",
     "is_category": true,
     "instances": [],
-    "office": ["巡境驅瘟", "地方守護"],
+    "office": [
+      "巡境驅瘟",
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "無定",
@@ -170,7 +250,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "台灣南部最具特色的信仰類別，代天巡狩、驅疫送瘟，各府千歲各有其姓氏與聖誕，王船祭為重要儀式，各地廟宇供奉不同府千歲。",
+    "summary": "「王爺」為台灣信仰類別，底下有眾多具姓氏的具名千歲，各奉代天巡狩之命，職司巡境驅瘟、守護地方；王船祭為核心儀式，各府千歲聖誕各異，以台灣南部信仰最為盛行。",
     "sources": [
       {
         "type": "book",
@@ -183,11 +263,19 @@
   {
     "id": "tudigong",
     "name": "福德正神",
-    "aliases": ["土地公", "伯公", "后土"],
+    "aliases": [
+      "土地公",
+      "伯公",
+      "后土"
+    ],
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["村落", "田土", "財"],
+    "office": [
+      "村落",
+      "田土",
+      "財"
+    ],
     "birthday_lunar": [
       {
         "date": "02-02",
@@ -215,7 +303,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "台灣最普及的基層守護神，主掌村落田土與財富，幾乎每個村庄與街道都有土地公廟，為農業社會中與庶民生活最貼近的神明。",
+    "summary": "主掌村落田土與財富的基層守護神，別稱土地公、伯公，為台灣廟宇密度最高的神明；幾乎每個村庄街道皆有土地公廟，與庶民農業生活關係最為緊密。",
     "sources": [
       {
         "type": "book",
@@ -228,11 +316,17 @@
   {
     "id": "chenghuang",
     "name": "城隍爺",
-    "aliases": ["都城隍", "省城隍"],
+    "aliases": [
+      "都城隍",
+      "省城隍"
+    ],
     "category": "開拓神信仰",
     "is_category": true,
     "instances": [],
-    "office": ["陰司", "城域司法"],
+    "office": [
+      "陰司",
+      "城域司法"
+    ],
     "birthday_lunar": [
       {
         "date": "無定",
@@ -249,7 +343,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "統管城市陰司與行政司法的神明，分省、府、縣、鄉鎮等層級，各地城隍各有其封號與聖誕，部將七爺八爺協助執法緝拿。",
+    "summary": "「城隍」為信仰類別，底下分省、府、縣、鄉鎮等層級，各地城隍各有封號；職司城域陰司與行政司法，以七爺八爺（范謝將軍）為部將協助緝拿，陰陽秩序的重要支柱。",
     "sources": [
       {
         "type": "book",
@@ -262,16 +356,59 @@
   {
     "id": "qiyebaye",
     "name": "七爺八爺",
-    "aliases": ["范謝將軍", "黑白無常"],
+    "aliases": [
+      "范謝將軍",
+      "黑白無常"
+    ],
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["城隍部將", "緝拿"],
-    "birthday_lunar": [],
+    "office": [
+      "城隍部將",
+      "緝拿"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "04-26",
+        "kind": "聖誕",
+        "note": "七爺謝必安（謝將軍）聖誕，農曆四月二十六日。依台灣多數城隍廟傳統。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "edj.tw「2025謝范將軍聖誕什麼時候？七爺八爺誕辰日期與慶典懶人包」https://www.edj.tw/blog/posts/%E8%AC%9D%E8%8C%83%E5%B0%87%E8%BB%8D%E8%81%96%E8%AA%95",
+            "note": "原文：「七爺謝必安：農曆四月二十六日……依據台灣多數城隍廟的傳統」"
+          }
+        ]
+      },
+      {
+        "date": "04-27",
+        "kind": "聖誕",
+        "note": "八爺范無救（范將軍）聖誕，農曆四月二十七日。依台灣多數城隍廟傳統。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "edj.tw「2025謝范將軍聖誕什麼時候？七爺八爺誕辰日期與慶典懶人包」https://www.edj.tw/blog/posts/%E8%AC%9D%E8%8C%83%E5%B0%87%E8%BB%8D%E8%81%96%E8%AA%95",
+            "note": "原文：「八爺范無救：農曆四月二十七日……依據台灣多數城隍廟的傳統」"
+          }
+        ]
+      },
+      {
+        "date": "10-01",
+        "kind": "聖誕",
+        "note": "七爺謝必安另說農曆十月初一（另有正月初八、七月十五等異說），各廟不一。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "blessingday.me「2025新編神明聖誕農曆神佛誕辰表」https://www.blessingday.me/blog/posts/lunar-birthday",
+            "note": "原文提及「七爺謝必安將軍農曆十月初一，另一版本稱正月初八或七月十五」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "城隍爺的陰司部將，范將軍（七爺）與謝將軍（八爺）分執黑白令旗，負責陰間緝拿亡魂，廟會遶境中以其高大裝扮著稱，聖誕待查。",
+    "summary": "城隍爺麾下的陰司部將，范將軍（七爺）與謝將軍（八爺）分執令旗，職司緝拿陰間亡魂、維護冥界秩序；廟會遶境中兩人高大裝扮為最具辨識度的神將造型。",
     "sources": [
       {
         "type": "book",
@@ -279,16 +416,22 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "dongyue",
     "name": "東嶽大帝",
-    "aliases": ["東嶽仁聖大帝", "泰山府君"],
+    "aliases": [
+      "東嶽仁聖大帝",
+      "泰山府君"
+    ],
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["掌幽冥", "壽算"],
+    "office": [
+      "掌幽冥",
+      "壽算"
+    ],
     "birthday_lunar": [
       {
         "date": "03-28",
@@ -305,7 +448,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "主掌幽冥陰司與壽命計算的泰山主神，統轄東岳，在台灣為陰司信仰的重要神祇，與城隍系統共同構成冥界秩序。",
+    "summary": "泰山主神，別稱泰山府君，職司掌理幽冥陰司與壽算登記；在台灣作為陰司信仰的重要神祇，與城隍系統共同構成人死後所進入的冥界行政秩序。",
     "sources": [
       {
         "type": "book",
@@ -318,11 +461,18 @@
   {
     "id": "kaitai",
     "name": "開臺聖王",
-    "aliases": ["鄭成功", "國姓爺", "延平郡王"],
+    "aliases": [
+      "鄭成功",
+      "國姓爺",
+      "延平郡王"
+    ],
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["開臺", "地方守護"],
+    "office": [
+      "開臺",
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "07-24",
@@ -339,7 +489,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "明末遺臣鄭成功驅荷復台，死後被民間神格化，奉祀為開臺守護神，延平郡王祠為台灣首座奉祀漢人的官建廟宇。",
+    "summary": "明末遺臣鄭成功（國姓爺）率師驅逐荷蘭人、開墾台灣，死後被民間神格化為開臺守護神，以「開臺聖王」、「延平郡王」尊稱供奉，職司開臺與地方守護。",
     "sources": [
       {
         "type": "book",
@@ -352,11 +502,17 @@
   {
     "id": "guanyin",
     "name": "觀世音菩薩",
-    "aliases": ["觀音佛祖", "觀音媽"],
+    "aliases": [
+      "觀音佛祖",
+      "觀音媽"
+    ],
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["救苦救難", "慈悲"],
+    "office": [
+      "救苦救難",
+      "慈悲"
+    ],
     "birthday_lunar": [
       {
         "date": "02-19",
@@ -395,7 +551,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "佛教大悲菩薩，以慈悲救苦著稱，台灣民間普遍奉祀，融入道教與本土信仰，為台灣最受崇信的菩薩之一。",
+    "summary": "佛教大悲菩薩，以慈悲救苦難著稱，職司救苦救難；台灣民間將其融入道教與本土信仰脈絡，以「觀音佛祖」、「觀音媽」親切稱之，為全台受崇信最廣的菩薩。",
     "sources": [
       {
         "type": "book",
@@ -408,11 +564,17 @@
   {
     "id": "baosheng",
     "name": "保生大帝",
-    "aliases": ["大道公", "吳真人(吳夲)"],
+    "aliases": [
+      "大道公",
+      "吳真人(吳夲)"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["醫藥", "消災"],
+    "office": [
+      "醫藥",
+      "消災"
+    ],
     "birthday_lunar": [
       {
         "date": "03-15",
@@ -429,7 +591,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "宋代泉州同安名醫吳夲，以高超醫術救人無數，死後被奉為醫神，由同安籍移民帶入台灣，廟中藥籤信仰至今仍盛行。",
+    "summary": "宋代泉州同安名醫吳夲（吳真人），以高超醫術救人，死後被奉為醫神「大道公」；由同安籍移民帶入台灣，職司醫藥與消災，廟中藥籤信仰至今仍盛行。",
     "sources": [
       {
         "type": "book",
@@ -442,11 +604,17 @@
   {
     "id": "kaizhang",
     "name": "開漳聖王",
-    "aliases": ["陳元光", "聖王公"],
+    "aliases": [
+      "陳元光",
+      "聖王公"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["開漳", "地方守護"],
+    "office": [
+      "開漳",
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "02-16",
@@ -463,7 +631,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "唐代將領陳元光率兵平定漳州、開疆拓土，死後被漳州人奉為守護神，隨漳州籍移民渡台，成為台灣漳州族群的精神象徵。",
+    "summary": "唐代將領陳元光率兵平定漳州、開疆拓土，死後被漳州人奉為守護神；隨漳州籍移民渡台，職司開漳與地方守護，成為台灣漳州族群的精神認同象徵。",
     "sources": [
       {
         "type": "book",
@@ -476,11 +644,16 @@
   {
     "id": "guangze",
     "name": "廣澤尊王",
-    "aliases": ["郭聖王", "聖王公"],
+    "aliases": [
+      "郭聖王",
+      "聖王公"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["地方守護"],
+    "office": [
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "08-22",
@@ -497,7 +670,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "泉州南安人郭忠福幼年得道升仙，被閩南移民奉為守護神，台灣泉州南安籍移民建廟祀奉，聖王公廟遍布各地，配祀妙應仙妃。",
+    "summary": "泉州南安人郭忠福（郭聖王）幼年得道升仙，被閩南移民奉為地方守護神；隨南安籍移民渡台建廟，職司地方守護，配祀妙應仙妃，信仰廣布各地。",
     "sources": [
       {
         "type": "book",
@@ -510,11 +683,17 @@
   {
     "id": "sanshan",
     "name": "三山國王",
-    "aliases": ["巾山", "明山", "獨山"],
+    "aliases": [
+      "巾山",
+      "明山",
+      "獨山"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["地方守護"],
+    "office": [
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "02-25",
@@ -531,7 +710,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "潮州粵東三山（巾山、明山、獨山）的山神，由客家移民帶入台灣，是台灣客家族群最重要的守護神，廟宇多集中於客家聚落。",
+    "summary": "潮州粵東巾山、明山、獨山三山的山靈神格化，由客家移民帶入台灣，職司地方守護；為台灣客家族群最重要的守護神，廟宇多集中於客家聚落所在地。",
     "sources": [
       {
         "type": "book",
@@ -544,11 +723,18 @@
   {
     "id": "qingshui",
     "name": "清水祖師",
-    "aliases": ["祖師公", "蓬萊祖師", "烏面祖師"],
+    "aliases": [
+      "祖師公",
+      "蓬萊祖師",
+      "烏面祖師"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["驅疫", "地方守護"],
+    "office": [
+      "驅疫",
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "01-06",
@@ -565,7 +751,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "宋代泉州安溪高僧，以苦修得道，能驅疫消災，因面色烏黑又稱烏面祖師，由安溪移民帶入台灣，鼻子會掉落預警災難的傳說流傳甚廣。",
+    "summary": "宋代泉州安溪高僧，以苦修得道、能驅疫消災，面色烏黑故稱「烏面祖師」；由安溪移民帶入台灣，職司驅疫與地方守護，鼻子應兆預警災難的傳說廣為流傳。",
     "sources": [
       {
         "type": "book",
@@ -578,20 +764,48 @@
   {
     "id": "yimin",
     "name": "義民爺",
-    "aliases": ["褒忠義民", "義民公"],
+    "aliases": [
+      "褒忠義民",
+      "義民公"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["護鄉殉難"],
+    "office": [
+      "護鄉殉難"
+    ],
     "birthday_lunar": [
       {
         "date": "07-20",
         "kind": "其他",
+        "note": "農曆七月二十日為「義民節」，是新埔褒忠亭義民廟的例祭日，非義民爺誕辰。此日係道光十五年起改定（原定十一月九日，為配合中元普渡移至此日）。義民爺為集體英靈，理論上無單一「聖誕」日。",
         "sources": [
           {
-            "type": "book",
-            "ref": "神明聖誕千秋日一覽表（通行彙整版）",
-            "note": "B.0 聖誕基準；義民節7/20，聖誕本身待查"
+            "type": "web",
+            "ref": "sim.org.tw「義民節由來」https://www.sim.org.tw/festival67.html",
+            "note": "記載義民節農曆七月二十日為例祭日"
+          },
+          {
+            "type": "web",
+            "ref": "Wikipedia「褒忠亭義民廟」https://zh.wikipedia.org/zh-tw/%E8%A4%92%E5%BF%A0%E4%BA%AD%E7%BE%A9%E6%B0%91%E5%BB%9F",
+            "note": "記載七月二十日為例祭，原定十一月九日"
+          }
+        ]
+      },
+      {
+        "date": "05-30",
+        "kind": "其他",
+        "note": "農曆五月三十日（閏月或無三十日則改五月廿九日）為雲林北港義民廟的義民公爺普。此日為108義士殉難日，廟方舉行「結肉山」祭儀，係殉難紀念日而非聖誕。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "雲林縣政府新聞「義民爺聖誕千秋暨總統木匾揭牌典禮」https://www.yunlin.gov.tw/News_Content.aspx?n=1244&s=223461",
+            "note": "原文：「每年的農曆五月三十日（或二十九）義民爺聖誕之際都吸引眾多信眾前來朝聖」"
+          },
+          {
+            "type": "web",
+            "ref": "北港義民廟 Wikipedia https://zh.wikipedia.org/zh-tw/%E5%8C%97%E6%B8%AF%E7%BE%A9%E6%B0%91%E5%BB%9F",
+            "note": "義士殉難於農曆五月三十日"
           }
         ]
       }
@@ -599,7 +813,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "清代台灣動亂中護鄉殉難的客家義民，死後被鄉親奉祀，黑令旗與義民祭為客家獨特文化象徵，新竹褒忠亭義民廟為台灣客家信仰中心。",
+    "summary": "清代台灣動亂中護鄉殉難的客家義民，死後被鄉親立廟奉祀為「褒忠義民」；黑令旗與義民祭典為客家文化的獨特象徵，職司護鄉殉難的精神歷代傳承不絕。",
     "sources": [
       {
         "type": "book",
@@ -607,16 +821,22 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "fazhu",
     "name": "法主公",
-    "aliases": ["法主聖君", "張聖君"],
+    "aliases": [
+      "法主聖君",
+      "張聖君"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["收妖", "法教"],
+    "office": [
+      "收妖",
+      "法教"
+    ],
     "birthday_lunar": [
       {
         "date": "07-23",
@@ -633,7 +853,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "泉州安溪道士張慈觀，精通法術能收妖伏魔，由安溪移民帶入台灣，在台北盆地信仰圈頗為盛行，廟中法教儀式保有傳統特色。",
+    "summary": "泉州安溪道士張慈觀（張聖君），精通法術能收妖伏魔，由安溪移民帶入台灣；職司收妖與法教，以「法主公」尊稱為人所知，在台北盆地信仰圈尤為盛行。",
     "sources": [
       {
         "type": "book",
@@ -646,11 +866,16 @@
   {
     "id": "qingshan",
     "name": "青山王",
-    "aliases": ["靈安尊王"],
+    "aliases": [
+      "靈安尊王"
+    ],
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["司法", "驅疫"],
+    "office": [
+      "司法",
+      "驅疫"
+    ],
     "birthday_lunar": [
       {
         "date": "10-22",
@@ -667,7 +892,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "泉州惠安籍移民奉祀的司法驅疫之神，台北艋舺青山宮每年十月夜巡遶境為重要民俗活動，沿途陣頭與神將展現閩南移民的信仰傳承。",
+    "summary": "泉州惠安籍移民奉祀的地方守護神，別稱「靈安尊王」，職司司法與驅疫；以艋舺青山宮為中心，每年十月夜巡遶境為重要民俗活動，陣頭展現閩南信仰底蘊。",
     "sources": [
       {
         "type": "book",
@@ -680,11 +905,21 @@
   {
     "id": "guangong",
     "name": "關聖帝君",
-    "aliases": ["關公", "恩主公", "協天大帝", "文衡聖帝", "武財神"],
+    "aliases": [
+      "關公",
+      "恩主公",
+      "協天大帝",
+      "文衡聖帝",
+      "武財神"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["忠義", "商業", "武"],
+    "office": [
+      "忠義",
+      "商業",
+      "武"
+    ],
     "birthday_lunar": [
       {
         "date": "06-24",
@@ -711,8 +946,10 @@
     ],
     "iconography": [],
     "divination_systems": [],
-    "groups": ["五文昌"],
-    "summary": "三國名將關羽，以忠義仁勇著稱，死後被歷代尊封，兼具武神、財神與文衡聖帝多重神格，在台灣商界信仰中地位極高，為五文昌之一。",
+    "groups": [
+      "五文昌"
+    ],
+    "summary": "三國名將關羽，以忠義仁勇著稱，死後歷代尊封，兼具武神、商業財神與文衡聖帝多重神格；在台灣以「恩主公」廣受商界崇信，亦為五文昌之一。",
     "sources": [
       {
         "type": "book",
@@ -725,11 +962,16 @@
   {
     "id": "wenchang",
     "name": "文昌帝君",
-    "aliases": ["梓潼帝君"],
+    "aliases": [
+      "梓潼帝君"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["功名", "學業"],
+    "office": [
+      "功名",
+      "學業"
+    ],
     "birthday_lunar": [
       {
         "date": "02-03",
@@ -745,8 +987,10 @@
     ],
     "iconography": [],
     "divination_systems": [],
-    "groups": ["五文昌"],
-    "summary": "主管科考功名與文運的神明，由四川梓潼帝君信仰演化而來，台灣學子赴考前多前往祈求，為五文昌之一，考季廟宇香火鼎盛。",
+    "groups": [
+      "五文昌"
+    ],
+    "summary": "主管科考功名與文運的神明，由四川梓潼帝君信仰演化而來，又稱梓潼帝君；為五文昌之一，台灣學子赴考前多前往祈求，考季廟宇香火極為鼎盛。",
     "sources": [
       {
         "type": "book",
@@ -759,11 +1003,18 @@
   {
     "id": "shennong",
     "name": "神農大帝",
-    "aliases": ["五穀先帝", "先農", "炎帝"],
+    "aliases": [
+      "五穀先帝",
+      "先農",
+      "炎帝"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["農", "醫藥"],
+    "office": [
+      "農",
+      "醫藥"
+    ],
     "birthday_lunar": [
       {
         "date": "04-26",
@@ -780,7 +1031,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "傳說中嘗百草教導農耕的炎帝神農，為農業與醫藥的始祖神，台灣農業社會中廣受敬奉，部分廟宇保有藥籤傳統。",
+    "summary": "上古傳說中嘗百草、教導農耕的炎帝神農，別稱「五穀先帝」；職司農業與醫藥，為農耕文明的始祖神，台灣農業社會廣受敬奉，部分廟宇保有藥籤傳統。",
     "sources": [
       {
         "type": "book",
@@ -793,11 +1044,16 @@
   {
     "id": "luban",
     "name": "巧聖先師",
-    "aliases": ["魯班公"],
+    "aliases": [
+      "魯班公"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["木工", "營造祖師"],
+    "office": [
+      "木工",
+      "營造祖師"
+    ],
     "birthday_lunar": [
       {
         "date": "05-07",
@@ -814,7 +1070,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "春秋時代巧匠魯班，被奉為木工、建築與土木行業的祖師爺，台灣傳統建築業與木匠師傅多奉祀，廟宇落成時也常有相關儀式。",
+    "summary": "春秋時代巧匠魯班，以精湛技藝聞名，被後世奉為木工、建築與土木行業的祖師爺；台灣傳統建築業與木匠師傅多奉祀，廟宇落成儀式亦常與祖師信仰相連。",
     "sources": [
       {
         "type": "book",
@@ -827,11 +1083,16 @@
   {
     "id": "xiqin",
     "name": "西秦王爺",
-    "aliases": ["（梨園祖師）"],
+    "aliases": [
+      "（梨園祖師）"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["戲曲", "梨園"],
+    "office": [
+      "戲曲",
+      "梨園"
+    ],
     "birthday_lunar": [
       {
         "date": "06-24",
@@ -848,7 +1109,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "戲曲梨園業的守護祖師，與田都元帥分屬不同流派系統，傳統台灣戲班依其籍貫偏好而選擇奉祀，兩神各有信眾擁護。",
+    "summary": "梨園戲曲業的守護祖師，與田都元帥分屬不同流派系統；台灣傳統戲班依各自籍貫傳統選擇奉祀，職司戲曲，兩神各有信眾，並立於台灣梨園信仰之中。",
     "sources": [
       {
         "type": "book",
@@ -861,11 +1122,17 @@
   {
     "id": "tiandu",
     "name": "田都元帥",
-    "aliases": ["雷海青", "相公爺"],
+    "aliases": [
+      "雷海青",
+      "相公爺"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["戲曲", "梨園"],
+    "office": [
+      "戲曲",
+      "梨園"
+    ],
     "birthday_lunar": [
       {
         "date": "06-11",
@@ -882,7 +1149,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "傳說唐代樂師雷海青因忠義殉節被奉神，成為戲曲梨園業守護神，在台灣戲班中與西秦王爺分系並立，各有祭祀傳統。",
+    "summary": "傳說唐代樂師雷海青因忠義殉節而被奉神，別稱「相公爺」；職司戲曲梨園，在台灣戲班中與西秦王爺分系並立，各有祭祀傳統，成為梨園業的重要守護神。",
     "sources": [
       {
         "type": "book",
@@ -895,11 +1162,18 @@
   {
     "id": "ludongbin",
     "name": "孚佑帝君",
-    "aliases": ["呂洞賓", "呂純陽", "純陽祖師"],
+    "aliases": [
+      "呂洞賓",
+      "呂純陽",
+      "純陽祖師"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["八仙", "文運"],
+    "office": [
+      "八仙",
+      "文運"
+    ],
     "birthday_lunar": [
       {
         "date": "04-14",
@@ -915,8 +1189,11 @@
     ],
     "iconography": [],
     "divination_systems": [],
-    "groups": ["五文昌", "八仙"],
-    "summary": "道教八仙之一，以劍術與仙術聞名，同時主掌文運，在台灣兼具八仙身分與五文昌成員，廟宇中常以手持寶劍的仙人形象出現。",
+    "groups": [
+      "五文昌",
+      "八仙"
+    ],
+    "summary": "道教八仙之一，以劍術仙術聞名，別稱呂純陽、純陽祖師；同時主掌文運，兼具八仙與五文昌雙重身分，廟宇中常以手持寶劍的仙人形象出現。",
     "sources": [
       {
         "type": "book",
@@ -929,11 +1206,17 @@
   {
     "id": "kongzi",
     "name": "至聖先師",
-    "aliases": ["孔子", "文宣王"],
+    "aliases": [
+      "孔子",
+      "文宣王"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["教育", "儒"],
+    "office": [
+      "教育",
+      "儒"
+    ],
     "birthday_lunar": [
       {
         "date": "08-27",
@@ -950,7 +1233,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "儒家創始人孔子，以推動禮樂教化著稱，台灣各地孔廟定期舉行釋奠典禮，農曆八月二十七日聖誕亦為台灣法定教師節。",
+    "summary": "儒家創始人，以禮樂教化推行仁義著稱，被尊為「至聖先師」；台灣各地孔廟定期舉行釋奠典禮，職司教育與儒學傳承，農曆八月廿七日聖誕亦為法定教師節。",
     "sources": [
       {
         "type": "book",
@@ -963,11 +1246,18 @@
   {
     "id": "nazha",
     "name": "中壇元帥",
-    "aliases": ["三太子", "哪吒", "太子爺"],
+    "aliases": [
+      "三太子",
+      "哪吒",
+      "太子爺"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["先鋒", "驅邪"],
+    "office": [
+      "先鋒",
+      "驅邪"
+    ],
     "birthday_lunar": [
       {
         "date": "09-09",
@@ -984,7 +1274,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "神話中天王李靖之子哪吒，以風火輪與火尖槍為法器，形象年輕俊俏，近年電音三太子文化使其成為台灣廟會最具活力的神明代表。",
+    "summary": "神話天王李靖之子哪吒，別稱三太子，以風火輪與火尖槍為法器，形象年輕俊俏；職司先鋒驅邪，近年電音三太子文化使其成為台灣廟會最具活力的神明形象。",
     "sources": [
       {
         "type": "book",
@@ -997,11 +1287,17 @@
   {
     "id": "jiutian",
     "name": "九天玄女",
-    "aliases": ["玄女娘娘"],
+    "aliases": [
+      "玄女娘娘"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["兵法", "術數", "香業"],
+    "office": [
+      "兵法",
+      "術數",
+      "香業"
+    ],
     "birthday_lunar": [
       {
         "date": "02-15",
@@ -1018,7 +1314,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "傳授黃帝兵法奇書的女神，兼掌術數與香業，在台灣民間信仰中以智慧與神秘著稱，部分廟宇亦奉為香業守護神。",
+    "summary": "傳授黃帝兵法奇書的上古女神，別稱玄女娘娘；職司兵法、術數與香業，以智慧與神秘見稱，在台灣民間信仰中兼為部分香業從業者的守護神明。",
     "sources": [
       {
         "type": "book",
@@ -1031,11 +1327,17 @@
   {
     "id": "jigong",
     "name": "濟公",
-    "aliases": ["濟公活佛", "濟顛"],
+    "aliases": [
+      "濟公活佛",
+      "濟顛"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["濟世", "度人"],
+    "office": [
+      "濟世",
+      "度人"
+    ],
     "birthday_lunar": [
       {
         "date": "02-02",
@@ -1063,7 +1365,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "南宋高僧道濟，行為瘋癲卻能救苦濟世，被民間奉為活佛，台灣廟宇中常以破帽芭蕉扇的醉僧形象出現，體現佛教慈悲入世精神。",
+    "summary": "南宋高僧道濟，行為瘋癲卻能救苦濟世，被民間奉為「濟公活佛」；職司濟世度人，廟宇中常以破帽芭蕉扇的醉僧形象出現，體現佛教慈悲入世的精神境界。",
     "sources": [
       {
         "type": "book",
@@ -1076,11 +1378,17 @@
   {
     "id": "kuixing",
     "name": "魁星",
-    "aliases": ["大成魁星", "魁斗星君"],
+    "aliases": [
+      "大成魁星",
+      "魁斗星君"
+    ],
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["科考", "功名"],
+    "office": [
+      "科考",
+      "功名"
+    ],
     "birthday_lunar": [
       {
         "date": "07-07",
@@ -1096,8 +1404,10 @@
     ],
     "iconography": [],
     "divination_systems": [],
-    "groups": ["五文昌"],
-    "summary": "主宰科舉魁斗的星君，以一腳踢斗、一手持筆的特殊造型著稱，為讀書人奉祀的功名神，五文昌之一，考試前學子多前往祈求金榜題名。",
+    "groups": [
+      "五文昌"
+    ],
+    "summary": "主宰科舉魁斗的星君，以一腳踢斗、一手持筆的特殊造型著稱；職司科考功名，為五文昌之一，讀書人奉為功名守護神，考試前祈求金榜題名者絡繹不絕。",
     "sources": [
       {
         "type": "book",
@@ -1110,11 +1420,15 @@
   {
     "id": "yuelao",
     "name": "月下老人",
-    "aliases": ["月老"],
+    "aliases": [
+      "月老"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["姻緣"],
+    "office": [
+      "姻緣"
+    ],
     "birthday_lunar": [
       {
         "date": "08-15",
@@ -1131,7 +1445,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "掌管天下姻緣的仙翁，以紅線牽繫有緣人，台灣廟宇中求姻緣風氣盛行，台北霞海城隍廟月老因媒合成功案例眾多而聞名全台。",
+    "summary": "掌管天下姻緣的仙翁，以紅線牽繫有緣人為其職司；台灣廟宇中求姻緣風氣盛行，月老信仰深入民心，為愛情婚配信仰中最廣為人知的神明。",
     "sources": [
       {
         "type": "book",
@@ -1144,11 +1458,16 @@
   {
     "id": "zhusheng",
     "name": "註生娘娘",
-    "aliases": ["註生媽"],
+    "aliases": [
+      "註生媽"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["求子", "生育"],
+    "office": [
+      "求子",
+      "生育"
+    ],
     "birthday_lunar": [
       {
         "date": "03-20",
@@ -1165,7 +1484,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "掌管生育與登記新生兒的女神，手持生死簿記錄人間子嗣，台灣婦女求子必拜，常與婆姐一同供奉，廟中婦女燒金祈求順利得子。",
+    "summary": "掌管生育並登記新生兒的女神，手持生死簿記錄人間子嗣；職司求子與生育，台灣婦女求子必拜，常與婆姐合祀，是愛情婦幼守護信仰體系的核心神明之一。",
     "sources": [
       {
         "type": "book",
@@ -1178,11 +1497,19 @@
   {
     "id": "linshui",
     "name": "臨水夫人",
-    "aliases": ["陳靖姑", "順天聖母", "大奶夫人"],
+    "aliases": [
+      "陳靖姑",
+      "順天聖母",
+      "大奶夫人"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["安胎", "護產", "保嬰"],
+    "office": [
+      "安胎",
+      "護產",
+      "保嬰"
+    ],
     "birthday_lunar": [
       {
         "date": "01-15",
@@ -1198,8 +1525,10 @@
     ],
     "iconography": [],
     "divination_systems": [],
-    "groups": ["三奶夫人"],
-    "summary": "唐代福州女道士陳靖姑，懷孕時施法救旱而亡，死後顯靈護產，為三奶夫人之大奶，與林夫人、李夫人合稱三奶夫人，是台閩地區保護孕婦與嬰兒的重要女神。",
+    "groups": [
+      "三奶夫人"
+    ],
+    "summary": "唐代福州女道士陳靖姑，傳說懷孕時施法救旱而亡、死後顯靈護產；為三奶夫人之大奶，職司安胎、護產與保嬰，是台閩地區守護孕婦與嬰兒的重要女神。",
     "sources": [
       {
         "type": "book",
@@ -1212,11 +1541,15 @@
   {
     "id": "qixing",
     "name": "七星娘娘",
-    "aliases": ["七娘媽"],
+    "aliases": [
+      "七娘媽"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["兒童守護"],
+    "office": [
+      "兒童守護"
+    ],
     "birthday_lunar": [
       {
         "date": "07-07",
@@ -1233,7 +1566,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "北斗七星的女神化身，守護十六歲以下兒童，台灣傳統「做十六歲」成年禮在農曆七月七日七娘媽誕辰舉行，孩童至廟中謝神出婆姐間。",
+    "summary": "北斗七星的女神化身，別稱七娘媽，專司守護十六歲以下兒童；台灣「做十六歲」成年禮在農曆七月七日七娘媽誕辰舉行，孩童至廟中謝神出婆姐間，為重要歲時民俗。",
     "sources": [
       {
         "type": "book",
@@ -1246,16 +1579,20 @@
   {
     "id": "pojie",
     "name": "婆姐",
-    "aliases": ["十二婆姐"],
+    "aliases": [
+      "十二婆姐"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["育嬰"],
+    "office": [
+      "育嬰"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "十二位負責照護嬰幼兒的女神，各司不同月分的嬰兒守護，為註生娘娘與臨水夫人的從神，台灣廟宇中常見十二婆姐神像成列供奉。",
+    "summary": "十二位負責照護嬰幼兒的女神，各司不同月分的嬰兒守護；為註生娘娘與臨水夫人的從神，台灣廟宇中常見十二婆姐神像成列供奉，職司育嬰守護。",
     "sources": [
       {
         "type": "book",
@@ -1268,16 +1605,45 @@
   {
     "id": "chitou",
     "name": "池頭夫人",
-    "aliases": ["池頭婦人"],
+    "aliases": [
+      "池頭婦人"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["護產（難產）"],
-    "birthday_lunar": [],
+    "office": [
+      "護產（難產）"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "01-20",
+        "kind": "聖誕",
+        "note": "農曆正月二十日，艋舺龍山寺記載「池頭夫人千秋」。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "艋舺龍山寺官網「認識奉祀神祇—佛神聖誕日」https://www.lungshan.org.tw/tw/02_3_birthday.php",
+            "note": "原文：「正月二十日 池頭夫人千秋」"
+          }
+        ]
+      },
+      {
+        "date": "07-14",
+        "kind": "聖誕",
+        "note": "農曆七月十四日，大龍峒保安宮說法：此日正好是池頭夫人「粧腳媽」的生日，與咸豐年間械鬥事件（七月）相關。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/article.php?id=61&lang=tw",
+            "note": "原文：「在農曆七月十四日當天，也正好是池頭夫人『粧腳媽』的生日」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "專司護佑難產婦女的女神，傳說因難產而亡化為神靈，在台灣婦幼信仰中扮演特殊角色，多配祀於生育相關廟宇，聖誕待查。",
+    "summary": "傳說因難產而亡、死後化為神靈的女神，專司護佑難產婦女；在台灣婦幼信仰中扮演特殊角色，多配祀於生育相關廟宇之中，職司護產（難產）。",
     "sources": [
       {
         "type": "book",
@@ -1285,21 +1651,39 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "huagong",
     "name": "花公花婆",
-    "aliases": ["花公花婆"],
+    "aliases": [
+      "花公花婆"
+    ],
     "category": "愛情婦幼守護神",
     "is_category": false,
     "instances": [],
-    "office": ["本命花樹", "子嗣"],
-    "birthday_lunar": [],
+    "office": [
+      "本命花樹",
+      "子嗣"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "10-10",
+        "kind": "聖誕",
+        "note": "農曆十月初十，花公花婆聖誕千秋。掌管陰間元辰宮紅白花叢，護佑未出世子嗣。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "Facebook頁面（中華北斗東螺媽祖慈善道統協會）https://www.facebook.com/100076186611498/posts/864335106116035/",
+            "note": "原文：「農曆 10 月初10日，係為【 花公花婆 】之『聖誕千秋』」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "管理人間本命花樹的神明一對，以花樹象徵子嗣命脈，台灣民間信仰中求子嗣時常祭祀花公花婆以求花樹茂盛、子孫綿延，聖誕待查。",
+    "summary": "管理人間本命花樹的一對神明，以花樹象徵子嗣命脈；台灣民間信仰求子嗣時常祭祀花公花婆，祈求本命花樹茂盛，職司子嗣守護，為婦幼信仰中的自然意象神明。",
     "sources": [
       {
         "type": "book",
@@ -1307,16 +1691,23 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "huye",
     "name": "虎爺",
-    "aliases": ["虎爺公", "下壇將軍"],
+    "aliases": [
+      "虎爺公",
+      "下壇將軍"
+    ],
     "category": "動物神崇拜",
     "is_category": false,
     "instances": [],
-    "office": ["鎮廟", "咬錢", "護童"],
+    "office": [
+      "鎮廟",
+      "咬錢",
+      "護童"
+    ],
     "birthday_lunar": [
       {
         "date": "06-06",
@@ -1344,7 +1735,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "以老虎形象呈現的神靈，多為主神座騎或下壇守護，台灣廟宇中常置於神案下方，相傳能咬錢財與護衛兒童，為民間最常見的動物神之一。",
+    "summary": "以老虎形象呈現的神靈，多為主神座騎或下壇守護將軍，別稱「下壇將軍」；台灣廟宇中常置於神案下方，相傳能咬進財富、護衛兒童，職司鎮廟與咬錢護童。",
     "sources": [
       {
         "type": "book",
@@ -1357,11 +1748,17 @@
   {
     "id": "dasheng",
     "name": "齊天大聖",
-    "aliases": ["大聖爺", "孫悟空"],
+    "aliases": [
+      "大聖爺",
+      "孫悟空"
+    ],
     "category": "動物神崇拜",
     "is_category": false,
     "instances": [],
-    "office": ["驅邪", "護童"],
+    "office": [
+      "驅邪",
+      "護童"
+    ],
     "birthday_lunar": [
       {
         "date": "10-12",
@@ -1389,7 +1786,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "《西遊記》孫悟空的神格化，以猴王形象護衛兒童驅邪避凶，台灣廟宇奉祀大聖爺的傳統源自閩南移民，廟會中身手矯健的大聖爺陣頭頗受歡迎。",
+    "summary": "《西遊記》孫悟空的神格化，以猴王形象護衛兒童驅邪避凶，別稱「大聖爺」；職司驅邪與護童，廟宇奉祀傳統源自閩南移民，廟會中大聖爺陣頭深受民眾歡迎。",
     "sources": [
       {
         "type": "book",
@@ -1402,16 +1799,50 @@
   {
     "id": "tianpeng",
     "name": "天蓬元帥",
-    "aliases": ["豬八戒"],
+    "aliases": [
+      "豬八戒"
+    ],
     "category": "動物神崇拜",
     "is_category": false,
     "instances": [],
-    "office": ["（少數祀）"],
-    "birthday_lunar": [],
+    "office": [
+      "（少數祀）"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "02-03",
+        "kind": "聖誕",
+        "note": "農曆二月初三，多數資料及廟宇採用此說。天蓬元帥為道教北極四聖之一，原星宿神，非人格神，「聖誕」說法源頭不一。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "wealthshop888.com「天蓬元帥是誰？台灣八大行業致富的秘密與禁忌」https://www.wealthshop888.com/Article/Detail/100399",
+            "note": "記載農曆二月初三為天蓬元帥聖誕"
+          },
+          {
+            "type": "web",
+            "ref": "storm.mg 風傳媒「為何台灣八大行業都要拜天蓬元帥？」https://www.storm.mg/lifestyle/268376",
+            "note": "「誕辰：依各廟時間不同」，無統一日期"
+          }
+        ]
+      },
+      {
+        "date": "12-10",
+        "kind": "聖誕",
+        "note": "農曆十二月初十，新屋開基八路財神廟所記載的天蓬元帥壽誕日，屬廟方個別說法。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "新屋開基八路財神廟官網「天蓬元帥」https://www.balu.com.tw/gods07.html",
+            "note": "原文：「壽誕日:農曆12月10日」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "《西遊記》豬八戒的神格原型，以豬形象為特徵，在台灣民間信仰中奉祀者較少，部分廟宇附祀，聖誕待查。",
+    "summary": "《西遊記》豬八戒的神格原型天蓬元帥，以豬形象為特徵；在台灣民間信仰中奉祀者較少，屬附祀性質，為動物神崇拜類別中較邊緣的神明。",
     "sources": [
       {
         "type": "book",
@@ -1419,21 +1850,25 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "sheshen",
     "name": "使者公（蛇神）",
-    "aliases": ["使者公"],
+    "aliases": [
+      "使者公"
+    ],
     "category": "動物神崇拜",
     "is_category": false,
     "instances": [],
-    "office": ["地方信仰"],
+    "office": [
+      "地方信仰"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "以蛇為神靈化身的地方信仰，台灣各地山區或特定廟宇中仍存在蛇神崇拜，為原始自然崇拜的遺跡，聖誕待查。",
+    "summary": "以蛇為神靈化身的地方信仰，以「使者公」稱之；台灣各地山區或特定廟宇中仍存在蛇神崇拜，反映原始自然崇拜的遺跡，屬地方型動物神信仰。",
     "sources": [
       {
         "type": "book",
@@ -1446,11 +1881,17 @@
   {
     "id": "yuhuang",
     "name": "玉皇大帝",
-    "aliases": ["天公", "玉皇上帝", "昊天上帝"],
+    "aliases": [
+      "天公",
+      "玉皇上帝",
+      "昊天上帝"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["三界十方共主"],
+    "office": [
+      "三界十方共主"
+    ],
     "birthday_lunar": [
       {
         "date": "01-09",
@@ -1467,7 +1908,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "道教最高天神，統御三界十方諸神，正月初九「天公生」為台灣最重要的祭天節日，家家戶戶擺設供桌祭拜，儀式隆重。",
+    "summary": "道教最高天神，統御三界十方諸神，別稱「天公」、「昊天上帝」；正月初九「天公生」為台灣最重要的祭天節日，家家戶戶擺設供桌隆重祭拜，為天界至高主宰。",
     "sources": [
       {
         "type": "book",
@@ -1480,11 +1921,18 @@
   {
     "id": "sanguan",
     "name": "三官大帝",
-    "aliases": ["三界公", "天地水官"],
+    "aliases": [
+      "三界公",
+      "天地水官"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["賜福", "赦罪", "解厄"],
+    "office": [
+      "賜福",
+      "赦罪",
+      "解厄"
+    ],
     "birthday_lunar": [
       {
         "date": "01-15",
@@ -1523,7 +1971,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "天官、地官、水官合稱三官大帝，分別在上中下三元節日賜福、赦罪、解厄，台灣稱「三界公」，三元節為重要祭典。",
+    "summary": "天官、地官、水官合稱三官大帝，又稱三界公；分別在上元、中元、下元三節日職司賜福、赦罪、解厄，三元節祭典為台灣歲時信仰中的重要節點。",
     "sources": [
       {
         "type": "book",
@@ -1536,11 +1984,17 @@
   {
     "id": "sanqing",
     "name": "三清道祖",
-    "aliases": ["元始", "靈寶", "道德天尊"],
+    "aliases": [
+      "元始",
+      "靈寶",
+      "道德天尊"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["道教最高"],
+    "office": [
+      "道教最高"
+    ],
     "birthday_lunar": [
       {
         "date": "01-01",
@@ -1568,7 +2022,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "道教最高三位神明，元始天尊、靈寶天尊、道德天尊（太上老君）合稱三清，象徵道的三個層次，為純粹道教廟宇主祀神明。",
+    "summary": "道教最高神明三位一體：元始天尊、靈寶天尊、道德天尊（太上老君）合稱三清；象徵道的三個層次，為純粹道教廟宇的主祀神明，地位超越三界諸神之上。",
     "sources": [
       {
         "type": "book",
@@ -1581,11 +2035,17 @@
   {
     "id": "wangmu",
     "name": "瑤池金母",
-    "aliases": ["王母娘娘", "西王母"],
+    "aliases": [
+      "王母娘娘",
+      "西王母"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["女仙之首", "長生"],
+    "office": [
+      "女仙之首",
+      "長生"
+    ],
     "birthday_lunar": [
       {
         "date": "07-18",
@@ -1602,7 +2062,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "道教女仙之首，居瑤池掌管長生仙桃，為神話中西方仙境的統治者，台灣廟宇多奉為女神信仰的代表，誕辰七月十八日廟會隆重。",
+    "summary": "道教女仙之首，居瑤池掌管長生仙桃，別稱王母娘娘、西王母；為神話中西方仙境的統治者，職司女仙與長生，台灣廟宇奉祀為女神信仰的代表神明。",
     "sources": [
       {
         "type": "book",
@@ -1615,11 +2075,18 @@
   {
     "id": "zaojun",
     "name": "灶神",
-    "aliases": ["司命真君", "九天司命灶君", "灶君公"],
+    "aliases": [
+      "司命真君",
+      "九天司命灶君",
+      "灶君公"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["家宅", "司命"],
+    "office": [
+      "家宅",
+      "司命"
+    ],
     "birthday_lunar": [
       {
         "date": "08-03",
@@ -1636,7 +2103,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "守護家宅廚房並記錄家人行為向天庭稟報的神明，農曆十二月廿四日送神日家家戶戶祭灶，正月初四接神後回任，是台灣家庭信仰中最貼近日常的神明之一。",
+    "summary": "守護家宅廚房、記錄家人行為向天庭稟報的神明，別稱司命真君、灶君公；農曆十二月廿四日送神、正月初四接神為固定民俗，是台灣家庭信仰中最貼近日常的神明。",
     "sources": [
       {
         "type": "book",
@@ -1649,11 +2116,17 @@
   {
     "id": "taiyin",
     "name": "太陰星君",
-    "aliases": ["太陰娘娘", "月娘"],
+    "aliases": [
+      "太陰娘娘",
+      "月娘"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["月", "陰"],
+    "office": [
+      "月",
+      "陰"
+    ],
     "birthday_lunar": [
       {
         "date": "08-15",
@@ -1670,7 +2143,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "月亮的神格化，主掌陰氣與月令，中秋節為其誕辰，台灣民間中秋節拜月儀式與太陰星君信仰相連，月娘一稱體現台灣民間親切的稱呼方式。",
+    "summary": "月亮的神格化，別稱太陰娘娘、月娘，職司陰氣與月令；中秋節為其誕辰，台灣民間中秋拜月儀式與太陰星君信仰相連，「月娘」一稱體現民間親切的稱呼方式。",
     "sources": [
       {
         "type": "book",
@@ -1683,11 +2156,16 @@
   {
     "id": "taiyang",
     "name": "太陽星君",
-    "aliases": ["太陽公"],
+    "aliases": [
+      "太陽公"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["日", "陽"],
+    "office": [
+      "日",
+      "陽"
+    ],
     "birthday_lunar": [
       {
         "date": "03-19",
@@ -1704,7 +2182,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "太陽的神格化，主掌陽氣與日令，農曆三月十九日為太陽公誕辰，也是明朝末代皇帝崇禎忌日，台灣民間在此日有特殊祭典傳統。",
+    "summary": "太陽的神格化，別稱太陽公，職司陽氣與日令；農曆三月十九日誕辰同時為明末崇禎帝忌日，台灣民間在此日保有特殊祭典傳統，陰陽共感的歷史記憶延續至今。",
     "sources": [
       {
         "type": "book",
@@ -1717,11 +2195,17 @@
   {
     "id": "leigongdianmu",
     "name": "雷公電母",
-    "aliases": ["雷公", "電母"],
+    "aliases": [
+      "雷公",
+      "電母"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["司雷電", "懲惡"],
+    "office": [
+      "司雷電",
+      "懲惡"
+    ],
     "birthday_lunar": [
       {
         "date": "06-24",
@@ -1738,7 +2222,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "掌管雷電的神明組合，雷公負責施雷、電母負責閃電，共同執行天庭懲戒惡人的職責，台灣民間對雷公電母的敬畏體現對自然力量的崇敬。",
+    "summary": "掌管雷電的神明組合，雷公施雷、電母閃電，共同執行天庭懲戒惡人的職責；台灣民間對雷公電母的敬畏，體現傳統社會對自然力量的崇敬與道德秩序的想像。",
     "sources": [
       {
         "type": "book",
@@ -1751,11 +2235,16 @@
   {
     "id": "shidan",
     "name": "石敢當",
-    "aliases": ["泰山石敢當"],
+    "aliases": [
+      "泰山石敢當"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["鎮煞", "辟邪"],
+    "office": [
+      "鎮煞",
+      "辟邪"
+    ],
     "birthday_lunar": [
       {
         "date": "無定",
@@ -1772,7 +2261,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "以石碑刻字「石敢當」或「泰山石敢當」形式出現的鎮煞信仰，設置於道路交叉口或衝煞處以辟邪擋煞，為台灣常見的物件型民俗信仰。",
+    "summary": "以石碑刻字「石敢當」或「泰山石敢當」形式出現的鎮煞物件信仰，設置於道路交叉口或衝煞處；職司鎮煞辟邪，為台灣街頭巷尾常見的物件型民俗信仰遺存。",
     "sources": [
       {
         "type": "book",
@@ -1785,11 +2274,16 @@
   {
     "id": "dashugong",
     "name": "大樹公",
-    "aliases": ["樹王公"],
+    "aliases": [
+      "樹王公"
+    ],
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": ["自然崇拜", "地方守護"],
+    "office": [
+      "自然崇拜",
+      "地方守護"
+    ],
     "birthday_lunar": [
       {
         "date": "無定",
@@ -1806,7 +2300,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "對老樹神靈的崇拜，台灣各地古樹大榕常被奉為樹王公並立廟祭祀，體現台灣民間自然崇拜傳統，視古老生命為具有神靈的守護存在。",
+    "summary": "對老樹神靈的崇拜，台灣各地古樹大榕常被奉為樹王公並立廟祭祀；職司自然崇拜與地方守護，視古老生命為具靈性的守護存在，體現民間與土地共生的信仰底蘊。",
     "sources": [
       {
         "type": "book",

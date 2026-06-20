@@ -1,14 +1,16 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { getPoems, getAllusions, getSystems } from '../../lib/queries';
+import { getPoems, getAllusions, getSystems, interpretationById } from '../../lib/queries';
 
 export const getStaticPaths = (async () => {
   const poems = await getPoems();
-  return poems.map((p) => ({ params: { id: p.id }, props: { poem: p } }));
+  const interps = await interpretationById();
+  return poems.map((p) => ({ params: { id: p.id }, props: { poem: p, interp: interps.get(p.id) } }));
 }) satisfies GetStaticPaths;
 
-const { poem } = Astro.props;
+const { poem, interp } = Astro.props;
 const d = poem.data;
 
 const allusions = await getAllusions();
@@ -16,10 +18,13 @@ const allusionById = new Map(allusions.map((a) => [a.id, a]));
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 
-// 八項分項解（§9 PoC 要求齊全）；未撰寫者誠實標「待撰／標源後顯示」（§5、§0.5）
+// 白話賞析（版面主角，§0.5）＝ interpretation md body；八項分項解 ＝ frontmatter（次級）
+const ai = interp?.data ?? {};
 const ASPECTS = ['運勢', '求財', '姻緣', '功名', '訴訟', '疾病', '行人', '失物'] as const;
-const interp = d.interpretation as Record<string, string | undefined>;
-const hasAnyInterp = ASPECTS.some((a) => interp[a]);
+const interpVals = ai as Record<string, string | undefined>;
+const hasAnyInterp = ASPECTS.some((a) => interpVals[a]);
+const hasShangxi = interp ? (interp.body ?? '').trim().length > 0 : false;
+const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : null;
 ---
 
 <Base title={`第 ${d.no} 籤 ${d.ganzhi}`}>
@@ -44,6 +49,16 @@ const hasAnyInterp = ASPECTS.some((a) => interp[a]);
       </p>
     </section>
 
+    {/* 白話賞析（版面主角，§0.5）：緊扣四句意象與典故，文化呈現非算命 */}
+    {
+      ShangxiContent && (
+        <section class="shangxi">
+          <h2>白話賞析</h2>
+          <div class="prose"><ShangxiContent /></div>
+        </section>
+      )
+    }
+
     {/* 典故（諸說並陳，各掛源） */}
     <section>
       <h2>卦頭故事 · 典故</h2>
@@ -60,10 +75,11 @@ const hasAnyInterp = ASPECTS.some((a) => interp[a]);
                   {node?.data.source && <span class="muted">（{node.data.source}）</span>}
                 </p>
                 {a.note && <p class="muted small">記載：{a.note}</p>}
-                {node && !node.data.story && (
+                {node && (node.body ?? '').trim().length > 0 ? (
+                  <p class="muted small"><a href={`/allusions/${a.ref.id}`}>讀白話故事與跨籤反查 →</a></p>
+                ) : (
                   <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架）。</p>
                 )}
-                {node?.data.story && <p>{node.data.story}</p>}
                 {a.sources.length > 0 && (
                   <p class="src">來源：{a.sources.map((s) => s.ref).join('；')}</p>
                 )}
@@ -83,7 +99,7 @@ const hasAnyInterp = ASPECTS.some((a) => interp[a]);
             {ASPECTS.map((a) => (
               <div class="row">
                 <dt>{a}</dt>
-                <dd>{interp[a] ?? <span class="pending">待撰</span>}</dd>
+                <dd>{interpVals[a] ?? <span class="pending">待撰</span>}</dd>
               </div>
             ))}
           </dl>

@@ -1,9 +1,650 @@
 {
-  "_note": "C.7.4 投票表 Vote（神煞 × 事項 → 宜/忌）。affair 允許通配 '*'（破日諸事不宜類）。下列為格式示意，須逐條校《協紀辨方書》。verified=false 直到校填。",
+  "_note": "C.7.4 投票表 Vote（神煞 × 事項 → 宜/忌）。affair 允許通配 '*'（破日諸事不宜類）。宜忌依《欽定協紀辨方書》卷十一用事篇。verified=false 直到校填。",
+  "_source_base": "欽定協紀辨方書·卷十一（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11",
   "votes": [
-    { "shensha": "tianyi", "affair": "liaobing", "verdict": "宜", "weight": "吉", "sources": ["協紀辨方書·天醫"], "verified": false },
-    { "shensha": "yuepo", "affair": "*", "verdict": "忌", "weight": "大凶", "sources": ["協紀辨方書·月破（破日諸事不宜）"], "verified": false },
-    { "shensha": "yueyan", "affair": "jiaqu", "verdict": "忌", "weight": "凶", "sources": ["協紀辨方書·月厭"], "verified": false },
-    { "shensha": "tiande", "affair": "jisi", "verdict": "宜", "weight": "吉", "sources": ["協紀辨方書·天德"], "verified": false }
+    {
+      "_comment": "===== 原有條目（保留） =====",
+      "shensha": "tianyi",
+      "affair": "liaobing",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·天醫（四庫全書本/卷04）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷04"],
+      "verified": false
+    },
+    {
+      "shensha": "yuepo",
+      "affair": "*",
+      "verdict": "忌",
+      "weight": "大凶",
+      "sources": ["欽定協紀辨方書·卷十一·月破（諸事不宜）（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
+      "verified": false
+    },
+    {
+      "shensha": "yueyan",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月厭（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
+      "verified": false
+    },
+    {
+      "shensha": "tiande",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜天德（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 天德 新增條目 =====",
+      "shensha": "tiande",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜天德月德天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiande",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜天德月德天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiande",
+      "affair": "dongtu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土宜天德月德天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiande",
+      "affair": "ruzhai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·般移宜天德月德天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiande",
+      "affair": "anzang",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·安葬宜天德月德天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 天德合 新增條目 =====",
+      "shensha": "tiandehe",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜天德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiandehe",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜天德合月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiandehe",
+      "affair": "dongtu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土宜天德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiandehe",
+      "affair": "ruzhai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·般移宜天德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiandehe",
+      "affair": "anzang",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·安葬宜天德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "tiandehe",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜天德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月德 新增條目 =====",
+      "shensha": "yuede",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuede",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuede",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuede",
+      "affair": "dongtu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuede",
+      "affair": "ruzhai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·般移宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuede",
+      "affair": "anzang",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·安葬宜月德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月德合 新增條目 =====",
+      "shensha": "yuedehe",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuedehe",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuedehe",
+      "affair": "anzang",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·安葬宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuedehe",
+      "affair": "ruzhai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·般移宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuedehe",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuedehe",
+      "affair": "dongtu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土宜月德合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 天醫 新增條目 =====",
+      "shensha": "tianyi",
+      "affair": "liaobing",
+      "verdict": "宜",
+      "weight": "吉",
+      "_dup_note": "此條已在原有條目，下方不重複",
+      "sources": ["欽定協紀辨方書·卷十一（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 三合 新增條目 =====",
+      "shensha": "sanhe",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜三合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "sanhe",
+      "affair": "kaishi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·開市宜三合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "sanhe",
+      "affair": "lijuan",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·立券交易宜三合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "sanhe",
+      "affair": "dongtu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土宜三合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 六合 新增條目 =====",
+      "shensha": "liuhe",
+      "affair": "jiaqu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶宜六合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "liuhe",
+      "affair": "anzang",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·安葬宜六合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "liuhe",
+      "affair": "kaishi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·開市宜六合（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 母倉 新增條目 =====",
+      "shensha": "mucang",
+      "affair": "zaizhong",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·栽種宜母倉（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "mucang",
+      "affair": "nacai_cai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·納財宜母倉（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 時德（四相）新增條目 =====",
+      "shensha": "shide",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜四相時德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "shide",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜四相時德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "shide",
+      "affair": "ruzhai",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·般移宜四相時德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "sxiang",
+      "affair": "jisi",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祭祀宜四相時德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "sxiang",
+      "affair": "qifu",
+      "verdict": "宜",
+      "weight": "吉",
+      "sources": ["欽定協紀辨方書·卷十一·祈福宜四相時德（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月破 通配（已有，補充說明） =====",
+      "shensha": "yuepo",
+      "affair": "*",
+      "verdict": "忌",
+      "weight": "大凶",
+      "sources": ["欽定協紀辨方書·卷十一·月破諸事不宜（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月厭 新增條目 =====",
+      "shensha": "yueyan",
+      "affair": "chuxing",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·義例二·月厭忌遠行歸家移徙婚嫁（四庫全書本/卷04）"],
+      "verified": false
+    },
+    {
+      "shensha": "yueyan",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌月厭（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yueyan",
+      "affair": "dongtu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土忌月厭（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yueyan",
+      "affair": "qifu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·祈福忌月厭（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yueyan",
+      "affair": "anzang",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·安葬忌月厭（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 劫煞 新增條目 =====",
+      "shensha": "jiesha",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "jiesha",
+      "affair": "kaishi",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·開市忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "jiesha",
+      "affair": "dongtu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "jiesha",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "jiesha",
+      "affair": "qifu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·祈福忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "jiesha",
+      "affair": "anzang",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·安葬忌劫煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 災煞 新增條目 =====",
+      "shensha": "zaisha",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌災煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "zaisha",
+      "affair": "kaishi",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·開市忌災煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "zaisha",
+      "affair": "dongtu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土忌災煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "zaisha",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌災煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "zaisha",
+      "affair": "anzang",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·安葬忌災煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月煞 新增條目 =====",
+      "shensha": "yuesha",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuesha",
+      "affair": "kaishi",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·開市忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuesha",
+      "affair": "dongtu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuesha",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuesha",
+      "affair": "qifu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·祈福忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuesha",
+      "affair": "anzang",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·安葬忌月煞（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 月刑 新增條目 =====",
+      "shensha": "yuexing",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuexing",
+      "affair": "kaishi",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·開市忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuexing",
+      "affair": "dongtu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·興造動土忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuexing",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuexing",
+      "affair": "qifu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·祈福忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "yuexing",
+      "affair": "anzang",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·安葬忌月刑（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 四廢 新增條目 =====",
+      "shensha": "sifei",
+      "affair": "*",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·四廢諸事不宜（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 往亡 新增條目 =====",
+      "shensha": "wangwang",
+      "affair": "jiaqu",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·嫁娶忌往亡（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "wangwang",
+      "affair": "chuxing",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·行幸遣使忌往亡（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "wangwang",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌往亡（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "_comment": "===== 歸忌 新增條目 =====",
+      "shensha": "guiji",
+      "affair": "ruzhai",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌歸忌（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "guiji",
+      "affair": "chuxing",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·遠迴忌歸忌（四庫全書本/卷11）"],
+      "verified": false
+    },
+    {
+      "shensha": "guiji",
+      "affair": "yixi",
+      "verdict": "忌",
+      "weight": "凶",
+      "sources": ["欽定協紀辨方書·卷十一·般移忌歸忌（四庫全書本/卷11）"],
+      "verified": false
+    }
   ]
 }

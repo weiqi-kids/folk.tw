@@ -43,6 +43,15 @@ export async function getPractices() {
   // M5 seed 多為 draft（主題已立、內容待引註）；非 prod 仍顯示以利開發
   return (await getCollection('practices')).filter((e) => !e.data.draft || !isProd);
 }
+export async function getInterpretations() {
+  return (await getCollection('interpretations')).filter((e) => !e.data.draft || !isProd);
+}
+
+/** poemId → 該籤之白話賞析＋八項分項解（依 id join；本站原創，§6） */
+export async function interpretationById(): Promise<Map<string, CollectionEntry<'interpretations'>>> {
+  const items = await getInterpretations();
+  return new Map(items.map((e) => [e.id, e]));
+}
 
 // ── 反向索引 ───────────────────────────────────────────
 

@@ -15,7 +15,8 @@
     "route_mode": "yearly_versioned",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第0992006193號函",
+      "verified": true
     },
     "region": [
       "台中",
@@ -26,8 +27,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008）",
+        "note": "登錄年 2010；2008年先由台中縣政府登錄縣定民俗（府授文資字第0970004811號），2010年文建會指定為國家重要民俗"
       }
     ],
     "draft": false
@@ -53,7 +54,8 @@
     "route_mode": "undetermined",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第09920061931號",
+      "verified": true
     },
     "region": [
       "苗栗",
@@ -64,8 +66,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007）",
+        "note": "登錄年 2010；2008年先由苗栗縣政府登錄縣定民俗（府文資字第0977501496號），2010年文建會指定為國家重要民俗"
       },
       {
         "type": "temple",
@@ -90,7 +92,8 @@
     "route_mode": "fixed",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第0992006193號函",
+      "verified": true
     },
     "region": [
       "雲林"
@@ -98,8 +101,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009）",
+        "note": "登錄年 2010；2008年先由雲林縣政府登錄縣定民俗（府文資字第0972400906號），2010年文建會指定為國家重要民俗，2011年4月21日頒發授證；2017年依文資法第111條重新公告（文授資局傳字第10630129831號）"
       },
       {
         "type": "temple",
@@ -125,7 +128,8 @@
     "route_mode": "fixed",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第09920061931號（2010年國家登錄）",
+      "verified": true
     },
     "region": [
       "屏東"
@@ -133,8 +137,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004）",
+        "note": "登錄年 2010；2008年先由屏東縣政府登錄縣定民俗（屏府文推字第0970233207號），2010年指定為國家重要民俗；nchdb現行頁面為20190515000004（重新登錄）"
       },
       {
         "type": "temple",
@@ -159,7 +163,8 @@
     "route_mode": "fixed",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第0982101168-6號",
+      "verified": true
     },
     "region": [
       "台南"
@@ -167,8 +172,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006）",
+        "note": "登錄年 2009；2008年先由臺南市政府登錄市定民俗（府文資字第0970141209號），2009年2月文建會指定為國家重要民俗（全國第一個以香醮合一形式登錄者）"
       },
       {
         "type": "temple",
@@ -193,7 +198,8 @@
     "route_mode": "fixed",
     "heritage": {
       "level": "national_important",
-      "verified": false
+      "authority_ref": "會授資籌三字第0972100852號",
+      "verified": true
     },
     "region": [
       "基隆"
@@ -201,8 +207,8 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001）",
+        "note": "登錄年 2008；2008年1月29日文建會指定為國家重要民俗，為全臺第一個登錄之重要民俗；起源咸豐5年（1855年）漳泉械鬥後整合字姓輪值制度"
       }
     ],
     "draft": false
@@ -223,8 +229,9 @@
     "date_note": "十月廿、廿一暗訪，廿二正日",
     "route_mode": "fixed",
     "heritage": {
-      "level": "county",
-      "verified": false
+      "level": "municipal",
+      "authority_ref": "北市文化二字第09930815902號",
+      "verified": true
     },
     "region": [
       "台北"
@@ -232,15 +239,15 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002）",
+        "note": "登錄年 2010；登錄為臺北市定民俗（直轄市定），非國家重要民俗；events.json 中 level 填 county 應更正為 municipal"
       },
       {
         "type": "temple",
         "ref": "艋舺青山宮"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "yanshui",
@@ -258,8 +265,9 @@
     "date_note": "元宵（正月十五前後）",
     "route_mode": "fixed",
     "heritage": {
-      "level": "county",
-      "verified": false
+      "level": "municipal",
+      "authority_ref": "府文資字第0970141209號",
+      "verified": true
     },
     "region": [
       "台南"
@@ -267,15 +275,15 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004）",
+        "note": "登錄年 2008；登錄為臺南市定民俗，非國家重要民俗；events.json 中 level 填 county 應更正為 municipal（臺南市為直轄市）"
       },
       {
         "type": "temple",
         "ref": "鹽水武廟"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "neimen",
@@ -295,8 +303,9 @@
     "date_note": "二月觀音聖誕前後",
     "route_mode": "fixed",
     "heritage": {
-      "level": "county",
-      "verified": false
+      "level": "national_important",
+      "authority_ref": "文資局傳字第10330086241號",
+      "verified": true
     },
     "region": [
       "高雄"
@@ -304,15 +313,15 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001）",
+        "note": "登錄年 2014；nchdb登錄名稱為「羅漢門迎佛祖」（非「內門宋江陣」）；宋江陣為遶境中的核心陣頭但非登錄標的名稱。events.json 中 level 填 county 應更正為 national_important"
       },
       {
         "type": "temple",
         "ref": "內門紫竹寺"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "toucheng",
@@ -330,7 +339,8 @@
     "route_mode": "fixed",
     "heritage": {
       "level": "county",
-      "verified": false
+      "authority_ref": "府文資字第1090000639B號（2020年重新登錄）",
+      "verified": true
     },
     "region": [
       "宜蘭"
@@ -338,11 +348,11 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002）",
+        "note": "登錄年 2006；宜蘭縣定民俗（非國家重要民俗）；首次登錄2006年（府文資字第0950007040號），後於2020年重新公告"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "yimin",
@@ -360,8 +370,9 @@
     "date_note": "七月二十",
     "route_mode": "fixed",
     "heritage": {
-      "level": "county",
-      "verified": false
+      "level": "national_important",
+      "authority_ref": "文授資局傳字第10430025622號",
+      "verified": true
     },
     "region": [
       "桃園",
@@ -371,14 +382,14 @@
     "sources": [
       {
         "type": "gov",
-        "ref": "文化部國家文化資產網",
-        "note": "文資身分以文資網現況為準，D.5"
+        "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001）",
+        "note": "登錄年 2015；nchdb登錄名稱為「褒忠亭義民節祭典」；全國第16個、客家族群第1個重要民俗文化資產；events.json 中 level 填 county 應更正為 national_important"
       },
       {
         "type": "temple",
         "ref": "新埔褒忠亭義民廟"
       }
     ],
-    "draft": true
+    "draft": false
   }
 ]

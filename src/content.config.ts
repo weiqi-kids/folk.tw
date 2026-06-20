@@ -9,7 +9,7 @@
 //    故關係邊的 from/to 用字串 key，由 scripts/check-integrity 檢查，不用 reference()。
 
 import { defineCollection, reference, z } from 'astro:content';
-import { file } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 
 // ── 共用片段 ─────────────────────────────────────────────
 
@@ -110,12 +110,12 @@ const divinationSystems = defineCollection({
 });
 
 const allusions = defineCollection({
-  loader: file('src/data/allusions.json'),
+  // 每篇獨立 md：frontmatter 為節點 metadata，body 為白話故事（公有領域題材自行敘述，§6）。
+  // 檔名 stem = 典故 id（poem.allusions[].ref 依此 join）。
+  loader: glob({ pattern: '**/*.md', base: 'src/content/allusions' }),
   // 典故去重節點 — 跨籤共用，是跨文本追蹤的價值點（§2.1、A.2）
   schema: z.object({
-    id: z.string(),
     name: z.string(),
-    story: z.string().optional(), // 白話故事，公有領域題材自行敘述（§6）；未撰寫前留空
     source: z.string().optional(), // 故事所本（史記/演義/戲文）
     people: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
@@ -149,21 +149,26 @@ const poems = defineCollection({
         }),
       )
       .default([]),
-    // 八項分項解：須自行撰寫/標源（§6），未撰寫前留空 → 不對外顯示
-    interpretation: z
-      .object({
-        運勢: z.string().optional(),
-        求財: z.string().optional(),
-        姻緣: z.string().optional(),
-        功名: z.string().optional(),
-        訴訟: z.string().optional(),
-        疾病: z.string().optional(),
-        行人: z.string().optional(),
-        失物: z.string().optional(),
-      })
-      .default({}),
+    // 分項解與白話賞析移至 interpretations collection（依 id join），poems.json 僅存公有領域本文。
     version_source: z.string().default('籤詩本文：公有領域'),
     notes: z.string().optional(), // 校訂註記（A.3 內部不一致等）
+    draft: z.boolean().default(false),
+  }),
+});
+
+// 籤詩白話賞析＋八項分項解（本站原創；§6）。每篇獨立 md，檔名 stem = poem id（依 id join）。
+// frontmatter = 八項分項解（次級，可選）；body = 白話賞析（版面主角，§0.5）。
+const interpretations = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/interpretations' }),
+  schema: z.object({
+    運勢: z.string().optional(),
+    求財: z.string().optional(),
+    姻緣: z.string().optional(),
+    功名: z.string().optional(),
+    訴訟: z.string().optional(),
+    疾病: z.string().optional(),
+    行人: z.string().optional(),
+    失物: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -283,6 +288,7 @@ export const collections = {
   divinationSystems,
   allusions,
   poems,
+  interpretations,
   temples,
   events,
   practices,

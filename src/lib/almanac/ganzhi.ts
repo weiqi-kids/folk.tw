@@ -17,10 +17,12 @@ export function ganzhiFromIndex(index: number): GanZhi {
 // ── 日柱（C.2 S4，最先可驗） ───────────────────────────
 //
 // 日干支序 =（JDN + DAY_GANZHI_ANCHOR）mod 60。
-// ⚠️ 待校準（C.5）：DAY_GANZHI_ANCHOR 須以一已知干支日校準後鎖定。
-// 下方常數以「JDN 2451910（2001-01-01）為甲戌日(序10)」推得 → (10 - 2451910) mod 60，
-// 但此錨點尚未經官方農民曆正式核對，故 dayPillar 預設 verified=false（見 index.ts）。
-export const DAY_GANZHI_ANCHOR = 50; // = ((10 - 2451910) % 60 + 60) % 60 的等價值；待驗證
+// 校準來源（C.5）：以下三個獨立日期交叉驗證，三者均得 ANCHOR = 49：
+//   • 2020-01-01 = 癸卯日（干支序39）：來源 wannianrili.bmcx.com，JDN=2458850
+//   • 2023-01-01 = 己未日（干支序55）：來源 wannianrili.bmcx.com，JDN=2459946
+//   • 2026-06-20 = 乙丑日（干支序 1）：來源 goodaytw.com + wannianrili.bmcx.com，JDN=2461212
+// 計算：(干支序 − JDN) mod 60，三者皆得 49。
+export const DAY_GANZHI_ANCHOR = 49;
 
 export function dayPillar(jdn: number): GanZhi {
   return ganzhiFromIndex(jdn + DAY_GANZHI_ANCHOR);
