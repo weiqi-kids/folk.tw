@@ -1,0 +1,125 @@
+---
+// 全站共用版面。設計：考據領銜、克制；四句/典故/白話為主角，吉凶輔標小（§0.5）。
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const siteName = '眾神解析';
+const fullTitle = title ? `${title}｜${siteName}` : `${siteName} — 台灣民俗信仰考據`;
+const nav = [
+  { href: '/', label: '今日' },
+  { href: '/poems', label: '籤詩' },
+  { href: '/deities', label: '神明' },
+  { href: '/almanac', label: '農民曆' },
+  { href: '/events', label: '民俗活動' },
+  { href: '/practices', label: '拜拜習俗' },
+  { href: '/about', label: '關於' },
+];
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="brand">眾神解析</a>
+      <nav>
+        {
+          nav.map((n) => (
+            <a
+              href={n.href}
+              class:list={[{ active: n.href === '/' ? path === '/' : path.startsWith(n.href) }]}
+            >
+              {n.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+    <main class="site-main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p class="scope">
+        本站涵蓋以<strong>漢人民間信仰</strong>為主（七大類），非窮盡台灣所有宗教信仰；未涵蓋原住民族傳統信仰、佛教各宗等。
+      </p>
+      <p class="disclaim">
+        本站為民俗文化考據與教育呈現，<strong>不構成醫療、法律、投資、命理或宗教指導建議</strong>。
+        內容涉健康／法律／財務／心理者，請洽專業人士。
+      </p>
+      <p class="meta">
+        籤詩本文屬公有領域；解語、白話與摘要為本站撰寫或標明出處。
+        資料逐條掛來源、無源不發佈。<a href="/about">關於與勘誤 →</a>
+      </p>
+    </footer>
+    <style is:global>
+      :root {
+        --ink: #1c1a17;
+        --ink-soft: #4a443c;
+        --paper: #f7f3ea;
+        --paper-2: #fffdf8;
+        --line: #ddd3c0;
+        --accent: #8a2b2b; /* 朱 */
+        --accent-soft: #b56b4a;
+        --gold: #9a7b3f;
+        --max: 56rem;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        font-family: 'Noto Serif TC', 'Source Han Serif TC', '本蘭明體', serif;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.75;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .site-header {
+        display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem;
+        max-width: var(--max); margin: 0 auto; padding: 1.2rem 1.25rem 0.8rem;
+        border-bottom: 2px solid var(--accent);
+      }
+      .brand { font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: 0.08em; }
+      .site-header nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; margin-left: auto; }
+      .site-header nav a { color: var(--ink-soft); font-size: 0.98rem; }
+      .site-header nav a.active { color: var(--accent); font-weight: 700; }
+      .site-main { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+      .site-footer {
+        max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem;
+        border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.86rem;
+      }
+      .site-footer p { margin: 0.4rem 0; }
+      .site-footer .meta { color: var(--gold); }
+      h1, h2, h3 { line-height: 1.35; }
+      .tag {
+        display: inline-block; font-size: 0.78rem; padding: 0.05rem 0.5rem;
+        border: 1px solid var(--line); border-radius: 1rem; color: var(--ink-soft);
+        background: var(--paper-2); margin: 0 0.2rem 0.2rem 0;
+      }
+      .tag.fortune { border-color: var(--accent-soft); color: var(--accent); }
+      .card {
+        background: var(--paper-2); border: 1px solid var(--line);
+        border-radius: 0.5rem; padding: 1.1rem 1.25rem; margin: 0.8rem 0;
+      }
+      .muted { color: var(--ink-soft); }
+      .pending {
+        color: var(--gold); font-size: 0.85rem; font-style: italic;
+        border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0;
+      }
+      .grid { display: grid; gap: 0.75rem; }
+      .grid.cols { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+      .lines-vertical {
+        font-size: 1.5rem; letter-spacing: 0.15em; line-height: 2.2;
+      }
+    </style>
+  </body>
+</html>

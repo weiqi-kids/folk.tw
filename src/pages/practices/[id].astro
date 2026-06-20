@@ -1,0 +1,95 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getPractices, getDeities } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const practices = await getPractices();
+  return practices.map((p) => ({ params: { id: p.id }, props: { practice: p } }));
+}) satisfies GetStaticPaths;
+
+const { practice } = Astro.props;
+const p = practice.data;
+const deities = await getDeities();
+const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const isNode = (id: string) => deityName.has(id);
+---
+
+<Base title={p.title}>
+  <nav class="crumb"><a href="/practices">拜拜習俗</a> ／ {p.category}</nav>
+  <h1>{p.title}</h1>
+  {p.summary && <p class="summary">{p.summary}</p>}
+
+  <dl class="rec">
+    {p.occasion && <div><dt>場合</dt><dd>{p.occasion}</dd></div>}
+    {
+      p.deities.length > 0 && (
+        <div>
+          <dt>對應神明</dt>
+          <dd>
+            {p.deities.map((id, i) => (
+              <>
+                {i > 0 && '、'}
+                {isNode(id) ? <a href={`/deities/${id}`}>{deityName.get(id)}</a> : <span>{id} <span class="tag">待建</span></span>}
+              </>
+            ))}
+          </dd>
+        </div>
+      )
+    }
+    {p.festival_ref.length > 0 && <div><dt>關聯節日</dt><dd>{p.festival_ref.join('、')}</dd></div>}
+    {p.joss_paper.length > 0 && <div><dt>金紙</dt><dd>{p.joss_paper.map((j) => <span class="tag">{j}</span>)}</dd></div>}
+    {p.offerings.length > 0 && <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>}
+  </dl>
+
+  <section>
+    <h2>儀節步驟</h2>
+    {
+      p.steps.length === 0 ? (
+        <p class="pending">步驟須引註撰寫（順序／誰做／用什麼／對誰／禁忌五要素同構），標源後上架（E.4、§5）。</p>
+      ) : (
+        <ol class="steps">
+          {p.steps.map((s) => (
+            <li>
+              <strong>{s.action}</strong>
+              {s.actor && <span class="muted">（{s.actor}）</span>}
+              {s.items.length > 0 && <span class="muted small">　用：{s.items.join('、')}</span>}
+              {s.note && <div class="muted small">{s.note}</div>}
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </section>
+
+  <section>
+    <h2>地區差異</h2>
+    {
+      p.regional.length === 0 ? (
+        <p class="pending">地區差異（閩南／客家／各地異俗）以諸說並陳呈現，各筆掛源後上架（E.6）。</p>
+      ) : (
+        <ul>
+          {p.regional.map((r) => (
+            <li><strong>{r.area}</strong>：{r.note} {r.sources.length > 0 && <span class="src">（{r.sources.map((s) => s.ref).join('；')}）</span>}</li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  {p.sources.length > 0 && <p class="src footer-src">來源：{p.sources.map((s) => s.ref).join('；')}</p>}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .summary { font-size: 1.05rem; }
+    .rec { display: grid; gap: 0.4rem; margin: 1rem 0; }
+    .rec > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+    .rec dt { font-weight: 700; color: var(--accent); }
+    .rec dd { margin: 0; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
+    .small { font-size: 0.85rem; }
+    .steps li { padding: 0.3rem 0; }
+    .src { color: var(--gold); font-size: 0.82rem; }
+    .footer-src { margin-top: 1.5rem; }
+  </style>
+</Base>

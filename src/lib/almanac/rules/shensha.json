@@ -1,0 +1,46 @@
+{
+  "_note": "C.7.2 神煞表。常數/定位規則待《欽定協紀辨方書》逐條填入；下列為格式示意 + 少數可定位者，全部 verified=false 直到逐條校填。",
+  "_pending": "大型規則集待匯入：天德合·月德合·天赦·天願·月恩·三合·六合·母倉·時德 等吉神；劫煞·災煞·月煞·月刑·月害·大時·遊禍·天吏·四廢·五墓·往亡·歸忌·楊公忌 等凶神。",
+  "shensha": [
+    {
+      "id": "yuepo",
+      "name": "月破",
+      "class": "凶",
+      "locate_by": "day_branch_vs_month_branch",
+      "locate_rule": "日支 = 月建支之對沖（如正月建寅 → 申日為月破）",
+      "locate_table": null,
+      "sources": ["協紀辨方書·義例·月破"],
+      "verified": false
+    },
+    {
+      "id": "tiande",
+      "name": "天德",
+      "class": "吉",
+      "locate_by": "month->branch",
+      "locate_rule": "天德所在依月支，逐月對應（待填對應表）",
+      "locate_table": null,
+      "sources": ["協紀辨方書·義例·天德"],
+      "verified": false
+    },
+    {
+      "id": "tianyi",
+      "name": "天醫",
+      "class": "吉",
+      "locate_by": "month->branch",
+      "locate_rule": "天醫所在日支依月，正月在卯…（待填對應表）",
+      "locate_table": null,
+      "sources": ["協紀辨方書·義例·天醫"],
+      "verified": false
+    },
+    {
+      "id": "yueyan",
+      "name": "月厭",
+      "class": "凶",
+      "locate_by": "month->branch",
+      "locate_rule": "月厭所在依月支（待填對應表）",
+      "locate_table": null,
+      "sources": ["協紀辨方書·義例·月厭"],
+      "verified": false
+    }
+  ]
+}

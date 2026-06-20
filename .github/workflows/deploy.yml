@@ -1,0 +1,53 @@
+# 部署到 GitHub Pages（自訂網域 folk.tw）
+# - push 到 main 時建置部署
+# - 每日 16:00 UTC（＝台灣 00:00）重建，推進「今日選讀」每日一籤（§0.5 / C.8 UTC+8）
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 16 * * *' # 台灣午夜，更新今日中樞
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時只跑一個部署；不取消進行中的（讓排程重建完成）
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: 完整性檢查（dangling ref 阻擋部署）
+        run: pnpm check:integrity
+      - name: 型別檢查
+        run: pnpm exec astro check
+      - name: 建置（static）
+        run: pnpm build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

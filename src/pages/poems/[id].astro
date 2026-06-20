@@ -1,0 +1,125 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getPoems, getAllusions, getSystems } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const poems = await getPoems();
+  return poems.map((p) => ({ params: { id: p.id }, props: { poem: p } }));
+}) satisfies GetStaticPaths;
+
+const { poem } = Astro.props;
+const d = poem.data;
+
+const allusions = await getAllusions();
+const allusionById = new Map(allusions.map((a) => [a.id, a]));
+const systems = await getSystems();
+const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+
+// 八項分項解（§9 PoC 要求齊全）；未撰寫者誠實標「待撰／標源後顯示」（§5、§0.5）
+const ASPECTS = ['運勢', '求財', '姻緣', '功名', '訴訟', '疾病', '行人', '失物'] as const;
+const interp = d.interpretation as Record<string, string | undefined>;
+const hasAnyInterp = ASPECTS.some((a) => interp[a]);
+---
+
+<Base title={`第 ${d.no} 籤 ${d.ganzhi}`}>
+  <nav class="crumb"><a href="/poems">籤詩</a> ／ 第 {d.no} 籤</nav>
+
+  <article class="poem-detail">
+    <header class="ph">
+      <h1>第 {d.no} 籤 · {d.ganzhi}</h1>
+      <div class="meta">
+        <a class="tag" href={`/systems/${d.system.id}`}>{systemName.get(d.system.id)}</a>
+        {d.gua && <span class="tag">{d.gua}卦</span>}
+        {d.wuxing && <span class="tag">{d.wuxing.element}·{d.wuxing.season}·{d.wuxing.direction}</span>}
+        {/* 吉凶輔標：小、次級；本系統多無原生定級（A.3-1） */}
+        {d.fortune && <span class="tag fortune">{d.fortune}</span>}
+      </div>
+    </header>
+
+    {/* 主角：四句直書 */}
+    <section class="lines-block">
+      <p class="lines-vertical">
+        {d.lines.map((l) => <span class="line">{l}</span>)}
+      </p>
+    </section>
+
+    {/* 典故（諸說並陳，各掛源） */}
+    <section>
+      <h2>卦頭故事 · 典故</h2>
+      {
+        d.allusions.length === 0 ? (
+          <p class="pending">本籤典故待補。</p>
+        ) : (
+          d.allusions.map((a) => {
+            const node = allusionById.get(a.ref.id);
+            return (
+              <div class="card allusion">
+                <p class="aname">
+                  <a href={`/allusions/${a.ref.id}`}>{node?.data.name ?? a.ref.id}</a>
+                  {node?.data.source && <span class="muted">（{node.data.source}）</span>}
+                </p>
+                {a.note && <p class="muted small">記載：{a.note}</p>}
+                {node && !node.data.story && (
+                  <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架）。</p>
+                )}
+                {node?.data.story && <p>{node.data.story}</p>}
+                {a.sources.length > 0 && (
+                  <p class="src">來源：{a.sources.map((s) => s.ref).join('；')}</p>
+                )}
+              </div>
+            );
+          })
+        )
+      }
+    </section>
+
+    {/* 分項解（八項） */}
+    <section>
+      <h2>分項解</h2>
+      {
+        hasAnyInterp ? (
+          <dl class="interp">
+            {ASPECTS.map((a) => (
+              <div class="row">
+                <dt>{a}</dt>
+                <dd>{interp[a] ?? <span class="pending">待撰</span>}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          <p class="pending">
+            八項分項解（運勢／求財／姻緣／功名／訴訟／疾病／行人／失物）為本站原創撰寫，
+            撰寫並標源後上架（§5 無源不發佈）。現代解籤文字有著作權，本站不抄錄。
+          </p>
+        )
+      }
+    </section>
+
+    {d.notes && (
+      <section>
+        <h2>校訂註記</h2>
+        <p class="muted small">{d.notes}</p>
+      </section>
+    )}
+
+    <p class="src footer-src">{d.version_source}</p>
+  </article>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .ph h1 { margin: 0.2rem 0 0.6rem; }
+    .ph .meta { margin-bottom: 0.5rem; }
+    .lines-block { text-align: center; margin: 1.5rem 0 2rem; }
+    .lines-vertical .line { display: block; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 2rem; }
+    .allusion .aname { font-weight: 700; margin: 0 0 0.3rem; }
+    .small { font-size: 0.88rem; }
+    .src { color: var(--gold); font-size: 0.82rem; }
+    .interp { margin: 0.5rem 0; }
+    .interp .row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
+    .interp dt { font-weight: 700; color: var(--accent); }
+    .interp dd { margin: 0; }
+    .footer-src { margin-top: 2rem; }
+  </style>
+</Base>

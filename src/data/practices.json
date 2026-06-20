@@ -1,0 +1,266 @@
+[
+  {
+    "id": "antaisui",
+    "title": "安太歲",
+    "category": "年度祈福",
+    "deities": ["taisui"],
+    "occasion": "沖犯太歲（生肖值年/沖太歲）",
+    "festival_ref": ["正月", "年尾謝太歲"],
+    "steps": [],
+    "offerings": [],
+    "joss_paper": ["太歲金", "壽金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "生肖沖犯太歲者，年初至廟安奉太歲星君，年尾謝恩，藉以化解當年厄運。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "diandeng",
+    "title": "點光明燈/平安燈/文昌燈",
+    "category": "年度祈福",
+    "deities": ["wenchang"],
+    "occasion": "祈求平安、學業或財運，正月起點燈一年",
+    "festival_ref": ["正月"],
+    "steps": [],
+    "offerings": [],
+    "joss_paper": ["壽金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "正月起於廟宇點燃光明燈、文昌燈，為家人祈求整年平安、學業進步或財運亨通。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "shoujing",
+    "title": "收驚",
+    "category": "解厄",
+    "deities": ["zushen"],
+    "occasion": "受驚嚇或嬰幼兒夜啼，請廟方或婆姆以米卦/香米收魂",
+    "festival_ref": [],
+    "steps": [],
+    "offerings": [],
+    "joss_paper": ["刈金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "受驚嚇者或夜啼嬰幼兒，請廟方乩童、婆姆以香米或米卦行收驚科儀，安定魂魄。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "anshenwei",
+    "title": "安神位/安公媽",
+    "category": "居家",
+    "deities": ["zushen"],
+    "occasion": "入厝或年節時安置家神神桌、爐位，並行晉火儀式",
+    "festival_ref": ["入厝時", "年節"],
+    "steps": [],
+    "offerings": ["三牲", "四果", "發粿", "米糕"],
+    "joss_paper": ["刈金", "福金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "遷入新居或年節期間，依方位擇吉安置神桌、祖先牌位及香爐，並行晉火儀式確立家神信仰空間。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "ruocuo",
+    "title": "入厝（新居）",
+    "category": "居家",
+    "deities": ["zushen"],
+    "occasion": "擇日遷入新居，拜地基主、安香、辦桌宴客",
+    "festival_ref": ["擇日"],
+    "steps": [],
+    "offerings": ["三牲", "四果", "紅龜粿", "發粿"],
+    "joss_paper": ["刈金", "福金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "擇吉日遷入新居，先拜地基主、安香爐，再宴請親友辦桌，完成新居落戶的傳統儀禮。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "pudu",
+    "title": "普渡",
+    "category": "歲時",
+    "deities": ["haoxiongdi", "sanguan"],
+    "occasion": "中元七月公普或私普，供好兄弟孤食，燒經衣",
+    "festival_ref": ["中元七月"],
+    "steps": [],
+    "offerings": ["三牲", "四果", "糖果餅乾"],
+    "joss_paper": ["大銀", "小銀", "經衣", "往生錢"],
+    "taboo": [],
+    "regional": [],
+    "summary": "農曆七月舉行公普或私普，備牲醴供品讓無主孤魂飽食，焚燒銀紙經衣超度好兄弟。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "buyun",
+    "title": "補運/祭解/改運",
+    "category": "解厄",
+    "deities": ["zushen"],
+    "occasion": "運途不順時，請廟方行補運錢、改連經、過七星橋等科儀",
+    "festival_ref": ["不定", "年節"],
+    "steps": [],
+    "offerings": ["四果"],
+    "joss_paper": ["補運錢", "改連真經"],
+    "taboo": [],
+    "regional": [],
+    "summary": "運途不順或遭逢厄運時，至廟中請乩童或法師行補運、祭解科儀，焚補運錢改連經以轉化運勢。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "zuo16",
+    "title": "做十六歲",
+    "category": "生命禮俗",
+    "deities": ["qixing", "linshui"],
+    "occasion": "七月七日七娘媽誕，子女年滿十六出婆姐間，鑽七娘媽亭成年",
+    "festival_ref": ["七月七"],
+    "steps": [],
+    "offerings": ["四果", "湯圓", "糖果餅乾"],
+    "joss_paper": ["刈金", "經衣"],
+    "taboo": [],
+    "regional": [],
+    "summary": "子女年滿十六歲，於七娘媽誕辰舉行出婆姐間儀式，鑽過七娘媽亭象徵脫離庇護、正式成年。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "zaihua",
+    "title": "栽花換斗",
+    "category": "求子/轉胎",
+    "deities": ["zhusheng", "linshui"],
+    "occasion": "求子、保胎或民間轉胎性別俗信，至廟拜註生娘娘/臨水夫人",
+    "festival_ref": [],
+    "steps": [],
+    "offerings": ["四果", "紅龜粿"],
+    "joss_paper": ["刈金", "壽金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "有求子、保胎或轉換胎兒性別意願者，至廟中向註生娘娘或臨水夫人行栽花換斗科儀祈願。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "saomu",
+    "title": "掃墓/培墓",
+    "category": "歲時",
+    "deities": ["zushen"],
+    "occasion": "清明節前後掃墓、培墓，掛紙並拜后土",
+    "festival_ref": ["清明"],
+    "steps": [],
+    "offerings": ["三牲", "四果", "清茶三杯"],
+    "joss_paper": ["刈金", "銀紙"],
+    "taboo": [],
+    "regional": [],
+    "summary": "清明節前後，子孫至祖先墳塋掛紙、培土整墓，並備牲醴拜后土，表達慎終追遠之意。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "baizuxian",
+    "title": "祭祖（年節拜公媽）",
+    "category": "歲時",
+    "deities": ["zushen"],
+    "occasion": "除夕及各年節備牲禮、銀紙、茶飯祭拜祖先",
+    "festival_ref": ["除夕", "節日"],
+    "steps": [],
+    "offerings": ["三牲", "四果", "清茶三杯", "米糕", "麵線"],
+    "joss_paper": ["刈金", "大銀", "小銀"],
+    "taboo": [],
+    "regional": [],
+    "summary": "除夕及重要節日，子孫備辦牲禮、茶飯，焚燒銀紙，向祖先牌位行祭拜，延續家族慎終追遠傳統。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "baitiangong",
+    "title": "拜天公",
+    "category": "歲時/還願",
+    "deities": ["yuhuang"],
+    "occasion": "正月初九玉皇大帝聖誕，頂桌清素下桌葷，備天公金及全豬羊祭拜",
+    "festival_ref": ["正月初九"],
+    "steps": [],
+    "offerings": ["頂桌清素", "下桌葷", "紅龜粿", "發粿", "麵線"],
+    "joss_paper": ["天公金"],
+    "taboo": [],
+    "regional": [],
+    "summary": "正月初九玉皇大帝聖誕，家家戶戶設頂桌清素、下桌葷牲，備天公金焚燒，隆重祭拜天公以祈福許願。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（seed 主題基準）",
+        "note": "步驟與地區差異待引註補齊，E.6"
+      }
+    ],
+    "draft": true
+  }
+]

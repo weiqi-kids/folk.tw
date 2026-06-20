@@ -1,0 +1,25 @@
+{
+  "_note": "C.7.3 事項表 Affair。範圍以《協紀辨方書》「用事六十事」為準，下列為常見項，餘者增補。",
+  "affairs": [
+    { "id": "jisi", "name": "祭祀", "group": "祭祀類" },
+    { "id": "qifu", "name": "祈福", "group": "祭祀類" },
+    { "id": "qiusi", "name": "求嗣", "group": "祭祀類" },
+    { "id": "kaiguang", "name": "開光", "group": "祭祀類" },
+    { "id": "chuxing", "name": "出行", "group": "出行類" },
+    { "id": "jiaqu", "name": "嫁娶", "group": "婚姻類" },
+    { "id": "nacai", "name": "納采", "group": "婚姻類" },
+    { "id": "dongtu", "name": "動土", "group": "營造類" },
+    { "id": "shangliang", "name": "上樑", "group": "營造類" },
+    { "id": "anchuang", "name": "安床", "group": "營造類" },
+    { "id": "kaishi", "name": "開市", "group": "商業類" },
+    { "id": "lijuan", "name": "立券", "group": "商業類" },
+    { "id": "nacai_cai", "name": "納財", "group": "商業類" },
+    { "id": "ruzhai", "name": "入宅", "group": "居家類" },
+    { "id": "yixi", "name": "移徙", "group": "居家類" },
+    { "id": "liaobing", "name": "療病", "group": "醫療類" },
+    { "id": "anzang", "name": "安葬", "group": "喪葬類" },
+    { "id": "potu", "name": "破土", "group": "喪葬類" },
+    { "id": "rulian", "name": "入殮", "group": "喪葬類" },
+    { "id": "zaizhong", "name": "栽種", "group": "農事類" }
+  ]
+}

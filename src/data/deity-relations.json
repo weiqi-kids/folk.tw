@@ -1,0 +1,198 @@
+[
+  {
+    "id": "rel-mazu-qianliye",
+    "from": "mazu",
+    "to": "千里眼",
+    "type": "從神",
+    "note": "順風耳同列，皆為媽祖從神",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-mazu-shunfenger",
+    "from": "mazu",
+    "to": "順風耳",
+    "type": "從神",
+    "note": "與千里眼同列為媽祖從神",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-guangong-guanping",
+    "from": "guangong",
+    "to": "guanping",
+    "type": "從神",
+    "note": "關平為關聖帝君之子，常侍左右",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-guangong-zhoucang",
+    "from": "guangong",
+    "to": "zhoucang",
+    "type": "從神",
+    "note": "周倉為關聖帝君部將，持青龍偃月刀",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-chenghuang-qiyebaye",
+    "from": "chenghuang",
+    "to": "qiyebaye",
+    "type": "從神",
+    "note": "七爺八爺為城隍爺的陰司部將",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-zhusheng-pojie",
+    "from": "zhusheng",
+    "to": "pojie",
+    "type": "配祀",
+    "note": "婆姐常配祀於註生娘娘廟中",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-linshui-linlifuren",
+    "from": "linshui",
+    "to": "林·李夫人",
+    "type": "同系",
+    "note": "三奶夫人：陳靖姑（臨水夫人）與林夫人、李夫人同系",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-guangze-miaoyingxianfei",
+    "from": "guangze",
+    "to": "妙應仙妃",
+    "type": "眷屬",
+    "note": "妙應仙妃為廣澤尊王配偶",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangye-wufuqiansui",
+    "from": "wangye",
+    "to": "李池吳朱范…",
+    "type": "系統",
+    "note": "五府千歲（李、池、吳、朱、范）為王爺信仰的一系，各府各有其聖誕",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-guangong-wuwenchang",
+    "from": "guangong",
+    "to": "五文昌",
+    "type": "同列",
+    "note": "關聖帝君為五文昌之一；五文昌成員另有文昌帝君、孚佑帝君、魁星、朱衣神君",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-wenchang-wuwenchang",
+    "from": "wenchang",
+    "to": "五文昌",
+    "type": "同列",
+    "note": "文昌帝君為五文昌之一",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-ludongbin-wuwenchang",
+    "from": "ludongbin",
+    "to": "五文昌",
+    "type": "同列",
+    "note": "孚佑帝君（呂洞賓）為五文昌之一",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-kuixing-wuwenchang",
+    "from": "kuixing",
+    "to": "五文昌",
+    "type": "同列",
+    "note": "魁星為五文昌之一",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  },
+  {
+    "id": "rel-zhuyi-wuwenchang",
+    "from": "朱衣神君",
+    "to": "五文昌",
+    "type": "同列",
+    "note": "朱衣神君（zhuyi）為五文昌之一，本 seed 尚未建立節點",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》（關係 seed）",
+        "note": "待逐條校"
+      }
+    ]
+  }
+]

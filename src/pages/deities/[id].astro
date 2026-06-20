@@ -1,0 +1,137 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getDeities, getSystems, relationsOf } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const deities = await getDeities();
+  const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+  return Promise.all(
+    deities.map(async (d) => ({
+      params: { id: d.id },
+      props: { deity: d, rels: await relationsOf(d.id), nameById },
+    })),
+  );
+}) satisfies GetStaticPaths;
+
+const { deity, rels, nameById } = Astro.props;
+const d = deity.data;
+const systems = await getSystems();
+const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+
+const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
+const isNode = (id: string) => nameById.has(id);
+---
+
+<Base title={d.name} description={`${d.name}（${d.aliases.join('·')}）— 職司、聖誕、關係網。`}>
+  <nav class="crumb"><a href="/deities">神明圖譜</a> ／ {d.category}</nav>
+
+  <header class="dh">
+    <h1>{d.name}</h1>
+    <p class="aliases">
+      <a class="tag" href="/deities">{d.category}</a>
+      {d.is_category && <span class="tag">信仰類別（非單神）</span>}
+      {d.groups.map((g) => <span class="tag">{g}</span>)}
+    </p>
+    {d.aliases.length > 0 && <p class="muted">別名／封號：{d.aliases.join('、')}</p>}
+  </header>
+
+  {d.summary && <p class="summary">{d.summary}</p>}
+
+  <div class="cols2">
+    <section>
+      <h2>職司</h2>
+      {d.office.length ? <p>{d.office.map((o) => <span class="tag">{o}</span>)}</p> : <p class="pending">待補</p>}
+    </section>
+
+    <section>
+      <h2>聖誕（農曆）</h2>
+      {
+        d.birthday_lunar.length === 0 ? (
+          <p class="pending">聖誕待查（無源不顯示，§5）。</p>
+        ) : (
+          <ul class="bdays">
+            {d.birthday_lunar.map((b) => (
+              <li>
+                <strong>{b.date}</strong> <span class="muted">{b.kind}</span>
+                {b.note && <span class="muted small">　{b.note}</span>}
+                {b.sources.length > 0 && <div class="src">{b.sources.map((s) => s.ref).join('；')}</div>}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+  </div>
+
+  {
+    d.is_category && (
+      <p class="note pending">
+        「{d.name}」為信仰類別，底下有大量具名實例（聖誕、廟宇對應依實例而非類別，B.3-1）。具名實例節點建置中。
+      </p>
+    )
+  }
+
+  <section>
+    <h2>採用之籤詩系統</h2>
+    {
+      d.divination_systems.length ? (
+        <ul>
+          {d.divination_systems.map((s) => (
+            <li><a href={`/systems/${s.id}`}>{systemName.get(s.id) ?? s.id}</a></li>
+          ))}
+        </ul>
+      ) : (
+        <p class="muted">尚未標註常用籤詩系統。</p>
+      )
+    }
+  </section>
+
+  <section>
+    <h2>關係網</h2>
+    {
+      rels.out.length === 0 && rels.in.length === 0 ? (
+        <p class="muted">尚無已發佈關係邊。</p>
+      ) : (
+        <ul class="rels">
+          {rels.out.map((r) => (
+            <li>
+              {d.name} <span class="reltype">— {r.data.type} →</span>{' '}
+              {isNode(r.data.to) ? <a href={`/deities/${r.data.to}`}>{label(r.data.to)}</a> : <span class="placeholder">{label(r.data.to)}<span class="tag">待建</span></span>}
+              {r.data.note && <span class="muted small">　{r.data.note}</span>}
+            </li>
+          ))}
+          {rels.in.map((r) => (
+            <li>
+              {isNode(r.data.from) ? <a href={`/deities/${r.data.from}`}>{label(r.data.from)}</a> : <span class="placeholder">{label(r.data.from)}</span>}{' '}
+              <span class="reltype">— {r.data.type} →</span> {d.name}
+              {r.data.note && <span class="muted small">　{r.data.note}</span>}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    <p class="muted small">v1 關係以列表呈現；圖視覺化列發佈後增補（§8）。</p>
+  </section>
+
+  {d.sources.length > 0 && <p class="src footer-src">來源：{d.sources.map((s) => s.ref).join('；')}</p>}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .dh h1 { margin: 0.2rem 0 0.4rem; }
+    .summary { font-size: 1.05rem; }
+    .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; }
+    @media (max-width: 40rem) { .cols2 { grid-template-columns: 1fr; } }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
+    .bdays { list-style: none; padding: 0; }
+    .bdays li { padding: 0.3rem 0; }
+    .src { color: var(--gold); font-size: 0.82rem; }
+    .small { font-size: 0.85rem; }
+    .rels { list-style: none; padding: 0; }
+    .rels li { padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
+    .reltype { color: var(--accent); font-size: 0.9rem; }
+    .placeholder { color: var(--ink-soft); }
+    .footer-src { margin-top: 2rem; }
+    .note { margin: 1rem 0; }
+  </style>
+</Base>

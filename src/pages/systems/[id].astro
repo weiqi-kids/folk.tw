@@ -1,0 +1,64 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getSystems, getPoems, deitiesBySystem } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const systems = await getSystems();
+  const poems = await getPoems();
+  const bySystem = await deitiesBySystem();
+  return systems.map((s) => ({
+    params: { id: s.id },
+    props: {
+      system: s,
+      poems: poems.filter((p) => p.data.system.id === s.id).sort((a, b) => a.data.no - b.data.no),
+      deities: bySystem.get(s.id) ?? [],
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { system, poems, deities } = Astro.props;
+const s = system.data;
+---
+
+<Base title={s.name}>
+  <nav class="crumb"><a href="/poems">籤詩</a> ／ 籤詩系統</nav>
+  <h1>{s.name}</h1>
+  {s.summary && <p class="muted">{s.summary}</p>}
+
+  <section>
+    <h2>採用此系統之神明 · 籤系反查</h2>
+    {
+      deities.length === 0 ? (
+        <p class="muted">尚未標註採用此系統之神明。</p>
+      ) : (
+        <ul class="deity-list">
+          {deities.map((dd) => (
+            <li><a href={`/deities/${dd.id}`}>{dd.data.name}</a> <span class="muted small">{dd.data.category}</span></li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <section>
+    <h2>全部籤（{poems.length}）</h2>
+    <div class="grid cols">
+      {
+        poems.map((p) => (
+          <a class="card" href={`/poems/${p.id}`}>
+            第 {p.data.no} 籤 · {p.data.ganzhi}
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+    .deity-list { list-style: none; padding: 0; }
+    .deity-list li { padding: 0.3rem 0; }
+    .small { font-size: 0.85rem; }
+  </style>
+</Base>

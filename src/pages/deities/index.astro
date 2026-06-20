@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import { deitiesByCategory, deitiesByGroup } from '../../lib/queries';
+import { DEITY_CATEGORIES } from '../../content.config';
+
+const byCat = await deitiesByCategory();
+const byGroup = await deitiesByGroup();
+const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
+---
+
+<Base title="神明圖譜" description="台灣漢人民間信仰七大類神明：職司、聖誕、別名、關係網，逐條掛來源。">
+  <h1>神明圖譜</h1>
+  <p class="muted">
+    採七大類既有分類學（不自創）。神格位階不建模、不排高低，只記分類與關係（§2.3、§13.3 諸說並陳）。
+    每筆事實掛來源；聖誕待查者不顯示。
+  </p>
+
+  {
+    DEITY_CATEGORIES.map((cat) => {
+      const list = (byCat.get(cat) ?? []).sort((a, b) => a.id.localeCompare(b.id));
+      if (list.length === 0) return null;
+      return (
+        <section class="cat">
+          <h2>{cat}<span class="count muted">（{list.length}）</span></h2>
+          <div class="grid cols">
+            {list.map((dd) => (
+              <a class="card deity-cell" href={`/deities/${dd.id}`}>
+                <strong>{dd.data.name}</strong>
+                {dd.data.is_category && <span class="tag">類別</span>}
+                {dd.data.aliases.length > 0 && (
+                  <span class="muted small">{dd.data.aliases.slice(0, 3).join('·')}</span>
+                )}
+                {dd.data.office.length > 0 && (
+                  <span class="office muted small">{dd.data.office.slice(0, 3).join('·')}</span>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
+
+  {
+    groups.length > 0 && (
+      <section class="groups">
+        <h2>橫向群組</h2>
+        <p class="muted small">五文昌、八仙、三奶夫人、五府千歲等跨節點群組（B.3-5）。</p>
+        {groups.map(([g, list]) => (
+          <p>
+            <strong>{g}</strong>：
+            {list.map((dd, i) => (
+              <>
+                {i > 0 && '、'}
+                <a href={`/deities/${dd.id}`}>{dd.data.name}</a>
+              </>
+            ))}
+          </p>
+        ))}
+      </section>
+    )
+  }
+
+  <style>
+    .cat h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; }
+    .count { font-size: 0.85rem; font-weight: 400; }
+    .deity-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .deity-cell strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .office { color: var(--accent-soft); }
+    .groups { margin-top: 2rem; }
+  </style>
+</Base>

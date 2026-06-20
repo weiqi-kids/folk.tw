@@ -1,0 +1,9 @@
+{
+  "_note": "C.7.4 投票表 Vote（神煞 × 事項 → 宜/忌）。affair 允許通配 '*'（破日諸事不宜類）。下列為格式示意，須逐條校《協紀辨方書》。verified=false 直到校填。",
+  "votes": [
+    { "shensha": "tianyi", "affair": "liaobing", "verdict": "宜", "weight": "吉", "sources": ["協紀辨方書·天醫"], "verified": false },
+    { "shensha": "yuepo", "affair": "*", "verdict": "忌", "weight": "大凶", "sources": ["協紀辨方書·月破（破日諸事不宜）"], "verified": false },
+    { "shensha": "yueyan", "affair": "jiaqu", "verdict": "忌", "weight": "凶", "sources": ["協紀辨方書·月厭"], "verified": false },
+    { "shensha": "tiande", "affair": "jisi", "verdict": "宜", "weight": "吉", "sources": ["協紀辨方書·天德"], "verified": false }
+  ]
+}

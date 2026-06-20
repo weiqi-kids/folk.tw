@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { computeDayRecord } from '../../lib/almanac';
+import { todayInTaipei } from '../../lib/daily';
+
+// 今日農民曆（UTC+8）。天文資料源未接 → 進階層 verified=false，誠實標示（C.4-5、§5）。
+const { iso } = todayInTaipei();
+const [y, m, dd] = iso.split('-').map(Number);
+
+// 神明聖誕 join（C.3）需先有正確農曆轉換；天文資料未接前不假裝農曆，傳入空陣列示範介面。
+const record = computeDayRecord(y, m, dd, { deityBirthdays: [] });
+
+const day = record.pillars.day.value;
+---
+
+<Base title="農民曆" description="干支建除、宜忌考據化。每條結論附推導與《協紀辨方書》出處。">
+  <h1>農民曆 · {iso}</h1>
+  <p class="muted">
+    本模組與市面農民曆 app 的分水嶺：不只給「今日宜嫁娶」，而是給「依《協紀辨方書》某神煞，此日宜嫁娶」，
+    把出處與推導攤開——農民曆長在<strong>考據身分</strong>上，而非滑向算命（C.6）。
+  </p>
+
+  <div class="card status">
+    <strong>建置狀態</strong>
+    <p class="small">{record.status.note}</p>
+  </div>
+
+  <section>
+    <h2>確定性骨架（公式已就緒）</h2>
+    <dl class="rec">
+      <div><dt>儒略日 JDN</dt><dd>{record.jdn}</dd></div>
+      <div>
+        <dt>日柱干支</dt>
+        <dd>{day.stem}{day.branch} <span class="warn">· 錨定常數待校準（C.5）</span></dd>
+      </div>
+      <div>
+        <dt>廿八宿</dt>
+        <dd>{record.ershiba.value} <span class="warn">· 錨定常數待校準</span></dd>
+      </div>
+      <div>
+        <dt>沖煞生肖</dt>
+        <dd>{record.chongSha.value?.zodiac ?? '—'} <span class="warn">· 煞方表待填</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>進階層（考據化・待規則表校填）</h2>
+    <p class="pending">
+      農曆、節氣、四柱（年/月）、黃黑道、神煞、宜忌、胎神、吉時等，需官方天文資料（中央氣象署定朔/節氣）
+      與《欽定協紀辨方書》規則表逐條匯入。每條結論將附 <code>derivation</code> 與 <code>sources[]</code>；
+      缺任一者依 §5／C.4-5 不對外顯示。
+    </p>
+    <ul class="todo small muted">
+      <li>日干支錨定常數 C、廿八宿錨定常數 C28（各以一已知日校準）</li>
+      <li>黃黑道「月支→青龍」起神表（12 組）</li>
+      <li>神煞定例表、宜忌投票表與從違優先序、胎神逐日表、沖煞方位表</li>
+      <li>真太陽時精校（經度＋均時差）— 列發佈後增補</li>
+    </ul>
+  </section>
+
+  <style>
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+    .status { border-color: var(--gold); }
+    .small { font-size: 0.88rem; }
+    .rec { display: grid; gap: 0.5rem; }
+    .rec > div { display: grid; grid-template-columns: 8rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+    .rec dt { font-weight: 700; color: var(--accent); }
+    .rec dd { margin: 0; }
+    .warn { color: var(--gold); font-size: 0.82rem; }
+    .todo { padding-left: 1.2rem; }
+    code { background: var(--paper); padding: 0 0.3rem; border-radius: 0.2rem; }
+  </style>
+</Base>

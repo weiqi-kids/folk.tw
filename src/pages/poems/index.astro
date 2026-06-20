@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPoems, getSystems } from '../../lib/queries';
+
+const poems = (await getPoems()).sort((a, b) => a.data.no - b.data.no);
+const systems = await getSystems();
+const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+---
+
+<Base title="籤詩解碼" description="六十甲子籤全表：四句本文、卦頭故事典故、分項解。">
+  <h1>籤詩解碼</h1>
+  <p class="muted">
+    {systemName.get('liushi_jiazi')}（共 {poems.length} 首）。籤詩四句屬公有領域；
+    卦頭故事採諸說並陳，分項解為本站撰寫或標源。
+  </p>
+  <div class="grid cols poem-grid">
+    {
+      poems.map((p) => (
+        <a class="poem-cell card" href={`/poems/${p.id}`}>
+          <span class="no">第 {p.data.no} 籤</span>
+          <span class="gz">{p.data.ganzhi}{p.data.gua && ` · ${p.data.gua}`}</span>
+          <span class="first muted">{p.data.lines[0]}…</span>
+        </a>
+      ))
+    }
+  </div>
+  <style>
+    .poem-grid { margin-top: 1.2rem; }
+    .poem-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .poem-cell .no { font-weight: 700; color: var(--ink); }
+    .poem-cell .gz { color: var(--accent); font-size: 0.9rem; }
+    .poem-cell .first { font-size: 0.9rem; }
+  </style>
+</Base>

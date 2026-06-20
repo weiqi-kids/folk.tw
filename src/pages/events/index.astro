@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getEvents, getDeities } from '../../lib/queries';
+
+const events = await getEvents();
+const deities = await getDeities();
+const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const HERITAGE: Record<string, string> = {
+  national_important: '國家重要民俗',
+  municipal: '直轄市定民俗',
+  county: '縣市定民俗',
+  none: '未登錄',
+};
+---
+
+<Base title="民俗活動／繞境" description="遶境進香、迎王、中元普渡等民俗活動：主神、文資身分、路線型態。">
+  <h1>民俗活動／繞境</h1>
+  <p class="muted">
+    事件＋地理模組。文資身分一律以文化部國家文化資產網現況為準，未核者標「待核」（D.5）。
+    即時追蹤（如白沙屯 live）為發佈範圍外可選增補（D.4）。
+  </p>
+  <div class="grid">
+    {
+      events.map((e) => (
+        <a class="card ev" href={`/events/${e.id}`}>
+          <div class="ev-head">
+            <strong>{e.data.name}</strong>
+            {e.data.heritage && (
+              <span class:list={['tag', { fortune: e.data.heritage.level === 'national_important' }]}>
+                {HERITAGE[e.data.heritage.level]}{!e.data.heritage.verified && ' · 待核'}
+              </span>
+            )}
+          </div>
+          <div class="muted small">
+            主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
+            {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
+          </div>
+          <div>{e.data.type.map((t) => <span class="tag">{t}</span>)}</div>
+        </a>
+      ))
+    }
+  </div>
+  <style>
+    .ev { display: flex; flex-direction: column; gap: 0.35rem; }
+    .ev-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .ev-head strong { color: var(--ink); font-size: 1.05rem; }
+    .small { font-size: 0.88rem; }
+  </style>
+</Base>

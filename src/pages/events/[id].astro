@@ -1,0 +1,83 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getEvents, getDeities } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const events = await getEvents();
+  return events.map((e) => ({ params: { id: e.id }, props: { event: e } }));
+}) satisfies GetStaticPaths;
+
+const { event } = Astro.props;
+const e = event.data;
+const deities = await getDeities();
+const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const isNode = (id: string) => deityName.has(id);
+
+const HERITAGE: Record<string, string> = {
+  national_important: '國家重要民俗',
+  municipal: '直轄市定民俗',
+  county: '縣市定民俗',
+  none: '未登錄',
+};
+const CYCLE: Record<string, string> = { annual: '年度', n_year_ke: '數年一科', irregular: '不定' };
+const ROUTE: Record<string, string> = {
+  fixed: '固定路線', yearly_versioned: '逐年版本化', undetermined: '不定（臨場決定）',
+};
+---
+
+<Base title={e.name}>
+  <nav class="crumb"><a href="/events">民俗活動</a></nav>
+  <h1>{e.name}</h1>
+  <p>{e.type.map((t) => <span class="tag">{t}</span>)}</p>
+
+  <dl class="rec">
+    <div>
+      <dt>主神</dt>
+      <dd>
+        {isNode(e.main_deity)
+          ? <a href={`/deities/${e.main_deity}`}>{deityName.get(e.main_deity)}</a>
+          : <span>{e.main_deity} <span class="tag">節點待建</span></span>}
+      </dd>
+    </div>
+    <div><dt>主辦廟</dt><dd>{e.host_temple ?? '—'}</dd></div>
+    {e.destination_temple && <div><dt>目的廟</dt><dd>{e.destination_temple}</dd></div>}
+    <div><dt>週期</dt><dd>{CYCLE[e.cycle]}{e.ke_rule && `（${e.ke_rule}）`}</dd></div>
+    <div><dt>日期</dt><dd>{e.date_note ?? '—'}</dd></div>
+    <div><dt>路線型態</dt><dd>{ROUTE[e.route_mode]}</dd></div>
+    {e.region.length > 0 && <div><dt>地域</dt><dd>{e.region.join('、')}</dd></div>}
+    {e.chen_tou.length > 0 && <div><dt>陣頭</dt><dd>{e.chen_tou.map((c) => <span class="tag">{c}</span>)}</dd></div>}
+    {
+      e.heritage && (
+        <div>
+          <dt>文資身分</dt>
+          <dd>
+            {HERITAGE[e.heritage.level]}
+            {e.heritage.verified
+              ? <span class="muted small">　已核</span>
+              : <span class="warn small">　待文資網核對</span>}
+          </dd>
+        </div>
+      )
+    }
+  </dl>
+
+  {
+    e.route_mode === 'undetermined' && (
+      <p class="pending">本活動無固定路線（如白沙屯）；僅存事後實走軌跡，不以預測路線冒充官方路線（D.4）。</p>
+    )
+  }
+
+  {e.sources.length > 0 && <p class="src">來源：{e.sources.map((s) => s.ref).join('；')}</p>}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .rec { display: grid; gap: 0.4rem; margin: 1rem 0; }
+    .rec > div { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+    .rec dt { font-weight: 700; color: var(--accent); }
+    .rec dd { margin: 0; }
+    .warn { color: var(--gold); }
+    .small { font-size: 0.85rem; }
+    .src { color: var(--gold); font-size: 0.82rem; margin-top: 1.5rem; }
+  </style>
+</Base>

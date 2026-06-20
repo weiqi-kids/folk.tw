@@ -1,0 +1,6 @@
+{
+  "_note": "C.7.5 制化表 Restrain（吉神可制凶神，從違裁決用）。無此關係則凶神不可制。待《協紀辨方書·用事·制化》逐條填入。",
+  "restrain": [
+    { "auspicious": "tiande", "restrains": "yueyan", "sources": ["協紀辨方書·用事·制化"], "verified": false }
+  ]
+}

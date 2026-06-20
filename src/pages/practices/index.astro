@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPractices } from '../../lib/queries';
+
+const practices = await getPractices();
+const byCat = new Map<string, typeof practices>();
+for (const p of practices) {
+  const c = p.data.category;
+  (byCat.get(c) ?? byCat.set(c, []).get(c)!).push(p);
+}
+---
+
+<Base title="拜拜習俗／科儀" description="安太歲、點光明燈、普渡、做十六歲等習俗：步驟、金紙供品、諸說並陳。">
+  <h1>拜拜習俗／科儀</h1>
+  <p class="muted">
+    程序知識庫（how-to）。守引註鐵律：每條掛來源、無源不發佈；地方差異諸說並陳，不選一裁定（E.6）。
+    本批為主題 seed，步驟與地區差異待引註補齊。
+  </p>
+  {
+    [...byCat.entries()].map(([cat, list]) => (
+      <section>
+        <h2>{cat}</h2>
+        <div class="grid cols">
+          {list.map((p) => (
+            <a class="card" href={`/practices/${p.id}`}>
+              <strong>{p.data.title}</strong>
+              {p.data.summary && <div class="muted small">{p.data.summary}</div>}
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+  <style>
+    h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; }
+    .card strong { color: var(--ink); }
+    .small { font-size: 0.85rem; margin-top: 0.2rem; }
+  </style>
+</Base>

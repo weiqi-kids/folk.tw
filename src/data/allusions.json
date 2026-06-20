@@ -1,0 +1,298 @@
+[
+  {
+    "id": "taigong_wenwang",
+    "name": "姜太公／渭水遇文王",
+    "story": "",
+    "source": "《封神演義》",
+    "people": ["姜子牙", "周文王", "武吉"],
+    "draft": true
+  },
+  {
+    "id": "xue_rengui",
+    "name": "薛仁貴征東",
+    "story": "",
+    "source": "《薛仁貴征東》",
+    "people": ["薛仁貴", "尉遲恭", "李世民"],
+    "draft": true
+  },
+  {
+    "id": "xue_gang_fantang",
+    "name": "薛剛反唐／薛丁山征西",
+    "story": "",
+    "source": "《薛剛反唐》",
+    "people": ["薛剛", "薛丁山", "鳳嬌", "胡完"],
+    "draft": true
+  },
+  {
+    "id": "sanguo",
+    "name": "三國（桃園結義／關公斬蔡陽／三顧茅廬／曹操潼關）",
+    "story": "",
+    "source": "《三國演義》",
+    "people": ["劉備", "關羽", "張飛", "諸葛亮", "曹操", "馬超"],
+    "draft": true
+  },
+  {
+    "id": "xiyou",
+    "name": "西遊記（遊地府／紅孩兒／孫悟空／豬八戒／劉全進瓜）",
+    "story": "",
+    "source": "《西遊記》",
+    "people": ["李世民", "紅孩兒", "孫悟空", "豬八戒", "劉全"],
+    "draft": true
+  },
+  {
+    "id": "erdumei",
+    "name": "二度梅",
+    "story": "",
+    "source": "《二度梅》",
+    "people": ["陳東初", "周玉姊", "陳春生"],
+    "draft": true
+  },
+  {
+    "id": "hanyu_languan",
+    "name": "韓愈藍關／韓湘子掃霜雪",
+    "story": "",
+    "source": "《神仙傳》《宣和遺事》",
+    "people": ["韓愈", "韓湘子"],
+    "draft": true
+  },
+  {
+    "id": "baitu_ji",
+    "name": "白兔記（劉智遠／李三娘／咬臍郎）",
+    "story": "",
+    "source": "《白兔記》",
+    "people": ["劉智遠", "李三娘", "咬臍郎"],
+    "draft": true
+  },
+  {
+    "id": "mengjiangnu",
+    "name": "孟姜女／七世夫妻",
+    "story": "",
+    "source": "《七世夫妻》",
+    "people": ["孟姜女"],
+    "draft": true
+  },
+  {
+    "id": "baishe",
+    "name": "白蛇傳",
+    "story": "",
+    "source": "《白蛇傳》",
+    "people": ["白蛇精", "許漢文"],
+    "draft": true
+  },
+  {
+    "id": "yanzhi_ji",
+    "name": "胭脂記／郭華念月英",
+    "story": "",
+    "source": "《胭脂記》",
+    "people": ["郭華", "念月英"],
+    "draft": true
+  },
+  {
+    "id": "soushen",
+    "name": "搜神記（范丹洗浴遇賢妻／宋定伯賣鬼）",
+    "story": "",
+    "source": "《搜神記》",
+    "people": ["范丹", "宋定伯"],
+    "draft": true
+  },
+  {
+    "id": "suitang_qinshubao",
+    "name": "隋唐（楊管醉玉仝坐馬／秦叔寶救李淵）",
+    "story": "",
+    "source": "《隋唐演義》",
+    "people": ["楊管", "秦叔寶", "李淵"],
+    "draft": true
+  },
+  {
+    "id": "yuefei",
+    "name": "岳飛傳／精忠（烏靈聖母／岳飛掠秦檜）",
+    "story": "",
+    "source": "《岳飛傳》《精忠岳傳》",
+    "people": ["岳飛", "秦檜", "烏靈聖母"],
+    "draft": true
+  },
+  {
+    "id": "baogong",
+    "name": "包公（請雷驚仁宗／審張世真）",
+    "story": "",
+    "source": "《遇后龍袍》",
+    "people": ["包公", "宋仁宗", "張世真"],
+    "draft": true
+  },
+  {
+    "id": "zhuangzi_shiqi",
+    "name": "莊子試妻（大劈棺）",
+    "story": "",
+    "source": "《大劈棺》",
+    "people": ["莊子"],
+    "draft": true
+  },
+  {
+    "id": "zhoudewu",
+    "name": "周德武入寺",
+    "story": "",
+    "source": "《周德武》",
+    "people": ["周德武"],
+    "draft": true
+  },
+  {
+    "id": "liuyi",
+    "name": "柳毅傳書（盧龍王次子招親）",
+    "story": "",
+    "source": "《柳毅傳書》",
+    "people": ["柳毅", "盧龍王"],
+    "draft": true
+  },
+  {
+    "id": "longhu_dou",
+    "name": "龍虎鬥（龍虎相會）",
+    "story": "",
+    "source": "《龍虎鬥》",
+    "people": [],
+    "draft": true
+  },
+  {
+    "id": "zhushouchang",
+    "name": "朱壽昌尋母（二十四孝）",
+    "story": "",
+    "source": "《二十四孝》",
+    "people": ["朱壽昌"],
+    "draft": true
+  },
+  {
+    "id": "lixiao_dahu",
+    "name": "李存孝打虎",
+    "story": "",
+    "source": "《飛虎山》",
+    "people": ["李存孝"],
+    "draft": true
+  },
+  {
+    "id": "zhengde_lifeng",
+    "name": "正德君戲李鳳姐",
+    "story": "",
+    "source": "《遊龍戲鳳》《梅龍鎮》",
+    "people": ["正德君", "李鳳姐"],
+    "draft": true
+  },
+  {
+    "id": "yangjiajiang",
+    "name": "楊文廣被困柳州城（楊家將）",
+    "story": "",
+    "source": "《楊家將演義》",
+    "people": ["楊文廣"],
+    "draft": true
+  },
+  {
+    "id": "sanyuanhui",
+    "name": "三元會葛其量夫妻相會",
+    "story": "",
+    "source": "（戲文）",
+    "people": ["葛其量"],
+    "draft": true
+  },
+  {
+    "id": "chensan_wuniang",
+    "name": "陳三五娘（荔鏡傳）",
+    "story": "",
+    "source": "《荔鏡傳》《陳三五娘》",
+    "people": ["洪益春", "陳三"],
+    "draft": true
+  },
+  {
+    "id": "kongzi_xiaoer",
+    "name": "孔子過番逢小兒",
+    "story": "",
+    "source": "《孔子演義》",
+    "people": ["孔子"],
+    "draft": true
+  },
+  {
+    "id": "jiangzhongli",
+    "name": "江中立欽賜狀元",
+    "story": "",
+    "source": "《江中立》",
+    "people": ["江中立"],
+    "draft": true
+  },
+  {
+    "id": "xie_tianxiang",
+    "name": "柳永謝天香",
+    "story": "",
+    "source": "《謝天香》",
+    "people": ["柳永", "謝天香"],
+    "draft": true
+  },
+  {
+    "id": "qingting_wang",
+    "name": "蜻蜓誤入蜘蛛網",
+    "story": "",
+    "source": "民間俚語",
+    "people": [],
+    "draft": true
+  },
+  {
+    "id": "dongpo_foyin",
+    "name": "東坡佛印稍婆答歌詩",
+    "story": "",
+    "source": "《東坡遊赤壁》",
+    "people": ["蘇東坡", "佛印"],
+    "draft": true
+  },
+  {
+    "id": "zhao_kuangyin",
+    "name": "趙匡胤河東大戰龍虎關",
+    "story": "",
+    "source": "《中國歷史演義》",
+    "people": ["趙匡胤"],
+    "draft": true
+  },
+  {
+    "id": "suqin",
+    "name": "蘇秦夫妻相會（蘇秦假不第）",
+    "story": "",
+    "source": "《史記·蘇秦列傳》",
+    "people": ["蘇秦"],
+    "draft": true
+  },
+  {
+    "id": "dongyong",
+    "name": "董永天仙配",
+    "story": "",
+    "source": "《天仙配》",
+    "people": ["董永"],
+    "draft": true
+  },
+  {
+    "id": "tonggin_zhixue",
+    "name": "銅銀買紙靴",
+    "story": "",
+    "source": "未明",
+    "people": [],
+    "draft": true
+  },
+  {
+    "id": "chengdu_bo",
+    "name": "撐渡伯行舟遇太歲",
+    "story": "",
+    "source": "《桃花過渡》",
+    "people": ["撐渡伯"],
+    "draft": true
+  },
+  {
+    "id": "wuhan_qizhu",
+    "name": "吳漢殺妻為母救主",
+    "story": "",
+    "source": "《斬經堂》",
+    "people": ["吳漢"],
+    "draft": true
+  },
+  {
+    "id": "yanguan_bing",
+    "name": "楊管得病在西軒",
+    "story": "",
+    "source": "《歌仔冊》",
+    "people": ["楊管"],
+    "draft": true
+  }
+]

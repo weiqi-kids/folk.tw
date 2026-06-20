@@ -1,0 +1,384 @@
+[
+  {
+    "id": "dajia",
+    "name": "大甲媽祖遶境進香",
+    "host_temple": "dajia_zhenlan",
+    "main_deity": "mazu",
+    "type": [
+      "遶境進香"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "divined",
+    "date_note": "三月（廟方擲筊擇日）",
+    "route_mode": "yearly_versioned",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "台中",
+      "彰化",
+      "雲林",
+      "嘉義"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "baishatun",
+    "name": "白沙屯媽祖進香",
+    "host_temple": "baishatun_gongtian",
+    "main_deity": "mazu",
+    "type": [
+      "進香",
+      "刈火"
+    ],
+    "chen_tou": [
+      "報馬仔",
+      "頭旗",
+      "媽祖鑾轎"
+    ],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "divined",
+    "date_note": "三月（前一年12/15擲筊定）",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "苗栗",
+      "台中",
+      "彰化",
+      "雲林"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "白沙屯拱天宮"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "beigang",
+    "name": "北港朝天宮迎媽祖",
+    "host_temple": "beigang_chaotian",
+    "main_deity": "mazu",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "三月十九、二十",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "雲林"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "北港朝天宮"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "donggang",
+    "name": "東港迎王平安祭典",
+    "host_temple": "donggang_dongling",
+    "main_deity": "wenwang_qiansui",
+    "type": [
+      "迎王",
+      "燒王船"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": "丑辰未戌",
+    "date_resolution": "fixed_lunar",
+    "date_note": "九月",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "屏東"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "東港東隆宮"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "xigang",
+    "name": "西港香（刈香王醮）",
+    "host_temple": "xigang_qingan",
+    "main_deity": "shier_wenwang",
+    "type": [
+      "刈香"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "四月",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "西港慶安宮"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "jilong",
+    "name": "雞籠中元祭",
+    "host_temple": "jilong_zhuputan",
+    "main_deity": "haoxiongdi",
+    "type": [
+      "中元普渡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "七月",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": false
+    },
+    "region": [
+      "基隆"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "qingshan",
+    "name": "艋舺青山王祭（暗訪）",
+    "host_temple": "wanhua_qingshan",
+    "main_deity": "qingshan",
+    "type": [
+      "夜巡",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "十月廿、廿一暗訪，廿二正日",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": false
+    },
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "艋舺青山宮"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "yanshui",
+    "name": "鹽水蜂炮",
+    "host_temple": "yanshui_wumiao",
+    "main_deity": "guangong",
+    "type": [
+      "遶境",
+      "炮城"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "元宵（正月十五前後）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": false
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "鹽水武廟"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "neimen",
+    "name": "內門宋江陣",
+    "host_temple": "neimen_zizhusi",
+    "main_deity": "guanyin",
+    "type": [
+      "刈香",
+      "陣頭競演"
+    ],
+    "chen_tou": [
+      "宋江陣"
+    ],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "二月觀音聖誕前後",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": false
+    },
+    "region": [
+      "高雄"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "內門紫竹寺"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "toucheng",
+    "name": "頭城搶孤",
+    "host_temple": "toucheng_zhongyuan",
+    "main_deity": "haoxiongdi",
+    "type": [
+      "搶孤"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "七月底（關鬼門前）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": false
+    },
+    "region": [
+      "宜蘭"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      }
+    ],
+    "draft": true
+  },
+  {
+    "id": "yimin",
+    "name": "褒忠義民節（義民祭）",
+    "host_temple": "xinpu_baozhongting_yimiao",
+    "main_deity": "yimin",
+    "type": [
+      "中元普渡",
+      "神豬祭"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "七月二十",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": false
+    },
+    "region": [
+      "桃園",
+      "新竹",
+      "苗栗"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網",
+        "note": "文資身分以文資網現況為準，D.5"
+      },
+      {
+        "type": "temple",
+        "ref": "新埔褒忠亭義民廟"
+      }
+    ],
+    "draft": true
+  }
+]
