@@ -1,7 +1,7 @@
 ---
 name: "白蛇傳"
 source: "《白蛇傳》"
-people: ["白蛇精", "許漢文"]
+people: ["白蛇精", "許漢文", "法海"]
 draft: false
 ---
 

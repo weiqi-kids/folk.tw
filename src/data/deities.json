@@ -140,7 +140,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "以治水之祖大禹為首的水域守護神群，統御航運與水利，多將數位水中聖賢合祀，常見於港口、水路沿線廟宇，別稱水仙王。",
+    "summary": "通說以大禹為首（各廟所祀組成不一）的水域守護神群，統御航運與水利，多將數位水中聖賢合祀，常見於港口、水路沿線廟宇，別稱水仙王。",
     "sources": [
       {
         "type": "book",
@@ -229,7 +229,13 @@
     ],
     "category": "開拓神信仰",
     "is_category": true,
-    "instances": [],
+    "instances": [
+      "wangye_li",
+      "wangye_chi",
+      "wangye_wu",
+      "wangye_zhu",
+      "wangye_fan"
+    ],
     "office": [
       "巡境驅瘟",
       "地方守護"
@@ -322,7 +328,10 @@
     ],
     "category": "開拓神信仰",
     "is_category": true,
-    "instances": [],
+    "instances": [
+      "chenghuang_xiahai",
+      "chenghuang_tainanfu"
+    ],
     "office": [
       "陰司",
       "城域司法"
@@ -408,7 +417,7 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
-    "summary": "城隍爺麾下的陰司部將，范將軍（七爺）與謝將軍（八爺）分執令旗，職司緝拿陰間亡魂、維護冥界秩序；廟會遶境中兩人高大裝扮為最具辨識度的神將造型。",
+    "summary": "城隍爺麾下的陰司部將，謝將軍（七爺）與范將軍（八爺）分執令旗，職司緝拿陰間亡魂、維護冥界秩序；廟會遶境中兩人高大裝扮為最具辨識度的神將造型。",
     "sources": [
       {
         "type": "book",
@@ -2306,6 +2315,465 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wangye_li",
+    "name": "李府千歲",
+    "aliases": [
+      "李大亮",
+      "大千歲",
+      "李大王"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "巡境驅瘟",
+      "代天巡狩",
+      "擇日吉時"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "04-26",
+        "kind": "聖誕",
+        "note": "農曆四月二十六日，為南鯤鯓代天府及各地王爺廟通行聖誕日。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+            "note": "原文：「李府千歲聖誕：四月二十六日」"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "原文：「李府千歲 農曆四月廿六日」"
+          },
+          {
+            "type": "web",
+            "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+            "note": "原文：「李府千歲聖誕：農曆四月二十六日」"
+          }
+        ]
+      }
+    ],
+    "iconography": [],
+    "groups": [
+      "五府千歲"
+    ],
+    "summary": "五府千歲之大王，本名李大亮（586—644年），為唐高祖開國功臣，歷任金州總管、工部尚書等職，一生清廉、文武全才；升天後受封代天巡狩，職司擇日吉時（民間稱「大王好日子」）、驅瘟除疫。為南鯤鯓代天府主神之首，是五府千歲中唯一見於正史列傳者。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+        "note": "本名李大亮，隋唐功臣，聖誕四月二十六，職司看日擇時"
+      },
+      {
+        "type": "web",
+        "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+        "note": "李大亮（586-644年），北魏度支尚書李琰之曾孫，唐高祖開國功臣"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wangye_chi",
+    "name": "池府千歲",
+    "aliases": [
+      "池夢彪",
+      "二千歲",
+      "池二王",
+      "池王爺"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "巡境驅瘟",
+      "代天巡狩",
+      "判斷潮水",
+      "守護漁民"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "06-18",
+        "kind": "聖誕",
+        "note": "農曆六月十八日，為南鯤鯓代天府及各地通行池府千歲聖誕日。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+            "note": "原文：「池府千歲聖誕：六月十八日」"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "原文：「池府千歲 農曆六月十八日」"
+          },
+          {
+            "type": "web",
+            "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
+            "note": "原文：「池府千歲 聖誕：農曆六月十八」"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "黑臉"
+    ],
+    "groups": [
+      "五府千歲"
+    ],
+    "summary": "五府千歲之二王，本名池夢彪，陳留人，相傳隨唐太宗李世民親征高句麗屢建戰功；最廣為人知的傳說為其自願吞服瘟神所下的瘟藥以救百姓，因此面容呈黑色。升天後職司「判斷潮水」（民間稱「二王好潮水」），為討海人的守護神，並兼司驅除瘟疫。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+        "note": "本名池夢彪，隋唐功臣，聖誕六月十八，職司判斷潮水"
+      },
+      {
+        "type": "web",
+        "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+        "note": "池夢彪，陳留人，傳說吞服瘟疫藥救百姓，面色因此發黑"
+      },
+      {
+        "type": "web",
+        "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
+        "note": "個性嫉惡如仇，黑臉源於曾吞瘟疫病毒救民，守護討海人"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wangye_wu",
+    "name": "吳府千歲",
+    "aliases": [
+      "吳孝寬",
+      "三千歲",
+      "吳三王"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "巡境驅瘟",
+      "代天巡狩",
+      "堪輿擇地",
+      "卡陰解厄"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "09-15",
+        "kind": "聖誕",
+        "note": "農曆九月十五日，為南鯤鯓代天府及各地主流通行日。另有三月初三一說（少數廟宇），非主流。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+            "note": "原文：「吳府千歲聖誕：九月十五日」"
+          },
+          {
+            "type": "web",
+            "ref": "聖弘文創「吳府千歲聖誕千秋」https://shenghong1126.com.tw/wufu06/",
+            "note": "原文：「吳府千歲聖誕千秋日為農曆九月十五」"
+          },
+          {
+            "type": "web",
+            "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+            "note": "「農曆九月十五日」"
+          }
+        ]
+      },
+      {
+        "date": "03-03",
+        "kind": "聖誕",
+        "note": "農曆三月初三，少數廟宇異說，非廣泛通行。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "該表列「吳府千歲 農曆三月初三日」，為少數異說"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "無鬍鬚"
+    ],
+    "groups": [
+      "五府千歲"
+    ],
+    "summary": "五府千歲之三王，本名吳孝寬，江蘇吳縣人，相傳為隋唐時期功臣，精通地理風水與星象。升天後職司「堪輿擇地」（民間稱「三王好地理」），協助信眾選地建宅，並擅長處理卡陰解厄；五府千歲中以面容無鬍鬚為造型特徵。聖誕以農曆九月十五日為主流，另有三月初三異說。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+        "note": "本名吳孝寬，江蘇吳縣人，擅長地理風水，聖誕九月十五"
+      },
+      {
+        "type": "web",
+        "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+        "note": "吳孝寬，唐高祖功臣，歷任中郎將、吏部尚書"
+      },
+      {
+        "type": "web",
+        "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
+        "note": "擅長踏地理（風水擇地），處理卡陰解厄，五位中唯一無鬍鬚"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wangye_zhu",
+    "name": "朱府千歲",
+    "aliases": [
+      "朱叔裕",
+      "四千歲",
+      "朱四王"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "留守廟中",
+      "出籤決疑",
+      "鎮壓妖邪"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "08-15",
+        "kind": "聖誕",
+        "note": "農曆八月十五日，為南鯤鯓代天府及多數廟宇通行聖誕日。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+            "note": "原文：「朱府千歲聖誕：八月十五日」"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "原文：「朱府千歲 農曆八月十五日」"
+          },
+          {
+            "type": "web",
+            "ref": "朱府千歲祖廟在哪裡？朱府千歲由來大公開—聖弘文創 https://shenghong1126.com.tw/stories-of-gods102/",
+            "note": "原文：「朱府千歲農曆八月十五日」"
+          }
+        ]
+      }
+    ],
+    "iconography": [],
+    "groups": [
+      "五府千歲"
+    ],
+    "summary": "五府千歲之四王，本名朱叔裕，嘉興人，相傳為唐朝功臣，歷任吏部天官、大理寺卿，能文能武、公正無私。升天後在五府千歲中是唯一不出巡的王爺，留守廟中負責掌管籤詩（民間稱「四王好籤詩」）；以決斷謀略著稱，尤受商家崇敬。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+        "note": "本名朱叔裕，嘉興人，聖誕八月十五，職司經商出籤、主管籤詩"
+      },
+      {
+        "type": "web",
+        "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+        "note": "朱叔裕，嘉興人，歷任綿州刺史、大理寺卿，留守廟中出籤"
+      },
+      {
+        "type": "web",
+        "ref": "朱府千歲祖廟在哪裡？朱府千歲由來大公開—聖弘文創 https://shenghong1126.com.tw/stories-of-gods102/",
+        "note": "唯一不出巡的王爺，留守廟中求籤詩，神準靈驗深受商家崇敬"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wangye_fan",
+    "name": "范府千歲",
+    "aliases": [
+      "范承業",
+      "五千歲",
+      "范五王"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "巡境驅瘟",
+      "代天巡狩",
+      "醫藥救世",
+      "斬妖除魔"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "04-27",
+        "kind": "聖誕",
+        "note": "農曆四月二十七日，為南鯤鯓代天府及各地通行范府千歲聖誕日。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+            "note": "原文：「范府千歲聖誕：四月二十七日」"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "原文：「范府千歲 農曆四月廿七日」"
+          },
+          {
+            "type": "web",
+            "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
+            "note": "原文：「范府千歲 聖誕：農曆四月廿七」"
+          }
+        ]
+      }
+    ],
+    "iconography": [],
+    "groups": [
+      "五府千歲"
+    ],
+    "summary": "五府千歲之五王，本名范承業，江蘇吳縣人，相傳為隋唐功臣，博通經史、精通醫術，歷任知府、刑部大司寇、武州刺史。升天後職司醫藥救世（民間稱「五王好醫理」），與保生大帝、神農大帝並稱神界名醫，兼司斬妖除魔、清除不淨磁場。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "道教神明網「五府千歲」https://www.daojiao.com.tw/gods_detail/116",
+        "note": "本名范承業，江蘇吳縣人，聖誕四月二十七，職司醫藥之術"
+      },
+      {
+        "type": "web",
+        "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
+        "note": "范承業，博通經史，精通醫術，歷任知府、武州刺史"
+      },
+      {
+        "type": "web",
+        "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
+        "note": "精通醫理藥理，斬妖除魔，與保生大帝、神農大帝並稱神界名醫"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "chenghuang_xiahai",
+    "name": "霞海城隍",
+    "aliases": [
+      "大稻埕城隍",
+      "同安城隍",
+      "霞海城隍爺"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "陰司",
+      "城域司法",
+      "地方守護",
+      "姻緣撮合"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "05-13",
+        "kind": "聖誕",
+        "note": "農曆五月十三日，為台北大稻埕霞海城隍廟通行聖誕日，自清光緒五年（1879年）起有正式祭典記載，以「五月十三人看人」盛況著稱。聖誕前兩日（五月十一）舉行暗訪。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%A8%BB%E5%9F%95%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+            "note": "「以農曆5月13日作為聖誕遶境日，自清代光緒5年（公元1879年）以來」"
+          },
+          {
+            "type": "web",
+            "ref": "台北霞海城隍廟五月十三迎城隍—臺灣宗教文化地圖 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+            "note": "「農曆5月11日暗訪、5月13日聖誕遶境為最高潮」，與艋舺青山王、新莊大眾爺並稱北台灣三大暗訪"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "「霞海城隍爺 農曆五月十三日」"
+          }
+        ]
+      }
+    ],
+    "iconography": [],
+    "groups": [],
+    "summary": "奉祀於台北大稻埕迪化街的城隍神，源自福建泉州府同安縣，清道光元年（1821年）由同安移民攜神像渡台；咸豐三年（1853年）頂下郊拚後同安人撤退大稻埕，咸豐六年（1856年）正式建廟，1859年落成。非欽定官祀，無正式敕封稱號，廟內並祀咸豐三年械鬥中殉難的三十八位義勇公神位。現為大稻埕信仰中心，以農曆五月十三日聖誕遶境與月老祈緣著稱，為台灣香火最盛的城隍廟之一。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%A8%BB%E5%9F%95%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "建廟沿革：道光元年渡台、咸豐三年頂下郊拚、咸豐六年建廟"
+      },
+      {
+        "type": "web",
+        "ref": "台北霞海城隍廟五月十三迎城隍—臺灣宗教文化地圖 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+        "note": "義勇公配祀、三大暗訪、廟宇地位"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "chenghuang_tainanfu",
+    "name": "台灣府城隍威靈公",
+    "aliases": [
+      "台灣府城隍",
+      "府城隍",
+      "威靈公",
+      "台南府城隍廟城隍"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "陰司",
+      "城域司法",
+      "監察官民"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "05-11",
+        "kind": "聖誕",
+        "note": "農曆五月十一日，為台灣府城隍廟（台南）通行聖誕日。前一日（五月初十）舉行暖壽，五月十四日出碗犒賞衙役。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "台灣府城隍廟年度祭典—官方網站 https://www.twcitygod.org.tw/?page_id=49",
+            "note": "「農曆五月十一日—城隍爺生日；五月初十—暖壽活動；五月十四日—出碗犒賞衙役」"
+          },
+          {
+            "type": "web",
+            "ref": "台灣神明生日一覽表 https://www.sim.org.tw/festival146.html",
+            "note": "「台灣府城隍 農曆五月十一日」"
+          },
+          {
+            "type": "web",
+            "ref": "第一座官方府城隍廟 府城隍威靈公生日快樂—寶島神很大online https://baodao.setn.com/news/1127934",
+            "note": "「農曆五月十一（國曆6月9日），府城隍聖誕」"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "爾來了匾",
+      "大算盤"
+    ],
+    "groups": [],
+    "summary": "全台最早的官建城隍廟主神，封號「威靈公」，為明鄭永曆二十三年（1669年）建於台南東安坊，初稱「承天府城隍廟」；清領後改稱「台灣府城隍廟」，納入官方祀典。依明太祖朱元璋制度，府級城隍受封「威靈公」，職司監察官民善惡、掌理城域陰司司法。廟內著名文物包括「爾來了」大匾與大算盤，提醒入廟者行善積德。現列國定古蹟，位於台南市中西區青年路133號。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "台灣府城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E5%BA%9C%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "建廟永曆二十三年（1669年）、國定古蹟、威靈公封號"
+      },
+      {
+        "type": "web",
+        "ref": "第一座官方府城隍廟 府城隍威靈公生日快樂—寶島神很大online https://baodao.setn.com/news/1127934",
+        "note": "「威靈公」封號說明：省都府級城隍皆稱威靈公"
+      },
+      {
+        "type": "web",
+        "ref": "台灣府城隍廟—臺南旅遊網 https://www.twtainan.net/zh-tw/attractions/detail/682/",
+        "note": "廟宇介紹、國定古蹟"
       }
     ],
     "draft": false

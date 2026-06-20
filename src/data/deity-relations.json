@@ -194,5 +194,103 @@
         "note": "待逐條校"
       }
     ]
+  },
+  {
+    "id": "rel-wangye-li",
+    "from": "wangye",
+    "to": "wangye_li",
+    "type": "系統",
+    "note": "五府千歲之一（大王），南鯤鯓代天府代表性組合",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "五府千歲—維基百科 https://zh.wikipedia.org/zh-tw/%E4%BA%94%E5%BA%9C%E5%8D%83%E6%AD%B2",
+        "note": "李府千歲為五府千歲常見組合之首"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangye-chi",
+    "from": "wangye",
+    "to": "wangye_chi",
+    "type": "系統",
+    "note": "五府千歲之一（二王），南鯤鯓代天府代表性組合",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "五府千歲—維基百科 https://zh.wikipedia.org/zh-tw/%E4%BA%94%E5%BA%9C%E5%8D%83%E6%AD%B2",
+        "note": "池府千歲為五府千歲常見組合之二"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangye-wu",
+    "from": "wangye",
+    "to": "wangye_wu",
+    "type": "系統",
+    "note": "五府千歲之一（三王），南鯤鯓代天府代表性組合",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "五府千歲—維基百科 https://zh.wikipedia.org/zh-tw/%E4%BA%94%E5%BA%9C%E5%8D%83%E6%AD%B2",
+        "note": "吳府千歲為五府千歲常見組合之三"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangye-zhu",
+    "from": "wangye",
+    "to": "wangye_zhu",
+    "type": "系統",
+    "note": "五府千歲之一（四王），南鯤鯓代天府代表性組合",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "五府千歲—維基百科 https://zh.wikipedia.org/zh-tw/%E4%BA%94%E5%BA%9C%E5%8D%83%E6%AD%B2",
+        "note": "朱府千歲為五府千歲常見組合之四"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangye-fan",
+    "from": "wangye",
+    "to": "wangye_fan",
+    "type": "系統",
+    "note": "五府千歲之一（五王），南鯤鯓代天府代表性組合",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "五府千歲—維基百科 https://zh.wikipedia.org/zh-tw/%E4%BA%94%E5%BA%9C%E5%8D%83%E6%AD%B2",
+        "note": "范府千歲為五府千歲常見組合之五"
+      }
+    ]
+  },
+  {
+    "id": "rel-chenghuang-xiahai",
+    "from": "chenghuang",
+    "to": "chenghuang_xiahai",
+    "type": "系統",
+    "note": "城隍系統具名實例：台北大稻埕霞海城隍廟主神，非官建，由同安移民奉祀",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%A8%BB%E5%9F%95%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "霞海城隍廟為城隍信仰系統下的具名實例廟宇"
+      }
+    ]
+  },
+  {
+    "id": "rel-chenghuang-tainanfu",
+    "from": "chenghuang",
+    "to": "chenghuang_tainanfu",
+    "type": "系統",
+    "note": "城隍系統具名實例：台南台灣府城隍廟主神，府級官建，封號威靈公，全台最早官建城隍廟",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "台灣府城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E5%BA%9C%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "台灣府城隍廟為城隍信仰系統下的官建府級具名實例"
+      }
+    ]
   }
 ]
