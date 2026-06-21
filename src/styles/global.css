@@ -1,0 +1,95 @@
+/* 神酷（神庫）統一設計 token 與全域基礎樣式。
+ * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
+ * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 18px、body ~20px）。
+ * 參考 yao.care 的 token 設定方式（Tailwind 風 oklch 調色盤 + --text-* 字級）。 */
+
+:root {
+  /* ── 色彩（OKLCH）── */
+  --ink: oklch(0.24 0.008 70); /* 主文字（暖近黑） */
+  --ink-soft: oklch(0.43 0.014 72); /* 次要文字 */
+  --paper: oklch(0.965 0.012 88); /* 背景暖紙 */
+  --paper-2: oklch(0.992 0.006 95); /* 卡片／淺面 */
+  --line: oklch(0.87 0.026 86); /* 邊線／分隔 */
+  --accent: oklch(0.48 0.132 25); /* 朱紅（品牌主色） */
+  --accent-soft: oklch(0.63 0.10 45); /* 朱橙 */
+  --gold: oklch(0.585 0.075 82); /* 金（出處／註記） */
+  --ok-green: oklch(0.52 0.10 150); /* 宜（吉） */
+
+  /* ── 字級階梯（rem，相對 root 18px）── */
+  --text-xs: 0.8rem; /* ~14.4px */
+  --text-sm: 0.9rem; /* ~16.2px */
+  --text-base: 1.1rem; /* ~19.8px（內文） */
+  --text-lg: 1.3rem; /* ~23.4px */
+  --text-xl: 1.6rem; /* ~28.8px */
+  --text-2xl: 2rem; /* ~36px */
+  --text-3xl: 2.5rem; /* ~45px */
+
+  /* ── 版面 ── */
+  --max: 58rem;
+  --lh: 1.85; /* 內文行高 */
+  --lh-tight: 1.4; /* 標題行高 */
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-size: 112.5%; /* 18px 基準（放大內文） */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif TC', 'Source Han Serif TC', '本蘭明體', serif;
+  font-size: var(--text-base);
+  line-height: var(--lh);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: var(--lh-tight); }
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+p { margin: 0.7rem 0; }
+
+/* ── 版頭／主區／頁尾 ── */
+.site-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem;
+  max-width: var(--max); margin: 0 auto; padding: 1.2rem 1.25rem 0.8rem;
+  border-bottom: 2px solid var(--accent);
+}
+.brand { font-size: var(--text-xl); font-weight: 700; color: var(--ink); letter-spacing: 0.08em; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; margin-left: auto; }
+.site-header nav a { color: var(--ink-soft); font-size: var(--text-base); }
+.site-header nav a.active { color: var(--accent); font-weight: 700; }
+.site-main { max-width: var(--max); margin: 0 auto; padding: 1.6rem 1.25rem 3rem; }
+.site-footer {
+  max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem;
+  border-top: 1px solid var(--line); color: var(--ink-soft); font-size: var(--text-sm);
+}
+.site-footer p { margin: 0.4rem 0; }
+.site-footer .meta { color: var(--gold); }
+
+/* ── 共用元件 ── */
+.tag {
+  display: inline-block; font-size: var(--text-xs); padding: 0.1rem 0.55rem;
+  border: 1px solid var(--line); border-radius: 1rem; color: var(--ink-soft);
+  background: var(--paper-2); margin: 0 0.2rem 0.2rem 0;
+}
+.tag.fortune { border-color: var(--accent-soft); color: var(--accent); }
+.card {
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 0.5rem; padding: 1.1rem 1.25rem; margin: 0.8rem 0;
+}
+.muted { color: var(--ink-soft); }
+.small { font-size: var(--text-sm); }
+.pending {
+  color: var(--gold); font-size: var(--text-sm); font-style: italic;
+  border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0;
+}
+.grid { display: grid; gap: 0.8rem; }
+.grid.cols { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+.lines-vertical { font-size: var(--text-xl); letter-spacing: 0.15em; line-height: 2.2; }
