@@ -4,6 +4,7 @@ interface Props {
   title?: string;
   description?: string;
 }
+import { GA4_ID } from '../consts';
 const { title, description } = Astro.props;
 const siteName = '眾神解析';
 const fullTitle = title ? `${title}｜${siteName}` : `${siteName} — 台灣民俗信仰考據`;
@@ -41,6 +42,24 @@ const path = Astro.url.pathname;
     <meta property="og:locale" content="zh_TW" />
     <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#8a2b2b" />
+    {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts） */}
+    {
+      GA4_ID && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+          ></script>
+          <script is:inline define:vars={{ GA4_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', GA4_ID, { anonymize_ip: true });
+          </script>
+        </>
+      )
+    }
   </head>
   <body>
     <header class="site-header">
