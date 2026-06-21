@@ -1,1 +1,544 @@
-[]
+[
+  {
+    "id": "dajia_zhenlan",
+    "name": "大甲鎮瀾宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台中市大甲區",
+    "lng": 120.62379,
+    "lat": 24.344786,
+    "sources": [
+      {
+        "type": "temple",
+        "ref": "財團法人大甲鎮瀾宮全球資訊網 https://www.dajiamazu.org.tw/",
+        "note": "廟方官網，地址：台中市大甲區順天路158號"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001112&id=R18",
+        "note": "台中市大甲區，國定重要民俗大甲媽祖遶境進香主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "baishatun_gongtian",
+    "name": "白沙屯拱天宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "苗栗縣通霄鎮",
+    "lng": 120.709122,
+    "lat": 24.571483,
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「白沙屯拱天宮」https://zh.wikipedia.org/zh-tw/%E7%99%BD%E6%B2%99%E5%B1%AF%E6%8B%B1%E5%A4%A9%E5%AE%AE",
+        "note": "地址：苗栗縣通霄鎮白東里8號；坐標 24°34′17″N 120°42′33″E"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001016&id=A12-00649",
+        "note": "國定重要民俗白沙屯媽祖進香主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "beigang_chaotian",
+    "name": "北港朝天宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "雲林縣北港鎮",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「北港朝天宮」https://zh.wikipedia.org/zh-tw/%E5%8C%97%E6%B8%AF%E6%9C%9D%E5%A4%A9%E5%AE%AE",
+        "note": "地址：雲林縣北港鎮中山路178號；清康熙33年（1694年）建廟"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://taiwan.net.tw/m1.aspx?id=2249&sNo=0001115",
+        "note": "國定重要民俗北港朝天宮迎媽祖主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "donggang_dongling",
+    "name": "東港東隆宮",
+    "main_deity_raw": "溫府千歲",
+    "main_deity_ref": "",
+    "district": "屏東縣東港鎮",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「東港東隆宮」https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%B8%AF%E6%9D%B1%E9%9A%86%E5%AE%AE",
+        "note": "地址：屏東縣東港鎮東隆街21-1號；主祀溫府千歲（溫鴻），康熙45年（1706）建廟"
+      },
+      {
+        "type": "temple",
+        "ref": "東港東隆宮官網 https://www.66.org.tw/",
+        "note": "廟方官網；迎王平安祭典（燒王船）主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "xigang_qingan",
+    "name": "西港玉勅慶安宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台南市西港區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「西港慶安宮」https://zh.wikipedia.org/zh-tw/%E8%A5%BF%E6%B8%AF%E6%85%B6%E5%AE%89%E5%AE%AE",
+        "note": "地址：台南市西港區慶安路32號；主祀天上聖母，清康熙51年（1712年）創建"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006",
+        "note": "國定重要民俗西港香（刈香王醮）主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "jilong_zhuputan",
+    "name": "基隆主普壇",
+    "main_deity_raw": "好兄弟（普渡共祀）",
+    "main_deity_ref": "",
+    "district": "基隆市中正區",
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "基隆市政府觀光旅遊「主普壇（中元祭祀文物館）」https://tour.klcg.gov.tw/zh-hant/attractions/12369370/",
+        "note": "位於中正公園內；雞籠中元祭各姓氏輪值主普之壇場，兼設中元祭祀文物館"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "note": "國定重要民俗雞籠中元祭，起源咸豐5年（1855年）漳泉械鬥後整合字姓輪值制度"
+      }
+    ]
+  },
+  {
+    "id": "wanhua_qingshan",
+    "name": "艋舺青山宮",
+    "main_deity_raw": "靈安尊王（青山王）",
+    "main_deity_ref": "qingshan",
+    "district": "台北市萬華區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「艋舺青山宮」https://zh.wikipedia.org/zh-tw/%E8%89%8B%E8%88%BA%E9%9D%92%E5%B1%B1%E5%AE%AE",
+        "note": "地址：台北市萬華區貴陽街二段218號；咸豐6年（1856）建廟，台北市定古蹟"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
+        "note": "台北市定民俗「艋舺青山王祭（暗訪）」主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "yanshui_wumiao",
+    "name": "鹽水武廟",
+    "main_deity_raw": "關聖帝君",
+    "main_deity_ref": "guangong",
+    "district": "台南市鹽水區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「鹽水武廟」https://zh.wikipedia.org/zh-tw/%E9%B9%BD%E6%B0%B4%E6%AD%A6%E5%BB%9F",
+        "note": "地址：台南市鹽水區武廟路87號；主祀關聖帝君，相傳建於永曆年間（1668年擴建）"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004",
+        "note": "台南市定民俗「鹽水蜂炮」主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "neimen_zizhusi",
+    "name": "內門紫竹寺",
+    "main_deity_raw": "觀音佛祖",
+    "main_deity_ref": "guanyin",
+    "district": "高雄市內門區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「內門紫竹寺」https://zh.wikipedia.org/zh-tw/%E5%85%A7%E9%96%80%E7%B4%AB%E7%AB%B9%E5%AF%BA",
+        "note": "地址：高雄市內門區觀亭里中正路115巷18號；建寺逾三百年，全台觀音信仰重要中心"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001",
+        "note": "國定重要民俗「內門宋江陣（羅漢門迎佛祖）」主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "toucheng_zhongyuan",
+    "name": "頭城慶元宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "宜蘭縣頭城鎮",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「頭城慶元宮」https://zh.wikipedia.org/zh-tw/%E9%A0%AD%E5%9F%8E%E6%85%B6%E5%85%83%E5%AE%AE",
+        "note": "地址：宜蘭縣頭城鎮和平街105號；嘉慶元年（1796年）完工，宜蘭最古老媽祖廟"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002",
+        "note": "宜蘭縣定民俗「頭城搶孤」主辦廟"
+      }
+    ]
+  },
+  {
+    "id": "xinpu_baozhongting_yimiao",
+    "name": "新埔褒忠亭義民廟",
+    "main_deity_raw": "義民爺",
+    "main_deity_ref": "yimin",
+    "district": "新竹縣新埔鎮",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「褒忠亭義民廟」https://zh.wikipedia.org/zh-tw/%E8%A4%92%E5%BF%A0%E4%BA%AD%E7%BE%A9%E6%B0%91%E5%BB%9F",
+        "note": "地址：新竹縣新埔鎮義民路三段360號；清乾隆51年（1786年）起建，乾隆53年（1788年）完成，全台義民廟總壇"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
+        "note": "國定重要民俗「褒忠亭義民節祭典」主辦廟；新竹縣縣定古蹟"
+      }
+    ]
+  },
+  {
+    "id": "songshan_ciyou",
+    "name": "松山慈祐宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台北市松山區",
+    "lng": 121.577661,
+    "lat": 25.051264,
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「松山慈祐宮」https://zh.wikipedia.org/zh-tw/%E6%9D%BE%E5%B1%B1%E6%85%88%E7%A5%90%E5%AE%AE",
+        "note": "地址：台北市松山區八德路四段761號；乾隆18年（1753年）建廟，俗稱「錫口媽祖廟」；坐標 25°03′05″N 121°34′40″E"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=227",
+        "note": "台北市定古蹟"
+      }
+    ]
+  },
+  {
+    "id": "dalongdong_baoan",
+    "name": "大龍峒保安宮",
+    "main_deity_raw": "保生大帝",
+    "main_deity_ref": "baosheng",
+    "district": "台北市大同區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「大龍峒保安宮」https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E9%BE%8D%E5%B3%92%E4%BF%9D%E5%AE%89%E5%AE%AE",
+        "note": "地址：台北市大同區哈密街61號；初創1742年，1804年正式建廟，2018年升格國定古蹟"
+      },
+      {
+        "type": "temple",
+        "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/",
+        "note": "廟方官網；泉州同安移民族群信仰中心，以保生大帝醫神信仰著稱"
+      }
+    ]
+  },
+  {
+    "id": "wanhua_longshan",
+    "name": "艋舺龍山寺",
+    "main_deity_raw": "觀世音菩薩",
+    "main_deity_ref": "guanyin",
+    "district": "台北市萬華區",
+    "lng": 121.49993,
+    "lat": 25.03678,
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「艋舺龍山寺」https://zh.wikipedia.org/zh-tw/%E8%89%8B%E8%88%BA%E9%BE%8D%E5%B1%B1%E5%AF%BA",
+        "note": "地址：台北市萬華區廣州街211號；乾隆3年（1738年）動工，1985年公告為國定古蹟"
+      },
+      {
+        "type": "temple",
+        "ref": "艋舺龍山寺官網 https://www.lungshan.org.tw/",
+        "note": "廟方官網；三邑泉州籍移民分靈晉江安海龍山寺，佛道混祀"
+      }
+    ]
+  },
+  {
+    "id": "taipei_xingtian",
+    "name": "行天宮",
+    "main_deity_raw": "關聖帝君",
+    "main_deity_ref": "guangong",
+    "district": "台北市中山區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「行天宮」https://zh.wikipedia.org/zh-tw/%E8%A1%8C%E5%A4%A9%E5%AE%AE",
+        "note": "地址：台北市中山區民權東路二段109號；1968年落成，俗稱恩主公廟，主祀關聖帝君兼祀五聖恩主，以禁焚香紙著稱"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=10595",
+        "note": "台北市著名宗教景點"
+      }
+    ]
+  },
+  {
+    "id": "dadaocheng_xiahai",
+    "name": "台北霞海城隍廟",
+    "main_deity_raw": "霞海城隍爺",
+    "main_deity_ref": "chenghuang_xiahai",
+    "district": "台北市大同區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「大稻埕霞海城隍廟」https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%A8%BB%E5%9F%95%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "地址：台北市大同區迪化街一段61號；咸豐6年（1856年）建廟，台北市定古蹟；農曆5月13日迎城隍遶境盛況著稱"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=2595",
+        "note": "以月老姻緣信仰聞名，為大稻埕三大廟之一"
+      }
+    ]
+  },
+  {
+    "id": "tainan_fu_chenghuang",
+    "name": "台灣府城隍廟",
+    "main_deity_raw": "府城隍威靈公",
+    "main_deity_ref": "chenghuang_tainanfu",
+    "district": "台南市中西區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「台灣府城隍廟」https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E5%BA%9C%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "地址：台南市中西區青年路133號；創建永曆23年（1669年），全台最早官建城隍廟，國定古蹟，封號「威靈公」"
+      },
+      {
+        "type": "temple",
+        "ref": "台灣府城隍廟官網 https://www.twcitygod.org.tw/",
+        "note": "廟方官網；「爾來了」大匾與大算盤為著名文物"
+      }
+    ]
+  },
+  {
+    "id": "tainan_da_tianhou",
+    "name": "祀典大天后宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台南市中西區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「大天后宮」https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E5%A4%A9%E5%90%8E%E5%AE%AE",
+        "note": "地址：台南市中西區永福路二段227巷18號；原明寧靖王府，康熙23年（1683年）施琅改建，康熙59年（1720年）列入祀典，台灣第一座官建媽祖廟，國定古蹟"
+      },
+      {
+        "type": "temple",
+        "ref": "祀典大天后宮官網 https://www.gtainanmazu.org.tw/",
+        "note": "廟方官網；主祀金面媽祖，為台灣官祀媽祖廟代表"
+      }
+    ]
+  },
+  {
+    "id": "nankunshen_daitian",
+    "name": "南鯤鯓代天府",
+    "main_deity_raw": "五府千歲",
+    "main_deity_ref": "wangye",
+    "district": "台南市北門區",
+    "lng": 120.143086,
+    "lat": 23.286132,
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「南鯤鯓代天府」https://zh.wikipedia.org/zh-tw/%E5%8D%97%E9%AF%A4%E9%AF%93%E4%BB%A3%E5%A4%A9%E5%BA%9C",
+        "note": "地址：台南市北門區鯤江里976號；全台規模最大、最古老王爺廟；坐標 23°17′10″N 120°08′35″E"
+      },
+      {
+        "type": "temple",
+        "ref": "南鯤鯓代天府官網 https://www.nkstemple.org.tw/",
+        "note": "廟方官網；主祀李池吳朱范五府千歲，另祀萬善爺"
+      }
+    ]
+  },
+  {
+    "id": "beigang_wude",
+    "name": "北港武德宮",
+    "main_deity_raw": "武財神（趙公明）",
+    "main_deity_ref": "",
+    "district": "雲林縣北港鎮",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「北港武德宮」https://zh.wikipedia.org/zh-tw/%E5%8C%97%E6%B8%AF%E6%AD%A6%E5%BE%B7%E5%AE%AE",
+        "note": "地址：雲林縣北港鎮華勝路330號；1970年前後奉武財神趙公明，全台知名財神廟，自稱五路財神開基祖廟"
+      },
+      {
+        "type": "temple",
+        "ref": "北港武德宮官網 https://www.wude.org.tw/",
+        "note": "廟方官網"
+      }
+    ]
+  },
+  {
+    "id": "lugang_tianhou",
+    "name": "鹿港天后宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "彰化縣鹿港鎮",
+    "sources": [
+      {
+        "type": "temple",
+        "ref": "鹿港天后宮官網 https://www.lugangmazu.org/",
+        "note": "地址：彰化縣鹿港鎮玉順里中山路430號；創建明萬曆19年（1591年），唯一奉祀湄洲祖廟開基媽祖神像"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/monument/20191128000001",
+        "note": "縣定古蹟；彰化縣重要媽祖信仰中心"
+      }
+    ]
+  },
+  {
+    "id": "xuejia_cijigong",
+    "name": "學甲慈濟宮",
+    "main_deity_raw": "保生大帝",
+    "main_deity_ref": "baosheng",
+    "district": "台南市學甲區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「學甲慈濟宮」https://zh.wikipedia.org/zh-tw/%E5%AD%B8%E7%94%B2%E6%85%88%E6%BF%9F%E5%AE%AE",
+        "note": "地址：台南市學甲區濟生路170號；明永曆15年（1661年）草建，清康熙40年（1701年）改建，保生大帝台灣開基祖廟"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62",
+        "note": "國家三級古蹟；以葉王交趾陶、何金龍剪黏、潘麗水門神彩繪三大工藝著稱"
+      }
+    ]
+  },
+  {
+    "id": "madou_daitian",
+    "name": "麻豆代天府",
+    "main_deity_raw": "五府千歲",
+    "main_deity_ref": "wangye",
+    "district": "台南市麻豆區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「麻豆代天府」https://zh.wikipedia.org/wiki/%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C",
+        "note": "地址：台南市麻豆區南勢里關帝廟60號；1956年於現址建廟，主祀李池吳朱范五府千歲"
+      },
+      {
+        "type": "temple",
+        "ref": "麻豆代天府官網 https://www.5god.com.tw/",
+        "note": "廟方官網；廟地佔三甲餘，設觀音寶殿，地宮五虎大陣頭聞名"
+      }
+    ]
+  },
+  {
+    "id": "jilong_laodagong",
+    "name": "基隆老大公廟",
+    "main_deity_raw": "好兄弟（陰靈群祀）",
+    "main_deity_ref": "",
+    "district": "基隆市安樂區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「老大公廟」https://zh.wikipedia.org/zh-tw/%E8%80%81%E5%A4%A7%E5%85%AC%E5%BB%9F",
+        "note": "地址：基隆市安樂區樂一路76巷37號；祭祀泉漳械鬥去世民眾，農曆7月1日開龕門象徵鬼門開，為雞籠中元祭起源廟宇"
+      },
+      {
+        "type": "gov",
+        "ref": "基隆市安樂區公所 https://www.klal.klcg.gov.tw/tw/klal/1169-98617.html",
+        "note": "中元祭各姓氏輪值主普，老大公廟為全體共同祭祀場所"
+      }
+    ]
+  },
+  {
+    "id": "xinzhuang_dizhong_mazu",
+    "name": "新莊地藏庵（地藏王廟）",
+    "main_deity_raw": "地藏王菩薩",
+    "main_deity_ref": "",
+    "district": "新北市新莊區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「新莊地藏庵」https://zh.wikipedia.org/zh-tw/%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5",
+        "note": "地址：新北市新莊區新莊路341號；清乾隆25年（1760年）創建，主祀地藏王菩薩（大眾爺），與艋舺青山宮、霞海城隍廟並稱台北三大暗訪廟宇"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001016&id=2229",
+        "note": "新北市定古蹟"
+      }
+    ]
+  },
+  {
+    "id": "luermen_shengmu",
+    "name": "正統鹿耳門聖母廟",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台南市安南區",
+    "sources": [
+      {
+        "type": "temple",
+        "ref": "正統鹿耳門聖母廟官網 https://luermen.org.tw/",
+        "note": "地址：台南市安南區媽祖宮一街136號；主祀天上聖母，為台南鹿耳門媽祖信仰重要廟宇，常與五府千歲並祀"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科「正統鹿耳門聖母廟」https://zh.wikipedia.org/zh-tw/%E6%AD%A3%E7%B5%B1%E9%B9%BF%E8%80%B3%E9%96%80%E8%81%96%E6%AF%8D%E5%BB%9F",
+        "note": "台南安南區鹿耳門地區媽祖信仰代表廟宇"
+      }
+    ]
+  },
+  {
+    "id": "tainan_kaiji_tianhou",
+    "name": "台南開基天后宮",
+    "main_deity_raw": "天上聖母",
+    "main_deity_ref": "mazu",
+    "district": "台南市中西區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「開基天后宮」https://zh.wikipedia.org/zh-tw/%E9%96%8B%E5%9F%BA%E5%A4%A9%E5%90%8E%E5%AE%AE",
+        "note": "地址：台南市中西區北門路二段317號；俗稱「小媽祖廟」，創建鄭氏時期，與祀典大天后宮並列台南兩大媽祖廟"
+      },
+      {
+        "type": "gov",
+        "ref": "台南市文化資產管理處 https://tmach-culture.tainan.gov.tw/",
+        "note": "台南市市定古蹟"
+      }
+    ]
+  },
+  {
+    "id": "xinying_nankun_fenci",
+    "name": "新營太子宮",
+    "main_deity_raw": "中壇元帥（三太子）",
+    "main_deity_ref": "nazha",
+    "district": "台南市新營區",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科「新營太子宮」https://zh.wikipedia.org/zh-tw/%E6%96%B0%E7%87%9F%E5%A4%AA%E5%AD%90%E5%AE%AE",
+        "note": "地址：台南市新營區太子里太子路53號；主祀中壇元帥（哪吒三太子），台灣三太子信仰重要廟宇之一"
+      },
+      {
+        "type": "gov",
+        "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001119&id=2636",
+        "note": "台灣知名三太子廟"
+      }
+    ]
+  }
+]

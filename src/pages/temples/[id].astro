@@ -1,0 +1,77 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getTemples, getDeities, getEvents } from '../../lib/queries';
+
+export const getStaticPaths = (async () => {
+  const temples = await getTemples();
+  return temples.map((t) => ({ params: { id: t.id }, props: { temple: t } }));
+}) satisfies GetStaticPaths;
+
+const { temple } = Astro.props;
+const t = temple.data;
+const deities = await getDeities();
+const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const events = await getEvents();
+// 此廟主辦之活動（host_temple 對映 temple.id）
+const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
+const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
+---
+
+<Base title={t.name}>
+  <nav class="crumb"><a href="/temples">廟宇</a></nav>
+  <h1>{t.name}</h1>
+
+  <dl class="rec">
+    {t.district && <div><dt>行政區</dt><dd>{t.district}</dd></div>}
+    <div>
+      <dt>主祀神祇</dt>
+      <dd>
+        {t.main_deity_raw}
+        {refOk ? (
+          <span> · <a href={`/deities/${t.main_deity_ref}`}>{deityName.get(t.main_deity_ref!)}（圖譜）</a></span>
+        ) : (
+          t.main_deity_raw && <span class="muted small"> · 未對映神明節點</span>
+        )}
+      </dd>
+    </div>
+    {
+      t.lng != null && t.lat != null && (
+        <div>
+          <dt>座標</dt>
+          <dd>
+            {t.lat}, {t.lng}
+            <a class="map" href={`https://www.openstreetmap.org/?mlat=${t.lat}&mlon=${t.lng}#map=17/${t.lat}/${t.lng}`} target="_blank" rel="noopener">地圖 ↗</a>
+          </dd>
+        </div>
+      )
+    }
+  </dl>
+
+  {
+    hostedEvents.length > 0 && (
+      <section>
+        <h2>主辦民俗活動</h2>
+        <ul>
+          {hostedEvents.map((e) => (
+            <li><a href={`/events/${e.id}`}>{e.data.name}</a></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {t.sources.length > 0 && <p class="src">來源：{t.sources.map((s) => s.ref).join('；')}</p>}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .rec { display: grid; gap: 0.4rem; margin: 1rem 0; }
+    .rec > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+    .rec dt { font-weight: 700; color: var(--accent); }
+    .rec dd { margin: 0; }
+    .map { margin-left: 0.6rem; font-size: 0.85rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+    .small { font-size: 0.85rem; }
+    .src { color: var(--gold); font-size: 0.82rem; margin-top: 1.5rem; }
+  </style>
+</Base>

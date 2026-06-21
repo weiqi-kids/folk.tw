@@ -43,6 +43,21 @@ export async function getPractices() {
   // M5 seed 多為 draft（主題已立、內容待引註）；非 prod 仍顯示以利開發
   return (await getCollection('practices')).filter((e) => !e.data.draft || !isProd);
 }
+export async function getTemples() {
+  return await getCollection('temples');
+}
+
+/** 神明 → 主祀此神之廟宇（§2.2 橋接；R5 主祀對映） */
+export async function templesByDeity(): Promise<Map<string, CollectionEntry<'temples'>[]>> {
+  const temples = await getTemples();
+  const map = new Map<string, CollectionEntry<'temples'>[]>();
+  for (const t of temples) {
+    const ref = t.data.main_deity_ref;
+    if (!ref) continue;
+    (map.get(ref) ?? map.set(ref, []).get(ref)!).push(t);
+  }
+  return map;
+}
 export async function getInterpretations() {
   return (await getCollection('interpretations')).filter((e) => !e.data.draft || !isProd);
 }

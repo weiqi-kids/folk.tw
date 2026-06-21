@@ -26,6 +26,7 @@ const deities = load('deities.json');
 const relations = load('deity-relations.json');
 const events = load('events.json');
 const practices = load('practices.json');
+const temples = load('temples.json');
 
 const allusionIds = new Set(allusionIdList);
 const systemIds = new Set(systems.map((s) => s.id));
@@ -75,6 +76,11 @@ rate('活動主神 → 神明節點', events.length, events.length - evDeUnm.len
 const prDe = practices.flatMap((p) => p.deities ?? []);
 const prUnm = prDe.filter((x: string) => !deityIds.has(x));
 rate('習俗對應神明 → 神明節點', prDe.length, prDe.length - prUnm.length, prUnm);
+
+// 廟宇主祀神祇 → 神明（R5 主祀神祇對映率報表，§9.6 核心 PoC）
+const tWithRef = temples.filter((t) => t.main_deity_ref);
+const tUnm = tWithRef.map((t) => t.main_deity_ref).filter((x: string) => !deityIds.has(x));
+rate('廟宇主祀 → 神明節點', temples.length, tWithRef.length - tUnm.length, tUnm);
 
 // 待查 / draft 統計（§5 無源不發佈）
 const draftDe = deities.filter((d) => d.draft).map((d) => d.id);

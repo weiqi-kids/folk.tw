@@ -1,20 +1,21 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getDeities, getSystems, relationsOf } from '../../lib/queries';
+import { getDeities, getSystems, relationsOf, templesByDeity } from '../../lib/queries';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
   const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+  const tByDeity = await templesByDeity();
   return Promise.all(
     deities.map(async (d) => ({
       params: { id: d.id },
-      props: { deity: d, rels: await relationsOf(d.id), nameById },
+      props: { deity: d, rels: await relationsOf(d.id), nameById, temples: tByDeity.get(d.id) ?? [] },
     })),
   );
 }) satisfies GetStaticPaths;
 
-const { deity, rels, nameById } = Astro.props;
+const { deity, rels, nameById, temples } = Astro.props;
 const d = deity.data;
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
@@ -127,6 +128,22 @@ const isNode = (id: string) => nameById.has(id);
     }
     <p class="muted small">v1 關係以列表呈現；圖視覺化列發佈後增補（§8）。</p>
   </section>
+
+  {
+    temples.length > 0 && (
+      <section>
+        <h2>主祀此神之廟宇</h2>
+        <ul>
+          {temples.map((t) => (
+            <li>
+              <a href={`/temples/${t.id}`}>{t.data.name}</a>
+              {t.data.district && <span class="muted small">　{t.data.district}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   {d.sources.length > 0 && <p class="src footer-src">來源：{d.sources.map((s) => s.ref).join('；')}</p>}
 
