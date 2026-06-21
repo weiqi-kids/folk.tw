@@ -8,7 +8,7 @@
 // 介面，待接官方資料源即可點亮進階層。
 
 import { gregorianToJDN } from './jdn';
-import { dayPillar, hourPillar, chongZodiac } from './ganzhi';
+import { dayPillar, hourPillar, chongZodiac, monthPillar, BRANCHES } from './ganzhi';
 import { jianchu } from './jianchu';
 import { ershiba } from './ershiba';
 import type { DayRecord, GanZhi, Sourced } from './types';
@@ -26,6 +26,10 @@ export interface AstronomicalProvider {
   /** 立春分界後之年柱、節分月後之月支序 */
   yearPillar(jdn: number): GanZhi | null;
   monthBranchIndex(jdn: number): number | null;
+  /** 日煞方位（C.2 S10）；可選 */
+  shaDirection?(jdn: number): string | null;
+  /** 節日（農曆節 + 節氣節）；可選 */
+  festivals?(jdn: number): string[];
 }
 
 export interface ComputeOptions {
@@ -66,40 +70,52 @@ export function computeDayRecord(
   const yearGZ = connected ? astro!.yearPillar(jdn) : null;
   const monthBranchIdx = connected ? astro!.monthBranchIndex(jdn) : null;
 
-  // 月柱、建除需月支（節分月）→ 依天文資料
-  const BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+  // 月柱、建除依月支（節分月）→ 依天文資料；月柱由年干＋月支序組裝（五虎遁）
   const monthBranch = monthBranchIdx != null ? BRANCHES[monthBranchIdx % 12] : null;
   const jianchuVal = monthBranch ? jianchu(monthBranch, day干.branch) : null;
+  const monthGZ =
+    connected && yearGZ && monthBranchIdx != null ? monthPillar(yearGZ.stem, monthBranchIdx) : null;
+  const shaDir = connected && astro?.shaDirection ? astro.shaDirection(jdn) : null;
+
+  const SRC_LUNAR = ['lunar-javascript（壽星天文曆算法，對齊香港天文台）；發佈前對中央氣象署抽查 C.4-4'];
 
   const record: DayRecord = {
     solar,
     jdn,
-    lunar: sourced(lunarVal, connected, connected ? ['中央氣象署·定朔中氣'] : []),
-    solarTerm: sourced(termVal, connected, connected ? ['中央氣象署·定氣'] : []),
+    lunar: sourced(lunarVal, connected, connected ? SRC_LUNAR : []),
+    solarTerm: sourced(termVal, connected, connected ? SRC_LUNAR : []),
     pillars: {
-      year: sourced(yearGZ, connected, connected ? ['立春分年·協紀辨方書'] : []),
-      month: sourced(null, false, []), // 月柱組裝待 monthPillar(yearStem, idx)，依年柱與節氣
-      day: sourced(day干, true, ['日干支序：已以官方農民曆校準（見 calibration.test）']), // 校準後鎖定
-      hour: sourced(null, false, ['需真太陽時，C.6 發佈後增補']),
+      year: sourced(yearGZ, connected, connected ? ['立春分年（C.2 S4）；' + SRC_LUNAR[0]] : []),
+      month: sourced(monthGZ, connected, connected ? ['節分月＋五虎遁（C.2 S4）'] : []),
+      day: sourced(day干, true, ['日干支序公式，已以官方農民曆＋lunar-javascript 跨6日校準（calibration.test）']),
+      hour: sourced(null, false, ['需真太陽時（經度＋均時差），C.6 發佈後增補']),
     },
-    jianchu: sourced(jianchuVal, false, ['協紀辨方書·建除義例（依節氣分月，待天文資料）']),
-    ershiba: sourced(xiu, false, ['廿八宿循環（錨定常數待校準 C.5）']),
-    huangHeiDao: sourced(null, false, ['月支→青龍起神表待填 C.5']),
-    yi: [], // 進階層宜忌待規則表校填（C.7）
+    // 建除：本站公式 + 真月支；與 lunar-javascript 一致（calibration.test 交叉驗證）
+    jianchu: sourced(jianchuVal, connected, connected ? ['建除義例（C.2 S5）；交叉驗證 lunar-javascript'] : []),
+    // 廿八宿：錨定常數已以 lunar-javascript 跨6日校準（C.5）
+    ershiba: sourced(xiu, true, ['七政廿八宿值日，錨定常數已校準（calibration.test）']),
+    // 黃黑道屬進階層，待《協紀辨方書》考據化（C.6）
+    huangHeiDao: sourced(null, false, ['進階層：月支→青龍起神表待考據化 C.6']),
+    yi: [], // 進階層宜忌待《協紀辨方書》規則表校填並考據化（C.6/C.7）
     ji: [],
     chongSha: day干
-      ? sourced({ zodiac: chongZodiac(day干.branch), direction: '待煞方表' }, false, ['沖確定·煞方表待填 C.5'])
+      ? sourced(
+          { zodiac: chongZodiac(day干.branch), direction: shaDir ?? '—' },
+          connected, // 沖為確定；煞方來自 lunar-javascript
+          connected ? ['沖：日支對沖（C.2 S10）；煞方：lunar-javascript'] : ['沖：日支對沖（確定）'],
+        )
       : sourced(null, false),
-    taiShen: sourced(null, false, ['胎神逐日表待填 C.5']),
+    // 胎神屬進階層，待考據化（C.6）
+    taiShen: sourced(null, false, ['進階層：胎神逐日表待考據化 C.6']),
     jiShi: sourced([], false, ['時辰黃黑道·需真太陽時 C.6']),
-    festivals: [],
+    festivals: connected && astro?.festivals ? astro.festivals(jdn) : [],
     deityBirthdays,
     status: {
       inRange: astro ? inRange : true, // 無 provider 時不宣告超範圍
       astronomicalDataConnected: connected,
       note: connected
-        ? undefined
-        : '官方天文資料源未接：農曆/節氣/年月柱/宜忌等進階層 verified=false，不對外顯示（C.4-5、§5）。確定性骨架（JDN/日柱公式/建除/廿八宿結構）已就緒，常數待校準（C.5）。',
+        ? '核心層已接天文資料源（lunar-javascript）：農曆/節氣/四柱(除時柱)/建除/廿八宿/沖煞/節日/聖誕已點亮。進階層（黃黑道/神煞/宜忌/胎神）仍須《協紀辨方書》考據化（C.6），verified=false 不對外顯示。'
+        : '官方天文資料源未接：農曆/節氣/年月柱等核心層 verified=false。確定性骨架（JDN/日柱/廿八宿）已就緒。',
     },
   };
 

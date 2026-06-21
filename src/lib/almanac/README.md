@@ -11,23 +11,25 @@
 - `resolve.ts` — 宜忌從違裁決（C.7.6）
 - `index.ts` — `computeDayRecord()` 組裝（C.1）
 
-## 待校準／待填清單（C.5）— 點亮進階層前必做
+## 核心層 — ✅ 已點亮並驗證
 
-引擎方法確定，但下列常數／規則表未校填前，相關欄位 `verified=false`、**不對外顯示**（§5、C.4-5）：
+`provider.ts` 接 **lunar-javascript**（壽星天文曆算法，對齊香港天文台）為 `AstronomicalProvider`，
+傳入 `computeDayRecord(y,m,d,{astro:lunarProvider})` 即點亮核心層（`verified=true`）：
+農曆、節氣、年柱（立春分年）、月柱（節分月＋五虎遁）、日柱、建除、廿八宿、沖煞、節日、神明聖誕 join。
 
-1. **日干支錨定常數** `DAY_GANZHI_ANCHOR`（`ganzhi.ts`）— 以一已知干支日校準後鎖定。
-2. **廿八宿錨定常數** `XIU_ANCHOR`（`ershiba.ts`）— 同上。
-3. **黃黑道「月支→青龍」起神表**（12 組）— `rules/` 待新增。
-4. **神煞定例表** `rules/shensha.json` — 依《欽定協紀辨方書》逐條匯入定位規則。
-5. **宜忌投票表** `rules/votes.json`、**制化表** `rules/restrain.json` — 校填 verdict 與從違關係。
-6. **胎神逐日表、沖煞方位表**（S10）— 待新增。
-7. **真太陽時精校**（經度＋均時差）— 時柱／時辰宜忌，列發佈後增補（C.6），首發採鐘錶時近似並註明。
+- **錨定常數已校準**：`DAY_GANZHI_ANCHOR=49`、`XIU_ANCHOR=11`，經 lunar-javascript 跨 12 日
+  ＋ wannianrili 錨點交叉驗證（`calibration.test.mjs`，38 項全綠）。日柱／建除／廿八宿公式與權威來源一致。
+- **發佈前**：建議再對中央氣象署官方農民曆抽查（C.4-4）。
 
-## 需外接：官方天文資料源（`AstronomicalProvider`）
+## 進階層 — ◑ 考據化待人工核（C.6）
 
-農曆（定朔／中氣／閏月）、節氣（定氣）、年柱（立春分年）、月支（節分月）需中央氣象署天文資料。
-實作 `AstronomicalProvider` 介面（見 `index.ts`）並傳入 `computeDayRecord(y,m,d,{astro})` 即可點亮。
-未接前 `status.astronomicalDataConnected=false`，農曆／節氣／年月柱／宜忌不顯示。
+以下為進階層，須依《欽定協紀辨方書》逐條校驗、考據化後始 `verified=true` 上架（§5、C.6）：
+
+1. **黃黑道「月支→青龍」起神表**（`rules/huanghei.json`，verified:false）。
+2. **神煞定例表** `rules/shensha.json`、**宜忌投票表** `rules/votes.json`、**制化表** `rules/restrain.json`
+   — 已引《協紀辨方書》四庫本原文匯入首批，但全部 `verified:false`，古文轉錄待人工核。
+3. **胎神逐日表**。
+4. **真太陽時精校**（經度＋均時差）— 時柱／時辰宜忌，列發佈後增補（C.6）。
 
 ## 考據化原則（C.6 — 本模組差異化核心）
 
