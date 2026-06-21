@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://folk.tw/sitemap-index.xml

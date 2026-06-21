@@ -7,6 +7,8 @@ interface Props {
 const { title, description } = Astro.props;
 const siteName = '眾神解析';
 const fullTitle = title ? `${title}｜${siteName}` : `${siteName} — 台灣民俗信仰考據`;
+const desc = description ?? '台灣民俗信仰考據：籤詩解碼與神明圖譜，逐條掛來源、諸說並陳。';
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://folk.tw').href;
 const nav = [
   { href: '/', label: '今日' },
   { href: '/poems', label: '籤詩' },
@@ -14,6 +16,7 @@ const nav = [
   { href: '/almanac', label: '農民曆' },
   { href: '/events', label: '民俗活動' },
   { href: '/practices', label: '拜拜習俗' },
+  { href: '/search', label: '搜尋' },
   { href: '/about', label: '關於' },
 ];
 const path = Astro.url.pathname;
@@ -25,8 +28,18 @@ const path = Astro.url.pathname;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {/* Open Graph / Twitter */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#8a2b2b" />
   </head>
   <body>
     <header class="site-header">
@@ -44,7 +57,7 @@ const path = Astro.url.pathname;
         }
       </nav>
     </header>
-    <main class="site-main">
+    <main class="site-main" data-pagefind-body>
       <slot />
     </main>
     <footer class="site-footer">

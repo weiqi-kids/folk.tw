@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+// 全文檢索（§8）：Pagefind 於 postbuild 對 dist 建索引（package.json）。
+// 索引檔在 build 後才產生，故開發伺服器（pnpm dev）看不到結果，需 pnpm build && pnpm preview。
+---
+
+<Base title="搜尋" description="全站搜尋：籤詩、典故、神明、農民曆、民俗活動、拜拜習俗。">
+  <h1>搜尋</h1>
+  <p class="muted">搜尋籤詩四句、典故、神明、活動與習俗。</p>
+  <div id="search" class="search-box"></div>
+  <p class="note muted small">
+    搜尋索引於建置後產生；若在開發模式看不到結果，請以 <code>pnpm build &amp;&amp; pnpm preview</code> 檢視。
+  </p>
+
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.PagefindUI) {
+        new window.PagefindUI({
+          element: '#search',
+          showSubResults: true,
+          showImages: false,
+          translations: {
+            placeholder: '輸入關鍵字…',
+            zero_results: '找不到「[SEARCH_TERM]」相關內容',
+            many_results: '找到 [COUNT] 筆「[SEARCH_TERM]」結果',
+            one_result: '找到 [COUNT] 筆「[SEARCH_TERM]」結果',
+            searching: '搜尋「[SEARCH_TERM]」中…',
+            clear_search: '清除',
+            load_more: '載入更多',
+          },
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .search-box { margin: 1.2rem 0; }
+    .note { margin-top: 1.5rem; }
+    .small { font-size: 0.85rem; }
+    code { background: var(--paper-2); padding: 0 0.3rem; border-radius: 0.2rem; }
+    :global(.pagefind-ui) {
+      --pagefind-ui-primary: var(--accent);
+      --pagefind-ui-text: var(--ink);
+      --pagefind-ui-background: var(--paper-2);
+      --pagefind-ui-border: var(--line);
+      --pagefind-ui-font: inherit;
+    }
+  </style>
+</Base>
