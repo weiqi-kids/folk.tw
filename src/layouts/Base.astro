@@ -4,9 +4,11 @@ interface Props {
   title?: string;
   description?: string;
   ogTitle?: string; // 社群分享專用標題（不給則同 fullTitle）
+  jsonLd?: object | object[]; // 每頁實體結構化資料（BreadcrumbList / Thing / CreativeWork…）
 }
 import { GA4_ID } from '../consts';
-const { title, description, ogTitle } = Astro.props;
+const { title, description, ogTitle, jsonLd: pageJsonLd } = Astro.props;
+const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
 const fullTitle = title
@@ -57,6 +59,7 @@ const path = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {/* Open Graph / Twitter */}
@@ -66,10 +69,16 @@ const path = Astro.url.pathname;
     <meta property="og:description" content={desc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="zh_TW" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://folk.tw/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="神酷（神庫）— 台灣民俗信仰知識系統" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://folk.tw/og.png" />
     <meta name="theme-color" content="#8a2b2b" />
     {/* Schema.org 知識系統標註（GEO：利 AI 理解為 knowledge system 而非單純網站） */}
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    {pageLd.map((ld) => <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />)}
     {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts） */}
     {
       GA4_ID && (

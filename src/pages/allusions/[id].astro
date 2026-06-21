@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const allusions = await getAllusions();
@@ -18,9 +19,16 @@ const a = allusion.data;
 // 白話故事為 md body（公有領域題材自行敘述，§6）；空 body → 待撰
 const hasStory = (allusion.body ?? '').trim().length > 0;
 const { Content } = await render(allusion);
+const pageDesc =
+  `${a.name}${a.source ? `（出典：${a.source}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
+  `${poems.length ? `出現於第 ${poems.map((p) => p.data.no).join('、')} 籤（跨文本反查）。` : ''}`;
 ---
 
-<Base title={`典故 · ${a.name}`}>
+<Base
+  title={`典故 · ${a.name}`}
+  description={pageDesc}
+  jsonLd={breadcrumb([{ name: '籤詩', path: '/poems' }, { name: `典故 · ${a.name}`, path: `/allusions/${allusion.id}` }])}
+>
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 典故</nav>
   <h1>{a.name}</h1>
   {a.source && <p class="muted">出典：{a.source}</p>}

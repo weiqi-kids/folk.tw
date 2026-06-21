@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById } from '../../lib/queries';
+import { breadcrumb, poemWork } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const poems = await getPoems();
@@ -26,9 +27,30 @@ const interpVals = ai as Record<string, string | undefined>;
 const hasAnyInterp = ASPECTS.some((a) => interpVals[a]);
 const hasShangxi = interp ? (interp.body ?? '').trim().length > 0 : false;
 const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : null;
+
+// SEO：每頁唯一描述（四句＋卦頭典故＋系統）；GEO：CreativeWork＋BreadcrumbList
+const label = d.ganzhi ?? d.title ?? '';
+const sysName = systemName.get(d.system.id) ?? '';
+const firstAllusionName = d.allusions[0] ? allusionName.get(d.allusions[0].ref.id) : '';
+const pageDesc =
+  `${sysName}第 ${d.no} 籤${label ? `「${label}」` : ''}${d.fortune ? `（${d.fortune}）` : ''}：` +
+  `${d.lines.join('，')}。` +
+  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」。` : ''}白話賞析與八項分項解。`;
+const ld = [
+  poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
+  breadcrumb([
+    { name: '籤詩', path: '/poems' },
+    { name: sysName, path: `/systems/${d.system.id}` },
+    { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}` },
+  ]),
+];
 ---
 
-<Base title={`第 ${d.no} 籤${d.ganzhi ? ` ${d.ganzhi}` : d.title ? ` ${d.title}` : ''}`}>
+<Base
+  title={`第 ${d.no} 籤${d.ganzhi ? ` ${d.ganzhi}` : d.title ? ` ${d.title}` : ''}`}
+  description={pageDesc}
+  jsonLd={ld}
+>
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 第 {d.no} 籤</nav>
 
   <article class="poem-detail">

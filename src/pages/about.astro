@@ -1,13 +1,48 @@
 ---
 import Base from '../layouts/Base.astro';
+import { breadcrumb } from '../lib/seo';
+
+// 常見問答（AEO：問答友善＋FAQPage schema）
+const faqs = [
+  { q: '神酷（神庫）是什麼？', a: '神酷是台灣漢人民間信仰的結構化考據知識系統，涵蓋籤詩解讀、神明關係圖譜、廟宇文化、農民曆與拜拜習俗，資料逐條掛來源、諸說並陳。' },
+  { q: '籤詩的分項解準不準？', a: '神酷的分項解與白話賞析是本站原創的文化解讀，以「文化呈現」框架呈現，不對個人預言吉凶、不構成命理建議；現代解籤文字有著作權，本站不抄錄。' },
+  { q: '農民曆的宜忌依據是什麼？', a: '宜忌依《欽定協紀辨方書》（四庫全書本）逐條考據化，每條附推導（由哪些神煞、依何規則）與卷數出處；未經原文核校者不對外顯示。' },
+  { q: '資料來源可靠嗎？', a: '每筆事實掛來源、無源不發佈；爭議處諸說並陳、不裁定正統；公有領域本文可收錄並標版本。' },
+  { q: '涵蓋哪些範圍？', a: '以漢人民間信仰為主（海神／開拓神／族群神／行業神／愛情婦幼／動物神／自然神 七大類），非窮盡台灣所有宗教信仰。' },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<Base title="關於與勘誤" description="定位、使用邊界與免責、範圍身分聲明、版權授權、勘誤回報。">
+<Base
+  title="關於與勘誤"
+  description="神酷（神庫）的定位、使用邊界與免責、範圍身分聲明、版權授權、勘誤回報與常見問答。"
+  jsonLd={[faqLd, breadcrumb([{ name: '關於與勘誤', path: '/about' }])]}
+>
   <h1>關於神酷（神庫）</h1>
   <p class="lead">
     本站是<strong>台灣民俗信仰的考據工具</strong>：把籤詩、神明、農民曆、民俗活動與拜拜習俗，
     做成逐條掛來源、諸說並陳的結構化知識。我們賣「看懂文化」，不賣「預言吉凶」。
   </p>
+
+  <section>
+    <h2>常見問答</h2>
+    {
+      faqs.map((f) => (
+        <details class="faq">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))
+    }
+  </section>
 
   <section>
     <h2>使用邊界與免責</h2>
@@ -87,5 +122,8 @@ import Base from '../layouts/Base.astro';
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; margin-top: 1.8rem; }
     .small { font-size: 0.85rem; }
     li { margin: 0.3rem 0; }
+    .faq { border-bottom: 1px dashed var(--line); padding: 0.5rem 0; }
+    .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+    .faq p { margin: 0.5rem 0 0; color: var(--ink-soft); }
   </style>
 </Base>

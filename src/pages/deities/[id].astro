@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity } from '../../lib/queries';
+import { breadcrumb, deityThing } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -24,7 +25,14 @@ const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示�
 const isNode = (id: string) => nameById.has(id);
 ---
 
-<Base title={d.name} description={`${d.name}（${d.aliases.join('·')}）— 職司、聖誕、關係網。`}>
+<Base
+  title={d.name}
+  description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}。${d.summary ?? `職司：${d.office.join('·')}`}`}
+  jsonLd={[
+    deityThing({ id: deity.id, name: d.name, aliases: d.aliases, category: d.category, office: d.office, summary: d.summary }),
+    breadcrumb([{ name: '神明圖譜', path: '/deities' }, { name: d.name, path: `/deities/${deity.id}` }]),
+  ]}
+>
   <nav class="crumb"><a href="/deities">神明圖譜</a> ／ {d.category}</nav>
 
   <header class="dh">
