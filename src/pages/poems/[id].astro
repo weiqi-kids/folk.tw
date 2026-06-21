@@ -28,7 +28,7 @@ const hasShangxi = interp ? (interp.body ?? '').trim().length > 0 : false;
 const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : null;
 ---
 
-<Base title={`第 ${d.no} 籤 ${d.ganzhi}`}>
+<Base title={`第 ${d.no} 籤${d.ganzhi ? ` ${d.ganzhi}` : d.title ? ` ${d.title}` : ''}`}>
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 第 {d.no} 籤</nav>
 
   <article class="poem-detail">
