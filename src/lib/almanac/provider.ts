@@ -25,7 +25,12 @@ export interface LunarAstronomicalProvider extends AstronomicalProvider {
   shaDirection(jdn: number): string | null;
   /** 節日（農曆節 + 節氣節） */
   festivals(jdn: number): string[];
+  /** 建除十二神（含交節重值，C.2 S5）。回繁體。 */
+  zhiXing(jdn: number): string;
 }
+
+// lunar-javascript 之建除回簡體，正規化為繁體
+const ZHI_NORM: Record<string, string> = { 闭: '閉', 满: '滿', 执: '執' };
 
 export const lunarProvider: LunarAstronomicalProvider = {
   // lunar-javascript 實務涵蓋年限充裕；宣告保守範圍（C.8 有效年限）
@@ -71,5 +76,10 @@ export const lunarProvider: LunarAstronomicalProvider = {
     const jq = l.getJieQi();
     if (jq && ['清明', '冬至'].includes(jq)) out.push(jq); // 兼具節日意義之節氣
     return out;
+  },
+
+  zhiXing(jdn) {
+    const z = lunarOf(jdn).getZhiXing(); // 已含交節重值（C.2 S5）
+    return ZHI_NORM[z] ?? z;
   },
 };

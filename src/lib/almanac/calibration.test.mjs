@@ -80,5 +80,29 @@ for (const [y, m, d] of SAMPLES) {
   assert(`${y}-${m}-${d} 建除`, jianchu(monthBranch, dayBranch), lib);
 }
 
+// ── D. 四柱邊界（C.4-2）：立春分年、節分月 ───────────────
+console.log('D. 四柱邊界 — 立春分年/節分月（C.4-2）：');
+{
+  const before = Solar.fromYmd(2025, 2, 2).getLunar(); // 立春前
+  const onday = Solar.fromYmd(2025, 2, 3).getLunar(); // 立春當日
+  assert('2025-02-02 立春前年柱', before.getYearInGanZhiByLiChun(), '甲辰');
+  assert('2025-02-03 立春當日年柱', onday.getYearInGanZhiByLiChun(), '乙巳'); // 立春分年
+  assert('2025-02-02 節分月（丑月）', before.getMonthInGanZhi()[1], '丑');
+  assert('2025-02-03 節分月（寅月）', onday.getMonthInGanZhi()[1], '寅'); // 立春＝正月建寅
+}
+
+// ── E. 建除交節重值（C.4-3）：交節日與前一日同值神 ────────
+console.log('E. 建除交節重值（C.4-3，2025 驚蟄 3/5）：');
+{
+  const norm = (z) => (ZHI_NORM[z] ?? z);
+  const d4 = norm(Solar.fromYmd(2025, 3, 4).getLunar().getZhiXing());
+  const d5 = norm(Solar.fromYmd(2025, 3, 5).getLunar().getZhiXing()); // 驚蟄交節
+  const d6 = norm(Solar.fromYmd(2025, 3, 6).getLunar().getZhiXing());
+  assert('3-4 建除', d4, '破');
+  assert('3-5 交節日建除（重值＝前一日）', d5, '破'); // 交節重值：與前一日同神
+  assert('交節重值成立（3-4=3-5）', d4 === d5, true);
+  assert('3-6 建除（重值後續行）', d6, '危');
+}
+
 console.log(`\n結果：${passed} 通過，${failed} 失敗\n`);
 if (failed > 0) process.exit(1);

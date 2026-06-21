@@ -1,0 +1,698 @@
+{
+  "event_types": [
+    {
+      "term": "遶境",
+      "def": "神明鑾轎出廟巡行轄境，沿途收煞護民、綏靖地方的神聖出巡儀式。",
+      "alias": ["繞境"],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=27",
+          "note": "內政部臺灣宗教文化地圖：遶境（定義說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%B9%9E%E5%A2%83",
+          "note": "維基百科：繞境"
+        }
+      ]
+    },
+    {
+      "term": "進香",
+      "def": "信眾或廟宇神明鑾轎前往他廟、祖廟謁祖刈火，以延續香火神力的朝聖行為。",
+      "alias": ["割香"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%80%B2%E9%A6%99",
+          "note": "維基百科：進香"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=15",
+          "note": "內政部臺灣宗教文化地圖：進香"
+        }
+      ]
+    },
+    {
+      "term": "遶境進香",
+      "def": "結合本境遶行與赴祖廟謁祖兩項儀式，同時具有出巡安境與延續香火雙重意義的複合型活動。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=27",
+          "note": "內政部臺灣宗教文化地圖：遶境進香（複合型分類）"
+        }
+      ]
+    },
+    {
+      "term": "刈香",
+      "def": "聯境各廟共同出發赴祖廟謁祖取火，再返境舉行遶境的大型聯合儀式；以大甲媽祖刈香最著名。",
+      "alias": ["割香"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E5%88%88%E9%A6%99",
+          "note": "維基百科：刈香"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.twcenter.org.tw/thematic_series/history_class/tw_window/e02_20010827",
+          "note": "吳三連台灣史料基金會：台灣民間信仰（進香、刈香之別）"
+        }
+      ]
+    },
+    {
+      "term": "刈火",
+      "def": "神明鑾轎至祖廟或大廟恭請香火，以燃香或香灰帶回本廟安奉，象徵靈力傳承的儀式；又稱「進火」。",
+      "alias": ["進火", "取火"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=15",
+          "note": "內政部臺灣宗教文化地圖：進火（刈火）條目說明"
+        }
+      ]
+    },
+    {
+      "term": "迎王",
+      "def": "恭迎代天巡狩王爺千歲降臨轄境的儀式，通常以王船象徵王爺出巡，定期（三年或五年一科）舉行。",
+      "alias": ["請王", "請王千歲"],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139",
+          "note": "文化部無形文化資產：台南東港迎王平安祭典"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E8%BF%8E%E7%8E%8B%E5%B9%B3%E5%AE%89%E7%A5%AD%E5%85%B8",
+          "note": "維基百科：迎王平安祭典"
+        }
+      ]
+    },
+    {
+      "term": "燒王船",
+      "def": "迎王祭典末日，將王船及各式供品、替身一同火化，象徵恭送王爺帶走瘟疫邪煞、代天行巡的壓軸儀式。",
+      "alias": ["送王"],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139",
+          "note": "文化部無形文化資產：台南東港迎王平安祭典（燒王船說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%8E%8B%E8%88%B9",
+          "note": "維基百科：王船"
+        }
+      ]
+    },
+    {
+      "term": "中元普渡",
+      "def": "農曆七月由道佛兩教主導的祭典，設供桌施食孤魂野鬼，並焚燒銀紙經衣以超度無主亡靈。",
+      "alias": ["盂蘭盆", "七月半"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%85%83%E7%AF%80",
+          "note": "維基百科：中元節"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.twcenter.org.tw/thematic_series/history_class/tw_window/e02_20010827",
+          "note": "吳三連台灣史料基金會：農曆七月普渡與台灣社會（溫振華）"
+        }
+      ]
+    },
+    {
+      "term": "放水燈",
+      "def": "中元普渡前夕，將蓮花形或船形紙燈放入水中漂流，引導水中孤魂前來享用普渡供品的儀式。",
+      "alias": ["水燈"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E6%94%BE%E6%B0%B4%E7%87%88",
+          "note": "維基百科：放水燈"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E7%81%A3%E4%B8%AD%E5%85%83%E6%B3%95%E6%9C%83",
+          "note": "維基百科：臺灣中元法會（基隆放水燈段）"
+        }
+      ]
+    },
+    {
+      "term": "搶孤",
+      "def": "普渡末尾，信眾競相攀爬高聳孤棚搶奪供品的民俗競技，象徵驅除孤魂並分享福氣；以頭城、恆春最著名。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=28",
+          "note": "內政部臺灣宗教文化地圖：搶孤"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E6%90%B6%E5%AD%A4",
+          "note": "維基百科：搶孤"
+        }
+      ]
+    },
+    {
+      "term": "夜巡",
+      "def": "神明於夜間微服出巡轄境、緝查邪煞鬼疫的儀式；與日間遶境相對，又稱「暗訪」，氣氛較肅穆神秘。",
+      "alias": ["暗訪", "暗巡"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E6%9A%97%E8%A8%AA",
+          "note": "維基百科：暗訪"
+        }
+      ]
+    },
+    {
+      "term": "過火",
+      "def": "信眾（有時連同神明鑾轎）赤腳踩過燒紅炭火或火炭堆，以熾熱火焰淨身祛煞、彰顯神威的儀式。",
+      "alias": ["踩火", "走火"],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=16",
+          "note": "內政部臺灣宗教文化地圖：過火"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%81%8E%E7%81%AB",
+          "note": "維基百科：過火"
+        }
+      ]
+    },
+    {
+      "term": "炮城",
+      "def": "以大量鞭炮、蜂炮轟炸神明鑾轎或信眾，藉炮火驅邪納福的民俗活動；台南鹽水蜂炮與台東炸寒單爺為代表。",
+      "alias": ["蜂炮", "炸轎", "炸寒單"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%B9%BD%E6%B0%B4%E8%9C%82%E7%82%AE",
+          "note": "維基百科：鹽水蜂炮"
+        },
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%82%B8%E5%AF%92%E5%96%AE%E7%88%BA",
+          "note": "維基百科：炸寒單爺"
+        }
+      ]
+    },
+    {
+      "term": "神豬祭",
+      "def": "信眾或宗族以精心飼育的特重神豬進行獻祭，祈求庇佑並展示家族信仰虔誠的競比祭典；以桃園義民廟神豬祭最著。",
+      "alias": ["賽神豬"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%A5%9E%E8%B1%AC",
+          "note": "維基百科：神豬"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx",
+          "note": "內政部臺灣宗教文化地圖：神豬祭典說明"
+        }
+      ]
+    },
+    {
+      "term": "安座",
+      "def": "神明神像入廟或移位後，舉行開光點眼、安奉神位的儀式，確立神明於該廟正式駐駕。",
+      "alias": ["入座", "安神"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=44",
+          "note": "內政部全國宗教資訊網：安座（相關條目）"
+        }
+      ]
+    },
+    {
+      "term": "建醮",
+      "def": "由道士主持，為整個社區（或廟方）設壇請神、普施幽魂、祈求地方平安的大型道教祭典；分清醮（祈福）與瘟醮（驅瘟）兩大類。",
+      "alias": ["打醮", "做醮"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%86%AE",
+          "note": "維基百科：醮（台灣建醮段）"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=18",
+          "note": "內政部臺灣宗教文化地圖：建醮"
+        }
+      ]
+    },
+    {
+      "term": "陣頭競演",
+      "def": "各廟宇或社區組織的宋江陣、龍陣、獅陣等傳統武藝陣頭，於遶境或廟會場合公開展演或互相較技的集體表演活動。",
+      "alias": ["陣頭演出"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%99%A3%E9%A0%AD",
+          "note": "維基百科：陣頭"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
+          "note": "內政部臺灣宗教文化地圖：陣頭"
+        }
+      ]
+    }
+  ],
+  "chen_tou": [
+    {
+      "term": "宋江陣",
+      "def": "以《水滸傳》一百零八好漢為意象編組的傳統武藝陣頭，持各式武器排演陣式，台南地區保存最完整；已登錄為無形文化資產。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E5%AE%8B%E6%B1%9F%E9%99%A3",
+          "note": "維基百科：宋江陣"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
+          "note": "內政部臺灣宗教文化地圖：宋江陣"
+        }
+      ]
+    },
+    {
+      "term": "龍陣",
+      "def": "由多人舞動龍身，隨前導珠球翻騰盤繞的傳統舞龍陣頭，象徵吉祥祈雨；依龍身材質分布龍（布製）與火龍（焰火）等型。",
+      "alias": ["舞龍", "布龍"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E8%88%9E%E9%BE%8D",
+          "note": "維基百科：舞龍（台灣民俗陣頭段）"
+        }
+      ]
+    },
+    {
+      "term": "獅陣",
+      "def": "由一至兩人操演獅頭與獅尾，配合鑼鼓鞭炮演出搶球、踩七星等套路的傳統舞獅陣頭；分北獅（絨毛）與南獅（彩繪）兩大派。",
+      "alias": ["舞獅", "藝獅"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E8%88%9E%E7%8D%85",
+          "note": "維基百科：舞獅（台灣民俗陣頭段）"
+        }
+      ]
+    },
+    {
+      "term": "八家將",
+      "def": "以八位神將（甘爺柳爺謝爺范爺四大將及春夏秋冬神）組成的道教驅邪陣頭，臉部彩繪誇張、步法嚴謹，隨神明出巡捉鬼押煞。",
+      "alias": ["家將", "什家將"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E5%85%AB%E5%AE%B6%E5%B0%87",
+          "note": "維基百科：八家將"
+        },
+        {
+          "type": "gov",
+          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
+          "note": "內政部臺灣宗教文化地圖：家將陣"
+        }
+      ]
+    },
+    {
+      "term": "官將首",
+      "def": "以增（文）、損（武）二位神將為核心，臉繪黑白對比圖案，動作剛猛威武，常與八家將並稱但儀式性格更強的廟會陣頭。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E5%AE%98%E5%B0%87%E9%A6%96",
+          "note": "維基百科：官將首"
+        }
+      ]
+    },
+    {
+      "term": "車鼓陣",
+      "def": "以小旦、丑角配合鑼鼓演出詼諧歌舞的民俗藝陣，源自閩南採茶歌謠，常見於台南、嘉義一帶廟會遶境。",
+      "alias": ["車鼓弄"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E8%BB%8A%E9%BC%93%E9%99%A3",
+          "note": "維基百科：車鼓陣"
+        }
+      ]
+    },
+    {
+      "term": "電音三太子",
+      "def": "以電子音樂取代傳統鑼鼓、穿著傳統戲服的哪吒（中壇元帥）神將，隨節拍舞動的現代廟會新興陣頭。",
+      "alias": ["電音三太子陣"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E9%9B%BB%E9%9F%B3%E4%B8%89%E5%A4%AA%E5%AD%90",
+          "note": "維基百科：電音三太子"
+        }
+      ]
+    }
+  ],
+  "joss_paper": [
+    {
+      "term": "天公金",
+      "def": "祭拜玉皇大帝（天公）專用的頂級金紙，紙面印有「天公」字樣或玉皇符印，位階最高；正月初九天公誕為主要使用時機。",
+      "alias": ["頂極金", "太極金", "天金"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+          "note": "方格子：傳統頂下桌祭天禮儀（天公金說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://health.businessweekly.com.tw/article/ARTL003015590",
+          "note": "良醫健康：拜天公金紙種類整理"
+        }
+      ]
+    },
+    {
+      "term": "壽金",
+      "def": "祭拜位階較高神明（天神、玉旨類）使用的金紙，尺寸適中，為台灣廟祭最常見的金紙品項之一。",
+      "alias": ["大壽金"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：金紙種類說明（壽金）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/anshen",
+          "note": "拜出好運來：安神位金紙用法（壽金）"
+        }
+      ]
+    },
+    {
+      "term": "刈金",
+      "def": "祭拜中位階神明（地神、城隍、土地公等）及一般科儀通用的中型金紙，用途廣泛；北台灣常與大銀小銀並用。",
+      "alias": ["九金", "割金"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/anshen",
+          "note": "拜出好運來：安神位金紙用法（刈金段）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：金紙種類（刈金段）"
+        }
+      ]
+    },
+    {
+      "term": "福金",
+      "def": "祭拜土地公（福德正神）的專屬金紙，又稱「土地公金」，紙面印有福德正神符像；廟祭或掃墓拜后土時使用。",
+      "alias": ["土地公金", "福德金"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：金紙種類（福金段）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.roomie.tw/posts/25014",
+          "note": "Roomie：地基主金紙整理（福金）"
+        }
+      ]
+    },
+    {
+      "term": "九金",
+      "def": "南台灣常用的中型金紙，功能與北部「刈金」相近，與九銀成對焚燒祭神或祭祖；為南北金紙習俗差異的代表品項。",
+      "alias": ["蓮花金"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/anshen",
+          "note": "拜出好運來：南台灣安神位金紙習俗（九金）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：南部金紙習俗（九金）"
+        }
+      ]
+    },
+    {
+      "term": "大百壽金",
+      "def": "尺寸大於一般壽金的高規格金紙，用於重大祭典或還願場合，彰顯供奉隆重之意。",
+      "alias": ["大壽金"],
+      "sources": [
+        {
+          "type": "other",
+          "ref": "通行用法待補",
+          "note": "各金紙行、廟宇通行稱謂，尚待學術或政府文件佐證"
+        }
+      ]
+    },
+    {
+      "term": "大銀",
+      "def": "祭祀祖先及鬼魂用的大型銀紙，代表給亡者的冥間財帛，常與小銀搭配使用；普渡、清明掃墓為主要使用時機。",
+      "alias": ["大銀紙"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：金紙種類（大銀段）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.wonann.com.tw/blog_page.php?id=1225",
+          "note": "萬安生命：掃墓用銀紙說明"
+        }
+      ]
+    },
+    {
+      "term": "小銀",
+      "def": "尺寸小於大銀的冥間銀紙，功能相同，常與大銀成對焚燒給祖先或孤魂，為普渡與掃墓場合的基本備品。",
+      "alias": ["小銀紙", "九銀"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：金紙種類（小銀段）"
+        }
+      ]
+    },
+    {
+      "term": "經衣",
+      "def": "印有衣物、日常用品圖案的紙製冥器，焚燒後作為亡魂或孤魂的衣物布料；中元普渡、做十六歲、收驚等科儀皆有使用。",
+      "alias": ["衣紙", "紙衣"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://shenghong1126.com.tw/pudu01/",
+          "note": "義聖香：中元普渡金紙說明（經衣）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.me1314888.com/posts/%E3%80%90%E6%8B%9C%E6%8B%9C%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E6%8B%9C%E7%A5%96%E5%85%88%E6%8B%9C%E5%85%AC%E5%AA%BD%E6%80%8E%E9%BA%BC%E6%8B%9C%E6%9C%80%E9%9D%88%EF%BC%9F2025%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E4%BE%9B%E5%93%81%E3%80%81%E9%A6%99%E5%93%81%E3%80%81%E9%87%91%E7%B4%99%E3%80%81%E6%B5%81%E7%A8%8B%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-6824314f9c01097f.html",
+          "note": "明心福旺閣：銀紙類說明（經衣）"
+        }
+      ]
+    },
+    {
+      "term": "往生錢",
+      "def": "道教或民間信仰中專供亡者或孤魂使用的冥幣，形式類似鈔票，常於中元普渡或超度法事中焚燒；亦稱「往生蓮花」（紙蓮花附贈型）。",
+      "alias": ["往生蓮花", "冥幣"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://shenghong1126.com.tw/pudu01/",
+          "note": "義聖香：中元普渡金紙整理（往生錢）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.sim.org.tw/festival34.html",
+          "note": "台灣民俗文化工作室：社區中元普渡祭拜金紙說明"
+        }
+      ]
+    },
+    {
+      "term": "補運錢",
+      "def": "補運科儀（祭解）中專用的紙錢，焚燒後作為補填信眾命中財庫不足的天地水三庫用錢，象徵將命運虧損補齊。",
+      "alias": ["庫錢", "天庫錢"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=3",
+          "note": "內政部全國宗教資訊網：祭解（補運）條目（補運錢說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.lesson.com.tw/blog/detail/116",
+          "note": "台灣文民：民間祭改補運的習俗（補運錢用法）"
+        }
+      ]
+    },
+    {
+      "term": "改連真經",
+      "def": "補運、祭解科儀中焚燒的道教經咒紙，印有改運轉連的符令經文，配合替身、補運錢焚化，用以斷去信眾原有的惡連（厄運）。",
+      "alias": ["改運紙", "改連紙"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.sim.org.tw/festival152.html",
+          "note": "台灣民俗文化工作室：線上祭改補運注意事項（改連真經說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=3",
+          "note": "內政部全國宗教資訊網：祭解條目"
+        }
+      ]
+    }
+  ],
+  "offerings": [
+    {
+      "term": "三牲",
+      "def": "全雞（或半雞）、豬肉（五花肉塊）、全魚三種葷牲組成的祭品組合，為台灣民間祭神、祭祖最基本的肉類供品規格。",
+      "alias": ["三獻"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.sim.org.tw/festival34.html",
+          "note": "台灣民俗文化工作室：中元普渡供品說明（三牲定義）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/anshen",
+          "note": "拜出好運來：安神位供品整理（三牲說明）"
+        }
+      ]
+    },
+    {
+      "term": "五牲",
+      "def": "在三牲（雞、豬、魚）之外再加鴨（或鵝）與蝦（或蛋），共五種牲禮，為較三牲更隆重的祭品規格，多用於重大祭典。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.mababy.com/knowledge-detail?id=15947",
+          "note": "媽咪寶貝：拜天公五牲說明"
+        }
+      ]
+    },
+    {
+      "term": "四果",
+      "def": "以四種當季水果組合而成的供果盤，取「四」之吉數，用途廣泛，適合各類神明與祖先，為台灣最普遍的供品之一。",
+      "alias": ["四色果", "時果"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/an-tai-sui",
+          "note": "拜出好運來：安太歲供品整理（四果說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.mababy.com/knowledge-detail?id=15947",
+          "note": "媽咪寶貝：拜天公供品（四果）"
+        }
+      ]
+    },
+    {
+      "term": "紅龜粿",
+      "def": "以糯米粉製成、外形仿龜殼印模、塗染紅色的傳統粿食，龜象徵長壽，常用於神明聖誕、生命禮俗（做十六歲、彌月）及年節祭典。",
+      "alias": ["紅粿", "龜粿"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%B4%85%E9%BE%9C%E7%B2%BF",
+          "note": "維基百科：紅龜粿"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.lovefu.tw/pages/moving-in-ceremony",
+          "note": "LoveFu：入厝供品說明（紅龜粿）"
+        }
+      ]
+    },
+    {
+      "term": "發粿",
+      "def": "以在來米漿發酵後蒸製、頂部自然裂開象徵「發」的粿食，意寓發財、發跡；入厝、年節及建廟開工等喜慶場合必備。",
+      "alias": ["發糕"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://zh.wikipedia.org/zh-tw/%E7%99%BC%E7%B3%95",
+          "note": "維基百科：發糕"
+        },
+        {
+          "type": "web",
+          "ref": "https://livinglife.com.tw/article/62bc06dbbc28eb00325864d5",
+          "note": "信義居家：入厝供品整理（發粿）"
+        }
+      ]
+    },
+    {
+      "term": "麵線",
+      "def": "細如髮絲的長條形麵食，象徵長壽延年，常用於神明聖誕、生日祝壽、安太歲及入厝等祈求長壽平安的場合。",
+      "alias": ["麵線糊"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://www.bailucky.com/an-tai-sui",
+          "note": "拜出好運來：安太歲供品（麵線象徵長壽說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://www.movehome.com.tw/knowledges/house-entry-ceremony",
+          "note": "巨力搬家：入厝供品整理（麵線）"
+        }
+      ]
+    },
+    {
+      "term": "頂桌清素",
+      "def": "拜天公（玉皇大帝）儀式中，頂桌（主桌）所備的全素供品組合，通常包括五齋（金針、木耳、香菇、冬粉、花生）、五果、壽麵、鮮花等，嚴禁葷食。",
+      "alias": ["頂桌素"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+          "note": "方格子：傳統頂下桌祭天禮儀（頂桌清素內容）"
+        },
+        {
+          "type": "web",
+          "ref": "https://health.businessweekly.com.tw/article/ARTL003015590",
+          "note": "良醫健康：2026拜天公供品（頂桌清素）"
+        }
+      ]
+    },
+    {
+      "term": "下桌葷",
+      "def": "拜天公儀式中，下桌（副桌）所備的葷食供品，通常包括三牲或五牲，供奉天宮部屬（諸天神將）；與頂桌清素形成嚴格的位階區隔。",
+      "alias": ["下桌葷食"],
+      "sources": [
+        {
+          "type": "web",
+          "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+          "note": "方格子：傳統頂下桌祭天禮儀（下桌葷說明）"
+        },
+        {
+          "type": "web",
+          "ref": "https://edh.tw/lohas/article/32280",
+          "note": "早安健康：初九天公生供品（頂下桌分配）"
+        }
+      ]
+    }
+  ]
+}

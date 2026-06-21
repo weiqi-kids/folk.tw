@@ -2841,7 +2841,11 @@
     ],
     "category": "自然神信仰",
     "is_category": true,
-    "instances": [],
+    "instances": [
+      "taisui_jiazi",
+      "taisui_yichou",
+      "taisui_bingyin"
+    ],
     "office": [
       "值年司命",
       "掌人間禍福",
@@ -2856,6 +2860,98 @@
         "type": "book",
         "ref": "台灣民間信仰習俗（太歲信仰）",
         "note": "seed；六十甲子具名太歲待補"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "taisui_jiazi",
+    "name": "甲子太歲金辨大將軍",
+    "aliases": [
+      "甲子太歲",
+      "金辨大將軍"
+    ],
+    "category": "自然神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "值年司命",
+      "甲子年太歲當值，司該年人間禍福"
+    ],
+    "birthday_lunar": [],
+    "iconography": [],
+    "groups": [
+      "六十太歲"
+    ],
+    "summary": "六十甲子太歲之首，名諱金辨，值甲子年；信眾於甲子年安太歲時奉請，屬太歲星君信仰類別下六十具名太歲之一。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E5%A4%AA%E6%AD%B2#%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E5%90%8D%E8%AB%B1",
+        "note": "維基百科：太歲—六十甲子太歲名諱表（甲子太歲金辨大將軍）"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.sanqingtaoist.com/taisui",
+        "note": "三清道士：六十甲子太歲名諱通行版本（甲子年條目）；通行用法待補正式文獻"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "taisui_yichou",
+    "name": "乙丑太歲陳材大將軍",
+    "aliases": [
+      "乙丑太歲",
+      "陳材大將軍"
+    ],
+    "category": "自然神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "值年司命",
+      "乙丑年太歲當值，司該年人間禍福"
+    ],
+    "birthday_lunar": [],
+    "iconography": [],
+    "groups": [
+      "六十太歲"
+    ],
+    "summary": "六十甲子太歲第二位，名諱陳材，值乙丑年；屬太歲星君信仰類別下六十具名太歲之一，乙丑年出生或肖牛者於該年可奉請。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E5%A4%AA%E6%AD%B2#%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E5%90%8D%E8%AB%B1",
+        "note": "維基百科：太歲—六十甲子太歲名諱表（乙丑太歲陳材大將軍）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "taisui_bingyin",
+    "name": "丙寅太歲耿章大將軍",
+    "aliases": [
+      "丙寅太歲",
+      "耿章大將軍"
+    ],
+    "category": "自然神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "值年司命",
+      "丙寅年太歲當值，司該年人間禍福"
+    ],
+    "birthday_lunar": [],
+    "iconography": [],
+    "groups": [
+      "六十太歲"
+    ],
+    "summary": "六十甲子太歲第三位，名諱耿章，值丙寅年；屬太歲星君信仰類別下六十具名太歲之一，丙寅年出生或肖虎者於該年可奉請。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E5%A4%AA%E6%AD%B2#%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E5%90%8D%E8%AB%B1",
+        "note": "維基百科：太歲—六十甲子太歲名諱表（丙寅太歲耿章大將軍）"
       }
     ],
     "draft": false

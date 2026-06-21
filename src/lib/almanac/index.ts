@@ -39,6 +39,8 @@ export interface AstronomicalProvider {
   shaDirection?(jdn: number): string | null;
   /** 節日（農曆節 + 節氣節）；可選 */
   festivals?(jdn: number): string[];
+  /** 建除十二神（含交節重值，C.2 S5）；可選——優先於本站公式 */
+  zhiXing?(jdn: number): string;
 }
 
 export interface ComputeOptions {
@@ -81,7 +83,12 @@ export function computeDayRecord(
 
   // 月柱、建除依月支（節分月）→ 依天文資料；月柱由年干＋月支序組裝（五虎遁）
   const monthBranch = monthBranchIdx != null ? BRANCHES[monthBranchIdx % 12] : null;
-  const jianchuVal = monthBranch ? jianchu(monthBranch, day干.branch) : null;
+  // 建除：優先用 provider（含交節重值，C.2 S5）；無 provider 時退本站公式（不含重值）
+  const jianchuVal = connected && astro?.zhiXing
+    ? astro.zhiXing(jdn)
+    : monthBranch
+      ? jianchu(monthBranch, day干.branch)
+      : null;
   const monthGZ =
     connected && yearGZ && monthBranchIdx != null ? monthPillar(yearGZ.stem, monthBranchIdx) : null;
   const shaDir = connected && astro?.shaDirection ? astro.shaDirection(jdn) : null;

@@ -9,6 +9,7 @@ import { todayInTaipei, pickDailyIndex } from '../lib/daily';
 const poems = (await getPoems())
   .filter((p) => p.data.system.id === 'liushi_jiazi')
   .sort((a, b) => a.data.no - b.data.no);
+const allPoemIds = (await getPoems()).map((p) => p.id); // 擲一支隨機瀏覽用（§0.5）
 const allusions = await getAllusions();
 const allusionById = new Map(allusions.map((a) => [a.id, a]));
 
@@ -57,9 +58,19 @@ const modules = [
       )
     }
     <p class="note muted">
-      每日一籤為策展（像每日一詩），同日全站一致、不因人隨機、不標個人運勢。亦可
-      <a href="/poems">自由瀏覽全部籤詩 →</a>
+      每日一籤為策展（像每日一詩），同日全站一致、不因人隨機、不標個人運勢。
     </p>
+    <p class="explore">
+      <a href="/poems">自由查號／瀏覽全部籤詩 →</a>
+      <button id="cast" type="button" class="cast-btn" data-ids={allPoemIds.join(',')}>擲一支</button>
+      <span class="muted small">（隨機瀏覽探索，非問事）</span>
+    </p>
+    <script is:inline>
+      document.getElementById('cast')?.addEventListener('click', (e) => {
+        const ids = e.currentTarget.dataset.ids.split(',');
+        location.href = '/poems/' + ids[Math.floor(Math.random() * ids.length)];
+      });
+    </script>
   </section>
 
   <section class="modules">
@@ -88,6 +99,14 @@ const modules = [
     .allusion-hint { margin: 0.6rem 0 0.2rem; }
     .daily-cta { margin: 0.8rem 0 0; font-weight: 700; }
     .note { font-size: 0.9rem; margin-top: 1rem; }
+    .explore { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin: 0.3rem 0 0; }
+    .cast-btn {
+      font-family: inherit; font-size: 0.95rem; cursor: pointer;
+      color: var(--paper-2); background: var(--accent); border: none;
+      padding: 0.25rem 0.9rem; border-radius: 1rem;
+    }
+    .cast-btn:hover { background: var(--accent-soft); }
+    .small { font-size: 0.85rem; }
     .modules { margin-top: 2.5rem; }
     .module { display: flex; flex-direction: column; gap: 0.25rem; }
     .module strong { color: var(--ink); }

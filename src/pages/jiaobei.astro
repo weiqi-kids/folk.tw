@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/jiaobei.json';
+const { results, sequence_rule, sources } = data;
+---
+
+<Base title="擲筊判讀" description="擲筊（杯筊）判讀規則：聖筊、笑筊、陰筊與連擲慣例；諸說並陳、廟方規範優先。">
+  <nav class="crumb"><a href="/practices">拜拜習俗</a> ／ 擲筊判讀</nav>
+  <h1>擲筊判讀</h1>
+  <p class="muted">
+    擲筊（跋桮）是請示神意的儀式判讀，為民俗中少數可規則化者。判讀慣例各廟略異，以下為通行說法，
+    <strong>廟方規範優先</strong>（§6 諸說並陳）。
+  </p>
+
+  <section>
+    <h2>三種筊象</h2>
+    <div class="grid">
+      {
+        results.map((r) => (
+          <div class="card">
+            <strong>{r.name}</strong>
+            <p class="muted small">{r.cast}</p>
+            <p>{r.meaning}——{r.note}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2>連擲判讀慣例</h2>
+    <p>{sequence_rule.description}</p>
+    <ul>
+      <li><strong>確認</strong>：{sequence_rule.outcomes.confirmed}</li>
+      <li><strong>重問</strong>：{sequence_rule.outcomes.reask}</li>
+      <li><strong>止／不允</strong>：{sequence_rule.outcomes.rejected}</li>
+    </ul>
+    <p class="muted small">{sequence_rule.variants}</p>
+  </section>
+
+  <p class="src small">來源：{sources.map((s) => s.ref).join('；')}　·　判讀僅為文化呈現，非問事指導（§13.1）。</p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+    .card strong { color: var(--accent); }
+    .small { font-size: 0.85rem; }
+    .src { color: var(--gold); margin-top: 1.5rem; }
+  </style>
+</Base>

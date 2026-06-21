@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import vocab from '../data/vocabulary.json';
+
+const groups: { key: keyof typeof vocab; label: string }[] = [
+  { key: 'event_types', label: '民俗活動類型' },
+  { key: 'chen_tou', label: '陣頭' },
+  { key: 'joss_paper', label: '金紙／紙錢' },
+  { key: 'offerings', label: '供品' },
+];
+type Term = { term: string; def: string; alias?: string[]; sources?: { ref: string }[] };
+---
+
+<Base title="受控詞彙" description="民俗活動類型、陣頭、金紙、供品之受控詞彙定義表，地方變體以別名收，逐詞掛來源。">
+  <h1>受控詞彙</h1>
+  <p class="muted">
+    全站活動類型、陣頭、金紙、供品採受控詞彙（D.3／E.3）：每詞一句定義、地方變體以別名收、逐詞掛來源；
+    避免同義詞各自新增。
+  </p>
+  {
+    groups.map((g) => {
+      const terms = (vocab[g.key] as Term[]) ?? [];
+      if (terms.length === 0) return null;
+      return (
+        <section>
+          <h2>{g.label}<span class="count muted">（{terms.length}）</span></h2>
+          <dl class="vocab">
+            {terms.map((t) => (
+              <div class="row">
+                <dt id={t.term}>{t.term}</dt>
+                <dd>
+                  {t.def}
+                  {t.alias && t.alias.length > 0 && <span class="alias muted"> · 別名：{t.alias.join('、')}</span>}
+                  {t.sources && t.sources.length > 0 && (
+                    <span class="src"> · {t.sources.map((s) => s.ref).join('；')}</span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      );
+    })
+  }
+  <style>
+    h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+    .count { font-size: 0.85rem; font-weight: 400; }
+    .vocab .row { display: grid; grid-template-columns: 7rem 1fr; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--line); }
+    .vocab dt { font-weight: 700; color: var(--accent); }
+    .vocab dd { margin: 0; }
+    .alias { font-size: 0.88rem; }
+    .src { color: var(--gold); font-size: 0.82rem; }
+  </style>
+</Base>
