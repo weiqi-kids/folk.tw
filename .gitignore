@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Google 服務帳號金鑰與設定（機密，勿提交）
+scripts/.google-sa-key.json
+scripts/.google-config.json
