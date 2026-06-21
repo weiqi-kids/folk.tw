@@ -1,6 +1,6 @@
 /* 神酷（神庫）統一設計 token 與全域基礎樣式。
  * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
- * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 18px、body ~20px）。
+ * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 20px、body 22px）。
  * 參考 yao.care 的 token 設定方式（Tailwind 風 oklch 調色盤 + --text-* 字級）。 */
 
 :root {
@@ -15,14 +15,14 @@
   --gold: oklch(0.585 0.075 82); /* 金（出處／註記） */
   --ok-green: oklch(0.52 0.10 150); /* 宜（吉） */
 
-  /* ── 字級階梯（rem，相對 root 18px）── */
-  --text-xs: 0.8rem; /* ~14.4px */
-  --text-sm: 0.9rem; /* ~16.2px */
-  --text-base: 1.1rem; /* ~19.8px（內文） */
-  --text-lg: 1.3rem; /* ~23.4px */
-  --text-xl: 1.6rem; /* ~28.8px */
-  --text-2xl: 2rem; /* ~36px */
-  --text-3xl: 2.5rem; /* ~45px */
+  /* ── 字級階梯（rem，相對 root 20px）── */
+  --text-xs: 0.8rem; /* 16px */
+  --text-sm: 0.9rem; /* 18px */
+  --text-base: 1.1rem; /* 22px（內文） */
+  --text-lg: 1.3rem; /* 26px */
+  --text-xl: 1.6rem; /* 32px */
+  --text-2xl: 2rem; /* 40px */
+  --text-3xl: 2.5rem; /* 50px */
 
   /* ── 版面 ── */
   --max: 58rem;
@@ -33,7 +33,7 @@
 * { box-sizing: border-box; }
 
 html {
-  font-size: 112.5%; /* 18px 基準（放大內文） */
+  font-size: 125%; /* 20px 基準 → 內文 22px（放大內文） */
   -webkit-text-size-adjust: 100%;
 }
 

@@ -1,19 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getTemples, getDeities } from '../../lib/queries';
+import { getTemples } from '../../lib/queries';
 
 const temples = (await getTemples()).sort((a, b) => (a.data.district ?? '').localeCompare(b.data.district ?? ''));
-const deities = await getDeities();
-const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
-const matched = temples.filter((t) => t.data.main_deity_ref && deityName.has(t.data.main_deity_ref)).length;
 ---
 
-<Base title="廟宇" description="代表性廟宇與主祀神祇對映：吃內政部開放資料，主祀神祇連回神明圖譜。">
+<Base title="廟宇" description="台灣代表性廟宇與其主祀神祇，主祀神連回神明圖譜。">
   <h1>廟宇</h1>
-  <p class="muted">
-    外掛模組（吃政府開放資料）。共 {temples.length} 間，主祀神祇對映神明圖譜
-    {temples.length > 0 && `（已對映 ${matched}/${temples.length}）`}。經緯度與統編僅在查得時標示，否則從缺。
-  </p>
+  <p class="muted">台灣代表性廟宇與其主祀神祇。點主祀神可連到神明圖譜。</p>
   {
     temples.length === 0 ? (
       <p class="pending">廟宇資料匯入中。</p>
@@ -31,9 +25,11 @@ const matched = temples.filter((t) => t.data.main_deity_ref && deityName.has(t.d
       </div>
     )
   }
+  <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
   <style>
     .temple { display: flex; flex-direction: column; gap: 0.25rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: 0.85rem; }
+    .src { margin-top: 1.5rem; color: var(--gold); }
   </style>
 </Base>
