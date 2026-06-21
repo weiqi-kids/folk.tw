@@ -20,6 +20,16 @@ const birthdays = (bdayIndex.get(lunarKey) ?? []) as { deityId: string; name: st
 const record = computeDayRecord(y, m, dd, { astro: lunarProvider, deityBirthdays: birthdays });
 const P = record.pillars;
 const gz = (p: { value: { stem: string; branch: string } | null }) => (p.value ? `${p.value.stem}${p.value.branch}` : '—');
+
+// 進階層：只對外顯示已 verified（考據化核校通過）者；未核者僅透明計數（C.7.8 無源不顯示）
+const yiV = record.yi.filter((v) => v.verified);
+const jiV = record.ji.filter((v) => v.verified);
+const hhV = record.huangHeiDao.verified ? record.huangHeiDao.value : null;
+const tsV = record.taiShen.verified ? record.taiShen.value : null;
+const pendingCount =
+  record.yi.length + record.ji.length - yiV.length - jiV.length +
+  (record.huangHeiDao.value && !record.huangHeiDao.verified ? 1 : 0);
+const hasVerifiedAdv = yiV.length + jiV.length > 0 || hhV || tsV;
 ---
 
 <Base title={`農民曆 · ${iso}`} description="農曆、節氣、四柱、建除、廿八宿、沖煞、神明聖誕；宜忌考據化（建置中）。">
@@ -62,20 +72,48 @@ const gz = (p: { value: { stem: string; branch: string } | null }) => (p.value ?
     </p>
   </section>
 
-  {/* 進階層 — 考據化待《協紀辨方書》人工核 */}
+  {/* 進階層 — 考據化（C.6）：引擎已推得，只顯示 verified 者 */}
   <section>
-    <h2>宜忌・神煞（進階層・考據化建置中）</h2>
-    <p class="pending">
-      黃黑道、神煞、宜忌、胎神、吉時為進階層：須依《欽定協紀辨方書》逐條校驗，每條附
-      <code>derivation</code>（由哪些值神／神煞依何規則）與 <code>sources[]</code>。規則已引原文匯入但
-      <strong>verified:false</strong>，古文轉錄待人工核對後始上架（§5／C.6）——這正是本站「考據而非算命」的分水嶺。
+    <h2>宜忌・神煞（進階層・考據化）</h2>
+    {
+      hasVerifiedAdv ? (
+        <>
+          {(yiV.length > 0 || jiV.length > 0) && (
+            <div class="yiji">
+              {yiV.length > 0 && (
+                <p><strong class="yi">宜</strong>　{yiV.map((v) => v.affair).join('、')}</p>
+              )}
+              {jiV.length > 0 && (
+                <p><strong class="ji">忌</strong>　{jiV.map((v) => v.affair).join('、')}</p>
+              )}
+              <details class="deriv">
+                <summary>推導與出處（考據化）</summary>
+                <ul>
+                  {[...yiV, ...jiV].map((v) => (
+                    <li>
+                      <strong>{v.affair}</strong> {v.judgement}：{v.resolvedBy}
+                      <span class="src small">　{v.sources.join('；')}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          )}
+          {hhV && <p>黃黑道：{hhV.name}（{hhV.auspicious ? '黃道吉' : '黑道凶'}）</p>}
+          {tsV && <p>胎神占方：{tsV}</p>}
+        </>
+      ) : (
+        <p class="pending">
+          引擎已依《協紀辨方書》規則推得今日神煞、黃黑道、宜忌與胎神（含 derivation＋sources），
+          但規則表 <strong>verified:false</strong>——古文轉錄待人工核對《欽定協紀辨方書》後始對外顯示
+          （§5／C.6／C.7.8 無源不顯示）。{pendingCount > 0 && `今日待核條目：${pendingCount}。`}
+          這正是本站「考據而非算命」的分水嶺：寧可暫不顯示，不放未經核校之斷語。
+        </p>
+      )
+    }
+    <p class="muted small">
+      時柱／時辰宜忌需真太陽時（經度＋均時差），列發佈後增補（C.6）。
     </p>
-    <ul class="todo small muted">
-      <li>神煞定例表（天德/月德/天醫/月破/月厭…）逐條校驗 verified</li>
-      <li>黃黑道「月支→青龍」起神表 12 組核對</li>
-      <li>宜忌投票表與從違優先序、胎神逐日表</li>
-      <li>真太陽時精校（時柱／時辰宜忌）— 列發佈後增補（C.6）</li>
-    </ul>
   </section>
 
   <section>
@@ -99,5 +137,11 @@ const gz = (p: { value: { stem: string; branch: string } | null }) => (p.value ?
     .src { color: var(--gold); margin-top: 0.8rem; }
     .todo { padding-left: 1.2rem; }
     code { background: var(--paper-2); padding: 0 0.3rem; border-radius: 0.2rem; }
+    .yiji p { margin: 0.4rem 0; font-size: 1.05rem; }
+    .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: #2e6b3a; border: 1px solid #9bbf9b; border-radius: 0.3rem; }
+    .ji { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.3rem; }
+    .deriv { margin: 0.6rem 0; }
+    .deriv summary { cursor: pointer; color: var(--ink-soft); font-size: 0.9rem; }
+    .deriv li { padding: 0.2rem 0; font-size: 0.9rem; }
   </style>
 </Base>

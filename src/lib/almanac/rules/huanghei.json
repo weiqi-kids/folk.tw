@@ -18,7 +18,9 @@
       {"pos": 11, "name": "司命", "class": "黃道", "auspicious": true},
       {"pos": 12, "name": "勾陳", "class": "黑道", "auspicious": false}
     ],
-    "_source": "欽定協紀辨方書·義例五（四庫全書本/卷07）原文：「一青龍二明堂三天刑四朱雀五金匱六天德七白虎八玉堂九天牢十元武十一司命十二勾陳」"
+    "_source": "欽定協紀辨方書·義例五（四庫全書本/卷07）原文：「一青龍二明堂三天刑四朱雀五金匱六天德七白虎八玉堂九天牢十元武十一司命十二勾陳」",
+    "verified": true,
+    "_verify_note": "已核四庫本卷07原文：「一青龍二明堂三天刑四朱雀五金匱六天德七白虎八玉堂九天牢十元武十一司命十二勾陳」及「青龍明堂金匱天德玉堂司命皆月內天黃道之神也…天刑朱雀白虎天牢元武勾陳者月中黑道也」，序列完全吻合。"
   },
 
   "start_rule": {
@@ -27,7 +29,9 @@
     "raw_text": "寅申青龍起子卯酉起寅辰戌起辰巳亥起午子午起申丑未起戌順行十二辰",
     "sources": [
       "欽定協紀辨方書·義例五·黃道十二神（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
-    ]
+    ],
+    "verified": true,
+    "_verify_note": "已核四庫本卷07原文：「寅申青龍起子卯酉起寅辰戌起辰巳亥起午子午起申丑未起戌順行十二辰」，與 start_rule 完全吻合。"
   },
 
   "month_tables": [
@@ -38,7 +42,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「子午起申」，吻合。"
     },
     {
       "month_branch": "丑",
@@ -47,7 +52,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「丑未起戌」，吻合。"
     },
     {
       "month_branch": "寅",
@@ -56,7 +62,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「寅申青龍起子」，吻合。"
     },
     {
       "month_branch": "卯",
@@ -65,7 +72,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「卯酉起寅」，吻合。"
     },
     {
       "month_branch": "辰",
@@ -74,7 +82,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「辰戌起辰」，吻合。"
     },
     {
       "month_branch": "巳",
@@ -83,7 +92,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「巳亥起午」，吻合。"
     },
     {
       "month_branch": "午",
@@ -92,7 +102,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「子午起申」，吻合。"
     },
     {
       "month_branch": "未",
@@ -101,7 +112,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「丑未起戌」，吻合。"
     },
     {
       "month_branch": "申",
@@ -110,7 +122,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「寅申青龍起子」，吻合。"
     },
     {
       "month_branch": "酉",
@@ -119,7 +132,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「卯酉起寅」，吻合。"
     },
     {
       "month_branch": "戌",
@@ -128,7 +142,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「辰戌起辰」，吻合。"
     },
     {
       "month_branch": "亥",
@@ -137,7 +152,8 @@
       "sources": [
         "欽定協紀辨方書·義例五（四庫全書本/卷07）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷07"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷07原文：「巳亥起午」，吻合。"
     }
   ],
 

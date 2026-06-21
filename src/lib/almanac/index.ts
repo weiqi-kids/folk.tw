@@ -11,7 +11,16 @@ import { gregorianToJDN } from './jdn';
 import { dayPillar, hourPillar, chongZodiac, monthPillar, BRANCHES } from './ganzhi';
 import { jianchu } from './jianchu';
 import { ershiba } from './ershiba';
-import type { DayRecord, GanZhi, Sourced } from './types';
+import { activeShenSha } from './shensha';
+import { huangHeiDao } from './huanghei';
+import { resolveAffair } from './resolve';
+import affairsData from './rules/affairs.json';
+import taishenData from './rules/taishen.json';
+import type { DayRecord, GanZhi, Sourced, DayVerdict } from './types';
+
+const AFFAIRS = (affairsData as { affairs: { id: string; name: string }[] }).affairs;
+const AFFAIR_NAME = new Map(AFFAIRS.map((a) => [a.id, a.name]));
+const TAISHEN = (taishenData as { taishen: { ganzhi: string; fang: string; sources?: string[]; verified?: boolean }[] }).taishen;
 
 export * from './types';
 export { gregorianToJDN, jdnToGregorian } from './jdn';
@@ -79,6 +88,41 @@ export function computeDayRecord(
 
   const SRC_LUNAR = ['lunar-javascript（壽星天文曆算法，對齊香港天文台）；發佈前對中央氣象署抽查 C.4-4'];
 
+  // ── 進階層（C.6 考據化）：神煞集合 → 黃黑道 / 宜忌；verified 取規則表 verified ──
+  let huangHei: DayRecord['huangHeiDao'] = sourced(null, false, ['進階層：月支→青龍起神表待考據化 C.6']);
+  let yi: DayVerdict[] = [];
+  let ji: DayVerdict[] = [];
+  let taiShen: Sourced<string | null> = sourced(null, false, ['進階層：胎神逐日表待考據化 C.6']);
+  if (connected && monthBranch && jianchuVal) {
+    const ctx = {
+      monthBranch,
+      dayStem: day干.stem,
+      dayBranch: day干.branch,
+      dayGanZhi: `${day干.stem}${day干.branch}`,
+    };
+    const active = activeShenSha(ctx);
+    const activeSet = new Set(active.map((a) => a.id));
+    const verifiedSet = new Set(active.filter((a) => a.verified).map((a) => a.id));
+
+    // S9 宜忌組裝（每事項一裁決，帶 derivation＋sources＋verified）
+    for (const a of AFFAIRS) {
+      const v = resolveAffair(a.id, activeSet, jianchuVal, verifiedSet);
+      if (!v) continue;
+      v.affair = AFFAIR_NAME.get(a.id) ?? a.id;
+      (v.judgement === '宜' ? yi : ji).push(v);
+    }
+
+    // S7 黃黑道
+    const hh = huangHeiDao(monthBranch, day干.branch);
+    if (hh) huangHei = sourced({ name: hh.name, auspicious: hh.auspicious }, hh.verified, hh.sources);
+
+    // S10 胎神（逐日表）
+    const ts = TAISHEN.find((t) => t.ganzhi === ctx.dayGanZhi);
+    if (ts && ts.fang && ts.fang !== '待查') {
+      taiShen = sourced(ts.fang, !!ts.verified, ts.sources ?? ['胎神逐日表']);
+    }
+  }
+
   const record: DayRecord = {
     solar,
     jdn,
@@ -94,10 +138,10 @@ export function computeDayRecord(
     jianchu: sourced(jianchuVal, connected, connected ? ['建除義例（C.2 S5）；交叉驗證 lunar-javascript'] : []),
     // 廿八宿：錨定常數已以 lunar-javascript 跨6日校準（C.5）
     ershiba: sourced(xiu, true, ['七政廿八宿值日，錨定常數已校準（calibration.test）']),
-    // 黃黑道屬進階層，待《協紀辨方書》考據化（C.6）
-    huangHeiDao: sourced(null, false, ['進階層：月支→青龍起神表待考據化 C.6']),
-    yi: [], // 進階層宜忌待《協紀辨方書》規則表校填並考據化（C.6/C.7）
-    ji: [],
+    // 黃黑道／宜忌（進階層，C.6 考據化）：引擎已產出，verified 取規則表，未驗證者頁面不顯示
+    huangHeiDao: huangHei,
+    yi,
+    ji,
     chongSha: day干
       ? sourced(
           { zodiac: chongZodiac(day干.branch), direction: shaDir ?? '—' },
@@ -105,8 +149,7 @@ export function computeDayRecord(
           connected ? ['沖：日支對沖（C.2 S10）；煞方：lunar-javascript'] : ['沖：日支對沖（確定）'],
         )
       : sourced(null, false),
-    // 胎神屬進階層，待考據化（C.6）
-    taiShen: sourced(null, false, ['進階層：胎神逐日表待考據化 C.6']),
+    taiShen,
     jiShi: sourced([], false, ['時辰黃黑道·需真太陽時 C.6']),
     festivals: connected && astro?.festivals ? astro.festivals(jdn) : [],
     deityBirthdays,

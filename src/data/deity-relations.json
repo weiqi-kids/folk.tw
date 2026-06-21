@@ -292,5 +292,551 @@
         "note": "台灣府城隍廟為城隍信仰系統下的官建府級具名實例"
       }
     ]
+  },
+  {
+    "id": "rel-xuantian-nazha",
+    "from": "xuantian",
+    "to": "nazha",
+    "type": "從神",
+    "note": "哪吒（中壇元帥）常為玄天上帝前部先鋒，《封神演義》體系中隸屬北天神將序列",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《封神演義》及台灣廟宇配祀慣例",
+        "note": "玄天上帝廟常以哪吒為前殿先鋒從神"
+      }
+    ]
+  },
+  {
+    "id": "rel-xuantian-huye",
+    "from": "xuantian",
+    "to": "huye",
+    "type": "配祀",
+    "note": "虎爺（下壇將軍）廣泛配祀於玄天上帝廟，為常見從神組合",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣廟宇配祀慣例（通識）",
+        "note": "玄天上帝廟普遍供奉虎爺於神案下方"
+      }
+    ]
+  },
+  {
+    "id": "rel-shuixian-longwang",
+    "from": "shuixian",
+    "to": "longwang",
+    "type": "同系",
+    "note": "水仙尊王與四海龍王同屬水域守護神系統，皆為海洋、河川信仰的重要神明",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "水域守護神信仰體系，兩者皆司水域"
+      }
+    ]
+  },
+  {
+    "id": "rel-longwang-sanguan",
+    "from": "longwang",
+    "to": "sanguan",
+    "type": "同系",
+    "note": "四海龍王掌雨水，與三官大帝（水官）同屬自然水域信仰脈絡，水官解厄與龍王司雨密切相關",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "三官大帝水官與龍王同司水域，傳統廟宇祭典中並列"
+      }
+    ]
+  },
+  {
+    "id": "rel-tudigong-zhusheng",
+    "from": "tudigong",
+    "to": "zhusheng",
+    "type": "配祀",
+    "note": "土地公廟中常配祀註生娘娘，兩者皆為庶民最常拜謁的基層神明，合祀普遍",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "台灣廟宇合祀慣例，土地公廟配祀註生娘娘極為常見"
+      }
+    ]
+  },
+  {
+    "id": "rel-dongyue-chenghuang",
+    "from": "dongyue",
+    "to": "chenghuang",
+    "type": "同系",
+    "note": "東嶽大帝與城隍爺同屬陰司冥界行政系統，共同構成民間信仰的冥界秩序架構",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "東嶽大帝與城隍同列冥界行政神明，文獻並稱"
+      }
+    ]
+  },
+  {
+    "id": "rel-kaitai-mazu",
+    "from": "kaitai",
+    "to": "mazu",
+    "type": "配祀",
+    "note": "鄭成功（開臺聖王）渡台前後傳說中媽祖多次顯靈護航，閩南移民廟宇常同祀兩神",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間傳說與廟宇配祀慣例",
+        "note": "開臺聖王廟與媽祖信仰在移民開拓脈絡中緊密相連"
+      }
+    ]
+  },
+  {
+    "id": "rel-guanyin-zhusheng",
+    "from": "guanyin",
+    "to": "zhusheng",
+    "type": "配祀",
+    "note": "觀音菩薩廟中常配祀註生娘娘，送子觀音與求子信仰緊密相連，合祀極為普遍",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "台灣觀音廟配祀註生娘娘為常見格局"
+      }
+    ]
+  },
+  {
+    "id": "rel-guanyin-shancai",
+    "from": "guanyin",
+    "to": "善財龍女",
+    "type": "眷屬",
+    "note": "善財童子與龍女為觀音菩薩的左右脅侍，為台灣寺廟觀音造像最常見的三尊組合",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及佛教造像傳統",
+        "note": "觀音、善財、龍女三尊組合為台灣廟宇標準造像格局"
+      }
+    ]
+  },
+  {
+    "id": "rel-baosheng-huye",
+    "from": "baosheng",
+    "to": "huye",
+    "type": "對立收伏",
+    "note": "保生大帝傳說以法術收伏虎（白虎），廟中虎爺為其降伏之神獸，廟宇常奉虎爺於神案下",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "保生大帝收虎傳說廣為人知，白虎成為其廟宇配祀神獸"
+      }
+    ]
+  },
+  {
+    "id": "rel-kaizhang-guangze",
+    "from": "kaizhang",
+    "to": "guangze",
+    "type": "同系",
+    "note": "開漳聖王（陳元光）與廣澤尊王（郭聖王）同為泉漳移民族群守護神，信仰系統相近",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者同為閩南族群神，廟宇信仰圈多有重疊"
+      }
+    ]
+  },
+  {
+    "id": "rel-sanshan-yimin",
+    "from": "sanshan",
+    "to": "yimin",
+    "type": "同系",
+    "note": "三山國王與義民爺同為台灣客家族群最重要的守護神，信仰圈高度重疊",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者皆為客家移民守護神，文獻並稱為客家信仰代表"
+      }
+    ]
+  },
+  {
+    "id": "rel-qingshui-fazhu",
+    "from": "qingshui",
+    "to": "fazhu",
+    "type": "同系",
+    "note": "清水祖師與法主公同為泉州安溪移民從原鄉攜入台灣的守護神，信仰源地相同",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者皆源自泉州安溪，隨安溪移民渡台，屬安溪移民信仰同系"
+      }
+    ]
+  },
+  {
+    "id": "rel-qingshan-chenghuang",
+    "from": "qingshan",
+    "to": "chenghuang",
+    "type": "同系",
+    "note": "青山王（靈安尊王）與城隍爺同具司法、巡境職能，暗訪遶境儀式相近，艋舺青山王廟以暗訪著稱",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣廟宇暗訪遶境慣例",
+        "note": "與霞海城隍、新莊大眾爺並稱北台灣三大暗訪"
+      }
+    ]
+  },
+  {
+    "id": "rel-shennong-baosheng",
+    "from": "shennong",
+    "to": "baosheng",
+    "type": "同系",
+    "note": "神農大帝與保生大帝同屬醫藥守護神系統，廟宇藥籤信仰傳統互有關聯",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者同司醫藥，台灣廟宇藥籤傳統由兩者共同支撐"
+      }
+    ]
+  },
+  {
+    "id": "rel-luban-jiutian",
+    "from": "luban",
+    "to": "jiutian",
+    "type": "同系",
+    "note": "巧聖先師魯班與九天玄女同屬技藝傳授系統神明，玄女傳兵書技藝，魯班傳木工技藝，傳說皆以授藝濟世著稱",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰（行業神）",
+        "note": "行業守護神同系分類，兩者皆以技藝授傳為核心職能"
+      }
+    ]
+  },
+  {
+    "id": "rel-xiqin-tiandu",
+    "from": "xiqin",
+    "to": "tiandu",
+    "type": "同列",
+    "note": "西秦王爺與田都元帥同為台灣梨園戲曲業的祖師神明，分屬不同流派，並立於梨園信仰之中",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者皆為梨園戲班祖師，各有信眾，同列梨園守護神"
+      }
+    ]
+  },
+  {
+    "id": "rel-kongzi-wenchang",
+    "from": "kongzi",
+    "to": "wenchang",
+    "type": "同列",
+    "note": "至聖先師孔子與文昌帝君同為文教守護神，孔廟釋奠與文昌信仰共同構成台灣傳統文教信仰",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "孔子與文昌同為學業文教神明，廟宇信仰並列"
+      }
+    ]
+  },
+  {
+    "id": "rel-nazha-xuantian",
+    "from": "nazha",
+    "to": "xuantian",
+    "type": "從神",
+    "note": "哪吒在道教神系中常列玄天上帝神將前鋒，台灣廟宇中常見三太子配祀於玄天上帝廟",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣廟宇配祀慣例（通識）",
+        "note": "已建 rel-xuantian-nazha 反向呼應，此處明確從神方向"
+      }
+    ]
+  },
+  {
+    "id": "rel-jigong-guanyin",
+    "from": "jigong",
+    "to": "guanyin",
+    "type": "師承",
+    "note": "濟公傳說中為佛教高僧，其師承靈隱寺法脈，台灣民間信仰中常與觀音菩薩慈悲濟世形象並列",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《濟公傳》及台灣民間信仰",
+        "note": "濟公為佛教體系中人物，觀音為佛教慈悲代表，師承佛法脈絡"
+      }
+    ]
+  },
+  {
+    "id": "rel-yuelao-zhusheng",
+    "from": "yuelao",
+    "to": "zhusheng",
+    "type": "配祀",
+    "note": "月下老人與註生娘娘在台灣廟宇中常合祀，分司婚配姻緣與子嗣生育，為婦幼愛情信仰的核心組合",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "台灣廟宇中月老與註生娘娘同祀極為普遍"
+      }
+    ]
+  },
+  {
+    "id": "rel-qixing-zhusheng",
+    "from": "qixing",
+    "to": "zhusheng",
+    "type": "配祀",
+    "note": "七星娘娘（七娘媽）與註生娘娘同屬婦幼守護神系統，廟宇中常合祀",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "七娘媽廟常配祀註生娘娘，同屬兒童守護信仰圈"
+      }
+    ]
+  },
+  {
+    "id": "rel-chitou-linshui",
+    "from": "chitou",
+    "to": "linshui",
+    "type": "配祀",
+    "note": "池頭夫人（護產難產）常配祀於臨水夫人廟或生育相關廟宇，同屬護產信仰體系",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "池頭夫人與臨水夫人同司護產，廟宇配祀關係密切"
+      }
+    ]
+  },
+  {
+    "id": "rel-huagong-zhusheng",
+    "from": "huagong",
+    "to": "zhusheng",
+    "type": "配祀",
+    "note": "花公花婆主管本命花樹、子嗣靈魂，與註生娘娘司求子生育功能相輔，常合祀於婦幼廟宇",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "花公花婆與求子信仰緊密相連，廟宇合祀常見"
+      }
+    ]
+  },
+  {
+    "id": "rel-huye-tudigong",
+    "from": "huye",
+    "to": "tudigong",
+    "type": "配祀",
+    "note": "虎爺常作為土地公的坐騎或下壇將軍配祀，土地公廟中設虎爺神像極為普遍",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "土地公廟置虎爺於神案下方為台灣最常見的配祀格局之一"
+      }
+    ]
+  },
+  {
+    "id": "rel-dasheng-nazha",
+    "from": "dasheng",
+    "to": "nazha",
+    "type": "同系",
+    "note": "齊天大聖（孫悟空）與中壇元帥（哪吒）同屬《西遊記》/神話體系的英勇神將，形象均為年輕護童神，廟會常並陣",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣廟會神將傳統",
+        "note": "兩者同屬護童驅邪神明，廟會遶境中常並列出陣"
+      }
+    ]
+  },
+  {
+    "id": "rel-yuhuang-sanguan",
+    "from": "yuhuang",
+    "to": "sanguan",
+    "type": "同系",
+    "note": "玉皇大帝統御三界，三官大帝（天地水三官）為其下轄主要神官，天庭行政體系的核心成員",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神系",
+        "note": "三官大帝在道教天庭系統中地位次於玉皇，為三界主要行政神官"
+      }
+    ]
+  },
+  {
+    "id": "rel-yuhuang-sanqing",
+    "from": "yuhuang",
+    "to": "sanqing",
+    "type": "同系",
+    "note": "道教體系中玉皇大帝與三清道祖同屬最高層神明，玉皇主政事，三清主道法，並列最高神位",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神系",
+        "note": "玉皇與三清在道教天界體系中並列最高，信仰廟宇常同祀"
+      }
+    ]
+  },
+  {
+    "id": "rel-sanqing-sanqing-note",
+    "from": "sanqing",
+    "to": "yuhuang",
+    "type": "同系",
+    "note": "三清道祖（元始天尊、靈寶天尊、道德天尊）與玉皇大帝同列道教最高神位，道教宮觀中常同殿供奉",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神系",
+        "note": "純正道教廟宇以三清為主祀，玉皇次之，同屬天界最高神位"
+      }
+    ]
+  },
+  {
+    "id": "rel-wangmu-yuhuang",
+    "from": "wangmu",
+    "to": "yuhuang",
+    "type": "同系",
+    "note": "瑤池金母（西王母）與玉皇大帝同屬天界最高神位，蟠桃會傳說中兩者密切相關",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神話",
+        "note": "王母娘娘蟠桃園與玉皇大帝同在天界，神話中並列天界最高神"
+      }
+    ]
+  },
+  {
+    "id": "rel-zaojun-yuhuang",
+    "from": "zaojun",
+    "to": "yuhuang",
+    "type": "從神",
+    "note": "灶神職司向玉皇大帝稟報家宅善惡，為天庭在人間的基層耳目，隸屬天庭行政體系",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "灶君公農曆十二月廿四日上天稟報，正月初四接神，為玉皇大帝的人間情報從神"
+      }
+    ]
+  },
+  {
+    "id": "rel-taiyin-taiyang",
+    "from": "taiyin",
+    "to": "taiyang",
+    "type": "同列",
+    "note": "太陰星君與太陽星君為陰陽對立的自然神明組合，廟宇中常對稱供奉，代表陰陽兩儀",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "台灣廟宇中太陰、太陽星君常對稱配置，陰陽並列"
+      }
+    ]
+  },
+  {
+    "id": "rel-leigongdianmu-yuhuang",
+    "from": "leigongdianmu",
+    "to": "yuhuang",
+    "type": "從神",
+    "note": "雷公電母為玉皇大帝的行刑神將，奉天庭之令以雷電懲戒惡人，隸屬天庭行政神系",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神系",
+        "note": "雷公電母奉玉皇之命行懲惡職責，為天庭司法執行從神"
+      }
+    ]
+  },
+  {
+    "id": "rel-dashugong-tudigong",
+    "from": "dashugong",
+    "to": "tudigong",
+    "type": "同系",
+    "note": "大樹公（樹王公）與土地公同屬地方性自然守護神，皆為台灣民間最基層的土地崇拜神明",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "兩者同屬地方土地守護神信仰，自然崇拜脈絡相近"
+      }
+    ]
+  },
+  {
+    "id": "rel-taisui-yuhuang",
+    "from": "taisui",
+    "to": "yuhuang",
+    "type": "從神",
+    "note": "太歲星君六十甲子輪值，奉玉皇大帝之命值年司命，為天庭派駐人間的流年行政官",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（太歲信仰）",
+        "note": "太歲輪值奉天庭令，隸屬玉皇大帝神系的流年值官"
+      }
+    ]
+  },
+  {
+    "id": "rel-pojie-linshui",
+    "from": "pojie",
+    "to": "linshui",
+    "type": "從神",
+    "note": "十二婆姐為臨水夫人（陳靖姑）的從神，台灣廟宇中婆姐常隨臨水夫人同祀，護嬰職能相輔",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "婆姐為臨水夫人之從神，護嬰系統的核心從屬關係"
+      }
+    ]
+  },
+  {
+    "id": "rel-tiandu-xiqin",
+    "from": "tiandu",
+    "to": "xiqin",
+    "type": "同列",
+    "note": "田都元帥與西秦王爺同為梨園戲曲守護神，並立於台灣梨園信仰中，各有信眾流派",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "已建 rel-xiqin-tiandu，此條明確田都視角"
+      }
+    ]
+  },
+  {
+    "id": "rel-jiutian-xuantian",
+    "from": "jiutian",
+    "to": "xuantian",
+    "type": "同系",
+    "note": "九天玄女與玄天上帝同屬北方玄武體系，玄女為玄武系統的上古女神，傳說中授黃帝兵法，與北極玄武信仰同源",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》及道教神系",
+        "note": "九天玄女與玄天上帝同具「玄」系神格，信仰淵源相近"
+      }
+    ]
+  },
+  {
+    "id": "rel-ludongbin-bazuan",
+    "from": "ludongbin",
+    "to": "八仙",
+    "type": "同列",
+    "note": "呂洞賓（孚佑帝君）為八仙之一，與漢鍾離、張果老、鐵拐李等七仙並列八仙行列",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》",
+        "note": "呂洞賓為八仙成員，八仙過海傳說廣為人知"
+      }
+    ]
   }
 ]

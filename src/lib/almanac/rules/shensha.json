@@ -12,7 +12,8 @@
       "sources": [
         "欽定協紀辨方書·義例·月破（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": false,
+      "_verify_note": "卷六原文未取得明確義例句，卷十一確認月破諸事不宜，locate_rule 為傳統通例但保守未翻。"
     },
     {
       "id": "tiande",
@@ -28,7 +29,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·天德（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「正月丁二月坤三月壬四月辛五月乾六月甲七月癸八月艮九月丙十月乙十一月巽十二月庚」，與 locate_table 完全吻合。"
     },
     {
       "id": "tiandehe",
@@ -45,7 +47,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·天德合（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「正月壬三月丁四月丙六月巳七月戊九月辛十月庚十二月乙四仲之月天德居四維故無合」，locate_table 吻合（六月己=甲之合，原文「巳」為同音字誤刻，表中已用正確「己」）。"
     },
     {
       "id": "yuede",
@@ -61,7 +64,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·月德（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「正五九月在丙二六十月在甲三七十一月在壬四八十二月在庚」，與 locate_table 完全吻合。"
     },
     {
       "id": "yuedehe",
@@ -77,7 +81,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·月德合（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「正五九月在辛二六十月在巳三七十一月在丁四八十二月在乙」（巳=己之同音，月德合為月德合干），與 locate_table 完全吻合。"
     },
     {
       "id": "tianyi",
@@ -94,7 +99,8 @@
       "sources": [
         "欽定協紀辨方書·義例二·天醫（四庫全書本/卷04）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷04"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷04原文：「天醫者正月起戌順行十二辰」「三合後辰…正月建寅三合為寅午戌而戌為寅之後辰是也」，locate_table 完全吻合。"
     },
     {
       "id": "sanhe",
@@ -107,7 +113,8 @@
       "sources": [
         "欽定協紀辨方書·義例四·三合（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": false,
+      "_verify_note": "原文「異位而同氣也，寅午戌火之三合…」定義可核，但 locate_table=null 無具體表可驗，保守維持 false。"
     },
     {
       "id": "liuhe",
@@ -124,7 +131,8 @@
       "sources": [
         "欽定協紀辨方書·義例四·六合（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷06原文：「正月在亥逆行十二辰」，locate_table 正月亥→十二月子逆行序列完全吻合。"
     },
     {
       "id": "mucang",
@@ -142,7 +150,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·母倉（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「春亥子夏寅卯秋辰戌丑未冬申酉土王後巳午」，與 locate_table 完全吻合。"
     },
     {
       "id": "sxiang",
@@ -159,7 +168,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·四相（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「春丙丁夏戊巳秋壬癸冬甲乙」，與 locate_table 完全吻合（夏「巳」為己之同音字）。"
     },
     {
       "id": "shide",
@@ -176,7 +186,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·時德（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「春午夏辰秋子冬寅」，與 locate_table 完全吻合。"
     },
     {
       "id": "yueyan",
@@ -192,7 +203,8 @@
       "sources": [
         "欽定協紀辨方書·義例二·月厭（四庫全書本/卷04）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷04"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷04原文：「月厭者正月在戌逆行十二辰」「陰建之辰也…忌遠行歸家移徙婚嫁」，locate_table 正月戌逆行序列完全吻合。"
     },
     {
       "id": "jiesha",
@@ -206,11 +218,12 @@
         "7": "巳", "8": "巳", "9": "巳",
         "10": "寅", "11": "寅", "12": "寅"
       },
-      "_note_table": "原文「正月起亥逆行四孟」。「逆行四孟」意即亥→申→巳→寅，每季（三個月）換一地支；同季三個月共用同一劫煞地支，待人工核對。",
+      "_note_table": "原文「正月起亥逆行四孟」。「逆行四孟」意即亥→申→巳→寅，每季（三個月）換一地支；同季三個月共用同一劫煞地支。",
       "sources": [
         "欽定協紀辨方書·義例四·劫煞（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷06原文：「正月起亥逆行四孟」，四孟（亥申巳寅）逆行，每季三月同值，locate_table 吻合。"
     },
     {
       "id": "zaisha",
@@ -228,7 +241,8 @@
       "sources": [
         "欽定協紀辨方書·義例四·災煞（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": false,
+      "_verify_note": "卷06原文未取得明確「月災煞正月起子」義例句，推論高不確定性，保守維持 false。"
     },
     {
       "id": "yuesha",
@@ -242,11 +256,12 @@
         "7": "未", "8": "未", "9": "未",
         "10": "辰", "11": "辰", "12": "辰"
       },
-      "_note_table": "原文「正月起丑逆行四季」。四季（丑戌未辰）逆行，每季三個月共用同一月煞地支，待人工核對。",
+      "_note_table": "原文「正月起丑逆行四季」。四季（丑戌未辰）逆行，每季三個月共用同一月煞地支。",
       "sources": [
         "欽定協紀辨方書·義例四·月煞（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷06原文：「正月起丑逆行四季」，四季（丑戌未辰）逆行，每季三月同值，locate_table 吻合。"
     },
     {
       "id": "yuexing",
@@ -259,7 +274,8 @@
       "sources": [
         "欽定協紀辨方書·義例四·月刑（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": false,
+      "_verify_note": "原文「月刑之義與歲刑同」，locate_table=null，無表可驗，維持 false。"
     },
     {
       "id": "sifei",
@@ -276,7 +292,8 @@
       "sources": [
         "欽定協紀辨方書·義例三·四廢（四庫全書本/卷05）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷05"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷05原文：「春庚申辛酉夏壬子癸亥秋甲寅乙卯冬丙午丁巳」，與 locate_table 完全吻合。"
     },
     {
       "id": "wangwang",
@@ -289,11 +306,12 @@
         "5": "卯", "6": "午", "7": "酉", "8": "子",
         "9": "辰", "10": "未", "11": "戌", "12": "丑"
       },
-      "_note_table": "原文：「正月在寅二月在巳三月在申四月在亥五月在夘六月在午七月在酉八月在子九月在辰十月在未十一月在戌十二月在丑」。此條原文逐月完整列出，可信度較高。",
+      "_note_table": "原文：「正月在寅二月在巳三月在申四月在亥五月在夘六月在午七月在酉八月在子九月在辰十月在未十一月在戌十二月在丑」。此條原文逐月完整列出。",
       "sources": [
         "欽定協紀辨方書·義例四·往亡（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷06原文逐月完整列出：「正月在寅二月在巳三月在申四月在亥五月在夘六月在午七月在酉八月在子九月在辰十月在未十一月在戌十二月在丑」，locate_table 完全吻合。"
     },
     {
       "id": "guiji",
@@ -306,11 +324,12 @@
         "zhong_months": "寅",
         "ji_months": "子"
       },
-      "_note_table": "原文：「孟月丑仲月寅季月子」。非逐月各異，而是按孟仲季月類分三組。月類對應：孟月=正二四五七八十十一月？需核對古曆孟仲季定義。",
+      "_note_table": "原文：「孟月丑仲月寅季月子」。非逐月各異，而是按孟仲季月類分三組。月類對應：孟月=寅巳申亥月，仲月=子午卯酉月，季月=辰戌丑未月。",
       "sources": [
         "欽定協紀辨方書·義例四·歸忌（四庫全書本/卷06）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷06"
       ],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷06原文：「孟月丑仲月寅季月子」，locate_table 完全吻合。"
     }
   ]
 }

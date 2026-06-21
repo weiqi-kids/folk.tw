@@ -30,6 +30,7 @@ export function resolveAffair(
   affair: string,
   activeShenSha: Set<string>,
   jianchuShen: string | null,
+  verifiedShenSha: Set<string> = new Set(),
 ): DayVerdict | null {
   // 蒐集適用投票（含通配 '*'）
   const applicable = VOTES.filter(
@@ -41,7 +42,9 @@ export function resolveAffair(
   const mkDerivation = (vs: Vote[]) =>
     vs.map((v) => ({ shensha: v.shensha, verdict: v.verdict, weight: v.weight }));
   const allSources = (vs: Vote[]) => [...new Set(vs.flatMap((v) => v.sources))];
-  const allVerified = (vs: Vote[]) => vs.length > 0 && vs.every((v) => v.verified);
+  // 考據化驗證：投票本身 verified 且其神煞定位亦 verified（C.6 每條 derivation+sources 可回溯）
+  const allVerified = (vs: Vote[]) =>
+    vs.length > 0 && vs.every((v) => v.verified && verifiedShenSha.has(v.shensha));
 
   // 1. 僅宜票 → 宜
   if (yiVotes.length && !jiVotes.length) {

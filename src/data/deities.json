@@ -70,7 +70,8 @@
     "instances": [],
     "office": [
       "鎮邪驅魔",
-      "北方水族"
+      "北方水神",
+      "統御玄武（龜蛇）"
     ],
     "birthday_lunar": [
       {
@@ -122,7 +123,8 @@
     "instances": [],
     "office": [
       "航運",
-      "水利"
+      "水利",
+      "護佑渡海"
     ],
     "birthday_lunar": [
       {
@@ -161,7 +163,8 @@
     "instances": [],
     "office": [
       "司雨",
-      "水域"
+      "水域守護",
+      "調節水旱"
     ],
     "birthday_lunar": [
       {
@@ -238,7 +241,8 @@
     ],
     "office": [
       "巡境驅瘟",
-      "地方守護"
+      "地方守護",
+      "代天行法"
     ],
     "birthday_lunar": [
       {
@@ -334,7 +338,8 @@
     ],
     "office": [
       "陰司",
-      "城域司法"
+      "城域司法",
+      "監察善惡"
     ],
     "birthday_lunar": [
       {
@@ -374,7 +379,8 @@
     "instances": [],
     "office": [
       "城隍部將",
-      "緝拿"
+      "緝拿亡魂",
+      "維護冥界秩序"
     ],
     "birthday_lunar": [
       {
@@ -439,7 +445,8 @@
     "instances": [],
     "office": [
       "掌幽冥",
-      "壽算"
+      "壽算登記",
+      "主宰泰山諸司"
     ],
     "birthday_lunar": [
       {
@@ -480,7 +487,8 @@
     "instances": [],
     "office": [
       "開臺",
-      "地方守護"
+      "地方守護",
+      "抗荷驅敵"
     ],
     "birthday_lunar": [
       {
@@ -520,7 +528,8 @@
     "instances": [],
     "office": [
       "救苦救難",
-      "慈悲"
+      "慈悲濟世",
+      "送子賜福"
     ],
     "birthday_lunar": [
       {
@@ -582,7 +591,8 @@
     "instances": [],
     "office": [
       "醫藥",
-      "消災"
+      "消災",
+      "驅疫治病"
     ],
     "birthday_lunar": [
       {
@@ -622,7 +632,8 @@
     "instances": [],
     "office": [
       "開漳",
-      "地方守護"
+      "地方守護",
+      "化育閩南"
     ],
     "birthday_lunar": [
       {
@@ -661,7 +672,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "地方守護"
+      "地方守護",
+      "護佑閩南移民",
+      "賜福信眾"
     ],
     "birthday_lunar": [
       {
@@ -701,7 +714,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "地方守護"
+      "地方守護",
+      "護佑粵東客家",
+      "山靈鎮境"
     ],
     "birthday_lunar": [
       {
@@ -742,7 +757,8 @@
     "instances": [],
     "office": [
       "驅疫",
-      "地方守護"
+      "地方守護",
+      "苦修得道"
     ],
     "birthday_lunar": [
       {
@@ -781,7 +797,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "護鄉殉難"
+      "護鄉殉難",
+      "守護客家聚落",
+      "褒忠護民"
     ],
     "birthday_lunar": [
       {
@@ -844,7 +862,8 @@
     "instances": [],
     "office": [
       "收妖",
-      "法教"
+      "法教",
+      "護佑安溪移民"
     ],
     "birthday_lunar": [
       {
@@ -883,7 +902,8 @@
     "instances": [],
     "office": [
       "司法",
-      "驅疫"
+      "驅疫",
+      "夜巡遶境"
     ],
     "birthday_lunar": [
       {
@@ -981,7 +1001,8 @@
     "instances": [],
     "office": [
       "功名",
-      "學業"
+      "學業",
+      "掌管文運"
     ],
     "birthday_lunar": [
       {
@@ -1023,8 +1044,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "農",
-      "醫藥"
+      "農業",
+      "醫藥",
+      "嘗百草教民"
     ],
     "birthday_lunar": [
       {
@@ -1063,7 +1085,8 @@
     "instances": [],
     "office": [
       "木工",
-      "營造祖師"
+      "營造祖師",
+      "土木工程守護"
     ],
     "birthday_lunar": [
       {
@@ -1102,7 +1125,8 @@
     "instances": [],
     "office": [
       "戲曲",
-      "梨園"
+      "梨園",
+      "護佑樂師"
     ],
     "birthday_lunar": [
       {
@@ -1142,7 +1166,8 @@
     "instances": [],
     "office": [
       "戲曲",
-      "梨園"
+      "梨園",
+      "忠義護藝"
     ],
     "birthday_lunar": [
       {
@@ -1183,7 +1208,8 @@
     "instances": [],
     "office": [
       "八仙",
-      "文運"
+      "文運",
+      "劍術濟世"
     ],
     "birthday_lunar": [
       {
@@ -1226,7 +1252,8 @@
     "instances": [],
     "office": [
       "教育",
-      "儒"
+      "儒學傳承",
+      "禮樂化民"
     ],
     "birthday_lunar": [
       {
@@ -1267,7 +1294,8 @@
     "instances": [],
     "office": [
       "先鋒",
-      "驅邪"
+      "驅邪",
+      "護佑兒童"
     ],
     "birthday_lunar": [
       {
@@ -1347,7 +1375,8 @@
     "instances": [],
     "office": [
       "濟世",
-      "度人"
+      "度人",
+      "醫病救貧"
     ],
     "birthday_lunar": [
       {
@@ -1398,7 +1427,8 @@
     "instances": [],
     "office": [
       "科考",
-      "功名"
+      "功名",
+      "點魁奪元"
     ],
     "birthday_lunar": [
       {
@@ -1438,7 +1468,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "姻緣"
+      "姻緣",
+      "婚姻撮合",
+      "紅線牽繫有緣人"
     ],
     "birthday_lunar": [
       {
@@ -1477,7 +1509,8 @@
     "instances": [],
     "office": [
       "求子",
-      "生育"
+      "生育",
+      "登記子嗣"
     ],
     "birthday_lunar": [
       {
@@ -1559,7 +1592,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "兒童守護"
+      "兒童守護",
+      "七夕祈福",
+      "守護十六歲以下"
     ],
     "birthday_lunar": [
       {
@@ -1597,7 +1632,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "育嬰"
+      "育嬰",
+      "守護嬰幼兒",
+      "各月分嬰兒看顧"
     ],
     "birthday_lunar": [],
     "iconography": [],
@@ -1623,7 +1660,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "護產（難產）"
+      "護產（難產）",
+      "守護孕婦",
+      "化解生產危厄"
     ],
     "birthday_lunar": [
       {
@@ -1675,7 +1714,8 @@
     "instances": [],
     "office": [
       "本命花樹",
-      "子嗣"
+      "子嗣",
+      "護佑未出生靈魂"
     ],
     "birthday_lunar": [
       {
@@ -1768,7 +1808,8 @@
     "instances": [],
     "office": [
       "驅邪",
-      "護童"
+      "護童",
+      "制伏妖魔"
     ],
     "birthday_lunar": [
       {
@@ -1901,7 +1942,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "三界十方共主"
+      "三界十方共主",
+      "統御諸神",
+      "主宰天庭政令"
     ],
     "birthday_lunar": [
       {
@@ -2004,7 +2047,9 @@
     "is_category": false,
     "instances": [],
     "office": [
-      "道教最高"
+      "道教最高",
+      "化生萬物",
+      "傳授道法"
     ],
     "birthday_lunar": [
       {
@@ -2055,7 +2100,8 @@
     "instances": [],
     "office": [
       "女仙之首",
-      "長生"
+      "長生",
+      "掌管蟠桃仙果"
     ],
     "birthday_lunar": [
       {
@@ -2096,7 +2142,8 @@
     "instances": [],
     "office": [
       "家宅",
-      "司命"
+      "司命",
+      "上達天庭記錄"
     ],
     "birthday_lunar": [
       {
@@ -2136,7 +2183,8 @@
     "instances": [],
     "office": [
       "月",
-      "陰"
+      "陰",
+      "中秋祭典主神"
     ],
     "birthday_lunar": [
       {
@@ -2175,7 +2223,8 @@
     "instances": [],
     "office": [
       "日",
-      "陽"
+      "陽",
+      "農耕豐收庇佑"
     ],
     "birthday_lunar": [
       {
@@ -2215,7 +2264,8 @@
     "instances": [],
     "office": [
       "司雷電",
-      "懲惡"
+      "懲惡",
+      "威攝不義之人"
     ],
     "birthday_lunar": [
       {
@@ -2293,7 +2343,8 @@
     "instances": [],
     "office": [
       "自然崇拜",
-      "地方守護"
+      "地方守護",
+      "古樹靈氣鎮境"
     ],
     "birthday_lunar": [
       {

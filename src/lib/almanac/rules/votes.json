@@ -9,7 +9,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·天醫（四庫全書本/卷04）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷04"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：療病宜列包含「天醫」，吻合。"
     },
     {
       "shensha": "yuepo",
@@ -17,7 +18,8 @@
       "verdict": "忌",
       "weight": "大凶",
       "sources": ["欽定協紀辨方書·卷十一·月破（諸事不宜）（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：各事項忌列均包含「月破」，月破諸事不宜為定例。"
     },
     {
       "shensha": "yueyan",
@@ -25,7 +27,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月厭（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌列包含「月厭」，吻合。"
     },
     {
       "shensha": "tiande",
@@ -33,7 +36,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜天德（四庫全書本/卷11）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「天徳月徳天徳合月徳合…」，吻合。"
     },
     {
       "_comment": "===== 天德 新增條目 =====",
@@ -42,7 +46,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜天德月德天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜列包含「天徳月徳天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiande",
@@ -50,7 +55,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜天德月德天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「天徳月徳天徳合月徳合…」，吻合。"
     },
     {
       "shensha": "tiande",
@@ -58,7 +64,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·興造動土宜天德月德天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土宜列包含「天徳月徳天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiande",
@@ -66,7 +73,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·般移宜天德月德天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移宜列包含「天徳月徳天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiande",
@@ -74,7 +82,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·安葬宜天德月德天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬宜列包含「天徳月徳天徳合月徳合」，吻合。"
     },
     {
       "_comment": "===== 天德合 新增條目 =====",
@@ -83,7 +92,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜天德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「天徳月徳天徳合月徳合…」，吻合。"
     },
     {
       "shensha": "tiandehe",
@@ -91,7 +101,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜天德合月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「天徳月徳天徳合月徳合…」，吻合。"
     },
     {
       "shensha": "tiandehe",
@@ -99,7 +110,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·興造動土宜天德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土宜列包含「天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiandehe",
@@ -107,7 +119,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·般移宜天德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移宜列包含「天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiandehe",
@@ -115,7 +128,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·安葬宜天德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬宜列包含「天徳合月徳合」，吻合。"
     },
     {
       "shensha": "tiandehe",
@@ -123,7 +137,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜天德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜「天徳月徳天徳合月徳合」，吻合。"
     },
     {
       "_comment": "===== 月德 新增條目 =====",
@@ -132,7 +147,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「天徳月徳…」，吻合。"
     },
     {
       "shensha": "yuede",
@@ -140,7 +156,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜「天徳月徳…」，吻合。"
     },
     {
       "shensha": "yuede",
@@ -148,7 +165,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「天徳月徳…」，吻合。"
     },
     {
       "shensha": "yuede",
@@ -156,7 +174,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·興造動土宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土宜「天徳月徳…」，吻合。"
     },
     {
       "shensha": "yuede",
@@ -164,7 +183,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·般移宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移宜「天徳月徳…」，吻合。"
     },
     {
       "shensha": "yuede",
@@ -172,7 +192,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·安葬宜月德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬宜「天徳月徳…」，吻合。"
     },
     {
       "_comment": "===== 月德合 新增條目 =====",
@@ -181,7 +202,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「…月徳合…」，吻合。"
     },
     {
       "shensha": "yuedehe",
@@ -189,7 +211,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「…月徳合…」，吻合。"
     },
     {
       "shensha": "yuedehe",
@@ -197,7 +220,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·安葬宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬宜「…月徳合…」，吻合。"
     },
     {
       "shensha": "yuedehe",
@@ -205,7 +229,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·般移宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移宜「…月徳合…」，吻合。"
     },
     {
       "shensha": "yuedehe",
@@ -213,7 +238,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜「…月徳合…」，吻合。"
     },
     {
       "shensha": "yuedehe",
@@ -221,7 +247,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·興造動土宜月德合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土宜「…月徳合…」，吻合。"
     },
     {
       "_comment": "===== 天醫 新增條目 =====",
@@ -231,7 +258,8 @@
       "weight": "吉",
       "_dup_note": "此條已在原有條目，下方不重複",
       "sources": ["欽定協紀辨方書·卷十一（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：療病宜列包含「天醫」，吻合。"
     },
     {
       "_comment": "===== 三合 新增條目 =====",
@@ -240,7 +268,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜三合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「…三合天喜六合…」，三合在嫁娶宜列，吻合。"
     },
     {
       "shensha": "sanhe",
@@ -248,7 +277,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·開市宜三合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市宜原文列「天願民日滿日成日開日五富」，未確認三合在開市宜中，保守維持 false。"
     },
     {
       "shensha": "sanhe",
@@ -256,7 +286,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·立券交易宜三合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：立券交易宜「…三合…六合五富五合」，吻合。"
     },
     {
       "shensha": "sanhe",
@@ -264,7 +295,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·興造動土宜三合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土宜「…三合開日…」，吻合。"
     },
     {
       "_comment": "===== 六合 新增條目 =====",
@@ -273,7 +305,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶宜六合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶宜「…三合天喜六合不將」，吻合。"
     },
     {
       "shensha": "liuhe",
@@ -281,7 +314,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·安葬宜六合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬宜「…六合鳴吠」，吻合。"
     },
     {
       "shensha": "liuhe",
@@ -289,7 +323,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·開市宜六合（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市宜原文列「天願民日滿日成日開日五富」，未確認六合在開市宜中，保守維持 false。"
     },
     {
       "_comment": "===== 母倉 新增條目 =====",
@@ -298,7 +333,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·栽種宜母倉（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：栽種宜列包含「母倉」，吻合。"
     },
     {
       "shensha": "mucang",
@@ -306,7 +342,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·納財宜母倉（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：納財宜「母倉天願月恩四相時徳…」，吻合。"
     },
     {
       "_comment": "===== 時德（四相）新增條目 =====",
@@ -315,7 +352,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜四相時德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「…四相時徳…」，吻合。"
     },
     {
       "shensha": "shide",
@@ -323,7 +361,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜四相時德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜「…四相時徳…」，吻合。"
     },
     {
       "shensha": "shide",
@@ -331,7 +370,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·般移宜四相時德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移宜「…四相時徳…」，吻合。"
     },
     {
       "shensha": "sxiang",
@@ -339,7 +379,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祭祀宜四相時德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祭祀宜「…四相時徳…」，吻合。"
     },
     {
       "shensha": "sxiang",
@@ -347,7 +388,8 @@
       "verdict": "宜",
       "weight": "吉",
       "sources": ["欽定協紀辨方書·卷十一·祈福宜四相時德（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福宜「…四相時徳…」，吻合。"
     },
     {
       "_comment": "===== 月破 通配（已有，補充說明） =====",
@@ -356,7 +398,8 @@
       "verdict": "忌",
       "weight": "大凶",
       "sources": ["欽定協紀辨方書·卷十一·月破諸事不宜（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：各事項忌列均出現「月破」，月破諸事不宜確認，吻合。"
     },
     {
       "_comment": "===== 月厭 新增條目 =====",
@@ -365,7 +408,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·義例二·月厭忌遠行歸家移徙婚嫁（四庫全書本/卷04）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷04原文：「忌遠行歸家移徙婚嫁」，出行（遠行）包含在月厭忌中，吻合。"
     },
     {
       "shensha": "yueyan",
@@ -373,7 +417,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌月厭（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌列包含「月厭」，吻合。"
     },
     {
       "shensha": "yueyan",
@@ -381,7 +426,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·興造動土忌月厭（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土忌列包含「月厭」，吻合。"
     },
     {
       "shensha": "yueyan",
@@ -389,7 +435,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·祈福忌月厭（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福忌「…月厭大時遊禍」，吻合。"
     },
     {
       "shensha": "yueyan",
@@ -397,7 +444,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·安葬忌月厭（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬忌列包含「月厭」，吻合。"
     },
     {
       "_comment": "===== 劫煞 新增條目 =====",
@@ -406,7 +454,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "jiesha",
@@ -414,7 +463,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·開市忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市忌原文取得不完整，保守維持 false。"
     },
     {
       "shensha": "jiesha",
@@ -422,7 +472,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·興造動土忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "jiesha",
@@ -430,7 +481,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "jiesha",
@@ -438,7 +490,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·祈福忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "jiesha",
@@ -446,7 +499,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·安葬忌劫煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "_comment": "===== 災煞 新增條目 =====",
@@ -455,7 +509,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌災煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌「…劫煞災煞月煞月刑…」，災煞在嫁娶忌，吻合。（注：災煞 locate 仍 false，但此宜忌條文可獨立核實）"
     },
     {
       "shensha": "zaisha",
@@ -463,7 +518,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·開市忌災煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市忌原文取得不完整，保守維持 false。"
     },
     {
       "shensha": "zaisha",
@@ -471,7 +527,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·興造動土忌災煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "zaisha",
@@ -479,7 +536,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌災煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "zaisha",
@@ -487,7 +545,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·安葬忌災煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "_comment": "===== 月煞 新增條目 =====",
@@ -496,7 +555,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuesha",
@@ -504,7 +564,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·開市忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市忌原文取得不完整，保守維持 false。"
     },
     {
       "shensha": "yuesha",
@@ -512,7 +573,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·興造動土忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuesha",
@@ -520,7 +582,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuesha",
@@ -528,7 +591,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·祈福忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuesha",
@@ -536,7 +600,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·安葬忌月煞（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬忌「…劫煞災煞月煞月刑…」，吻合。"
     },
     {
       "_comment": "===== 月刑 新增條目 =====",
@@ -545,7 +610,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌「…月煞月刑月害…」，月刑在嫁娶忌列，吻合。（注：月刑 locate 仍 false，但此宜忌條文可獨立核實）"
     },
     {
       "shensha": "yuexing",
@@ -553,7 +619,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·開市忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": false,
+      "_verify_note": "開市忌原文取得不完整，保守維持 false。"
     },
     {
       "shensha": "yuexing",
@@ -561,7 +628,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·興造動土忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：興造動土忌「…月煞月刑月厭…」，吻合。"
     },
     {
       "shensha": "yuexing",
@@ -569,7 +637,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuexing",
@@ -577,7 +646,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·祈福忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：祈福忌「…月煞月刑…」，吻合。"
     },
     {
       "shensha": "yuexing",
@@ -585,7 +655,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·安葬忌月刑（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：安葬忌「…月煞月刑…」，吻合。"
     },
     {
       "_comment": "===== 四廢 新增條目 =====",
@@ -594,7 +665,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·四廢諸事不宜（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：各事項忌列均包含「四廢」，四廢諸事不宜為定例，吻合。"
     },
     {
       "_comment": "===== 往亡 新增條目 =====",
@@ -603,7 +675,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·嫁娶忌往亡（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：嫁娶忌「…四廢往亡」，吻合。"
     },
     {
       "shensha": "wangwang",
@@ -611,7 +684,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·行幸遣使忌往亡（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：行幸遣使忌「…四廢五墓往亡巳日」，吻合。"
     },
     {
       "shensha": "wangwang",
@@ -619,7 +693,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌往亡（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…四廢五墓歸忌往亡」，吻合。"
     },
     {
       "_comment": "===== 歸忌 新增條目 =====",
@@ -628,7 +703,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌歸忌（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…歸忌往亡」，吻合。"
     },
     {
       "shensha": "guiji",
@@ -636,7 +712,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·遠迴忌歸忌（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：遠迴忌「月厭歸忌」，吻合。"
     },
     {
       "shensha": "guiji",
@@ -644,7 +721,8 @@
       "verdict": "忌",
       "weight": "凶",
       "sources": ["欽定協紀辨方書·卷十一·般移忌歸忌（四庫全書本/卷11）"],
-      "verified": false
+      "verified": true,
+      "_verify_note": "已核四庫本卷11原文：般移忌「…歸忌往亡」，移徙（般移）包含歸忌，吻合。"
     }
   ]
 }
