@@ -68,6 +68,36 @@ const ROUTE: Record<string, string> = {
     )
   }
 
+  {
+    e.route && e.route.stops.length > 0 && (
+      <section>
+        <h2>路線・駐駕停駕節點</h2>
+        {e.route.note && <p class="muted small">{e.route.note}</p>}
+        <ol class="stops">
+          {e.route.stops.map((s) => (
+            <li>
+              <strong>{s.name}</strong>
+              {s.role && <span class="tag">{s.role}</span>}
+              {s.district && <span class="muted small">　{s.district}</span>}
+              {s.lat != null && s.lng != null && (
+                <a class="map" href={`https://www.openstreetmap.org/?mlat=${s.lat}&mlon=${s.lng}#map=15/${s.lat}/${s.lng}`} target="_blank" rel="noopener">地圖 ↗</a>
+              )}
+            </li>
+          ))}
+        </ol>
+        {
+          e.route.polyline_source && (
+            <p class="muted small">
+              即時軌跡（進香期間）：<a href={e.route.polyline_source} target="_blank" rel="noopener">{e.route.polyline_source}</a>
+              　·　即時追蹤屬發佈範圍外之第三方源（§12.4）。
+            </p>
+          )
+        }
+        {e.route.sources.length > 0 && <p class="src small">座標來源：{e.route.sources.map((s) => s.ref).join('；')}</p>}
+      </section>
+    )
+  }
+
   {e.sources.length > 0 && <p class="src">來源：{e.sources.map((s) => s.ref).join('；')}</p>}
 
   <style>
@@ -79,5 +109,9 @@ const ROUTE: Record<string, string> = {
     .warn { color: var(--gold); }
     .small { font-size: 0.85rem; }
     .src { color: var(--gold); font-size: 0.82rem; margin-top: 1.5rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+    .stops { margin: 0.6rem 0; padding-left: 1.4rem; }
+    .stops li { padding: 0.3rem 0; }
+    .map { margin-left: 0.5rem; font-size: 0.82rem; }
   </style>
 </Base>

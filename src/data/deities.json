@@ -49,9 +49,19 @@
     "summary": "原名林默，福建湄洲人，以救助海難顯靈得封「天上聖母」，為台灣最普及的海洋守護女神；信仰隨閩南移民渡台，職司航海、漁民與救苦救難，遍布全台各地廟宇。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241",
+        "note": "來歷（原名林默，湄洲人）、職司（航海守護）、信仰演變"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖·北港朝天宮迎媽祖（國定民俗）https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=112",
+        "note": "聖誕農曆三月廿三日確認；康熙33年樹壁禪師自湄洲攜神像建廟，三月瘋媽祖習俗說明"
+      },
+      {
+        "type": "temple",
+        "ref": "北港朝天宮官網 https://www.matsu.org.tw/",
+        "note": "迎媽祖活動、聖誕三月廿三遶境，廟方主辦單位"
       }
     ],
     "draft": false
@@ -105,9 +115,14 @@
     "summary": "道教北極主神，以腳踏龜蛇玄武為典型造型，職司鎮邪驅魔與統御北方水族；台灣民間慣以「上帝公」、「帝爺公」尊稱，信仰廣布全島。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·玄天上帝(Xuantian shandi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=280",
+        "note": "來歷（北極星人格化、1018年宋封真武靈應真君）、別名（真武大帝、北極大帝、帝爺公）、職司（鎮邪驅魔、北方水神）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖·北極殿（台南）https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=11",
+        "note": "明永曆15年鄭成功改建為奉祀明朝守護神玄天上帝之廟，為台灣最重要的玄天上帝廟之一"
       }
     ],
     "draft": false
@@ -145,9 +160,9 @@
     "summary": "通說以大禹為首（各廟所祀組成不一）的水域守護神群，統御航運與水利，多將數位水中聖賢合祀，常見於港口、水路沿線廟宇，別稱水仙王。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·水仙尊王(Shuixian zunwang) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=264",
+        "note": "組成說明（大禹、伍員、屈原等；台灣「一帝二王二大夫」說法）、來歷（宋代劉克莊有最早記錄）、職司（航運水利）"
       }
     ],
     "draft": false
@@ -263,9 +278,19 @@
     "summary": "「王爺」為台灣信仰類別，底下有眾多具姓氏的具名千歲，各奉代天巡狩之命，職司巡境驅瘟、守護地方；王船祭為核心儀式，各府千歲聖誕各異，以台灣南部信仰最為盛行。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·王爺千歲(Wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=277",
+        "note": "來歷（瘟神信仰演化）、職司（代天巡狩驅瘟）、台灣132個不同姓氏王爺說明"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·民間信仰（王爺、代天巡狩）https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=27",
+        "note": "王船信仰、送瘟習俗、代天巡狩制度說明"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖·南鯤鯓代天府五府千歲進香期（國定民俗）https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=113",
+        "note": "五府千歲聖誕：李4/26、池6/18、吳9/15、朱8/15、范4/27；王爺神像乘王船飄至北門鯤江的來台典故"
       }
     ],
     "draft": false
@@ -316,9 +341,9 @@
     "summary": "主掌村落田土與財富的基層守護神，別稱土地公、伯公，為台灣廟宇密度最高的神明；幾乎每個村庄街道皆有土地公廟，與庶民農業生活關係最為緊密。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278",
+        "note": "來歷（源自古代社神/土治公）、職司（村落田土、財富守護）、別名（伯公、后土）、為台灣密度最高的神明"
       }
     ],
     "draft": false
@@ -360,9 +385,9 @@
     "summary": "「城隍」為信仰類別，底下分省、府、縣、鄉鎮等層級，各地城隍各有封號；職司城域陰司與行政司法，以七爺八爺（范謝將軍）為部將協助緝拿，陰陽秩序的重要支柱。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·城隍爺(Cheng huang ye) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=259",
+        "note": "城隍系統說明（省、府、縣、鄉鎮分級）、職司（城域陰司司法、監察善惡）、七爺八爺（范謝將軍）部將說明"
       }
     ],
     "draft": false
@@ -467,9 +492,9 @@
     "summary": "泰山主神，別稱泰山府君，職司掌理幽冥陰司與壽算登記；在台灣作為陰司信仰的重要神祇，與城隍系統共同構成人死後所進入的冥界行政秩序。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·東嶽大帝(Dongyue dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=255",
+        "note": "來歷（泰山主神，別稱「東嶽泰山齊天仁聖大帝」、「泰山府君」）、職司（掌幽冥、壽算登記、主宰十殿閻羅）"
       }
     ],
     "draft": false
@@ -509,9 +534,9 @@
     "summary": "明末遺臣鄭成功（國姓爺）率師驅逐荷蘭人、開墾台灣，死後被民間神格化為開臺守護神，以「開臺聖王」、「延平郡王」尊稱供奉，職司開臺與地方守護。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·延平郡王(Yanping junwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=252",
+        "note": "來歷（鄭成功1624-1662年，南明永曆帝封延平郡王，驅荷開台）、死後神格化為「開山王」/「開台聖王」、1663年子鄭經立廟"
       }
     ],
     "draft": false
@@ -572,9 +597,9 @@
     "summary": "佛教大悲菩薩，以慈悲救苦難著稱，職司救苦救難；台灣民間將其融入道教與本土信仰脈絡，以「觀音佛祖」、「觀音媽」親切稱之，為全台受崇信最廣的菩薩。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·觀世音菩薩(Guanyin) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=276",
+        "note": "來歷（佛教大悲菩薩，由男性菩薩逐漸轉化為女神）、職司（救苦救難）、台灣各種造型（送子觀音、魚籃觀音、千手觀音）、重要廟宇（萬華龍山寺等）"
       }
     ],
     "draft": false
@@ -613,9 +638,14 @@
     "summary": "宋代泉州同安名醫吳夲（吳真人），以高超醫術救人，死後被奉為醫神「大道公」；由同安籍移民帶入台灣，職司醫藥與消災，廟中藥籤信仰至今仍盛行。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "note": "來歷（宋太宗太平興國四年979年生，同安縣白礁鄉人，吳夲/吳真人，北宋景祐三年1036年卒）、職司（醫藥）、別名（大道公、花橋公）"
+      },
+      {
+        "type": "temple",
+        "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/history.php?lang=tw",
+        "note": "廟宇沿革、保生大帝聖誕農曆三月十五祭典說明（三月十四遶境、三月十五正日三獻禮）"
       }
     ],
     "draft": false
@@ -654,9 +684,9 @@
     "summary": "唐代將領陳元光率兵平定漳州、開疆拓土，死後被漳州人奉為守護神；隨漳州籍移民渡台，職司開漳與地方守護，成為台灣漳州族群的精神認同象徵。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·開漳聖王(Kaizhang Shengwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=266",
+        "note": "來歷（唐代陳元光，高宗669年奉命入閩，708年殉難）、職司（開漳拓土、地方守護）、封號（威惠聖王）、為漳州籍移民守護神"
       }
     ],
     "draft": false
@@ -695,9 +725,9 @@
     "summary": "泉州南安人郭忠福（郭聖王）幼年得道升仙，被閩南移民奉為地方守護神；隨南安籍移民渡台建廟，職司地方守護，配祀妙應仙妃，信仰廣布各地。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·廣澤尊王(Guangze zunwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=271",
+        "note": "來歷（五代十國，南安縣人，郭忠福，唐將郭子儀後裔，幼時牧羊得道升仙）、別名（郭聖王、聖王公、保安尊王）、職司（地方守護）、全銜「威鎮忠應孚惠威武英烈保安廣澤尊王」"
       }
     ],
     "draft": false
@@ -737,9 +767,14 @@
     "summary": "潮州粵東巾山、明山、獨山三山的山靈神格化，由客家移民帶入台灣，職司地方守護；為台灣客家族群最重要的守護神，廟宇多集中於客家聚落所在地。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·三山國王(Sanshan guowang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=231",
+        "note": "來歷（廣東潮州揭陽縣巾山、明山、獨山三山山靈）、與客家族群關係、台灣廣泛分佈說明；最新研究指出並非客家族群獨有，乃潮州地方信仰"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·三山國王客家文化節活動 https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=16",
+        "note": "三山國王與客家文化節之關聯（第18屆），彰化縣38座宮廟參與"
       }
     ],
     "draft": false
@@ -779,9 +814,9 @@
     "summary": "宋代泉州安溪高僧，以苦修得道、能驅疫消災，面色烏黑故稱「烏面祖師」；由安溪移民帶入台灣，職司驅疫與地方守護，鼻子應兆預警災難的傳說廣為流傳。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·清水祖師(Qingshui Zushi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285",
+        "note": "來歷（北宋1045-1101年，俗姓陳名昭應，法名普足，泉州安溪清水巖住持）、聖誕農曆正月初六、1083年求雨顯靈典故、職司（驅疫地方守護）"
       }
     ],
     "draft": false
@@ -843,9 +878,9 @@
     "summary": "清代台灣動亂中護鄉殉難的客家義民，死後被鄉親立廟奉祀為「褒忠義民」；黑令旗與義民祭典為客家文化的獨特象徵，職司護鄉殉難的精神歷代傳承不絕。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·義民節 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=13",
+        "note": "義民節農曆七月廿日（褒忠義民廟例祭日）說明；康熙賜「褒忠」、乾隆51年林爽文事件、同治元年戴潮春事件；客家庄輪值主普制度"
       }
     ],
     "draft": false
@@ -884,9 +919,9 @@
     "summary": "泉州安溪道士張慈觀（張聖君），精通法術能收妖伏魔，由安溪移民帶入台灣；職司收妖與法教，以「法主公」尊稱為人所知，在台北盆地信仰圈尤為盛行。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·法主公(Fazhu gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=287",
+        "note": "來歷（泉州安溪張姓道士，登天師九龍池得道，永春安溪地區張蕭黃三兄弟說法）、職司（收妖法教）、別名（法主聖君、張聖君）"
       }
     ],
     "draft": false
@@ -924,9 +959,14 @@
     "summary": "泉州惠安籍移民奉祀的地方守護神，別稱「靈安尊王」，職司司法與驅疫；以艋舺青山宮為中心，每年十月夜巡遶境為重要民俗活動，陣頭展現閩南信仰底蘊。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "temple",
+        "ref": "艋舺青山宮官網 https://www.mjcsg.org.tw/",
+        "note": "靈安尊王（青山王）聖誕農曆十月廿二日正日遶境（艋舺大拜拜）、清咸豐六年（1856年）創建"
+      },
+      {
+        "type": "web",
+        "ref": "臺灣宗教文化地圖·台北霞海城隍廟五月十三迎城隍 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+        "note": "霞海城隍廟暗訪與艋舺青山宮暗訪並列北台灣三大暗訪"
       }
     ],
     "draft": false
@@ -983,9 +1023,14 @@
     "summary": "三國名將關羽，以忠義仁勇著稱，死後歷代尊封，兼具武神、商業財神與文衡聖帝多重神格；在台灣以「恩主公」廣受商界崇信，亦為五文昌之一。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286",
+        "note": "來歷（東漢末關羽160-220年）、職司（忠義、商業財神、文衡聖帝）、別名（協天大帝、伏魔大帝、恩主公、五文昌之一）"
+      },
+      {
+        "type": "temple",
+        "ref": "臺灣祀典武廟官網·祭祀神祇—關聖帝君 https://www.twsdwumiao.org.tw/?act=menuinfo&ml_id=20210514005&cmd=detail&mi_id=20210519005",
+        "note": "清德宗封號26字、多重神格（武神、商神、儒家五文昌）說明；全台唯一官祀關帝廟"
       }
     ],
     "draft": false
@@ -1025,9 +1070,9 @@
     "summary": "主管科考功名與文運的神明，由四川梓潼帝君信仰演化而來，又稱梓潼帝君；為五文昌之一，台灣學子赴考前多前往祈求，考季廟宇香火極為鼎盛。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244",
+        "note": "來歷（四川梓潼帝君，元延祐三年1316年封「輔元開化文昌司祿宏仁帝君」）、職司（科考功名、文運）、五文昌之一"
       }
     ],
     "draft": false
@@ -1067,9 +1112,9 @@
     "summary": "上古傳說中嘗百草、教導農耕的炎帝神農，別稱「五穀先帝」；職司農業與醫藥，為農耕文明的始祖神，台灣農業社會廣受敬奉，部分廟宇保有藥籤傳統。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260",
+        "note": "來歷（炎帝、三皇五帝之一，嘗百草、教農耕）、職司（農業、醫藥）、別名（五穀先帝）"
       }
     ],
     "draft": false
@@ -1147,9 +1192,9 @@
     "summary": "梨園戲曲業的守護祖師，與田都元帥分屬不同流派系統；台灣傳統戲班依各自籍貫傳統選擇奉祀，職司戲曲，兩神各有信眾，並立於台灣梨園信仰之中。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272",
+        "note": "來歷（傳說為唐玄宗李隆基，設梨園、聚藝者，為亂彈戲班守護神）、職司（戲曲梨園護佑）、聖誕農曆六月廿四日"
       }
     ],
     "draft": false
@@ -1188,9 +1233,9 @@
     "summary": "傳說唐代樂師雷海青因忠義殉節而被奉神，別稱「相公爺」；職司戲曲梨園，在台灣戲班中與西秦王爺分系並立，各有祭祀傳統，成為梨園業的重要守護神。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·田都元帥(Tiandou yuanshuai) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=256",
+        "note": "來歷（唐代宮廷樂師雷海青，安史之亂中殉節）、死後天庭封號演變（天帝賜姓田）、職司（戲曲梨園）、別名（相公爺）"
       }
     ],
     "draft": false
@@ -1575,9 +1620,14 @@
     "summary": "唐代福州女道士陳靖姑，傳說懷孕時施法救旱而亡、死後顯靈護產；為三奶夫人之大奶，職司安胎、護產與保嬰，是台閩地區守護孕婦與嬰兒的重要女神。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·順天聖母(Shuntian shengmu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=267",
+        "note": "來歷（唐767年生，福州陳氏，懷孕施法救旱而亡）、職司（安胎護產保嬰）、別名（臨水夫人、大奶夫人）、三奶夫人之首"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·三奶夫人(Sannai Furen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=232",
+        "note": "三奶夫人組成（陳靖姑、李三娘、林紗娘）、信仰分布"
       }
     ],
     "draft": false
@@ -1789,9 +1839,9 @@
     "summary": "以老虎形象呈現的神靈，多為主神座騎或下壇守護將軍，別稱「下壇將軍」；台灣廟宇中常置於神案下方，相傳能咬進財富、護衛兒童，職司鎮廟與咬錢護童。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·虎爺(Huye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=288",
+        "note": "別名（下壇將軍、天虎將軍、飛虎將軍、黑虎將軍）、職司（鎮廟咬錢護童）、常為土地公、保生大帝、趙公明座騎"
       }
     ],
     "draft": false
@@ -1965,9 +2015,9 @@
     "summary": "道教最高天神，統御三界十方諸神，別稱「天公」、「昊天上帝」；正月初九「天公生」為台灣最重要的祭天節日，家家戶戶擺設供桌隆重祭拜，為天界至高主宰。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·玉皇大帝(Jade Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=246",
+        "note": "職司（三界十方共主）、聖誕正月初九（天公生）、供桌形式（頂下桌）、南北斗星為左右侍從"
       }
     ],
     "draft": false
@@ -2028,9 +2078,9 @@
     "summary": "天官、地官、水官合稱三官大帝，又稱三界公；分別在上元、中元、下元三節日職司賜福、赦罪、解厄，三元節祭典為台灣歲時信仰中的重要節點。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·三官大帝(Sanguan dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "來歷（天師道源流）、職司（天官賜福1/15、地官赦罪7/15、水官解厄10/15）、別名（三界公）"
       }
     ],
     "draft": false
@@ -2122,9 +2172,9 @@
     "summary": "道教女仙之首，居瑤池掌管長生仙桃，別稱王母娘娘、西王母；為神話中西方仙境的統治者，職司女仙與長生，台灣廟宇奉祀為女神信仰的代表神明。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·瑤池金母(Yaochi jinmu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=270",
+        "note": "別名（王母娘娘、西王母）、職司（女仙之首、掌管長生仙桃）"
       }
     ],
     "draft": false
@@ -2164,9 +2214,9 @@
     "summary": "守護家宅廚房、記錄家人行為向天庭稟報的神明，別稱司命真君、灶君公；農曆十二月廿四日送神、正月初四接神為固定民俗，是台灣家庭信仰中最貼近日常的神明。",
     "sources": [
       {
-        "type": "book",
-        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
-        "note": "seed 事實基準，待逐條校"
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·灶神(Zao shen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265",
+        "note": "來歷（源自商朝）、職司（記錄家人善惡向天廷稟報）、別名（司命灶君、東廚司命竈君）、送神12/24、接神正月初四"
       }
     ],
     "draft": false

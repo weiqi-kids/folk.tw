@@ -234,6 +234,26 @@ const events = defineCollection({
       })
       .optional(),
     region: z.array(z.string()).default([]),
+    // 路線（D.4）：停駕/駐駕節點（geo-node）；GPS polyline 多為即時源（§12.4 發佈範圍外）故僅存節點＋來源指標
+    route: z
+      .object({
+        stops: z
+          .array(
+            z.object({
+              name: z.string(),
+              district: z.string().optional(),
+              role: z.string().optional(), // 起駕/駐駕/停駕/目的地
+              lat: z.number().optional(),
+              lng: z.number().optional(),
+              coord_source: z.string().optional(),
+            }),
+          )
+          .default([]),
+        polyline_source: z.string().nullable().default(null), // 公開 GPS 軌跡來源（如有）
+        note: z.string().optional(),
+        sources: z.array(source).default([]),
+      })
+      .optional(),
     sources: z.array(source).default([]),
     draft: z.boolean().default(false),
   }),

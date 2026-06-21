@@ -31,7 +31,104 @@
         "note": "登錄年 2010；2008年先由台中縣政府登錄縣定民俗（府授文資字第0970004811號），2010年文建會指定為國家重要民俗"
       }
     ],
-    "draft": false
+    "draft": false,
+    "route": {
+      "stops": [
+        {
+          "name": "大甲鎮瀾宮",
+          "district": "台中市大甲區",
+          "role": "起駕",
+          "lat": 24.345222,
+          "lng": 120.623583,
+          "coord_source": "維基百科〈大甲鎮瀾宮〉"
+        },
+        {
+          "name": "彰化南瑤宮",
+          "district": "彰化縣彰化市",
+          "role": "駐駕（去程第1夜）",
+          "lat": 24.067726,
+          "lng": 120.538514,
+          "coord_source": "維基百科〈彰化南瑤宮〉"
+        },
+        {
+          "name": "西螺福興宮",
+          "district": "雲林縣西螺鎮",
+          "role": "駐駕（去程第2夜）",
+          "lat": 23.801825,
+          "lng": 120.460486,
+          "coord_source": "維基百科〈西螺福興宮〉"
+        },
+        {
+          "name": "新港奉天宮",
+          "district": "嘉義縣新港鄉",
+          "role": "目的地（駐駕第3–4夜，祝壽大典）",
+          "lat": 23.55675,
+          "lng": 120.34789,
+          "coord_source": "TravelKing/文化部宗教文化地圖資料"
+        },
+        {
+          "name": "西螺福興宮",
+          "district": "雲林縣西螺鎮",
+          "role": "駐駕（回程第5夜）",
+          "lat": 23.801825,
+          "lng": 120.460486,
+          "coord_source": "維基百科〈西螺福興宮〉"
+        },
+        {
+          "name": "北斗奠安宮",
+          "district": "彰化縣北斗鎮",
+          "role": "駐駕（回程第6夜）",
+          "lat": 23.872772,
+          "lng": 120.525272,
+          "coord_source": "維基百科〈北斗奠安宮〉"
+        },
+        {
+          "name": "彰化天后宮",
+          "district": "彰化縣彰化市",
+          "role": "駐駕（回程第7夜）",
+          "lat": 24.0763459,
+          "lng": 120.5437627,
+          "coord_source": "5iMAZU 大甲媽祖遶境交流網 + CRGIS 0701035-THG"
+        },
+        {
+          "name": "清水朝興宮",
+          "district": "台中市清水區",
+          "role": "駐駕（回程第8夜，末站）",
+          "lat": 24.280557,
+          "lng": 120.581368,
+          "coord_source": "維基百科〈清水朝興宮〉"
+        }
+      ],
+      "polyline_source": "http://mazu.skyeyes.tw/MazuTrack.aspx（大甲媽祖即時衛星定位服務，廟方委託，提供當年度即時軌跡，無歷年靜態 polyline 下載）",
+      "note": "路線逐年由廟方（大甲鎮瀾宮）擲筊擇定，主駐駕大廟為固定慣例但細部路線每年微調；2026年行程為4/17起駕→4/26回鑾，全程約340公里，橫跨台中、彰化、雲林、嘉義四縣市。此清單僅列駐駕過夜大廟（不含中途停駕小廟）。",
+      "sources": [
+        {
+          "type": "temple",
+          "ref": "大甲鎮瀾宮即時衛星定位服務 http://mazu.skyeyes.tw/",
+          "note": "廟方官方 GPS 即時定位，另有 iOS/Android App「大甲媽祖」"
+        },
+        {
+          "type": "web",
+          "ref": "商周 2026大甲媽祖遶境9天8夜攻略 https://www.businessweekly.com.tw/style/blog/3020833",
+          "note": "列出各天駐駕宮廟名稱與地點"
+        },
+        {
+          "type": "web",
+          "ref": "遠見雜誌 2026大甲媽祖遶境 https://www.gvm.com.tw/article/128444",
+          "note": "路線與 GPS 說明"
+        },
+        {
+          "type": "web",
+          "ref": "維基百科〈大甲媽祖遶境進香〉https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%94%B2%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E9%80%B2%E9%A6%99",
+          "note": "各縣市路段、主要駐駕點"
+        },
+        {
+          "type": "gov",
+          "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+          "note": "登錄為國家重要民俗之官方頁面"
+        }
+      ]
+    }
   },
   {
     "id": "baishatun",
@@ -74,7 +171,56 @@
         "ref": "白沙屯拱天宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "route": {
+      "stops": [
+        {
+          "name": "白沙屯拱天宮",
+          "district": "苗栗縣通霄鎮",
+          "role": "起駕",
+          "lat": 24.571483,
+          "lng": 120.709122,
+          "coord_source": "維基百科〈白沙屯拱天宮〉"
+        },
+        {
+          "name": "北港朝天宮",
+          "district": "雲林縣北港鎮",
+          "role": "目的地（進火）",
+          "lat": 23.567717,
+          "lng": 120.304627,
+          "coord_source": "維基百科〈北港朝天宮〉"
+        }
+      ],
+      "polyline_source": "https://gps.godmaps.tw/（「白沙屯 GPS」義工團隊即時定位服務；iOS: id1455045995，Android: gps.godmaps.tw；提供進香期間即時軌跡，無公開靜態歷史 polyline 下載）",
+      "note": "白沙屯進香路線全程由媽祖鑾轎臨場決定，無固定路線，廟方亦不事先公布。依歷年慣例：去程傾向走較短的西部沿海（海線），途經苗栗苑裡、台中清水、彰化伸港/芳苑一帶；回程較從容，常走彰化員林、台中龍井/大甲一帶（山線）。中途停駕點不定，故 stop_nodes 僅列起駕與目的地兩固定節點。全程往返約400公里，橫跨苗栗、台中、彰化、雲林四縣市。",
+      "sources": [
+        {
+          "type": "temple",
+          "ref": "白沙屯拱天宮官網（含媽祖App）https://www.gongtian.org.tw/",
+          "note": "主辦廟方，進香期間提供官方 App 即時定位"
+        },
+        {
+          "type": "web",
+          "ref": "白沙屯 GPS 義工定位服務 https://gps.godmaps.tw/",
+          "note": "「我們是一群跟著媽祖走的 GPS 義工團隊」，進香期間即時追蹤鑾轎位置"
+        },
+        {
+          "type": "web",
+          "ref": "TVBS 2026白沙屯媽祖目前位置 https://news.tvbs.com.tw/life/3176782",
+          "note": "2026年進香路線描述：4/12起駕→4/16抵北港→4/20回宮"
+        },
+        {
+          "type": "web",
+          "ref": "商周 2026白沙屯媽祖進香 https://www.businessweekly.com.tw/style/blog/3020830",
+          "note": "路線習慣（去程海線、回程山線）說明"
+        },
+        {
+          "type": "gov",
+          "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007",
+          "note": "登錄為國家重要民俗之官方頁面"
+        }
+      ]
+    }
   },
   {
     "id": "beigang",
@@ -109,7 +255,64 @@
         "ref": "北港朝天宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "route": {
+      "stops": [
+        {
+          "name": "北港朝天宮",
+          "district": "雲林縣北港鎮",
+          "role": "起駕／返駕",
+          "lat": 23.567717,
+          "lng": 120.304627,
+          "coord_source": "維基百科〈北港朝天宮〉"
+        },
+        {
+          "name": "笨港水仙宮",
+          "district": "嘉義縣新港鄉南港村",
+          "role": "南巡停駕（農曆三月十九日）",
+          "lat": 23.561944,
+          "lng": 120.308611,
+          "coord_source": "維基百科〈笨港水仙宮〉（23°33′43″N 120°18′31″E）"
+        },
+        {
+          "name": "北壇碧水寺",
+          "district": "雲林縣北港鎮新街里",
+          "role": "北巡停駕（農曆三月二十日）",
+          "lat": 23.584444,
+          "lng": 120.3,
+          "coord_source": "搜尋結果：雲林縣北港鎮新德路3號（座標 23°35′04″N 120°18′00″E）"
+        }
+      ],
+      "polyline_source": null,
+      "note": "北港朝天宮迎媽祖遶境限於北港鎮境內，分兩天：農曆三月十九日「南巡」往南跨北港溪至嘉義縣新港鄉笨南港一帶，於笨港水仙宮停駕休息後返回；三月二十日「北巡」往北至新街一帶，於碧水寺停駕休息後遶行笨港八街返宮。兩日下午至深夜均在北港鎮內各街巷遶境。",
+      "sources": [
+        {
+          "type": "temple",
+          "ref": "北港朝天宮官網 https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009",
+          "note": "南巡北港溪南、北巡新街路線說明"
+        },
+        {
+          "type": "web",
+          "ref": "城市學（遠見）2026北港朝天宮迎媽祖 https://city.gvm.com.tw/article/129693",
+          "note": "2026年5/5–5/6遶境詳細行程、停靠宮廟說明"
+        },
+        {
+          "type": "web",
+          "ref": "維基百科〈笨港水仙宮〉https://zh.wikipedia.org/zh-tw/%E7%AC%A8%E6%B8%AF%E6%B0%B4%E4%BB%99%E5%AE%AE",
+          "note": "確認笨港水仙宮位於嘉義縣新港鄉南港村，南巡停駕點"
+        },
+        {
+          "type": "web",
+          "ref": "維基百科〈北港碧水寺〉https://zh.wikipedia.org/zh-cn/%E5%8C%97%E5%9D%9B%E7%A2%A7%E6%B0%B4%E5%AF%BA",
+          "note": "確認碧水寺位於北港鎮新街里新德路，北巡停駕點"
+        },
+        {
+          "type": "gov",
+          "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009",
+          "note": "登錄為國家重要民俗之官方頁面"
+        }
+      ]
+    }
   },
   {
     "id": "donggang",
@@ -180,7 +383,61 @@
         "ref": "西港慶安宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "route": {
+      "stops": [
+        {
+          "name": "西港玉勅慶安宮",
+          "district": "台南市西港區",
+          "role": "起駕／返駕（主辦廟）",
+          "lat": 23.12135,
+          "lng": 120.201742,
+          "coord_source": "維基百科〈西港慶安宮〉"
+        },
+        {
+          "name": "鹿耳門天后宮",
+          "district": "台南市安南區",
+          "role": "請媽祖（迎請媽祖前往建醮，固定慣例自1961年起）",
+          "lat": 23.036745,
+          "lng": 120.124007,
+          "coord_source": "維基百科〈鹿耳門天后宮〉"
+        }
+      ],
+      "polyline_source": "https://gps.godroad.tw/?sid=E240504（2024甲辰香科「隨香地圖」GPS即時定位；歷屆香科 sid 不同，2021辛丑科為 https://pro.godroad.tw/E210501/）",
+      "note": "西港刈香三年一科（丑辰未戌年農曆四月），遶境三日，涵蓋西港、佳里、七股、安定、安南區等五個行政區共96個村庄。三天路線各有方向：第一日遶境中州、什二佃等西北村庄，第二日遶境南海埔、中港等西南村庄，第三日遶境北方村庄。停駕宮廟達數十座，無法一一枚舉；此清單僅列主辦廟及固定迎請媽祖的鹿耳門天后宮兩大節點。詳細三日路關表由廟方每科公告。",
+      "sources": [
+        {
+          "type": "temple",
+          "ref": "西港玉勅慶安宮Facebook官方社團 https://www.facebook.com/groups/523248767739358/",
+          "note": "每科路線圖、路關表由廟方於社團公告"
+        },
+        {
+          "type": "web",
+          "ref": "隨香地圖 GPS 即時定位（2024甲辰科）https://gps.godroad.tw/?sid=E240504",
+          "note": "由 godroad.tw 平台提供，每科 sid 不同"
+        },
+        {
+          "type": "web",
+          "ref": "台南意向 2024西港刈香甲辰香科 https://www.tainanoutlook.com/activities/qingangong",
+          "note": "2024年三日香路線與GPS資訊"
+        },
+        {
+          "type": "web",
+          "ref": "CP值網 2024西港香 https://cpok.tw/51006",
+          "note": "路線、宮廟停靠點清單、交通管制"
+        },
+        {
+          "type": "web",
+          "ref": "維基百科〈西港刈香〉https://zh.wikipedia.org/zh-tw/%E8%A5%BF%E6%B8%AF%E5%88%88%E9%A6%99",
+          "note": "三天路線方向、96村庄涵蓋範圍、鹿耳門請媽祖歷史"
+        },
+        {
+          "type": "gov",
+          "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000001",
+          "note": "登錄為國家重要民俗之官方頁面"
+        }
+      ]
+    }
   },
   {
     "id": "jilong",
