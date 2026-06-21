@@ -5,7 +5,7 @@
 ## 一、現況快照
 
 - **狀態**：本機 `main` 分支，多次 commit，乾淨可 build；尚未建立 GitHub remote、尚未設 DNS。
-- **規模**：prod build **423 頁**、TypeScript strict **0 錯誤**、全站**零斷鏈**。
+- **規模**：prod build **1153 頁**（含農民曆可瀏覽日期頁 730＝以今日為中心 ±1 年）、TypeScript strict **0 錯誤**、全站**零斷鏈**。
 - **內容**：籤詩 160（六十甲子 60＋關帝百首 100，皆含白話故事＋賞析＋8 項分項解）、典故 137、神明 63、廟宇 28、活動 11、習俗 12。
 - **驗證**：M3 校準測試 46/46、農民曆對官方比對 100%（見下）。
 
@@ -80,5 +80,6 @@ pnpm build                # 靜態建置＋Pagefind 索引（postbuild）
 - Schema：`src/content.config.ts`
 - 跨文本追蹤：`src/lib/queries.ts`
 - 農民曆引擎：`src/lib/almanac/`（`provider.ts` 接天文資料；`rules/*.json` 規則表；`calibration.test.mjs`）
+- 農民曆日期瀏覽：`src/components/AlmanacDay.astro`（單日視圖＋日期導覽）、`src/pages/almanac/[date].astro`（±1 年日期頁，每日 cron 滾動）、`src/lib/almanac/dates.ts`（視窗與日期工具）
 - 校驗工具：`scripts/check-integrity.ts`、`scripts/verify-almanac.ts`、`scripts/import-temples.ts`
 - 授權：`LICENSE`（程式 MIT；內容資料逐條標源）

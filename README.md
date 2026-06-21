@@ -25,7 +25,7 @@
 |---|---|---|---|
 | **M1 籤詩** | 文本解碼 | **兩套籤系 160 籤**（六十甲子 60＋關帝百首 100），全含白話故事＋賞析＋8項分項解；137 典故 | `src/data/poems.json`、`src/content/allusions/`、`interpretations/` |
 | **M2 神明** | 知識圖譜 | 59 尊（含五府千歲／城隍具名實例）＋21 關係邊 | `src/data/deities.json`、`deity-relations.json` |
-| **M3 農民曆** | 曆法計算 | **核心層已點亮**（接 lunar-javascript：農曆/節氣/四柱/建除/廿八宿/沖煞/聖誕，錨定常數跨源校準）；進階層宜忌待《協紀辨方書》考據化人工核 | `src/lib/almanac/` |
+| **M3 農民曆** | 曆法計算 | **核心層已點亮**（接 lunar-javascript：農曆/節氣/四柱/建除/廿八宿/沖煞/聖誕，錨定常數跨源校準）；可前後翻頁或挑任一日期（以今日為中心 ±1 年預生）；進階層宜忌待《協紀辨方書》考據化人工核 | `src/lib/almanac/`、`src/components/AlmanacDay.astro` |
 | **M4 民俗活動** | 事件＋GIS | 11 活動（文資案號查證）＋28 廟宇（主祀對映 82%） | `src/data/events.json`、`temples.json` |
 | **M5 拜拜習俗** | how-to 知識庫 | 12 主題，科儀步驟＋金紙供品逐筆掛源 | `src/data/practices.json` |
 
@@ -70,9 +70,10 @@ src/
   lib/
     queries.ts           跨文本追蹤反向索引（build 期）
     daily.ts             每日一籤「今日選讀」（全站同一支，UTC+8）
-    almanac/             M3 農民曆演算引擎（純函式 library）＋ rules/ 規則表
+    almanac/             M3 農民曆演算引擎（純函式 library）＋ rules/ 規則表＋ dates.ts 日期視窗
+  components/AlmanacDay.astro  農民曆單日視圖＋日期導覽（今日頁與 [date] 頁共用）
   layouts/Base.astro     全站版面（footer 含免責與範圍聲明）
-  pages/                 今日中樞、籤詩、神明、農民曆、活動、習俗、關於
+  pages/                 今日中樞、籤詩、神明、農民曆（含 [date] 日期頁）、活動、習俗、關於
 scripts/check-integrity.ts  完整性與對映率報表
 ```
 

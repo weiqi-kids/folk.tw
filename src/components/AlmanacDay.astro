@@ -1,0 +1,187 @@
+---
+// 農民曆單日視圖（可重用於今日頁與任一日期頁）。
+// 引擎為 lunar-javascript（壽星天文曆算法，對齊香港天文台），於 build 期計算。
+// 宜忌／神煞屬考據進階層：規則尚未核校者不顯示（無源不發佈），故多數日期只見曆象與聖誕。
+import { computeDayRecord } from '../lib/almanac';
+import { lunarProvider } from '../lib/almanac/provider';
+import { deityBirthdayIndex } from '../lib/queries';
+import { addDays, almanacRange, almanacHref } from '../lib/almanac/dates';
+
+interface Props {
+  iso: string; // 本頁日期（YYYY-MM-DD，UTC+8）
+  today: string; // 站台「今日」（決定可瀏覽範圍與翻頁連結）
+}
+const { iso, today } = Astro.props;
+const [y, m, dd] = iso.split('-').map(Number);
+
+const record = computeDayRecord(y, m, dd, { astro: lunarProvider });
+const lunar = record.lunar.value;
+const bdayIndex = await deityBirthdayIndex();
+const lunarKey = lunar
+  ? `${String(lunar.month).padStart(2, '0')}-${String(lunar.day).padStart(2, '0')}`
+  : '';
+const birthdays = (bdayIndex.get(lunarKey) ?? []) as { deityId: string; name: string }[];
+
+const P = record.pillars;
+const gz = (p: { value: { stem: string; branch: string } | null }) =>
+  p.value ? `${p.value.stem}${p.value.branch}` : '—';
+
+// 進階層只顯示已考據核校（verified）者；未核者一律不出（無源不發佈）。
+const yiV = record.yi.filter((v) => v.verified);
+const jiV = record.ji.filter((v) => v.verified);
+const hhV = record.huangHeiDao.verified ? record.huangHeiDao.value : null;
+const tsV = record.taiShen.verified ? record.taiShen.value : null;
+const hasAdvanced = yiV.length + jiV.length > 0 || hhV || tsV;
+
+// 日期導覽
+const WK = ['日', '一', '二', '三', '四', '五', '六'];
+const wk = WK[new Date(Date.UTC(y, m - 1, dd)).getUTCDay()];
+const { min, max } = almanacRange(today);
+const prev = addDays(iso, -1);
+const next = addDays(iso, 1);
+const prevHref = prev >= min ? almanacHref(prev, today) : null;
+const nextHref = next <= max ? almanacHref(next, today) : null;
+const isToday = iso === today;
+---
+
+<nav class="almanac-nav" aria-label="日期導覽">
+  {
+    prevHref ? (
+      <a class="nav-btn" href={prevHref} rel="prev">‹ 前一天</a>
+    ) : (
+      <span class="nav-btn disabled">‹ 前一天</span>
+    )
+  }
+  <input type="date" id="almanac-date" value={iso} min={min} max={max} aria-label="選擇日期" />
+  {
+    nextHref ? (
+      <a class="nav-btn" href={nextHref} rel="next">後一天 ›</a>
+    ) : (
+      <span class="nav-btn disabled">後一天 ›</span>
+    )
+  }
+  {!isToday && <a class="nav-btn today" href="/almanac">回今天</a>}
+</nav>
+<script is:inline define:vars={{ today }}>
+  document.getElementById('almanac-date')?.addEventListener('change', (e) => {
+    const v = e.target.value;
+    if (v) location.href = v === today ? '/almanac' : '/almanac/' + v;
+  });
+</script>
+
+<div class:list={['almanac-day', { 'is-dated': !isToday }]} data-pagefind-ignore={!isToday}>
+  <h1>{iso}<span class="wk">（星期{wk}）</span>{isToday && <span class="badge">今日</span>}</h1>
+
+  <dl class="rec">
+    <div>
+      <dt>農曆</dt>
+      <dd>{lunar ? `${lunar.isLeap ? '閏' : ''}${lunar.month} 月 ${lunar.day} 日` : '—'}</dd>
+    </div>
+    <div>
+      <dt>節氣</dt>
+      <dd>{record.solarTerm.value?.name ?? '—'}{record.solarTerm.value?.isTransitionDay && '（交節）'}</dd>
+    </div>
+    <div><dt>干支</dt><dd>{gz(P.year)}年 {gz(P.month)}月 {gz(P.day)}日</dd></div>
+    <div><dt>建除</dt><dd>{record.jianchu.value ?? '—'}</dd></div>
+    <div><dt>廿八宿</dt><dd>{record.ershiba.value ?? '—'}</dd></div>
+    <div>
+      <dt>沖煞</dt>
+      <dd>沖 {record.chongSha.value?.zodiac ?? '—'}　{record.chongSha.value?.direction ?? ''}</dd>
+    </div>
+    {record.festivals.length > 0 && <div><dt>節日</dt><dd>{record.festivals.join('、')}</dd></div>}
+    <div>
+      <dt>神明聖誕</dt>
+      <dd>
+        {
+          birthdays.length > 0 ? (
+            birthdays.map((b, i) => (<>{i > 0 && '、'}<a href={`/deities/${b.deityId}`}>{b.name}</a></>))
+          ) : (
+            <span class="muted">無</span>
+          )
+        }
+      </dd>
+    </div>
+  </dl>
+
+  <section class="yiji-section">
+    <h2>宜忌・神煞</h2>
+    {
+      hasAdvanced ? (
+        <>
+          {(yiV.length > 0 || jiV.length > 0) && (
+            <div class="yiji">
+              {yiV.length > 0 && <p><strong class="yi">宜</strong>　{yiV.map((v) => v.affair).join('、')}</p>}
+              {jiV.length > 0 && <p><strong class="ji">忌</strong>　{jiV.map((v) => v.affair).join('、')}</p>}
+              <details class="deriv">
+                <summary>推導與出處</summary>
+                <ul>
+                  {[...yiV, ...jiV].map((v) => (
+                    <li>
+                      <strong>{v.affair}</strong> {v.judgement}：{v.resolvedBy}
+                      <span class="src small">　{v.sources.join('；')}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          )}
+          {hhV && <p>黃黑道：{hhV.name}（{hhV.auspicious ? '黃道吉' : '黑道凶'}）</p>}
+          {tsV && <p>胎神占方：{tsV}</p>}
+        </>
+      ) : (
+        <p class="pending">
+          宜忌與神煞正依《協紀辨方書》逐條考據校對；校對完成前不列出，以免提供未經核校的斷語。
+        </p>
+      )
+    }
+  </section>
+
+  <details class="basis">
+    <summary>曆算基準</summary>
+    <dl class="rec">
+      <div><dt>時區</dt><dd>農曆、節氣與干支一律以東經 120°（UTC+8）為準。</dd></div>
+      <div><dt>日界</dt><dd>以民用日 00:00 換日；不與命理子初換日混用。</dd></div>
+      <div><dt>時柱</dt><dd>需真太陽時（經度＋均時差），暫從略。</dd></div>
+      <div><dt>資料來源</dt><dd>lunar-javascript（壽星天文曆算法，對齊香港天文台）。</dd></div>
+    </dl>
+  </details>
+</div>
+
+<style>
+  .almanac-nav {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+    margin-bottom: 1.4rem;
+  }
+  .nav-btn {
+    padding: 0.3rem 0.8rem; border: 1px solid var(--line); border-radius: 0.4rem;
+    background: var(--paper-2); color: var(--ink); font-size: var(--text-sm);
+  }
+  .nav-btn:hover { text-decoration: none; border-color: var(--accent-soft); }
+  .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
+  .nav-btn.today { color: var(--accent); border-color: var(--accent-soft); }
+  #almanac-date {
+    padding: 0.3rem 0.6rem; border: 1px solid var(--line); border-radius: 0.4rem;
+    background: var(--paper-2); color: var(--ink); font-family: inherit; font-size: var(--text-sm);
+  }
+  h1 .wk { color: var(--ink-soft); font-size: var(--text-lg); margin-left: 0.3rem; }
+  h1 .badge {
+    font-size: var(--text-sm); color: var(--accent); border: 1px solid var(--accent-soft);
+    border-radius: 1rem; padding: 0.05rem 0.6rem; margin-left: 0.6rem; vertical-align: middle;
+  }
+  h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+  .small { font-size: 0.85rem; }
+  .rec { display: grid; gap: 0.4rem; }
+  .rec > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+  .rec dt { font-weight: 700; color: var(--accent); }
+  .rec dd { margin: 0; }
+  .src { color: var(--gold); }
+  .yiji p { margin: 0.4rem 0; font-size: 1.05rem; }
+  .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: #2e6b3a; border: 1px solid #9bbf9b; border-radius: 0.3rem; }
+  .ji { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.3rem; }
+  .deriv { margin: 0.6rem 0; }
+  .deriv summary { cursor: pointer; color: var(--ink-soft); font-size: 0.9rem; }
+  .deriv li { padding: 0.2rem 0; font-size: 0.9rem; }
+  .basis { margin-top: 2rem; color: var(--ink-soft); }
+  .basis summary { cursor: pointer; font-size: var(--text-sm); }
+  .basis .rec { margin-top: 0.6rem; }
+</style>

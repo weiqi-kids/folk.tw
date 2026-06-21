@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import AlmanacDay from '../../components/AlmanacDay.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { almanacDates } from '../../lib/almanac/dates';
+
+// 任一日期農民曆。以「今日」為中心預生 ±一年的日期頁（今日本身由 /almanac 提供）。
+export function getStaticPaths() {
+  const { iso } = todayInTaipei();
+  return almanacDates(iso).map((date) => ({ params: { date }, props: { today: iso } }));
+}
+
+const { date } = Astro.params;
+const { today } = Astro.props as { today: string };
+---
+
+<Base
+  title={`農民曆 · ${date}`}
+  description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕。`}
+>
+  <AlmanacDay iso={date!} today={today} />
+</Base>
