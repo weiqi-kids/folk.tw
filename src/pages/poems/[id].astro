@@ -101,14 +101,20 @@ const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : n
       <h2>分項解</h2>
       {
         hasAnyInterp ? (
-          <dl class="interp">
-            {ASPECTS.map((a) => (
-              <div class="row">
-                <dt>{a}</dt>
-                <dd>{interpVals[a] ?? <span class="pending">待撰</span>}</dd>
-              </div>
-            ))}
-          </dl>
+          <>
+            <dl class="interp">
+              {ASPECTS.map((a) => (
+                <div class="row">
+                  <dt>{a}</dt>
+                  <dd>{interpVals[a] ?? <span class="pending">待撰</span>}</dd>
+                </div>
+              ))}
+            </dl>
+            <p class="src interp-src">
+              分項解與白話賞析為<strong>本站原創撰寫</strong>，依公有領域題材、本籤四句與卦頭典故而作；
+              非引現代解籤本（§6）。
+            </p>
+          </>
         ) : (
           <p class="pending">
             八項分項解（運勢／求財／姻緣／功名／訴訟／疾病／行人／失物）為本站原創撰寫，

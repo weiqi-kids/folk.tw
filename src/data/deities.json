@@ -954,7 +954,9 @@
       }
     ],
     "iconography": [],
-    "divination_systems": [],
+    "divination_systems": [
+      "guandi_lingqian"
+    ],
     "groups": [
       "五文昌"
     ],
@@ -2774,6 +2776,35 @@
         "type": "web",
         "ref": "台灣府城隍廟—臺南旅遊網 https://www.twtainan.net/zh-tw/attractions/detail/682/",
         "note": "廟宇介紹、國定古蹟"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "taisui",
+    "name": "太歲星君",
+    "aliases": [
+      "太歲",
+      "值年太歲",
+      "歲君"
+    ],
+    "category": "自然神信仰",
+    "is_category": true,
+    "instances": [],
+    "office": [
+      "值年司命",
+      "掌人間禍福",
+      "安鎮流年"
+    ],
+    "birthday_lunar": [],
+    "iconography": [],
+    "groups": [],
+    "summary": "太歲為值年星君之統稱，民間信仰中每年輪值一位（六十甲子太歲），司掌該年人間禍福；沖犯太歲者於年初安太歲、年尾謝太歲。屬信仰類別，底下有六十甲子具名太歲。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "台灣民間信仰習俗（太歲信仰）",
+        "note": "seed；六十甲子具名太歲待補"
       }
     ],
     "draft": false

@@ -13,7 +13,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts"
+    "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
+    "import:temples": "node --experimental-strip-types scripts/import-temples.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
