@@ -23,27 +23,29 @@
 
 | 模組 | 引擎型態 | 狀態 | 資料 |
 |---|---|---|---|
-| **M1 籤詩** | 文本解碼 | 本文已備（60 籤＋37 典故） | `src/data/poems.json`、`allusions.json` |
-| **M2 神明** | 知識圖譜 | seed 52 尊＋14 關係邊 | `src/data/deities.json`、`deity-relations.json` |
-| **M3 農民曆** | 曆法計算 | 確定性骨架已就緒；進階層待校準＋接天文資料 | `src/lib/almanac/` |
-| **M4 民俗活動** | 事件＋GIS | seed 11 活動 | `src/data/events.json` |
-| **M5 拜拜習俗** | how-to 知識庫 | 主題 seed 12 則（步驟待引註） | `src/data/practices.json` |
+| **M1 籤詩** | 文本解碼 | **兩套籤系 160 籤**（六十甲子 60＋關帝百首 100），全含白話故事＋賞析＋8項分項解；137 典故 | `src/data/poems.json`、`src/content/allusions/`、`interpretations/` |
+| **M2 神明** | 知識圖譜 | 59 尊（含五府千歲／城隍具名實例）＋21 關係邊 | `src/data/deities.json`、`deity-relations.json` |
+| **M3 農民曆** | 曆法計算 | 日柱錨定常數已校準＋測試（verified）；進階層協紀辨方書首批規則（verified:false 待人工核）＋待接天文資料 | `src/lib/almanac/` |
+| **M4 民俗活動** | 事件＋GIS | 11 活動（文資案號查證）＋28 廟宇（主祀對映 82%） | `src/data/events.json`、`temples.json` |
+| **M5 拜拜習俗** | how-to 知識庫 | 12 主題，科儀步驟＋金紙供品逐筆掛源 | `src/data/practices.json` |
 
-> **發佈模式**：M1–M5 全部完成才**單一發佈**，對外無分批、無深淺。本機已搭好全架構與 seed；缺口（分項解原創、M3 規則表校填、引註補齊）為內容工程，見各模組待辦。
+> **發佈模式**：M1–M5 全部完成才**單一發佈**，對外無分批、無深淺。剩餘缺口為誠實標注之待補項（少數神明聖誕待查、M3 協紀辨方書規則待人工核、天文資料待接），均以 draft／verified gate 不對外顯示。
 
 ## 跨文本追蹤（核心價值）
 
 於 **build 期**預建反向索引（`src/lib/queries.ts`），靜態站查詢期零成本：
 
-- 典故 → 反查出現在哪些籤（去重節點，如「太公八十遇文王」橫跨第 15、22、23 籤）
+- 典故 → 反查出現在哪些籤（去重節點，如「太公／渭水遇文王」橫跨第 15、22 籤）
 - 籤詩系統 → 哪些神明採用（橋接 M1↔M2）
-- 神格分類 → 同類神明聚合
-- 神明關係 → 出邊／入邊列表
+- 神格分類 → 同類神明聚合；橫向群組（五文昌、五府千歲…）
+- 神明關係 → 出邊／入邊列表；類別 → 具名實例
+- 神明 → 主祀此神之廟宇（R5 主祀對映）；廟 → 主辦活動（M4↔M2）
 
 ## 技術
 
 - **Astro 6**（純靜態輸出）＋ TypeScript strict，單一 Node.js 工具鏈
-- **Content Layer**（`src/content.config.ts`）以 Zod 定義五模組 schema
+- **Content Layer**（`src/content.config.ts`）以 Zod 定義模組 schema；散文採每篇 Markdown
+- **全文檢索** Pagefind（postbuild 建索引）；SEO：sitemap／OG／canonical
 - 套件管理 **pnpm**
 - 部署 **GitHub Pages**（自訂網域 `folk.tw`，CNAME），每日 cron 重建推進「今日選讀」
 
