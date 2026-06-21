@@ -28,18 +28,25 @@ const modules = [
 ];
 ---
 
-<Base description="台灣民俗信仰考據：籤詩解碼與神明圖譜，逐條掛來源、諸說並陳。">
+<Base
+  description="神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。"
+  ogTitle="神酷｜查月老籤、媽祖信仰與台灣民俗百科"
+>
+  <header class="brand-hero">
+    <h1>神酷<span class="alt">（神庫）</span></h1>
+    <p class="tagline">查籤詩、看神明、懂台灣民俗</p>
+  </header>
   <section class="hero">
     <p class="kicker">今日選讀 · {iso}（全站同一支）</p>
     {
       todayPoem && (
         <article class="daily card">
           <header class="daily-head">
-            <h1>
+            <h2>
               <a href={`/poems/${todayPoem.id}`}>
                 第 {todayPoem.data.no} 籤 · {todayPoem.data.ganzhi}
               </a>
-            </h1>
+            </h2>
             <span class="gua">{todayPoem.data.gua && `${todayPoem.data.gua}卦`}</span>
           </header>
           <p class="lines-vertical daily-lines">
@@ -88,11 +95,15 @@ const modules = [
   </section>
 
   <style>
+    .brand-hero { margin: 0.5rem 0 1.5rem; }
+    .brand-hero h1 { margin: 0; font-size: 2rem; letter-spacing: 0.1em; color: var(--accent); }
+    .brand-hero h1 .alt { color: var(--ink-soft); font-size: 1.2rem; font-weight: 400; }
+    .brand-hero .tagline { margin: 0.2rem 0 0; color: var(--ink-soft); letter-spacing: 0.08em; }
     .kicker { color: var(--gold); letter-spacing: 0.1em; font-size: 0.9rem; margin: 0 0 0.5rem; }
     .daily { border-color: var(--accent-soft); }
     .daily-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-    .daily-head h1 { margin: 0; font-size: 1.5rem; }
-    .daily-head h1 a { color: var(--ink); }
+    .daily-head h2 { margin: 0; font-size: 1.5rem; }
+    .daily-head h2 a { color: var(--ink); }
     .gua { color: var(--accent); font-weight: 700; }
     .daily-lines { margin: 1.2rem 0; }
     .daily-lines .line { display: block; }

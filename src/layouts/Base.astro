@@ -3,13 +3,39 @@
 interface Props {
   title?: string;
   description?: string;
+  ogTitle?: string; // 社群分享專用標題（不給則同 fullTitle）
 }
 import { GA4_ID } from '../consts';
-const { title, description } = Astro.props;
-const siteName = '眾神解析';
-const fullTitle = title ? `${title}｜${siteName}` : `${siteName} — 台灣民俗信仰考據`;
-const desc = description ?? '台灣民俗信仰考據：籤詩解碼與神明圖譜，逐條掛來源、諸說並陳。';
+const { title, description, ogTitle } = Astro.props;
+const siteName = '神酷';
+// 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
+const fullTitle = title
+  ? `${title}｜${siteName}`
+  : '神酷｜台灣民俗信仰資料庫、籤詩解讀與神明關係圖譜';
+const ogFullTitle = ogTitle ?? fullTitle; // OG 標題（社群分享）
+const desc = description ?? '神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。';
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://folk.tw').href;
+// Schema.org：以「知識系統 / 資料庫」呈現（非單純 website），利 AI 理解與引用（GEO）
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: '神酷（神庫）— 台灣民俗信仰知識系統',
+  alternateName: ['神酷', '神庫', 'Shenku (Taiwan Folk Knowledge Graph System)'],
+  url: 'https://folk.tw',
+  description:
+    'A structured knowledge system for Taiwanese folk beliefs, including deity relationships, divination poems, temple culture, and ritual traditions.（台灣民俗信仰結構化知識系統：神明關係、籤詩解讀、廟宇文化、科儀傳統）',
+  inLanguage: 'zh-Hant-TW',
+  about: [
+    'Taiwan folk religion',
+    'divination poetry interpretation',
+    'deity relationship graph',
+    'temple culture knowledge base',
+    'folk tradition archive',
+  ],
+  keywords: ['月老籤', '媽祖', '王爺', '籤詩', '台灣民俗', '農民曆'],
+  creator: { '@type': 'Organization', name: '神酷', alternateName: '神庫' },
+  license: 'https://github.com/weiqi-kids/folk.tw/blob/main/LICENSE',
+};
 const nav = [
   { href: '/', label: '今日' },
   { href: '/poems', label: '籤詩' },
@@ -36,12 +62,14 @@ const path = Astro.url.pathname;
     {/* Open Graph / Twitter */}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={ogFullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="zh_TW" />
     <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#8a2b2b" />
+    {/* Schema.org 知識系統標註（GEO：利 AI 理解為 knowledge system 而非單純網站） */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts） */}
     {
       GA4_ID && (
@@ -63,7 +91,7 @@ const path = Astro.url.pathname;
   </head>
   <body>
     <header class="site-header">
-      <a href="/" class="brand">眾神解析</a>
+      <a href="/" class="brand">神酷</a>
       <nav>
         {
           nav.map((n) => (
