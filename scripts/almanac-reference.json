@@ -1,0 +1,308 @@
+{
+  "_note": "C.4-4 官方農民曆抽查參考集。逐筆抄錄官方/權威來源，供 verify-almanac.ts 比對。節氣日期與時間以中央氣象署（CWA）2025 年日曆資料表 PDF 為準；干支/建除/廿八宿以萬年曆查詢網（wannianrili.bmcx.com）逐日頁面抄錄。某欄查不到則省略。",
+  "reference": [
+    {
+      "date": "2023-12-22",
+      "lunar": {"y": 2023, "m": 11, "d": 10, "leap": false},
+      "jieqi": "冬至",
+      "yearGZ": "癸卯",
+      "monthGZ": "甲子",
+      "dayGZ": "甲寅",
+      "jianchu": "滿",
+      "xiu": "昴",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2023-12-22__wannianrili/"
+    },
+    {
+      "date": "2024-01-01",
+      "lunar": {"y": 2023, "m": 11, "d": 20, "leap": false},
+      "yearGZ": "癸卯",
+      "monthGZ": "甲子",
+      "dayGZ": "甲子",
+      "jianchu": "建",
+      "xiu": "軫",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2024-01-01__wannianrili/"
+    },
+    {
+      "date": "2024-02-04",
+      "lunar": {"y": 2023, "m": 12, "d": 25, "leap": false},
+      "jieqi": "立春",
+      "yearGZ": "甲辰",
+      "monthGZ": "丙寅",
+      "dayGZ": "戊戌",
+      "jianchu": "成",
+      "xiu": "箕",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2024-02-04__wannianrili/"
+    },
+    {
+      "date": "2024-06-21",
+      "lunar": {"y": 2024, "m": 5, "d": 16, "leap": false},
+      "jieqi": "夏至",
+      "yearGZ": "甲辰",
+      "monthGZ": "庚午",
+      "dayGZ": "丙辰",
+      "jianchu": "開",
+      "xiu": "斗",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2024-06-21__wannianrili/"
+    },
+    {
+      "date": "2024-09-22",
+      "lunar": {"y": 2024, "m": 8, "d": 20, "leap": false},
+      "jieqi": "秋分",
+      "yearGZ": "甲辰",
+      "monthGZ": "癸酉",
+      "dayGZ": "己丑",
+      "jianchu": "定",
+      "xiu": "參",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2024-09-22__wannianrili/"
+    },
+    {
+      "date": "2024-12-21",
+      "lunar": {"y": 2024, "m": 11, "d": 21, "leap": false},
+      "jieqi": "冬至",
+      "yearGZ": "甲辰",
+      "monthGZ": "丙子",
+      "dayGZ": "己未",
+      "jianchu": "危",
+      "xiu": "角",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2024-12-21__wannianrili/"
+    },
+    {
+      "date": "2025-01-01",
+      "lunar": {"y": 2024, "m": 12, "d": 2, "leap": false},
+      "yearGZ": "甲辰",
+      "monthGZ": "丙子",
+      "dayGZ": "庚午",
+      "jianchu": "破",
+      "xiu": "危",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-01-01__wannianrili/"
+    },
+    {
+      "date": "2025-01-05",
+      "lunar": {"y": 2024, "m": 12, "d": 6, "leap": false},
+      "jieqi": "小寒",
+      "yearGZ": "甲辰",
+      "monthGZ": "丁丑",
+      "dayGZ": "甲戌",
+      "jianchu": "收",
+      "xiu": "婁",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-01-05__wannianrili/；節氣時間 10:32 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-01-29",
+      "lunar": {"y": 2025, "m": 1, "d": 1, "leap": false},
+      "yearGZ": "甲辰",
+      "monthGZ": "丁丑",
+      "dayGZ": "戊戌",
+      "jianchu": "收",
+      "xiu": "室",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-01-29__wannianrili/；農曆正月初一核對自香港天文台 2025 年公曆農曆對照表 https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2025.pdf（年柱仍甲辰，立春 2/3 後才換乙巳）"
+    },
+    {
+      "date": "2025-02-02",
+      "lunar": {"y": 2025, "m": 1, "d": 5, "leap": false},
+      "yearGZ": "甲辰",
+      "monthGZ": "丁丑",
+      "dayGZ": "壬寅",
+      "jianchu": "除",
+      "xiu": "胃",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-02-02__wannianrili/（立春前一日，年柱仍甲辰）"
+    },
+    {
+      "date": "2025-02-03",
+      "lunar": {"y": 2025, "m": 1, "d": 6, "leap": false},
+      "jieqi": "立春",
+      "yearGZ": "乙巳",
+      "monthGZ": "戊寅",
+      "dayGZ": "癸卯",
+      "jianchu": "除",
+      "xiu": "昴",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-02-03__wannianrili/ 及 jiri113.com；節氣時間 22:10 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-03-05",
+      "lunar": {"y": 2025, "m": 2, "d": 6, "leap": false},
+      "jieqi": "驚蟄",
+      "yearGZ": "乙巳",
+      "monthGZ": "己卯",
+      "dayGZ": "癸酉",
+      "jianchu": "破",
+      "xiu": "觜",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-03-05__wannianrili/；節氣時間 16:07 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-04-04",
+      "lunar": {"y": 2025, "m": 3, "d": 7, "leap": false},
+      "jieqi": "清明",
+      "yearGZ": "乙巳",
+      "monthGZ": "庚辰",
+      "dayGZ": "癸卯",
+      "jianchu": "閉",
+      "xiu": "鬼",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-04-04__wannianrili/；節氣時間 20:48 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-04-20",
+      "lunar": {"y": 2025, "m": 3, "d": 23, "leap": false},
+      "jieqi": "穀雨",
+      "yearGZ": "乙巳",
+      "monthGZ": "庚辰",
+      "dayGZ": "己未",
+      "jianchu": "平",
+      "xiu": "危",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-04-20__wannianrili/；節氣時間 03:56 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-05-05",
+      "lunar": {"y": 2025, "m": 4, "d": 8, "leap": false},
+      "jieqi": "立夏",
+      "yearGZ": "乙巳",
+      "monthGZ": "辛巳",
+      "dayGZ": "甲戌",
+      "jianchu": "執",
+      "xiu": "張",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-05-05__wannianrili/；節氣時間 13:57 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-06-05",
+      "lunar": {"y": 2025, "m": 5, "d": 10, "leap": false},
+      "jieqi": "芒種",
+      "yearGZ": "乙巳",
+      "monthGZ": "壬午",
+      "dayGZ": "乙巳",
+      "jianchu": "閉",
+      "xiu": "亢",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-06-05__wannianrili/；節氣時間 17:56 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-07-07",
+      "lunar": {"y": 2025, "m": 6, "d": 13, "leap": false},
+      "jieqi": "小暑",
+      "yearGZ": "乙巳",
+      "monthGZ": "癸未",
+      "dayGZ": "丁丑",
+      "jianchu": "破",
+      "xiu": "箕",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-07-07__wannianrili/；節氣時間 04:05 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-07-25",
+      "lunar": {"y": 2025, "m": 6, "d": 1, "leap": true},
+      "yearGZ": "乙巳",
+      "monthGZ": "癸未",
+      "dayGZ": "乙未",
+      "jianchu": "建",
+      "xiu": "鬼",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-07-25__wannianrili/；閏六月初一核對自中央氣象署 2025 年日曆資料表（農曆歲次乙巳年閏6月）https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf 及香港天文台 https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2025.pdf"
+    },
+    {
+      "date": "2025-08-07",
+      "lunar": {"y": 2025, "m": 6, "d": 14, "leap": true},
+      "jieqi": "立秋",
+      "yearGZ": "乙巳",
+      "monthGZ": "甲申",
+      "dayGZ": "戊申",
+      "jianchu": "建",
+      "xiu": "斗",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-08-07__wannianrili/；節氣時間 13:51 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf（閏六月十四）"
+    },
+    {
+      "date": "2025-08-23",
+      "lunar": {"y": 2025, "m": 7, "d": 1, "leap": false},
+      "jieqi": "處暑",
+      "yearGZ": "乙巳",
+      "monthGZ": "甲申",
+      "dayGZ": "甲子",
+      "jianchu": "定",
+      "xiu": "張",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-08-23__wannianrili/；節氣時間 04:34 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-09-07",
+      "lunar": {"y": 2025, "m": 7, "d": 16, "leap": false},
+      "jieqi": "白露",
+      "yearGZ": "乙巳",
+      "monthGZ": "乙酉",
+      "dayGZ": "己卯",
+      "jianchu": "破",
+      "xiu": "壁",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-09-07__wannianrili/；節氣時間 16:52 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-10-08",
+      "lunar": {"y": 2025, "m": 8, "d": 17, "leap": false},
+      "jieqi": "寒露",
+      "yearGZ": "乙巳",
+      "monthGZ": "丙戌",
+      "dayGZ": "庚戌",
+      "jianchu": "建",
+      "xiu": "昴",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-10-08__wannianrili/；節氣時間 08:41 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-11-07",
+      "lunar": {"y": 2025, "m": 9, "d": 18, "leap": false},
+      "jieqi": "立冬",
+      "yearGZ": "乙巳",
+      "monthGZ": "丁亥",
+      "dayGZ": "庚辰",
+      "jianchu": "執",
+      "xiu": "參",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-11-07__wannianrili/；節氣時間 12:04 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-12-07",
+      "lunar": {"y": 2025, "m": 10, "d": 18, "leap": false},
+      "jieqi": "大雪",
+      "yearGZ": "乙巳",
+      "monthGZ": "戊子",
+      "dayGZ": "庚戌",
+      "jianchu": "開",
+      "xiu": "鬼",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-12-07__wannianrili/；節氣時間 05:05 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2025-12-21",
+      "lunar": {"y": 2025, "m": 11, "d": 2, "leap": false},
+      "jieqi": "冬至",
+      "yearGZ": "乙巳",
+      "monthGZ": "戊子",
+      "dayGZ": "甲子",
+      "jianchu": "建",
+      "xiu": "女",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2025-12-21__wannianrili/；節氣時間 23:03 核對自中央氣象署 2025 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2026-01-05",
+      "lunar": {"y": 2025, "m": 11, "d": 17, "leap": false},
+      "jieqi": "小寒",
+      "yearGZ": "乙巳",
+      "monthGZ": "己丑",
+      "dayGZ": "己卯",
+      "jianchu": "滿",
+      "xiu": "星",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2026-01-05__wannianrili/；節氣時間 16:23 核對自中央氣象署 2025 年日曆資料表（附 2026 年小寒）https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2026-02-04",
+      "lunar": {"y": 2025, "m": 12, "d": 17, "leap": false},
+      "jieqi": "立春",
+      "yearGZ": "丙午",
+      "monthGZ": "庚寅",
+      "dayGZ": "己酉",
+      "jianchu": "危",
+      "xiu": "翼",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2026-02-04__wannianrili/；節氣時間 04:02 核對自中央氣象署 2025 年日曆資料表（附 2026 年立春）https://www.cwa.gov.tw/Data/astronomy/2025cal.pdf"
+    },
+    {
+      "date": "2026-06-21",
+      "lunar": {"y": 2026, "m": 5, "d": 7, "leap": false},
+      "jieqi": "夏至",
+      "yearGZ": "丙午",
+      "monthGZ": "甲午",
+      "dayGZ": "丙寅",
+      "jianchu": "成",
+      "xiu": "翼",
+      "source": "萬年曆查詢網 https://wannianrili.bmcx.com/2026-06-21__wannianrili/；節氣核對自中央氣象署 2026 年日曆資料表 https://www.cwa.gov.tw/Data/astronomy/2026cal.pdf"
+    }
+  ]
+}

@@ -14,12 +14,14 @@
     "astro": "astro",
     "check": "astro check",
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
-    "import:temples": "node --experimental-strip-types scripts/import-temples.ts"
+    "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
+    "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.7",
-    "lunar-javascript": "^1.7.7"
+    "lunar-javascript": "^1.7.7",
+    "solarlunar": "^3.1.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

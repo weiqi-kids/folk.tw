@@ -70,7 +70,7 @@ function jianchu(monthBranch, dayBranch) {
   return JIANCHU[(((di - mi) % 12) + 12) % 12];
 }
 // lunar-javascript 之建除回簡體，正規化為繁體後比對
-const ZHI_NORM = { 闭: '閉', 满: '滿', 执: '執' };
+const ZHI_NORM = { 闭: '閉', 满: '滿', 执: '執', 开: '開' };
 for (const [y, m, d] of SAMPLES) {
   const l = Solar.fromYmd(y, m, d).getLunar();
   if (l.getJieQi()) continue; // 交節日有重值規則，跳過

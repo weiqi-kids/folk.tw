@@ -29,8 +29,8 @@ export interface LunarAstronomicalProvider extends AstronomicalProvider {
   zhiXing(jdn: number): string;
 }
 
-// lunar-javascript 之建除回簡體，正規化為繁體
-const ZHI_NORM: Record<string, string> = { 闭: '閉', 满: '滿', 执: '執' };
+// lunar-javascript 之建除回簡體，正規化為繁體（滿/執/開/閉）
+const ZHI_NORM: Record<string, string> = { 闭: '閉', 满: '滿', 执: '執', 开: '開' };
 
 export const lunarProvider: LunarAstronomicalProvider = {
   // lunar-javascript 實務涵蓋年限充裕；宣告保守範圍（C.8 有效年限）
