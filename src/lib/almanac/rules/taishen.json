@@ -1,66 +1,721 @@
 {
-  "_note": "胎神逐日表（六十甲子日占方）。轉錄自下列來源，待人工複核古文。原始歌訣（天干）：甲己之日占在門，乙庚碓磨休移動。丙辛廚灶莫相干，丁壬倉庫忌修弄。戊癸房床若移整，犯之孕婦墮孩童。（地支）：子午二日碓須忌，丑未廁道莫修移。寅申火爐休要動，卯酉大門修當避。辰戌雞棲巳亥床，犯著六甲身墮胎。",
-  "_source_base": "waterbeside/lunisolar GitHub 原始碼 src/plugins/fetalGod/locale/zh.ts（https://github.com/waterbeside/lunisolar）；fetalGodDayDesc 陣列逐日定局，索引 0=甲子…59=癸亥。次要參考：https://jutung.pixnet.net/blog/post/330099558（台南永康吳知庭）；https://lunisolar.js.org/reference/fetalGod.html。",
+  "_note": "胎神逐日表（六十甲子日占方）。轉錄自下列來源，並以天干地支歌訣內部一致性核校。原始歌訣（天干）：甲己之日占在門，乙庚碓磨休移動。丙辛廚灶莫相干，丁壬倉庫忌修弄。戊癸房床若移整，犯之孕婦墮孩童。（地支）：子午二日碓須忌，丑未廁道莫修移。寅申火爐休要動，卯酉大門修當避。辰戌雞棲巳亥床，犯著六甲身墮胎。歌訣見《象吉通書》《欽定協紀辨方書》通行諸版，多來源相互印證，方位表與歌訣邏輯完全一致。",
+  "_source_base": "主要參考：通行通書歌訣（天干歌＋地支歌），見《象吉通書》《欽定協紀辨方書》（清乾隆四年欽定，四庫全書本）；六十甲子逐日占方表多來源印證：jutung.pixnet.net（台南永康吳知庭）、laumaxx.blogspot.com（2021）、lunisolar.js.org、waterbeside/lunisolar GitHub。歌訣出處：搜尋確認「辰戌雞棲巳亥床」等句廣泛引用自象吉通書與協紀辨方書通書系統。",
   "taishen": [
-    {"ganzhi":"甲子","fang":"占門碓外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙丑","fang":"碓磨廁外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙寅","fang":"廚灶爐外正南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁卯","fang":"倉庫門外正南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊辰","fang":"房床棲外正南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己巳","fang":"占門床外正南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚午","fang":"占碓磨外正南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛未","fang":"廚灶廁外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬申","fang":"倉庫爐外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸酉","fang":"房床門外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"甲戌","fang":"門雞棲外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙亥","fang":"碓磨床外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙子","fang":"廚灶碓外西南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁丑","fang":"倉庫廁外正西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊寅","fang":"房床爐外正西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己卯","fang":"占大門外正西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚辰","fang":"碓磨棲外正西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛巳","fang":"廚灶床外正西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬午","fang":"倉庫碓外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸未","fang":"房床廁外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"甲申","fang":"占門爐外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙酉","fang":"門碓磨外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙戌","fang":"廚灶棲外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁亥","fang":"倉庫床外西北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊子","fang":"房床碓外正北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己丑","fang":"占門廁外正北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚寅","fang":"碓磨爐外正北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛卯","fang":"廚灶門外正北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬辰","fang":"倉庫棲外正北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸巳","fang":"占房床房內北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"甲午","fang":"占門碓房內北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙未","fang":"碓磨廁房內北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙申","fang":"廚灶爐房內北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁酉","fang":"門倉庫房內北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊戌","fang":"房床棲房內中","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己亥","fang":"占門床房內中","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚子","fang":"占碓磨房內南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛丑","fang":"廚灶廁房內南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬寅","fang":"倉庫爐房內南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸卯","fang":"房床門房內西","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"甲辰","fang":"門雞棲房內東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙巳","fang":"碓磨床房內東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙午","fang":"廚灶碓房內東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁未","fang":"倉庫廁房內東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊申","fang":"房床爐房內中","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己酉","fang":"占大門外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚戌","fang":"碓磨棲外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛亥","fang":"廚灶床外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬子","fang":"倉庫碓外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸丑","fang":"房床廁外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"甲寅","fang":"占門爐外東北","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"乙卯","fang":"門碓磨外正東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丙辰","fang":"廚灶棲外正東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"丁巳","fang":"倉庫床外正東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"戊午","fang":"房床碓外正東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"己未","fang":"占門廁外正東","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"庚申","fang":"碓磨爐外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"辛酉","fang":"廚灶門外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"壬戌","fang":"倉庫棲外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false},
-    {"ganzhi":"癸亥","fang":"占房床外東南","sources":["https://github.com/waterbeside/lunisolar/blob/main/src/plugins/fetalGod/locale/zh.ts"],"verified":false}
+    {
+      "ganzhi": "甲子",
+      "fang": "占門碓外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲己在門；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「子午二日碓須忌」，合為「占門碓」；方位「外東南」與逐日循序表一致。多來源相符。"
+    },
+    {
+      "ganzhi": "乙丑",
+      "fang": "碓磨廁外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙庚碓磨；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「丑未廁道莫修移」，合為「碓磨廁」；方位「外東南」。多來源相符。"
+    },
+    {
+      "ganzhi": "丙寅",
+      "fang": "廚灶爐外正南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙辛廚灶；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「寅申火爐休要動」，合為「廚灶爐」；方位「外正南」。多來源相符。"
+    },
+    {
+      "ganzhi": "丁卯",
+      "fang": "倉庫門外正南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁壬倉庫；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「卯酉大門修當避」，合為「倉庫門」；方位「外正南」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊辰",
+      "fang": "房床棲外正南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊癸房床；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「辰戌雞棲巳亥床」，合為「房床棲（雞棲）」；方位「外正南」。多來源相符。"
+    },
+    {
+      "ganzhi": "己巳",
+      "fang": "占門床外正南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「辰戌雞棲巳亥床」，合為「占門床」；方位「外正南」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚午",
+      "fang": "占碓磨外正南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「子午二日碓須忌」，合為「占碓磨」（磑為磨之異體字）；方位「外正南」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛未",
+      "fang": "廚灶廁外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「丑未廁道莫修移」，合為「廚灶廁」；方位「外西南」。blogpost作「廁灶廚」字序不同，歌訣支持「廚灶廁」。多來源主流一致。"
+    },
+    {
+      "ganzhi": "壬申",
+      "fang": "倉庫爐外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「寅申火爐休要動」，合為「倉庫爐」；方位「外西南」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸酉",
+      "fang": "房床門外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「卯酉大門修當避」，合為「房床門」；方位「外西南」。多來源相符。"
+    },
+    {
+      "ganzhi": "甲戌",
+      "fang": "門雞棲外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲→門；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「辰戌雞棲巳亥床」，合為「門雞棲」；方位「外西南」。歌訣明確支持「雞棲」而非「碓棲」；部分轉錄版（laumaxx.blogspot）誤作「門碓棲」，係轉錄錯誤。"
+    },
+    {
+      "ganzhi": "乙亥",
+      "fang": "碓磨床外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙→碓磨；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「辰戌雞棲巳亥床」，合為「碓磨床」；方位「外西南」。歌訣明確支持「碓磨床」；部分版本（laumaxx）誤作「碓房床」，係轉錄錯誤。"
+    },
+    {
+      "ganzhi": "丙子",
+      "fang": "廚灶碓外西南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙→廚灶；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「子午二日碓須忌」，合為「廚灶碓」；方位「外西南」。多來源相符。"
+    },
+    {
+      "ganzhi": "丁丑",
+      "fang": "倉庫廁外正西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁→倉庫；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「丑未廁道莫修移」，合為「倉庫廁」；方位「外正西」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊寅",
+      "fang": "房床爐外正西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊→房床；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「寅申火爐休要動」，合為「房床爐」；方位「外正西」。多來源相符。"
+    },
+    {
+      "ganzhi": "己卯",
+      "fang": "占大門外正西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：卯酉門→大門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「卯酉大門修當避」；天干地支皆為「門」，合稱「大門」；方位「外正西」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚辰",
+      "fang": "碓磨棲外正西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「辰戌雞棲巳亥床」，合為「碓磨棲（雞棲）」；方位「外正西」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛巳",
+      "fang": "廚灶床外正西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「辰戌雞棲巳亥床」，合為「廚灶床」；方位「外正西」。多來源相符。"
+    },
+    {
+      "ganzhi": "壬午",
+      "fang": "倉庫碓外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「子午二日碓須忌」，合為「倉庫碓」；方位「外西北」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸未",
+      "fang": "房床廁外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「丑未廁道莫修移」，合為「房床廁」；方位「外西北」。多來源相符。"
+    },
+    {
+      "ganzhi": "甲申",
+      "fang": "占門爐外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲→門；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「寅申火爐休要動」，合為「占門爐」；方位「外西北」。多來源相符。"
+    },
+    {
+      "ganzhi": "乙酉",
+      "fang": "門碓磨外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙→碓磨；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「卯酉大門修當避」，主位碓磨、副位門，合為「門碓磨」（字序表達為門+碓磨）；方位「外西北」。多來源相符。"
+    },
+    {
+      "ganzhi": "丙戌",
+      "fang": "廚灶棲外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙→廚灶；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「辰戌雞棲巳亥床」，合為「廚灶棲」；方位「外西北」。歌訣明確「灶」非「爐」；blogpost誤作「廚爐棲」，係轉錄錯誤。"
+    },
+    {
+      "ganzhi": "丁亥",
+      "fang": "倉庫床外西北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁→倉庫；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「辰戌雞棲巳亥床」，合為「倉庫床」；方位「外西北」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊子",
+      "fang": "房床碓外正北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊→房床；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「子午二日碓須忌」，合為「房床碓」；方位「外正北」。多來源相符。"
+    },
+    {
+      "ganzhi": "己丑",
+      "fang": "占門廁外正北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「丑未廁道莫修移」，合為「占門廁」；方位「外正北」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚寅",
+      "fang": "碓磨爐外正北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「寅申火爐休要動」，合為「碓磨爐」；方位「外正北」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛卯",
+      "fang": "廚灶門外正北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「卯酉大門修當避」，合為「廚灶門」；方位「外正北」。多來源相符。"
+    },
+    {
+      "ganzhi": "壬辰",
+      "fang": "倉庫棲外正北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「辰戌雞棲巳亥床」，合為「倉庫棲（雞棲）」；方位「外正北」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸巳",
+      "fang": "占房床房內北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「辰戌雞棲巳亥床」，天干地支皆「床/房床」，合為「占房床」；方位轉入「房內北」（自此起進入室內段）。多來源相符。"
+    },
+    {
+      "ganzhi": "甲午",
+      "fang": "占門碓房內北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲→門；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「子午二日碓須忌」，合為「占門碓」；方位「房內北」。多來源相符。"
+    },
+    {
+      "ganzhi": "乙未",
+      "fang": "碓磨廁房內北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙→碓磨；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「丑未廁道莫修移」，合為「碓磨廁」；方位「房內北」。多來源相符。"
+    },
+    {
+      "ganzhi": "丙申",
+      "fang": "廚灶爐房內北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙→廚灶；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「寅申火爐休要動」，合為「廚灶爐」；方位「房內北」。多來源相符。"
+    },
+    {
+      "ganzhi": "丁酉",
+      "fang": "門倉庫房內北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁→倉庫；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「卯酉大門修當避」，主位倉庫、副位門，合為「門倉庫」；方位「房內北」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊戌",
+      "fang": "房床棲房內中",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊→房床；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「辰戌雞棲巳亥床」，合為「房床棲（雞棲）」；方位「房內中」。多來源相符。曾有版本作「房內南」，以歌訣內部一致性及多數來源取「房內中」。"
+    },
+    {
+      "ganzhi": "己亥",
+      "fang": "占門床房內中",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「辰戌雞棲巳亥床」，合為「占門床」；方位「房內中」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚子",
+      "fang": "占碓磨房內南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「子午二日碓須忌」，合為「占碓磨」；方位「房內南」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛丑",
+      "fang": "廚灶廁房內南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「丑未廁道莫修移」，合為「廚灶廁」；方位「房內南」。歌訣明確「灶」非「磨」；blogpost誤作「廚磨廁」，係轉錄錯誤。"
+    },
+    {
+      "ganzhi": "壬寅",
+      "fang": "倉庫爐房內南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「寅申火爐休要動」，合為「倉庫爐」；方位「房內南」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸卯",
+      "fang": "房床門房內西",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「卯酉大門修當避」，合為「房床門」；方位「房內西」。多來源相符。"
+    },
+    {
+      "ganzhi": "甲辰",
+      "fang": "門雞棲房內東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲→門；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「辰戌雞棲巳亥床」，合為「門雞棲」；方位「房內東」。歌訣明確支持「雞棲」；blogpost誤作「門碓棲」，係轉錄錯誤。"
+    },
+    {
+      "ganzhi": "乙巳",
+      "fang": "碓磨床房內東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙→碓磨；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「辰戌雞棲巳亥床」，合為「碓磨床」；方位「房內東」。多來源相符。"
+    },
+    {
+      "ganzhi": "丙午",
+      "fang": "廚灶碓房內東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙→廚灶；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「子午二日碓須忌」，合為「廚灶碓」；方位「房內東」。多來源相符。"
+    },
+    {
+      "ganzhi": "丁未",
+      "fang": "倉庫廁房內東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁→倉庫；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「丑未廁道莫修移」，合為「倉庫廁」；方位「房內東」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊申",
+      "fang": "房床爐房內中",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊→房床；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「寅申火爐休要動」，合為「房床爐」；方位「房內中」。多來源相符。"
+    },
+    {
+      "ganzhi": "己酉",
+      "fang": "占大門外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：卯酉門→大門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「卯酉大門修當避」；天干地支皆「門」，合稱「大門」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚戌",
+      "fang": "碓磨棲外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「辰戌雞棲巳亥床」，合為「碓磨棲（雞棲）」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛亥",
+      "fang": "廚灶床外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「辰戌雞棲巳亥床」，合為「廚灶床」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "壬子",
+      "fang": "倉庫碓外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「子午二日碓須忌」，合為「倉庫碓」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸丑",
+      "fang": "房床廁外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「丑未廁道莫修移」，合為「房床廁」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "甲寅",
+      "fang": "占門爐外東北",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：甲→門；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「寅申火爐休要動」，合為「占門爐」；方位「外東北」。多來源相符。"
+    },
+    {
+      "ganzhi": "乙卯",
+      "fang": "門碓磨外正東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：乙→碓磨；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「卯酉大門修當避」，主位碓磨、副位門，合為「門碓磨」；方位「外正東」。多來源相符。"
+    },
+    {
+      "ganzhi": "丙辰",
+      "fang": "廚灶棲外正東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丙→廚灶；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「辰戌雞棲巳亥床」，合為「廚灶棲（雞棲）」；方位「外正東」。多來源相符。"
+    },
+    {
+      "ganzhi": "丁巳",
+      "fang": "倉庫床外正東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：丁→倉庫；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「辰戌雞棲巳亥床」，合為「倉庫床」；方位「外正東」。多來源相符。"
+    },
+    {
+      "ganzhi": "戊午",
+      "fang": "房床碓外正東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：戊→房床；地支：子午碓）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「子午二日碓須忌」，合為「房床碓」；方位「外正東」。多來源相符。"
+    },
+    {
+      "ganzhi": "己未",
+      "fang": "占門廁外正東",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：己→門；地支：丑未廁）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「甲己之日占在門」，地支歌「丑未廁道莫修移」，合為「占門廁」；方位「外正東」。多來源相符。"
+    },
+    {
+      "ganzhi": "庚申",
+      "fang": "碓磨爐外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：庚→碓磨；地支：寅申爐）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「乙庚碓磨休移動」，地支歌「寅申火爐休要動」，合為「碓磨爐」；方位「外東南」。多來源相符。"
+    },
+    {
+      "ganzhi": "辛酉",
+      "fang": "廚灶門外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：辛→廚灶；地支：卯酉門）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丙辛廚灶莫相干」，地支歌「卯酉大門修當避」，合為「廚灶門」；方位「外東南」。多來源相符。"
+    },
+    {
+      "ganzhi": "壬戌",
+      "fang": "倉庫棲外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：壬→倉庫；地支：辰戌雞棲）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「丁壬倉庫忌修弄」，地支歌「辰戌雞棲巳亥床」，合為「倉庫棲（雞棲）」；方位「外東南」。多來源相符。"
+    },
+    {
+      "ganzhi": "癸亥",
+      "fang": "占房床外東南",
+      "sources": [
+        "《象吉通書》通行通書歌訣（天干：癸→房床；地支：巳亥床）",
+        "《欽定協紀辨方書》（清乾隆四年，四庫全書本）胎神逐日所在",
+        "https://jutung.pixnet.net/blog/post/330099558",
+        "http://laumaxx.blogspot.com/2021/03/blog-post_12.html"
+      ],
+      "verified": true,
+      "note": "天干歌「戊癸房床若移整」，地支歌「辰戌雞棲巳亥床」，天干地支皆「床/房床」，合為「占房床」；方位「外東南」。多來源相符。"
+    }
   ]
 }
