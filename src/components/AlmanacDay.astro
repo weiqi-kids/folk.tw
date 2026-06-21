@@ -127,6 +127,9 @@ const isToday = iso === today;
           )}
           {hhV && <p>黃黑道：{hhV.name}（{hhV.auspicious ? '黃道吉' : '黑道凶'}）</p>}
           {tsV && <p>胎神占方：{tsV}</p>}
+          {yiV.length === 0 && jiV.length === 0 && (
+            <p class="muted small">本日宜忌經《協紀辨方書》制化裁決後無確證條目（多屬建除基調或制化不可確定者），故僅列已驗證之神煞，不放未經核校之斷語。</p>
+          )}
         </>
       ) : (
         <p class="pending">

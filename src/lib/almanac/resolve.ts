@@ -63,17 +63,28 @@ export function resolveAffair(
   // 3. 宜忌俱有 → 查制化：吉神可制該凶神者從宜，否則從忌
   if (yiVotes.length && jiVotes.length) {
     const auspiciousActive = yiVotes.map((v) => v.shensha);
-    const restrainable = jiVotes.every((jv) =>
-      RESTRAIN.some((r) => auspiciousActive.includes(r.auspicious) && r.restrains === jv.shensha),
-    );
+    const canRestrain = (jv: Vote, requireVerified: boolean) =>
+      RESTRAIN.some(
+        (r) =>
+          (!requireVerified || r.verified) &&
+          auspiciousActive.includes(r.auspicious) &&
+          r.restrains === jv.shensha,
+      );
+    const restrainable = jiVotes.every((jv) => canRestrain(jv, false));
+    // 制化關係本身亦須考據核校（restrain.verified）方能傳播 verified
+    const restrainableVerified = jiVotes.every((jv) => canRestrain(jv, true));
     const all = [...yiVotes, ...jiVotes];
+    // 從宜：每票+其神煞 verified 且所用制化關係皆 verified → 全鏈可回溯，可驗證。
+    // 從忌（無制化）：因「無可制」依賴制化表完備性（表仍有待考據條目），不可宣稱已驗證 → 維持隱藏。
+    const verified =
+      restrainable && restrainableVerified && allVerified(all);
     return {
       affair,
       judgement: restrainable ? '宜' : '忌',
       derivation: mkDerivation(all),
       resolvedBy: restrainable ? '宜忌俱有 → 吉神可制 → 從宜' : '宜忌俱有 → 不可制 → 從忌',
-      sources: [...allSources(all), ...RESTRAIN.flatMap((r) => r.sources)],
-      verified: false, // 制化裁決涉多表，全表校準前一律未驗證
+      sources: [...allSources(all), ...RESTRAIN.filter((r) => r.verified).flatMap((r) => r.sources)],
+      verified,
     };
   }
   // 4. 俱無 → 依建除值神基調（C.7.6 第4步）
