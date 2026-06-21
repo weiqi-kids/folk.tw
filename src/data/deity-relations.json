@@ -2,7 +2,7 @@
   {
     "id": "rel-mazu-qianliye",
     "from": "mazu",
-    "to": "千里眼",
+    "to": "qianliyan",
     "type": "從神",
     "note": "順風耳同列，皆為媽祖從神",
     "sources": [
@@ -16,7 +16,7 @@
   {
     "id": "rel-mazu-shunfenger",
     "from": "mazu",
-    "to": "順風耳",
+    "to": "shunfenger",
     "type": "從神",
     "note": "與千里眼同列為媽祖從神",
     "sources": [
@@ -84,109 +84,11 @@
     ]
   },
   {
-    "id": "rel-linshui-linlifuren",
-    "from": "linshui",
-    "to": "林·李夫人",
-    "type": "同系",
-    "note": "三奶夫人：陳靖姑（臨水夫人）與林夫人、李夫人同系",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
     "id": "rel-guangze-miaoyingxianfei",
     "from": "guangze",
-    "to": "妙應仙妃",
+    "to": "miaoying_xianfei",
     "type": "眷屬",
     "note": "妙應仙妃為廣澤尊王配偶",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-wangye-wufuqiansui",
-    "from": "wangye",
-    "to": "李池吳朱范…",
-    "type": "系統",
-    "note": "五府千歲（李、池、吳、朱、范）為王爺信仰的一系，各府各有其聖誕",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-guangong-wuwenchang",
-    "from": "guangong",
-    "to": "五文昌",
-    "type": "同列",
-    "note": "關聖帝君為五文昌之一；五文昌成員另有文昌帝君、孚佑帝君、魁星、朱衣神君",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-wenchang-wuwenchang",
-    "from": "wenchang",
-    "to": "五文昌",
-    "type": "同列",
-    "note": "文昌帝君為五文昌之一",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-ludongbin-wuwenchang",
-    "from": "ludongbin",
-    "to": "五文昌",
-    "type": "同列",
-    "note": "孚佑帝君（呂洞賓）為五文昌之一",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-kuixing-wuwenchang",
-    "from": "kuixing",
-    "to": "五文昌",
-    "type": "同列",
-    "note": "魁星為五文昌之一",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》（關係 seed）",
-        "note": "待逐條校"
-      }
-    ]
-  },
-  {
-    "id": "rel-zhuyi-wuwenchang",
-    "from": "朱衣神君",
-    "to": "五文昌",
-    "type": "同列",
-    "note": "朱衣神君（zhuyi）為五文昌之一，本 seed 尚未建立節點",
     "sources": [
       {
         "type": "book",
@@ -408,7 +310,7 @@
   {
     "id": "rel-guanyin-shancai",
     "from": "guanyin",
-    "to": "善財龍女",
+    "to": "shancai_longnv",
     "type": "眷屬",
     "note": "善財童子與龍女為觀音菩薩的左右脅侍，為台灣寺廟觀音造像最常見的三尊組合",
     "sources": [
@@ -822,20 +724,6 @@
         "type": "book",
         "ref": "《台灣的神明》及道教神系",
         "note": "九天玄女與玄天上帝同具「玄」系神格，信仰淵源相近"
-      }
-    ]
-  },
-  {
-    "id": "rel-ludongbin-bazuan",
-    "from": "ludongbin",
-    "to": "八仙",
-    "type": "同列",
-    "note": "呂洞賓（孚佑帝君）為八仙之一，與漢鍾離、張果老、鐵拐李等七仙並列八仙行列",
-    "sources": [
-      {
-        "type": "book",
-        "ref": "《台灣的神明》",
-        "note": "呂洞賓為八仙成員，八仙過海傳說廣為人知"
       }
     ]
   }

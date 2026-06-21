@@ -163,6 +163,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·水仙尊王(Shuixian zunwang) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=264",
         "note": "組成說明（大禹、伍員、屈原等；台灣「一帝二王二大夫」說法）、來歷（宋代劉克莊有最早記錄）、職司（航運水利）"
+      },
+      {
+        "type": "temple",
+        "ref": "內政部臺灣宗教文化地圖〈台南水仙宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=235",
+        "note": "主祀水仙尊王、一帝二王二大夫五尊（大禹/寒奡/項羽/伍子胥/屈原）、商船漁信奉、康熙年間創建"
       }
     ],
     "draft": false
@@ -233,6 +238,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈龍王廟（臺南府）〉 https://zh.wikipedia.org/zh-tw/龍王廟_(臺南府)",
+        "note": "府城七寺八廟之一、主祀四海龍王（掌水族與雨水）、康熙55年(1716)建、廢廟後神像移祀大天后宮"
       }
     ],
     "draft": false
@@ -344,6 +354,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278",
         "note": "來歷（源自古代社神/土治公）、職司（村落田土、財富守護）、別名（伯公、后土）、為台灣密度最高的神明"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133",
+        "note": "別名土治公/伯公/后土/社神；臺灣最常見且親民之神"
+      },
+      {
+        "type": "book",
+        "ref": "《禮記·祭法》 https://zh.wikisource.org/zh-hant/禮記/祭法",
+        "note": "社神/后土源流：共工氏之子后土能平九州，故祀之以為社"
       }
     ],
     "draft": false
@@ -388,6 +408,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·城隍爺(Cheng huang ye) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=259",
         "note": "城隍系統說明（省、府、縣、鄉鎮分級）、職司（城域陰司司法、監察善惡）、七爺八爺（范謝將軍）部將說明"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）·台北霞海城隍廟．五月十三迎城隍 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=13",
+        "note": "霞海城隍主祀、五月十三迎城隍祭典、七爺八爺等神將出巡、廟史（道光元年泉州同安人渡台、咸豐6年建廟）"
       }
     ],
     "draft": false
@@ -454,6 +479,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "temple",
+        "ref": "埔里瀛海城隍廟·謝將軍及范將軍 https://www.citygod.com.tw/gods3.html",
+        "note": "七爺謝必安（身高面白、長爺、白無常）、八爺范無救（身矮面黑、短爺、黑無常）、南臺橋守信溺水殉節傳說、城隍駕前部將職司、出巡居行列最前"
       }
     ],
     "draft": false
@@ -495,6 +525,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·東嶽大帝(Dongyue dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=255",
         "note": "來歷（泰山主神，別稱「東嶽泰山齊天仁聖大帝」、「泰山府君」）、職司（掌幽冥、壽算登記、主宰十殿閻羅）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）·臺南東嶽殿 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=231",
+        "note": "主祀東嶽泰山天齊仁聖大帝、聖誕農曆三月廿八、別稱泰山府君/天齊王、職司人命歲壽暨冥界主宰、永曆27年(1673)鄭經遷建沿革"
       }
     ],
     "draft": false
@@ -537,6 +572,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·延平郡王(Yanping junwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=252",
         "note": "來歷（鄭成功1624-1662年，南明永曆帝封延平郡王，驅荷開台）、死後神格化為「開山王」/「開台聖王」、1663年子鄭經立廟"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈延平郡王祠〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=233",
+        "note": "前身開山王廟、永曆9年(1655)敕封延平郡王、光緒元年(1875)沈葆楨奏請建祠、最具正統性"
       }
     ],
     "draft": false
@@ -600,6 +640,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·觀世音菩薩(Guanyin) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=276",
         "note": "來歷（佛教大悲菩薩，由男性菩薩逐漸轉化為女神）、職司（救苦救難）、台灣各種造型（送子觀音、魚籃觀音、千手觀音）、重要廟宇（萬華龍山寺等）"
+      },
+      {
+        "type": "book",
+        "ref": "鳩摩羅什譯《妙法蓮華經·觀世音菩薩普門品第二十五》 https://ctext.org/wiki.pl?chapter=100485",
+        "note": "觀音名號由來與救苦救難神格之古籍根本：聞聲救苦、即時觀其音聲皆得解脫"
+      },
+      {
+        "type": "temple",
+        "ref": "艋舺龍山寺官網·認識奉祀神祇 https://www.lungshan.org.tw/tw/02_1_1_gods.php",
+        "note": "俗稱觀音佛祖/觀音媽、與彌陀勢至並稱西方三聖；1738年泉州晉江安海龍山寺分靈來臺"
       }
     ],
     "draft": false
@@ -687,6 +737,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·開漳聖王(Kaizhang Shengwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=266",
         "note": "來歷（唐代陳元光，高宗669年奉命入閩，708年殉難）、職司（開漳拓土、地方守護）、封號（威惠聖王）、為漳州籍移民守護神"
+      },
+      {
+        "type": "gov",
+        "ref": "臺北市內湖區公所·碧山巖開漳聖王廟 https://nhdo.gov.taipei/ct.asp?xItem=46000&CtNode=3741&mp=124051",
+        "note": "主祀陳元光（字廷炬、號龍湖、漳州首任刺史、生657卒711）、唐敕封威惠聖王、宋高宗加封靈著順應照烈廣濟王、開基祖廟（石室）清嘉慶十九年(1814)創建"
       }
     ],
     "draft": false
@@ -728,6 +783,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·廣澤尊王(Guangze zunwang) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=271",
         "note": "來歷（五代十國，南安縣人，郭忠福，唐將郭子儀後裔，幼時牧羊得道升仙）、別名（郭聖王、聖王公、保安尊王）、職司（地方守護）、全銜「威鎮忠應孚惠威武英烈保安廣澤尊王」"
+      },
+      {
+        "type": "temple",
+        "ref": "台南南勢街西羅殿·奉祀神祇 https://xiluo.org.tw/?act=menuinfo&ml_id=20230719001",
+        "note": "主祀保安廣澤尊王/郭聖王、二月二十二誕辰（後唐同光元年923）、身世（俗姓郭諱忠福、郭子儀後代、安溪清溪人、孝感動天、十六歲蛻化成神）、西羅殿康熙57年(1718)泉州晉江石獅郭姓奉祀渡台、神像造型（年輕相、圓眼、蹺右腳）"
       }
     ],
     "draft": false
@@ -817,6 +877,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·清水祖師(Qingshui Zushi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285",
         "note": "來歷（北宋1045-1101年，俗姓陳名昭應，法名普足，泉州安溪清水巖住持）、聖誕農曆正月初六、1083年求雨顯靈典故、職司（驅疫地方守護）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）·艋舺清水巖祖師廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=12",
+        "note": "主祀清水祖師陳昭應、安溪人守護神、神像自福建安溪清水本巖分靈、安溪移民翁有來募建、乾隆52年(1787)起造乾隆55年(1790)落成"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）·三峽長福巖清水祖師聖誕祭典 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176",
+        "note": "清水祖師聖誕農曆正月初六、身世（福建泉州安溪高僧、閩南稱烏面祖師、台灣通稱祖師公）、三峽長福巖乾隆34年(1769)建廟"
       }
     ],
     "draft": false
@@ -881,6 +951,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·義民節 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=13",
         "note": "義民節農曆七月廿日（褒忠義民廟例祭日）說明；康熙賜「褒忠」、乾隆51年林爽文事件、同治元年戴潮春事件；客家庄輪值主普制度"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈新埔褒忠亭〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=253",
+        "note": "林爽文事件、乾隆賜匾「褒忠」、每年農曆七月義民文化祭典（新埔褒忠亭義民廟）"
       }
     ],
     "draft": false
@@ -922,6 +997,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·法主公(Fazhu gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=287",
         "note": "來歷（泉州安溪張姓道士，登天師九龍池得道，永春安溪地區張蕭黃三兄弟說法）、職司（收妖法教）、別名（法主聖君、張聖君）"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈臺北法主公廟〉 https://zh.wikipedia.org/zh-tw/臺北法主公廟",
+        "note": "大稻埕安溪茶商信奉、同治8年陳書楚自碧靈宮迎神、光緒4年建廟；該頁載聖誕農曆九月廿二（與本站七月廿三並陳，諸說不一）"
       }
     ],
     "draft": false
@@ -1073,6 +1153,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244",
         "note": "來歷（四川梓潼帝君，元延祐三年1316年封「輔元開化文昌司祿宏仁帝君」）、職司（科考功名、文運）、五文昌之一"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151",
+        "note": "蜀王張育/梓潼神亞子/文昌星三神合一、聖誕二月初三、元延祐三年(1316)封號、掌文運科考"
       }
     ],
     "draft": false
@@ -1115,6 +1200,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260",
         "note": "來歷（炎帝、三皇五帝之一，嘗百草、教農耕）、職司（農業、醫藥）、別名（五穀先帝）"
+      },
+      {
+        "type": "temple",
+        "ref": "內政部臺灣宗教文化地圖〈三重先嗇宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=181",
+        "note": "五穀先帝廟、八蜡之首「先嗇」即神農、聖誕農曆四月廿六、乾隆20年(1755)創建"
+      },
+      {
+        "type": "temple",
+        "ref": "大龍峒保安宮〈神農大帝〉 https://www.baoan.org.tw/devote.php?lang=tw",
+        "note": "別名五穀先帝/藥王大帝/開天炎帝/炎帝神農氏/五穀王/粟母王"
       }
     ],
     "draft": false
@@ -1155,6 +1250,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "gov",
+        "ref": "臺中市政府〈東勢巧聖仙師祖廟魯班先師聖誕〉 https://www.taichung.gov.tw/8868/8872/9962/2381797",
+        "note": "聖誕農曆五月初七、東勢為全台唯一主祀魯班開基祖廟、土木工匠行業神祖師"
       }
     ],
     "draft": false
@@ -1195,6 +1295,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272",
         "note": "來歷（傳說為唐玄宗李隆基，設梨園、聚藝者，為亂彈戲班守護神）、職司（戲曲梨園護佑）、聖誕農曆六月廿四日"
+      },
+      {
+        "type": "gov",
+        "ref": "教育部《臺灣台語常用詞辭典》〈西秦王爺〉 https://sutian.moe.edu.tw/zh-hant/su/2844/",
+        "note": "官方辭典：西秦王爺即唐玄宗、首創梨園、戲曲戲神"
+      },
+      {
+        "type": "gov",
+        "ref": "國立傳統藝術中心〈梨園典故〉 https://www.ncfta.gov.tw/cp.aspx?n=1778",
+        "note": "李隆基714年設梨園、自選樂師宮女教習（此頁未直稱唐玄宗為祖師，並陳）"
       }
     ],
     "draft": false
@@ -1236,6 +1346,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·田都元帥(Tiandou yuanshuai) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=256",
         "note": "來歷（唐代宮廷樂師雷海青，安史之亂中殉節）、死後天庭封號演變（天帝賜姓田）、職司（戲曲梨園）、別名（相公爺）"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈蘆洲神將—田都元帥〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=253000",
+        "note": "雷海青說、安史之亂殉國封田都元帥、與西秦王爺同為戲曲音樂神、田中螃蟹養大典故、別名相公爺"
       }
     ],
     "draft": false
@@ -1281,6 +1396,16 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "book",
+        "ref": "《宋史》卷四五七·隱逸傳（陳摶傳） https://zh.wikisource.org/wiki/宋史/卷457",
+        "note": "正史所載呂洞賓：關西逸人、有劍術、百餘歲童顏、世以為神仙"
+      },
+      {
+        "type": "temple",
+        "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382",
+        "note": "八仙之一、唐禮部侍郎呂渭之孫、聖誕貞元十二年四月十四、全真五陽純陽祖師"
       }
     ],
     "draft": false
@@ -1322,6 +1447,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "book",
+        "ref": "《史記·卷四十七·孔子世家》 https://zh.wikisource.org/zh-hant/史記/卷047",
+        "note": "正史身世（魯昌平鄉陬邑、字仲尼）與生卒（魯襄公二十二年生、哀公十六年四月己丑卒、年七十三）"
       }
     ],
     "draft": false
@@ -1364,6 +1494,16 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "temple",
+        "ref": "新營太子宮〈中壇元帥〉 https://www.taizih.org.tw/?act=menuinfo&ml_id=20240807013",
+        "note": "別名太子爺/三太子、聖誕九月初九、造型火尖槍/乾坤圈/混天綾/風火輪、李靖三子靈珠子化身"
+      },
+      {
+        "type": "temple",
+        "ref": "新營太子宮·本宮簡介 https://www.taizih.org.tw/?act=menuinfo&ml_id=20240807011",
+        "note": "康熙二年先民奉請來台、正殿主祀中壇元帥、全國太子爺開台祖廟"
       }
     ],
     "draft": false
@@ -1404,6 +1544,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "book",
+        "ref": "《太平御覽》卷七十九（引《龍魚河圖》） https://zh.wikisource.org/wiki/太平御覽/0079",
+        "note": "玄女授黃帝兵符神符、制伏蚩尤以制八方之古典本源"
       }
     ],
     "draft": false
@@ -1456,6 +1601,16 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "book",
+        "ref": "（明）田汝成《西湖遊覽志餘》下卷 https://zh.wikisource.org/wiki/西湖遊覽志餘/下",
+        "note": "道濟（濟顛）史傳：本名道濟、靈隱/淨慈、佯狂酒肉、年七十三端坐而逝"
+      },
+      {
+        "type": "book",
+        "ref": "《濟公全傳》第一回 https://zh.wikisource.org/wiki/濟公全傳/01",
+        "note": "濟公＝降龍羅漢降世之通俗信仰本源；南宋臨安、父李茂春"
       }
     ],
     "draft": false
@@ -1499,6 +1654,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "temple",
+        "ref": "臺中市元保宮〈魁斗星君〉 https://www.yuanbao.org.tw/?act=menuinfo&ml_id=20200617001&cmd=detail&mi_id=20200617023",
+        "note": "聖誕二月初三、廣義五文昌之一、造型金身鬼面右足踏鰲左足踢斗右手執筆（魁人蹺斗）"
       }
     ],
     "draft": false
@@ -1539,6 +1699,16 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148",
+        "note": "掌男女姻緣、造型白鬚老者左手姻緣簿右手拐杖"
+      },
+      {
+        "type": "book",
+        "ref": "李復言《續玄怪錄·定婚店》 https://zh.wikisource.org/zh-hant/續玄怪錄",
+        "note": "赤繩繫足、天下婚牘、命定不可逭、宋城宰題店曰「定婚店」之古籍本源"
       }
     ],
     "draft": false
@@ -1579,6 +1749,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "temple",
+        "ref": "高雄三鳳宮〈註生娘娘〉 https://www.sunfong.org.tw/?act=menuinfo&ml_id=20220720003&cmd=detail&mi_id=20220721006",
+        "note": "聖誕三月二十、掌授子懷孕生育護產、左手生育簿右手執筆、身世碧霞元君/臨水夫人說"
       }
     ],
     "draft": false
@@ -1668,6 +1843,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈七娘媽生，做十六歲〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8",
+        "note": "織女即天帝第七女、七星娘娘為兒童保護神、台南開隆宮唯一主祀、做十六歲鑽七娘媽亭成年禮"
       }
     ],
     "draft": false
@@ -1676,7 +1856,9 @@
     "id": "pojie",
     "name": "婆姐",
     "aliases": [
-      "十二婆姐"
+      "十二婆姐",
+      "三十六婆姐",
+      "鳥母"
     ],
     "category": "愛情婦幼守護神",
     "is_category": false,
@@ -1696,9 +1878,14 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "gov",
+        "ref": "國立臺灣歷史博物館《臺灣女人》〈婦幼的守護神─臨水夫人〉 https://women.nmth.gov.tw/?p=1847",
+        "note": "婆姐（三十六鳥母）為臨水夫人從神，輔助生育、守護小孩至十六歲成年"
       }
     ],
-    "draft": true
+    "draft": false
   },
   {
     "id": "chitou",
@@ -1842,6 +2029,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·虎爺(Huye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=288",
         "note": "別名（下壇將軍、天虎將軍、飛虎將軍、黑虎將軍）、職司（鎮廟咬錢護童）、常為土地公、保生大帝、趙公明座騎"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈虎爺〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=140635",
+        "note": "別名下壇將軍/山軍尊神、職司鎮邪招財醫療、配祀保生大帝/土地公、供神桌下生肉生雞蛋"
       }
     ],
     "draft": false
@@ -1894,6 +2086,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈齊天大聖〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=508491",
+        "note": "源自吳承恩《西遊記》孫悟空、神通廣大掃蕩群魔；台灣兼奉為兒童守護神"
       }
     ],
     "draft": false
@@ -1976,6 +2173,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "web",
+        "ref": "聯合新聞網〈台灣有那些寺廟祭祀蛇神靈？〉(2025) https://travel.udn.com/travel/story/7934/8480161",
+        "note": "媒體報導：「使者公」為玄壇元帥部將之神蛇（桃園蘆竹五福宮、花蓮光復仁壽宮）；與本站舊述「台南等地」不符，聖誕仍查無權威源，維持 draft 待考"
       }
     ],
     "draft": true
@@ -2018,6 +2220,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·玉皇大帝(Jade Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=246",
         "note": "職司（三界十方共主）、聖誕正月初九（天公生）、供桌形式（頂下桌）、南北斗星為左右侍從"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈玉皇大帝〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247142",
+        "note": "漢人信仰最高神、俗稱天公、聖誕正月初九、傳姓張名堅、設像採帝王造像"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈臺灣首廟天壇〉 https://zh.wikipedia.org/zh-tw/臺灣首廟天壇",
+        "note": "明鄭1661設天壇祭天、清咸豐四年建廟、正月初九天公生祭典（廟方官網 tian.org.tw 另存）"
       }
     ],
     "draft": false
@@ -2081,6 +2293,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·三官大帝(Sanguan dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
         "note": "來歷（天師道源流）、職司（天官賜福1/15、地官赦罪7/15、水官解厄10/15）、別名（三界公）"
+      },
+      {
+        "type": "temple",
+        "ref": "關渡宮〈三官大帝〉 https://www.kuantu.org.tw/GDT_C_01_02_05.html",
+        "note": "天官賜福/地官赦罪/水官解厄；三元節正月十五、七月十五、十月十五各下人間"
+      },
+      {
+        "type": "temple",
+        "ref": "八德三元宮〈三官大帝〉 https://www.sanyuan.org.tw/?act=menuinfo&ml_id=20200706001&cmd=detail&mi_id=20201204002",
+        "note": "天師道源流（太平道/五斗米道以天地水為三官）；三元節即三官誕辰"
       }
     ],
     "draft": false
@@ -2134,6 +2356,11 @@
         "type": "book",
         "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
         "note": "seed 事實基準，待逐條校"
+      },
+      {
+        "type": "temple",
+        "ref": "台北指南宮〈三清道祖〉 https://www.chih-nan-temple.org/?act=menuinfo&ml_id=20221018006&cmd=detail&mi_id=20221020004",
+        "note": "三尊分述：元始天尊（生於太無之先）、靈寶天尊、道德天尊（即老子，居太清境太極宮）"
       }
     ],
     "draft": false
@@ -2175,6 +2402,21 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·瑤池金母(Yaochi jinmu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=270",
         "note": "別名（王母娘娘、西王母）、職司（女仙之首、掌管長生仙桃）"
+      },
+      {
+        "type": "book",
+        "ref": "《山海經·西山經》 https://ctext.org/shan-hai-jing/xi-shan-jing/zh",
+        "note": "西王母最早古籍本證：豹尾虎齒善嘯、蓬髮戴勝、司天之厲及五殘"
+      },
+      {
+        "type": "book",
+        "ref": "《漢武帝內傳》 https://zh.wikisource.org/zh-hant/漢武帝內傳",
+        "note": "由凶神演為女仙之首、賜仙桃（三千歲一實）、絕世仙姿造型"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈聖地慈惠堂總堂開堂紀念日〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=289749",
+        "note": "台灣母娘信仰中心、金母聖誕農曆七月十八、花蓮為發祥地"
       }
     ],
     "draft": false
@@ -2217,6 +2459,16 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網·灶神(Zao shen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265",
         "note": "來歷（源自商朝）、職司（記錄家人善惡向天廷稟報）、別名（司命灶君、東廚司命竈君）、送神12/24、接神正月初四"
+      },
+      {
+        "type": "book",
+        "ref": "葛洪《抱朴子·內篇·微旨》 https://ctext.org/baopuzi/wei-zhi/zh",
+        "note": "月晦之夜竈神上天白人罪狀（司命上達天庭、記人罪狀之職司）"
+      },
+      {
+        "type": "book",
+        "ref": "《禮記·祭法》（周代七祀：司命…灶） https://zh.wikisource.org/zh-hant/禮記/祭法",
+        "note": "灶神源流與「司命」神格之最早禮制依據"
       }
     ],
     "draft": false
@@ -2477,6 +2729,21 @@
         "type": "web",
         "ref": "正統鹿耳門聖母廟奉祀神祇—五府千歲 https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20231218045",
         "note": "李大亮（586-644年），北魏度支尚書李琰之曾孫，唐高祖開國功臣"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=158",
+        "note": "五府名諱李大亮/池夢彪/吳孝寬/朱叔裕/范承業；惟僅李王見於新唐書、舊唐書列傳，餘四府屬相傳；臺灣王爺總廟、分靈逾萬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=73",
+        "note": "王爺總廟；各府聖誕：李府4/26、范府4/27、池府6/18、朱府8/15、吳府9/15（農曆）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺南市政府文化局宮廟博物館〈南鯤鯓代天府〉 https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=BB4D49F0-5C28-4BD0-B370-5CB26BFA43F7",
+        "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
     "draft": false
@@ -2545,6 +2812,21 @@
         "type": "web",
         "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
         "note": "個性嫉惡如仇，黑臉源於曾吞瘟疫病毒救民，守護討海人"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=158",
+        "note": "五府名諱李大亮/池夢彪/吳孝寬/朱叔裕/范承業；惟僅李王見於新唐書、舊唐書列傳，餘四府屬相傳；臺灣王爺總廟、分靈逾萬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=73",
+        "note": "王爺總廟；各府聖誕：李府4/26、范府4/27、池府6/18、朱府8/15、吳府9/15（農曆）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺南市政府文化局宮廟博物館〈南鯤鯓代天府〉 https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=BB4D49F0-5C28-4BD0-B370-5CB26BFA43F7",
+        "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
     "draft": false
@@ -2624,6 +2906,21 @@
         "type": "web",
         "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
         "note": "擅長踏地理（風水擇地），處理卡陰解厄，五位中唯一無鬍鬚"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=158",
+        "note": "五府名諱李大亮/池夢彪/吳孝寬/朱叔裕/范承業；惟僅李王見於新唐書、舊唐書列傳，餘四府屬相傳；臺灣王爺總廟、分靈逾萬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=73",
+        "note": "王爺總廟；各府聖誕：李府4/26、范府4/27、池府6/18、朱府8/15、吳府9/15（農曆）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺南市政府文化局宮廟博物館〈南鯤鯓代天府〉 https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=BB4D49F0-5C28-4BD0-B370-5CB26BFA43F7",
+        "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
     "draft": false
@@ -2688,6 +2985,21 @@
         "type": "web",
         "ref": "朱府千歲祖廟在哪裡？朱府千歲由來大公開—聖弘文創 https://shenghong1126.com.tw/stories-of-gods102/",
         "note": "唯一不出巡的王爺，留守廟中求籤詩，神準靈驗深受商家崇敬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=158",
+        "note": "五府名諱李大亮/池夢彪/吳孝寬/朱叔裕/范承業；惟僅李王見於新唐書、舊唐書列傳，餘四府屬相傳；臺灣王爺總廟、分靈逾萬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=73",
+        "note": "王爺總廟；各府聖誕：李府4/26、范府4/27、池府6/18、朱府8/15、吳府9/15（農曆）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺南市政府文化局宮廟博物館〈南鯤鯓代天府〉 https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=BB4D49F0-5C28-4BD0-B370-5CB26BFA43F7",
+        "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
     "draft": false
@@ -2753,6 +3065,21 @@
         "type": "web",
         "ref": "五府千歲介紹 https://chenghuang.qdm.tw/blog/5house",
         "note": "精通醫理藥理，斬妖除魔，與保生大帝、神農大帝並稱神界名醫"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=158",
+        "note": "五府名諱李大亮/池夢彪/吳孝寬/朱叔裕/范承業；惟僅李王見於新唐書、舊唐書列傳，餘四府屬相傳；臺灣王爺總廟、分靈逾萬"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈南鯤鯓代天府〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=73",
+        "note": "王爺總廟；各府聖誕：李府4/26、范府4/27、池府6/18、朱府8/15、吳府9/15（農曆）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺南市政府文化局宮廟博物館〈南鯤鯓代天府〉 https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=BB4D49F0-5C28-4BD0-B370-5CB26BFA43F7",
+        "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
     "draft": false
@@ -2811,6 +3138,16 @@
         "type": "web",
         "ref": "台北霞海城隍廟五月十三迎城隍—臺灣宗教文化地圖 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
         "note": "義勇公配祀、三大暗訪、廟宇地位"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教文化地圖〈大稻埕霞海城隍廟〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58",
+        "note": "廟史（同安移民、頂下郊拚、咸豐6年建廟咸豐9年完工）、月老（1971增祀）、聖誕繞境農曆五月十三"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部臺灣宗教百景〈台北霞海城隍·五月十三迎城隍〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=13",
+        "note": "五月十三迎城隍聖誕賽會，起自清光緒5年（1879）"
       }
     ],
     "draft": false
@@ -2877,6 +3214,11 @@
         "type": "web",
         "ref": "台灣府城隍廟—臺南旅遊網 https://www.twtainan.net/zh-tw/attractions/detail/682/",
         "note": "廟宇介紹、國定古蹟"
+      },
+      {
+        "type": "temple",
+        "ref": "臺灣府城隍廟官網〈特色文物〉 https://www.twcitygod.org.tw/?page_id=79",
+        "note": "主神威靈公掌陰陽兩界；府城名匾「爾來了」釋義；大算盤審判福禍果報"
       }
     ],
     "draft": false
@@ -2944,6 +3286,11 @@
         "type": "web",
         "ref": "https://www.sanqingtaoist.com/taisui",
         "note": "三清道士：六十甲子太歲名諱通行版本（甲子年條目）；通行用法待補正式文獻"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈六十甲子太歲星君－甲子太歲金辨大將軍〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=130000000039",
+        "note": "具名太歲金辨大將軍、六十甲子輪流值歲、安太歲習俗（文化部典藏）"
       }
     ],
     "draft": false
@@ -2973,6 +3320,11 @@
         "type": "web",
         "ref": "https://zh.wikipedia.org/zh-tw/%E5%A4%AA%E6%AD%B2#%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E5%90%8D%E8%AB%B1",
         "note": "維基百科：太歲—六十甲子太歲名諱表（乙丑太歲陳材大將軍）"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈六十甲子太歲星君－乙丑太歲陳材大將軍〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=130000000040",
+        "note": "具名太歲陳材大將軍、值年太歲定義、安太歲習俗（文化部典藏）"
       }
     ],
     "draft": false
@@ -3002,6 +3354,864 @@
         "type": "web",
         "ref": "https://zh.wikipedia.org/zh-tw/%E5%A4%AA%E6%AD%B2#%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E5%90%8D%E8%AB%B1",
         "note": "維基百科：太歲—六十甲子太歲名諱表（丙寅太歲耿章大將軍）"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈六十甲子太歲星君－丙寅太歲耿章大將軍〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=130000000041",
+        "note": "具名太歲耿章大將軍、值年太歲、安太歲習俗（文化部典藏；典藏單位雲林縣文化觀光處）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "qianliyan",
+    "name": "千里眼",
+    "aliases": [
+      "金精將軍",
+      "金精大將軍",
+      "高明"
+    ],
+    "category": "海神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "眼觀千里",
+      "護駕媽祖",
+      "察聽世情",
+      "驅邪鎮惡"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "04-07",
+        "kind": "聖誕",
+        "note": "北港朝天宮莊儀團及部分廟宇所用日期，各廟不一，非全台統一。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.nownews.com/news/4059819",
+            "note": "NOW新聞：農曆4月7日為千順將軍聖誕，據北港朝天宮莊儀團；各廟日期不同"
+          },
+          {
+            "type": "temple",
+            "ref": "https://www.facebook.com/luerhmen/posts/2957303520984277",
+            "note": "正統鹿耳門聖母廟官方臉書：農曆四月初七為千順將軍聖誕"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "綠（青）面（主流；部分廟宇從《封神演義》版本作紅面）",
+      "手舉額前作遠視狀",
+      "持月眉斧（亦有記載持戟，各廟異）",
+      "立於媽祖左側（部分廟宇右側）"
+    ],
+    "system": "媽祖系統",
+    "groups": [
+      "媽祖部將",
+      "千順將軍"
+    ],
+    "summary": "千里眼又稱金精將軍，原為湄洲西北桃花山金水二精之一，能目視千里；媽祖二十三歲時以法術收伏，此後成為駕前護法，協助媽祖聞聲救苦。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《天妃顯聖錄》〈降伏二神〉，明代，ctext.org：https://ctext.org/wiki.pl?if=en&chapter=614954",
+        "note": "原文記媽祖二十三歲收伏「金水之精」順風耳、千里眼"
+      },
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?id=247134&indexCode=Culture_Place",
+        "note": "國家文化記憶庫：千里眼又稱金精將軍，立媽祖左側，手舉額前遠視"
+      },
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225876",
+        "note": "國家文化記憶庫文物：千里眼綠臉大眼、左手舉頭側、旁有鉞；引《天妃顯聖錄》"
+      },
+      {
+        "type": "temple",
+        "ref": "https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20240108026",
+        "note": "正統鹿耳門聖母廟：千里眼別稱金精，眼觀千里災難"
+      },
+      {
+        "type": "web",
+        "ref": "https://the.nmth.gov.tw/nmth/zh-tw/Item/Detail/7dc254f3-d4d3-4a64-95e3-dd36918ac485",
+        "note": "國立臺灣歷史博物館：青綠臉、能眼觀千里者為千里眼，桃花山妖精經媽祖收伏"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "shunfenger",
+    "name": "順風耳",
+    "aliases": [
+      "水精將軍",
+      "水精大將軍",
+      "高覺"
+    ],
+    "category": "海神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "耳聽四方",
+      "護駕媽祖",
+      "察聽世情",
+      "驅邪鎮惡"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "04-07",
+        "kind": "聖誕",
+        "note": "北港朝天宮莊儀團及部分廟宇所用日期，各廟不一，非全台統一。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "https://www.nownews.com/news/4059819",
+            "note": "NOW新聞：農曆4月7日為千順將軍聖誕；各廟日期不同"
+          },
+          {
+            "type": "temple",
+            "ref": "https://www.facebook.com/luerhmen/posts/2957303520984277",
+            "note": "正統鹿耳門聖母廟官方臉書：農曆四月初七為千順將軍聖誕"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "紅（硃）面（主流；部分廟宇版本不同）",
+      "手舉側耳作聽音狀",
+      "持月眉斧",
+      "頭上有角（廟宇各異）",
+      "立於媽祖右側（部分廟宇左側）"
+    ],
+    "system": "媽祖系統",
+    "groups": [
+      "媽祖部將",
+      "千順將軍"
+    ],
+    "summary": "順風耳又稱水精將軍，原為湄洲西北桃花山金水二精之一，能耳聽萬里；媽祖二十三歲時以法術收伏，此後成為駕前護法，聆察四方哀告，協助媽祖聞聲救苦。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《天妃顯聖錄》〈降伏二神〉，明代，ctext.org：https://ctext.org/wiki.pl?if=en&chapter=614954",
+        "note": "原文記媽祖收伏「金水之精」順風耳、千里眼"
+      },
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?id=247134&indexCode=Culture_Place",
+        "note": "國家文化記憶庫：順風耳又稱水精將軍，立媽祖右側，手舉耳側聽音"
+      },
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225876",
+        "note": "國家文化記憶庫文物：順風耳紅臉、持兵器；引《天妃顯聖錄》"
+      },
+      {
+        "type": "temple",
+        "ref": "https://luermen.org.tw/?act=menuinfo&ml_id=20231218027&cmd=detail&mi_id=20240108026",
+        "note": "正統鹿耳門聖母廟：順風耳別稱水精，耳聽四方哀告"
+      },
+      {
+        "type": "web",
+        "ref": "https://the.nmth.gov.tw/nmth/zh-tw/Item/Detail/7dc254f3-d4d3-4a64-95e3-dd36918ac485",
+        "note": "國立臺灣歷史博物館：硃紅臉、能耳聽八方者為順風耳，桃花山妖精經媽祖收伏"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "guanping",
+    "name": "關平",
+    "aliases": [
+      "關平太子",
+      "關平帝君",
+      "關聖太子",
+      "武靈侯",
+      "竭忠王"
+    ],
+    "category": "行業神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "關聖帝君隨侍從神（左側）",
+      "掌漢壽亭侯印信"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "05-13",
+        "kind": "聖誕",
+        "note": "源自清代《關帝志》「靈帝光和元年五月十三日生子關平」；部分廟宇（行天宮體系）另傳正月十三日，待查。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "慈德慈惠堂〈關平太子〉，https://www.gogo.org.tw/gods4.html",
+            "note": "記「光和元年(178)五月十三日生」"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈關平太子〉，https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139859",
+            "note": "記農曆五月十三日聖誕"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "白面（面如傅粉）、年輕俊俏武將形象",
+      "立於關聖帝君左側",
+      "手捧漢壽亭侯印信",
+      "著武將盔甲"
+    ],
+    "system": "關帝信仰",
+    "groups": [
+      "關帝從神",
+      "忠義神"
+    ],
+    "summary": "關平為蜀漢將領關羽長子，《三國志》僅載「斬羽及子平於臨沮」，史料極簡。關羽神格化後，關平成為廟宇左側脅侍、手捧印信，農曆五月十三日為聖誕，歷代有「武靈侯」等封號。《三國演義》改寫其為義子，屬文學傳統。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "陳壽《三國志》卷三十六〈蜀書·關羽傳〉：「斬羽及子平於臨沮」",
+        "note": "正史唯一明確提及關平之文字，僅記殉難"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈關平太子〉，https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139859",
+        "note": "造型（白臉捧印）、聖誕五月十三、配祀方式"
+      },
+      {
+        "type": "temple",
+        "ref": "臺灣祀典武廟〈關平太子〉，https://www.twsdwumiao.org.tw/?act=menuinfo&ml_id=20210514005&cmd=detail&mi_id=20210519006",
+        "note": "記關平為關羽長子、建安廿四年十二月初七臨沮殉難"
+      },
+      {
+        "type": "web",
+        "ref": "保庇網（NOWnews）〈關平身世大解謎〉，https://www.nownews.com/news/5623126",
+        "note": "考據親生子(正史)vs義子(演義)；聖誕農曆五月十三"
+      },
+      {
+        "type": "book",
+        "ref": "羅貫中《三國演義》第二十八回",
+        "note": "演義傳統：關平為義子，非親生（文學作品，與正史區分）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "zhoucang",
+    "name": "周倉",
+    "aliases": [
+      "周王公",
+      "周元帥",
+      "周將軍",
+      "威寧將軍",
+      "剛直忠勇天尊"
+    ],
+    "category": "行業神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "關聖帝君隨侍從神（右側）",
+      "守護青龍偃月刀",
+      "稽查善惡（道教誥封職司）"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "10-23",
+        "kind": "成道",
+        "note": "農曆十月廿三為周倉成道（自刎殉主）紀念日，新莊武聖廟等以此日千秋。聖誕另有六月十九／廿二／廿三諸說，因非正史人物無定，待查。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "新莊武聖廟〈周倉將軍聖誕千秋〉，https://242.tw/2024/01/17/",
+            "note": "確認農曆十月廿三舉行千秋慶典"
+          },
+          {
+            "type": "temple",
+            "ref": "行天宮體系〈關聖帝君從神傳略〉，https://www.ht.org.tw/religion145.htm",
+            "note": "記周倉相關紀念日"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "黑面（面黑如炭）、大眼長鬚",
+      "身披武將甲冑",
+      "左手持青龍偃月刀（代關公執）",
+      "立於關聖帝君右側",
+      "「不怒則威」"
+    ],
+    "system": "關帝信仰",
+    "groups": [
+      "關帝從神",
+      "忠義神"
+    ],
+    "summary": "周倉為關聖帝君右側脅侍，正史《三國志》無載，最早見於元代《全相平話三國志》及元雜劇《單刀會》，後經《三國演義》定型為黃巾軍出身、臥牛山歸降、自刎殉主的忠勇將領。台灣廟宇以農曆十月廿三為千秋，造型黑面長鬚、持青龍偃月刀。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "陳壽《三國志》卷三十六〈蜀書·關羽傳〉（正史）",
+        "note": "正史完全未記載周倉，確認其非史傳人物"
+      },
+      {
+        "type": "book",
+        "ref": "元至治年間《全相平話三國志》",
+        "note": "現存最早出現周倉之文獻，屬通俗文學"
+      },
+      {
+        "type": "book",
+        "ref": "羅貫中《三國演義》（明嘉靖本）",
+        "note": "小說傳統中周倉形象定本（文學作品，非史傳）"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈周倉將軍〉，https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139860",
+        "note": "造型（黑面大眼有鬚、持青龍偃月刀）、自刎殉主典故"
+      },
+      {
+        "type": "temple",
+        "ref": "新莊武聖廟〈周倉將軍聖誕千秋〉，https://242.tw/2024/01/17/",
+        "note": "以周倉為主神之廟，農曆十月廿三千秋"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wenwang_qiansui",
+    "name": "溫府千歲",
+    "aliases": [
+      "溫王爺",
+      "溫千歲",
+      "代天巡狩溫府千歲",
+      "東港王爺"
+    ],
+    "category": "自然神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "代天巡狩",
+      "驅瘟除疫",
+      "保境安民",
+      "海上護航"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "11-01",
+        "kind": "聖誕",
+        "note": "東港東隆宮官網公告聖誕千秋為農曆十一月初一，信眾稱「東港人耶誕節」。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "東港東隆宮官網〈恭祝溫府千歲聖誕千秋〉，https://www.66.org.tw/m1_file/detail.php?id=1&mid=2&category=x&nid=31",
+            "note": "公告農曆11/1為聖誕日"
+          },
+          {
+            "type": "web",
+            "ref": "自由時報〈東港東隆宮溫府千歲聖誕…〉，https://news.ltn.com.tw/news/life/breakingnews/5287899",
+            "note": "報導確認農曆十一月初一為聖誕"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "王爺形制：頭戴王冠、身著龍袍或官服、端坐龍椅（一般王爺通例）",
+      "神像膚色與持物各廟不一，待查一手文獻"
+    ],
+    "system": "王爺（千歲）信仰",
+    "groups": [
+      "王爺信仰",
+      "瘟神信仰",
+      "迎王文化",
+      "送王船習俗"
+    ],
+    "summary": "溫府千歲為臺灣王爺信仰重要神祇，主祀廟為屏東東港東隆宮（1706年創建）。身世以「三十六進士說」最廣傳：相傳原名溫鴻，與三十六結義兄弟奉命巡行天下時罹難海上，朝廷追封「代天巡狩」；學界另有瘟神說、厲鬼說等諸說並存。東港迎王平安祭典（三年一科）2010年登錄國定重要民俗。",
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）〈東港迎王平安祭典〉，https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85",
+        "note": "2010/6/18登錄重要民俗，主辦東隆宮，主祀溫府千歲"
+      },
+      {
+        "type": "temple",
+        "ref": "財團法人屏東縣東港東隆宮官網，https://www.66.org.tw",
+        "note": "聖誕公告、甲辰正科祭典日期"
+      },
+      {
+        "type": "other",
+        "ref": "國家文化記憶庫〈東港東隆宮溫府千歲神蹟〉口述影片，建檔：國立臺南生活美學館，2020，https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Media&id=568268",
+        "note": "臺語口述，CC BY-NC 3.0 TW+"
+      },
+      {
+        "type": "web",
+        "ref": "新豐池和宮〈臺灣王爺信仰溯源〉，https://chrhe.org.tw/王爺信仰/臺灣王爺信仰溯源/",
+        "note": "整理鄭氏說、瘟神說、英靈說等諸說"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "shier_wenwang",
+    "name": "十二瘟王",
+    "aliases": [
+      "五年千歲",
+      "五年王爺",
+      "代天巡狩十二行瘟王",
+      "十二行瘟王",
+      "十二千歲"
+    ],
+    "category": "自然神信仰",
+    "is_category": true,
+    "instances": [],
+    "office": [
+      "代天巡狩",
+      "行瘟與解瘟",
+      "輪值歲時巡按",
+      "驅瘟除疫"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "無定",
+        "kind": "其他",
+        "note": "十二瘟王依十二地支輪值，無統一聖誕；各廟依值年千歲於寅、午、戌年作醮（每十二年三度）。十二姓名（蘇厝系統）：張全、余文、侯彪、耿通、吳友、何仲、薛溫、封立、趙玉、譚起、盧德、羅士友。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "維基百科〈五年千歲〉，https://zh.wikipedia.org/zh-tw/五年千歲",
+            "note": "作醮週期；馬鳴山/蘇厝系統十二王爺名號"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "一般以武將形制、頭戴冠帽、身著官服、端坐神位（王爺通例）",
+      "各廟系統神像不一，待查統一圖像"
+    ],
+    "system": "王爺（千歲）信仰／五年千歲信仰",
+    "groups": [
+      "王爺信仰",
+      "瘟神信仰",
+      "五年千歲信仰",
+      "送王船習俗",
+      "代天巡狩"
+    ],
+    "summary": "十二瘟王又稱五年千歲或代天巡狩十二行瘟王，為依十二地支輪值的一組瘟神信仰，原為施瘟之神、後演為驅瘟保境神祇。供奉廟宇於寅、午、戌年舉辦王醮，因相隔約五年故稱「五年千歲」。文獻溯源至康熙十八年（1679）漂入台江、載十二府千歲姓氏令旗的王船。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈五年千歲〉，https://zh.wikipedia.org/zh-tw/五年千歲",
+        "note": "馬鳴山、蘇厝等系統傳承脈絡及十二王爺名號"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈十二瘟王〉，https://tcmb.culture.tw/zh-tw/detail?id=672600&indexCode=Culture_Object",
+        "note": "十二位輪值瘟王地支對應與名諱"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈王爺千歲信仰〉，https://zh.wikipedia.org/zh-tw/王爺千歲信仰",
+        "note": "王爺信仰類型，含十二瘟王型（五年千歲）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "zhao_gongming",
+    "name": "趙公明",
+    "aliases": [
+      "玄壇真君",
+      "玄壇元帥",
+      "武財神",
+      "中路武財神",
+      "正一玄壇元帥",
+      "趙玄壇",
+      "趙公元帥",
+      "黑虎將軍",
+      "武財公"
+    ],
+    "category": "行業神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "掌管財源、錢銀交易",
+      "主持公道",
+      "除瘟禳災",
+      "五路財神之中路主帥",
+      "銀錢業守護神（清代）"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "03-15",
+        "kind": "聖誕",
+        "note": "農曆三月十五為台灣廟宇及民間曆書主流記載（中路財神趙元帥聖誕）。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "聯合新聞網，https://udn.com/news/story/7268/8654651",
+            "note": "以農曆三月十五報導武財神趙公明誕辰"
+          },
+          {
+            "type": "web",
+            "ref": "神明聖誕千秋日一覽表，https://www.ezgold.tw/blog/godgold9",
+            "note": "列「三月十五：中路財神趙元帥聖誕」（曆書彙整層級）"
+          }
+        ]
+      },
+      {
+        "date": "01-02",
+        "kind": "聖誕",
+        "note": "正月初二說：清朝部分地方傳統（炸玄壇迎神），與三月十五說並存，流傳較少。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "維基百科〈玄壇真君〉，https://zh.wikipedia.org/zh-tw/玄壇真君",
+            "note": "清朝民間以三月十五為誕辰，亦有地方以正月初二"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "面龐黝黑、濃眉大眼、長髯垂胸",
+      "頭戴鐵幞頭",
+      "身披金甲皁袍、腰繫虎皮裙",
+      "右手執鐵鞭（九節金鞭）",
+      "左手持金元寶或金輪",
+      "跨騎黑虎"
+    ],
+    "system": "道教正一派",
+    "groups": [
+      "五路財神",
+      "武財神"
+    ],
+    "summary": "趙公明，道教玄壇真君，原為護法神與瘟神，元明之後因《三教源流搜神大全》及《封神演義》影響轉型為中路武財神，統領四路財神。神像黑面騎黑虎、手持鐵鞭，農曆三月十五為主流聖誕，台灣以北港武德宮最具代表性。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "干寶《搜神記》卷五（東晉）",
+        "note": "最早文獻記趙公明，屬瘟鬼形象"
+      },
+      {
+        "type": "book",
+        "ref": "《三教源流搜神大全》（元末明初）卷三、卷四",
+        "note": "記趙公明封玄壇元帥、為五瘟之一，並記「買賣求財…無不如意」奠財神神格"
+      },
+      {
+        "type": "book",
+        "ref": "《封神演義》（明）第九十九回",
+        "note": "封「金龍如意正一龍虎玄壇真君」，率四部財神，確立武財神主帥地位"
+      },
+      {
+        "type": "temple",
+        "ref": "北港武德宮官網，https://www.wude.org.tw",
+        "note": "全台第一座五路財神廟（1980落成），主祀玄壇真君趙公明"
+      },
+      {
+        "type": "web",
+        "ref": "道教文化中心資料庫〈趙公明〉，https://zh.daoinfo.org",
+        "note": "神格演變：瘟鬼→護法→財神之學術性彙整"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "zhuyi_shenjun",
+    "name": "朱衣神君",
+    "aliases": [
+      "朱衣星君",
+      "朱衣夫子",
+      "朱衣帝君",
+      "朱衣聖君",
+      "朱聖夫子",
+      "朱衣神",
+      "朱衣使者"
+    ],
+    "category": "行業神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "掌管文運、科舉應試",
+      "細辨文章優劣",
+      "五文昌之一"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "09-15",
+        "kind": "聖誕",
+        "note": "農曆九月十五（「朱聖夫子」為朱衣神君別稱）。來源屬民俗曆書與廟方層級，尚未見早期一手史料載此日期。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "台中市文昌公廟，https://www.wcgt.org/web/pages/page.php?sid=3",
+            "note": "列朱衣星君農曆九月十五聖誕"
+          },
+          {
+            "type": "web",
+            "ref": "神明聖誕千秋日一覽表，https://www.ezgold.tw/blog/godgold9",
+            "note": "列「九月十五：朱聖夫子聖誕」（曆書彙整層級）"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "著朱衣（朱紅色官服）",
+      "能細辨文章優劣、點頭示意（「朱衣點頭」典故）",
+      "神像造型各廟不一，待查標準圖像誌"
+    ],
+    "system": "道教",
+    "groups": [
+      "五文昌"
+    ],
+    "summary": "朱衣神君為道教五文昌之一，著朱紅官服。傳說宋代歐陽修主考時覺朱衣人於身後點頭示意佳作，留下「文章自古無憑據，惟願朱衣暗點頭」名句。主掌文運科舉，台灣文昌廟多附祀。",
+    "sources": [
+      {
+        "type": "book",
+        "ref": "趙令畤《侯鯖錄》（宋，約1100）",
+        "note": "朱衣神信仰最早可考文獻；記歐陽修主考見朱衣人點頭：「坐後嘗覺一朱衣人時復點頭」"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈五文昌〉，https://zh.wikipedia.org/zh-tw/五文昌",
+        "note": "五文昌組成：文昌帝君、魁斗星君、朱衣神君、文衡聖帝、孚佑帝君"
+      },
+      {
+        "type": "temple",
+        "ref": "台北市文昌宮〈神明列傳〉，https://www.wenchang.org.tw/zhuyihe.html",
+        "note": "別名朱衣聖君/朱衣帝君、職司、歐陽修典故"
+      },
+      {
+        "type": "temple",
+        "ref": "祀典大天后宮〈五文昌介紹〉，https://www.gtainanmazu.org.tw",
+        "note": "朱衣帝君為五文昌之一，掌科舉文章評定"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "miaoying_xianfei",
+    "name": "妙應仙妃",
+    "aliases": [
+      "聖王媽",
+      "尊王夫人",
+      "大鎮懿德妙應仙妃",
+      "懿德夫人"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "廣澤尊王配偶",
+      "廣澤尊王信仰體系女神"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "01-23",
+        "kind": "聖誕",
+        "note": "農曆正月廿三（出生日）。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "保庇網（NOWnews），https://www.nownews.com/news/5626541",
+            "note": "妙應仙妃聖誕農曆正月廿三，生於五代後晉開運甲辰年（944）"
+          }
+        ]
+      },
+      {
+        "date": "05-23",
+        "kind": "成道",
+        "note": "農曆五月廿三，入廟坐化，兼與廣澤尊王結婚紀念日。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "保庇網（NOWnews），https://www.nownews.com/news/5626541",
+            "note": "農曆五月廿三為得道升天日暨與郭聖王結婚紀念日"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "端莊女神相",
+      "鳳冠霞帔",
+      "與廣澤尊王並祀"
+    ],
+    "system": "廣澤尊王信仰",
+    "groups": [],
+    "summary": "妙應仙妃為廣澤尊王（五代閩南人郭忠福，又稱保安廣澤尊王）的配偶，本名陳依娘（另一版本作黃氏），號懿德，生於五代後晉開運甲辰年（944）正月廿三。廣澤尊王蛻化後她入鳳山寺坐化，鄉民塑像配祀，宋朝受封「妙應仙妃」（原敕書已佚）。台灣廣澤尊王廟普遍配祀，雲林土庫鳳山寺有獨立主祀。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈廣澤尊王〉，https://zh.wikipedia.org/zh-hant/廣澤尊王",
+        "note": "妙應仙妃身分、宋封、敕書已佚、號懿德"
+      },
+      {
+        "type": "web",
+        "ref": "保庇網（NOWnews），https://www.nownews.com/news/5626541",
+        "note": "本名陳依娘、聖誕正月廿三、成道五月廿三"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "shancai_longnv",
+    "name": "善財龍女",
+    "aliases": [
+      "善財童子",
+      "龍女",
+      "金童玉女",
+      "善財童子與龍女"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "觀世音菩薩脅侍（善財童子居左、龍女居右）"
+    ],
+    "birthday_lunar": [],
+    "iconography": [
+      "觀音像左右並列之童男童女（金童玉女）",
+      "善財合掌童子相",
+      "龍女多作捧珠或捧淨瓶相"
+    ],
+    "system": "觀音信仰",
+    "groups": [
+      "觀世音菩薩"
+    ],
+    "summary": "善財童子出自《華嚴經·入法界品》，於文殊指導下參訪五十三位善知識（含向觀音請法）；龍女出自《法華經》，為娑竭羅龍王之女，八歲獻珠即身成佛。佛教經典本無觀音脅侍之明文，民間造像以二者並列為觀音左右脅侍，此並列形象多被指為明代《南海觀音全傳》等寶卷文學流傳所致，屬後出宗教創作而非早期經典記載（諸說並陳）。各權威來源均未載其聖誕日期。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈善財童子〉 https://zh.wikipedia.org/zh-hant/善財童子",
+        "note": "善財出處（華嚴經·五十三參）、作為觀音脅侍、與龍女合稱金童玉女"
+      },
+      {
+        "type": "temple",
+        "ref": "法鼓山〈觀音菩薩身旁為何有善財童子與龍女？〉 https://www.ddm.org.tw/xmnews/cont?xsmsid=0K297379120077217595&sid=0P163485941654670714",
+        "note": "善財出《華嚴經》、龍女出《法華經》；並列源自明代《南海觀音全傳》寶卷文學，屬後出創作"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "haoxiongdi",
+    "name": "好兄弟",
+    "aliases": [
+      "孤魂野鬼",
+      "無主孤魂",
+      "孤幽",
+      "孤魂滯魄",
+      "老大公",
+      "開基老大公"
+    ],
+    "category": "開拓神信仰",
+    "is_category": true,
+    "instances": [],
+    "office": [],
+    "birthday_lunar": [],
+    "iconography": [],
+    "system": "中元普渡",
+    "groups": [
+      "中元",
+      "普渡",
+      "盂蘭盆"
+    ],
+    "summary": "「好兄弟」是台灣民間對無主孤魂（孤魂野鬼、孤幽滯魄）的敬稱，並非特定神明，而是中元普渡的賑濟對象。相傳農曆七月地官開鬼門，孤魂返陽受饗，民間舉行普渡（普施、施食）召請並賑濟之，求人鬼均安。此俗融合三教：儒稱祭厲、道稱慶讚中元、佛稱盂蘭盆會。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "台灣民俗網〈鬼月不可不知道的事：中元普度的由來與禁忌〉 https://www.taiwanfolk.com/blog/detail/71",
+        "note": "好兄弟為無後人之孤魂野鬼；七月地官開鬼門、孤魂返陽；普渡為宴請無主遊魂、佈施不求回報"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "zushen",
+    "name": "祖神",
+    "aliases": [
+      "祖靈",
+      "祖先之靈",
+      "公媽",
+      "歷代祖先"
+    ],
+    "category": "族群神信仰",
+    "is_category": true,
+    "instances": [],
+    "office": [
+      "受子孫祭祀、庇佑後代"
+    ],
+    "birthday_lunar": [],
+    "iconography": [
+      "神主牌位／公媽牌（非人形造像）"
+    ],
+    "system": "祖先崇拜",
+    "groups": [
+      "祭祖",
+      "清明",
+      "祠堂"
+    ],
+    "summary": "祖神（祖靈）指家族歷代祖先之靈，是祖先崇拜（祖靈信仰）的祭祀對象，非單一神明。民間相信祖先仍存於後人並能庇佑（或降禍）子孫，故立神主牌位、設祠堂奉祀，於年節、清明、忌日行家祭、墓祭、祠祭；儒家思想中體現「孝」與「慎終追遠」。台灣閩、客族群祭祖方式各有差異（諸說並陳）。",
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈祖先崇拜〉 https://zh.wikipedia.org/zh-tw/祖先崇拜",
+        "note": "祖靈信仰定義、祖先能庇佑或降禍、慎終追遠與孝、牌位/祠堂、家祭墓祭祠祭、閩客差異"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "dizang",
+    "name": "地藏王菩薩",
+    "aliases": [
+      "地藏菩薩",
+      "地藏王",
+      "幽冥教主"
+    ],
+    "category": "開拓神信仰",
+    "is_category": false,
+    "instances": [],
+    "office": [
+      "冥界救度（「地獄不空，誓不成佛」之願）",
+      "無佛之世教化六道眾生",
+      "民間信仰視為地府主宰、統轄十殿閻王"
+    ],
+    "birthday_lunar": [
+      {
+        "date": "07-30",
+        "kind": "聖誕",
+        "note": "農曆七月三十（民間以鬼門關閉之日）為地藏王菩薩誕辰。",
+        "sources": [
+          {
+            "type": "web",
+            "ref": "維基百科〈新莊地藏庵〉 https://zh.wikipedia.org/zh-tw/新莊地藏庵",
+            "note": "「農曆七月三十，鬼門關閉之日為地藏王菩薩誕辰」"
+          }
+        ]
+      }
+    ],
+    "iconography": [
+      "僧侶形（沙門形・光頭僧相）",
+      "右手持錫杖（傳能振開地獄之門）",
+      "左手持寶珠（摩尼珠）",
+      "坐騎諦聽（善聽）"
+    ],
+    "system": "佛教",
+    "groups": [
+      "佛教冥界信仰",
+      "中元普渡"
+    ],
+    "summary": "地藏王菩薩為佛教四大菩薩之一，以「地獄不空，誓不成佛；眾生度盡，方證菩提」之大願著稱，於釋迦滅度至彌勒成佛間之無佛階段教化六道、救度地獄眾生。漢地民間信仰奉為冥界主宰、稱「幽冥教主」，統轄十殿閻王（另有與道教「酆都大帝」混同之說，然二者分屬佛、道系統，宜並陳不混為一神）。造型多作僧形、持錫杖與寶珠、坐騎諦聽，與中元普渡、亡魂救度信仰關係密切，為新莊地藏庵等大眾爺／陰廟系統之主祀。",
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈地藏王菩薩〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879",
+        "note": "別稱幽冥教主、職掌統轄十殿閻羅王、造型右手錫杖左手寶珠坐騎諦聽（文化部典藏）"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈地藏菩薩〉 https://zh.wikipedia.org/zh-tw/地藏菩薩",
+        "note": "別稱與梵名、無佛之世教化六道之職司、沙門形造型"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈新莊地藏庵〉 https://zh.wikipedia.org/zh-tw/新莊地藏庵",
+        "note": "地藏誕辰農曆七月三十、為大眾爺廟主祀"
       }
     ],
     "draft": false

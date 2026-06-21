@@ -64,7 +64,7 @@
     "id": "donggang_dongling",
     "name": "東港東隆宮",
     "main_deity_raw": "溫府千歲",
-    "main_deity_ref": "",
+    "main_deity_ref": "wenwang_qiansui",
     "district": "屏東縣東港鎮",
     "sources": [
       {
@@ -102,7 +102,7 @@
     "id": "jilong_zhuputan",
     "name": "基隆主普壇",
     "main_deity_raw": "好兄弟（普渡共祀）",
-    "main_deity_ref": "",
+    "main_deity_ref": "haoxiongdi",
     "district": "基隆市中正區",
     "sources": [
       {
@@ -374,7 +374,7 @@
     "id": "beigang_wude",
     "name": "北港武德宮",
     "main_deity_raw": "武財神（趙公明）",
-    "main_deity_ref": "",
+    "main_deity_ref": "zhao_gongming",
     "district": "雲林縣北港鎮",
     "sources": [
       {
@@ -450,7 +450,7 @@
     "id": "jilong_laodagong",
     "name": "基隆老大公廟",
     "main_deity_raw": "好兄弟（陰靈群祀）",
-    "main_deity_ref": "",
+    "main_deity_ref": "haoxiongdi",
     "district": "基隆市安樂區",
     "sources": [
       {
@@ -469,7 +469,7 @@
     "id": "xinzhuang_dizhong_mazu",
     "name": "新莊地藏庵（地藏王廟）",
     "main_deity_raw": "地藏王菩薩",
-    "main_deity_ref": "",
+    "main_deity_ref": "dizang",
     "district": "新北市新莊區",
     "sources": [
       {
