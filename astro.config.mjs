@@ -9,8 +9,7 @@ export default defineConfig({
   site: 'https://folk.tw',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
-  // 農民曆日期頁為「以今日為中心 ±1 年」之滾動視窗：每日 cron 推進，尾端日期會掉出視窗變 404。
-  // 故排除出 sitemap、並於頁面標 noindex（見 [date].astro），避免 GSC「已提交但 404」與薄內容稀釋；
-  // 今日 /almanac 仍正常索引（穩定網址＋每日新鮮內容）。使用者仍可自由翻閱日期頁（noindex 不影響 UX）。
-  integrations: [sitemap({ filter: (page) => !/\/almanac\/\d{4}-\d{2}-\d{2}\/?$/.test(page) })],
+  // 農民曆日期頁為「固定過去錨點＋向前展望」之穩定封存（見 src/lib/almanac/dates.ts）：
+  // 集合單調成長、永不移除，故任何網址永不 404，可安全全數列入 sitemap、被搜尋引擎索引。
+  integrations: [sitemap()],
 });

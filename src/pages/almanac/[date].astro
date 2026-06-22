@@ -16,8 +16,7 @@ const { today } = Astro.props as { today: string };
 
 <Base
   title={`農民曆 · ${date}`}
-  description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕。`}
-  noindex
+  description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞、七十二候與神明聖誕。`}
 >
   <AlmanacDay iso={date!} today={today} />
 </Base>
