@@ -6,9 +6,21 @@
 // 「進階層」宜忌/神煞/黃黑道/胎神仍須《協紀辨方書》考據化（C.6），不由本 provider 提供。
 
 import { Solar } from 'lunar-javascript';
-import { jdnToGregorian } from './jdn';
+import { jdnToGregorian, gregorianToJDN } from './jdn';
 import { BRANCHES } from './ganzhi';
 import type { AstronomicalProvider, GanZhi } from './index';
+
+// lunar-javascript 之節氣／節日名回簡體；本站為繁體（zh-Hant-TW），逐一正規化。
+// 二十四節氣僅 5 個簡繁有別，其餘同形。
+const TERM_TRAD: Record<string, string> = { 惊蛰: '驚蟄', 谷雨: '穀雨', 小满: '小滿', 芒种: '芒種', 处暑: '處暑' };
+const tt = (n: string) => TERM_TRAD[n] ?? n;
+// 農曆節日名簡→繁（lunar-javascript getFestivals 回簡體）。
+const FEST_TRAD: Record<string, string> = {
+  春节: '春節', 元宵节: '元宵節', 龙头节: '龍頭節', 上巳节: '上巳節', 寒食节: '寒食節',
+  端午节: '端午節', 七夕: '七夕', 中元节: '中元節', 中秋节: '中秋節', 重阳节: '重陽節',
+  寒衣节: '寒衣節', 下元节: '下元節', 腊八节: '臘八節', 除夕: '除夕', 清明节: '清明節',
+};
+const ft = (n: string) => FEST_TRAD[n] ?? n;
 
 function lunarOf(jdn: number) {
   const { year, month, day } = jdnToGregorian(jdn);
@@ -27,6 +39,10 @@ export interface LunarAstronomicalProvider extends AstronomicalProvider {
   festivals(jdn: number): string[];
   /** 建除十二神（含交節重值，C.2 S5）。回繁體。 */
   zhiXing(jdn: number): string;
+  /** 七十二候：當前節氣（繁體）與候序（0 初候/1 次候/2 末候）。 */
+  houInfo(jdn: number): { term: string; index: number } | null;
+  /** 節氣倒數：距上一節氣已過、距下一節氣尚餘日數（皆繁體名）。 */
+  termCountdown(jdn: number): { prevName: string; sinceDays: number; nextName: string; untilDays: number } | null;
 }
 
 // lunar-javascript 之建除回簡體，正規化為繁體（滿/執/開/閉）
@@ -49,9 +65,38 @@ export const lunarProvider: LunarAstronomicalProvider = {
   solarTerm(jdn) {
     const l = lunarOf(jdn);
     const today = l.getJieQi(); // 當日恰為節氣則回名稱，否則 ''
-    if (today) return { name: today, isTransitionDay: true };
+    if (today) return { name: tt(today), isTransitionDay: true };
     const prev = l.getPrevJieQi(true); // 含當前所在節氣區間
-    return { name: prev ? prev.getName() : '', isTransitionDay: false };
+    return { name: prev ? tt(prev.getName()) : '', isTransitionDay: false };
+  },
+
+  // 七十二候：回當前節氣與候序（0 初候 / 1 次候 / 2 末候）。物候文字由呼叫端 join 古籍表。
+  // 候序由「距當前節氣起算日數」定（每候約五日：0–4 初、5–9 次、≥10 末），不依賴
+  // lunar-javascript getHou 之標籤（其用 初/二/三候，且 bundled 型別未涵蓋）。
+  houInfo(jdn) {
+    type JQ = { getName(): string; getSolar(): { getYear(): number; getMonth(): number; getDay(): number } };
+    const prev = (lunarOf(jdn) as unknown as { getPrevJieQi(b: boolean): JQ }).getPrevJieQi(true);
+    if (!prev) return null;
+    const ps = prev.getSolar();
+    const since = jdn - gregorianToJDN(ps.getYear(), ps.getMonth(), ps.getDay());
+    return { term: tt(prev.getName()), index: Math.min(2, Math.max(0, Math.floor(since / 5))) };
+  },
+
+  // 節氣倒數：距上一節氣已過日數、距下一節氣尚餘日數（皆繁體名）。
+  termCountdown(jdn) {
+    type JQ = { getName(): string; getSolar(): { getYear(): number; getMonth(): number; getDay(): number } };
+    const l = lunarOf(jdn) as unknown as { getPrevJieQi(b: boolean): JQ; getNextJieQi(b: boolean): JQ };
+    const prev = l.getPrevJieQi(true);
+    const next = l.getNextJieQi(true);
+    if (!prev || !next) return null;
+    const ps = prev.getSolar();
+    const ns = next.getSolar();
+    return {
+      prevName: tt(prev.getName()),
+      sinceDays: jdn - gregorianToJDN(ps.getYear(), ps.getMonth(), ps.getDay()),
+      nextName: tt(next.getName()),
+      untilDays: gregorianToJDN(ns.getYear(), ns.getMonth(), ns.getDay()) - jdn,
+    };
   },
 
   yearPillar(jdn) {
@@ -72,8 +117,8 @@ export const lunarProvider: LunarAstronomicalProvider = {
 
   festivals(jdn) {
     const l = lunarOf(jdn);
-    const out = [...l.getFestivals()]; // 農曆節（春節/端午/中秋…）
-    const jq = l.getJieQi();
+    const out = l.getFestivals().map(ft); // 農曆節（春節/端午/中秋…），簡→繁
+    const jq = tt(l.getJieQi());
     if (jq && ['清明', '冬至'].includes(jq)) out.push(jq); // 兼具節日意義之節氣
     return out;
   },

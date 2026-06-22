@@ -16,11 +16,30 @@ import { huangHeiDao } from './huanghei';
 import { resolveAffair } from './resolve';
 import affairsData from './rules/affairs.json';
 import taishenData from './rules/taishen.json';
+import wuhouData from './rules/wuhou.json';
+import pengzuData from './rules/pengzu.json';
+import nayinData from './rules/nayin.json';
 import type { DayRecord, GanZhi, Sourced, DayVerdict } from './types';
 
 const AFFAIRS = (affairsData as { affairs: { id: string; name: string }[] }).affairs;
 const AFFAIR_NAME = new Map(AFFAIRS.map((a) => [a.id, a.name]));
 const TAISHEN = (taishenData as { taishen: { ganzhi: string; fang: string; sources?: string[]; verified?: boolean }[] }).taishen;
+// C 豐化古籍表（決定性、掛源）
+const WUHOU = wuhouData as { terms: Record<string, string[]>; houLabels: string[]; _source: string };
+const PENGZU = pengzuData as { gan: Record<string, string>; zhi: Record<string, string>; _source: string };
+const NAYIN = nayinData as { map: Record<string, string>; _source: string };
+
+/** 月相（依農曆日近似；真月相依定朔時刻，此處以民俗常用之農曆日對應） */
+function moonPhaseOf(day: number): string {
+  if (day === 1) return '朔（新月）';
+  if (day <= 6) return '蛾眉月';
+  if (day <= 8) return '上弦月';
+  if (day <= 13) return '盈凸月';
+  if (day <= 16) return '望（滿月）';
+  if (day <= 21) return '虧凸月';
+  if (day <= 23) return '下弦月';
+  return '殘月';
+}
 
 export * from './types';
 export { gregorianToJDN, jdnToGregorian } from './jdn';
@@ -41,6 +60,10 @@ export interface AstronomicalProvider {
   festivals?(jdn: number): string[];
   /** 建除十二神（含交節重值，C.2 S5）；可選——優先於本站公式 */
   zhiXing?(jdn: number): string;
+  /** 七十二候：當前節氣（繁體）與候序 index（C 豐化）；可選 */
+  houInfo?(jdn: number): { term: string; index: number } | null;
+  /** 節氣倒數：距上一/下一節氣日數；可選 */
+  termCountdown?(jdn: number): { prevName: string; sinceDays: number; nextName: string; untilDays: number } | null;
 }
 
 export interface ComputeOptions {
@@ -130,6 +153,30 @@ export function computeDayRecord(
     }
   }
 
+  // ── C 豐化：彭祖百忌 / 納音（僅依日干支，恆可得）；七十二候 / 月相 / 節氣倒數（依天文 provider） ──
+  const pgGan = PENGZU.gan[day干.stem];
+  const pgZhi = PENGZU.zhi[day干.branch];
+  const pengZu: Sourced<{ gan: string; zhi: string } | null> =
+    pgGan && pgZhi ? sourced({ gan: pgGan, zhi: pgZhi }, true, [PENGZU._source]) : sourced(null, false);
+  const nyVal = NAYIN.map[`${day干.stem}${day干.branch}`] ?? null;
+  const naYin: Sourced<string | null> = sourced(nyVal, !!nyVal, nyVal ? [NAYIN._source] : []);
+
+  let wuHou: Sourced<{ term: string; hou: string; phenology: string } | null> = sourced(null, false);
+  let termCountdown: DayRecord['termCountdown'] = null;
+  let moonPhase: string | null = null;
+  if (connected) {
+    const hi = astro?.houInfo?.(jdn);
+    if (hi && WUHOU.terms[hi.term]?.[hi.index] != null) {
+      wuHou = sourced(
+        { term: hi.term, hou: WUHOU.houLabels[hi.index], phenology: WUHOU.terms[hi.term][hi.index] },
+        true,
+        [WUHOU._source],
+      );
+    }
+    termCountdown = astro?.termCountdown?.(jdn) ?? null;
+    if (lunarVal) moonPhase = moonPhaseOf(lunarVal.day);
+  }
+
   const record: DayRecord = {
     solar,
     jdn,
@@ -149,6 +196,12 @@ export function computeDayRecord(
     huangHeiDao: huangHei,
     yi,
     ji,
+    // C 豐化（決定性、掛源）
+    wuHou,
+    pengZu,
+    naYin,
+    moonPhase,
+    termCountdown,
     chongSha: day干
       ? sourced(
           { zodiac: chongZodiac(day干.branch), direction: shaDir ?? '—' },

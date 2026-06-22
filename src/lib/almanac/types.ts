@@ -69,6 +69,17 @@ export interface DayRecord {
   /** 吉時（C.2 S10，需真太陽時） */
   jiShi: Sourced<string[]>;
 
+  /** 七十二候：節氣物候（《月令七十二候集解》，C 豐化） */
+  wuHou: Sourced<{ term: string; hou: string; phenology: string } | null>;
+  /** 彭祖百忌：日干支民俗口訣（諸說並陳，非指示語） */
+  pengZu: Sourced<{ gan: string; zhi: string } | null>;
+  /** 六十甲子納音五行（依日干支，《三命通會》） */
+  naYin: Sourced<string | null>;
+  /** 月相（依農曆日近似：朔/上弦/望/下弦…） */
+  moonPhase: string | null;
+  /** 節氣倒數：距上一/下一節氣日數 */
+  termCountdown: { prevName: string; sinceDays: number; nextName: string; untilDays: number } | null;
+
   /** 節日（固定農曆節 + 節氣節） */
   festivals: string[];
   /** 神明聖誕[]：join Deity.birthday_lunar，用具名實例（C.3 / B.3-1） */
