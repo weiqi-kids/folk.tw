@@ -3,7 +3,17 @@
 // 用法：node scripts/weekly-data.mjs   （或 pnpm data:weekly）
 // 需求：服務帳號金鑰（見 scripts/lib/google-data.mjs 註解）、GA4_PROPERTY_ID、GSC 已加服務帳號為使用者。
 
-import { ga4RunReport, gscQuery, loadConfig } from './lib/google-data.mjs';
+import { ga4RunReport, gscQuery, inspectUrl, sitemapsList, loadConfig } from './lib/google-data.mjs';
+
+// 固定追蹤清單（供週對照索引覆蓋進度）：首頁、今日中樞、封存索引、代表日期頁、神明、籤詩。
+const TRACK_URLS = [
+  'https://folk.tw/',
+  'https://folk.tw/almanac',
+  'https://folk.tw/almanac/archive',
+  'https://folk.tw/almanac/2026-02-17/',
+  'https://folk.tw/deities/mazu/',
+  'https://folk.tw/poems',
+];
 
 const pad = (n) => String(n).padStart(2, '0');
 const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -55,6 +65,25 @@ async function gscSection() {
   return s;
 }
 
+async function indexSection() {
+  let s = `## GSC 索引覆蓋抽查\n\n`;
+  const sms = await sitemapsList(gscSiteUrl);
+  s += `**Sitemap**：` +
+    (sms
+      .map((x) => `\`${x.path.split('/').pop()}\` 提交 ${(x.contents ?? []).map((c) => c.submitted).join('/') || '—'}、錯誤 ${x.errors || 0}、警告 ${x.warnings || 0}`)
+      .join('；') || '—') + `\n\n`;
+  s += `**代表頁覆蓋狀態**（供週對照 Google 爬取進度）\n\n`;
+  for (const u of TRACK_URLS) {
+    try {
+      const r = await inspectUrl(gscSiteUrl, u);
+      s += `- ${u} — **${r.coverageState ?? '—'}**（上次抓取 ${r.lastCrawlTime ?? '未抓取'}）\n`;
+    } catch (e) {
+      s += `- ${u} — ⚠️ ${e.message}\n`;
+    }
+  }
+  return s;
+}
+
 async function main() {
   const today = ymd(new Date());
   let out = `# folk.tw 週報 · ${today}\n\n`;
@@ -62,6 +91,8 @@ async function main() {
   catch (e) { out += `## GA4 流量\n\n⚠️ 讀取失敗：${e.message}\n（確認 GA4_PROPERTY_ID 與服務帳號已加為 GA4 資源檢視者）\n\n`; }
   try { out += (await gscSection()) + '\n'; }
   catch (e) { out += `## GSC 搜尋\n\n⚠️ 讀取失敗：${e.message}\n（確認服務帳號已加為 GSC 使用者、API 已啟用）\n\n`; }
+  try { out += (await indexSection()) + '\n'; }
+  catch (e) { out += `## GSC 索引覆蓋抽查\n\n⚠️ 讀取失敗：${e.message}\n（URL Inspection API 需服務帳號為資源擁有者）\n\n`; }
   console.log(out);
 }
 

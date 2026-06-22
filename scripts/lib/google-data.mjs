@@ -109,3 +109,28 @@ export async function gscQuery(siteUrl, body) {
   if (!res.ok) throw new Error(`GSC API：${data.error?.message || res.status}`);
   return data;
 }
+
+/** Search Console URL Inspection（唯讀）：回單一網址之索引狀態 indexStatusResult */
+export async function inspectUrl(siteUrl, inspectionUrl) {
+  const token = await getAccessToken('https://www.googleapis.com/auth/webmasters.readonly');
+  const res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ inspectionUrl, siteUrl }),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(`URL Inspection：${data.error?.message || res.status}`);
+  return data.inspectionResult?.indexStatusResult ?? {};
+}
+
+/** Search Console Sitemaps 清單（唯讀）：回各 sitemap 之提交數/錯誤/警告/最後下載 */
+export async function sitemapsList(siteUrl) {
+  const token = await getAccessToken('https://www.googleapis.com/auth/webmasters.readonly');
+  const res = await fetch(
+    `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/sitemaps`,
+    { headers: { Authorization: `Bearer ${token}` } },
+  );
+  const data = await res.json();
+  if (!res.ok) throw new Error(`Sitemaps：${data.error?.message || res.status}`);
+  return data.sitemap ?? [];
+}
