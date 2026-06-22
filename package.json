@@ -16,7 +16,8 @@
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
-    "data:weekly": "node scripts/weekly-data.mjs"
+    "data:weekly": "node scripts/weekly-data.mjs",
+    "index:ping": "node scripts/index-ping.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
