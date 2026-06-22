@@ -1,0 +1,60 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { todayInTaipei } from '../../../lib/daily';
+import { almanacMonths, almanacMonthDays } from '../../../lib/almanac/dates';
+
+// 月份樞紐：列出該月每日連結，銜接封存索引與日期頁（降低爬取深度）。
+export function getStaticPaths() {
+  const { iso } = todayInTaipei();
+  return almanacMonths(iso).map((ym) => ({ params: { ym }, props: { today: iso } }));
+}
+
+const { ym } = Astro.params;
+const { today } = Astro.props as { today: string };
+const y = Number(ym!.slice(0, 4));
+const m = Number(ym!.slice(5, 7));
+const days = almanacMonthDays(ym!, today);
+
+const months = almanacMonths(today);
+const idx = months.indexOf(ym!);
+const prevYm = idx > 0 ? months[idx - 1] : null;
+const nextYm = idx >= 0 && idx < months.length - 1 ? months[idx + 1] : null;
+const label = (s: string) => `${Number(s.slice(0, 4))}年${Number(s.slice(5))}月`;
+---
+
+<Base
+  title={`農民曆 · ${y}年${m}月`}
+  description={`${y}年${m}月 每日農曆、節氣、干支、建除、廿八宿、沖煞、宜忌、七十二候與神明聖誕一覽。`}
+>
+  <nav class="month-nav" aria-label="月份導覽">
+    {prevYm ? <a class="nav-btn" href={`/almanac/month/${prevYm}`} rel="prev">‹ {label(prevYm)}</a> : <span class="nav-btn disabled">‹ 上個月</span>}
+    <a class="nav-btn" href="/almanac/archive">封存索引</a>
+    {nextYm ? <a class="nav-btn" href={`/almanac/month/${nextYm}`} rel="next">{label(nextYm)} ›</a> : <span class="nav-btn disabled">下個月 ›</span>}
+  </nav>
+
+  <h1>{y}年{m}月 農民曆</h1>
+  <ul class="days" data-pagefind-ignore>
+    {
+      days.map((d) => (
+        <li><a href={d.href}>{d.day} 日{d.isToday && <span class="today">（今日）</span>}</a></li>
+      ))
+    }
+  </ul>
+
+  <style>
+    .month-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
+    .nav-btn {
+      padding: 0.3rem 0.8rem; border: 1px solid var(--line); border-radius: 0.4rem;
+      background: var(--paper-2); color: var(--ink); font-size: var(--text-sm);
+    }
+    .nav-btn:hover { text-decoration: none; border-color: var(--accent-soft); }
+    .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
+    .days { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); gap: 0.4rem; list-style: none; padding-left: 0; }
+    .days a {
+      display: block; text-align: center; padding: 0.4rem 0; border: 1px solid var(--line);
+      border-radius: 0.4rem; background: var(--paper-2);
+    }
+    .days a:hover { text-decoration: none; border-color: var(--accent-soft); }
+    .days .today { color: var(--accent); font-size: var(--text-xs); }
+  </style>
+</Base>

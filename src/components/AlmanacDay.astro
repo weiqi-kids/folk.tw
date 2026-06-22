@@ -65,6 +65,7 @@ const isToday = iso === today;
     )
   }
   {!isToday && <a class="nav-btn today" href="/almanac">回今天</a>}
+  <a class="nav-btn" href="/almanac/archive">封存</a>
 </nav>
 <script is:inline define:vars={{ today }}>
   document.getElementById('almanac-date')?.addEventListener('change', (e) => {

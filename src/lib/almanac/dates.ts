@@ -42,3 +42,40 @@ export function almanacDates(todayIso: string): string[] {
   }
   return out;
 }
+
+/** 封存涵蓋之所有月份 'YYYY-MM'（ARCHIVE_START 之月 → today+FUTURE_DAYS 之月）。
+ *  供封存索引頁／月份樞紐使用，降低爬取深度（每日期頁 ≤2 點擊可達）。 */
+export function almanacMonths(todayIso: string): string[] {
+  const max = addDays(todayIso, FUTURE_DAYS);
+  const maxY = Number(max.slice(0, 4));
+  const maxM = Number(max.slice(5, 7));
+  let y = Number(ARCHIVE_START.slice(0, 4));
+  let m = Number(ARCHIVE_START.slice(5, 7));
+  const out: string[] = [];
+  while (y < maxY || (y === maxY && m <= maxM)) {
+    out.push(`${y}-${String(m).padStart(2, '0')}`);
+    if (++m > 12) {
+      m = 1;
+      y++;
+    }
+  }
+  return out;
+}
+
+/** 某月（'YYYY-MM'）落在封存範圍內之日期（含連結與是否今日）。首/末月可能為部分月。 */
+export function almanacMonthDays(
+  ym: string,
+  todayIso: string,
+): { iso: string; day: number; href: string; isToday: boolean }[] {
+  const y = Number(ym.slice(0, 4));
+  const m = Number(ym.slice(5, 7));
+  const last = new Date(Date.UTC(y, m, 0)).getUTCDate(); // 該月天數
+  const max = addDays(todayIso, FUTURE_DAYS);
+  const out: { iso: string; day: number; href: string; isToday: boolean }[] = [];
+  for (let d = 1; d <= last; d++) {
+    const iso = `${ym}-${String(d).padStart(2, '0')}`;
+    if (iso < ARCHIVE_START || iso > max) continue;
+    out.push({ iso, day: d, href: almanacHref(iso, todayIso), isToday: iso === todayIso });
+  }
+  return out;
+}

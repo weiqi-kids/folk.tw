@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { almanacMonths } from '../../lib/almanac/dates';
+
+// 農民曆封存索引：列出所有可瀏覽年月，作為爬取樞紐（每日期頁經此 ≤2 點擊可達）。
+const { iso } = todayInTaipei();
+const months = almanacMonths(iso);
+const byYear = new Map<number, string[]>();
+for (const ym of months) {
+  const y = Number(ym.slice(0, 4));
+  (byYear.get(y) ?? byYear.set(y, []).get(y)!).push(ym);
+}
+const years = [...byYear.entries()].sort((a, b) => b[0] - a[0]); // 由新到舊
+const first = months[0];
+const lastM = months[months.length - 1];
+---
+
+<Base
+  title="農民曆封存"
+  description={`農民曆日期封存索引：可瀏覽 ${first} 至 ${lastM} 任一日的農曆、節氣、干支、宜忌、七十二候、納音與神明聖誕。`}
+>
+  <h1>農民曆封存</h1>
+  <p class="muted">
+    收錄 {first} 至 {lastM} 之每日農曆考據——農曆、節氣、四柱干支、建除、廿八宿、沖煞、
+    宜忌、七十二候、納音、月相與神明聖誕。選擇年月瀏覽，或回<a href="/almanac">今日農民曆</a>。
+  </p>
+  {
+    years.map(([y, yms]) => (
+      <section class="year">
+        <h2>{y} 年</h2>
+        <ul class="months">
+          {yms.map((ym) => (
+            <li><a href={`/almanac/month/${ym}`}>{Number(ym.slice(5))} 月</a></li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+  <style>
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
+    .months { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding-left: 0; }
+    .months a {
+      display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--line);
+      border-radius: 0.4rem; background: var(--paper-2); font-size: var(--text-sm);
+    }
+    .months a:hover { text-decoration: none; border-color: var(--accent-soft); }
+  </style>
+</Base>
