@@ -145,3 +145,41 @@ export async function deityBirthdayIndex(): Promise<Map<string, { deityId: strin
   }
   return map;
 }
+
+/** 農曆月（1–12）→ 該月具名實例聖誕（依日排序），供 M3 日期頁「本月聖誕一覽」內連 M2。 */
+export async function deityBirthdaysByMonth(): Promise<
+  Map<number, { date: string; deityId: string; name: string }[]>
+> {
+  const idx = await deityBirthdayIndex();
+  const out = new Map<number, { date: string; deityId: string; name: string }[]>();
+  for (const [key, arr] of idx) {
+    const month = Number(key.slice(0, 2));
+    const list = out.get(month) ?? out.set(month, []).get(month)!;
+    for (const a of arr) list.push({ date: key, deityId: a.deityId, name: a.name });
+  }
+  for (const list of out.values()) list.sort((a, b) => a.date.localeCompare(b.date));
+  return out;
+}
+
+/** M3 日期頁 → 相關拜拜習俗（M5）：依當日節日／農曆日「高精度」對映（寧缺勿誤連）。 */
+export async function practicesForDate(
+  festivals: string[],
+  lunarMonth: number | null,
+  lunarDay: number | null,
+): Promise<CollectionEntry<'practices'>[]> {
+  const m = lunarMonth;
+  const d = lunarDay;
+  const ids = new Set(
+    [
+      { id: 'saomu', hit: festivals.includes('清明') }, // 清明 → 掃墓/培墓
+      { id: 'baizuxian', hit: festivals.includes('除夕') }, // 除夕 → 祭祖
+      { id: 'baitiangong', hit: m === 1 && d === 9 }, // 正月初九 → 拜天公
+      { id: 'zuo16', hit: m === 7 && d === 7 }, // 七月初七 → 做十六歲
+      { id: 'pudu', hit: m === 7 && d === 15 }, // 七月十五 → 中元普渡
+    ]
+      .filter((r) => r.hit)
+      .map((r) => r.id),
+  );
+  if (!ids.size) return [];
+  return (await getPractices()).filter((p) => ids.has(p.id));
+}

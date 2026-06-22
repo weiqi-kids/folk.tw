@@ -4,7 +4,7 @@
 // 宜忌／神煞屬考據進階層：規則尚未核校者不顯示（無源不發佈），故多數日期只見曆象與聖誕。
 import { computeDayRecord } from '../lib/almanac';
 import { lunarProvider } from '../lib/almanac/provider';
-import { deityBirthdayIndex } from '../lib/queries';
+import { deityBirthdayIndex, deityBirthdaysByMonth, practicesForDate } from '../lib/queries';
 import { addDays, almanacRange, almanacHref } from '../lib/almanac/dates';
 
 interface Props {
@@ -21,6 +21,10 @@ const lunarKey = lunar
   ? `${String(lunar.month).padStart(2, '0')}-${String(lunar.day).padStart(2, '0')}`
   : '';
 const birthdays = (bdayIndex.get(lunarKey) ?? []) as { deityId: string; name: string }[];
+
+// 跨文本追蹤（B2）：本月神明聖誕一覽（連 M2）、相關拜拜習俗（連 M5）
+const monthBirthdays = lunar ? (await deityBirthdaysByMonth()).get(lunar.month) ?? [] : [];
+const relatedPractices = await practicesForDate(record.festivals, lunar?.month ?? null, lunar?.day ?? null);
 
 const P = record.pillars;
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
@@ -75,13 +79,25 @@ const isToday = iso === today;
   <dl class="rec">
     <div>
       <dt>農曆</dt>
-      <dd>{lunar ? `${lunar.isLeap ? '閏' : ''}${lunar.month} 月 ${lunar.day} 日` : '—'}</dd>
+      <dd>
+        {lunar ? `${lunar.isLeap ? '閏' : ''}${lunar.month} 月 ${lunar.day} 日` : '—'}
+        {record.moonPhase && <span class="muted small">　{record.moonPhase}</span>}
+      </dd>
     </div>
     <div>
       <dt>節氣</dt>
-      <dd>{record.solarTerm.value?.name ?? '—'}{record.solarTerm.value?.isTransitionDay && '（交節）'}</dd>
+      <dd>
+        {record.solarTerm.value?.name ?? '—'}{record.solarTerm.value?.isTransitionDay && '（交節）'}
+        {record.termCountdown && (
+          <span class="muted small">　距{record.termCountdown.nextName} {record.termCountdown.untilDays} 日</span>
+        )}
+      </dd>
     </div>
+    {record.wuHou.value && (
+      <div><dt>物候</dt><dd>{record.wuHou.value.hou}・{record.wuHou.value.phenology}<span class="muted small">（七十二候）</span></dd></div>
+    )}
     <div><dt>干支</dt><dd>{gz(P.year)}年 {gz(P.month)}月 {gz(P.day)}日</dd></div>
+    {record.naYin.value && <div><dt>納音</dt><dd>{record.naYin.value}</dd></div>}
     <div><dt>建除</dt><dd>{record.jianchu.value ?? '—'}</dd></div>
     <div><dt>廿八宿</dt><dd>{record.ershiba.value ?? '—'}</dd></div>
     <div>
@@ -139,6 +155,49 @@ const isToday = iso === today;
     }
   </section>
 
+  {relatedPractices.length > 0 && (
+    <section class="cross">
+      <h2>相關拜拜習俗</h2>
+      <ul class="links">
+        {relatedPractices.map((p) => (
+          <li>
+            <a href={`/practices/${p.id}`}>{p.data.title}</a>
+            {p.data.summary && <span class="muted small">　{p.data.summary}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {monthBirthdays.length > 0 && lunar && (
+    <section class="cross">
+      <h2>本月神明聖誕（農曆 {lunar.month} 月）</h2>
+      <ul class="bdays">
+        {monthBirthdays.map((b) => (
+          <li>
+            <span class="muted small">{Number(b.date.slice(3))} 日</span>
+            <a href={`/deities/${b.deityId}`}>{b.name}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="muted small">聖誕日期採具名實例之主流記載；各廟或有出入，諸說並陳見各神明頁。</p>
+    </section>
+  )}
+
+  {record.pengZu.value && (
+    <details class="basis">
+      <summary>彭祖百忌（民俗口訣）</summary>
+      <ul class="pengzu">
+        <li>{record.pengZu.value.gan}</li>
+        <li>{record.pengZu.value.zhi}</li>
+      </ul>
+      <p class="muted small">
+        彭祖百忌為流傳於通書／黃曆之民俗口訣，依日干支各取一句；屬諸說並陳之民俗資料，
+        與上方《協紀辨方書》宜忌系統並列，非指示性建議。
+      </p>
+    </details>
+  )}
+
   <details class="basis">
     <summary>曆算基準</summary>
     <dl class="rec">
@@ -187,4 +246,10 @@ const isToday = iso === today;
   .basis { margin-top: 2rem; color: var(--ink-soft); }
   .basis summary { cursor: pointer; font-size: var(--text-sm); }
   .basis .rec { margin-top: 0.6rem; }
+  .pengzu { margin: 0.5rem 0; padding-left: 1.2rem; }
+  .pengzu li { padding: 0.15rem 0; }
+  .cross .links li { padding: 0.25rem 0; }
+  .bdays { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.1rem 1rem; list-style: none; padding-left: 0; margin: 0.6rem 0; }
+  .bdays li { padding: 0.2rem 0; }
+  .bdays .muted { margin-right: 0.4rem; }
 </style>
