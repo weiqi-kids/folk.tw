@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { breadcrumb, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const allusions = await getAllusions();
@@ -22,12 +22,26 @@ const { Content } = await render(allusion);
 const pageDesc =
   `${a.name}${a.source ? `（出典：${a.source}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
   `${poems.length ? `出現於第 ${poems.map((p) => p.data.no).join('、')} 籤（跨文本反查）。` : ''}`;
+
+// GEO：BreadcrumbList ＋（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
+const ld: object[] = [
+  breadcrumb([
+    { name: '籤詩', path: '/poems' },
+    { name: `典故 · ${a.name}`, path: `/allusions/${allusion.id}` },
+  ]),
+];
+if (hasStory) {
+  const storySummary = (allusion.body ?? '').trim().split(/(?<=[。！？])/)[0]?.trim() ?? '';
+  const faq = faqPage([{ q: `「${a.name}」的故事是什麼？`, a: storySummary }]);
+  if (faq) ld.push(faq);
+}
 ---
 
 <Base
   title={`典故 · ${a.name}`}
   description={pageDesc}
-  jsonLd={breadcrumb([{ name: '籤詩', path: '/poems' }, { name: `典故 · ${a.name}`, path: `/allusions/${allusion.id}` }])}
+  jsonLd={ld}
+  ogType="article"
 >
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 典故</nav>
   <h1>{a.name}</h1>

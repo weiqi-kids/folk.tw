@@ -3,6 +3,7 @@
 // 引擎為 lunar-javascript（壽星天文曆算法，對齊香港天文台），於 build 期計算。
 // 宜忌／神煞屬考據進階層：規則尚未核校者不顯示（無源不發佈），故多數日期只見曆象與聖誕。
 import { computeDayRecord } from '../lib/almanac';
+import { BRANCHES, ZODIACS } from '../lib/almanac/ganzhi';
 import { lunarProvider } from '../lib/almanac/provider';
 import { deityBirthdayIndex, deityBirthdaysByMonth, practicesForDate } from '../lib/queries';
 import { addDays, almanacRange, almanacHref } from '../lib/almanac/dates';
@@ -46,6 +47,17 @@ const next = addDays(iso, 1);
 const prevHref = prev >= min ? almanacHref(prev, today) : null;
 const nextHref = next <= max ? almanacHref(next, today) : null;
 const isToday = iso === today;
+
+// 答案優先（P1-5）：一句白話日摘要（農曆＋干支＋主要宜忌），供直接引用；考據領銜、吉凶輔標。
+const yearZodiac = P.year.value ? ZODIACS[BRANCHES.indexOf(P.year.value.branch as (typeof BRANCHES)[number])] : '';
+const summaryParts = [
+  lunar ? `${lunar.isLeap ? '閏' : ''}農曆 ${lunar.month} 月 ${lunar.day} 日` : null,
+  P.day.value ? `${gz(P.day)}日` : null,
+  yearZodiac ? `${gz(P.year)}年（生肖${yearZodiac}）` : null,
+  yiV.length ? `宜${yiV.map((v) => v.affair).join('、')}` : null,
+  jiV.length ? `忌${jiV.map((v) => v.affair).join('、')}` : null,
+].filter(Boolean);
+const summary = summaryParts.length ? `${iso} 為${summaryParts.join('，')}。` : '';
 ---
 
 <nav class="almanac-nav" aria-label="日期導覽">
@@ -76,6 +88,8 @@ const isToday = iso === today;
 
 <div class:list={['almanac-day', { 'is-dated': !isToday }]} data-pagefind-ignore={!isToday}>
   <h1>{iso}<span class="wk">（星期{wk}）</span>{isToday && <span class="badge">今日</span>}</h1>
+
+  {summary && <p class="day-summary">{summary}</p>}
 
   <dl class="rec">
     <div>
@@ -231,6 +245,7 @@ const isToday = iso === today;
     font-size: var(--text-sm); color: var(--accent); border: 1px solid var(--accent-soft);
     border-radius: 1rem; padding: 0.05rem 0.6rem; margin-left: 0.6rem; vertical-align: middle;
   }
+  .day-summary { margin: 0.2rem 0 1.2rem; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.6; }
   h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.8rem; }
   .small { font-size: 0.85rem; }
   .rec { display: grid; gap: 0.4rem; }

@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getEvents, getDeities } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 const events = await getEvents();
 const deities = await getDeities();
@@ -13,7 +14,11 @@ const HERITAGE: Record<string, string> = {
 };
 ---
 
-<Base title="民俗活動／繞境" description="遶境進香、迎王、中元普渡等民俗活動：主神、文資身分、路線型態。">
+<Base
+  title="民俗活動／繞境"
+  description="遶境進香、迎王、中元普渡等民俗活動：主神、文資身分、路線型態。"
+  jsonLd={breadcrumb([{ name: '民俗活動', path: '/events' }])}
+>
   <h1>民俗活動／繞境</h1>
   <p class="muted">
     事件＋地理模組。文資身分一律以文化部國家文化資產網現況為準，未核者標「待核」（D.5）。

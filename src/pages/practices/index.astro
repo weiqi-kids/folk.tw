@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getPractices } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 const practices = await getPractices();
 const byCat = new Map<string, typeof practices>();
@@ -10,7 +11,11 @@ for (const p of practices) {
 }
 ---
 
-<Base title="拜拜習俗／科儀" description="安太歲、點光明燈、普渡、做十六歲等習俗：步驟、金紙供品、諸說並陳。">
+<Base
+  title="拜拜習俗／科儀"
+  description="安太歲、點光明燈、普渡、做十六歲等習俗：步驟、金紙供品、諸說並陳。"
+  jsonLd={breadcrumb([{ name: '拜拜習俗', path: '/practices' }])}
+>
   <h1>拜拜習俗／科儀</h1>
   <p class="muted">
     程序知識庫（how-to）。守引註鐵律：每條掛來源、無源不發佈；地方差異諸說並陳，不選一裁定（E.6）。

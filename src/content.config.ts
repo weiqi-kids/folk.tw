@@ -76,6 +76,8 @@ const deities = defineCollection({
     // 橫向群組標籤（五文昌/八仙/三奶夫人/五府千歲），利 UI 聚合（B.3-5）
     groups: z.array(z.string()).default([]),
     summary: z.string().optional(), // 來歷摘要，自行改寫不得逐字抄（§6）
+    // 實體錨定：Wikidata／Wikipedia 等權威 URI（GEO 實體消歧，P2-6）
+    sameAs: z.array(z.string()).default([]),
     sources: z.array(source).default([]),
     draft: z.boolean().default(false), // 無源不發佈 gate（§5）
   }),

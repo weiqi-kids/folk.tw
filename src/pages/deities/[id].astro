@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity } from '../../lib/queries';
-import { breadcrumb, deityThing } from '../../lib/seo';
+import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -23,15 +23,77 @@ const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);
+
+// FAQPage（AEO，P1-4）：僅就既有資料生成，無源不杜撰（§5）。
+const faqItems: { q: string; a: string }[] = [];
+
+// 聖誕（農曆）：排除「無定／待查」等非實際日期者。
+const realBdays = d.birthday_lunar.filter(
+  (b) => b.date && !['無定', '待查', '未定'].includes(b.date),
+);
+if (realBdays.length > 0) {
+  const parts = realBdays.map((b) => `農曆${b.date}（${b.kind}）`).join('、');
+  faqItems.push({
+    q: `${d.name}的聖誕（生日）是哪一天？`,
+    a: `${d.name}的聖誕日為${parts}。`,
+  });
+}
+
+// 職司／是什麼神：以 category＋office＋summary 答覆（answer-first）。
+{
+  const officePart = d.office.length ? `主要職司為${d.office.join('、')}` : '';
+  const segs = [
+    `${d.name}屬${d.category}`,
+    officePart,
+  ].filter(Boolean);
+  let a = segs.join('，') + '。';
+  if (d.summary) a += d.summary;
+  if (officePart || d.summary) {
+    faqItems.push({ q: `${d.name}是什麼神？職司是什麼？`, a });
+  }
+}
+
+// 別名／封號。
+if (d.aliases.length > 0) {
+  faqItems.push({
+    q: `${d.name}有哪些別名或封號？`,
+    a: `${d.name}的別名與封號包括：${d.aliases.join('、')}。`,
+  });
+}
+
+// 信仰類別（is_category）底下的具名實例。
+if (d.is_category && d.instances.length > 0) {
+  const names = d.instances.map((id) => label(id)).join('、');
+  faqItems.push({
+    q: `${d.name}底下有哪些具名神明？`,
+    a: `${d.name}為信仰類別，底下具名神明包括：${names}。`,
+  });
+}
+
+const faq = faqPage(faqItems);
+const jsonLd = [
+  deityThing({
+    id: deity.id,
+    name: d.name,
+    aliases: d.aliases,
+    category: d.category,
+    office: d.office,
+    summary: d.summary,
+    sameAs: d.sameAs,
+  }),
+  breadcrumb([
+    { name: '神明圖譜', path: '/deities' },
+    { name: d.name, path: `/deities/${deity.id}` },
+  ]),
+  ...(faq ? [faq] : []),
+];
 ---
 
 <Base
   title={d.name}
   description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}。${d.summary ?? `職司：${d.office.join('·')}`}`}
-  jsonLd={[
-    deityThing({ id: deity.id, name: d.name, aliases: d.aliases, category: d.category, office: d.office, summary: d.summary }),
-    breadcrumb([{ name: '神明圖譜', path: '/deities' }, { name: d.name, path: `/deities/${deity.id}` }]),
-  ]}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <nav class="crumb"><a href="/deities">神明圖譜</a> ／ {d.category}</nav>
 

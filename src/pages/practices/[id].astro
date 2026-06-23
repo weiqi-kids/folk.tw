@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getPractices, getDeities } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const practices = await getPractices();
@@ -13,9 +14,45 @@ const p = practice.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
 const isNode = (id: string) => deityName.has(id);
+
+// P1-4 AEO：FAQ 由真實資料生成（步驟／供品／禁忌／場合），缺資料自動略過。
+const stepLine = p.steps
+  .slice()
+  .sort((a, b) => a.order - b.order)
+  .map((s) => `${s.order}.${s.action}`)
+  .join('；');
+const supplies = [...p.offerings, ...p.joss_paper];
+const faq = faqPage([
+  {
+    q: `${p.title}怎麼拜？步驟是什麼？`,
+    a: stepLine ? `${p.title}的步驟為：${stepLine}。` : '',
+  },
+  {
+    q: `${p.title}要準備什麼供品？`,
+    a: supplies.length
+      ? `${p.title}常備${p.offerings.length ? `供品${p.offerings.join('、')}` : ''}${p.offerings.length && p.joss_paper.length ? '，' : ''}${p.joss_paper.length ? `金紙${p.joss_paper.join('、')}` : ''}。`
+      : '',
+  },
+  {
+    q: `${p.title}有什麼禁忌？`,
+    a: p.taboo.length ? `${p.title}的禁忌：${p.taboo.join('；')}。` : '',
+  },
+  {
+    q: `${p.title}什麼時候做？`,
+    a: p.occasion ? `${p.title}多於${p.occasion}進行。` : '',
+  },
+]);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '拜拜習俗', path: '/practices' },
+    { name: p.title, path: `/practices/${practice.id}` },
+  ]),
+  ...(faq ? [faq] : []),
+];
 ---
 
-<Base title={p.title}>
+<Base title={p.title} ogType="article" jsonLd={jsonLd}>
   <nav class="crumb"><a href="/practices">拜拜習俗</a> ／ {p.category}</nav>
   <h1>{p.title}</h1>
   {p.summary && <p class="summary">{p.summary}</p>}

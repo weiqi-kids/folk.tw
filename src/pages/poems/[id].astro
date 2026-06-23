@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById } from '../../lib/queries';
-import { breadcrumb, poemWork } from '../../lib/seo';
+import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const poems = await getPoems();
@@ -36,7 +36,7 @@ const pageDesc =
   `${sysName}第 ${d.no} 籤${label ? `「${label}」` : ''}${d.fortune ? `（${d.fortune}）` : ''}：` +
   `${d.lines.join('，')}。` +
   `${firstAllusionName ? `卦頭典故「${firstAllusionName}」。` : ''}白話賞析與八項分項解。`;
-const ld = [
+const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
   breadcrumb([
     { name: '籤詩', path: '/poems' },
@@ -44,12 +44,39 @@ const ld = [
     { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}` },
   ]),
 ];
+
+// answer-first 一行摘要（P1-5）：系統＋第N籤＋干支/題＋吉凶，可被引用為直接答案
+const labelGloss = label ? `「${label}」` : '';
+const leadAnswer =
+  `${sysName}第 ${d.no} 籤${labelGloss}` +
+  `${d.fortune ? `，吉凶為${d.fortune}` : ''}` +
+  `${firstAllusionName ? `，卦頭典故出自「${firstAllusionName}」` : ''}。`;
+
+// FAQPage（AEO，P1-4）：八項分項解即天然問答，逐項對映；空項略過。問題含系統＋第N籤＋label，利精準命中
+const qlabel = `${sysName}第 ${d.no} 籤${labelGloss}`;
+const ASPECT_Q: Record<(typeof ASPECTS)[number], string> = {
+  運勢: `${qlabel}的運勢如何？`,
+  求財: `${qlabel}求財順利嗎？`,
+  姻緣: `${qlabel}的姻緣如何？`,
+  功名: `${qlabel}的功名（考運）如何？`,
+  訴訟: `${qlabel}的訴訟結果如何？`,
+  疾病: `${qlabel}的疾病能否痊癒？`,
+  行人: `${qlabel}問行人（出外的人）何時歸？`,
+  失物: `${qlabel}的失物找得回嗎？`,
+};
+const faqItems = ASPECTS.filter((a) => interpVals[a]?.trim()).map((a) => ({
+  q: ASPECT_Q[a],
+  a: interpVals[a]!,
+}));
+const faq = faqPage(faqItems);
+if (faq) ld.push(faq);
 ---
 
 <Base
   title={`第 ${d.no} 籤${d.ganzhi ? ` ${d.ganzhi}` : d.title ? ` ${d.title}` : ''}`}
   description={pageDesc}
   jsonLd={ld}
+  ogType="article"
 >
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 第 {d.no} 籤</nav>
 
@@ -64,6 +91,8 @@ const ld = [
         {/* 吉凶輔標：小、次級；本系統多無原生定級（A.3-1） */}
         {d.fortune && <span class="tag fortune">{d.fortune}</span>}
       </div>
+      {/* answer-first 一行摘要（P1-5）：可被引用為直接答案，仍保克制（小、次於四句主角） */}
+      <p class="lead muted">{leadAnswer}</p>
     </header>
 
     {/* 主角：四句直書 */}
@@ -160,6 +189,7 @@ const ld = [
     .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
     .ph h1 { margin: 0.2rem 0 0.6rem; }
     .ph .meta { margin-bottom: 0.5rem; }
+    .ph .lead { font-size: 0.92rem; margin: 0.2rem 0 0; }
     .lines-block { margin: 1.8rem 0 2.2rem; display: flex; justify-content: center; }
     /* 四句直書（直排・右起），§0.5 四句直書 */
     .lines-zhi {

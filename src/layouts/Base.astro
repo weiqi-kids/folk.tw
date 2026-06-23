@@ -6,10 +6,12 @@ interface Props {
   ogTitle?: string; // 社群分享專用標題（不給則同 fullTitle）
   jsonLd?: object | object[]; // 每頁實體結構化資料（BreadcrumbList / Thing / CreativeWork…）
   noindex?: boolean; // 對搜尋引擎不索引（如農民曆滾動日期頁，避免視窗滾動後 404 與薄內容稀釋）
+  ogType?: string; // Open Graph 類型；列表／首頁用 'website'，內容／詳情頁傳 'article'
 }
 import { GA4_ID } from '../consts';
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
-const { title, description, ogTitle, jsonLd: pageJsonLd, noindex } = Astro.props;
+// ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
+const { title, description, ogTitle, jsonLd: pageJsonLd, noindex, ogType = 'website' } = Astro.props;
 const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
@@ -65,7 +67,7 @@ const path = Astro.url.pathname;
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {/* Open Graph / Twitter */}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={ogFullTitle} />
     <meta property="og:description" content={desc} />

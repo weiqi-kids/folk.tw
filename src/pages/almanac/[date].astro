@@ -3,6 +3,10 @@ import Base from '../../layouts/Base.astro';
 import AlmanacDay from '../../components/AlmanacDay.astro';
 import { todayInTaipei } from '../../lib/daily';
 import { almanacDates } from '../../lib/almanac/dates';
+import { computeDayRecord } from '../../lib/almanac';
+import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
+import { lunarProvider } from '../../lib/almanac/provider';
+import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 
 // 任一日期農民曆。以「今日」為中心預生 ±一年的日期頁（今日本身由 /almanac 提供）。
 export function getStaticPaths() {
@@ -12,11 +16,51 @@ export function getStaticPaths() {
 
 const { date } = Astro.params;
 const { today } = Astro.props as { today: string };
+
+// 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
+const [y, m, dd] = date!.split('-').map(Number);
+const rec = computeDayRecord(y, m, dd, { astro: lunarProvider });
+const lunar = rec.lunar.value;
+const gz = (p: { value: { stem: string; branch: string } | null }) =>
+  p.value ? `${p.value.stem}${p.value.branch}` : '';
+const lunarText = lunar ? `${lunar.isLeap ? '閏' : ''}農曆 ${lunar.month} 月 ${lunar.day} 日` : '';
+const yiV = rec.yi.filter((v) => v.verified).map((v) => v.affair);
+const jiV = rec.ji.filter((v) => v.verified).map((v) => v.affair);
+const chong = rec.chongSha.value;
+// 年生肖：由年柱地支對應（ZODIACS），無天文資料時略。
+const yearBranch = rec.pillars.year.value?.branch;
+const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
+
+// FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
+const jsonLd: object[] = [almanacBreadcrumb(date!)];
+const faq = faqPage([
+  {
+    q: `${date} 是農曆幾月幾日？`,
+    a: lunar
+      ? `${date}（國曆）為${lunarText}，干支${gz(rec.pillars.year)}年${yearZodiac ? `（生肖${yearZodiac}）` : ''}，日柱${gz(rec.pillars.day)}。`
+      : '',
+  },
+  { q: `${date} 宜做什麼？`, a: yiV.length ? `${date} 宜：${yiV.join('、')}。` : '' },
+  { q: `${date} 忌做什麼？`, a: jiV.length ? `${date} 忌：${jiV.join('、')}。` : '' },
+  {
+    q: `${date} 沖煞什麼生肖、方位？`,
+    a: chong?.zodiac && chong.direction && chong.direction !== '—' ? `${date} 沖${chong.zodiac}，煞${chong.direction}。` : '',
+  },
+  {
+    q: `${date} 是什麼節氣、節日？`,
+    a: [rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).length
+      ? `${date} 為${[rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).join('、')}。`
+      : '',
+  },
+]);
+if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title={`農民曆 · ${date}`}
   description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞、七十二候與神明聖誕。`}
+  jsonLd={jsonLd}
+  ogType="article"
 >
   <AlmanacDay iso={date!} today={today} />
 </Base>

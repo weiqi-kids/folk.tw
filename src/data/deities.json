@@ -64,7 +64,11 @@
         "note": "迎媽祖活動、聖誕三月廿三遶境，廟方主辦單位"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/媽祖",
+      "https://www.wikidata.org/wiki/Q11997"
+    ]
   },
   {
     "id": "xuantian",
@@ -125,7 +129,10 @@
         "note": "明永曆15年鄭成功改建為奉祀明朝守護神玄天上帝之廟，為台灣最重要的玄天上帝廟之一"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/玄天上帝"
+    ]
   },
   {
     "id": "shuixian",
@@ -245,7 +252,10 @@
         "note": "府城七寺八廟之一、主祀四海龍王（掌水族與雨水）、康熙55年(1716)建、廢廟後神像移祀大天后宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/龍王"
+    ]
   },
   {
     "id": "wangye",
@@ -303,7 +313,10 @@
         "note": "五府千歲聖誕：李4/26、池6/18、吳9/15、朱8/15、范4/27；王爺神像乘王船飄至北門鯤江的來台典故"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/王爺信仰"
+    ]
   },
   {
     "id": "tudigong",
@@ -366,7 +379,10 @@
         "note": "社神/后土源流：共工氏之子后土能平九州，故祀之以為社"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/土地公"
+    ]
   },
   {
     "id": "chenghuang",
@@ -415,7 +431,10 @@
         "note": "霞海城隍主祀、五月十三迎城隍祭典、七爺八爺等神將出巡、廟史（道光元年泉州同安人渡台、咸豐6年建廟）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/城隍"
+    ]
   },
   {
     "id": "qiyebaye",
@@ -532,7 +551,10 @@
         "note": "主祀東嶽泰山天齊仁聖大帝、聖誕農曆三月廿八、別稱泰山府君/天齊王、職司人命歲壽暨冥界主宰、永曆27年(1673)鄭經遷建沿革"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/東嶽大帝"
+    ]
   },
   {
     "id": "kaitai",
@@ -579,7 +601,11 @@
         "note": "前身開山王廟、永曆9年(1655)敕封延平郡王、光緒元年(1875)沈葆楨奏請建祠、最具正統性"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/鄭成功",
+      "https://www.wikidata.org/wiki/Q57052"
+    ]
   },
   {
     "id": "guanyin",
@@ -652,7 +678,11 @@
         "note": "俗稱觀音佛祖/觀音媽、與彌陀勢至並稱西方三聖；1738年泉州晉江安海龍山寺分靈來臺"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/觀世音菩薩",
+      "https://www.wikidata.org/wiki/Q1352720"
+    ]
   },
   {
     "id": "baosheng",
@@ -698,7 +728,10 @@
         "note": "廟宇沿革、保生大帝聖誕農曆三月十五祭典說明（三月十四遶境、三月十五正日三獻禮）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/保生大帝"
+    ]
   },
   {
     "id": "kaizhang",
@@ -744,7 +777,10 @@
         "note": "主祀陳元光（字廷炬、號龍湖、漳州首任刺史、生657卒711）、唐敕封威惠聖王、宋高宗加封靈著順應照烈廣濟王、開基祖廟（石室）清嘉慶十九年(1814)創建"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/陳元光"
+    ]
   },
   {
     "id": "guangze",
@@ -790,7 +826,10 @@
         "note": "主祀保安廣澤尊王/郭聖王、二月二十二誕辰（後唐同光元年923）、身世（俗姓郭諱忠福、郭子儀後代、安溪清溪人、孝感動天、十六歲蛻化成神）、西羅殿康熙57年(1718)泉州晉江石獅郭姓奉祀渡台、神像造型（年輕相、圓眼、蹺右腳）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/廣澤尊王"
+    ]
   },
   {
     "id": "sanshan",
@@ -837,7 +876,10 @@
         "note": "三山國王與客家文化節之關聯（第18屆），彰化縣38座宮廟參與"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/三山國王"
+    ]
   },
   {
     "id": "qingshui",
@@ -889,7 +931,10 @@
         "note": "清水祖師聖誕農曆正月初六、身世（福建泉州安溪高僧、閩南稱烏面祖師、台灣通稱祖師公）、三峽長福巖乾隆34年(1769)建廟"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/清水祖師"
+    ]
   },
   {
     "id": "yimin",
@@ -958,7 +1003,10 @@
         "note": "林爽文事件、乾隆賜匾「褒忠」、每年農曆七月義民文化祭典（新埔褒忠亭義民廟）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/義民"
+    ]
   },
   {
     "id": "fazhu",
@@ -1004,7 +1052,10 @@
         "note": "大稻埕安溪茶商信奉、同治8年陳書楚自碧靈宮迎神、光緒4年建廟；該頁載聖誕農曆九月廿二（與本站七月廿三並陳，諸說不一）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/法主公"
+    ]
   },
   {
     "id": "qingshan",
@@ -1049,7 +1100,10 @@
         "note": "霞海城隍廟暗訪與艋舺青山宮暗訪並列北台灣三大暗訪"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/青山王"
+    ]
   },
   {
     "id": "guangong",
@@ -1113,7 +1167,11 @@
         "note": "清德宗封號26字、多重神格（武神、商神、儒家五文昌）說明；全台唯一官祀關帝廟"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/關羽",
+      "https://www.wikidata.org/wiki/Q261096"
+    ]
   },
   {
     "id": "wenchang",
@@ -1160,7 +1218,10 @@
         "note": "蜀王張育/梓潼神亞子/文昌星三神合一、聖誕二月初三、元延祐三年(1316)封號、掌文運科考"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/文昌帝君"
+    ]
   },
   {
     "id": "shennong",
@@ -1212,7 +1273,11 @@
         "note": "別名五穀先帝/藥王大帝/開天炎帝/炎帝神農氏/五穀王/粟母王"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/神農",
+      "https://www.wikidata.org/wiki/Q189257"
+    ]
   },
   {
     "id": "luban",
@@ -1257,7 +1322,11 @@
         "note": "聖誕農曆五月初七、東勢為全台唯一主祀魯班開基祖廟、土木工匠行業神祖師"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/魯班",
+      "https://www.wikidata.org/wiki/Q717519"
+    ]
   },
   {
     "id": "xiqin",
@@ -1307,7 +1376,10 @@
         "note": "李隆基714年設梨園、自選樂師宮女教習（此頁未直稱唐玄宗為祖師，並陳）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/西秦王爺"
+    ]
   },
   {
     "id": "tiandu",
@@ -1353,7 +1425,10 @@
         "note": "雷海青說、安史之亂殉國封田都元帥、與西秦王爺同為戲曲音樂神、田中螃蟹養大典故、別名相公爺"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/田都元帥"
+    ]
   },
   {
     "id": "ludongbin",
@@ -1408,7 +1483,11 @@
         "note": "八仙之一、唐禮部侍郎呂渭之孫、聖誕貞元十二年四月十四、全真五陽純陽祖師"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/呂洞賓",
+      "https://www.wikidata.org/wiki/Q713701"
+    ]
   },
   {
     "id": "kongzi",
@@ -1454,7 +1533,11 @@
         "note": "正史身世（魯昌平鄉陬邑、字仲尼）與生卒（魯襄公二十二年生、哀公十六年四月己丑卒、年七十三）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/孔子",
+      "https://www.wikidata.org/wiki/Q4604"
+    ]
   },
   {
     "id": "nazha",
@@ -1506,7 +1589,11 @@
         "note": "康熙二年先民奉請來台、正殿主祀中壇元帥、全國太子爺開台祖廟"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/哪吒",
+      "https://www.wikidata.org/wiki/Q1064540"
+    ]
   },
   {
     "id": "jiutian",
@@ -1551,7 +1638,10 @@
         "note": "玄女授黃帝兵符神符、制伏蚩尤以制八方之古典本源"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/九天玄女"
+    ]
   },
   {
     "id": "jigong",
@@ -1613,7 +1703,11 @@
         "note": "濟公＝降龍羅漢降世之通俗信仰本源；南宋臨安、父李茂春"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/濟公",
+      "https://www.wikidata.org/wiki/Q866042"
+    ]
   },
   {
     "id": "kuixing",
@@ -1661,7 +1755,10 @@
         "note": "聖誕二月初三、廣義五文昌之一、造型金身鬼面右足踏鰲左足踢斗右手執筆（魁人蹺斗）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/魁星"
+    ]
   },
   {
     "id": "yuelao",
@@ -1711,7 +1808,10 @@
         "note": "赤繩繫足、天下婚牘、命定不可逭、宋城宰題店曰「定婚店」之古籍本源"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/月下老人"
+    ]
   },
   {
     "id": "zhusheng",
@@ -1756,7 +1856,10 @@
         "note": "聖誕三月二十、掌授子懷孕生育護產、左手生育簿右手執筆、身世碧霞元君/臨水夫人說"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/註生娘娘"
+    ]
   },
   {
     "id": "linshui",
@@ -1805,7 +1908,10 @@
         "note": "三奶夫人組成（陳靖姑、李三娘、林紗娘）、信仰分布"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/臨水夫人"
+    ]
   },
   {
     "id": "qixing",
@@ -2093,7 +2199,11 @@
         "note": "源自吳承恩《西遊記》孫悟空、神通廣大掃蕩群魔；台灣兼奉為兒童守護神"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/孫悟空",
+      "https://www.wikidata.org/wiki/Q170486"
+    ]
   },
   {
     "id": "tianpeng",
@@ -2232,7 +2342,10 @@
         "note": "明鄭1661設天壇祭天、清咸豐四年建廟、正月初九天公生祭典（廟方官網 tian.org.tw 另存）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/玉皇大帝"
+    ]
   },
   {
     "id": "sanguan",
@@ -2305,7 +2418,10 @@
         "note": "天師道源流（太平道/五斗米道以天地水為三官）；三元節即三官誕辰"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/三官大帝"
+    ]
   },
   {
     "id": "sanqing",
@@ -2363,7 +2479,10 @@
         "note": "三尊分述：元始天尊（生於太無之先）、靈寶天尊、道德天尊（即老子，居太清境太極宮）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/三清"
+    ]
   },
   {
     "id": "wangmu",
@@ -2419,7 +2538,11 @@
         "note": "台灣母娘信仰中心、金母聖誕農曆七月十八、花蓮為發祥地"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/西王母",
+      "https://www.wikidata.org/wiki/Q636107"
+    ]
   },
   {
     "id": "zaojun",
@@ -2471,7 +2594,10 @@
         "note": "灶神源流與「司命」神格之最早禮制依據"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/灶神"
+    ]
   },
   {
     "id": "taiyin",
@@ -2512,7 +2638,10 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/太陰星君"
+    ]
   },
   {
     "id": "taiyang",
@@ -2552,7 +2681,10 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/太陽星君"
+    ]
   },
   {
     "id": "leigongdianmu",
@@ -2632,7 +2764,10 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/石敢當"
+    ]
   },
   {
     "id": "dashugong",
@@ -3254,7 +3389,10 @@
         "note": "seed；六十甲子具名太歲待補"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/太歲"
+    ]
   },
   {
     "id": "taisui_jiazi",
@@ -3438,7 +3576,10 @@
         "note": "國立臺灣歷史博物館：青綠臉、能眼觀千里者為千里眼，桃花山妖精經媽祖收伏"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/千里眼"
+    ]
   },
   {
     "id": "shunfenger",
@@ -3516,7 +3657,10 @@
         "note": "國立臺灣歷史博物館：硃紅臉、能耳聽八方者為順風耳，桃花山妖精經媽祖收伏"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/順風耳"
+    ]
   },
   {
     "id": "guanping",
@@ -3593,7 +3737,10 @@
         "note": "演義傳統：關平為義子，非親生（文學作品，與正史區分）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/關平"
+    ]
   },
   {
     "id": "zhoucang",
@@ -3672,7 +3819,10 @@
         "note": "以周倉為主神之廟，農曆十月廿三千秋"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/周倉"
+    ]
   },
   {
     "id": "wenwang_qiansui",
@@ -3908,7 +4058,10 @@
         "note": "神格演變：瘟鬼→護法→財神之學術性彙整"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/趙公明"
+    ]
   },
   {
     "id": "zhuyi_shenjun",
@@ -4214,6 +4367,10 @@
         "note": "地藏誕辰農曆七月三十、為大眾爺廟主祀"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/地藏菩薩",
+      "https://www.wikidata.org/wiki/Q1144347"
+    ]
   }
 ]

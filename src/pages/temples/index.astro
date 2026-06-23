@@ -1,11 +1,16 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getTemples } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 const temples = (await getTemples()).sort((a, b) => (a.data.district ?? '').localeCompare(b.data.district ?? ''));
 ---
 
-<Base title="廟宇" description="台灣代表性廟宇與其主祀神祇，主祀神連回神明圖譜。">
+<Base
+  title="廟宇"
+  description="台灣代表性廟宇與其主祀神祇，主祀神連回神明圖譜。"
+  jsonLd={breadcrumb([{ name: '廟宇', path: '/temples' }])}
+>
   <h1>廟宇</h1>
   <p class="muted">台灣代表性廟宇與其主祀神祇。點主祀神可連到神明圖譜。</p>
   {

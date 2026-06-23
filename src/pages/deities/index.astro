@@ -2,13 +2,18 @@
 import Base from '../../layouts/Base.astro';
 import { deitiesByCategory, deitiesByGroup } from '../../lib/queries';
 import { DEITY_CATEGORIES } from '../../content.config';
+import { breadcrumb } from '../../lib/seo';
 
 const byCat = await deitiesByCategory();
 const byGroup = await deitiesByGroup();
 const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
 ---
 
-<Base title="神明圖譜" description="台灣漢人民間信仰七大類神明：職司、聖誕、別名、關係網，逐條掛來源。">
+<Base
+  title="神明圖譜"
+  description="台灣漢人民間信仰七大類神明：職司、聖誕、別名、關係網，逐條掛來源。"
+  jsonLd={[breadcrumb([{ name: '神明圖譜', path: '/deities' }])]}
+>
   <h1>神明圖譜</h1>
   <p class="muted">
     採七大類既有分類學（不自創）。神格位階不建模、不排高低，只記分類與關係（§2.3、§13.3 諸說並陳）。

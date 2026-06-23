@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getPoems, getSystems } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 const poems = await getPoems();
 const systems = (await getSystems()).sort((a, b) => a.data.count - b.data.count);
@@ -11,9 +12,11 @@ for (const p of poems) {
   (bySystem.get(id) ?? bySystem.set(id, []).get(id)!).push(p);
 }
 for (const list of bySystem.values()) list.sort((a, b) => a.data.no - b.data.no);
+// GEO：列表頁 BreadcrumbList（P3）
+const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
 ---
 
-<Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。">
+<Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。" jsonLd={ld}>
   <h1>籤詩解碼</h1>
   <p class="muted">
     籤詩四句屬公有領域；卦頭故事採諸說並陳，賞析與分項解為本站撰寫或標源。

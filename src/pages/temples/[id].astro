@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getTemples, getDeities, getEvents } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -16,9 +17,30 @@ const events = await getEvents();
 // 此廟主辦之活動（host_temple 對映 temple.id）
 const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
 const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
+
+// P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
+const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
+const faq = faqPage([
+  {
+    q: `${t.name}主祀哪位神明？`,
+    a: mainDeity ? `${t.name}主祀${mainDeity}。` : '',
+  },
+  {
+    q: `${t.name}在哪裡？`,
+    a: t.district ? `${t.name}位於${t.district}。` : '',
+  },
+]);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '廟宇', path: '/temples' },
+    { name: t.name, path: `/temples/${temple.id}` },
+  ]),
+  ...(faq ? [faq] : []),
+];
 ---
 
-<Base title={t.name}>
+<Base title={t.name} ogType="article" jsonLd={jsonLd}>
   <nav class="crumb"><a href="/temples">廟宇</a></nav>
   <h1>{t.name}</h1>
 

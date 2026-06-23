@@ -2,14 +2,71 @@
 import Base from '../../layouts/Base.astro';
 import AlmanacDay from '../../components/AlmanacDay.astro';
 import { todayInTaipei } from '../../lib/daily';
+import { computeDayRecord } from '../../lib/almanac';
+import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
+import { lunarProvider } from '../../lib/almanac/provider';
+import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
+
+// 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
+const [y, m, dd] = iso.split('-').map(Number);
+const rec = computeDayRecord(y, m, dd, { astro: lunarProvider });
+const lunar = rec.lunar.value;
+const gz = (p: { value: { stem: string; branch: string } | null }) =>
+  p.value ? `${p.value.stem}${p.value.branch}` : '';
+const lunarText = lunar ? `${lunar.isLeap ? '閏' : ''}農曆 ${lunar.month} 月 ${lunar.day} 日` : '';
+const yiV = rec.yi.filter((v) => v.verified).map((v) => v.affair);
+const jiV = rec.ji.filter((v) => v.verified).map((v) => v.affair);
+const chong = rec.chongSha.value;
+const yearBranch = rec.pillars.year.value?.branch;
+const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
+
+// FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
+const jsonLd: object[] = [almanacBreadcrumb(iso)];
+const faq = faqPage([
+  {
+    q: `${iso} 是農曆幾月幾日？`,
+    a: lunar
+      ? `${iso}（國曆）為${lunarText}，干支${gz(rec.pillars.year)}年${yearZodiac ? `（生肖${yearZodiac}）` : ''}，日柱${gz(rec.pillars.day)}。`
+      : '',
+  },
+  { q: `${iso} 宜做什麼？`, a: yiV.length ? `${iso} 宜：${yiV.join('、')}。` : '' },
+  { q: `${iso} 忌做什麼？`, a: jiV.length ? `${iso} 忌：${jiV.join('、')}。` : '' },
+  {
+    q: `${iso} 沖煞什麼生肖、方位？`,
+    a: chong?.zodiac && chong.direction && chong.direction !== '—' ? `${iso} 沖${chong.zodiac}，煞${chong.direction}。` : '',
+  },
+  {
+    q: `${iso} 是什麼節氣、節日？`,
+    a: [rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).length
+      ? `${iso} 為${[rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).join('、')}。`
+      : '',
+  },
+]);
+if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title={`農民曆 · ${iso}`}
   description="每日農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕，可瀏覽任一日期。"
+  jsonLd={jsonLd}
 >
   <AlmanacDay iso={iso} today={iso} />
+
+  <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存，提升 /almanac/archive 可發現性。 -->
+  <nav class="almanac-more" aria-label="更多農民曆">
+    <a href="/almanac/archive">歷代農民曆封存（依年月瀏覽）→</a>
+  </nav>
 </Base>
+
+<style>
+  .almanac-more {
+    margin-top: 1.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+  }
+  .almanac-more a { color: var(--accent); }
+</style>
