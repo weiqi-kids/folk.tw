@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getDeities, getSystems, relationsOf, templesByDeity } from '../../lib/queries';
+import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
@@ -20,6 +20,13 @@ const { deity, rels, nameById, temples } = Astro.props;
 const d = deity.data;
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+
+// 接通「神明↔籤詩」子圖：本神採用之系統的全部籤（直連籤，避免子圖斷開）。
+const poemsBySys = await poemsBySystem();
+const relatedPoems = d.divination_systems.flatMap((s) => poemsBySys.get(s.id) ?? []);
+// 反向：對應拜拜習俗（M5）、以本神為主神之民俗活動（M4）。
+const relatedPractices = (await practicesByDeity()).get(deity.id) ?? [];
+const relatedEvents = (await eventsByDeity()).get(deity.id) ?? [];
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);
@@ -173,6 +180,33 @@ const jsonLd = [
     }
   </section>
 
+  {
+    relatedPoems.length > 0 && (
+      <section>
+        <h2>相關籤詩</h2>
+        {d.divination_systems.map((s) => {
+          const list = poemsBySys.get(s.id) ?? [];
+          if (!list.length) return null;
+          return (
+            <div class="poem-group">
+              <p class="muted small">
+                <a href={`/systems/${s.id}`}>{systemName.get(s.id) ?? s.id}</a>　共 {list.length} 籤
+              </p>
+              <ul class="poem-links">
+                {list.slice(0, 12).map((p) => (
+                  <li>
+                    <a href={`/poems/${p.id}`}>第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}</a>
+                  </li>
+                ))}
+              </ul>
+              {list.length > 12 && <p class="muted small"><a href={`/systems/${s.id}`}>看全部 {list.length} 籤 →</a></p>}
+            </div>
+          );
+        })}
+      </section>
+    )
+  }
+
   <section>
     <h2>關係網</h2>
     {
@@ -216,6 +250,38 @@ const jsonLd = [
     )
   }
 
+  {
+    relatedPractices.length > 0 && (
+      <section>
+        <h2>相關拜拜習俗</h2>
+        <ul class="rels">
+          {relatedPractices.map((p) => (
+            <li>
+              <a href={`/practices/${p.id}`}>{p.data.title}</a>
+              {p.data.summary && <span class="muted small">　{p.data.summary}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    relatedEvents.length > 0 && (
+      <section>
+        <h2>相關民俗活動</h2>
+        <ul class="rels">
+          {relatedEvents.map((e) => (
+            <li>
+              <a href={`/events/${e.id}`}>{e.data.name}</a>
+              {e.data.region.length > 0 && <span class="muted small">　{e.data.region.join('、')}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   {d.sources.length > 0 && <p class="src footer-src">來源：{d.sources.map((s) => s.ref).join('；')}</p>}
 
   <style>
@@ -233,6 +299,9 @@ const jsonLd = [
     .rels li { padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
     .reltype { color: var(--accent); font-size: 0.9rem; }
     .placeholder { color: var(--ink-soft); }
+    .poem-group { margin: 0.6rem 0 1rem; }
+    .poem-links { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.1rem 1rem; }
+    .poem-links li { padding: 0.2rem 0; }
     .footer-src { margin-top: 2rem; }
     .note { margin: 1rem 0; }
   </style>

@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById } from '../../lib/queries';
+import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem } from '../../lib/queries';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
@@ -19,6 +19,15 @@ const allusionById = new Map(allusions.map((a) => [a.id, a]));
 const allusionName = await allusionNameById(); // 不過濾 draft，供顯示典故名
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+
+// 接通「籤詩↔神明」子圖：採用本籤系之神明（直連神明頁）。
+const deitiesForSystem = (await deitiesBySystem()).get(d.system.id) ?? [];
+// 前後籤導覽：同系統依籤序，避免籤頁成為孤點。
+const sysPoems = (await poemsBySystem()).get(d.system.id) ?? [];
+const curIdx = sysPoems.findIndex((p) => p.id === poem.id);
+const prevPoem = curIdx > 0 ? sysPoems[curIdx - 1] : null;
+const nextPoem = curIdx >= 0 && curIdx < sysPoems.length - 1 ? sysPoems[curIdx + 1] : null;
+const poemLabel = (p: typeof poem) => `第 ${p.data.no} 籤${(p.data.ganzhi || p.data.title) ? ` · ${p.data.ganzhi ?? p.data.title}` : ''}`;
 
 // 白話賞析（版面主角，§0.5）＝ interpretation md body；八項分項解 ＝ frontmatter（次級）
 const ai = interp?.data ?? {};
@@ -176,12 +185,46 @@ if (faq) ld.push(faq);
       }
     </section>
 
+    {
+      deitiesForSystem.length > 0 && (
+        <section>
+          <h2>採用此籤系之神明</h2>
+          <ul class="deity-refs">
+            {deitiesForSystem.map((dd) => (
+              <li>
+                <a href={`/deities/${dd.id}`}>{dd.data.name}</a>
+                <span class="muted small">　{dd.data.category}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
     {d.notes && (
       <section>
         <h2>校訂註記</h2>
         <p class="muted small">{d.notes}</p>
       </section>
     )}
+
+    <nav class="poem-nav" aria-label="籤序導覽">
+      {
+        prevPoem ? (
+          <a class="nav-btn" href={`/poems/${prevPoem.id}`} rel="prev">‹ {poemLabel(prevPoem)}</a>
+        ) : (
+          <span class="nav-btn disabled">‹ 已是首籤</span>
+        )
+      }
+      <a class="nav-btn" href={`/systems/${d.system.id}`}>全部籤</a>
+      {
+        nextPoem ? (
+          <a class="nav-btn" href={`/poems/${nextPoem.id}`} rel="next">{poemLabel(nextPoem)} ›</a>
+        ) : (
+          <span class="nav-btn disabled">已是末籤 ›</span>
+        )
+      }
+    </nav>
 
     <p class="src footer-src">{d.version_source}</p>
   </article>
@@ -215,6 +258,15 @@ if (faq) ld.push(faq);
     .interp .row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
     .interp dt { font-weight: 700; color: var(--accent); }
     .interp dd { margin: 0; }
+    .deity-refs { list-style: none; padding: 0; }
+    .deity-refs li { padding: 0.3rem 0; }
+    .poem-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 2rem; }
+    .poem-nav .nav-btn {
+      padding: 0.3rem 0.8rem; border: 1px solid var(--line); border-radius: 0.4rem;
+      background: var(--paper-2); color: var(--ink); font-size: var(--text-sm);
+    }
+    .poem-nav .nav-btn:hover { text-decoration: none; border-color: var(--accent-soft); }
+    .poem-nav .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
     .footer-src { margin-top: 2rem; }
   </style>
 </Base>

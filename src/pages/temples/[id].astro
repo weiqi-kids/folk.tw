@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getTemples, getDeities, getEvents } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
+import { templeCounty } from '../../lib/temple-region';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -17,6 +18,8 @@ const events = await getEvents();
 // 此廟主辦之活動（host_temple 對映 temple.id）
 const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
 const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
+// 上行連結：同縣市廟宇頁（單一 hub 連結，給爬蟲/讀者橫向出口，不建廟對廟密網）。
+const county = templeCounty(t.district);
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
@@ -50,7 +53,10 @@ const jsonLd = [
 ---
 
 <Base title={t.name} ogType="article" jsonLd={jsonLd}>
-  <nav class="crumb"><a href="/temples">廟宇</a></nav>
+  <nav class="crumb">
+    <a href="/temples">廟宇</a>
+    {county && <> ／ <a href={`/temples/region/${county.slug}`}>{county.name}</a></>}
+  </nav>
   <h1>{t.name}</h1>
 
   <dl class="rec">
@@ -92,6 +98,10 @@ const jsonLd = [
     )
   }
 
+  {county && (
+    <p class="region-link"><a href={`/temples/region/${county.slug}`}>查看{county.name}全部廟宇 →</a></p>
+  )}
+
   {t.website && <p class="temple-site"><a href={t.website} target="_blank" rel="noopener">官方網站 →</a></p>}
 
   {t.sources.length > 0 && <p class="src">來源：{t.sources.map((s) => s.ref).join('；')}</p>}
@@ -105,6 +115,8 @@ const jsonLd = [
     .map { margin-left: 0.6rem; font-size: 0.85rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
     .small { font-size: 0.85rem; }
+    .region-link { margin-top: 1.2rem; font-size: 0.95rem; }
+    .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1rem; font-size: 0.95rem; }
     .temple-site a { font-weight: 600; }
     .src { color: var(--gold); font-size: 0.82rem; margin-top: 1.5rem; }

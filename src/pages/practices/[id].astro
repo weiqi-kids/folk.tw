@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getPractices, getDeities } from '../../lib/queries';
+import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage, howTo } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
@@ -14,6 +14,11 @@ const p = practice.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
 const isNode = (id: string) => deityName.has(id);
+// 相關民俗活動：經由共同神明關聯（去重），避免習俗頁僅單向連神明。
+const eventsByD = await eventsByDeity();
+const relatedEvents = [
+  ...new Map(p.deities.flatMap((id) => (eventsByD.get(id) ?? []).map((e) => [e.id, e]))).values(),
+];
 
 // P1-4 AEO：FAQ 由真實資料生成（步驟／供品／禁忌／場合），缺資料自動略過。
 const stepLine = p.steps
@@ -134,6 +139,22 @@ const jsonLd: object[] = [
     }
   </section>
 
+  {
+    relatedEvents.length > 0 && (
+      <section>
+        <h2>相關民俗活動</h2>
+        <ul class="event-refs">
+          {relatedEvents.map((e) => (
+            <li>
+              <a href={`/events/${e.id}`}>{e.data.name}</a>
+              {e.data.region.length > 0 && <span class="muted small">　{e.data.region.join('、')}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   {p.sources.length > 0 && <p class="src footer-src">來源：{p.sources.map((s) => s.ref).join('；')}</p>}
 
   <style>
@@ -146,6 +167,8 @@ const jsonLd: object[] = [
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
     .small { font-size: 0.85rem; }
     .steps li { padding: 0.3rem 0; }
+    .event-refs { list-style: none; padding: 0; }
+    .event-refs li { padding: 0.3rem 0; }
     .src { color: var(--gold); font-size: 0.82rem; }
     .footer-src { margin-top: 1.5rem; }
   </style>

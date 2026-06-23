@@ -100,6 +100,46 @@ export async function deitiesBySystem(): Promise<Map<string, CollectionEntry<'de
   return map;
 }
 
+/** 籤詩系統 → 該系統全部籤（依籤序，§2.2）。供神明頁直連籤、籤頁前後籤導覽。 */
+export async function poemsBySystem(): Promise<Map<string, CollectionEntry<'poems'>[]>> {
+  const poems = await getPoems();
+  const map = new Map<string, CollectionEntry<'poems'>[]>();
+  for (const p of poems) {
+    (map.get(p.data.system.id) ?? map.set(p.data.system.id, []).get(p.data.system.id)!).push(p);
+  }
+  for (const list of map.values()) list.sort((a, b) => a.data.no - b.data.no);
+  return map;
+}
+
+/** 神明 → 對應拜拜習俗（practice.deities 含此神，§2.2 反向；M2↔M5） */
+export async function practicesByDeity(): Promise<Map<string, CollectionEntry<'practices'>[]>> {
+  const practices = await getPractices();
+  const map = new Map<string, CollectionEntry<'practices'>[]>();
+  for (const p of practices) {
+    for (const id of p.data.deities) {
+      (map.get(id) ?? map.set(id, []).get(id)!).push(p);
+    }
+  }
+  return map;
+}
+
+/** 神明 → 以此為主神之民俗活動（event.main_deity，§2.2 反向；M2↔M4） */
+export async function eventsByDeity(): Promise<Map<string, CollectionEntry<'events'>[]>> {
+  const events = await getEvents();
+  const map = new Map<string, CollectionEntry<'events'>[]>();
+  for (const e of events) {
+    const id = e.data.main_deity;
+    if (!id) continue;
+    (map.get(id) ?? map.set(id, []).get(id)!).push(e);
+  }
+  return map;
+}
+
+/** 廟宇 id → 名稱（供事件頁把主辦/目的廟字串連到 /temples） */
+export async function templeNameById(): Promise<Map<string, string>> {
+  return new Map((await getTemples()).map((t) => [t.id, t.data.name]));
+}
+
 /** 神格分類 → 同類神明（§2.2 神格聚合） */
 export async function deitiesByCategory(): Promise<Map<string, CollectionEntry<'deities'>[]>> {
   const deities = await getDeities();
