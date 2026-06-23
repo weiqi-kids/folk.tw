@@ -39,10 +39,10 @@
 
 ## 🟡 選配開發（有數據佐證再排序，皆非當務之急）
 
-- [x] speakable schema（已於 2026-06-23 commit `365b78f` 上線）：Base 加 `speakable` prop →
-      輸出 WebPage SpeakableSpecification；神明/籤詩/典故/習俗四類常青詳情頁宣告
-      answer-first 區塊（`h1`＋`.summary`/`.lead`/`.story`）。僅內容詳情頁、未外溢首頁/列表頁。
-      首頁「熱門神明」同批補上月老（yuelao）。
+- [x] speakable schema（2026-06-23 commit `365b78f`＋`b1aff85` 上線）：Base 加 `speakable` prop →
+      輸出 WebPage SpeakableSpecification；神明/籤詩/典故/習俗/農民曆日期五類常青詳情頁宣告
+      answer-first 區塊（`h1`＋`.summary`/`.lead`/`.story`/`.yiji-section`）。僅內容詳情頁、未外溢首頁/列表頁。
+      （events 為結構化欄位無整句摘要、已有 FAQPage 覆蓋，故不加。）首頁「熱門神明」同批補上月老（yuelao）。
 - [ ] 神明 `sameAs` 補齊（48/76 → 76，src/data/deities.json）
 - [ ] 名廟 沿革/聖誕 內容豐化（需逐間查證來源，僅名廟可行）
 - [ ] 民俗活動續擴（已 21 場，長尾）
