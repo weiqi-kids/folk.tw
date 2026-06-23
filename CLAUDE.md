@@ -43,7 +43,8 @@
       輸出 WebPage SpeakableSpecification；神明/籤詩/典故/習俗/農民曆日期五類常青詳情頁宣告
       answer-first 區塊（`h1`＋`.summary`/`.lead`/`.story`/`.yiji-section`）。僅內容詳情頁、未外溢首頁/列表頁。
       （events 為結構化欄位無整句摘要、已有 FAQPage 覆蓋，故不加。）首頁「熱門神明」同批補上月老（yuelao）。
-- [ ] 神明 `sameAs` 補齊（48/76 → 76，src/data/deities.json）
+- [x] 神明 `sameAs` 補齊（2026-06-23，48→**69/76**，src/data/deities.json）：21 尊查證 Wikidata/維基百科
+      補上；餘 7 尊（花公花婆/使者公蛇神/三尊甲乙丙太歲/妙應仙妃/祖神）查無權威條目，依無源不杜撰**留空**。
 - [ ] 名廟 沿革/聖誕 內容豐化（需逐間查證來源，僅名廟可行）
 - [ ] 民俗活動續擴（已 21 場，長尾）
 - [ ] 新港奉天宮官網 `https://www.hsinkangmazu.org.tw/`：已查證但 MOI 廟資料無對應

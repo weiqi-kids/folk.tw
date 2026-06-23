@@ -177,7 +177,11 @@
         "note": "主祀水仙尊王、一帝二王二大夫五尊（大禹/寒奡/項羽/伍子胥/屈原）、商船漁信奉、康熙年間創建"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/水仙尊王",
+      "https://www.wikidata.org/wiki/Q10373477"
+    ]
   },
   {
     "id": "longwang",
@@ -505,7 +509,11 @@
         "note": "七爺謝必安（身高面白、長爺、白無常）、八爺范無救（身矮面黑、短爺、黑無常）、南臺橋守信溺水殉節傳說、城隍駕前部將職司、出巡居行列最前"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/謝范將軍",
+      "https://www.wikidata.org/wiki/Q97352604"
+    ]
   },
   {
     "id": "dongyue",
@@ -1956,7 +1964,11 @@
         "note": "織女即天帝第七女、七星娘娘為兒童保護神、台南開隆宮唯一主祀、做十六歲鑽七娘媽亭成年禮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/織女",
+      "https://www.wikidata.org/wiki/Q2122828"
+    ]
   },
   {
     "id": "pojie",
@@ -1991,7 +2003,10 @@
         "note": "婆姐（三十六鳥母）為臨水夫人從神，輔助生育、守護小孩至十六歲成年"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/鳥母"
+    ]
   },
   {
     "id": "chitou",
@@ -2044,7 +2059,11 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/池頭夫人",
+      "https://www.wikidata.org/wiki/Q133187591"
+    ]
   },
   {
     "id": "huagong",
@@ -2142,7 +2161,11 @@
         "note": "別名下壇將軍/山軍尊神、職司鎮邪招財醫療、配祀保生大帝/土地公、供神桌下生肉生雞蛋"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/虎爺",
+      "https://www.wikidata.org/wiki/Q15903662"
+    ]
   },
   {
     "id": "dasheng",
@@ -2259,7 +2282,11 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/天蓬元帥",
+      "https://www.wikidata.org/wiki/Q10022741"
+    ]
   },
   {
     "id": "sheshen",
@@ -2725,7 +2752,13 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/雷公",
+      "https://www.wikidata.org/wiki/Q1910200",
+      "https://zh.wikipedia.org/wiki/電母",
+      "https://www.wikidata.org/wiki/Q15952897"
+    ]
   },
   {
     "id": "shidan",
@@ -2807,7 +2840,11 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/神樹",
+      "https://www.wikidata.org/wiki/Q12373247"
+    ]
   },
   {
     "id": "wangye_li",
@@ -2881,7 +2918,11 @@
         "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/李大亮",
+      "https://www.wikidata.org/wiki/Q11095869"
+    ]
   },
   {
     "id": "wangye_chi",
@@ -2964,7 +3005,11 @@
         "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/池夢彪",
+      "https://www.wikidata.org/wiki/Q10379427"
+    ]
   },
   {
     "id": "wangye_wu",
@@ -3058,7 +3103,11 @@
         "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/吳孝寬",
+      "https://www.wikidata.org/wiki/Q10918751"
+    ]
   },
   {
     "id": "wangye_zhu",
@@ -3137,7 +3186,11 @@
         "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/朱叔裕",
+      "https://www.wikidata.org/wiki/Q11093698"
+    ]
   },
   {
     "id": "wangye_fan",
@@ -3217,7 +3270,11 @@
         "note": "李池吳朱范為隋末唐初結義功臣、助唐高祖建唐；王船載五府神像漂至北門南鯤鯓沙汕"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/范承業",
+      "https://www.wikidata.org/wiki/Q16075945"
+    ]
   },
   {
     "id": "chenghuang_xiahai",
@@ -3285,7 +3342,11 @@
         "note": "五月十三迎城隍聖誕賽會，起自清光緒5年（1879）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/大稻埕霞海城隍廟",
+      "https://www.wikidata.org/wiki/Q10937179"
+    ]
   },
   {
     "id": "chenghuang_tainanfu",
@@ -3356,7 +3417,11 @@
         "note": "主神威靈公掌陰陽兩界；府城名匾「爾來了」釋義；大算盤審判福禍果報"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/臺灣府城隍廟",
+      "https://www.wikidata.org/wiki/Q2593582"
+    ]
   },
   {
     "id": "taisui",
@@ -3895,7 +3960,11 @@
         "note": "整理鄭氏說、瘟神說、英靈說等諸說"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/溫府千歲",
+      "https://www.wikidata.org/wiki/Q10396614"
+    ]
   },
   {
     "id": "shier_wenwang",
@@ -3960,7 +4029,11 @@
         "note": "王爺信仰類型，含十二瘟王型（五年千歲）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/五年千歲",
+      "https://www.wikidata.org/wiki/Q10881780"
+    ]
   },
   {
     "id": "zhao_gongming",
@@ -4134,7 +4207,11 @@
         "note": "朱衣帝君為五文昌之一，掌科舉文章評定"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/朱衣神",
+      "https://www.wikidata.org/wiki/Q10331256"
+    ]
   },
   {
     "id": "miaoying_xianfei",
@@ -4238,7 +4315,13 @@
         "note": "善財出《華嚴經》、龍女出《法華經》；並列源自明代《南海觀音全傳》寶卷文學，屬後出創作"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/善財童子",
+      "https://www.wikidata.org/wiki/Q2036958",
+      "https://zh.wikipedia.org/wiki/龍女",
+      "https://www.wikidata.org/wiki/Q6674175"
+    ]
   },
   {
     "id": "haoxiongdi",
@@ -4271,7 +4354,10 @@
         "note": "好兄弟為無後人之孤魂野鬼；七月地官開鬼門、孤魂返陽；普渡為宴請無主遊魂、佈施不求回報"
       }
     ],
-    "draft": false
+    "draft": false,
+    "sameAs": [
+      "https://zh.wikipedia.org/wiki/孤魂信仰"
+    ]
   },
   {
     "id": "zushen",
