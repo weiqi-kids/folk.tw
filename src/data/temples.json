@@ -18,7 +18,8 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001112&id=R18",
         "note": "台中市大甲區，國定重要民俗大甲媽祖遶境進香主辦廟"
       }
-    ]
+    ],
+    "website": "https://www.dajiamazu.org.tw/"
   },
   {
     "id": "baishatun_gongtian",
@@ -39,7 +40,8 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001016&id=A12-00649",
         "note": "國定重要民俗白沙屯媽祖進香主辦廟"
       }
-    ]
+    ],
+    "website": "https://www.baishatunmazu.org.tw/"
   },
   {
     "id": "beigang_chaotian",
@@ -58,7 +60,8 @@
         "ref": "交通部觀光署 https://taiwan.net.tw/m1.aspx?id=2249&sNo=0001115",
         "note": "國定重要民俗北港朝天宮迎媽祖主辦廟"
       }
-    ]
+    ],
+    "website": "https://www.matsu.org.tw/"
   },
   {
     "id": "donggang_dongling",
@@ -77,7 +80,8 @@
         "ref": "東港東隆宮官網 https://www.66.org.tw/",
         "note": "廟方官網；迎王平安祭典（燒王船）主辦廟"
       }
-    ]
+    ],
+    "website": "https://www.66.org.tw/"
   },
   {
     "id": "xigang_qingan",
@@ -134,7 +138,8 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
         "note": "台北市定民俗「艋舺青山王祭（暗訪）」主辦廟"
       }
-    ]
+    ],
+    "website": "https://www.mjcsg.org.tw/"
   },
   {
     "id": "yanshui_wumiao",
@@ -231,7 +236,8 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=227",
         "note": "台北市定古蹟"
       }
-    ]
+    ],
+    "website": "https://www.ssjyg.org.tw/"
   },
   {
     "id": "dalongdong_baoan",
@@ -250,7 +256,8 @@
         "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/",
         "note": "廟方官網；泉州同安移民族群信仰中心，以保生大帝醫神信仰著稱"
       }
-    ]
+    ],
+    "website": "https://www.baoan.org.tw/"
   },
   {
     "id": "wanhua_longshan",
@@ -271,7 +278,8 @@
         "ref": "艋舺龍山寺官網 https://www.lungshan.org.tw/",
         "note": "廟方官網；三邑泉州籍移民分靈晉江安海龍山寺，佛道混祀"
       }
-    ]
+    ],
+    "website": "https://www.lungshan.org.tw/"
   },
   {
     "id": "taipei_xingtian",
@@ -290,7 +298,8 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=10595",
         "note": "台北市著名宗教景點"
       }
-    ]
+    ],
+    "website": "https://www.ht.org.tw/"
   },
   {
     "id": "dadaocheng_xiahai",
@@ -309,7 +318,8 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001090&id=2595",
         "note": "以月老姻緣信仰聞名，為大稻埕三大廟之一"
       }
-    ]
+    ],
+    "website": "http://www.tpecitygod.org/"
   },
   {
     "id": "tainan_fu_chenghuang",
@@ -347,7 +357,8 @@
         "ref": "祀典大天后宮官網 https://www.gtainanmazu.org.tw/",
         "note": "廟方官網；主祀金面媽祖，為台灣官祀媽祖廟代表"
       }
-    ]
+    ],
+    "website": "https://www.gtainanmazu.org.tw/"
   },
   {
     "id": "nankunshen_daitian",
@@ -368,7 +379,8 @@
         "ref": "南鯤鯓代天府官網 https://www.nkstemple.org.tw/",
         "note": "廟方官網；主祀李池吳朱范五府千歲，另祀萬善爺"
       }
-    ]
+    ],
+    "website": "https://www.nkstemple.org.tw/"
   },
   {
     "id": "beigang_wude",
@@ -387,7 +399,8 @@
         "ref": "北港武德宮官網 https://www.wude.org.tw/",
         "note": "廟方官網"
       }
-    ]
+    ],
+    "website": "https://www.wude.org.tw/"
   },
   {
     "id": "lugang_tianhou",
@@ -406,7 +419,8 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/monument/20191128000001",
         "note": "縣定古蹟；彰化縣重要媽祖信仰中心"
       }
-    ]
+    ],
+    "website": "https://www.lugangmazu.org/"
   },
   {
     "id": "xuejia_cijigong",
@@ -425,7 +439,8 @@
         "ref": "臺灣宗教文化地圖 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62",
         "note": "國家三級古蹟；以葉王交趾陶、何金龍剪黏、潘麗水門神彩繪三大工藝著稱"
       }
-    ]
+    ],
+    "website": "https://www.tcgs.org.tw/"
   },
   {
     "id": "madou_daitian",
@@ -444,7 +459,8 @@
         "ref": "麻豆代天府官網 https://www.5god.com.tw/",
         "note": "廟方官網；廟地佔三甲餘，設觀音寶殿，地宮五虎大陣頭聞名"
       }
-    ]
+    ],
+    "website": "https://www.5god.com.tw/"
   },
   {
     "id": "jilong_laodagong",
@@ -501,7 +517,8 @@
         "ref": "維基百科「正統鹿耳門聖母廟」https://zh.wikipedia.org/zh-tw/%E6%AD%A3%E7%B5%B1%E9%B9%BF%E8%80%B3%E9%96%80%E8%81%96%E6%AF%8D%E5%BB%9F",
         "note": "台南安南區鹿耳門地區媽祖信仰代表廟宇"
       }
-    ]
+    ],
+    "website": "https://luermen.org.tw/"
   },
   {
     "id": "tainan_kaiji_tianhou",
@@ -9201,7 +9218,8 @@
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
       }
-    ]
+    ],
+    "website": "https://www.luerhmen.org.tw/"
   },
   {
     "id": "moi_826_福慧宮",
@@ -63077,7 +63095,8 @@
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
       }
-    ]
+    ],
+    "website": "https://www.twsdwumiao.org.tw/"
   },
   {
     "id": "moi_6122_北辰宮",
@@ -88531,7 +88550,8 @@
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
       }
-    ]
+    ],
+    "website": "https://www.kuantu.org.tw/"
   },
   {
     "id": "moi_8672_財團法人新北市三",
@@ -99397,7 +99417,8 @@
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
       }
-    ]
+    ],
+    "website": "https://www.chih-nan-temple.org/"
   },
   {
     "id": "moi_9792_財團法人台北市景",

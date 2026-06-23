@@ -189,6 +189,7 @@ const temples = defineCollection({
     district: z.string().optional(),
     lng: z.number().optional(),
     lat: z.number().optional(),
+    website: z.string().optional(), // 廟方官方網站（驗證後填，無源不發佈）
     sources: z.array(source).default([]),
   }),
 });

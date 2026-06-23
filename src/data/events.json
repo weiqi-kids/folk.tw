@@ -648,5 +648,396 @@
       }
     ],
     "draft": false
+  },
+  {
+    "id": "dadaocheng_chenghuang",
+    "name": "大稻埕霞海城隍迎城隍（五月十三）",
+    "host_temple": "dadaocheng_xiahai_chenghuang",
+    "main_deity": "chenghuang_xiahai",
+    "type": [
+      "夜巡",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆五月十一暗訪、五月十三正日遶境（俗諺「五月十三人看人」）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "verified": true
+    },
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈台北霞海城隍廟五月十三迎城隍〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000001",
+        "note": "登錄為臺北市定民俗（直轄市定）；起源清光緒5年（1879年）"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈台北霞海城隍廟五月十三迎城隍〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+        "note": "暗訪、遶境流程；七爺八爺、文武判官出巡"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈大稻埕霞海城隍廟〉 https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E7%A8%BB%E5%9F%95%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "1853年頂下郊拼後同安人奉霞海城隍落腳大稻埕之歷史"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "xuejia_shangbaijiao",
+    "name": "學甲上白礁暨刈香",
+    "host_temple": "xuejia_ciji",
+    "main_deity": "baosheng",
+    "type": [
+      "刈香",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月十一於將軍溪畔遙祭福建白礁慈濟宮祖廟（刈香三年一科）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": true
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈學甲上白礁暨刈香〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002",
+        "note": "登錄為國家重要民俗"
+      },
+      {
+        "type": "gov",
+        "ref": "文化部新聞稿〈重要民俗「學甲上白礁」授證〉 https://www.moc.gov.tw/News_Content.aspx?n=105&s=119174",
+        "note": "2022年授證；保存者學甲慈濟宮"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈學甲上白礁暨刈香〉 https://zh.wikipedia.org/zh-tw/%E5%AD%B8%E7%94%B2%E4%B8%8A%E7%99%BD%E7%A4%81%E6%9A%A8%E5%88%88%E9%A6%99",
+        "note": "農曆三月十一將軍溪遙祭白礁祖廟、整合學甲十三庄之歷史"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "dalongdong_baosheng",
+    "name": "大龍峒保安宮保生大帝聖誕慶典",
+    "host_temple": "dalongdong_baoan",
+    "main_deity": "baosheng",
+    "type": [
+      "遶境",
+      "過火"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月十四遶境、三月十五保生大帝聖誕（放火獅、過火、家姓戲）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "verified": true
+    },
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈大龍峒保安宮保生大帝聖誕慶典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001",
+        "note": "2021年登錄為臺北市無形文化資產（直轄市定民俗）；保存者大龍峒保安宮"
+      },
+      {
+        "type": "temple",
+        "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/intro.php?lang=tw",
+        "note": "建於清乾隆年間（1742年）；遶境、放火獅、過火、家姓戲等五大項活動"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "sanxia_qingshui",
+    "name": "三峽長福巖清水祖師聖誕祭典",
+    "host_temple": "sanxia_changfuyan",
+    "main_deity": "qingshui",
+    "type": [
+      "遶境",
+      "神豬祭"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆正月初五遊境、正月初六清水祖師聖誕（賽神豬）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "verified": true
+    },
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈三峽長福巖清水祖師聖誕祭典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20110718000001",
+        "note": "2011年登錄為新北市定民俗"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈三峽長福巖清水祖師聖誕祭典〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176",
+        "note": "正月初六賽神豬、七大股輪值爐主、家姓戲"
+      },
+      {
+        "type": "temple",
+        "ref": "財團法人新北市三峽長福巖清水祖師公官網 http://www.longfuyan.org.tw/"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "kouhu_qianshuizang",
+    "name": "口湖牽水車藏（狀）",
+    "host_temple": "kouhu_wanshan_ye",
+    "main_deity": "haoxiongdi",
+    "type": [
+      "中元普渡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆六月初七至初九（道光25年〔1845〕六七水災罹難者追思）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": true
+    },
+    "region": [
+      "雲林"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈口湖牽水車藏（狀）〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001",
+        "note": "2008年雲林縣登錄、2010年文化部指定為國家重要民俗"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈口湖牽水𰹬〉 https://zh.wikipedia.org/zh-tw/%E5%8F%A3%E6%B9%96%E7%89%BD%E6%B0%B4%F0%B0%B9%AC",
+        "note": "源自1845年六七水災（湖內洗港），近萬亡魂稱萬善爺；主場金湖萬善爺廟、下湖港萬善祠"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈口湖牽水車藏（狀）〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269",
+        "note": "全臺唯一源自真實歷史災難事件的民俗祭儀"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "taitung_handan",
+    "name": "臺東炮炸寒單爺",
+    "host_temple": "taitung_xuanwutang",
+    "main_deity": "zhao_gongming",
+    "type": [
+      "遶境",
+      "炮城"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "元宵（正月十五前後）；肉身寒單爺立於神轎受鞭炮轟炸",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "verified": true
+    },
+    "region": [
+      "台東"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈臺東炮炸寒單爺〉 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92",
+        "note": "與北天燈、南蜂炮並列元宵民俗；2007年登錄為臺東縣無形文化資產"
+      },
+      {
+        "type": "web",
+        "ref": "報導者〈炮炸肉身的祈福、榮耀與犧牲〉 https://www.twreporter.org/a/religious-activity-and-medical-cost-taitung-cha-han-tan",
+        "note": "民國79年台東玄武堂成立後復出；寒單爺即武財神趙公明（中路財神）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "mamingshan_wunian",
+    "name": "馬鳴山五年千歲大科",
+    "host_temple": "mamingshan_zhenan",
+    "main_deity": "wangye",
+    "type": [
+      "迎王",
+      "建醮",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": "寅午戌",
+    "date_resolution": "fixed_lunar",
+    "date_note": "逢農曆寅、午、戌年舉行五年大科（五年一醮，代天巡狩十二王爺）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": true
+    },
+    "region": [
+      "雲林"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈馬鳴山五年千歲大科〉 https://nchdb.boch.gov.tw/city/Yunlin/assets/overview/folklore/20190807000003",
+        "note": "108年（2019）文化部公告為國家重要民俗"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈馬鳴山鎮安宮〉 https://zh.wikipedia.org/zh-tw/%E9%A6%AC%E9%B3%B4%E5%B1%B1%E9%8E%AE%E5%AE%89%E5%AE%AE",
+        "note": "臺灣五年千歲總廟；香莊進香請王遶境、三朝清醮、迎送王三大面向"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈馬鳴山五年千歲吃飯擔〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=82"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "nankunshen_jinxiang",
+    "name": "南鯤鯓代天府五府千歲進香期",
+    "host_temple": "nankunshen_daitianfu",
+    "main_deity": "wangye",
+    "type": [
+      "進香",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "全年四大進香期；最盛為農曆四月（四月廿六大王李府千歲、四月廿七五王范府千歲聖誕）",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "national_important",
+      "verified": true
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈南鯤鯓代天府五府千歲進香期〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20131004000003",
+        "note": "2013年10月4日文化部公告為國家重要民俗"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈南鯤鯓代天府〉 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E9%AF%A4%E9%AF%93%E4%BB%A3%E5%A4%A9%E5%BA%9C",
+        "note": "臺灣王爺總廟（李池吳朱范五府千歲）；1985年公告為國定古蹟"
+      },
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖〈南鯤鯓代天府五府千歲進香期〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=113",
+        "note": "全年四進香期：農曆四月、六月、八月、九月"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "dongshan_yingfozu",
+    "name": "東山碧軒寺迎佛祖暨遶境",
+    "host_temple": "dongshan_bixuansi",
+    "main_deity": "guanyin",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆十二月廿三送正二媽回關仔嶺碧雲寺過年、正月初十迎回碧軒寺",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "verified": true
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "臺南市政府〈2026東山碧軒寺迎佛祖暨遶境〉 https://www.tainan.gov.tw/News_Content.aspx?n=13370&s=8799252",
+        "note": "2011年文化部登錄為國家重要民俗；換香、換花、換轎三換特色"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈東山碧軒寺〉 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E5%B1%B1%E7%A2%A7%E8%BB%92%E5%AF%BA",
+        "note": "源自道光12年（1832）張丙之亂；途經東山、白河20庄頭，山區徒步古香路"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "hanxi_mazu_shibazhuang",
+    "name": "旱溪媽祖遶境十八庄",
+    "host_temple": "taichung_lecheng",
+    "main_deity": "mazu",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月初一起駕、三月廿二回鑾（全臺遶境天數最長之一；三月廿三媽祖聖誕）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "verified": true
+    },
+    "region": [
+      "台中"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "臺中市文化資產處〈旱溪媽祖遶境十八庄〉 https://www.tchac.taichung.gov.tw/historybuilding?uid=39&pid=142",
+        "note": "2008年登錄為臺中市無形文化資產（民俗）"
+      },
+      {
+        "type": "temple",
+        "ref": "臺中樂成宮〈旱溪媽祖遶境十八庄〉 https://www.lecheng.org.tw/Mazu/Pilgrimage.aspx",
+        "note": "起於清道光年間十八庄稻作蟲害，迎旱溪媽遶境祈福"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科〈臺中樂成宮〉 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E6%A8%82%E6%88%90%E5%AE%AE",
+        "note": "樂成宮建於清乾隆55年（1790）；遶境涵蓋大里、烏日、太平、霧峰等十八庄"
+      }
+    ],
+    "draft": false
   }
 ]
