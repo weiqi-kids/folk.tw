@@ -1,6 +1,21 @@
 // @ts-check
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+
+// ── 退場開關（稀釋止血）──────────────────────────────────
+// 若 GSC 顯示大批同質土地公廟（1384 間）稀釋了獨特頁（神明/籤詩）的索引，
+// 把此旗標設 true 後 commit + push，即把所有土地公廟「移出 sitemap」（頁面仍在、
+// 仍可由神明頁內連被爬，只是不再主動提交）。改一個布林即可，不需動其他邏輯。
+// 監控依據見 scripts/weekly-data.mjs 的 TRACK_URLS（分子/分母）。
+const EXCLUDE_TUDIGONG_FROM_SITEMAP = false;
+const TUDIGONG_TEMPLE_PATHS = EXCLUDE_TUDIGONG_FROM_SITEMAP
+  ? new Set(
+      JSON.parse(readFileSync(new URL('./src/data/temples.json', import.meta.url), 'utf8'))
+        .filter((/** @type {{ main_deity_ref?: string }} */ t) => t.main_deity_ref === 'tudigong')
+        .map((/** @type {{ id: string }} */ t) => `/temples/${t.id}`),
+    )
+  : new Set();
 
 // 部署：GitHub Pages + 自訂網域 folk.tw（CNAME）→ 根路徑供應，site 設正式網域、無 base 前綴。
 // 輸出：純靜態（static），跨文本追蹤與農民曆於 build 期預生（§1）。
@@ -21,6 +36,13 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => {
+        // 退場開關啟用時，把土地公廟移出 sitemap（頁面仍在、仍可被內連爬到）。
+        // 注意：filter 收到的路徑為 percent-encoded（廟 id 含中文），須 decode 才能對上 Set。
+        if (TUDIGONG_TEMPLE_PATHS.size) {
+          let p = page.replace('https://folk.tw', '').replace(/\/$/, '');
+          try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
+          if (TUDIGONG_TEMPLE_PATHS.has(p)) return false;
+        }
         // 今日（Asia/Taipei, UTC+8）ISO 日期，與站內 today 定義一致。
         const TODAY = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。

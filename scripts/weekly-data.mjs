@@ -5,14 +5,27 @@
 
 import { ga4RunReport, gscQuery, inspectUrl, sitemapsList, loadConfig } from './lib/google-data.mjs';
 
-// 固定追蹤清單（供週對照索引覆蓋進度）：首頁、今日中樞、封存索引、代表日期頁、神明、籤詩。
+// 固定追蹤清單（供週對照索引覆蓋進度＋稀釋監控）。
+// 分子＝獨特內容頁（神明/籤詩/典故，要保持或提升索引）；
+// 分母＝大批匯入的廟宇頁（知名廟 vs 高度同質土地公廟）。
+// 判讀：若數週後「獨特頁」仍多為 not indexed、而廟宇頁吃掉爬取，則啟動土地公退場
+//（astro.config 的 EXCLUDE_TUDIGONG_FROM_SITEMAP=true）。
 const TRACK_URLS = [
+  // — 樞紐 / 每日頁 —
   'https://folk.tw/',
   'https://folk.tw/almanac',
   'https://folk.tw/almanac/archive',
   'https://folk.tw/almanac/2026-02-17/',
+  // — 獨特內容頁（稀釋監控分子）—
   'https://folk.tw/deities/mazu/',
+  'https://folk.tw/deities/guangong/',
   'https://folk.tw/poems',
+  'https://folk.tw/poems/liushi_jiazi-1/',
+  'https://folk.tw/allusions/suitang_qinshubao/',
+  // — 廟宇（稀釋監控分母：知名廟 vs 同質土地公廟）—
+  'https://folk.tw/temples',
+  'https://folk.tw/temples/dajia_zhenlan/',
+  'https://folk.tw/temples/moi_0_竹圍仔福德祠/',
 ];
 
 const pad = (n) => String(n).padStart(2, '0');
