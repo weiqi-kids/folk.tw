@@ -61,6 +61,7 @@ if (faq) jsonLd.push(faq);
   description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞、七十二候與神明聖誕。`}
   jsonLd={jsonLd}
   ogType="article"
+  speakable={['h1', '.yiji-section']}
 >
   <AlmanacDay iso={date!} today={today} />
 </Base>
