@@ -42,6 +42,20 @@ const jsonLd = {
   creator: { '@type': 'Organization', name: '神酷', alternateName: '神庫' },
   license: 'https://github.com/weiqi-kids/folk.tw/blob/main/LICENSE',
 };
+// WebSite + SearchAction：宣告站內全文檢索端點，利 Google 顯示 sitelinks 搜尋框（搭配 /search?q=）。
+const webSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  alternateName: ['神酷', '神庫'],
+  url: 'https://folk.tw',
+  inLanguage: 'zh-Hant-TW',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: 'https://folk.tw/search?q={search_term_string}' },
+    'query-input': 'required name=search_term_string',
+  },
+};
 const nav = [
   { href: '/', label: '今日' },
   { href: '/poems', label: '籤詩' },
@@ -87,6 +101,7 @@ const path = Astro.url.pathname;
     <meta name="theme-color" content="#8a2b2b" />
     {/* Schema.org 知識系統標註（GEO：利 AI 理解為 knowledge system 而非單純網站） */}
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(webSite)} />
     {pageLd.map((ld) => <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />)}
     {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts） */}
     {
