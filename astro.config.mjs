@@ -8,7 +8,7 @@ import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 // 把此旗標設 true 後 commit + push，即把所有土地公廟「移出 sitemap」（頁面仍在、
 // 仍可由神明頁內連被爬，只是不再主動提交）。改一個布林即可，不需動其他邏輯。
 // 監控依據見 scripts/weekly-data.mjs 的 TRACK_URLS（分子/分母）。
-const EXCLUDE_TUDIGONG_FROM_SITEMAP = false;
+const EXCLUDE_TUDIGONG_FROM_SITEMAP = true;
 const TUDIGONG_TEMPLE_PATHS = EXCLUDE_TUDIGONG_FROM_SITEMAP
   ? new Set(
       JSON.parse(readFileSync(new URL('./src/data/temples.json', import.meta.url), 'utf8'))
