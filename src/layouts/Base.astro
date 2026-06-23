@@ -7,11 +7,12 @@ interface Props {
   jsonLd?: object | object[]; // 每頁實體結構化資料（BreadcrumbList / Thing / CreativeWork…）
   noindex?: boolean; // 對搜尋引擎不索引（如農民曆滾動日期頁，避免視窗滾動後 404 與薄內容稀釋）
   ogType?: string; // Open Graph 類型；列表／首頁用 'website'，內容／詳情頁傳 'article'
+  speakable?: string[]; // AEO：可朗讀／可被語音助理與 AI 答案引擎擷取為直接答案的元素 CSS 選擇器（如 ['h1', '.summary']）
 }
 import { GA4_ID } from '../consts';
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
-const { title, description, ogTitle, jsonLd: pageJsonLd, noindex, ogType = 'website' } = Astro.props;
+const { title, description, ogTitle, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable } = Astro.props;
 const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
@@ -56,6 +57,20 @@ const webSite = {
     'query-input': 'required name=search_term_string',
   },
 };
+// speakable（AEO）：宣告頁面最適合被語音助理朗讀／AI 答案引擎擷取為直接答案的區塊（answer-first）。
+// 僅內容詳情頁傳入；cssSelector 指向實際存在之標題與摘要元素（不存在則消費端自動略過，無害）。
+const speakablePage =
+  speakable && speakable.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        '@id': canonical,
+        url: canonical,
+        name: fullTitle,
+        inLanguage: 'zh-Hant-TW',
+        speakable: { '@type': 'SpeakableSpecification', cssSelector: speakable },
+      }
+    : null;
 const nav = [
   { href: '/', label: '今日' },
   { href: '/poems', label: '籤詩' },
@@ -102,6 +117,7 @@ const path = Astro.url.pathname;
     {/* Schema.org 知識系統標註（GEO：利 AI 理解為 knowledge system 而非單純網站） */}
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(webSite)} />
+    {speakablePage && <script type="application/ld+json" is:inline set:html={JSON.stringify(speakablePage)} />}
     {pageLd.map((ld) => <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />)}
     {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts）
         延後載入 gtag.js：指令先入 dataLayer 佇列（不漏 page_view），實際下載等

@@ -94,6 +94,7 @@ const jsonLd = [
   description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}。${d.summary ?? `職司：${d.office.join('·')}`}`}
   ogType="article"
   jsonLd={jsonLd}
+  speakable={['h1', '.summary']}
 >
   <nav class="crumb"><a href="/deities">神明圖譜</a> ／ {d.category}</nav>
 
