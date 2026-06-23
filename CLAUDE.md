@@ -13,19 +13,29 @@
 
 1. **索引稀釋判讀（核心）**：對照
    - 分子＝獨特頁：`/deities/mazu`、`/deities/guangong`、`/poems/liushi_jiazi-1`、`/allusions/suitang_qinshubao`
-   - 分母＝廟宇頁：`/temples/dajia_zhenlan`（名廟）、`/temples/moi_0_竹圍仔福德祠`（土地公）
+   - 分母＝廟宇頁：`/temples/dajia_zhenlan`（名廟）、`/temples/moi_0_竹圍仔福德祠`（土地公，已退出 sitemap）
    - 覆蓋狀態（Submitted and indexed / Crawled-not indexed / Discovered-not indexed / unknown）。
-2. **GSC 曝光/點擊**：目前 0；觀察是否開始出現、查詢字與到達頁。
-3. **Sitemap 提交 vs 實際索引數**：sitemap 約 10.8k URL（含 7891 廟、過去日期頁）。
-4. **GA4 流量來源**：目前 26 sessions、US/KR 為主＝雜訊；要看**台灣自然搜尋**是否出現。
+   - **基準快照 2026-06-23（降稀釋措施實施當日，供下次對照「有沒有改善」）**：
+     首頁/`/almanac`/`/temples`/`/temples/dajia_zhenlan`/`/allusions/suitang_qinshubao` 已 indexed；
+     **`/deities/mazu`＝unknown、`/deities/guangong`＋`/poems/liushi_jiazi-1`＝Discovered-not-indexed、`/poems`＝Crawled-not-indexed**。
+     目標：這幾筆轉成 Crawled→Indexed。
+2. **GSC 曝光/點擊**：基準（近 90 天，至 2026-06-21）**僅 47 曝光、3 點擊、且全集中在 6/21 一天**＝形同尚未進入搜尋。
+   有曝光的查詢全是獨特內容長尾（廣澤尊王 pos 4.3、中壇元帥、入厝儀式、籤詩句、典故），**無一來自廟宇頁**＝廟宇頁 0 搜尋貢獻。觀察是否開始出現連續多天曝光。
+3. **Sitemap 提交 vs 實際索引數**：退場開關 ON 後線上 sitemap **9415 URL**（廟 6530＋過去日期頁）；
+   注意 GSC「已提交」一度只認列 2904/10799（新域爬取保守、只讀部分 sitemap）——觀察此數是否回升。
+4. **GA4 流量來源**：基準 27 sessions（Direct 21、Organic 僅 6）＝多為已知訪客雜訊；要看**台灣自然搜尋**是否出現。
 
 ## 🟠 待決策（看上面數據後）
 
-- [ ] **是否翻土地公退場開關**：若獨特頁長期 not indexed/discovered 且廟宇頁（尤其
-      1384 間土地公廟）吃掉爬取 → 把 `astro.config.mjs` 的
-      `EXCLUDE_TUDIGONG_FROM_SITEMAP` 設 `true`、push（已實測 ON→sitemap 廟 6508、OFF→7892）。
-      頁面仍在、仍可內連被爬，只退出 sitemap。
-- [ ] **是否需更激進降稀釋**：必要時連過去農民曆日期頁也只留月份樞紐入口。
+- [x] **翻土地公退場開關**（已於 2026-06-23 commit `49b7b58` 執行）：依上面 GSC 基準
+      判讀（廟宇頁 0 搜尋貢獻、獨特頁 mazu 仍 unknown）已把 `EXCLUDE_TUDIGONG_FROM_SITEMAP`
+      設 `true`、push。線上 sitemap 廟 7913→6530、總 10799→9415。**觀察期**：若 2～3 週後
+      獨特頁索引/曝光未見起色，再考慮下一步；若反而變糟（不太可能）才回退設 `false`。
+- [x] **首頁直連旗艦神明頁**（同上 commit）：首頁新增「熱門神明」區塊，直連
+      媽祖/關聖帝君/廣澤尊王/中壇元帥/保生大帝/城隍爺（依 GSC 曝光查詢挑選），旗艦頁離首頁跳數 2→1。
+- [x] **送 Indexing API**（2026-06-23）：對 11 個未索引但有需求的頁（首頁、/deities 樞紐、
+      6 尊旗艦神明、liushi_jiazi-1/45、suitang_qinshubao）送出，成功 11/失敗 0。
+- [ ] **是否需更激進降稀釋**：必要時連過去農民曆日期頁也只留月份樞紐入口（看退場後是否仍稀釋）。
 
 ## 🟡 選配開發（有數據佐證再排序，皆非當務之急）
 
