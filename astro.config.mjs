@@ -55,11 +55,14 @@ export default defineConfig({
             lastmod: new Date().toISOString(),
           };
         }
+        // 廟宇詳情頁：內政部開放資料大量匯入（約 7.9k），多為樣板化小廟，
+        // 比照封存日期頁以最低優先降稀釋（保護新域爬取預算）；仍可被索引與內連。
+        if (/^\/temples\/[^/]+$/.test(path)) return { ...item, priority: 0.3, changefreq: ChangeFreqEnum.YEARLY };
         // 模組樞紐／靜態頁。
         const hubs = ['/poems', '/deities', '/events', '/practices', '/temples',
           '/almanac/archive', '/jiaobei', '/vocabulary', '/about', '/search'];
         if (hubs.includes(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
-        // 其餘為獨特內容詳情頁（神明／籤詩／典故／活動／習俗／廟宇／籤系）。
+        // 其餘為獨特內容詳情頁（神明／籤詩／典故／活動／習俗／籤系）。
         return { ...item, priority: 0.7, changefreq: ChangeFreqEnum.MONTHLY };
       },
     }),

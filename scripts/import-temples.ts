@@ -53,15 +53,17 @@ function pick(record: string, names: string[]): string | undefined {
 }
 
 function parseRecords(xml: string): Record<string, string>[] {
-  // 取最內層重複節點作為一筆（MOI 多為 <Info>/<Row>/<temple> 等）
-  const tag = (xml.match(/<(Info|Row|temple|Temple|Item)\b/i) ?? [])[1] ?? 'Info';
+  // 取最內層重複節點作為一筆（MOI 現行為 <OpenData_3>；舊版/他集為 <Info>/<Row>/<temple> 等）
+  const tag = (xml.match(/<(OpenData_3|Info|Row|temple|Temple|Item)\b/i) ?? [])[1] ?? 'Info';
   const blocks = [...xml.matchAll(new RegExp(`<${tag}\\b[\\s\\S]*?</${tag}>`, 'gi'))].map((m) => m[0]);
   return blocks.map((b) => ({
     name: pick(b, ['name', '寺廟名稱', '團體名稱', 'temple_name']) ?? '',
     deity: pick(b, ['主祀神祇', 'god', 'main_god', '主神']) ?? '',
-    district: pick(b, ['行政區', 'area', 'district', '地址', 'address']) ?? '',
-    lng: pick(b, ['經度', 'lng', 'lon', 'longitude', 'wgs84_lng']) ?? '',
-    lat: pick(b, ['緯度', 'lat', 'latitude', 'wgs84_lat']) ?? '',
+    // 地址較行政區精細（含區里），優先取地址；行政區為備援。
+    district: pick(b, ['地址', 'address', '行政區', 'area', 'district']) ?? '',
+    // MOI 現行座標欄為 WGS84X(經度)／WGS84Y(緯度)；保留舊候選名。
+    lng: pick(b, ['WGS84X', '經度', 'lng', 'lon', 'longitude', 'wgs84_lng']) ?? '',
+    lat: pick(b, ['WGS84Y', '緯度', 'lat', 'latitude', 'wgs84_lat']) ?? '',
     uid: pick(b, ['統一編號', 'uid', 'id']) ?? '',
   }));
 }

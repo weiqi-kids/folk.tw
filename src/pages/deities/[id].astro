@@ -202,9 +202,9 @@ const jsonLd = [
   {
     temples.length > 0 && (
       <section>
-        <h2>主祀此神之廟宇</h2>
+        <h2>主祀此神之廟宇{temples.length > 30 && <span class="muted small">　共 {temples.length} 間，列出 30 間</span>}</h2>
         <ul>
-          {temples.map((t) => (
+          {temples.slice(0, 30).map((t) => (
             <li>
               <a href={`/temples/${t.id}`}>{t.data.name}</a>
               {t.data.district && <span class="muted small">　{t.data.district}</span>}
