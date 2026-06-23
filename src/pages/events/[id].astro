@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getEvents, getDeities } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const events = await getEvents();
@@ -56,9 +56,28 @@ const faq = faqPage([
   },
 ]);
 
-const jsonLd = [
+// Event（民俗活動）：地點優先取主辦廟／目的廟，否則首個路線節點，再否則地域首筆；
+// 經緯度僅取首個 lat/lng 俱全的路線節點。
+const firstGeoStop = e.route?.stops.find((s) => s.lat != null && s.lng != null);
+const eventLocation =
+  e.host_temple ?? e.destination_temple ?? e.route?.stops[0]?.name ?? e.region[0];
+// startDate 一律省略：本站活動多為 fixed_lunar／divined／undetermined，無真實國曆 ISO 日期，
+// 避免杜撰國曆日期（日期資訊已由頁面內文與 FAQ 承載）。
+const eventLd = eventThing({
+  name: e.name,
+  description: pageDesc,
+  url: `https://folk.tw/events/${event.id}`,
+  location: eventLocation,
+  locationLat: firstGeoStop?.lat,
+  locationLng: firstGeoStop?.lng,
+  eventType: e.type[0],
+  startDate: undefined,
+});
+
+const jsonLd: object[] = [
   breadcrumb([{ name: '民俗活動', path: '/events' }, { name: e.name, path: `/events/${event.id}` }]),
   ...(faq ? [faq] : []),
+  eventLd,
 ];
 ---
 

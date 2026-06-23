@@ -77,6 +77,79 @@ export function deityThing(d: {
   };
 }
 
+/** 儀節步驟（HowTo）JSON-LD（程序知識，AEO/GEO）。步驟 text 全空或有效步驟少於 2 回傳 null。 */
+export function howTo(p: {
+  name: string;
+  description?: string;
+  steps: { name?: string; text: string }[];
+  supply?: string[];
+  totalTime?: string;
+}) {
+  const step = p.steps
+    .map((s) => ({ name: s.name, text: s.text.trim() }))
+    .filter((s) => s.text)
+    .map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      ...(s.name ? { name: s.name } : {}),
+      text: s.text,
+    }));
+  if (step.length < 2) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: p.name,
+    ...(p.description ? { description: p.description } : {}),
+    ...(p.totalTime ? { totalTime: p.totalTime } : {}),
+    step,
+    ...(p.supply?.length
+      ? { supply: p.supply.map((x) => ({ '@type': 'HowToSupply', name: x })) }
+      : {}),
+    publisher: ORG,
+  };
+}
+
+/** 民俗活動（Event）JSON-LD。農曆/擲筊/未定日期不杜撰國曆 startDate，僅呼叫端傳真實 ISO 日期時才設。 */
+export function eventThing(e: {
+  name: string;
+  description?: string;
+  startDate?: string;
+  location?: string;
+  locationLat?: number;
+  locationLng?: number;
+  eventType?: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: e.name,
+    url: e.url,
+    ...(e.description ? { description: e.description } : {}),
+    ...(e.startDate ? { startDate: e.startDate } : {}),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    ...(e.location
+      ? {
+          location: {
+            '@type': 'Place',
+            name: e.location,
+            ...(Number.isFinite(e.locationLat) && Number.isFinite(e.locationLng)
+              ? {
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: e.locationLat,
+                    longitude: e.locationLng,
+                  },
+                }
+              : {}),
+          },
+        }
+      : {}),
+    organizer: ORG,
+  };
+}
+
 /** 籤詩實體（CreativeWork）JSON-LD。 */
 export function poemWork(p: {
   id: string;

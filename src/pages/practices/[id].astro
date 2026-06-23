@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getPractices, getDeities } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { breadcrumb, faqPage, howTo } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const practices = await getPractices();
@@ -22,6 +22,25 @@ const stepLine = p.steps
   .map((s) => `${s.order}.${s.action}`)
   .join('；');
 const supplies = [...p.offerings, ...p.joss_paper];
+
+// P?-? HowTo（程序知識）：每步驟一筆，結合 誰做／用什麼／對誰／禁忌 成可讀句。
+const sortedSteps = p.steps.slice().sort((a, b) => a.order - b.order);
+const howToSteps = sortedSteps.map((s) => {
+  const parts = [s.action];
+  if (s.actor) parts.push(`由${s.actor}進行`);
+  if (s.items.length) parts.push(`用${s.items.join('、')}`);
+  if (s.target) parts.push(`對${s.target}`);
+  if (s.note) parts.push(s.note);
+  if (s.taboo.length) parts.push(`忌${s.taboo.join('、')}`);
+  return { name: s.action || undefined, text: parts.filter(Boolean).join('，') };
+});
+const howToSupply = [...new Set([...p.offerings, ...p.joss_paper])];
+const howToLd = howTo({
+  name: p.category ? `${p.title}（${p.category}）` : p.title,
+  description: p.summary,
+  steps: howToSteps,
+  supply: howToSupply.length ? howToSupply : undefined,
+});
 const faq = faqPage([
   {
     q: `${p.title}怎麼拜？步驟是什麼？`,
@@ -43,12 +62,13 @@ const faq = faqPage([
   },
 ]);
 
-const jsonLd = [
+const jsonLd: object[] = [
   breadcrumb([
     { name: '拜拜習俗', path: '/practices' },
     { name: p.title, path: `/practices/${practice.id}` },
   ]),
   ...(faq ? [faq] : []),
+  ...(howToLd ? [howToLd] : []),
 ];
 ---
 
