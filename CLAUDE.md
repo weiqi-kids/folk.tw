@@ -55,7 +55,9 @@
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm verify:almanac` / `pnpm build`
 - `pnpm data:weekly`：GA4+GSC 週報（需 scripts/.google-sa-key.json，已 gitignore）
-- `pnpm index:ping [url...]`：送 Indexing API（每日配額 200；SA 須為 GSC 擁有者）
+- `pnpm index:ping [url...]`：送 Google Indexing API（每日配額 200；SA 須為 GSC 擁有者）
+- `pnpm indexnow:ping [url...|--all]`：送 IndexNow（一次分發 Bing/Yandex/Seznam/Naver，**Google 不參與**）。
+  金鑰檔 `public/<key>.txt`（內容＝檔名 stem）須先部署上線供驗證。更新內容後兩支都跑才完整通知各大引擎。
 - 部署驗證坑：`gh run list` 要**比對 headSha 是否為本次 commit**，否則會抓到上一次 run 誤判成功。
 - 稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。
 - 廟宇 staging：`scripts/import-temples.ts <temple.xml> --write`（MOI 端點境外 IP 連不到，須台灣端下載 XML）。
