@@ -65,7 +65,12 @@ const path = Astro.url.pathname;
     <meta name="description" content={desc} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
     <link rel="canonical" href={canonical} />
+    {/* 圖示：SVG（現代瀏覽器）＋ PNG/ICO 後備（Safari/iOS、Google 搜尋結果需點陣）＋ PWA manifest */}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     {/* Open Graph / Twitter */}
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />

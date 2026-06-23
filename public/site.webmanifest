@@ -1,0 +1,15 @@
+{
+  "name": "神酷（神庫）— 台灣民俗信仰知識系統",
+  "short_name": "神酷",
+  "description": "台灣民俗信仰知識系統：籤詩解讀、神明關係圖譜、廟宇文化、農民曆與拜拜習俗。",
+  "lang": "zh-Hant-TW",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f3ea",
+  "theme_color": "#8a2b2b",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
