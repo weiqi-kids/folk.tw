@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getTemples, getDeities, getEvents } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -32,6 +32,15 @@ const faq = faqPage([
 ]);
 
 const jsonLd = [
+  templePlace({
+    id: temple.id,
+    name: t.name,
+    deity: mainDeity || undefined,
+    address: t.district,
+    lat: t.lat,
+    lng: t.lng,
+    website: t.website,
+  }),
   breadcrumb([
     { name: '廟宇', path: '/temples' },
     { name: t.name, path: `/temples/${temple.id}` },

@@ -150,6 +150,32 @@ export function eventThing(e: {
   };
 }
 
+/** 廟宇（Place / PlaceOfWorship）JSON-LD。有座標時附 GeoCoordinates，利在地/地圖結果。 */
+export function templePlace(t: {
+  id: string;
+  name: string;
+  deity?: string; // 主祀神（原始文字）
+  address?: string; // 地址或行政區
+  lat?: number;
+  lng?: number;
+  website?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['Place', 'PlaceOfWorship'],
+    '@id': `${SITE}/temples/${t.id}`,
+    name: t.name,
+    url: `${SITE}/temples/${t.id}`,
+    ...(t.deity ? { description: `主祀${t.deity}` } : {}),
+    ...(t.address ? { address: { '@type': 'PostalAddress', addressCountry: 'TW', streetAddress: t.address } } : {}),
+    ...(Number.isFinite(t.lat) && Number.isFinite(t.lng)
+      ? { geo: { '@type': 'GeoCoordinates', latitude: t.lat, longitude: t.lng } }
+      : {}),
+    ...(t.website ? { sameAs: [t.website] } : {}),
+    isPartOf: { '@type': 'Dataset', name: '神酷（神庫）', url: SITE },
+  };
+}
+
 /** 籤詩實體（CreativeWork）JSON-LD。 */
 export function poemWork(p: {
   id: string;

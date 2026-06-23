@@ -1,0 +1,55 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import { getTemples } from '../../../lib/queries';
+import { breadcrumb } from '../../../lib/seo';
+import { ALL_COUNTIES, countyName, templeCounty } from '../../../lib/temple-region';
+
+// 各縣市一頁，列出該縣市廟宇（取代單一 2.1MB 全廟清單；給爬蟲乾淨發現路徑）。
+export const getStaticPaths = (async () => {
+  const temples = await getTemples();
+  return ALL_COUNTIES.map(([, slug]) => ({
+    params: { county: slug },
+    props: {
+      slug,
+      temples: temples.filter((t) => templeCounty(t.data.district)?.slug === slug),
+    },
+  })).filter((p) => p.props.temples.length > 0);
+}) satisfies GetStaticPaths;
+
+const { slug, temples } = Astro.props;
+const name = countyName(slug) ?? slug;
+---
+
+<Base
+  title={`${name}廟宇`}
+  description={`${name}的廟宇與主祀神祇（內政部開放資料），共 ${temples.length} 間。`}
+  jsonLd={breadcrumb([
+    { name: '廟宇', path: '/temples' },
+    { name, path: `/temples/region/${slug}` },
+  ])}
+>
+  <nav class="crumb"><a href="/temples">廟宇</a> ／ {name}</nav>
+  <h1>{name}廟宇</h1>
+  <p class="muted">{name}收錄 {temples.length} 間。點主祀神可連到神明圖譜。</p>
+  <div class="grid">
+    {
+      temples.map((t) => (
+        <a class="card temple" href={`/temples/${t.id}`}>
+          <strong>{t.data.name}</strong>
+          <span class="muted small">
+            {t.data.district}
+            {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
+  <style>
+    .temple { display: flex; flex-direction: column; gap: 0.25rem; }
+    .temple strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .src { margin-top: 1.5rem; color: var(--gold); }
+  </style>
+</Base>
