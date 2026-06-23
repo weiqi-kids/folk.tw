@@ -17,7 +17,8 @@
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
     "data:weekly": "node scripts/weekly-data.mjs",
-    "index:ping": "node scripts/index-ping.mjs"
+    "index:ping": "node scripts/index-ping.mjs",
+    "indexnow:ping": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
