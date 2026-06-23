@@ -103,22 +103,30 @@ const path = Astro.url.pathname;
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(webSite)} />
     {pageLd.map((ld) => <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />)}
-    {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts） */}
+    {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts）
+        延後載入 gtag.js：指令先入 dataLayer 佇列（不漏 page_view），實際下載等
+        瀏覽器閒置或首次互動，避免載入期佔用主執行緒（壓低 TBT）。 */}
     {
       GA4_ID && (
-        <>
-          <script
-            is:inline
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-          ></script>
-          <script is:inline define:vars={{ GA4_ID }}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', GA4_ID, { anonymize_ip: true });
-          </script>
-        </>
+        <script is:inline define:vars={{ GA4_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', GA4_ID, { anonymize_ip: true });
+          var loadGA = function () {
+            if (window.__gaLoaded) return;
+            window.__gaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+            document.head.appendChild(s);
+          };
+          if ('requestIdleCallback' in window) requestIdleCallback(loadGA, { timeout: 4000 });
+          else window.addEventListener('load', function () { setTimeout(loadGA, 1500); });
+          ['scroll', 'click', 'keydown', 'touchstart', 'pointerdown'].forEach(function (e) {
+            window.addEventListener(e, loadGA, { once: true, passive: true });
+          });
+        </script>
       )
     }
   </head>
