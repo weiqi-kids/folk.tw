@@ -1,0 +1,529 @@
+{
+  "date": "2026-06-25",
+  "generatedAt": "2026-06-24T20:12:47.170Z",
+  "ga4": {
+    "range": "7daysAgo..yesterday",
+    "sessions": 75,
+    "users": 68,
+    "views": 138,
+    "avgDurationSec": 86,
+    "taiwanOrganicSessions": 20,
+    "channels": [
+      {
+        "channel": "Direct",
+        "sessions": 48
+      },
+      {
+        "channel": "Organic Search",
+        "sessions": 27
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 2
+      }
+    ],
+    "topPages": [
+      {
+        "path": "/",
+        "views": 41
+      },
+      {
+        "path": "/poems/guandi_lingqian-70/",
+        "views": 12
+      },
+      {
+        "path": "/almanac/",
+        "views": 4
+      },
+      {
+        "path": "/events/",
+        "views": 4
+      },
+      {
+        "path": "/poems/liushi_jiazi-45/",
+        "views": 4
+      },
+      {
+        "path": "/deities/",
+        "views": 3
+      },
+      {
+        "path": "/poems/",
+        "views": 3
+      },
+      {
+        "path": "/temples/",
+        "views": 3
+      },
+      {
+        "path": "/about/",
+        "views": 2
+      },
+      {
+        "path": "/cmd_sco",
+        "views": 2
+      },
+      {
+        "path": "/deities/chenghuang_tainanfu/",
+        "views": 2
+      },
+      {
+        "path": "/deities/haoxiongdi/",
+        "views": 2
+      },
+      {
+        "path": "/deities/mazu/",
+        "views": 2
+      },
+      {
+        "path": "/deities/miaoying_xianfei/",
+        "views": 2
+      },
+      {
+        "path": "/deities/wangye/",
+        "views": 2
+      }
+    ]
+  },
+  "gsc": {
+    "range": "2026-06-14..2026-06-21",
+    "totals": {
+      "clicks": 3,
+      "impressions": 47,
+      "ctr": 0.06382978723404255,
+      "position": 15.425531914893616
+    },
+    "topQueries": [
+      {
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "中壇元帥",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "入厝儀式",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 51
+      },
+      {
+        "query": "好將心地力耕耘 彼此山頭總是墳 陰地不如心地好 修為到底卻輸君",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "query": "廣澤尊王",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "query": "彰化 天 后宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 76
+      },
+      {
+        "query": "念月英相國寺",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "query": "江中立欽賜狀元",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "query": "河渠傍路有高低感情",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 38
+      },
+      {
+        "query": "解夢 書",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      }
+    ],
+    "topPages": [
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-34/",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-72/",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 40.5
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-23/",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 9.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_32/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_4/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_72/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_88/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12.5
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/allusions/zhao_kuangyin/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/deities/chitou/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 8.25
+      },
+      {
+        "page": "https://folk.tw/deities/nazha/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-45/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 22
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-55/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-61/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-10/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-13/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-2/",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-26/",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 7.4
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-32/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 62
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-38/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-50/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-51/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      }
+    ],
+    "pageQueryCross": [
+      {
+        "page": "https://folk.tw/allusions/gd_32/",
+        "query": "解夢 書",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "query": "江中立欽賜狀元",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "query": "廣澤尊王",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "page": "https://folk.tw/deities/nazha/",
+        "query": "中壇元帥",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-45/",
+        "query": "好將心地力耕耘 彼此山頭總是墳 陰地不如心地好 修為到底卻輸君",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-72/",
+        "query": "河渠傍路有高低感情",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 38
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-38/",
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-54/",
+        "query": "念月英相國寺",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://folk.tw/practices/ruocuo/",
+        "query": "入厝儀式",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 51
+      },
+      {
+        "page": "https://folk.tw/temples/lugang_tianhou/",
+        "query": "彰化 天 后宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 76
+      }
+    ],
+    "strikingDistance": [
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-38/",
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-54/",
+        "query": "念月英相國寺",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      }
+    ],
+    "highImpZeroClick": [
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "query": "廣澤尊王",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      }
+    ]
+  },
+  "index": {
+    "sitemaps": [
+      {
+        "path": "https://folk.tw/sitemap-0.xml",
+        "submitted": 9782,
+        "errors": "0",
+        "warnings": "0"
+      },
+      {
+        "path": "https://folk.tw/sitemap-index.xml",
+        "submitted": 9782,
+        "errors": "0",
+        "warnings": "0"
+      }
+    ],
+    "coverage": [
+      {
+        "url": "https://folk.tw/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-24T06:46:14Z"
+      },
+      {
+        "url": "https://folk.tw/almanac",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T15:48:35Z"
+      },
+      {
+        "url": "https://folk.tw/almanac/archive",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/deities/mazu/",
+        "coverageState": "Discovered - currently not indexed",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/deities/guangong/",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/poems",
+        "coverageState": "Crawled - currently not indexed",
+        "lastCrawlTime": "2026-06-21T09:54:34Z"
+      },
+      {
+        "url": "https://folk.tw/poems/liushi_jiazi-1/",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/allusions/suitang_qinshubao/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T10:33:05Z"
+      },
+      {
+        "url": "https://folk.tw/temples",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T12:18:09Z"
+      },
+      {
+        "url": "https://folk.tw/temples/dajia_zhenlan/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T17:05:59Z"
+      },
+      {
+        "url": "https://folk.tw/temples/moi_0_竹圍仔福德祠/",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      }
+    ]
+  }
+}
