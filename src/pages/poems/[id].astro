@@ -41,10 +41,11 @@ const ShangxiContent = interp && hasShangxi ? (await render(interp)).Content : n
 const label = d.ganzhi ?? d.title ?? '';
 const sysName = systemName.get(d.system.id) ?? '';
 const firstAllusionName = d.allusions[0] ? allusionName.get(d.allusions[0].ref.id) : '';
+const firstAllusionNote = d.allusions[0]?.note ?? '';
 const pageDesc =
   `${sysName}第 ${d.no} 籤${label ? `「${label}」` : ''}${d.fortune ? `（${d.fortune}）` : ''}：` +
   `${d.lines.join('，')}。` +
-  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」。` : ''}白話賞析與八項分項解。`;
+  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${firstAllusionNote}` : ''}。` : ''}白話賞析與八項分項解。`;
 const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
   breadcrumb([
