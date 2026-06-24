@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generatedAt": "2026-06-24T01:09:15.691Z",
+  "generatedAt": "2026-06-24T01:14:07.554Z",
   "ga4": {
     "range": "7daysAgo..yesterday",
     "sessions": 54,
@@ -501,7 +501,7 @@
       },
       {
         "url": "https://folk.tw/poems/liushi_jiazi-1/",
-        "coverageState": "URL is unknown to Google",
+        "coverageState": "Discovered - currently not indexed",
         "lastCrawlTime": null
       },
       {
