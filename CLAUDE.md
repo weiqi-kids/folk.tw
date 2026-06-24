@@ -33,9 +33,9 @@
    → commit（`[skip ci]`）→ Google `index:ping`。本機可 `pnpm data:seo-daily` 手動產。
 2. **大腦層＝cloud routine `trig_01HPqQCZmjxDkFcDsGzQeezV`**（每日 05:55 台，Sonnet）：讀當日 JSON →
    驗證昨日 `-actions.md` 賭的字勝負 → 定本日優化 → **守三護欄自動執行**（事實內容必查權威源否則只動內鏈/meta/結構＝**絕不杜撰**；
-   ≤5 檔；check:integrity+build 不過整批不 push）→ commit 標 **`[auto-claude-seo]`** → push → IndexNow ping → 寫 `-actions.md`。
+   ≤5 檔；check:integrity+build 不過整批不 push）→ commit 標 **`[auto-claude-seo]`** → push（含 `git pull --rebase` 防搶先）→ IndexNow ping → 寫 `-actions.md` → **每天發摘要到 Slack `神酷-folk-tw`（C0BCPHBF1ML）**（含 no-op 心跳）。
    - **回退**：`git log --oneline | grep auto-claude-seo` 定位、`git revert <sha>` 一鍵回。
-   - **檢視**：看 `data/seo-daily/<date>-actions.md`（每日判讀＋動作＋昨日勝負）。
+   - **檢視**：Slack 頻道每日摘要，或 `data/seo-daily/<date>-actions.md`（判讀＋動作＋昨日勝負）。
 3. ⚠️ **本 repo 部署坑**：從本機/routine（自動化身分）push 的 commit **GitHub 不觸發 push 事件 → deploy 不會自動跑**；
    須 `gh workflow run deploy.yml` 補觸發（routine prompt 已內建此 fallback；人手 push 後也要補）。
 
