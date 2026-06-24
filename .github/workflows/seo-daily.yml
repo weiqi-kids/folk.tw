@@ -1,0 +1,50 @@
+# 每日 SEO 資料層：拉 GA4＋GSC → 產機器可讀 JSON（commit 進 repo）→ Google index:ping。
+# 與每週 weekly-report.yml 並行：週報給人看、本支給大腦層 cloud routine 判讀。
+# 需設定（repo Settings → Secrets and variables → Actions）：
+#   - Secret  GOOGLE_SA_KEY   ：服務帳號 JSON 金鑰之完整內容（與 weekly-report 共用）
+name: SEO Daily Data
+
+on:
+  schedule:
+    - cron: '22 18 * * *' # 18:22 UTC（台灣 02:22）
+  workflow_dispatch:
+
+permissions:
+  contents: write # 要 commit 每日 JSON 回 repo
+
+# 不與部署搶；本支只 commit 資料、commit 訊息帶 [skip ci] 不觸發 deploy
+concurrency:
+  group: seo-daily
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+      GA4_PROPERTY_ID: '542419964'
+      GSC_SITE_URL: 'sc-domain:folk.tw'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: 收集每日數據（產出 data/seo-daily/<台灣日期>.json）
+        run: node scripts/seo-daily.mjs
+
+      - name: Commit 每日 JSON（[skip ci] 不觸發部署）
+        run: |
+          DATE=$(TZ=Asia/Taipei date +%F)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seo-daily/
+          if git diff --cached --quiet; then
+            echo "無變更，略過 commit"
+          else
+            git commit -m "chore(seo): 每日數據 ${DATE} [skip ci]"
+            git push
+          fi
+
+      - name: Google Indexing API 推送高槓桿集（金鑰僅此層有）
+        run: node scripts/index-ping.mjs || true
