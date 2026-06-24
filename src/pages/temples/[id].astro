@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getTemples, getDeities, getEvents } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
-import { templeCounty } from '../../lib/temple-region';
+import { templeCounty, templeTownship } from '../../lib/temple-region';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -18,8 +18,12 @@ const events = await getEvents();
 // 此廟主辦之活動（host_temple 對映 temple.id）
 const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
 const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
-// 上行連結：同縣市廟宇頁（單一 hub 連結，給爬蟲/讀者橫向出口，不建廟對廟密網）。
+// 上行連結：縣市→鄉鎮二級樞紐（給爬蟲/讀者橫向出口，不建廟對廟密網）。
 const county = templeCounty(t.district);
+const township = templeTownship(t.district);
+// 名廟沿革（#1 內容豐化）：有沿革才宣告 speakable（AEO answer-first）。
+const hasHistory = !!(t.founded || t.history || t.main_festival);
+const speakable = t.history ? ['h1', '.temple-history'] : undefined;
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
@@ -52,10 +56,11 @@ const jsonLd = [
 ];
 ---
 
-<Base title={t.name} ogType="article" jsonLd={jsonLd}>
+<Base title={t.name} ogType="article" jsonLd={jsonLd} speakable={speakable}>
   <nav class="crumb">
     <a href="/temples">廟宇</a>
     {county && <> ／ <a href={`/temples/region/${county.slug}`}>{county.name}</a></>}
+    {county && township && <> ／ <a href={`/temples/region/${county.slug}/${township.name}`}>{township.name}</a></>}
   </nav>
   <h1>{t.name}</h1>
 
@@ -86,6 +91,17 @@ const jsonLd = [
   </dl>
 
   {
+    hasHistory && (
+      <section class="temple-history">
+        <h2>沿革</h2>
+        {t.founded && <p class="founded"><strong>創建</strong>　{t.founded}</p>}
+        {t.history && <p class="history-body">{t.history}</p>}
+        {t.main_festival && <p class="festival"><strong>主要祭典</strong>　{t.main_festival}</p>}
+      </section>
+    )
+  }
+
+  {
     hostedEvents.length > 0 && (
       <section>
         <h2>主辦民俗活動</h2>
@@ -98,7 +114,10 @@ const jsonLd = [
     )
   }
 
-  {county && (
+  {county && township && (
+    <p class="region-link"><a href={`/temples/region/${county.slug}/${township.name}`}>查看{county.name}{township.name}其他廟宇 →</a></p>
+  )}
+  {county && !township && (
     <p class="region-link"><a href={`/temples/region/${county.slug}`}>查看{county.name}全部廟宇 →</a></p>
   )}
 
@@ -115,6 +134,10 @@ const jsonLd = [
     .map { margin-left: 0.6rem; font-size: 0.85rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
     .small { font-size: 0.85rem; }
+    .temple-history { margin-top: 1.2rem; }
+    .temple-history .history-body { line-height: 1.8; }
+    .temple-history .founded, .temple-history .festival { margin: 0.4rem 0; }
+    .temple-history strong { color: var(--accent); margin-right: 0.3rem; }
     .region-link { margin-top: 1.2rem; font-size: 0.95rem; }
     .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1rem; font-size: 0.95rem; }

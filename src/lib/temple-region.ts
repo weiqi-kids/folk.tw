@@ -21,3 +21,16 @@ export function templeCounty(district?: string): { name: string; slug: string } 
   for (const [name, slug] of COUNTIES) if (d.startsWith(name)) return { name, slug };
   return null;
 }
+
+/**
+ * 由地址推導鄉鎮市區（縣市二級瀏覽用，化解單一縣市頁過大）。
+ * 規則依縣市別：直轄市/省轄市轄「區」；縣轄「鄉/鎮/(縣轄)市」。
+ * 後綴 char 用縣市別區分，避免「新市區」被非貪婪切成「新市」。無法判定回 null。
+ */
+export function templeTownship(district?: string): { name: string } | null {
+  const c = templeCounty(district);
+  if (!c || !district) return null;
+  const rest = district.replace(/臺/g, '台').slice(c.name.length);
+  const m = c.name.endsWith('市') ? rest.match(/^(.+?區)/) : rest.match(/^(.+?[鄉鎮市])/);
+  return m ? { name: m[1] } : null;
+}

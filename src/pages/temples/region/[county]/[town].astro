@@ -1,0 +1,66 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../../layouts/Base.astro';
+import { getTemples } from '../../../../lib/queries';
+import { breadcrumb } from '../../../../lib/seo';
+import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../../lib/temple-region';
+
+// 縣市二級：各鄉鎮市區一頁，化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）。
+export const getStaticPaths = (async () => {
+  const temples = await getTemples();
+  const paths: { params: { county: string; town: string }; props: { slug: string; town: string; temples: typeof temples } }[] = [];
+  for (const [, slug] of ALL_COUNTIES) {
+    const inCounty = temples.filter((t) => templeCounty(t.data.district)?.slug === slug);
+    const byTown = new Map<string, typeof temples>();
+    for (const t of inCounty) {
+      const tw = templeTownship(t.data.district);
+      if (!tw) continue;
+      (byTown.get(tw.name) ?? byTown.set(tw.name, []).get(tw.name)!).push(t);
+    }
+    for (const [town, list] of byTown) {
+      paths.push({ params: { county: slug, town }, props: { slug, town, temples: list } });
+    }
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { slug, town, temples } = Astro.props;
+const cName = countyName(slug) ?? slug;
+---
+
+<Base
+  title={`${cName}${town}廟宇`}
+  description={`${cName}${town}的廟宇與主祀神祇（內政部開放資料），共 ${temples.length} 間。`}
+  jsonLd={breadcrumb([
+    { name: '廟宇', path: '/temples' },
+    { name: cName, path: `/temples/region/${slug}` },
+    { name: town, path: `/temples/region/${slug}/${town}` },
+  ])}
+>
+  <nav class="crumb">
+    <a href="/temples">廟宇</a> ／ <a href={`/temples/region/${slug}`}>{cName}</a> ／ {town}
+  </nav>
+  <h1>{cName}{town}廟宇</h1>
+  <p class="muted">{cName}{town}收錄 {temples.length} 間。點主祀神可連到神明圖譜。</p>
+  <div class="grid">
+    {
+      temples.map((t) => (
+        <a class="card temple" href={`/temples/${t.id}`}>
+          <strong>{t.data.name}</strong>
+          <span class="muted small">
+            {t.data.district}
+            {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .temple { display: flex; flex-direction: column; gap: 0.25rem; }
+    .temple strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .src { margin-top: 1.5rem; color: var(--gold); }
+  </style>
+</Base>

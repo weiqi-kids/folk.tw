@@ -190,6 +190,10 @@ const temples = defineCollection({
     lng: z.number().optional(),
     lat: z.number().optional(),
     website: z.string().optional(), // 廟方官方網站（驗證後填，無源不發佈）
+    // 名廟內容豐化（僅可查證者填，無源留空，§5）：創建年代、沿革、主要祭典
+    founded: z.string().optional(), // 創建年代（史料原話，含「相傳/約」如實標註）
+    history: z.string().optional(), // 沿革 2–4 句（客觀事實）
+    main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句
     sources: z.array(source).default([]),
   }),
 });

@@ -3,9 +3,10 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import { getTemples } from '../../../lib/queries';
 import { breadcrumb } from '../../../lib/seo';
-import { ALL_COUNTIES, countyName, templeCounty } from '../../../lib/temple-region';
+import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../lib/temple-region';
 
-// 各縣市一頁，列出該縣市廟宇（取代單一 2.1MB 全廟清單；給爬蟲乾淨發現路徑）。
+// 各縣市一頁。改為「鄉鎮市區二級樞紐」：列各鄉鎮（含廟數）連到 /region/[county]/[town]，
+// 化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）；無法判定鄉鎮者列入「其他」直連廟頁。
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
   return ALL_COUNTIES.map(([, slug]) => ({
@@ -19,11 +20,21 @@ export const getStaticPaths = (async () => {
 
 const { slug, temples } = Astro.props;
 const name = countyName(slug) ?? slug;
+
+// 依鄉鎮市區分組（保留原序），無法判定者歸「其他」。
+const byTown = new Map<string, typeof temples>();
+const other: typeof temples = [];
+for (const t of temples) {
+  const tw = templeTownship(t.data.district);
+  if (!tw) { other.push(t); continue; }
+  (byTown.get(tw.name) ?? byTown.set(tw.name, []).get(tw.name)!).push(t);
+}
+const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.length }));
 ---
 
 <Base
   title={`${name}廟宇`}
-  description={`${name}的廟宇與主祀神祇（內政部開放資料），共 ${temples.length} 間。`}
+  description={`${name}的廟宇與主祀神祇（內政部開放資料），共 ${temples.length} 間，可依鄉鎮市區瀏覽。`}
   jsonLd={breadcrumb([
     { name: '廟宇', path: '/temples' },
     { name, path: `/temples/region/${slug}` },
@@ -31,25 +42,48 @@ const name = countyName(slug) ?? slug;
 >
   <nav class="crumb"><a href="/temples">廟宇</a> ／ {name}</nav>
   <h1>{name}廟宇</h1>
-  <p class="muted">{name}收錄 {temples.length} 間。點主祀神可連到神明圖譜。</p>
-  <div class="grid">
-    {
-      temples.map((t) => (
-        <a class="card temple" href={`/temples/${t.id}`}>
-          <strong>{t.data.name}</strong>
-          <span class="muted small">
-            {t.data.district}
-            {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
-          </span>
-        </a>
-      ))
-    }
-  </div>
+  <p class="muted">{name}收錄 {temples.length} 間，依鄉鎮市區瀏覽。</p>
+
+  {
+    towns.length > 0 && (
+      <div class="grid regions">
+        {towns.map((r) => (
+          <a class="card region" href={`/temples/region/${slug}/${r.town}`}>
+            <strong>{r.town}</strong>
+            <span class="muted small">{r.n} 間</span>
+          </a>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    other.length > 0 && (
+      <>
+        <h2>其他（鄉鎮未判定）</h2>
+        <div class="grid">
+          {other.map((t) => (
+            <a class="card temple" href={`/temples/${t.id}`}>
+              <strong>{t.data.name}</strong>
+              <span class="muted small">
+                {t.data.district}
+                {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
+              </span>
+            </a>
+          ))}
+        </div>
+      </>
+    )
+  }
+
   <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
   <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .region strong { color: var(--ink); }
     .temple { display: flex; flex-direction: column; gap: 0.25rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: 0.85rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
     .src { margin-top: 1.5rem; color: var(--gold); }
   </style>
 </Base>
