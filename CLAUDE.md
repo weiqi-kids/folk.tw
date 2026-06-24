@@ -25,6 +25,20 @@
    注意 GSC「已提交」一度只認列 2904/10799（新域爬取保守、只讀部分 sitemap）——觀察此數是否回升。
 4. **GA4 流量來源**：基準 27 sessions（Direct 21、Organic 僅 6）＝多為已知訪客雜訊；要看**台灣自然搜尋**是否出現。
 
+## 🔁 每日自動優化閉環（2026-06-24 建置）
+
+兩層架構（憑證邊界強制：Google 金鑰只在 Action／本機，cloud routine 拿不到）：
+1. **資料層＝GitHub Action `seo-daily.yml`**（每日 02:22 台）：`scripts/seo-daily.mjs` 拉 GA4+GSC →
+   產 `data/seo-daily/<台灣日期>.json`（含 **page×query 交叉／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
+   → commit（`[skip ci]`）→ Google `index:ping`。本機可 `pnpm data:seo-daily` 手動產。
+2. **大腦層＝cloud routine `trig_01HPqQCZmjxDkFcDsGzQeezV`**（每日 05:55 台，Sonnet）：讀當日 JSON →
+   驗證昨日 `-actions.md` 賭的字勝負 → 定本日優化 → **守三護欄自動執行**（事實內容必查權威源否則只動內鏈/meta/結構＝**絕不杜撰**；
+   ≤5 檔；check:integrity+build 不過整批不 push）→ commit 標 **`[auto-claude-seo]`** → push → IndexNow ping → 寫 `-actions.md`。
+   - **回退**：`git log --oneline | grep auto-claude-seo` 定位、`git revert <sha>` 一鍵回。
+   - **檢視**：看 `data/seo-daily/<date>-actions.md`（每日判讀＋動作＋昨日勝負）。
+3. ⚠️ **本 repo 部署坑**：從本機/routine（自動化身分）push 的 commit **GitHub 不觸發 push 事件 → deploy 不會自動跑**；
+   須 `gh workflow run deploy.yml` 補觸發（routine prompt 已內建此 fallback；人手 push 後也要補）。
+
 ## 🟠 待決策（看上面數據後）
 
 - [x] **翻土地公退場開關**（已於 2026-06-23 commit `49b7b58` 執行）：依上面 GSC 基準
