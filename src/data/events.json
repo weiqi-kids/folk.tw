@@ -1039,5 +1039,517 @@
       }
     ],
     "draft": false
+  },
+  {
+    "id": "daxi_pujitang_guangong",
+    "name": "大溪普濟堂關聖帝君聖誕慶典暨遶境",
+    "host_temple": "moi_7124_普濟堂",
+    "main_deity": "guangong",
+    "type": [
+      "遶境",
+      "夜巡",
+      "陣頭競演"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆六月廿四日關聖帝君聖誕（前一日廿三起相關儀式）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "府文資字第1001062626號（nchdb 20111229000001）",
+      "verified": true
+    },
+    "region": [
+      "桃園"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 大溪普濟堂關聖帝君聖誕慶典 https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001",
+        "note": "2011-12-29 桃園登錄民俗；32社頭遶境"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20111229000001",
+        "note": "鏡像佐證公告文號與等級"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "shetou_72zhuang_mazu",
+    "name": "社頭枋橋頭七十二莊迓媽祖",
+    "host_temple": "moi_9760_社頭鄉枋橋頭天門",
+    "main_deity": "mazu",
+    "type": [
+      "遶境",
+      "進香",
+      "刈香"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月初赴鹿港進香、約三月廿三聖誕前後各莊遶境回鑾",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "府授文演字第103001457A號（nchdb 20140306000002）",
+      "verified": true
+    },
+    "region": [
+      "彰化",
+      "南投"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 社頭枋橋頭七十二庄迓媽祖 https://nchdb.boch.gov.tw/assets/overview/folklore/20140306000002",
+        "note": "2014-03-06 彰化登錄民俗"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20140306000002",
+        "note": "鏡像佐證"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "tonganliao_12zhuang_mazu",
+    "name": "同安寮十二莊請媽祖",
+    "main_deity": "mazu",
+    "type": [
+      "遶境",
+      "刈香"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月聖誕前兩三週的週六日（自鹿港請媽祖至同安寮二天一夜遶境）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "府授文演字第1030062309A號（nchdb 20140306000001）",
+      "verified": true
+    },
+    "region": [
+      "彰化"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 同安寮十二庄請媽祖 https://nchdb.boch.gov.tw/assets/overview/folklore/20140306000001",
+        "note": "2014-03-06 彰化登錄民俗；十五庄輪值"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20140306000001",
+        "note": "鏡像；主辦十五庄輪值故 host 留空"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "mingjian_shoutiangong_xuantian",
+    "name": "南投縣名間鄉受天宮玄天上帝香期",
+    "host_temple": "moi_11568_受天宮",
+    "main_deity": "xuantian",
+    "type": [
+      "進香"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆正月至三月（主在三月初三玄天上帝聖誕前後），形成約三個月香期",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "府授文資字第10200069491號（nchdb 20120913000001）",
+      "verified": true
+    },
+    "region": [
+      "南投"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 名間鄉受天宮玄天上帝香期 https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001",
+        "note": "2012-09-13 南投登錄民俗；全台玄天上帝信仰中心"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20120913000001",
+        "note": "鏡像佐證"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "xinzhuang_dizangan_dazhongye",
+    "name": "新莊地藏庵文武大眾爺祭典",
+    "host_temple": "moi_5205_新莊地藏庵",
+    "main_deity": "haoxiongdi",
+    "type": [
+      "夜巡",
+      "遶境",
+      "中元普渡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆五月初一日祭典，前一日（四月三十）暗訪",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "北府文資字第0990015090號（nchdb 20101012000002）",
+      "verified": true
+    },
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 新莊地藏庵文武大眾爺祭典 https://nchdb.boch.gov.tw/assets/overview/folklore/20101012000002",
+        "note": "2010-10-12 臺北縣登錄民俗；官將首、暗訪日巡"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20101012000002",
+        "note": "鏡像；文武大眾爺=陰神，main_deity 對映 haoxiongdi"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "houlong_ciyungong_paocheng",
+    "name": "後龍慈雲宮攻炮城",
+    "host_temple": "moi_6512_後龍慈雲宮",
+    "main_deity": "mazu",
+    "type": [
+      "炮城"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆正月十三至十五（元宵節期間）",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "府文資字第0987500295號（nchdb 20090109000004）",
+      "verified": true
+    },
+    "region": [
+      "苗栗"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 後龍慈雲宮攻炮城 https://nchdb.boch.gov.tw/assets/overview/folklore/20090109000004",
+        "note": "2009-01-09 苗栗登錄民俗；元宵攻炮城"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20090109000004",
+        "note": "鏡像佐證"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wanhegong_laoerma_xitun",
+    "name": "萬和宮老二媽西屯省親遶境",
+    "host_temple": "moi_6959_財團法人臺中市萬",
+    "main_deity": "mazu",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": "三年一科",
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月（每三年一次老二媽回西屯省親）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "府授文資遺字第10702930731號（nchdb 20120615000001）",
+      "verified": true
+    },
+    "region": [
+      "台中"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網 萬和宮老二媽西屯省親遶境 https://nchdb.boch.gov.tw/assets/overview/folklore/20120615000001",
+        "note": "2012-06-15 臺中登錄民俗（2018修正）；三年一科"
+      },
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫 id=20120615000001",
+        "note": "鏡像佐證週期與等級"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "minxiong_dashiye",
+    "name": "民雄大士爺祭典",
+    "main_deity": "guanyin",
+    "type": [
+      "中元普渡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆7月21日至23日（中元普渡）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "嘉義縣府授文資字第1080038674號（2019-02-20）",
+      "verified": true
+    },
+    "region": [
+      "嘉義"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈民雄大士爺祭典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002",
+        "note": "嘉義縣定民俗；主祀觀音大士（大士爺），普渡後火化升天"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "hengchun_qianggu",
+    "name": "恆春搶孤及爬孤棚",
+    "main_deity": "haoxiongdi",
+    "type": [
+      "搶孤",
+      "中元普渡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆7月15日中元普渡",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "屏東縣屏府文推字第0970233196號（2008-11-12）",
+      "verified": true
+    },
+    "region": [
+      "屏東"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈恆春搶孤及爬孤棚〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20081112000003",
+        "note": "屏東縣定民俗；源自清光緒5年（1879）爬孤棚競賽取孤品"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "wugu_kaitai_guolu",
+    "name": "五股開臺尊王過爐",
+    "main_deity": "kaitai",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆正月十六日「鄭成功過股（過爐）」",
+    "route_mode": "yearly_versioned",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "雲林縣府文資二字第1053813652AB號（2016-12-16登錄）",
+      "verified": true
+    },
+    "region": [
+      "雲林",
+      "嘉義"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈五股開臺尊王過爐〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20180606000003",
+        "note": "雲林縣定民俗；主祀國姓公（開臺尊王鄭成功）；雲嘉五股十二庄輪值過爐遶境"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "kinmen_yingchenghuang",
+    "name": "金門迎城隍",
+    "host_temple": "moi_4934_浯島城隍廟",
+    "main_deity": "chenghuang",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆四月十二日（城隍爺遷治紀念日）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "national_important",
+      "authority_ref": "文化部 文資局傳字第10220115721號（2013-10-04國家重要民俗）",
+      "verified": true
+    },
+    "region": [
+      "金門"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈金門迎城隍〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20131004000005",
+        "note": "國家重要民俗（離島第一個）；人力蜈蚣座、輦轎、藝閣、神將"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "xiaqieding_jinluangong_wangjiao",
+    "name": "下茄萣金鑾宮王醮大典",
+    "host_temple": "moi_10583_金鑾宮",
+    "main_deity": "mazu",
+    "type": [
+      "建醮",
+      "燒王船",
+      "迎王"
+    ],
+    "chen_tou": [],
+    "cycle": "irregular",
+    "ke_rule": "不定期，平均約每十年一科王船醮典",
+    "date_resolution": "undetermined",
+    "date_note": "不定期王醮；戰後曾於1948、1960、1969、1974、1982、1992、2000年舉行",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "高雄市高市府文博字第10170245700號（2012-08-14）",
+      "verified": true
+    },
+    "region": [
+      "高雄"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈下茄萣金鑾宮王醮大典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001",
+        "note": "高雄市直轄市定民俗；主祀媽祖；約每十年一科王船醮典；舊下茄萣庄五里"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "nanguanxian_wangjiao",
+    "name": "南關線三大廟王醮暨遊社",
+    "main_deity": "wangye",
+    "type": [
+      "建醮",
+      "迎王",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": "三大廟各約每12年一科慶成五朝王醮，非同步",
+    "date_resolution": "undetermined",
+    "date_note": "不定期；關廟山西宮戰後固定逢戌年（每12年），仁壽宮、保西代天府間隔約12年以上",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "national_important",
+      "authority_ref": "文化部 文授資局傳字第10830078292號（2019-08-01國家重要民俗）",
+      "verified": true
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈南關線三大廟王醮暨遊社〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002",
+        "note": "國家重要民俗；南關線慶成式五朝王醮醮型"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "anding_zhenhugong_wangchuan",
+    "name": "安定真護宮王船祭",
+    "host_temple": "moi_2764_蘇厝第一代天府真",
+    "main_deity": "wangye_li",
+    "type": [
+      "建醮",
+      "燒王船",
+      "迎王"
+    ],
+    "chen_tou": [],
+    "cycle": "n_year_ke",
+    "ke_rule": "逢丑、辰、未、戌年三年一科（首科1967年）",
+    "date_resolution": "fixed_lunar",
+    "date_note": "逢丑辰未戌年三年一科，約農曆3月上旬前後",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "臺南市府文資字第0980236795號（2009-10-02）",
+      "verified": true
+    },
+    "region": [
+      "台南"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈安定真護宮王船祭〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20091002000001",
+        "note": "臺南市直轄市定民俗；蘇厝地區，主祀五府千歲（李府千歲主辦）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "erjie_wanggong_guohuo",
+    "name": "二結王公過火",
+    "host_temple": "moi_4079_財團法人二結王公",
+    "main_deity": "",
+    "type": [
+      "過火",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆十一月十五日（古公三王千秋）",
+    "route_mode": "fixed",
+    "heritage": {
+      "level": "county",
+      "authority_ref": "宜蘭縣府文資字第1000000730號（2011-02-09登錄）",
+      "verified": true
+    },
+    "region": [
+      "宜蘭"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "文化部國家文化資產網〈二結王公過火〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20110209000001",
+        "note": "宜蘭縣定民俗；主祀古公三王（無對應 deity id）；武轎掠童乩過萬斤炭火，全台最大過火"
+      }
+    ],
+    "draft": false
   }
 ]
