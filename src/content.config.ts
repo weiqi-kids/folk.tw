@@ -120,6 +120,7 @@ const allusions = defineCollection({
     name: z.string(),
     source: z.string().optional(), // 故事所本（史記/演義/戲文）
     people: z.array(z.string()).default([]),
+    seoDesc: z.string().optional(), // 覆寫 meta description（僅供 SEO 微調，不改事實內容）
     draft: z.boolean().default(false),
   }),
 });
