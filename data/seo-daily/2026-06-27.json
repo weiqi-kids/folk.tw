@@ -1,0 +1,1286 @@
+{
+  "date": "2026-06-27",
+  "generatedAt": "2026-06-26T20:13:08.899Z",
+  "ga4": {
+    "range": "7daysAgo..yesterday",
+    "sessions": 113,
+    "users": 104,
+    "views": 186,
+    "avgDurationSec": 74,
+    "taiwanOrganicSessions": 42,
+    "channels": [
+      {
+        "channel": "Direct",
+        "sessions": 56
+      },
+      {
+        "channel": "Organic Search",
+        "sessions": 50
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 9
+      },
+      {
+        "channel": "Cross-network",
+        "sessions": 7
+      }
+    ],
+    "topPages": [
+      {
+        "path": "/",
+        "views": 47
+      },
+      {
+        "path": "/poems/guandi_lingqian-70/",
+        "views": 12
+      },
+      {
+        "path": "/almanac/",
+        "views": 4
+      },
+      {
+        "path": "/events/",
+        "views": 4
+      },
+      {
+        "path": "/poems/liushi_jiazi-45/",
+        "views": 4
+      },
+      {
+        "path": "/deities/",
+        "views": 3
+      },
+      {
+        "path": "/poems/",
+        "views": 3
+      },
+      {
+        "path": "/temples/",
+        "views": 3
+      },
+      {
+        "path": "/temples/moi_172_震威宮/",
+        "views": 3
+      },
+      {
+        "path": "/about/",
+        "views": 2
+      },
+      {
+        "path": "/cmd_sco",
+        "views": 2
+      },
+      {
+        "path": "/deities/chenghuang_tainanfu/",
+        "views": 2
+      },
+      {
+        "path": "/deities/haoxiongdi/",
+        "views": 2
+      },
+      {
+        "path": "/deities/mazu/",
+        "views": 2
+      },
+      {
+        "path": "/deities/miaoying_xianfei/",
+        "views": 2
+      }
+    ]
+  },
+  "gsc": {
+    "range": "2026-06-16..2026-06-23",
+    "totals": {
+      "clicks": 17,
+      "impressions": 368,
+      "ctr": 0.04619565217391304,
+      "position": 16.997282608695652
+    },
+    "topQueries": [
+      {
+        "query": "楊戩得病在西軒",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 37
+      },
+      {
+        "query": "楊管醉玉仝坐馬故事",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "query": "王昭君憶漢帝",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 13
+      },
+      {
+        "query": "范府千歲",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 15.5
+      },
+      {
+        "query": "辛巳籤",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 43
+      },
+      {
+        "query": "12-08-2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "2025-09-09",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "query": "2026/05/07",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "45籤詩",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "query": "55籤詩",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "query": "丁公",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "query": "丁公 劉邦",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "query": "七爺八爺聖誕",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "query": "七爺謝將軍",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "中壇元帥",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "九天 玄 女",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 46
+      },
+      {
+        "query": "于今此景正當時，看看欲吐百花魁 若能遇得春色到，一洒清吉脫塵埃。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 27
+      },
+      {
+        "query": "今行到手實難推 歌歌暢飲自徘徊 雞犬相聞消息近 婚姻夙世結成雙。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "query": "佛前發誓無異心 且看前途得好音 此物原來本是鐵 也能變化得成金。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "query": "入厝儀式",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 51
+      },
+      {
+        "query": "八爺聖誕",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "query": "北港",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "query": "君問中間此言因 看看祿馬拱前程 求得貴人多得利 和合自有兩分明",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "query": "君爾寬心且自由",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 65
+      }
+    ],
+    "topPages": [
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-45/",
+        "clicks": 3,
+        "impressions": 6,
+        "ctr": 0.5,
+        "position": 33.666666666666664
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_92/",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 6.818181818181818
+      },
+      {
+        "page": "https://folk.tw/deities/miaoying_xianfei/",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 7.6
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan/",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_wu/",
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.06666666666666667,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-34/",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-5/",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 15.5
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-72/",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 18.166666666666668
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-73/",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 13
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-9/",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-23/",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 8.333333333333332
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-27/",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 37.333333333333336
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-48/",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 45.5
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-56/",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 21.833333333333332
+      },
+      {
+        "page": "https://folk.tw/allusions/baishe/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 62
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_13/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_14/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_24/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_32/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_35/",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 37.333333333333336
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_4/",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 8.6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_50/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      }
+    ],
+    "pageQueryCross": [
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬故事",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan/",
+        "query": "范府千歲",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-73/",
+        "query": "王昭君憶漢帝",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 13
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-45/",
+        "query": "辛巳籤",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 43
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-56/",
+        "query": "楊戩得病在西軒",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 37
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_14/",
+        "query": "郭華戀王月英",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "query": "江東得道",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_32/",
+        "query": "解夢 書",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_35/",
+        "query": "昭君",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 49.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45",
+        "query": "丁公",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45",
+        "query": "丁公 劉邦",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "query": "江中立欽賜狀元",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 8.142857142857142
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻為母救主",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣被困柳州城",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣被困柳州城故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-09-09/",
+        "query": "2025-09-09",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/almanac/2026-05-07/",
+        "query": "2026/05/07",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/almanac/2026-12-08/",
+        "query": "12-08-2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "query": "廣澤 尊王",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 41
+      },
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "query": "廣澤尊王",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 21.25
+      },
+      {
+        "page": "https://folk.tw/deities/guanyin/",
+        "query": "觀音",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "page": "https://folk.tw/deities/jiutian",
+        "query": "九天 玄 女",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 46
+      },
+      {
+        "page": "https://folk.tw/deities/miaoying_xianfei/",
+        "query": "妙應仙妃由來",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "page": "https://folk.tw/deities/nazha/",
+        "query": "中壇元帥",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "七爺八爺聖誕",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "七爺謝將軍",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "八爺聖誕",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan",
+        "query": "范府",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan",
+        "query": "范府千歲",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan",
+        "query": "范府千歲由來",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_wu/",
+        "query": "吳孝寬",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_zhu/",
+        "query": "朱叔裕",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/events/beigang/",
+        "query": "北港",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-45/",
+        "query": "好將心地力耕耘 彼此山頭總是墳 陰地不如心地好 修為到底卻輸君",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-70/",
+        "query": "雷雨風雲各有司至誠禱告莫生疑與君定約為霖日正是蘊隆中伏時工作",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 54
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-72/",
+        "query": "河渠傍路有高低感情",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 38
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-76/",
+        "query": "關聖帝君76籤",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-18",
+        "query": "君問中間此言因 看看祿馬拱前程 求得貴人多得利 和合自有兩分明",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-18/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-2/",
+        "query": "于今此景正當時，看看欲吐百花魁 若能遇得春色到，一洒清吉脫塵埃。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 27
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-25/",
+        "query": "總是前途莫心勞，求神問聖枉是多 但看雞犬日過後，不須作福事如何。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-26/",
+        "query": "戊寅籤感情",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 72
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-27/",
+        "query": "君爾寬心且自由",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-27/",
+        "query": "戊辰籤",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 25
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-38/",
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-41/",
+        "query": "今行到手實難推 歌歌暢飲自徘徊 雞犬相聞消息近 婚姻夙世結成雙。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-45/",
+        "query": "45籤詩",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-50/",
+        "query": "佛前發誓無異心 且看前途得好音 此物原來本是鐵 也能變化得成金。",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-54/",
+        "query": "念月英相國寺",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-55/",
+        "query": "55籤詩",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "page": "https://folk.tw/practices/anshenwei/",
+        "query": "安公媽",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 61.333333333333336
+      },
+      {
+        "page": "https://folk.tw/practices/anshenwei/",
+        "query": "安神明",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 60
+      },
+      {
+        "page": "https://folk.tw/practices/antaisui/",
+        "query": "安太歲是什麼",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 83.5
+      },
+      {
+        "page": "https://folk.tw/practices/ruocuo/",
+        "query": "入厝儀式",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 51
+      },
+      {
+        "page": "https://folk.tw/practices/shoujing/",
+        "query": "收驚步驟",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "page": "https://folk.tw/practices/zaihua",
+        "query": "栽花換斗",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/beigang_chaotian",
+        "query": "朝 天宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 64
+      },
+      {
+        "page": "https://folk.tw/temples/dajia_zhenlan/",
+        "query": "大 甲 鎮 瀾 宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "page": "https://folk.tw/temples/lugang_tianhou/",
+        "query": "彰化 天 后宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 76
+      },
+      {
+        "page": "https://folk.tw/temples/lugang_tianhou/",
+        "query": "鹿 港 天 后宮",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 61
+      }
+    ],
+    "strikingDistance": [
+      {
+        "page": "https://folk.tw/deities/wangye_wu/",
+        "query": "吳孝寬",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 8.142857142857142
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻為母救主",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "query": "江東得道",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_zhu/",
+        "query": "朱叔裕",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬故事",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/deities/miaoying_xianfei/",
+        "query": "妙應仙妃由來",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "七爺八爺聖誕",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan",
+        "query": "范府千歲由來",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/practices/zaihua",
+        "query": "栽花換斗",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan/",
+        "query": "范府千歲",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-73/",
+        "query": "王昭君憶漢帝",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 13
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_14/",
+        "query": "郭華戀王月英",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45",
+        "query": "丁公",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45",
+        "query": "丁公 劉邦",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣被困柳州城",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣被困柳州城故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-09-09/",
+        "query": "2025-09-09",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/almanac/2026-05-07/",
+        "query": "2026/05/07",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "七爺謝將軍",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "query": "八爺聖誕",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_fan",
+        "query": "范府",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-18/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-38/",
+        "query": "三顧",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-54/",
+        "query": "念月英相國寺",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      }
+    ],
+    "highImpZeroClick": [
+      {
+        "page": "https://folk.tw/deities/wangye_wu/",
+        "query": "吳孝寬",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 8.142857142857142
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻為母救主",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/deities/guangze/",
+        "query": "廣澤尊王",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 21.25
+      },
+      {
+        "page": "https://folk.tw/practices/antaisui/",
+        "query": "安太歲是什麼",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 83.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "query": "江東得道",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_zhu/",
+        "query": "朱叔裕",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/practices/anshenwei/",
+        "query": "安公媽",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 61.333333333333336
+      }
+    ]
+  },
+  "index": {
+    "sitemaps": [
+      {
+        "path": "https://folk.tw/sitemap-0.xml",
+        "submitted": 9784,
+        "errors": "0",
+        "warnings": "0"
+      },
+      {
+        "path": "https://folk.tw/sitemap-index.xml",
+        "submitted": 9784,
+        "errors": "0",
+        "warnings": "0"
+      }
+    ],
+    "coverage": [
+      {
+        "url": "https://folk.tw/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-25T09:08:00Z"
+      },
+      {
+        "url": "https://folk.tw/almanac",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T15:48:35Z"
+      },
+      {
+        "url": "https://folk.tw/almanac/archive",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/deities/mazu/",
+        "coverageState": "Discovered - currently not indexed",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/deities/guangong/",
+        "coverageState": "Discovered - currently not indexed",
+        "lastCrawlTime": null
+      },
+      {
+        "url": "https://folk.tw/poems",
+        "coverageState": "Crawled - currently not indexed",
+        "lastCrawlTime": "2026-06-21T09:54:34Z"
+      },
+      {
+        "url": "https://folk.tw/poems/liushi_jiazi-1/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-25T09:12:39Z"
+      },
+      {
+        "url": "https://folk.tw/allusions/suitang_qinshubao/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T10:33:05Z"
+      },
+      {
+        "url": "https://folk.tw/temples",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T12:18:09Z"
+      },
+      {
+        "url": "https://folk.tw/temples/dajia_zhenlan/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T17:05:59Z"
+      },
+      {
+        "url": "https://folk.tw/temples/moi_0_竹圍仔福德祠/",
+        "coverageState": "URL is unknown to Google",
+        "lastCrawlTime": null
+      }
+    ]
+  }
+}
