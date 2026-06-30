@@ -27,7 +27,8 @@
 ## 🔁 每日自動優化閉環（2026-06-30 全面改本機 cron；雲端 routine 與 GitHub Action 皆退役）
 
 全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/folk-tw-seo*`，log 在 `logs/`）。雲端三個 routine 與
-`seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。共四段：
+`seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
+**維運操作用 `/seo` skill；完整 runbook 見 [`docs/seo-automation.md`](docs/seo-automation.md)。** 共四段：
 1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
    產 `data/seo-daily/<台灣日期>.json`（**page×query／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
    → commit `[skip ci]` push → `index:ping`。手動：`pnpm data:seo-daily`。
