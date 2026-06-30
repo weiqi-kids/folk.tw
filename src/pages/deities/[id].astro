@@ -102,7 +102,7 @@ const jsonLd = [
 ---
 
 <Base
-  title={d.name}
+  title={d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name}
   description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
   ogType="article"
   jsonLd={jsonLd}
