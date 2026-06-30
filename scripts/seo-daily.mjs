@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// 每日 SEO 資料收集器（資料層）：唯讀拉 GA4 + GSC，輸出「機器可讀 JSON」供大腦層 cloud routine 判讀。
-// 相對 weekly-data.mjs（只產人看的 Markdown），本支多三個優化核心訊號：
+// 每日 SEO 資料收集器（資料層）：唯讀拉 GA4 + GSC，輸出「機器可讀 JSON」供大腦層（本機 cron）判讀。
+// 由 scripts/seo-collect-cron.sh 於每日 04:30 台呼叫。本支產三個優化核心訊號：
 //   1. page×query 交叉（哪個頁吃到哪些字）
 //   2. striking-distance（排名 5–15 且有曝光的字＝最值得推一把）
 //   3. 高曝光零點擊（meta/標題優化目標）
@@ -17,7 +17,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(here, '..');
 const OUT_DIR = join(repoRoot, 'data', 'seo-daily');
 
-// 稀釋監控 + 索引覆蓋追蹤清單（與 weekly-data.mjs 一致：分子＝獨特頁、分母＝廟宇頁）。
+// 稀釋監控 + 索引覆蓋追蹤清單（分子＝獨特頁、分母＝廟宇頁；週報 seo-weekly.mjs 用同一組）。
 const TRACK_URLS = [
   'https://folk.tw/',
   'https://folk.tw/almanac',
@@ -40,7 +40,7 @@ const twDate = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Ta
 
 const { ga4PropertyId, gscSiteUrl } = loadConfig();
 
-// 任一段失敗只記 error、不中斷其他段（沿用 weekly-data.mjs 容錯風格）。
+// 任一段失敗只記 error、不中斷其他段。
 async function section(fn) {
   try { return await fn(); }
   catch (e) { return { error: e.message }; }
