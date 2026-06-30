@@ -112,7 +112,7 @@ PROMPTEOF
 )"
 
 CLAUDE_OK=1
-timeout 1800 claude -p "$PROMPT" --model claude-sonnet-4-6 2>&1 \
+timeout 1800 claude -p "$PROMPT" --model claude-sonnet-5 2>&1 \
   || { CLAUDE_OK=0; echo "[seo-brain] claude 執行失敗或逾時"; }
 
 # 3) 殘留清理：claude 對該留的改動會自行 commit；此刻仍未提交的是 DRY_RUN 試改 / gate-fail / no-op 痕跡，
