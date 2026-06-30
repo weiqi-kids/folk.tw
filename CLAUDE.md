@@ -7,9 +7,8 @@
 
 ## 🔴 第一優先：待驗證的數據（等 Google 索引，2026-06-29 起）
 
-每週一 09:00(台) GitHub Action 產週報 Issue；11:00(台) cloud routine
-`trig_016aNyp3pbPTZMH3RM3aH3eG` 會自動判讀並把建議貼回該 Issue。
-**人要看的數據（gh issue list --label weekly-report 讀最新週報）：**
+每週一 09:30(台) 本機 cron 跑 `scripts/seo-weekly.mjs`：抓一次資料 → 開週報 Issue（含索引稀釋判讀）→ Slack `神酷-folk-tw` 發重點＋Issue 連結。
+**人要看的數據（gh issue list --label weekly-report 讀最新週報，或看 Slack）：**
 
 1. **索引稀釋判讀（核心）**：對照
    - 分子＝獨特頁：`/deities/mazu`、`/deities/guangong`、`/poems/liushi_jiazi-1`、`/allusions/suitang_qinshubao`
@@ -25,23 +24,23 @@
    注意 GSC「已提交」一度只認列 2904/10799（新域爬取保守、只讀部分 sitemap）——觀察此數是否回升。
 4. **GA4 流量來源**：基準 27 sessions（Direct 21、Organic 僅 6）＝多為已知訪客雜訊；要看**台灣自然搜尋**是否出現。
 
-## 🔁 每日自動優化閉環（2026-06-24 建置）
+## 🔁 每日自動優化閉環（2026-06-30 全面改本機 cron；雲端 routine 與 GitHub Action 皆退役）
 
-兩層架構（憑證邊界強制：Google 金鑰只在 Action／本機，cloud routine 拿不到）：
-1. **資料層＝GitHub Action `seo-daily.yml`**（每日 02:22 台）：`scripts/seo-daily.mjs` 拉 GA4+GSC →
-   產 `data/seo-daily/<台灣日期>.json`（含 **page×query 交叉／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
-   → commit（`[skip ci]`）→ Google `index:ping`。本機可 `pnpm data:seo-daily` 手動產。
-2. **大腦層＝cloud routine `trig_01HPqQCZmjxDkFcDsGzQeezV`**（每日 05:55 台，Sonnet）：讀當日 JSON →
-   驗證昨日 `-actions.md` 賭的字勝負 → 定本日優化 → **守三護欄自動執行**（事實內容必查權威源否則只動內鏈/meta/結構＝**絕不杜撰**；
-   ≤5 檔；check:integrity+build 不過整批不 push）→ commit 標 **`[auto-claude-seo]`** → push（含 `git pull --rebase` 防搶先）→
-   觸發 `seo-notify.yml` 推 Google＋IndexNow → 寫 `-actions.md` → **每天發摘要到 Slack `神酷-folk-tw`（C0BCPHBF1ML）**，
-   訊息第一行為 **🚦 行動標籤（🟢無需動作／🟡看一下／🔴要你決策）＋下一步**（含 no-op 心跳）。
-   - **回退**：`git log --oneline | grep auto-claude-seo` 定位、`git revert <sha>` 一鍵回。
-   - **檢視**：Slack 頻道每日摘要（看第一行行動標籤），或 `data/seo-daily/<date>-actions.md`。
-3. **推送層＝Action `seo-notify.yml`**（workflow_dispatch，由大腦層帶 URL 觸發）：雲端 routine 出站受限＋無 Google 金鑰，
-   故把搜尋引擎主動推送交給此 Action（有出站＋金鑰）：`gh workflow run seo-notify.yml -f urls="<url...>"` → `notify.mjs` 雙推。
-4. ⚠️ **本機 push 部署坑**：從**這台主機**（自動化身分）push 的 commit GitHub 不觸發 push 事件 → deploy 不自動跑，
-   須 `gh workflow run deploy.yml` 補觸發。**註：cloud routine 的 push 身分 GitHub 認得、會自動觸發 deploy（實證 6/25），只有本機 push 才需補。**
+全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/folk-tw-seo*`，log 在 `logs/`）。雲端三個 routine 與
+`seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。共四段：
+1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
+   產 `data/seo-daily/<台灣日期>.json`（**page×query／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
+   → commit `[skip ci]` push → `index:ping`。手動：`pnpm data:seo-daily`。
+2. **心跳 05:00 台**＝`scripts/seo-report-slack.mjs`（純 node）：讀當日 JSON → 發 Slack `神酷-folk-tw`（C0BCPHBF1ML）純數據。
+3. **大腦 05:55 台**＝`scripts/seo-brain-cron.sh`（headless `claude -p`，Sonnet）：讀當日 JSON → 驗昨日 `-actions.md` 勝負 →
+   **守三護欄優化**（事實必查權威源否則只動內鏈/meta＝**絕不杜撰**；≤5 檔；check:integrity+build 不過不 push）→
+   commit **`[auto-claude-seo]`** → push（`git pull --rebase` 防搶先）→ 補 `gh workflow run deploy.yml` →
+   `pnpm notify` 雙推 Google+IndexNow → 寫 `-actions.md` → 發 Slack（首行 **🚦 行動標籤**）。失敗發 **🔴 保底 Slack**。
+4. **週報 週一 09:30 台**＝`scripts/seo-weekly.mjs`（純 node）：抓一次 → 開週報 Issue → Slack 發重點＋**索引稀釋判讀**＋Issue 連結。
+- **授權**：大腦 headless **不用** `--dangerously-skip-permissions`，改靠專案層 `.claude/settings.json` 指令白名單；`IS_SANDBOX=1` 僅供 root 執行。
+  Slack 用 folk 專屬 bot（App「好棋寶寶 Claude 助手」，token `/root/.config/folk-tw/slack-bot-token`）。
+- **回退**：`git log --oneline | grep auto-claude-seo` → `git revert <sha>`。**檢視**：Slack 每日/週摘要，或 `data/seo-daily/<date>-actions.md`。
+- ⚠️ **本機 push 不觸發 deploy**：大腦會自動補 `gh workflow run deploy.yml`；你手動 push 內容後也須補。
 
 ## 🟠 待決策（看上面數據後）
 
@@ -77,7 +76,7 @@
 
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm verify:almanac` / `pnpm build`
-- `pnpm data:weekly`：GA4+GSC 週報（需 scripts/.google-sa-key.json，已 gitignore）
+- `pnpm data:weekly`：本機週報乾跑預覽（＝`seo-weekly.mjs --dry`，不開 Issue/不發 Slack；需 scripts/.google-sa-key.json）
 - **主動通知搜尋引擎（部署後跑這支）**：`pnpm notify [url...|--all]`＝一鍵雙推，
   同一組網址同時送 Google＋IndexNow，涵蓋互補（Google 不參與 IndexNow）。
   - 無參數＝高槓桿集（各模組首頁＋封存＋月份樞紐）；帶 url＝只送指定頁；`--all`＝整份 sitemap。

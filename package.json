@@ -16,8 +16,8 @@
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
-    "data:weekly": "node scripts/weekly-data.mjs",
     "data:seo-daily": "node scripts/seo-daily.mjs",
+    "data:weekly": "node scripts/seo-weekly.mjs --dry",
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "notify": "node scripts/notify.mjs"
