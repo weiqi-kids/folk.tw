@@ -27,3 +27,6 @@ pnpm-debug.log*
 scripts/.google-sa-key.json
 scripts/.google-config.json
 src/data/temples.import.json
+
+# 本機 cron 日誌（seo-collect/report/brain）—— 勿提交（大腦 git add -A 不應吃進）
+logs/
