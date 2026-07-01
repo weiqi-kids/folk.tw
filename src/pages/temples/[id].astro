@@ -27,6 +27,13 @@ const speakable = t.history ? ['h1', '.temple-history'] : undefined;
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
+
+// 廟宇頁 meta description（原本無此 prop、全站落回首頁通用文案，
+// 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
+const regionLabel = county ? `${county.name}${township?.name ?? ''}` : '';
+const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${mainDeity}`].filter(Boolean);
+const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${t.history ?? '神酷（folk.tw）廟宇資料庫收錄，資料源自內政部全國宗教資訊網。'}`;
+
 const faq = faqPage([
   {
     q: `${t.name}主祀哪位神明？`,
@@ -56,7 +63,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={t.name} ogType="article" jsonLd={jsonLd} speakable={speakable}>
+<Base title={t.name} description={templeDesc} ogType="article" jsonLd={jsonLd} speakable={speakable}>
   <nav class="crumb">
     <a href="/temples">廟宇</a>
     {county && <> ／ <a href={`/temples/region/${county.slug}`}>{county.name}</a></>}
