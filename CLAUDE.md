@@ -5,28 +5,32 @@
 > **守則：報現況/缺口/數量前一律用指令查證、不臆測；部署後以 curl 線上實證；
 > 資料整合性欄位（聖誕/宜忌/來源/官網）查無權威源就留空，絕不杜撰。**
 
-## 🔴 第一優先：待驗證的數據（等 Google 索引，2026-06-29 起）
+## 🔴 第一優先：已進入搜尋，觀察 CTR 與收錄轉化（2026-07-02 更新）
 
-每週一 09:30(台) 本機 cron 跑 `scripts/seo-weekly.mjs`：抓一次資料 → 開週報 Issue（含索引稀釋判讀）→ Slack `神酷-folk-tw` 發重點＋Issue 連結。
+每週一 09:30(台) cron（`/root/seo-ops` 框架週報層）：抓一次資料 → 開週報 Issue（含索引稀釋判讀）→ Slack `神酷-folk-tw` 發重點＋Issue 連結。
 **人要看的數據（gh issue list --label weekly-report 讀最新週報，或看 Slack）：**
 
-1. **索引稀釋判讀（核心）**：對照
-   - 分子＝獨特頁：`/deities/mazu`、`/deities/guangong`、`/poems/liushi_jiazi-1`、`/allusions/suitang_qinshubao`
-   - 分母＝廟宇頁：`/temples/dajia_zhenlan`（名廟）、`/temples/moi_0_竹圍仔福德祠`（土地公，已退出 sitemap）
-   - 覆蓋狀態（Submitted and indexed / Crawled-not indexed / Discovered-not indexed / unknown）。
-   - **基準快照 2026-06-23（降稀釋措施實施當日，供下次對照「有沒有改善」）**：
-     首頁/`/almanac`/`/temples`/`/temples/dajia_zhenlan`/`/allusions/suitang_qinshubao` 已 indexed；
-     **`/deities/mazu`＝unknown、`/deities/guangong`＋`/poems/liushi_jiazi-1`＝Discovered-not-indexed、`/poems`＝Crawled-not-indexed**。
-     目標：這幾筆轉成 Crawled→Indexed。
-2. **GSC 曝光/點擊**：基準（近 90 天，至 2026-06-21）**僅 47 曝光、3 點擊、且全集中在 6/21 一天**＝形同尚未進入搜尋。
-   有曝光的查詢全是獨特內容長尾（廣澤尊王 pos 4.3、中壇元帥、入厝儀式、籤詩句、典故），**無一來自廟宇頁**＝廟宇頁 0 搜尋貢獻。觀察是否開始出現連續多天曝光。
-3. **Sitemap 提交 vs 實際索引數**：退場開關 ON 後線上 sitemap **9415 URL**（廟 6530＋過去日期頁）；
-   注意 GSC「已提交」一度只認列 2904/10799（新域爬取保守、只讀部分 sitemap）——觀察此數是否回升。
-4. **GA4 流量來源**：基準 27 sessions（Direct 21、Organic 僅 6）＝多為已知訪客雜訊；要看**台灣自然搜尋**是否出現。
+1. **起飛已確認（2026-07-02 查證）**：週報 6/30（Issue #4）：台灣自然搜尋訪客 **137/週**（前週 5）、
+   GSC 曝光 5,572、點擊 111；日收集（資料窗至 6/29）：7 天點擊 172（週增 24%）、曝光 9,845（週增 26%）、平均排名 10.8。
+   （舊基準留檔供對照：2026-06-21 前 90 天僅 47 曝光/3 點擊、GA4 27 sessions 幾乎全 Direct＝形同不存在。）
+2. **索引收錄轉化（續觀察）**：旗艦獨特頁 **3/5 已收錄**（`/deities/mazu` 從 unknown 轉 ✅、
+   `/poems/liushi_jiazi-1` ✅、`/allusions/suitang_qinshubao` ✅）；`/deities/guangong` 仍 Discovered-not-indexed
+   （URL Inspection 偶回 unknown＝API 既有雜訊，8 天內交替出現，勿當退化）；`/poems` 仍 Crawled-not-indexed。
+3. **廟宇頁 CTR（新焦點）**：廟宇頁已佔曝光 **52%**（基準時「廟宇頁 0 搜尋貢獻」的前提已被推翻）。
+   CTR≈0 的結構性根因（全站 ~6500 廟宇頁無 meta description、落回首頁通用文案）已由大腦 7/2
+   commit `a231e2d` 修復；**7/4 起看廟宇頁整體 CTR 是否回升**（結構性改動，看群體趨勢非單頁）。
+4. **Sitemap 提交數疑點**：週報顯示 GSC「已提交 19,570」但線上 sitemap 應為 9,415——疑新舊 sitemap/分片
+   重複計數；下次週報若仍如此，進 GSC 後台查是否有舊 sitemap 該刪。
 
-## 🔁 每日自動優化閉環（2026-06-30 全面改本機 cron；雲端 routine 與 GitHub Action 皆退役）
+## 🔁 每日自動優化閉環（2026-07-02 起由統一框架 `/root/seo-ops` 接手）
 
-全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/folk-tw-seo*`，log 在 `logs/`）。雲端三個 routine 與
+> ⚠️ **2026-07-02 遷移**：四層（收集/心跳/大腦/週報）改由 `/root/seo-ops` 統一框架執行，
+> 排程在 `/etc/cron.d/seo-ops`（時刻沿用原值）、站台參數在 `seo-ops/sites/folk.tw.json`、
+> 大腦站規在 `seo-ops/playbooks/folk.tw.md`、log 在 `seo-ops/logs/folk.tw-*.log`。
+> 本節下方描述的 `scripts/seo-*` 舊腳本與 `/etc/cron.d/folk-tw-seo*` 已退役（腳本檔保留供查考；
+> cron 備份在 `/root/.claude/backups/seo-cutover-20260702-023954/`）。維運指南見 `seo-ops/README.md`。
+
+全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/seo-ops`，log 在 `/root/seo-ops/logs/`）。雲端三個 routine 與
 `seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
 **維運操作用 `/seo` skill；完整 runbook 見 [`docs/seo-automation.md`](docs/seo-automation.md)。** 共四段：
 1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
@@ -53,7 +57,9 @@
       媽祖/關聖帝君/廣澤尊王/中壇元帥/保生大帝/城隍爺（依 GSC 曝光查詢挑選），旗艦頁離首頁跳數 2→1。
 - [x] **送 Indexing API**（2026-06-23）：對 11 個未索引但有需求的頁（首頁、/deities 樞紐、
       6 尊旗艦神明、liushi_jiazi-1/45、suitang_qinshubao）送出，成功 11/失敗 0。
-- [ ] **是否需更激進降稀釋**：必要時連過去農民曆日期頁也只留月份樞紐入口（看退場後是否仍稀釋）。
+- [x] **是否需更激進降稀釋 → 決策：不做（2026-07-02 關閉）**：廟宇頁已佔曝光 52%、獨特頁 3/5 收錄、
+      曝光週增 26%——稀釋疑慮未成真，動過去農民曆日期頁的理由消失；焦點轉為廟宇頁 CTR（見 🔴 第 3 點）。
+      除非未來數據反轉（獨特頁收錄倒退且曝光停滯）才重開此項。
 
 ## 🟡 選配開發（有數據佐證再排序，皆非當務之急）
 
