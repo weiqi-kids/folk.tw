@@ -45,7 +45,10 @@
 - **授權**：大腦 headless **不用** `--dangerously-skip-permissions`，改靠專案層 `.claude/settings.json` 指令白名單；`IS_SANDBOX=1` 僅供 root 執行。
   Slack 用 folk 專屬 bot（App「好棋寶寶 Claude 助手」，token `/root/.config/folk-tw/slack-bot-token`）。
 - **回退**：`git log --oneline | grep auto-claude-seo` → `git revert <sha>`。**檢視**：Slack 每日/週摘要，或 `data/seo-daily/<date>-actions.md`。
-- ⚠️ **本機 push 不觸發 deploy**：大腦會自動補 `gh workflow run deploy.yml`；你手動 push 內容後也須補。
+- ⚠️ **push main 會自動觸發 deploy（deploy.yml on:push 實測 2026-07-02 確認）**，**絕不可再手動補 `gh workflow run deploy.yml`**：
+  同 SHA 兩個 run 搶 Pages 佇列 → 先到者逾時取消部署時會把該 SHA 的 build version 標成 cancelled →
+  後續同 SHA 部署全部秒失敗，只能推新 commit 換 SHA 解。（大腦 cron 腳本目前仍無條件補跑＝同樣有此風險，
+  至今未觸發僅因時序運氣；如再出事應修 seo-ops 腦腳本移除補跑。）
 
 ## 🟠 待決策（看上面數據後）
 
