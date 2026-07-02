@@ -19,13 +19,16 @@ const todayPoem = poems[idx];
 const firstAllusion = todayPoem?.data.allusions[0];
 const allusion = firstAllusion ? allusionById.get(firstAllusion.ref.id) : undefined;
 
+// 卡序依 GSC 近 28 天實測需求（廟宇 ≫ 籤詩 > 神明 > 農民曆 > 習俗 > 活動）；
+// 廟宇原缺卡、實為最大需求模組故補上並置首；行業守護神為新模組（乙案強入口）。
 const modules = [
+  { href: '/temples', label: '廟宇資料庫', desc: '主祀神明、縣市鄉鎮瀏覽、名廟沿革' },
   { href: '/poems', label: '籤詩解碼', desc: '六十甲子籤，四句＋典故＋分項解' },
   { href: '/deities', label: '神明圖譜', desc: '七大類、職司、聖誕、關係網' },
   { href: '/almanac', label: '農民曆', desc: '干支建除、宜忌考據化（建置中）' },
   { href: '/trades', label: '行業守護神', desc: '考生拜文昌、商家拜關公、行業吉日' },
-  { href: '/events', label: '民俗活動', desc: '遶境進香、文資身分' },
   { href: '/practices', label: '拜拜習俗', desc: '科儀步驟、金紙供品' },
+  { href: '/events', label: '民俗活動', desc: '遶境進香、文資身分' },
 ];
 
 // 熱門神明：直連旗艦獨特頁，把離首頁的跳數壓到 1，
