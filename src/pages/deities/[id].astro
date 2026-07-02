@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity } from '../../lib/queries';
+import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
@@ -24,9 +24,10 @@ const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 // 接通「神明↔籤詩」子圖：本神採用之系統的全部籤（直連籤，避免子圖斷開）。
 const poemsBySys = await poemsBySystem();
 const relatedPoems = d.divination_systems.flatMap((s) => poemsBySys.get(s.id) ?? []);
-// 反向：對應拜拜習俗（M5）、以本神為主神之民俗活動（M4）。
+// 反向：對應拜拜習俗（M5）、以本神為主神之民俗活動（M4）、守護行業（trades 反連）。
 const relatedPractices = (await practicesByDeity()).get(deity.id) ?? [];
 const relatedEvents = (await eventsByDeity()).get(deity.id) ?? [];
+const relatedTrades = (await tradesByDeity()).get(deity.id) ?? [];
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);
@@ -252,6 +253,20 @@ const jsonLd = [
           ))}
         </ul>
       </section>
+    )
+  }
+
+  {
+    relatedTrades.length > 0 && (
+      <p class="muted">
+        守護行業：
+        {relatedTrades.map((t, i) => (
+          <>
+            {i > 0 && '、'}
+            <a href={`/trades/${t.id}`}>{t.data.name}</a>
+          </>
+        ))}
+      </p>
     )
   }
 

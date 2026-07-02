@@ -311,6 +311,34 @@ const practices = defineCollection({
   }),
 });
 
+// ── 行業守護神（A）＋ 農民曆行業視角（B）────────────────
+// 行業為第一級實體：守護神對映（每筆各自掛源，§5 最小單位）＋宜忌事項對映
+// （存 almanac rules/affairs.json 的 id，由 scripts/check-integrity 驗證存在）。
+
+const trades = defineCollection({
+  loader: file('src/data/trades.json'),
+  schema: z.object({
+    id: z.string(), // = URL slug（/trades/[id]，發佈後永不改）
+    name: z.string(),
+    modern: z.boolean().default(false), // 現代延伸行業（頁面明確標示）
+    description: z.string(),
+    patrons: z
+      .array(
+        z.object({
+          deity_ref: z.string(), // → deity.id（字串 key，由 check-integrity 硬驗）
+          role: z.string(),
+          why: z.string(), // 須可被同筆 sources 支撐（§5）
+          sources: z.array(source).min(1), // 每筆對映各自掛源，schema 層強制
+        }),
+      )
+      .min(1),
+    affairs_yi: z.array(z.string()).default([]), // → affairs.json id（宜側）
+    affairs_ji: z.array(z.string()).default([]), // → affairs.json id（忌側）
+    sources: z.array(source).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   deities,
   deityRelations,
@@ -321,4 +349,5 @@ export const collections = {
   temples,
   events,
   practices,
+  trades,
 };

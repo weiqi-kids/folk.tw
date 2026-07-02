@@ -1,0 +1,215 @@
+[
+  {
+    "id": "scholars",
+    "name": "考生與學子",
+    "modern": false,
+    "description": "考生、學子與應試者的守護神與擇日視角：文運科考所奉之神、聖誕日與適合祈福的日子。",
+    "patrons": [
+      {
+        "deity_ref": "wenchang",
+        "role": "文運科考主神",
+        "why": "文昌帝君掌管文運與科舉考試，為士人學子敬奉的主神，五文昌之首。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌", "note": "五文昌皆有護持文運之職能，為士人學子敬奉" }
+        ]
+      },
+      {
+        "deity_ref": "ludongbin",
+        "role": "五文昌之一",
+        "why": "孚佑帝君（呂洞賓）名列五文昌，相傳時常護佑應考士子。",
+        "sources": [
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" },
+          { "type": "temple", "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382" }
+        ]
+      },
+      {
+        "deity_ref": "guangong",
+        "role": "五文昌之一（文衡聖帝）",
+        "why": "關聖帝君以文衡聖帝之名列五文昌，喜讀《左氏春秋》，受儒家學子信奉。",
+        "sources": [
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+        ]
+      }
+    ],
+    "affairs_yi": ["qifu", "jisi"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "business",
+    "name": "商家與業務",
+    "modern": false,
+    "description": "經商、業務、簽約收帳者的守護神與擇日視角：商業守護神、財神聖誕與適合立券納財的日子。",
+    "patrons": [
+      {
+        "deity_ref": "guangong",
+        "role": "商業守護神",
+        "why": "民間以關公重信義守然諾，奉為商業守護神，亦尊為武財神。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286" },
+          { "type": "web", "ref": "維基百科〈關羽〉民間信仰節 https://zh.wikipedia.org/wiki/關羽" }
+        ]
+      },
+      {
+        "deity_ref": "zhao_gongming",
+        "role": "求財（武財神）",
+        "why": "趙公明為五路財神中路主帥，清代並為銀錢業守護神。",
+        "sources": [
+          { "type": "temple", "ref": "北港武德宮官網 https://www.wude.org.tw" },
+          { "type": "web", "ref": "維基百科〈趙公明〉 https://zh.wikipedia.org/wiki/趙公明" }
+        ]
+      }
+    ],
+    "affairs_yi": ["lijuan", "nacai_cai"],
+    "affairs_ji": ["kaishi", "lijuan", "nacai_cai"],
+    "sources": [
+      { "type": "web", "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "healthcare",
+    "name": "醫療與護理",
+    "modern": false,
+    "description": "醫師、護理與醫藥從業者的守護神與擇日視角：醫神信仰、聖誕日與療病相關宜忌。",
+    "patrons": [
+      {
+        "deity_ref": "baosheng",
+        "role": "醫神",
+        "why": "保生大帝（大道公）生前為名醫吳夲，歿後奉為醫藥之神，醫界敬奉。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258" },
+          { "type": "temple", "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/history.php?lang=tw" }
+        ]
+      },
+      {
+        "deity_ref": "shennong",
+        "role": "醫藥祖神",
+        "why": "神農大帝嘗百草教民辨藥性，為醫藥之祖神，中醫藥業敬奉。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" }
+        ]
+      }
+    ],
+    "affairs_yi": ["liaobing", "qifu"],
+    "affairs_ji": ["liaobing"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "maritime",
+    "name": "航運與漁業",
+    "modern": false,
+    "description": "航海、漁業與海上作業者的守護神與擇日視角：海神信仰、聖誕日與出行相關宜忌。",
+    "patrons": [
+      {
+        "deity_ref": "mazu",
+        "role": "航海守護神",
+        "why": "天上聖母（媽祖）為航海與漁民的守護神，沿海行船討海者敬奉最篤。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241" },
+          { "type": "temple", "ref": "北港朝天宮官網 https://www.matsu.org.tw/" }
+        ]
+      }
+    ],
+    "affairs_yi": ["jisi", "qifu"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "construction",
+    "name": "營造與工匠",
+    "modern": false,
+    "description": "木工、營造、建築工匠的守護神與擇日視角：百工祖師信仰、聖誕日與動土上樑宜忌。",
+    "patrons": [
+      {
+        "deity_ref": "luban",
+        "role": "百工祖師",
+        "why": "巧聖先師（魯班）為木匠、營造、建築業之祖師爺，全台工匠業奉祀，聖誕日各地匠師返東勢祖廟謁祖。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
+          { "type": "gov", "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232" }
+        ]
+      }
+    ],
+    "affairs_yi": ["dongtu", "ruzhai"],
+    "affairs_ji": ["dongtu", "shangliang", "anchuang"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "agriculture",
+    "name": "農林漁牧",
+    "modern": false,
+    "description": "農林漁牧從業者的守護神與擇日視角：農業祖神與田土之神、聖誕日與栽種宜忌。",
+    "patrons": [
+      {
+        "deity_ref": "shennong",
+        "role": "農業祖神",
+        "why": "神農大帝教民耕稼，為農業之祖神，農民奉為五穀先帝。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" },
+          { "type": "temple", "ref": "內政部臺灣宗教文化地圖〈三重先嗇宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=181" }
+        ]
+      },
+      {
+        "deity_ref": "tudigong",
+        "role": "田土之神",
+        "why": "福德正神掌田土與農作收成，農家於田頭田尾奉祀。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" }
+        ]
+      }
+    ],
+    "affairs_yi": ["zaizhong", "jisi"],
+    "affairs_ji": ["zaizhong"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "engineers",
+    "name": "工程師",
+    "modern": true,
+    "description": "工程從業者的守護神與擇日視角（現代延伸）：祖師爺信仰的當代延續，與科技園區的祭祀文化。",
+    "patrons": [
+      {
+        "deity_ref": "luban",
+        "role": "工程祖師（傳統之現代延續）",
+        "why": "巧聖先師為百工祖師，台灣土木、建築工程界奉為祖師爺，工程業界於聖誕日祭祀至今。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
+          { "type": "gov", "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232" }
+        ]
+      },
+      {
+        "deity_ref": "tudigong",
+        "role": "科技園區從業者參拜",
+        "why": "新竹科學園區內集福宮土地公為園區信仰指標，科技業者於新廠動工、產線啟用時參拜，農曆初二、十六祭拜已成園區文化。",
+        "sources": [
+          { "type": "web", "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924" },
+          { "type": "web", "ref": "自由財經〈竹科土地公廟 生產線財源滾滾〉 https://ec.ltn.com.tw/article/paper/1176519" }
+        ]
+      }
+    ],
+    "affairs_yi": ["dongtu", "qifu"],
+    "affairs_ji": ["dongtu"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
+      { "type": "web", "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924" }
+    ],
+    "draft": false
+  }
+]

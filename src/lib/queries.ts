@@ -46,6 +46,21 @@ export async function getPractices() {
 export async function getTemples() {
   return await getCollection('temples');
 }
+export async function getTrades() {
+  return (await getCollection('trades')).filter((e) => publishable(e, true));
+}
+
+/** 神明 → 守護哪些行業（供神明頁反連 /trades/[slug]，內鏈閉環） */
+export async function tradesByDeity(): Promise<Map<string, CollectionEntry<'trades'>[]>> {
+  const trades = await getTrades();
+  const map = new Map<string, CollectionEntry<'trades'>[]>();
+  for (const t of trades) {
+    for (const p of t.data.patrons) {
+      (map.get(p.deity_ref) ?? map.set(p.deity_ref, []).get(p.deity_ref)!).push(t);
+    }
+  }
+  return map;
+}
 
 /** 神明 → 主祀此神之廟宇（§2.2 橋接；R5 主祀對映） */
 export async function templesByDeity(): Promise<Map<string, CollectionEntry<'temples'>[]>> {

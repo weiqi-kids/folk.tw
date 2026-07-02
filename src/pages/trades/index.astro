@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getTrades, getDeities } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
+import { affairNameOf } from '../../lib/almanac/select';
+
+const trades = await getTrades();
+const deities = await getDeities();
+const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+---
+
+<Base
+  title="行業守護神—各行各業拜什麼神？"
+  description="考生拜文昌、商家拜關公、醫護拜保生大帝、工匠拜巧聖先師——各行業守護神、聖誕日與農民曆吉日視角，逐條掛來源。"
+  jsonLd={[breadcrumb([{ name: '行業守護神', path: '/trades' }])]}
+>
+  <h1>行業守護神</h1>
+  <p class="muted">
+    擇日與祖師信仰本就服務各行各業。本頁按行業聚合既有神明與農民曆資料：守護神對映逐條掛來源，
+    吉日僅列已考據核校（verified）之宜忌事項。
+  </p>
+
+  <div class="grid cols">
+    {
+      trades.map((t) => (
+        <a class="card trade-cell" href={`/trades/${t.id}`}>
+          <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
+          <span class="muted small">
+            {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+          </span>
+          <span class="office muted small">
+            宜{t.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="muted small">
+    相關：<a href="/deities">神明圖譜</a>｜<a href="/almanac">今日農民曆</a>｜<a href="/almanac/archive">農民曆封存</a>
+  </p>
+
+  <style>
+    .trade-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .trade-cell strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .office { color: var(--accent-soft); }
+  </style>
+</Base>

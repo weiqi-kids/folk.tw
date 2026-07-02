@@ -81,7 +81,7 @@ export default defineConfig({
         // 比照封存日期頁以最低優先降稀釋（保護新域爬取預算）；仍可被索引與內連。
         if (/^\/temples\/[^/]+$/.test(path)) return { ...item, priority: 0.3, changefreq: ChangeFreqEnum.YEARLY };
         // 模組樞紐／靜態頁。
-        const hubs = ['/poems', '/deities', '/events', '/practices', '/temples',
+        const hubs = ['/poems', '/deities', '/events', '/practices', '/temples', '/trades',
           '/almanac/archive', '/jiaobei', '/vocabulary', '/about', '/search'];
         if (hubs.includes(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
         // 其餘為獨特內容詳情頁（神明／籤詩／典故／活動／習俗／籤系）。

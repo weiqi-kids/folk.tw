@@ -27,6 +27,13 @@ const relations = load('deity-relations.json');
 const events = load('events.json');
 const practices = load('practices.json');
 const temples = load('temples.json');
+const trades = load('trades.json');
+const affairs: any[] = JSON.parse(
+  readFileSync(join(root, 'src/lib/almanac/rules/affairs.json'), 'utf8'),
+).affairs;
+const votes: any[] = JSON.parse(
+  readFileSync(join(root, 'src/lib/almanac/rules/votes.json'), 'utf8'),
+).votes;
 
 const allusionIds = new Set(allusionIdList);
 const systemIds = new Set(systems.map((s) => s.id));
@@ -55,7 +62,28 @@ for (const d of deities) {
     if (!systemIds.has(s)) hard(`deity ${d.id}: divination_system「${s}」不存在`);
   }
 }
+// 行業 → 守護神 / 宜忌事項（手工小表，比照 deity→籤系 硬擋）
+const affairIds = new Set(affairs.map((a) => a.id));
+for (const t of trades) {
+  for (const p of t.patrons ?? []) {
+    if (!deityIds.has(p.deity_ref)) hard(`trade ${t.id}: patron deity_ref「${p.deity_ref}」不存在`);
+  }
+  for (const a of [...(t.affairs_yi ?? []), ...(t.affairs_ji ?? [])]) {
+    if (!affairIds.has(a)) hard(`trade ${t.id}: affair「${a}」不在 rules/affairs.json`);
+  }
+}
 if (hardErrors === 0) console.log('  ✓ 全數通過');
+
+// 行業宜側事項 → 宜側 verified 資料覆蓋（M3 只顯示 verified；宜票缺 verified 者頁面恆空 → 軟警告）
+const yiVerifiedAffairs = new Set(
+  votes.filter((v) => v.verdict === '宜' && v.verified && v.affair !== '*').map((v) => v.affair),
+);
+const yiEmpty = trades.flatMap((t) =>
+  (t.affairs_yi ?? []).filter((a: string) => !yiVerifiedAffairs.has(a)).map((a: string) => `${t.id}→${a}`),
+);
+if (yiEmpty.length) {
+  console.log(`  ⚠ 行業宜側事項無 verified 宜票（吉日區塊將恆空）：${yiEmpty.join('、')}`);
+}
 
 // ── 對映率報表（R5、§9.6）──────────────────────────────
 function rate(label: string, total: number, matched: number, unmatched: string[]) {
