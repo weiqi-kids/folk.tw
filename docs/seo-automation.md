@@ -62,14 +62,13 @@ node scripts/seo-weekly.mjs                   # 開 Issue + 發 Slack
 | Slack 沒收到 | `logs/seo-*.log` 當日尾段 | cron 沒跑 / token 失效 / 該段失敗 |
 | 大腦沒 push | `logs/seo-brain.log` | gate（check:integrity/build）未過＝設計上不 push；或 rebase 衝突 |
 | 數據缺當日 | `ls -t data/seo-daily/*.json` | 收集失敗（Google 金鑰/額度）；心跳會回報 🟡 |
-| 部署沒跑 | `gh run list --workflow=deploy.yml` | 本機 push 不自動觸發 → 大腦會補 `gh workflow run deploy.yml` |
+| 部署沒跑 | `gh run list --workflow=deploy.yml` | push main 會自動觸發（on:push），比對 headSha 是否本次 commit。**勿手動補跑**（同 SHA 雙 run 會毒化 Pages build version，2026-07-02 實證，見 CLAUDE.md）；僅在 ~2 分鐘後仍無本 SHA run 才手動觸發一次 |
 
 ## 7. 回退（rollback）
 
 ```bash
 git log --oneline | grep auto-claude-seo     # 找大腦的改動
-git revert <sha> && git push origin main      # 一鍵回退某次自動優化
-gh workflow run deploy.yml                     # 本機 push 補觸發部署
+git revert <sha> && git push origin main      # 一鍵回退某次自動優化（push 即自動觸發部署，勿再補跑）
 ```
 
 ## 8. 護欄（大腦鐵則，寫在 seo-brain-cron.sh 的 prompt）

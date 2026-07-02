@@ -4,6 +4,10 @@
 # 為何搬本機：雲端 routine 曾被整批 disable 致連日靜默（見記憶 seo-slack-heartbeat-local-cron）。
 # 改本機 cron 後，優化與通報都在自有主機，受全域 ~/.claude 治理、用本機帳號額度，不依賴雲端。
 #
+# ⚠️ 本腳本已於 2026-07-02 退役（改由 /root/seo-ops 統一框架執行），僅留查考。
+#   其中「push 後補觸發 deploy」的指示已證實錯誤且有害：push main 本會自動觸發 deploy（on:push），
+#   同 SHA 雙 run 會毒化 Pages build version（見 CLAUDE.md / seo-ops/playbooks/folk.tw.md）。
+#
 # 流程：git 同步最新（含資料層 Action 當天 JSON）→ headless claude 讀數據→定優化→改≤5檔→
 #   過 gate（check:integrity + build）→ commit [auto-claude-seo] → push → 補觸發 deploy →
 #   pnpm notify 推搜尋引擎 → 寫 actions.md → 發 Slack（人話）。claude 全程自理；本包裝只做
