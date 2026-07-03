@@ -66,11 +66,13 @@
 
 ## 🟡 選配開發（有數據佐證再排序，皆非當務之急）
 
-- [x] 行業守護神＋農民曆行業視角（2026-07-02 commit `a09d6e2` 上線）：`/trades` 樞紐＋7 行業頁
-      （scholars/business/healthcare/maritime/construction/agriculture/engineers[現代延伸]，
-      **slug＝永久承諾勿改**）；月份樞紐加「本月各行業吉日」（零新頁）。守護神對映在
-      `src/data/trades.json` 逐筆掛源；**M3 verified 篩選唯一入口＝`src/lib/almanac/select.ts`**（勿另建判定）；
-      宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）。已一次性 notify 8 URL，
+- [x] 行業守護神＋農民曆行業視角（2026-07-02 commit `a09d6e2` 上線；2026-07-03 擴充至 12 頁）：`/trades` 樞紐＋
+      12 行業頁（scholars/business/healthcare/maritime/construction/agriculture/engineers[現代延伸]＋第二批
+      performers/educators/uniformed-services/beauty/civil-servants[現代延伸]，**slug＝永久承諾勿改**）；
+      月份樞紐加「本月各行業吉日」（零新頁）。守護神對映在 `src/data/trades.json` 逐筆掛源（第二批全部經
+      agent 直抓查證；已排除命理香業[用戶指示]/餐飲[易牙無台灣信仰現場]/花卉/特種行業）；
+      **M3 verified 篩選唯一入口＝`src/lib/almanac/select.ts`**（勿另建判定）；
+      宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）。兩批各一次性 notify，
       **不**進每日 cron 高槓桿集，四週後看 GSC 再議。
 
 - [x] speakable schema（2026-06-23 commit `365b78f`＋`b1aff85` 上線）：Base 加 `speakable` prop →

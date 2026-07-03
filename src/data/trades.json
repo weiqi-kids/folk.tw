@@ -211,5 +211,151 @@
       { "type": "web", "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924" }
     ],
     "draft": false
+  },
+  {
+    "id": "performers",
+    "name": "音樂與表演藝術",
+    "modern": false,
+    "description": "樂師、戲曲與表演工作者的守護神與擇日視角：戲神信仰、聖誕日與適合祭祀祈福的日子。",
+    "patrons": [
+      {
+        "deity_ref": "xiqin",
+        "role": "戲曲樂師祖師（北管／亂彈）",
+        "why": "西秦王爺相傳為唐玄宗李隆基，首創梨園教習樂工，為亂彈戲班與北管樂師的守護神。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272" },
+          { "type": "gov", "ref": "教育部《臺灣台語常用詞辭典》〈西秦王爺〉 https://sutian.moe.edu.tw/zh-hant/su/2844/" }
+        ]
+      },
+      {
+        "deity_ref": "tiandu",
+        "role": "戲曲樂師祖師（南管／梨園）",
+        "why": "田都元帥相傳為唐代宮廷樂師雷海青，與西秦王爺同為戲曲音樂之神，梨園子弟與南管樂人奉祀。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·田都元帥(Tiandou yuanshuai) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=256" },
+          { "type": "gov", "ref": "國家文化記憶庫〈蘆洲神將—田都元帥〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=253000", "note": "與西秦王爺同為戲曲音樂神" }
+        ]
+      }
+    ],
+    "affairs_yi": ["jisi", "qifu"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "educators",
+    "name": "教師與教育",
+    "modern": false,
+    "description": "教師與教育工作者的守護神與擇日視角：至聖先師與文昌信仰、釋奠典禮與聖誕日、適合祈福的日子。",
+    "patrons": [
+      {
+        "deity_ref": "kongzi",
+        "role": "萬世師表",
+        "why": "孔子尊稱「大成至聖先師」，台灣教師節即定於孔子誕辰九月二十八日，各地孔廟年年舉行釋奠典禮。",
+        "sources": [
+          { "type": "gov", "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095", "note": "第3條孔子誕辰紀念日與第5條教師節同為九月二十八日" },
+          { "type": "temple", "ref": "臺北市孔廟管理委員會〈祭孔典禮的名稱〉 https://tct.gov.taipei/cp.aspx?n=1673A2A58ACE9A56", "note": "釋奠禮由來、祭祀對象正式稱號「大成至聖先師孔子」" },
+          { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·臺北孔子廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=109", "note": "戰後改於陽曆9月28日恢復釋奠禮" }
+        ]
+      },
+      {
+        "deity_ref": "wenchang",
+        "role": "文運主神",
+        "why": "文昌帝君掌文運與科考，與至聖先師同為文教信仰核心，士人學子與教育工作者敬奉。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
+          { "type": "gov", "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151" }
+        ]
+      }
+    ],
+    "affairs_yi": ["qifu", "jisi"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "gov", "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "uniformed-services",
+    "name": "軍警人員",
+    "modern": false,
+    "description": "軍人與警察的守護神與擇日視角：武聖信仰、聖誕日與適合祭祀祈福的日子。",
+    "patrons": [
+      {
+        "deity_ref": "guangong",
+        "role": "武聖（軍警守護神）",
+        "why": "關聖帝君以忠義英武尊為武聖，清代以武神入祀武廟；軍人奉為武神，台灣警察單位亦常見奉祀關公神像，視為守護神。",
+        "sources": [
+          { "type": "gov", "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620", "note": "武神戰神、警察軍人所信奉的保護神、清代以武神入祀武廟" },
+          { "type": "gov", "ref": "國家文化記憶庫〈關聖帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139858", "note": "軍人將之奉為武神" },
+          { "type": "web", "ref": "自由時報〈警界8大傳說 辦案如神助〉 https://news.ltn.com.tw/news/society/paper/1505755", "note": "警察單位辦公室供奉關公神像之民俗慣行專題" }
+        ]
+      }
+    ],
+    "affairs_yi": ["jisi", "qifu"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "gov", "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "beauty",
+    "name": "理髮與美髮",
+    "modern": false,
+    "description": "理髮與美髮從業者的守護神與擇日視角：理髮業祖師爺信仰、聖誕日與適合納財的日子。",
+    "patrons": [
+      {
+        "deity_ref": "ludongbin",
+        "role": "理髮業祖師",
+        "why": "民間相傳呂洞賓化身理髮師治癒明太祖頭瘡（一說教導理髮師為明太祖理髮），理髮業奉為祖師爺，現代美髮業承此脈絡。",
+        "sources": [
+          { "type": "gov", "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105", "note": "民間盛傳呂洞賓教導明太祖時期的理髮師理髮，成為理髮業祖師爺" },
+          { "type": "web", "ref": "聯合報系橘世代〈呂洞賓與理髮業〉 https://orange.udn.com/orange/story/121415/7975272", "note": "化身理髮師治癒明太祖頭瘡傳說、理髮業守護神" },
+          { "type": "web", "ref": "維基百科〈呂洞賓〉 https://zh.wikipedia.org/wiki/呂洞賓" }
+        ]
+      }
+    ],
+    "affairs_yi": ["nacai_cai", "qifu"],
+    "affairs_ji": ["kaishi"],
+    "sources": [
+      { "type": "gov", "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "civil-servants",
+    "name": "公務人員",
+    "modern": true,
+    "description": "公務人員的守護神與擇日視角（現代延伸）：司祿文昌與城隍官署祀典的歷史淵源、公職考試的參拜慣例。",
+    "patrons": [
+      {
+        "deity_ref": "wenchang",
+        "role": "祿位之神（司祿）",
+        "why": "文昌帝君元代封號「輔元開化文昌司祿宏仁帝君」，職司功名祿位，今高普考等公職考生仍於考前參拜，民間視為文職與公務人員相關職業的守護神。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244", "note": "封號「輔元開化文昌司祿宏仁帝君」、職司科考功名" },
+          { "type": "web", "ref": "TVBS〈文昌帝君掌管功名祿位〉 https://news.tvbs.com.tw/life/2371078", "note": "文職、公務員相關職業的守護神" },
+          { "type": "web", "ref": "104職場力〈考前拜文昌帝君〉 https://blog.104.com.tw/wenchang-dijun/", "note": "高普考等考生考前參拜慣例" }
+        ]
+      },
+      {
+        "deity_ref": "chenghuang",
+        "role": "官署祀典之神（歷史淵源）",
+        "why": "清領時期祭城隍列入祀典，新任地方官到任前須至城隍廟齋宿、上任日在城隍爺前完成祭禮方能就任；城隍職司監察善惡，與官箴文化淵源深厚。",
+        "sources": [
+          { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58", "note": "清領祭城隍列入祀典、新地方官到任前齋宿城隍廟、上任日完成祭禮" },
+          { "type": "gov", "ref": "台南市政府觀光旅遊局〈臺灣府城隍廟〉 https://www.twtainan.net/zh-tw/attractions/detail/682/", "note": "台灣最古老城隍廟、新官上任前必定走訪祭拜" }
+        ]
+      }
+    ],
+    "affairs_yi": ["qifu", "jisi"],
+    "affairs_ji": ["chuxing"],
+    "sources": [
+      { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58" }
+    ],
+    "draft": false
   }
 ]
