@@ -63,6 +63,7 @@ node scripts/seo-weekly.mjs                   # 開 Issue + 發 Slack
 | 大腦沒 push | `logs/seo-brain.log` | gate（check:integrity/build）未過＝設計上不 push；或 rebase 衝突 |
 | 數據缺當日 | `ls -t data/seo-daily/*.json` | 收集失敗（Google 金鑰/額度）；心跳會回報 🟡 |
 | 部署沒跑 | `gh run list --workflow=deploy.yml` | push main 會自動觸發（on:push），比對 headSha 是否本次 commit。**勿手動補跑**（同 SHA 雙 run 會毒化 Pages build version，2026-07-02 實證，見 CLAUDE.md）；僅在 ~2 分鐘後仍無本 SHA run 才手動觸發一次 |
+| deploy job 失敗（build 成功） | `gh run view <run-id>` 看錯誤 | 若為 Pages 服務端暫時性錯誤（`Deployment failed, try again later.`）：`gh run rerun <run-id> --failed` 重跑**同一 run** 一次即可（2026-07-04 實證，不另開 run、無毒化風險）；再失敗交人工。build job 失敗則是程式碼問題，修正或 revert，勿 rerun |
 
 ## 7. 回退（rollback）
 
