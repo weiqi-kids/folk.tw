@@ -34,6 +34,10 @@ const regionLabel = county ? `${county.name}${township?.name ?? ''}` : '';
 const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${mainDeity}`].filter(Boolean);
 const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${t.history ?? '神酷（folk.tw）廟宇資料庫收錄，資料源自內政部全國宗教資訊網。'}`;
 
+// 廟宇頁 title：原本僅 t.name，導致大量同名廟（慶安宮／福德宮…）落回完全相同標題、無在地辨識度。
+// 全站 7891 廟 100% 具 district，加上鄉鎮地名可消歧並強化在地搜尋匹配（僅用既有欄位，不補新事實）。
+const templeTitle = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `${t.name}・${t.district}` : t.name);
+
 const faq = faqPage([
   {
     q: `${t.name}主祀哪位神明？`,
@@ -63,7 +67,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={t.name} description={templeDesc} ogType="article" jsonLd={jsonLd} speakable={speakable}>
+<Base title={templeTitle} description={templeDesc} ogType="article" jsonLd={jsonLd} speakable={speakable}>
   <nav class="crumb">
     <a href="/temples">廟宇</a>
     {county && <> ／ <a href={`/temples/region/${county.slug}`}>{county.name}</a></>}
