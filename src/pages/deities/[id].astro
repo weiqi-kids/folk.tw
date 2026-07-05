@@ -51,6 +51,15 @@ const birthdayLabel = (() => {
   const [bm, bd] = realBdays[0].date.split('-').map(Number);
   return `，${realBdays[0].kind}農曆${bm}月${bd}日`;
 })();
+// 標題也帶出聖誕日期關鍵字：反思層 2026-07-05 發現，聖誕/生日查詢（如「七爺八爺聖誕」）排名到位卻
+// 連 5+ 天 0 點擊，因日期只進了 .summary、title 從未帶「聖誕」字樣。優先取「聖誕」該筆，
+// 純沿用已查證的 birthday_lunar（不新增事實）。
+const titleBday = (() => {
+  const b = realBdays.find((x) => x.kind === '聖誕') ?? realBdays[0];
+  if (!b) return '';
+  const [bm, bd] = b.date.split('-').map(Number);
+  return `・${b.kind}農曆${bm}月${bd}日`;
+})();
 
 // 職司／是什麼神：以 category＋office＋summary 答覆（answer-first）。
 {
@@ -103,7 +112,7 @@ const jsonLd = [
 ---
 
 <Base
-  title={d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name}
+  title={`${d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name}${titleBday}`}
   description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
   ogType="article"
   jsonLd={jsonLd}
