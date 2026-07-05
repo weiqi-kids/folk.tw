@@ -94,6 +94,25 @@
       "verdict_date": null
     },
     {
+      "id": "2026-07-05-deity-title-birthday",
+      "placed_date": "2026-07-05",
+      "cohort": "striking-distance",
+      "target": { "page": "/deities/*", "query": "七爺八爺聖誕 等聖誕/生日詞群" },
+      "hypothesis": "神明頁 title 帶出聖誕農曆日期關鍵字後，qiyebaye 群等『X聖誕/生日』查詢（排名到位卻 0 click）CTR 轉正",
+      "factual": false,
+      "change_commit": "7897d55",
+      "change_files": ["src/pages/deities/[id].astro"],
+      "deploy_date": "2026-07-05",
+      "expected_first_signal_date": "2026-07-09",
+      "expected_full_window_date": "2026-07-16",
+      "baseline": { "pos": 6.5, "impr": 34, "clicks": 0, "ctr": 0, "scope": "page-query", "note": "七爺八爺聖誕 為代表；全群 ~115 impr 連 5+ 天 0 click" },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null,
+      "credit": "反思層 seo-reflect 2026-07-05 乾跑發現"
+    },
+    {
       "id": "2026-07-05-events-speakable",
       "placed_date": "2026-07-05",
       "cohort": "template-structural",
