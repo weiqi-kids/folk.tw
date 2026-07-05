@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getSystems, getPoems, deitiesBySystem } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const systems = await getSystems();
@@ -19,12 +20,30 @@ export const getStaticPaths = (async () => {
 
 const { system, poems, deities } = Astro.props;
 const s = system.data;
+
+// 籤系樞紐頁原本無 description / jsonLd / speakable（全站最弱模板）：補上結構型 SEO/AEO 元件，
+// 資料全取自 divination-systems.json 既有欄位（免查證），並讓 breadcrumb 指入 /poems 樞紐。
+const seriesLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWorkSeries',
+  name: s.name,
+  description: s.summary,
+  url: `https://folk.tw/systems/${system.id}`,
+  numberOfItems: s.count ?? poems.length,
+};
+const jsonLd = [
+  breadcrumb([
+    { name: '籤詩', path: '/poems' },
+    { name: s.name, path: `/systems/${system.id}` },
+  ]),
+  seriesLd,
+];
 ---
 
-<Base title={s.name}>
+<Base title={s.name} description={s.summary} ogType="article" jsonLd={jsonLd} speakable={['h1', '.summary']}>
   <nav class="crumb"><a href="/poems">籤詩</a> ／ 籤詩系統</nav>
   <h1>{s.name}</h1>
-  {s.summary && <p class="muted">{s.summary}</p>}
+  {s.summary && <p class="summary">{s.summary}</p>}
 
   <section>
     <h2>採用此系統之神明 · 籤系反查</h2>
@@ -56,6 +75,7 @@ const s = system.data;
 
   <style>
     .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .summary { font-size: 1.05rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
     .deity-list { list-style: none; padding: 0; }
     .deity-list li { padding: 0.3rem 0; }

@@ -77,7 +77,7 @@ const jsonLd: object[] = [
 ];
 ---
 
-<Base title={p.title} ogType="article" jsonLd={jsonLd} speakable={['h1', '.summary']}>
+<Base title={p.title} description={p.occasion ? `${p.summary}｜${p.occasion}` : p.summary} ogType="article" jsonLd={jsonLd} speakable={['h1', '.summary']}>
   <nav class="crumb"><a href="/practices">拜拜習俗</a> ／ {p.category}</nav>
   <h1>{p.title}</h1>
   {p.summary && <p class="summary">{p.summary}</p>}
