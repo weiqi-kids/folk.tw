@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "site": "folk.tw",
+  "note": "結構化賭注帳本。大腦每有改動 append 一注、每日對過首訊日的注補 checks[]、過全窗日下 verdict。屬留痕檔，不計入大腦 ≤5 檔上限、不過 gate。reflect 層亦讀此檔。首訊日=deploy+4、全窗日=deploy+11（GSC ~4 天延遲＋7 天滾動窗）。",
+  "bets": [
+    {
+      "id": "2026-07-02-temple-meta-description",
+      "placed_date": "2026-07-02",
+      "cohort": "temple-ctr",
+      "target": { "page": "/temples/*", "query": null },
+      "hypothesis": "廟宇頁補 meta description（原落回首頁通用文案）後，廟宇頁群體 CTR 止跌回升",
+      "factual": false,
+      "change_commit": "a231e2d",
+      "change_files": ["src/pages/temples/[id].astro"],
+      "deploy_date": "2026-07-02",
+      "expected_first_signal_date": "2026-07-06",
+      "expected_full_window_date": "2026-07-13",
+      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0175, "scope": "cohort" },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-04-soushen-seodesc",
+      "placed_date": "2026-07-04",
+      "cohort": "striking-distance",
+      "target": { "page": "/allusions/soushen", "query": "范丹洗浴遇賢妻" },
+      "hypothesis": "seoDesc 複誦故事情節，SERP 摘要與查詢重疊度提升，CTR 由 0 轉正",
+      "factual": true,
+      "change_commit": "85c0701",
+      "change_files": ["src/content/allusions/soushen.md"],
+      "deploy_date": "2026-07-04",
+      "expected_first_signal_date": "2026-07-08",
+      "expected_full_window_date": "2026-07-15",
+      "baseline": { "pos": 10, "impr": 11, "clicks": 0, "ctr": 0, "scope": "page-query" },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-05-temple-title-disambig",
+      "placed_date": "2026-07-05",
+      "cohort": "temple-ctr",
+      "target": { "page": "/temples/*", "query": null },
+      "hypothesis": "同名廟 title 加縣市鄉鎮消歧後，廟宇頁群體 CTR 止跌回升（與 a231e2d 同屬廟宇 CTR bundle）",
+      "factual": false,
+      "change_commit": "3521dd4",
+      "change_files": ["src/pages/temples/[id].astro"],
+      "deploy_date": "2026-07-05",
+      "expected_first_signal_date": "2026-07-09",
+      "expected_full_window_date": "2026-07-16",
+      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0162, "scope": "cohort" },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    }
+  ]
+}
