@@ -16,7 +16,16 @@
       "expected_first_signal_date": "2026-07-06",
       "expected_full_window_date": "2026-07-13",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0175, "scope": "cohort" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-08",
+          "pos": null,
+          "impr": 19002,
+          "clicks": 299,
+          "ctr": 0.0157,
+          "note": "無專屬廟宇 cohort GSC 指標，用站級 CTR 當代理：站級 CTR 持續緩降（0.0175→0.0162→0.0157）符合既有『曝光稀釋非退步』框架（clicks 持續上升 172→222→299），非回退訊號。反思層另粗算 pageQueryCross Top-200 廟宇子集 CTR 7.04%→11.9%，但標記為可能是選樣偏誤（更多廟宇頁擠進 Top-200 而非真實群體回升），不採信。首訊日已到但無足夠獨立訊號可判，維持 open。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
@@ -34,7 +43,16 @@
       "expected_first_signal_date": "2026-07-08",
       "expected_full_window_date": "2026-07-15",
       "baseline": { "pos": 10, "impr": 11, "clicks": 0, "ctr": 0, "scope": "page-query" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-08",
+          "pos": 10.33,
+          "impr": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "首訊日到，但 GSC 資料窗（06-27~07-04）僅尾端 07-04 觸及部署時點（07-04 22:03 UTC），且本身查詢量極小（impr 3），樣本不足以判讀，持續 0 click 屬預期內、非退步。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
