@@ -77,6 +77,15 @@
       宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）。兩批各一次性 notify，
       **不**進每日 cron 高槓桿集，四週後看 GSC 再議。
 
+- [x] 情境頁＋比較頁（2026-07-07 commit `5d1c65a` 上線；AEO/GEO 高意圖突圍試點）：
+      **情境頁** `/scenarios`（4：求姻緣/考試求功名/開店求財/搬家入厝，slug 永久承諾）＝新增 `scenarios`
+      content collection（schema 同 trades），沿用「訴求→神明＋逐筆掛源」模式；情境→神明對應皆為該神
+      **已掛源之職司本身**、來源沿用 repo 內既有權威源（**絕不杜撰**，未派網路研究）。affairs_yi 只挑有
+      verified 宜票者（避恆空）。**比較頁** `/compare`（3：月老vs註生娘娘/城隍vs土地公/文昌vs魁星）＝
+      全衍生自 `src/data/comparisons.json`＋`deities.json` 已掛源欄位、零新增事實。兩類皆 answer-first
+      H1＋speakable＋FAQPage。nav 加「怎麼拜」入口；check-integrity 硬驗 scenarios/comparisons 之
+      deity_ref/affairs/related_scenario。一次性 notify（Google 9＋IndexNow 9 皆成功），**不**進每日 cron
+      高槓桿集；**四週後看 GSC 再議是否擴**（勿平均擴張）。未做：神明頁反連情境/比較（留每日大腦漸進補）。
 - [x] speakable schema（2026-06-23 commit `365b78f`＋`b1aff85` 上線）：Base 加 `speakable` prop →
       輸出 WebPage SpeakableSpecification；神明/籤詩/典故/習俗/農民曆日期五類常青詳情頁宣告
       answer-first 區塊（`h1`＋`.summary`/`.lead`/`.story`/`.yiji-section`）。僅內容詳情頁、未外溢首頁/列表頁。
