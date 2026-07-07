@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getScenarios, getDeities } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
+import { affairNameOf } from '../../lib/almanac/select';
+
+const scenarios = await getScenarios();
+const deities = await getDeities();
+const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+---
+
+<Base
+  title="拜什麼神？求姻緣、考試、開店、搬家的守護神與吉日"
+  description="求姻緣拜月老、考試拜文昌、開店求財拜關公與趙公明、搬家入厝拜土地公——按人生情境聚合守護神、聖誕日與農民曆吉日，逐條掛來源。"
+  jsonLd={[breadcrumb([{ name: '拜什麼神', path: '/scenarios' }])]}
+>
+  <h1>拜什麼神？（依情境）</h1>
+  <p class="lead">
+    求姻緣、求功名、開店求財、搬家入厝——不同人生情境各有相應的守護神與擇日視角。
+    本頁按情境聚合既有神明與農民曆資料：守護神對映逐條掛來源，吉日僅列已考據核校（verified）之宜忌事項。
+  </p>
+
+  <div class="grid cols">
+    {
+      scenarios.map((s) => (
+        <a class="card scen-cell" href={`/scenarios/${s.id}`}>
+          <strong>{s.data.name}</strong>
+          <span class="muted small">
+            {s.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+          </span>
+          <span class="office muted small">
+            宜{s.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="muted small">
+    相關：<a href="/trades">行業守護神</a>｜<a href="/compare">神明比較</a>｜
+    <a href="/deities">神明圖譜</a>｜<a href="/almanac">今日農民曆</a>
+  </p>
+
+  <style>
+    .scen-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .scen-cell strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .office { color: var(--accent-soft); }
+    .lead { font-size: 1.05rem; }
+  </style>
+</Base>

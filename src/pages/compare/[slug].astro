@@ -1,0 +1,158 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getDeities, getScenarios } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import comparisons from '../../data/comparisons.json';
+
+export const getStaticPaths = (async () => {
+  const deities = await getDeities();
+  const deityById = new Map(deities.map((d) => [d.id, d]));
+  const scenarios = await getScenarios();
+  const scenName = new Map(scenarios.map((s) => [s.id, s.data.name]));
+  return comparisons
+    .filter((c) => deityById.get(c.a) && deityById.get(c.b))
+    .map((c) => ({
+      params: { slug: c.slug },
+      props: { cmp: c, a: deityById.get(c.a)!, b: deityById.get(c.b)!, scenName },
+    }));
+}) satisfies GetStaticPaths;
+
+const { cmp, a, b, scenName } = Astro.props;
+const A = a.data;
+const B = b.data;
+
+// 聖誕（農曆）：僅實際日期，同神明頁規則
+const bdays = (d: typeof A) =>
+  d.birthday_lunar
+    .filter((x) => x.kind === '聖誕' && x.date && !['無定', '待查', '未定'].includes(x.date))
+    .map((x) => `農曆${x.date}`)
+    .join('、') || '—';
+
+// 對照列（衍生自逐條掛源的神明資料，無新增事實）
+const rows: { label: string; a: string; b: string }[] = [
+  { label: '別稱', a: (A.aliases ?? []).slice(0, 4).join('、') || '—', b: (B.aliases ?? []).slice(0, 4).join('、') || '—' },
+  { label: '信仰類別', a: A.category ?? '—', b: B.category ?? '—' },
+  { label: '主要職司', a: (A.office ?? []).join('、') || '—', b: (B.office ?? []).join('、') || '—' },
+  { label: '主要面向', a: cmp.a_focus, b: cmp.b_focus },
+  { label: '聖誕', a: bdays(A), b: bdays(B) },
+];
+
+// 來源：合併兩神既有掛源（去重）
+const mergedSources = [...(A.sources ?? []), ...(B.sources ?? [])];
+const seen = new Set<string>();
+const sources = mergedSources.filter((s) => (seen.has(s.ref) ? false : (seen.add(s.ref), true)));
+
+const faqItems = [
+  { q: cmp.question, a: cmp.contrast },
+  {
+    q: `${A.name}的主要職司是什麼？`,
+    a: `${A.name}為${A.category ?? ''}，主要職司：${(A.office ?? []).join('、')}。`,
+  },
+  {
+    q: `${B.name}的主要職司是什麼？`,
+    a: `${B.name}為${B.category ?? ''}，主要職司：${(B.office ?? []).join('、')}。`,
+  },
+];
+const faq = faqPage(faqItems);
+const jsonLd = [
+  breadcrumb([
+    { name: '神明比較', path: '/compare' },
+    { name: `${A.name}與${B.name}`, path: `/compare/${cmp.slug}` },
+  ]),
+  ...(faq ? [faq] : []),
+];
+const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
+---
+
+<Base
+  title={cmp.question}
+  description={cmp.contrast}
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/compare">神明比較</a> ／ {A.name}與{B.name}</nav>
+
+  <header class="dh">
+    <h1>{cmp.question}</h1>
+  </header>
+
+  <p class="lead">{cmp.contrast}</p>
+
+  <section>
+    <h2>逐項對照</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th><a href={`/deities/${cmp.a}`}>{A.name}</a></th>
+            <th><a href={`/deities/${cmp.b}`}>{B.name}</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <th scope="row">{r.label}</th>
+              <td>{r.a}</td>
+              <td>{r.b}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="summaries">
+    <div>
+      <h3><a href={`/deities/${cmp.a}`}>{A.name}</a></h3>
+      {A.summary && <p>{A.summary}</p>}
+    </div>
+    <div>
+      <h3><a href={`/deities/${cmp.b}`}>{B.name}</a></h3>
+      {B.summary && <p>{B.summary}</p>}
+    </div>
+  </section>
+
+  {
+    relScen.length > 0 && (
+      <p class="muted small">
+        相關情境：
+        {relScen.map((id, i) => (
+          <>
+            {i > 0 && '、'}
+            <a href={`/scenarios/${id}`}>{scenName.get(id)}要拜什麼神</a>
+          </>
+        ))}
+      </p>
+    )
+  }
+
+  <p class="muted small extend">
+    延伸：<a href="/compare">其他比較</a>｜<a href="/scenarios">拜什麼神</a>｜<a href="/deities">神明圖譜</a>
+  </p>
+
+  {sources.length > 0 && (
+    <p class="src footer-src">來源：{sources.map((s) => s.ref).join('；')}</p>
+  )}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .dh h1 { margin: 0.2rem 0 0.4rem; }
+    .lead { font-size: 1.05rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
+    .tbl-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--line); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+    thead th { background: var(--paper-2); }
+    tbody th[scope='row'] { background: var(--paper-2); white-space: nowrap; color: var(--ink-soft); }
+    .summaries { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; margin-top: 1.4rem; }
+    .summaries h3 { margin: 0 0 0.3rem; }
+    @media (max-width: 560px) { .summaries { grid-template-columns: 1fr; } }
+    .src { color: var(--gold); font-size: 0.82rem; }
+    .small { font-size: 0.85rem; }
+    .extend { margin-top: 1.5rem; }
+    .footer-src { margin-top: 2rem; }
+  </style>
+</Base>

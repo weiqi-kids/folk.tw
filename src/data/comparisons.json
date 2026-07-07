@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "yuelao-vs-zhusheng",
+    "question": "月老和註生娘娘差在哪？",
+    "a": "yuelao",
+    "b": "zhusheng",
+    "a_focus": "姻緣、婚配",
+    "b_focus": "求子、生育",
+    "contrast": "兩者同屬愛情婦幼守護神，但職司分工明確：月下老人主「姻緣婚配」，是求良緣、祈感情順遂者所拜；註生娘娘主「求子生育」，是求子嗣、護佑孕產者所拜。",
+    "related_scenarios": ["qiu-yinyuan"]
+  },
+  {
+    "slug": "chenghuang-vs-tudigong",
+    "question": "城隍爺和土地公差在哪？",
+    "a": "chenghuang",
+    "b": "tudigong",
+    "a_focus": "城域司法、監察善惡",
+    "b_focus": "村里田土、地方守護",
+    "contrast": "兩者皆為地方守護神，差別在轄域層級：城隍爺司一城（縣府級）之陰司與善惡監察，職權近於「地方父母官」；土地公司一村里之田土地界，職司更貼近庶民日常，近於「地方里長」。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "wenchang-vs-kuixing",
+    "question": "文昌帝君和魁星差在哪？",
+    "a": "wenchang",
+    "b": "kuixing",
+    "a_focus": "文運、學業",
+    "b_focus": "科考點魁、奪元",
+    "contrast": "兩者同護文運、並列五文昌，但職司側重有別：文昌帝君總司文運學業，為文昌信仰主神；魁星專司科考「點魁奪元」，象徵金榜首名，士子求及第者所拜。",
+    "related_scenarios": ["kaoshi-gongming"]
+  }
+]

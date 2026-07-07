@@ -339,6 +339,32 @@ const trades = defineCollection({
   }),
 });
 
+// ── 情境頁（高意圖：求姻緣／考試／開店／搬家…「拜什麼神」）────────
+// 與 trades 同 schema：情境為第一級實體，守護神對映各自掛源（§5），
+// 對映之神明「情境↔職司」須可被同筆 sources 支撐；宜忌事項對映 affairs.json id。
+const scenarios = defineCollection({
+  loader: file('src/data/scenarios.json'),
+  schema: z.object({
+    id: z.string(), // = URL slug（/scenarios/[id]，發佈後永不改）
+    name: z.string(),
+    description: z.string(),
+    patrons: z
+      .array(
+        z.object({
+          deity_ref: z.string(), // → deity.id（由 check-integrity 硬驗）
+          role: z.string(),
+          why: z.string(), // 須可被同筆 sources 支撐（§5）
+          sources: z.array(source).min(1),
+        }),
+      )
+      .min(1),
+    affairs_yi: z.array(z.string()).default([]), // → affairs.json id（宜側）
+    affairs_ji: z.array(z.string()).default([]), // → affairs.json id（忌側）
+    sources: z.array(source).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   deities,
   deityRelations,
@@ -350,4 +376,5 @@ export const collections = {
   events,
   practices,
   trades,
+  scenarios,
 };

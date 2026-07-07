@@ -28,6 +28,8 @@ const events = load('events.json');
 const practices = load('practices.json');
 const temples = load('temples.json');
 const trades = load('trades.json');
+const scenarios = load('scenarios.json');
+const comparisons = load('comparisons.json');
 const affairs: any[] = JSON.parse(
   readFileSync(join(root, 'src/lib/almanac/rules/affairs.json'), 'utf8'),
 ).affairs;
@@ -72,17 +74,35 @@ for (const t of trades) {
     if (!affairIds.has(a)) hard(`trade ${t.id}: affair「${a}」不在 rules/affairs.json`);
   }
 }
+// 情境 → 守護神 / 宜忌事項（同 trades 硬擋）
+for (const s of scenarios) {
+  for (const p of s.patrons ?? []) {
+    if (!deityIds.has(p.deity_ref)) hard(`scenario ${s.id}: patron deity_ref「${p.deity_ref}」不存在`);
+  }
+  for (const a of [...(s.affairs_yi ?? []), ...(s.affairs_ji ?? [])]) {
+    if (!affairIds.has(a)) hard(`scenario ${s.id}: affair「${a}」不在 rules/affairs.json`);
+  }
+}
+// 比較頁 → 兩造神明節點（dangling → 會壞頁面）
+for (const c of comparisons) {
+  for (const ref of [c.a, c.b]) {
+    if (!deityIds.has(ref)) hard(`comparison ${c.slug}: deity「${ref}」不存在`);
+  }
+  for (const sc of c.related_scenarios ?? []) {
+    if (!scenarios.some((s) => s.id === sc)) hard(`comparison ${c.slug}: related_scenario「${sc}」不存在`);
+  }
+}
 if (hardErrors === 0) console.log('  ✓ 全數通過');
 
 // 行業宜側事項 → 宜側 verified 資料覆蓋（M3 只顯示 verified；宜票缺 verified 者頁面恆空 → 軟警告）
 const yiVerifiedAffairs = new Set(
   votes.filter((v) => v.verdict === '宜' && v.verified && v.affair !== '*').map((v) => v.affair),
 );
-const yiEmpty = trades.flatMap((t) =>
+const yiEmpty = [...trades, ...scenarios].flatMap((t) =>
   (t.affairs_yi ?? []).filter((a: string) => !yiVerifiedAffairs.has(a)).map((a: string) => `${t.id}→${a}`),
 );
 if (yiEmpty.length) {
-  console.log(`  ⚠ 行業宜側事項無 verified 宜票（吉日區塊將恆空）：${yiEmpty.join('、')}`);
+  console.log(`  ⚠ 行業／情境宜側事項無 verified 宜票（吉日區塊將恆空）：${yiEmpty.join('、')}`);
 }
 
 // ── 對映率報表（R5、§9.6）──────────────────────────────

@@ -1,0 +1,160 @@
+[
+  {
+    "id": "qiu-yinyuan",
+    "name": "求姻緣",
+    "description": "求姻緣、覓良緣、祈感情順遂該拜的神明與擇日視角：專司婚配的姻緣之神、聖誕日與適合祈福、嫁娶的日子。",
+    "patrons": [
+      {
+        "deity_ref": "yuelao",
+        "role": "姻緣主神",
+        "why": "月下老人執掌姻緣簿、以紅線繫定有緣男女，為專司婚配的姻緣之神，求良緣者所奉主神。",
+        "sources": [
+          { "type": "gov", "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148" },
+          { "type": "book", "ref": "李復言《續玄怪錄·定婚店》 https://zh.wikisource.org/zh-hant/續玄怪錄", "note": "月老紅線繫足、掌天下婚牘之典源" }
+        ]
+      },
+      {
+        "deity_ref": "chenghuang_xiahai",
+        "role": "配祀月老",
+        "why": "台北大稻埕霞海城隍廟以配祀月老、牽成姻緣聞名，為北台灣求姻緣香火最盛之處。",
+        "sources": [
+          { "type": "gov", "ref": "內政部臺灣宗教文化地圖〈大稻埕霞海城隍廟〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58" },
+          { "type": "web", "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/大稻埕霞海城隍廟", "note": "配祀月老、以求姻緣聞名" }
+        ]
+      }
+    ],
+    "affairs_yi": ["qifu", "jiaqu"],
+    "affairs_ji": [],
+    "sources": [
+      { "type": "gov", "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "kaoshi-gongming",
+    "name": "考試求功名",
+    "description": "考試、應試、求功名學業該拜的神明與擇日視角：五文昌信仰、聖誕日與適合祈福、祭祀的日子。",
+    "patrons": [
+      {
+        "deity_ref": "wenchang",
+        "role": "文運科考主神",
+        "why": "文昌帝君掌管文運與科舉考試，為士人學子敬奉的主神、五文昌之首。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
+          { "type": "gov", "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151" }
+        ]
+      },
+      {
+        "deity_ref": "kuixing",
+        "role": "點魁奪元",
+        "why": "魁星（魁斗星君）司科考點魁、奪元及第，士子求金榜題名所奉。",
+        "sources": [
+          { "type": "temple", "ref": "臺中市元保宮〈魁斗星君〉 https://www.yuanbao.org.tw/?act=menuinfo&ml_id=20200617001&cmd=detail&mi_id=2" }
+        ]
+      },
+      {
+        "deity_ref": "zhuyi_shenjun",
+        "role": "五文昌之一",
+        "why": "朱衣神君掌文運科舉、細辨文章優劣，名列五文昌。",
+        "sources": [
+          { "type": "temple", "ref": "台北市文昌宮〈神明列傳·朱衣神君〉 https://www.wenchang.org.tw/zhuyihe.html" },
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+        ]
+      },
+      {
+        "deity_ref": "ludongbin",
+        "role": "五文昌之一",
+        "why": "孚佑帝君（呂洞賓）名列五文昌，相傳時常護佑應考士子。",
+        "sources": [
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" },
+          { "type": "temple", "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382" }
+        ]
+      },
+      {
+        "deity_ref": "guangong",
+        "role": "五文昌之一（文衡聖帝）",
+        "why": "關聖帝君以文衡聖帝之名列五文昌，喜讀《左氏春秋》，受儒家學子信奉。",
+        "sources": [
+          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+        ]
+      }
+    ],
+    "affairs_yi": ["qifu", "jisi"],
+    "affairs_ji": [],
+    "sources": [
+      { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "kaidian-qiucai",
+    "name": "開店求財",
+    "description": "開店、做生意、求財該拜的神明與擇日視角：商業守護神與財神信仰、聖誕日與適合立券、納財的日子。",
+    "patrons": [
+      {
+        "deity_ref": "guangong",
+        "role": "商業守護神（武財神）",
+        "why": "民間以關公重信義、守然諾，奉為商業守護神，亦尊為武財神。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286" },
+          { "type": "temple", "ref": "臺灣祀典武廟官網·祭祀神祇—關聖帝君 https://www.twsdwumiao.org.tw/" }
+        ]
+      },
+      {
+        "deity_ref": "zhao_gongming",
+        "role": "武財神（中路財神）",
+        "why": "趙公明為五路財神中路主帥，掌財源、錢銀交易，清代並為銀錢業守護神。",
+        "sources": [
+          { "type": "temple", "ref": "北港武德宮官網 https://www.wude.org.tw" },
+          { "type": "web", "ref": "道教文化中心資料庫〈趙公明〉 https://zh.daoinfo.org" }
+        ]
+      },
+      {
+        "deity_ref": "tudigong",
+        "role": "守土司財",
+        "why": "福德正神為一方地土的守護神，兼司田土與財，民間商家普遍奉祀祈求生意興隆。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" },
+          { "type": "gov", "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133" }
+        ]
+      }
+    ],
+    "affairs_yi": ["lijuan", "nacai_cai"],
+    "affairs_ji": [],
+    "sources": [
+      { "type": "web", "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神" }
+    ],
+    "draft": false
+  },
+  {
+    "id": "banjia-ruzhai",
+    "name": "搬家入厝",
+    "description": "搬家、入厝、安居該拜的神明與擇日視角：地方與家宅守護神、聖誕日與適合入宅、祈福的日子（本情境以農民曆入宅吉日為主軸）。",
+    "patrons": [
+      {
+        "deity_ref": "tudigong",
+        "role": "地方與家宅守護",
+        "why": "福德正神為一方地基與村里的守護神，入厝安居者祈其護佑宅第平安。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" },
+          { "type": "gov", "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133" }
+        ]
+      },
+      {
+        "deity_ref": "zaojun",
+        "role": "家宅司命",
+        "why": "灶神司一家飲食與家宅、錄善惡上達天庭，為周代七祀之一，家宅所繫。",
+        "sources": [
+          { "type": "gov", "ref": "內政部全國宗教資訊網·灶神(Zao shen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265" },
+          { "type": "book", "ref": "《禮記·祭法》周代七祀（司命、灶） https://zh.wikisource.org/zh-hant/禮記/祭法" }
+        ]
+      }
+    ],
+    "affairs_yi": ["ruzhai", "qifu"],
+    "affairs_ji": [],
+    "sources": [
+      { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" }
+    ],
+    "draft": false
+  }
+]

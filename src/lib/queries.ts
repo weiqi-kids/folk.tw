@@ -49,6 +49,9 @@ export async function getTemples() {
 export async function getTrades() {
   return (await getCollection('trades')).filter((e) => publishable(e, true));
 }
+export async function getScenarios() {
+  return (await getCollection('scenarios')).filter((e) => publishable(e, true));
+}
 
 /** 神明 → 守護哪些行業（供神明頁反連 /trades/[slug]，內鏈閉環） */
 export async function tradesByDeity(): Promise<Map<string, CollectionEntry<'trades'>[]>> {

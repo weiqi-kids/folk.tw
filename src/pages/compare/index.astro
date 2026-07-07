@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getDeities } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
+import comparisons from '../../data/comparisons.json';
+
+const deities = await getDeities();
+const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+---
+
+<Base
+  title="神明比較—職司相近的神明差在哪？"
+  description="月老與註生娘娘、城隍爺與土地公、文昌帝君與魁星——職司相近、常被混淆的神明，逐項對照別稱、信仰類別、職司與聖誕，資料衍生自逐條掛源的神明圖譜。"
+  jsonLd={[breadcrumb([{ name: '神明比較', path: '/compare' }])]}
+>
+  <h1>神明比較</h1>
+  <p class="lead">
+    職司相近或常被混淆的神明，究竟差在哪？本頁逐項對照別稱、信仰類別、主要職司與聖誕，
+    對照內容衍生自逐條掛來源的<a href="/deities">神明圖譜</a>。
+  </p>
+
+  <div class="grid cols">
+    {
+      comparisons.map((c) => (
+        <a class="card cmp-cell" href={`/compare/${c.slug}`}>
+          <strong>{nameById.get(c.a) ?? c.a}　vs　{nameById.get(c.b) ?? c.b}</strong>
+          <span class="muted small">{c.a_focus}｜{c.b_focus}</span>
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="muted small">
+    相關：<a href="/scenarios">拜什麼神（依情境）</a>｜<a href="/trades">行業守護神</a>｜<a href="/deities">神明圖譜</a>
+  </p>
+
+  <style>
+    .cmp-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .cmp-cell strong { color: var(--ink); }
+    .small { font-size: 0.85rem; }
+    .lead { font-size: 1.05rem; }
+  </style>
+</Base>

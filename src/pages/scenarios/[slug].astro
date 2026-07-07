@@ -1,0 +1,182 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getScenarios, getDeities, templesByDeity } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import { todayInTaipei } from '../../lib/daily';
+import { addDays, almanacHref } from '../../lib/almanac/dates';
+import { verifiedYiDays, affairNameOf } from '../../lib/almanac/select';
+
+export const getStaticPaths = (async () => {
+  const scenarios = await getScenarios();
+  const deities = await getDeities();
+  const deityById = new Map(deities.map((d) => [d.id, d]));
+  const tByDeity = await templesByDeity();
+  const { iso } = todayInTaipei();
+  return scenarios.map((s) => ({
+    params: { slug: s.id },
+    props: { scenario: s, deityById, tByDeity, today: iso },
+  }));
+}) satisfies GetStaticPaths;
+
+const { scenario, deityById, tByDeity, today } = Astro.props;
+const s = scenario.data;
+
+// 守護神卡：join 神明節點（integrity 已硬驗 deity_ref 存在；publishable gate 後仍防缺）
+const patrons = s.patrons
+  .map((p) => ({ ...p, deity: deityById.get(p.deity_ref) }))
+  .filter((p) => p.deity);
+
+// 近期吉日（今日起 60 天）：僅 verified 條目（M3，經 select.ts 唯一入口）
+const next60 = Array.from({ length: 60 }, (_, i) => addDays(today, i));
+const yiDays = verifiedYiDays(next60, s.affairs_yi);
+const fmt = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8))}`;
+const monthHref = `/almanac/month/${today.slice(0, 7)}`;
+
+// 聖誕（農曆）：僅實際日期（同神明頁規則）
+const bdaysOf = (p: (typeof patrons)[number]) =>
+  p.deity!.data.birthday_lunar.filter(
+    (b) => b.kind === '聖誕' && b.date && !['無定', '待查', '未定'].includes(b.date),
+  );
+
+// FAQ（AEO）：僅就既有資料生成，無源不杜撰（§5）
+const faqItems: { q: string; a: string }[] = [
+  {
+    q: `${s.name}要拜什麼神？`,
+    a: `${s.name}常奉之守護神：${patrons.map((p) => `${p.deity!.data.name}（${p.role}）`).join('、')}。`,
+  },
+  {
+    q: `${s.name}的守護神聖誕是哪一天？`,
+    a: patrons
+      .flatMap((p) => bdaysOf(p).map((b) => `${p.deity!.data.name}聖誕為農曆${b.date}`))
+      .join('；'),
+  },
+  {
+    q: `近期哪些日子適合${s.affairs_yi.map((a) => affairNameOf(a)).join('、')}？`,
+    a: s.affairs_yi
+      .filter((a) => (yiDays.get(a) ?? []).length > 0)
+      .map((a) => `宜${affairNameOf(a)}：${yiDays.get(a)!.slice(0, 5).join('、')}`)
+      .join('；'),
+  },
+];
+const faq = faqPage(faqItems);
+const jsonLd = [
+  breadcrumb([
+    { name: '拜什麼神', path: '/scenarios' },
+    { name: s.name, path: `/scenarios/${scenario.id}` },
+  ]),
+  ...(faq ? [faq] : []),
+];
+---
+
+<Base
+  title={`${s.name}要拜什麼神？守護神與吉日`}
+  description={`${s.description}守護神：${patrons.map((p) => p.deity!.data.name).join('、')}。`}
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/scenarios">拜什麼神</a> ／ {s.name}</nav>
+
+  <header class="dh">
+    <h1>{s.name}要拜什麼神？</h1>
+  </header>
+
+  <p class="lead">{s.description}</p>
+
+  <section>
+    <h2>守護神</h2>
+    {
+      patrons.map((p) => {
+        const d = p.deity!.data;
+        const bdays = bdaysOf(p);
+        const temples = (tByDeity.get(p.deity_ref) ?? []).slice(0, 6);
+        return (
+          <div class="patron">
+            <p class="patron-head">
+              <a href={`/deities/${p.deity_ref}`}><strong>{d.name}</strong></a>
+              <span class="tag">{p.role}</span>
+              {d.office.slice(0, 3).map((o) => (
+                <span class="tag soft">{o}</span>
+              ))}
+            </p>
+            <p>{p.why}</p>
+            {bdays.length > 0 && (
+              <p class="muted small">聖誕（農曆）：{bdays.map((b) => b.date).join('、')}</p>
+            )}
+            {temples.length > 0 && (
+              <p class="muted small">
+                主祀廟宇：
+                {temples.map((tp, i) => (
+                  <>
+                    {i > 0 && '、'}
+                    <a href={`/temples/${tp.id}`}>{tp.data.name}</a>
+                  </>
+                ))}
+                {(tByDeity.get(p.deity_ref) ?? []).length > 6 && (
+                  <a href={`/deities/${p.deity_ref}`}>　…看全部 →</a>
+                )}
+              </p>
+            )}
+            <p class="src">來源：{p.sources.map((src) => src.ref).join('；')}</p>
+          </div>
+        );
+      })
+    }
+  </section>
+
+  <section>
+    <h2>近期吉日（今日起 60 天）</h2>
+    {
+      s.affairs_yi.map((a) => {
+        const days = yiDays.get(a) ?? [];
+        return (
+          <div class="affair-days">
+            <strong>宜{affairNameOf(a)}</strong>
+            {days.length > 0 ? (
+              <span class="chips">
+                {days.map((iso) => (
+                  <a class="chip" href={almanacHref(iso, today)}>{fmt(iso)}</a>
+                ))}
+              </span>
+            ) : (
+              <span class="muted small">近 60 天內無已驗證之宜日。</span>
+            )}
+          </div>
+        );
+      })
+    }
+    <p class="muted small">
+      僅顯示已考據核校（verified）之宜忌事項；未列出不代表不吉（無源不發佈）。完整逐日宜忌見
+      <a href={monthHref}>本月農民曆</a>。
+    </p>
+  </section>
+
+  <p class="muted small extend">
+    延伸：<a href="/trades">行業守護神（依職業）</a>｜<a href="/compare">神明比較</a>｜
+    <a href="/scenarios">其他情境</a>
+  </p>
+
+  {s.sources.length > 0 && <p class="src footer-src">來源：{s.sources.map((src) => src.ref).join('；')}</p>}
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .dh h1 { margin: 0.2rem 0 0.4rem; }
+    .lead { font-size: 1.05rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
+    .patron { padding: 0.6rem 0; border-bottom: 1px dashed var(--line); }
+    .patron-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0; }
+    .tag.soft { color: var(--ink-soft); }
+    .affair-days { padding: 0.35rem 0; }
+    .chips { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin-left: 0.5rem; }
+    .chip {
+      padding: 0.1rem 0.5rem; border: 1px solid var(--line); border-radius: 0.4rem;
+      background: var(--paper-2); font-size: 0.9rem;
+    }
+    .chip:hover { text-decoration: none; border-color: var(--accent-soft); }
+    .src { color: var(--gold); font-size: 0.82rem; }
+    .small { font-size: 0.85rem; }
+    .extend { margin-top: 1.5rem; }
+    .footer-src { margin-top: 2rem; }
+  </style>
+</Base>
