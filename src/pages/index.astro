@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { getPoems, getAllusions } from '../lib/queries';
 import { todayInTaipei, pickDailyIndex } from '../lib/daily';
+import { upcomingDeityBirthdays } from '../lib/birthdays';
+import UpcomingBirthdays from '../components/UpcomingBirthdays.astro';
 
 // 今日中樞（§0.5）：每日一籤領銜（情感主角），模組入口平等可達。
 // 不把運勢吉凶當頭條；吉凶若有也僅作輔標（本系統籤詩多無吉凶定級）。
@@ -14,6 +16,8 @@ const allusions = await getAllusions();
 const allusionById = new Map(allusions.map((a) => [a.id, a]));
 
 const { iso, epochDay } = todayInTaipei();
+// 近期神明聖誕：build 算未來 60 天國曆日期（多抓些供前端過濾已過者後仍有 6 筆可顯示）
+const upcomingBirthdays = await upcomingDeityBirthdays(iso, 60);
 const idx = pickDailyIndex(epochDay, poems.length);
 const todayPoem = poems[idx];
 const firstAllusion = todayPoem?.data.allusions[0];
@@ -22,13 +26,13 @@ const allusion = firstAllusion ? allusionById.get(firstAllusion.ref.id) : undefi
 // 卡序依 GSC 近 28 天實測需求（廟宇 ≫ 籤詩 > 神明 > 農民曆 > 習俗 > 活動）；
 // 廟宇原缺卡、實為最大需求模組故補上並置首；行業守護神為新模組（乙案強入口）。
 const modules = [
-  { href: '/temples', label: '廟宇資料庫', desc: '主祀神明、縣市鄉鎮瀏覽、名廟沿革' },
-  { href: '/poems', label: '籤詩解碼', desc: '六十甲子籤，四句＋典故＋分項解' },
-  { href: '/deities', label: '神明圖譜', desc: '七大類、職司、聖誕、關係網' },
-  { href: '/almanac', label: '農民曆', desc: '干支建除、宜忌考據化（建置中）' },
-  { href: '/trades', label: '行業守護神', desc: '考生拜文昌、商家拜關公、行業吉日' },
-  { href: '/practices', label: '拜拜習俗', desc: '科儀步驟、金紙供品' },
-  { href: '/events', label: '民俗活動', desc: '遶境進香、文資身分' },
+  { href: '/temples/', label: '廟宇資料庫', desc: '主祀神明、縣市鄉鎮瀏覽、名廟沿革' },
+  { href: '/poems/', label: '籤詩解碼', desc: '六十甲子籤，四句＋典故＋分項解' },
+  { href: '/deities/', label: '神明圖譜', desc: '七大類、職司、聖誕、關係網' },
+  { href: '/almanac/', label: '農民曆', desc: '干支建除、宜忌考據化（建置中）' },
+  { href: '/trades/', label: '行業守護神', desc: '考生拜文昌、商家拜關公、行業吉日' },
+  { href: '/practices/', label: '拜拜習俗', desc: '科儀步驟、金紙供品' },
+  { href: '/events/', label: '民俗活動', desc: '遶境進香、文資身分' },
 ];
 
 // 熱門神明：直連旗艦獨特頁，把離首頁的跳數壓到 1，
@@ -84,7 +88,7 @@ const featuredDeities = [
       每日一籤為策展（像每日一詩），同日全站一致、不因人隨機、不標個人運勢。
     </p>
     <p class="explore">
-      <a href="/poems">自由查號／瀏覽全部籤詩 →</a>
+      <a href="/poems/">自由查號／瀏覽全部籤詩 →</a>
       <button id="cast" type="button" class="cast-btn" data-ids={allPoemIds.join(',')}>擲一支</button>
       <span class="muted small">（隨機瀏覽探索，非問事）</span>
     </p>
@@ -118,9 +122,21 @@ const featuredDeities = [
           <a href={`/deities/${d.id}`}>{d.name}</a>
         ))
       }
-      <a class="more" href="/deities">看全部神明 →</a>
+      <a class="more" href="/deities/">看全部神明 →</a>
     </p>
   </section>
+
+  {
+    upcomingBirthdays.length > 0 && (
+      <section class="featured">
+        <h2>近期神明聖誕</h2>
+        <UpcomingBirthdays items={upcomingBirthdays} limit={6} />
+        <p class="featured-links">
+          <a class="more" href="/deities/birthdays/">完整神明聖誕曆 →</a>
+        </p>
+      </section>
+    )
+  }
 
   <style>
     .brand-hero { margin: 0.5rem 0 1.5rem; }

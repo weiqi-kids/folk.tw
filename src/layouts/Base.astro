@@ -74,19 +74,24 @@ const speakablePage =
 // 排序依 GSC 近 28 天實測需求（2026-07-02 全量 page 維度）：
 // 廟宇 imp 10,343 ≫ 籤詩 658 > 神明 508 > 農民曆 177 > 拜拜習俗 104 > 民俗活動 11。
 // 「關於」移 footer（本有連結）；「行業守護神」為新模組入口（乙案：入口放進強元素）。
+// href 一律用 canonical 尾斜線（對齊 build format:'directory' 的 canonical/sitemap）：
+// 讓每頁 nav 直接連到 canonical、免經 301，避免內鏈權重卡在非 canonical 形式（/poems 曾因此孤兒化）。
 const nav = [
   { href: '/', label: '今日' },
-  { href: '/temples', label: '廟宇' },
-  { href: '/poems', label: '籤詩' },
-  { href: '/deities', label: '神明' },
-  { href: '/almanac', label: '農民曆' },
-  { href: '/scenarios', label: '怎麼拜' },
-  { href: '/trades', label: '行業守護神' },
-  { href: '/practices', label: '拜拜習俗' },
-  { href: '/events', label: '民俗活動' },
-  { href: '/search', label: '搜尋' },
+  { href: '/temples/', label: '廟宇' },
+  { href: '/poems/', label: '籤詩' },
+  { href: '/deities/', label: '神明' },
+  { href: '/almanac/', label: '農民曆' },
+  { href: '/scenarios/', label: '怎麼拜' },
+  { href: '/trades/', label: '行業守護神' },
+  { href: '/practices/', label: '拜拜習俗' },
+  { href: '/events/', label: '民俗活動' },
+  { href: '/search/', label: '搜尋' },
 ];
 const path = Astro.url.pathname;
+// active 判斷正規化尾斜線（trailingSlash:'ignore' 下 pathname 可能有無斜線兩態），不因 href 改斜線而失準。
+const trimSlash = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const normPath = trimSlash(path);
 ---
 
 <!doctype html>
@@ -158,7 +163,7 @@ const path = Astro.url.pathname;
           nav.map((n) => (
             <a
               href={n.href}
-              class:list={[{ active: n.href === '/' ? path === '/' : path.startsWith(n.href) }]}
+              class:list={[{ active: n.href === '/' ? normPath === '/' : normPath === trimSlash(n.href) || normPath.startsWith(trimSlash(n.href) + '/') }]}
             >
               {n.label}
             </a>

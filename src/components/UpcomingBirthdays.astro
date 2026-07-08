@@ -1,0 +1,79 @@
+---
+// 近期神明聖誕清單（首頁區塊＋/deities/birthdays 共用）。
+// server 端輸出「國曆日期＋農曆＋神明連結」＝靜態事實（可被 Google/AI 擷取）；
+// 「倒數 N 天」與「隱藏已過」由下方 is:inline script 依台灣當下日期即時算，
+// 故即使 build 不新鮮（每日收集 [skip ci] 不部署），倒數永遠正確（⏱ 時間正確性保證）。
+import type { BirthdayEntry } from '../lib/birthdays';
+
+interface Props {
+  items: BirthdayEntry[];
+  limit?: number; // 前端過濾掉已過者後，最多顯示幾筆（首頁用；不給＝全顯示）
+}
+const { items, limit } = Astro.props;
+const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
+---
+
+<ul class="birthdays" data-birthdays data-limit={limit ?? undefined}>
+  {
+    items.map((e) => (
+      <li class="bd-item" data-date={e.iso}>
+        <span class="bd-when">
+          <span class="bd-solar">{mdOf(e.iso)}</span>
+          <span class="bd-countdown" data-role="countdown" />
+        </span>
+        <span class="bd-lunar muted">{e.lunarLabel}</span>
+        <span class="bd-deities">
+          {e.deities.map((d, i) => (
+            <>
+              {i > 0 && '、'}
+              <a href={`/deities/${d.deityId}/`}>{d.name}</a>
+            </>
+          ))}
+        </span>
+      </li>
+    ))
+  }
+</ul>
+
+<script is:inline>
+  (function () {
+    // 台灣當下日期（YYYY-MM-DD）——倒數以台灣時區為準，不受瀏覽者所在地影響。
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+    const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+    const t0 = toUTC(today);
+    document.querySelectorAll('[data-birthdays]').forEach((ul) => {
+      const limit = parseInt(ul.getAttribute('data-limit') || '0', 10);
+      let shown = 0;
+      ul.querySelectorAll('.bd-item').forEach((li) => {
+        const iso = li.getAttribute('data-date');
+        const days = Math.round((toUTC(iso) - t0) / 86400000);
+        if (days < 0 || (limit && shown >= limit)) { li.style.display = 'none'; return; }
+        const el = li.querySelector('[data-role=countdown]');
+        if (el) el.textContent = days === 0 ? '今天' : days === 1 ? '明天' : days + ' 天後';
+        shown++;
+      });
+    });
+  })();
+</script>
+
+<style>
+  .birthdays { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+  .bd-item {
+    display: grid;
+    grid-template-columns: 4.5rem 6rem 1fr;
+    gap: 0.6rem;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .bd-when { display: flex; flex-direction: column; }
+  .bd-solar { font-weight: 700; color: var(--accent); }
+  .bd-countdown { font-size: 0.78rem; color: var(--gold); }
+  .bd-lunar { font-size: 0.9rem; }
+  .bd-deities a { color: var(--ink); }
+  @media (max-width: 480px) {
+    .bd-item { grid-template-columns: 3.8rem 1fr; }
+    .bd-lunar { grid-column: 2; font-size: 0.82rem; }
+    .bd-deities { grid-column: 2; }
+  }
+</style>

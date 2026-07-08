@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import UpcomingBirthdays from '../../components/UpcomingBirthdays.astro';
+import { upcomingDeityBirthdays } from '../../lib/birthdays';
+import { todayInTaipei } from '../../lib/daily';
+import { breadcrumb, faqPage } from '../../lib/seo';
+
+const { iso } = todayInTaipei();
+// 全年聖誕曆：自今日起 400 天＋每尊去重＝60 尊各出現一次（下一次聖誕），依國曆日序。
+const all = await upcomingDeityBirthdays(iso, 400, { uniqueDeity: true });
+const totalDeities = new Set(all.flatMap((e) => e.deities.map((d) => d.deityId))).size;
+
+// FAQ（AEO）：僅就既有掛源資料生成，日期為本站農民曆引擎推算之國曆（無源不杜撰）。
+const soon = all.slice(0, 3).flatMap((e) =>
+  e.deities.map((d) => ({ name: d.name, lunar: e.lunarLabel, iso: e.iso })),
+);
+const faqItems = [
+  {
+    q: '神明聖誕（神明生日）怎麼看？',
+    a: '神明聖誕以農曆日期為準（如媽祖農曆三月廿三、關聖帝君農曆六月廿四），每年對應的國曆日期不同。本頁以農民曆引擎推算今年起各神明聖誕的國曆日期並依序排列。',
+  },
+  ...(soon.length
+    ? [{
+        q: `最近有哪些神明聖誕？`,
+        a: soon.map((s) => `${s.name}聖誕為${s.lunar}（國曆 ${Number(s.iso.slice(5, 7))}/${Number(s.iso.slice(8, 10))}）`).join('；') + '。',
+      }]
+    : []),
+];
+const faq = faqPage(faqItems);
+const jsonLd = [
+  breadcrumb([
+    { name: '神明', path: '/deities' },
+    { name: '神明聖誕曆', path: '/deities/birthdays' },
+  ]),
+  ...(faq ? [faq] : []),
+];
+---
+
+<Base
+  title="神明聖誕曆—台灣神明生日一覽（國曆對照）"
+  description={`台灣 ${totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依日期排序、逐尊掛來源。媽祖、關聖帝君、月老、土地公等聖誕是哪一天，一頁查。`}
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/deities/">神明</a> ／ 神明聖誕曆</nav>
+
+  <header class="dh">
+    <h1>神明聖誕曆</h1>
+  </header>
+
+  <p class="lead">
+    台灣 {totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依即將到來的日期排序。
+    聖誕以農曆為準、每年國曆不同，本頁日期由農民曆引擎推算；各神明資料逐條掛來源。
+  </p>
+
+  <section>
+    <UpcomingBirthdays items={all} />
+  </section>
+
+  <p class="muted small extend">
+    延伸：<a href="/deities/">神明圖譜</a>｜<a href="/almanac/">今日農民曆</a>｜
+    <a href="/scenarios/">拜什麼神</a>｜<a href="/trades/">行業守護神</a>
+  </p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .dh h1 { margin: 0.2rem 0 0.4rem; }
+    .lead { font-size: 1.05rem; }
+    .small { font-size: 0.85rem; }
+    .extend { margin-top: 1.5rem; }
+  </style>
+</Base>
