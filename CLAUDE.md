@@ -83,13 +83,16 @@
       隱藏已過者由 `UpcomingBirthdays.astro` 的 client script 依台灣時區即時算**＝就算某天沒重新部署倒數也永遠準
       （解決每日收集 `[skip ci]` 不部署→build 不新鮮的問題）。反算沿用 `deityBirthdayIndex()`＋lunar-javascript
       （與農民曆同源）；**短月卅日聖誕順延農曆月底**（地藏王七月卅→今年無卅日順延廿九 9/10，標真實聖誕日）、
-      `uniqueDeity` 去重保 60 尊各一次。已 notify＋進 trackUrls/flagship 追收錄。**四週後看 GSC 再議**。
+      `uniqueDeity` 去重保 60 尊各一次。已 notify＋進 trackUrls/flagship/**watchGroups**。**監控改每日**：每日心跳
+      （05:00 Slack）「🎯 關注」段每天報聖誕曆曝光/冒出的字＋「📄 重要頁面」段每天報收錄翻牌；週報另有週對週。
+      數據足夠再議是否擴（勿平均擴張）。
 - [x] /poems 樞紐 not-indexed 根因＝**尾斜線分裂**（2026-07-08 同 commit 修）：實查 GSC 發現 canonical `/poems/`
       （sitemap 收的）**內鏈數=0、從未被爬**，而全站 nav/內鏈都指非 canonical `/poems`（Crawled-not-indexed、
       lastCrawl 凍 6/21）→ 內鏈權重全卡在 301 來源、canonical 孤兒化。修法：**nav 全部＋首頁 modules＋
       404/systems/poems/allusions 的 /poems 內鏈一律改 canonical 尾斜線**（active 判斷已正規化不失準），
-      並對 `/poems/` 送 Indexing API。**7/16 全窗日回查**：canonical 是否開始被爬/收錄；若仍不動才輪更激進手段
-      （sitemap priority／外部連結／評估列表頁內容深度）。trackUrls 已把 /poems 換成 /poems/ 追 canonical。
+      並對 `/poems/` 送 Indexing API。**監控改每日**：trackUrls 已換 canonical `/poems/`，每日心跳「📄 重要頁面」段
+      每天顯示 `/poems/`（籤詩首頁）收錄狀態＋翻牌——**看哪天從 Discovered/Crawled-not-indexed 翻成已收錄**。
+      **7/16 為決策點**：若內鏈修到那時仍未翻，才輪更激進手段（sitemap priority／外部連結／評估列表頁內容深度）。
 - [x] 情境頁＋比較頁（2026-07-07 commit `5d1c65a` 上線；AEO/GEO 高意圖突圍試點）：
       **情境頁** `/scenarios`（4：求姻緣/考試求功名/開店求財/搬家入厝，slug 永久承諾）＝新增 `scenarios`
       content collection（schema 同 trades），沿用「訴求→神明＋逐筆掛源」模式；情境→神明對應皆為該神
