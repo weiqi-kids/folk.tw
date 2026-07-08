@@ -70,7 +70,16 @@
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0162, "scope": "cohort" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-09",
+          "pos": null,
+          "impr": 20373,
+          "clicks": 333,
+          "ctr": 0.0163,
+          "note": "首訊日到。無獨立廟宇 cohort GSC 指標，沿用站級 CTR 代理：0.0157(7/8)→0.0163(7/9) 微升，clicks 持續升(299→333)。與 7/2 同注共用『曝光稀釋非退步』框架，微升不足以判定回升，維持 open，全窗日 7/13 才判。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
@@ -88,7 +97,16 @@
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-09",
+          "pos": null,
+          "impr": null,
+          "clicks": null,
+          "ctr": null,
+          "note": "首訊日到，但今日 topPages/pageQueryCross 抽樣中未見任何 /systems/* 頁面（曝光量低於抽樣門檻，非負訊號），無法讀值。維持 open，全窗日 7/16 再判。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
@@ -106,7 +124,16 @@
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-09",
+          "pos": null,
+          "impr": null,
+          "clicks": null,
+          "ctr": null,
+          "note": "首訊日到，今日抽樣中未見任何 /practices/* 頁面，無法讀值。維持 open，全窗日 7/16 再判。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
@@ -124,7 +151,16 @@
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
       "baseline": { "pos": 6.5, "impr": 34, "clicks": 0, "ctr": 0, "scope": "page-query", "note": "七爺八爺聖誕 為代表；全群 ~115 impr 連 5+ 天 0 click" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-09",
+          "pos": null,
+          "impr": null,
+          "clicks": null,
+          "ctr": null,
+          "note": "首訊日到。基準查詢「七爺八爺聖誕」今日未進入抽樣（量小被排除，非退步跡象）；改看頁面聚合供參考：/deities/qiyebaye/ 今日 impr258/clicks2/pos8.47（全頁聚合非單一查詢）。樣本不足判斷，維持 open，全窗日 7/16。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null,
@@ -143,6 +179,33 @@
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
+      "checks": [
+        {
+          "date": "2026-07-09",
+          "pos": null,
+          "impr": null,
+          "clicks": null,
+          "ctr": null,
+          "note": "首訊日到，今日抽樣中未見任何 /events/* 頁面，無法讀值。維持 open，全窗日 7/16 再判。"
+        }
+      ],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-09-almanac-birthday-summary",
+      "placed_date": "2026-07-09",
+      "cohort": "template-structural",
+      "target": { "page": "/almanac/*", "query": "純日期查詢（如 2026/07/04）" },
+      "hypothesis": "農民曆日期頁答案優先摘要（.day-summary，已在 speakable 內）補一句『神明聖誕：X』或『今天不是神明聖誕』後，0-click 純日期查詢的 CTR 提升（比對競品 nongminli.com 固定 answer-first 句）",
+      "factual": false,
+      "change_commit": "bc0f90c",
+      "change_files": ["src/components/AlmanacDay.astro", "src/pages/almanac/[date].astro"],
+      "deploy_date": "2026-07-09",
+      "expected_first_signal_date": "2026-07-13",
+      "expected_full_window_date": "2026-07-20",
+      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0, "scope": "cohort", "note": "代表樣本（今日 highImpZeroClick 常駐日期頁，皆 0 click）：2026-07-03(impr4/pos9.5、impr4/pos6.75)、2026-07-04(impr11/pos9、impr3/pos6.67)、2026-07-05(impr11/pos6.55)、2026-07-08(impr7/pos7.29)。" },
       "checks": [],
       "status": "open",
       "verdict": null,
