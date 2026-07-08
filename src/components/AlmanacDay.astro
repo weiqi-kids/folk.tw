@@ -57,7 +57,12 @@ const summaryParts = [
   yiV.length ? `宜${yiV.map((v) => v.affair).join('、')}` : null,
   jiV.length ? `忌${jiV.map((v) => v.affair).join('、')}` : null,
 ].filter(Boolean);
-const summary = summaryParts.length ? `${iso} 為${summaryParts.join('，')}。` : '';
+// 神明聖誕直接寫進答案優先摘要（原僅在下方 dt/dd 列出，AEO 抽取面未觸及）：
+// 有則列名，無則明講「不是」——比對既有已掛源 birthday_lunar，非新查證。
+const birthdayText = birthdays.length
+  ? `神明聖誕：${birthdays.map((b) => b.name).join('、')}。`
+  : '今天不是神明聖誕。';
+const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。` : '') + birthdayText;
 ---
 
 <nav class="almanac-nav" aria-label="日期導覽">
