@@ -77,6 +77,19 @@
       宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）。兩批各一次性 notify，
       **不**進每日 cron 高槓桿集，四週後看 GSC 再議。
 
+- [x] 神明聖誕曆（2026-07-08 commit `19e8dcd` 上線；反思層/競品 temples.tw 啟發）：**首頁「近期神明聖誕」區塊**
+      （近 60 天取 6）＋**`/deities/birthdays` 全年聖誕曆**（60 尊全數、依國曆序、breadcrumb/FAQPage）。核心
+      `src/lib/birthdays.ts`：build 只算「農曆聖誕→下一次國曆日期」（靜態事實、SEO 要的），**倒數「N 天後」與
+      隱藏已過者由 `UpcomingBirthdays.astro` 的 client script 依台灣時區即時算**＝就算某天沒重新部署倒數也永遠準
+      （解決每日收集 `[skip ci]` 不部署→build 不新鮮的問題）。反算沿用 `deityBirthdayIndex()`＋lunar-javascript
+      （與農民曆同源）；**短月卅日聖誕順延農曆月底**（地藏王七月卅→今年無卅日順延廿九 9/10，標真實聖誕日）、
+      `uniqueDeity` 去重保 60 尊各一次。已 notify＋進 trackUrls/flagship 追收錄。**四週後看 GSC 再議**。
+- [x] /poems 樞紐 not-indexed 根因＝**尾斜線分裂**（2026-07-08 同 commit 修）：實查 GSC 發現 canonical `/poems/`
+      （sitemap 收的）**內鏈數=0、從未被爬**，而全站 nav/內鏈都指非 canonical `/poems`（Crawled-not-indexed、
+      lastCrawl 凍 6/21）→ 內鏈權重全卡在 301 來源、canonical 孤兒化。修法：**nav 全部＋首頁 modules＋
+      404/systems/poems/allusions 的 /poems 內鏈一律改 canonical 尾斜線**（active 判斷已正規化不失準），
+      並對 `/poems/` 送 Indexing API。**7/16 全窗日回查**：canonical 是否開始被爬/收錄；若仍不動才輪更激進手段
+      （sitemap priority／外部連結／評估列表頁內容深度）。trackUrls 已把 /poems 換成 /poems/ 追 canonical。
 - [x] 情境頁＋比較頁（2026-07-07 commit `5d1c65a` 上線；AEO/GEO 高意圖突圍試點）：
       **情境頁** `/scenarios`（4：求姻緣/考試求功名/開店求財/搬家入厝，slug 永久承諾）＝新增 `scenarios`
       content collection（schema 同 trades），沿用「訴求→神明＋逐筆掛源」模式；情境→神明對應皆為該神
