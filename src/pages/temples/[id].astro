@@ -60,8 +60,8 @@ const jsonLd = [
     website: t.website,
   }),
   breadcrumb([
-    { name: '廟宇', path: '/temples' },
-    { name: t.name, path: `/temples/${temple.id}` },
+    { name: '廟宇', path: '/temples/' },
+    { name: t.name, path: `/temples/${temple.id}/` },
   ]),
   ...(faq ? [faq] : []),
 ];
@@ -69,9 +69,9 @@ const jsonLd = [
 
 <Base title={templeTitle} description={templeDesc} ogType="article" jsonLd={jsonLd} speakable={speakable}>
   <nav class="crumb">
-    <a href="/temples">廟宇</a>
-    {county && <> ／ <a href={`/temples/region/${county.slug}`}>{county.name}</a></>}
-    {county && township && <> ／ <a href={`/temples/region/${county.slug}/${township.name}`}>{township.name}</a></>}
+    <a href="/temples/">廟宇</a>
+    {county && <> ／ <a href={`/temples/region/${county.slug}/`}>{county.name}</a></>}
+    {county && township && <> ／ <a href={`/temples/region/${county.slug}/${township.name}/`}>{township.name}</a></>}
   </nav>
   <h1>{t.name}</h1>
 
@@ -82,7 +82,7 @@ const jsonLd = [
       <dd>
         {t.main_deity_raw}
         {refOk ? (
-          <span> · <a href={`/deities/${t.main_deity_ref}`}>{deityName.get(t.main_deity_ref!)}（圖譜）</a></span>
+          <span> · <a href={`/deities/${t.main_deity_ref}/`}>{deityName.get(t.main_deity_ref!)}（圖譜）</a></span>
         ) : (
           t.main_deity_raw && <span class="muted small"> · 未對映神明節點</span>
         )}
@@ -118,7 +118,7 @@ const jsonLd = [
         <h2>主辦民俗活動</h2>
         <ul>
           {hostedEvents.map((e) => (
-            <li><a href={`/events/${e.id}`}>{e.data.name}</a></li>
+            <li><a href={`/events/${e.id}/`}>{e.data.name}</a></li>
           ))}
         </ul>
       </section>
@@ -126,10 +126,10 @@ const jsonLd = [
   }
 
   {county && township && (
-    <p class="region-link"><a href={`/temples/region/${county.slug}/${township.name}`}>查看{county.name}{township.name}其他廟宇 →</a></p>
+    <p class="region-link"><a href={`/temples/region/${county.slug}/${township.name}/`}>查看{county.name}{township.name}其他廟宇 →</a></p>
   )}
   {county && !township && (
-    <p class="region-link"><a href={`/temples/region/${county.slug}`}>查看{county.name}全部廟宇 →</a></p>
+    <p class="region-link"><a href={`/temples/region/${county.slug}/`}>查看{county.name}全部廟宇 →</a></p>
   )}
 
   {t.website && <p class="temple-site"><a href={t.website} target="_blank" rel="noopener">官方網站 →</a></p>}
