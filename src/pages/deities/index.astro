@@ -16,7 +16,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
 >
   <h1>神明圖譜</h1>
   <p class="muted">
-    採七大類既有分類學（不自創）。神格位階不建模、不排高低，只記分類與關係（§2.3、§13.3 諸說並陳）。
+    採七大類既有分類學（不自創）。神格位階不建模、不排高低，只記分類與關係。
     每筆事實掛來源；聖誕待查者不顯示。
   </p>
 
@@ -50,7 +50,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
     groups.length > 0 && (
       <section class="groups">
         <h2>橫向群組</h2>
-        <p class="muted small">五文昌、八仙、三奶夫人、五府千歲等跨節點群組（B.3-5）。</p>
+        <p class="muted small">五文昌、八仙、三奶夫人、五府千歲等跨節點群組。</p>
         {groups.map(([g, list]) => (
           <p>
             <strong>{g}</strong>：

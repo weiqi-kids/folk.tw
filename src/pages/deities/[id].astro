@@ -142,7 +142,7 @@ const jsonLd = [
       <h2>聖誕（農曆）</h2>
       {
         d.birthday_lunar.length === 0 ? (
-          <p class="pending">聖誕待查（無源不顯示，§5）。</p>
+          <p class="pending">聖誕待查（無源不顯示）。</p>
         ) : (
           <ul class="bdays">
             {d.birthday_lunar.map((b) => (
@@ -163,7 +163,7 @@ const jsonLd = [
       <section>
         <h2>具名實例</h2>
         <p class="muted small">
-          「{d.name}」為信仰類別；底下具名實例各有聖誕與廟宇對應（依實例而非類別，B.3-1）。
+          「{d.name}」為信仰類別；底下具名實例各有聖誕與廟宇對應（依實例而非類別）。
         </p>
         {d.instances.length > 0 ? (
           <ul class="rels">
@@ -246,7 +246,7 @@ const jsonLd = [
         </ul>
       )
     }
-    <p class="muted small">v1 關係以列表呈現；圖視覺化列發佈後增補（§8）。</p>
+    <p class="muted small">v1 關係以列表呈現；圖視覺化列發佈後增補。</p>
   </section>
 
   {

@@ -108,7 +108,7 @@ const jsonLd: object[] = [
     <h2>儀節步驟</h2>
     {
       p.steps.length === 0 ? (
-        <p class="pending">步驟須引註撰寫（順序／誰做／用什麼／對誰／禁忌五要素同構），標源後上架（E.4、§5）。</p>
+        <p class="pending">步驟須引註撰寫（順序／誰做／用什麼／對誰／禁忌），標源後上架。</p>
       ) : (
         <ol class="steps">
           {p.steps.map((s) => (
@@ -128,7 +128,7 @@ const jsonLd: object[] = [
     <h2>地區差異</h2>
     {
       p.regional.length === 0 ? (
-        <p class="pending">地區差異（閩南／客家／各地異俗）以諸說並陳呈現，各筆掛源後上架（E.6）。</p>
+        <p class="pending">地區差異（閩南／客家／各地異俗）以諸說並陳呈現，各筆掛源後上架。</p>
       ) : (
         <ul>
           {p.regional.map((r) => (
