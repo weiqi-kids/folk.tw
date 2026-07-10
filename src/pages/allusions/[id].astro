@@ -27,8 +27,8 @@ const pageDesc =
 // GEO：BreadcrumbList ＋（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
 const ld: object[] = [
   breadcrumb([
-    { name: '籤詩', path: '/poems' },
-    { name: `典故 · ${a.name}`, path: `/allusions/${allusion.id}` },
+    { name: '籤詩', path: '/poems/' },
+    { name: `典故 · ${a.name}`, path: `/allusions/${allusion.id}/` },
   ]),
 ];
 if (hasStory) {
@@ -70,7 +70,7 @@ if (hasStory) {
         <ul class="poem-refs">
           {poems.map((p) => (
             <li>
-              <a href={`/poems/${p.id}`}>第 {p.data.no} 籤 · {p.data.ganzhi}</a>
+              <a href={`/poems/${p.id}/`}>第 {p.data.no} 籤 · {p.data.ganzhi}</a>
               <span class="muted">　{p.data.lines[0]}…</span>
             </li>
           ))}

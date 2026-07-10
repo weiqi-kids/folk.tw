@@ -49,9 +49,9 @@ const pageDesc =
 const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
   breadcrumb([
-    { name: '籤詩', path: '/poems' },
-    { name: sysName, path: `/systems/${d.system.id}` },
-    { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}` },
+    { name: '籤詩', path: '/poems/' },
+    { name: sysName, path: `/systems/${d.system.id}/` },
+    { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}/` },
   ]),
 ];
 
@@ -95,7 +95,7 @@ if (faq) ld.push(faq);
     <header class="ph">
       <h1>第 {d.no} 籤{(d.ganzhi || d.title) && ` · ${d.ganzhi ?? d.title}`}</h1>
       <div class="meta">
-        <a class="tag" href={`/systems/${d.system.id}`}>{systemName.get(d.system.id)}</a>
+        <a class="tag" href={`/systems/${d.system.id}/`}>{systemName.get(d.system.id)}</a>
         {d.ganzhi && d.title && <span class="tag">{d.title}</span>}
         {d.gua && <span class="tag">{d.gua}卦</span>}
         {d.wuxing && <span class="tag">{d.wuxing.element}·{d.wuxing.season}·{d.wuxing.direction}</span>}
@@ -136,7 +136,7 @@ if (faq) ld.push(faq);
               <div class="card allusion">
                 <p class="aname">
                   {node ? (
-                    <a href={`/allusions/${a.ref.id}`}>{node.data.name}</a>
+                    <a href={`/allusions/${a.ref.id}/`}>{node.data.name}</a>
                   ) : (
                     <span>{allusionName.get(a.ref.id) ?? a.ref.id}</span>
                   )}
@@ -144,7 +144,7 @@ if (faq) ld.push(faq);
                 </p>
                 {a.note && <p class="muted small">記載：{a.note}</p>}
                 {node && (node.body ?? '').trim().length > 0 ? (
-                  <p class="muted small"><a href={`/allusions/${a.ref.id}`}>讀白話故事與跨籤反查 →</a></p>
+                  <p class="muted small"><a href={`/allusions/${a.ref.id}/`}>讀白話故事與跨籤反查 →</a></p>
                 ) : (
                   <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架）。</p>
                 )}
@@ -193,7 +193,7 @@ if (faq) ld.push(faq);
           <ul class="deity-refs">
             {deitiesForSystem.map((dd) => (
               <li>
-                <a href={`/deities/${dd.id}`}>{dd.data.name}</a>
+                <a href={`/deities/${dd.id}/`}>{dd.data.name}</a>
                 <span class="muted small">　{dd.data.category}</span>
               </li>
             ))}
@@ -212,15 +212,15 @@ if (faq) ld.push(faq);
     <nav class="poem-nav" aria-label="籤序導覽">
       {
         prevPoem ? (
-          <a class="nav-btn" href={`/poems/${prevPoem.id}`} rel="prev">‹ {poemLabel(prevPoem)}</a>
+          <a class="nav-btn" href={`/poems/${prevPoem.id}/`} rel="prev">‹ {poemLabel(prevPoem)}</a>
         ) : (
           <span class="nav-btn disabled">‹ 已是首籤</span>
         )
       }
-      <a class="nav-btn" href={`/systems/${d.system.id}`}>全部籤</a>
+      <a class="nav-btn" href={`/systems/${d.system.id}/`}>全部籤</a>
       {
         nextPoem ? (
-          <a class="nav-btn" href={`/poems/${nextPoem.id}`} rel="next">{poemLabel(nextPoem)} ›</a>
+          <a class="nav-btn" href={`/poems/${nextPoem.id}/`} rel="next">{poemLabel(nextPoem)} ›</a>
         ) : (
           <span class="nav-btn disabled">已是末籤 ›</span>
         )

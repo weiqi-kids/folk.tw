@@ -104,8 +104,8 @@ const jsonLd = [
     sameAs: d.sameAs,
   }),
   breadcrumb([
-    { name: '神明圖譜', path: '/deities' },
-    { name: d.name, path: `/deities/${deity.id}` },
+    { name: '神明圖譜', path: '/deities/' },
+    { name: d.name, path: `/deities/${deity.id}/` },
   ]),
   ...(faq ? [faq] : []),
 ];
@@ -118,12 +118,12 @@ const jsonLd = [
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
 >
-  <nav class="crumb"><a href="/deities">神明圖譜</a> ／ {d.category}</nav>
+  <nav class="crumb"><a href="/deities/">神明圖譜</a> ／ {d.category}</nav>
 
   <header class="dh">
     <h1>{d.name}</h1>
     <p class="aliases">
-      <a class="tag" href="/deities">{d.category}</a>
+      <a class="tag" href="/deities/">{d.category}</a>
       {d.is_category && <span class="tag">信仰類別（非單神）</span>}
       {d.groups.map((g) => <span class="tag">{g}</span>)}
     </p>
@@ -169,7 +169,7 @@ const jsonLd = [
           <ul class="rels">
             {d.instances.map((id) => (
               <li>
-                {isNode(id) ? <a href={`/deities/${id}`}>{label(id)}</a> : <span>{label(id)}</span>}
+                {isNode(id) ? <a href={`/deities/${id}/`}>{label(id)}</a> : <span>{label(id)}</span>}
               </li>
             ))}
           </ul>
@@ -186,7 +186,7 @@ const jsonLd = [
       d.divination_systems.length ? (
         <ul>
           {d.divination_systems.map((s) => (
-            <li><a href={`/systems/${s.id}`}>{systemName.get(s.id) ?? s.id}</a></li>
+            <li><a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a></li>
           ))}
         </ul>
       ) : (
@@ -205,16 +205,16 @@ const jsonLd = [
           return (
             <div class="poem-group">
               <p class="muted small">
-                <a href={`/systems/${s.id}`}>{systemName.get(s.id) ?? s.id}</a>　共 {list.length} 籤
+                <a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a>　共 {list.length} 籤
               </p>
               <ul class="poem-links">
                 {list.slice(0, 12).map((p) => (
                   <li>
-                    <a href={`/poems/${p.id}`}>第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}</a>
+                    <a href={`/poems/${p.id}/`}>第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}</a>
                   </li>
                 ))}
               </ul>
-              {list.length > 12 && <p class="muted small"><a href={`/systems/${s.id}`}>看全部 {list.length} 籤 →</a></p>}
+              {list.length > 12 && <p class="muted small"><a href={`/systems/${s.id}/`}>看全部 {list.length} 籤 →</a></p>}
             </div>
           );
         })}
@@ -232,13 +232,13 @@ const jsonLd = [
           {rels.out.map((r) => (
             <li>
               {d.name} <span class="reltype">— {r.data.type} →</span>{' '}
-              {isNode(r.data.to) ? <a href={`/deities/${r.data.to}`}>{label(r.data.to)}</a> : <span class="placeholder">{label(r.data.to)}<span class="tag">待建</span></span>}
+              {isNode(r.data.to) ? <a href={`/deities/${r.data.to}/`}>{label(r.data.to)}</a> : <span class="placeholder">{label(r.data.to)}<span class="tag">待建</span></span>}
               {r.data.note && <span class="muted small">　{r.data.note}</span>}
             </li>
           ))}
           {rels.in.map((r) => (
             <li>
-              {isNode(r.data.from) ? <a href={`/deities/${r.data.from}`}>{label(r.data.from)}</a> : <span class="placeholder">{label(r.data.from)}</span>}{' '}
+              {isNode(r.data.from) ? <a href={`/deities/${r.data.from}/`}>{label(r.data.from)}</a> : <span class="placeholder">{label(r.data.from)}</span>}{' '}
               <span class="reltype">— {r.data.type} →</span> {d.name}
               {r.data.note && <span class="muted small">　{r.data.note}</span>}
             </li>
@@ -256,7 +256,7 @@ const jsonLd = [
         <ul>
           {temples.slice(0, 30).map((t) => (
             <li>
-              <a href={`/temples/${t.id}`}>{t.data.name}</a>
+              <a href={`/temples/${t.id}/`}>{t.data.name}</a>
               {t.data.district && <span class="muted small">　{t.data.district}</span>}
             </li>
           ))}
@@ -272,7 +272,7 @@ const jsonLd = [
         {relatedTrades.map((t, i) => (
           <>
             {i > 0 && '、'}
-            <a href={`/trades/${t.id}`}>{t.data.name}</a>
+            <a href={`/trades/${t.id}/`}>{t.data.name}</a>
           </>
         ))}
       </p>
@@ -286,7 +286,7 @@ const jsonLd = [
         <ul class="rels">
           {relatedPractices.map((p) => (
             <li>
-              <a href={`/practices/${p.id}`}>{p.data.title}</a>
+              <a href={`/practices/${p.id}/`}>{p.data.title}</a>
               {p.data.summary && <span class="muted small">　{p.data.summary}</span>}
             </li>
           ))}
@@ -302,7 +302,7 @@ const jsonLd = [
         <ul class="rels">
           {relatedEvents.map((e) => (
             <li>
-              <a href={`/events/${e.id}`}>{e.data.name}</a>
+              <a href={`/events/${e.id}/`}>{e.data.name}</a>
               {e.data.region.length > 0 && <span class="muted small">　{e.data.region.join('、')}</span>}
             </li>
           ))}
