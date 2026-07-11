@@ -90,21 +90,22 @@ p { margin: 0.7rem 0; }
      <a class="card card-photo"> …文字子元素… <img class="card-photo-img" src alt title loading="lazy"></a>
    --pw 控制圖片覆蓋寬度（預設 60%）；object-position 偏上以保住頭部。
    圖片務必為合授權來源（Commons CC／公有領域），並比照 /events 於 /about 標作者·授權，無圖留空。 */
-.card-photo { position: relative; overflow: hidden; --pw: 38%; }
+.card-photo { position: relative; overflow: hidden; --pw: 46%; }
 .card-photo-img {
   position: absolute; right: 0; top: 0; bottom: 0;
   width: var(--pw); height: 100%;
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
-  /* 只在最左緣做極短羽化即轉實心，讓神像正臉落在右側「實心區」中央、遠離漸層 */
-  -webkit-mask-image: linear-gradient(105deg, transparent 2%, #000 20%);
-  mask-image: linear-gradient(105deg, transparent 2%, #000 20%);
+  /* 短羽化只負責柔化圖片左硬邊；主漸層交給下方紙色襯底，兩者不再互相打架 */
+  -webkit-mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
+  mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
   z-index: 0;
 }
-/* 紙色襯底：只鋪左側文字區（實心到 46%、62% 前透明），右側實心區完整留給神像正臉 */
+/* 主漸層＝紙色襯底：由左側文字區實心（48%）柔和淡出至透明（68%），
+   淡出帶正好落在圖片左段＝可見的漸層；68% 之後留給神像正臉的實心清楚區。 */
 .card-photo::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 46%, rgba(255, 255, 255, 0) 62%);
+  background: linear-gradient(100deg, var(--paper-2) 48%, rgba(255, 255, 255, 0) 68%);
   z-index: 0; pointer-events: none;
 }
 .card-photo > :not(.card-photo-img) {
