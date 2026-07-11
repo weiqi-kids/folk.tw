@@ -12,6 +12,18 @@ const HERITAGE: Record<string, string> = {
   county: '縣市定民俗',
   none: '未登錄',
 };
+const CYCLE: Record<string, string> = {
+  annual: '每年',
+  n_year_ke: '數年一科',
+  irregular: '不定期',
+};
+// 依文資身分分三段（國家重要 → 直轄市定 → 縣市定），段內維持既有 curated 檔案序。
+const LEVELS = ['national_important', 'municipal', 'county', 'none'] as const;
+const groups = LEVELS.map((level) => ({
+  level,
+  label: HERITAGE[level],
+  items: events.filter((e) => (e.data.heritage?.level ?? 'none') === level),
+})).filter((g) => g.items.length > 0);
 ---
 
 <Base
@@ -21,33 +33,56 @@ const HERITAGE: Record<string, string> = {
 >
   <h1>民俗活動／繞境</h1>
   <p class="muted">
-    台灣各地遶境、進香、迎王、中元普渡等民俗活動一覽：主神、文資身分與路線型態。
+    台灣各地遶境、進香、迎王、中元普渡等民俗活動一覽：依文資身分分級，並列主神、舉行時序與路線型態。
   </p>
-  <div class="grid">
-    {
-      events.map((e) => (
-        <a class="card ev" href={`/events/${e.id}`}>
-          <div class="ev-head">
-            <strong>{e.data.name}</strong>
-            {e.data.heritage && (
-              <span class:list={['tag', { fortune: e.data.heritage.level === 'national_important' }]}>
-                {HERITAGE[e.data.heritage.level]}{!e.data.heritage.verified && ' · 待核'}
-              </span>
-            )}
-          </div>
-          <div class="muted small">
-            主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
-            {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
-          </div>
-          <div>{e.data.type.map((t) => <span class="tag">{t}</span>)}</div>
-        </a>
-      ))
-    }
-  </div>
+  {
+    groups.map((g) => (
+      <section class="ev-section">
+        <h2>
+          {g.label}
+          <span class="count muted">（{g.items.length}）</span>
+        </h2>
+        <div class="ev-grid">
+          {g.items.map((e) => (
+            <a class="card ev" href={`/events/${e.id}`}>
+              <strong>{e.data.name}</strong>
+              <div class="muted small when">
+                {CYCLE[e.data.cycle]}
+                {e.data.date_note && `　·　${e.data.date_note}`}
+              </div>
+              <div class="muted small">
+                主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
+                {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
+              </div>
+              <div class="chips">
+                {e.data.type.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+                {e.data.heritage && !e.data.heritage.verified && <span class="tag">待核</span>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
+  }
   <style>
-    .ev { display: flex; flex-direction: column; gap: 0.35rem; }
-    .ev-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-    .ev-head strong { color: var(--ink); font-size: 1.05rem; }
+    .ev-section h2 {
+      border-bottom: 1px solid var(--accent-soft);
+      padding-bottom: 0.3rem;
+      margin-top: 1.8rem;
+    }
+    .count { font-size: 0.85rem; font-weight: 400; }
+    .ev-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .ev { display: flex; flex-direction: column; gap: 0.3rem; }
+    .ev strong { color: var(--ink); font-size: 1.05rem; }
+    .when { color: var(--accent-soft); }
     .small { font-size: 0.88rem; }
+    .chips { margin-top: 0.1rem; }
   </style>
 </Base>

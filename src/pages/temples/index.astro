@@ -29,12 +29,12 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
   <p class="muted">收錄全台 {temples.length} 間廟宇（內政部開放資料）。依縣市瀏覽，或先看代表名廟。</p>
 
   <h2>依縣市瀏覽</h2>
-  <div class="grid regions">
+  <div class="county-wall">
     {
       regions.map((r) => (
-        <a class="card region" href={`/temples/region/${r.slug}`}>
+        <a class="card county" href={`/temples/region/${r.slug}`}>
           <strong>{r.name}</strong>
-          <span class="muted small">{r.n} 間</span>
+          <span class="muted count">{r.n}</span>
         </a>
       ))
     }
@@ -44,7 +44,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
     featured.length > 0 && (
       <>
         <h2>代表名廟</h2>
-        <div class="grid">
+        <div class="grid cols">
           {featured.map((t) => (
             <a class="card temple" href={`/temples/${t.id}`}>
               <strong>{t.data.name}</strong>
@@ -61,7 +61,22 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
 
   <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。{unknown > 0 && `（另有 ${unknown} 間縣市未判定）`}</p>
   <style>
-    .region strong { color: var(--ink); }
+    .county-wall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .county {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.6rem 0.85rem;
+      margin: 0;
+    }
+    .county strong { color: var(--ink); }
+    .county .count { font-size: var(--text-sm); }
     .temple { display: flex; flex-direction: column; gap: 0.25rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: 0.85rem; }
