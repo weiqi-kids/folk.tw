@@ -90,7 +90,7 @@ p { margin: 0.7rem 0; }
      <a class="card card-photo"> …文字子元素… <img class="card-photo-img" src alt title loading="lazy"></a>
    尺寸可用 --pw/--ph 覆寫；圖片務必為合授權來源（Commons CC／公有領域），並比照 /events 於
    /about 標作者·授權，無合授權圖者留空。 */
-.card-photo { position: relative; overflow: hidden; --pw: 70%; --ph: 50%; }
+.card-photo { position: relative; overflow: hidden; --pw: 45%; --ph: 50%; }
 .card-photo-img {
   position: absolute; right: 0; bottom: 0;
   width: var(--pw); height: var(--ph);
