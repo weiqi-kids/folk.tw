@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { breadcrumb } from '../lib/seo';
-import { getEvents } from '../lib/queries';
+import { getEvents, getDeities } from '../lib/queries';
 
-// 圖片來源彙整：民俗活動代表圖皆取自 Wikimedia Commons（CC／公有領域），逐張標作者·授權·出處。
-const imageCredits = (await getEvents())
+// 圖片來源彙整：代表圖皆取自 Wikimedia Commons（CC／公有領域），逐張標作者·授權·出處。
+const imageCredits = [...(await getDeities()), ...(await getEvents())]
   .filter((e) => e.data.image)
   .map((e) => ({ name: e.data.name, ...e.data.image! }));
 

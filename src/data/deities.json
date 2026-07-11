@@ -68,7 +68,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/媽祖",
       "https://www.wikidata.org/wiki/Q11997"
-    ]
+    ],
+    "image": {
+      "src": "/deities/mazu.webp",
+      "alt": "媽祖",
+      "author": "Taken by zh:User:Koika, worked and upload by en:User:Luuva",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Mazu.jpg"
+    }
   },
   {
     "id": "xuantian",
@@ -132,7 +140,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/玄天上帝"
-    ]
+    ],
+    "image": {
+      "src": "/deities/xuantian.webp",
+      "alt": "玄天上帝",
+      "author": "舟集 Toadboat",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%8E%84%E5%A4%A9%E4%B8%8A%E5%B8%9D%E5%A1%91%E5%83%8F.jpg"
+    }
   },
   {
     "id": "shuixian",
@@ -181,7 +197,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/水仙尊王",
       "https://www.wikidata.org/wiki/Q10373477"
-    ]
+    ],
+    "image": {
+      "src": "/deities/shuixian.webp",
+      "alt": "水仙尊王",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%AE%89%E5%B9%B3%E9%96%8B%E8%87%BA%E5%A4%A9%E5%90%8E%E5%AE%AE%E6%B0%B4%E4%BB%99%E5%B0%8A%E7%8E%8B.jpg"
+    }
   },
   {
     "id": "longwang",
@@ -259,7 +283,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/龍王"
-    ]
+    ],
+    "image": {
+      "src": "/deities/longwang.webp",
+      "alt": "四海龍王",
+      "author": "Candyji",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CC-Candyji-%E5%A4%A7%E5%A4%A9%E5%90%8E%E5%AE%AE%E5%9B%9B%E6%B5%B7%E9%BE%8D%E7%8E%8B_3.0.jpg"
+    }
   },
   {
     "id": "wangye",
@@ -320,7 +352,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/王爺信仰"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangye.webp",
+      "alt": "王爺（千歲）",
+      "author": "Bolin1208",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%BD%AD%E5%AD%90%E5%A4%A9%E8%99%9B%E5%AE%AE%E8%98%87%E5%BA%9C%E7%8E%8B%E7%88%BA.jpg"
+    }
   },
   {
     "id": "tudigong",
@@ -386,7 +426,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/土地公"
-    ]
+    ],
+    "image": {
+      "src": "/deities/tudigong.webp",
+      "alt": "福德正神",
+      "author": "Adsa562",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%B3%B0%E5%AE%89%E5%AE%AE-%E7%A6%8F%E5%BE%B7%E6%AD%A3%E7%A5%9E.jpg"
+    }
   },
   {
     "id": "chenghuang",
@@ -438,7 +486,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/城隍"
-    ]
+    ],
+    "image": {
+      "src": "/deities/chenghuang.webp",
+      "alt": "城隍爺",
+      "author": "蔡東森；",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%98%89%E9%82%91%E5%9F%8E%E9%9A%8D%E7%88%BA002.JPG"
+    }
   },
   {
     "id": "qiyebaye",
@@ -513,7 +569,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/謝范將軍",
       "https://www.wikidata.org/wiki/Q97352604"
-    ]
+    ],
+    "image": {
+      "src": "/deities/qiyebaye.webp",
+      "alt": "七爺八爺",
+      "author": "Artemas Liu from Taipei, Taiwan",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hell_messengers_Heibai_Wuchang_(48861111357).jpg"
+    }
   },
   {
     "id": "dongyue",
@@ -562,7 +626,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/東嶽大帝"
-    ]
+    ],
+    "image": {
+      "src": "/deities/dongyue.webp",
+      "alt": "東嶽大帝",
+      "author": "Shizhao",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A6%99%E5%B3%B0%E5%B1%B1%E5%A8%98%E5%A8%98%E5%BA%99%E4%B8%9C%E5%B2%B3%E5%A4%A7%E5%B8%9D.JPG"
+    }
   },
   {
     "id": "kaitai",
@@ -613,7 +685,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/鄭成功",
       "https://www.wikidata.org/wiki/Q57052"
-    ]
+    ],
+    "image": {
+      "src": "/deities/kaitai.webp",
+      "alt": "開臺聖王",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%96%8B%E8%87%BA%E8%81%96%E7%8E%8B%E6%88%90%E5%8A%9F%E5%BB%9F%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "guanyin",
@@ -690,7 +770,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/觀世音菩薩",
       "https://www.wikidata.org/wiki/Q1352720"
-    ]
+    ],
+    "image": {
+      "src": "/deities/guanyin.webp",
+      "alt": "觀世音菩薩",
+      "author": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Estatua_de_Guan_Yin,_Macao,_2013-08-08,_DD_08.jpg"
+    }
   },
   {
     "id": "baosheng",
@@ -739,7 +827,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/保生大帝"
-    ]
+    ],
+    "image": {
+      "src": "/deities/baosheng.webp",
+      "alt": "保生大帝",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E5%8C%96%E4%BF%9D%E7%94%9F%E5%A4%A7%E5%B8%9D%E5%AE%AE%E4%BF%9D%E7%94%9F%E5%A4%A7%E5%B8%9D%E5%83%8F.jpg"
+    }
   },
   {
     "id": "kaizhang",
@@ -788,7 +884,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/陳元光"
-    ]
+    ],
+    "image": {
+      "src": "/deities/kaizhang.webp",
+      "alt": "開漳聖王",
+      "author": "舟集 Boattoad",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%9B%9B%E5%BC%B5%E7%8A%81%E9%96%8B%E6%BC%B3%E8%81%96%E7%8E%8B%E5%BB%9F_01_%E5%85%A5%E5%8F%A3%E7%8B%B9%E5%B7%B7.jpg"
+    }
   },
   {
     "id": "guangze",
@@ -837,7 +941,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/廣澤尊王"
-    ]
+    ],
+    "image": {
+      "src": "/deities/guangze.webp",
+      "alt": "廣澤尊王",
+      "author": "Ynto5304",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A8%E8%87%BA%E6%B0%B8%E8%8F%AF%E5%AE%AE%E5%A5%89%E7%A5%80%E9%96%8B%E5%9F%BA%E5%BB%A3%E6%BE%A4%E5%B0%8A%E7%8E%8B.jpg"
+    }
   },
   {
     "id": "sanshan",
@@ -887,7 +999,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/三山國王"
-    ]
+    ],
+    "image": {
+      "src": "/deities/sanshan.webp",
+      "alt": "三山國王",
+      "author": "姒姓賢寧",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sam_Shan_Kwok_Wong_Temple_in_February_2024.jpg"
+    }
   },
   {
     "id": "qingshui",
@@ -942,7 +1062,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/清水祖師"
-    ]
+    ],
+    "image": {
+      "src": "/deities/qingshui.webp",
+      "alt": "清水祖師",
+      "author": "Craneur",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2014-04-16_%E6%AD%A3%E5%BE%B7%E5%AE%AE%E6%B8%85%E6%B0%B4%E7%A5%96%E5%B8%AB%E5%85%AC.jpg"
+    }
   },
   {
     "id": "yimin",
@@ -1014,7 +1142,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/義民"
-    ]
+    ],
+    "image": {
+      "src": "/deities/yimin.webp",
+      "alt": "義民爺",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E5%9F%94%E8%A4%92%E5%BF%A0%E7%BE%A9%E6%B0%91%E5%BB%9F%E7%BE%A9%E6%B0%91%E7%88%BA%E7%A5%9E%E4%BD%8D.jpg"
+    }
   },
   {
     "id": "fazhu",
@@ -1063,7 +1199,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/法主公"
-    ]
+    ],
+    "image": {
+      "src": "/deities/fazhu.webp",
+      "alt": "法主公",
+      "author": "Winertai",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Fa-Chu-Kung_Temple_20060116.jpg"
+    }
   },
   {
     "id": "qingshan",
@@ -1111,7 +1255,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/青山王"
-    ]
+    ],
+    "image": {
+      "src": "/deities/qingshan.webp",
+      "alt": "青山王",
+      "author": "Fortresseconomist",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Performer_at_a_festival_(likely_the_Qing_Shan_King_Sacrificial_Ceremony_(%E9%9D%92%E5%B1%B1%E7%8E%8B%E7%A5%AD))_in_Taiwan.jpg"
+    }
   },
   {
     "id": "guangong",
@@ -1179,7 +1331,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/關羽",
       "https://www.wikidata.org/wiki/Q261096"
-    ]
+    ],
+    "image": {
+      "src": "/deities/guangong.webp",
+      "alt": "關聖帝君",
+      "author": "Shang Xi",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Guan_Yu_face_%E5%95%86%E5%96%9C%E5%85%B3%E7%BE%BD%E6%93%92%E5%B0%86%E5%9B%BE.jpg"
+    }
   },
   {
     "id": "wenchang",
@@ -1229,7 +1389,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/文昌帝君"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wenchang.webp",
+      "alt": "文昌帝君",
+      "author": "By Chinese Artists",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:W%C3%AAn_Ch%E2%80%99ang,_K%E2%80%99uei_Hsing,_and_Chu_I..jpg"
+    }
   },
   {
     "id": "shennong",
@@ -1285,7 +1453,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/神農",
       "https://www.wikidata.org/wiki/Q189257"
-    ]
+    ],
+    "image": {
+      "src": "/deities/shennong.webp",
+      "alt": "神農大帝",
+      "author": "Suzuki1314 at Chinese Wikipedia",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E8%BE%B2%E5%A4%A7%E5%B8%9D.JPG"
+    }
   },
   {
     "id": "luban",
@@ -1334,7 +1510,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/魯班",
       "https://www.wikidata.org/wiki/Q717519"
-    ]
+    ],
+    "image": {
+      "src": "/deities/luban.webp",
+      "alt": "巧聖先師",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E9%9B%84%E9%97%9C%E5%B8%9D%E5%BB%9F%E5%B7%A7%E8%81%96%E5%85%88%E5%B8%AB_20260115.jpg"
+    }
   },
   {
     "id": "xiqin",
@@ -1387,7 +1571,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/西秦王爺"
-    ]
+    ],
+    "image": {
+      "src": "/deities/xiqin.webp",
+      "alt": "西秦王爺",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9D%88%E5%AE%89%E7%A4%BE%E8%A5%BF%E7%A7%A6%E7%8E%8B%E7%88%BA%E5%A4%A7%E7%8E%8B0034.jpg"
+    }
   },
   {
     "id": "tiandu",
@@ -1436,7 +1628,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/田都元帥"
-    ]
+    ],
+    "image": {
+      "src": "/deities/tiandu.webp",
+      "alt": "田都元帥",
+      "author": "氏子",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%B3%89%E5%B7%9E%E7%94%B0%E9%83%BD%E5%85%83%E5%B8%A5%E5%82%80%E5%84%A1%E6%88%B2%E5%81%B6.jpg"
+    }
   },
   {
     "id": "ludongbin",
@@ -1495,7 +1695,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/呂洞賓",
       "https://www.wikidata.org/wiki/Q713701"
-    ]
+    ],
+    "image": {
+      "src": "/deities/ludongbin.webp",
+      "alt": "孚佑帝君",
+      "author": "Wikimedia Commons contributor",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:L%C3%BC_Dongbin.jpg"
+    }
   },
   {
     "id": "kongzi",
@@ -1545,7 +1753,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/孔子",
       "https://www.wikidata.org/wiki/Q4604"
-    ]
+    ],
+    "image": {
+      "src": "/deities/kongzi.webp",
+      "alt": "至聖先師",
+      "author": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kaohsiung_Taiwan_Kaohsiung-Confucius-Temple-01.jpg"
+    }
   },
   {
     "id": "nazha",
@@ -1601,7 +1817,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/哪吒",
       "https://www.wikidata.org/wiki/Q1064540"
-    ]
+    ],
+    "image": {
+      "src": "/deities/nazha.webp",
+      "alt": "中壇元帥",
+      "author": "Yhtsung",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E5%A3%87%E5%85%83%E5%B8%A5.jpg"
+    }
   },
   {
     "id": "jiutian",
@@ -1649,7 +1873,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/九天玄女"
-    ]
+    ],
+    "image": {
+      "src": "/deities/jiutian.webp",
+      "alt": "九天玄女",
+      "author": "Adsa562",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E5%BA%92%E5%8C%97%E6%A5%B5%E6%AE%BF-%E4%B9%9D%E5%A4%A9%E7%8E%84%E5%A5%B3.jpg"
+    }
   },
   {
     "id": "jigong",
@@ -1715,7 +1947,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/濟公",
       "https://www.wikidata.org/wiki/Q866042"
-    ]
+    ],
+    "image": {
+      "src": "/deities/jigong.webp",
+      "alt": "濟公",
+      "author": "北邑三池府",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E9%82%91%E4%B8%89%E6%B1%A0%E5%BA%9C-%E6%BF%9F%E5%85%AC%E7%A6%AA%E5%B8%AB.JPG"
+    }
   },
   {
     "id": "kuixing",
@@ -1766,7 +2006,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/魁星"
-    ]
+    ],
+    "image": {
+      "src": "/deities/kuixing.webp",
+      "alt": "魁星",
+      "author": "Mk2010",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kui_Xing_(Chinese_god).jpg"
+    }
   },
   {
     "id": "yuelao",
@@ -1819,7 +2067,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/月下老人"
-    ]
+    ],
+    "image": {
+      "src": "/deities/yuelao.webp",
+      "alt": "月下老人",
+      "author": "Riolam",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%C3%94ng_T%C6%A1_B%C3%A0_Nguy%E1%BB%87t.jpg"
+    }
   },
   {
     "id": "zhusheng",
@@ -1867,7 +2123,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/註生娘娘"
-    ]
+    ],
+    "image": {
+      "src": "/deities/zhusheng.webp",
+      "alt": "註生娘娘",
+      "author": "kaurjmeb@Flickr",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Zh%C3%B9_Sh%C4%93ng_Ni%C3%A1ngni%C3%A1ng.jpg"
+    }
   },
   {
     "id": "linshui",
@@ -1919,7 +2183,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/臨水夫人"
-    ]
+    ],
+    "image": {
+      "src": "/deities/linshui.webp",
+      "alt": "臨水夫人",
+      "author": "氏子",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%B5%99%E6%B1%9F%E8%87%A8%E6%B0%B4%E5%A4%AB%E4%BA%BA%E5%82%80%E5%84%A1%E6%88%B2%E5%81%B6.jpg"
+    }
   },
   {
     "id": "qixing",
@@ -1968,7 +2240,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/織女",
       "https://www.wikidata.org/wiki/Q2122828"
-    ]
+    ],
+    "image": {
+      "src": "/deities/qixing.webp",
+      "alt": "七星娘娘",
+      "author": "麻石君",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%96%8B%E9%9A%86%E5%AE%AE%E4%B8%83%E6%98%9F%E5%A8%98%E5%A8%98.jpg"
+    }
   },
   {
     "id": "pojie",
@@ -2006,7 +2286,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/鳥母"
-    ]
+    ],
+    "image": {
+      "src": "/deities/pojie.webp",
+      "alt": "婆姐",
+      "author": "Lki5168",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%AE%85%E6%B8%AF%E5%8D%81%E4%BA%8C%E5%A9%86%E5%A7%90-%E4%B8%BB%E8%A6%81%E4%BA%BA%E7%89%A9(%E5%A9%86%E5%A7%90%E6%AF%8D%E5%8F%8A%E5%A9%86%E5%A7%90%E5%AD%90).jpg"
+    }
   },
   {
     "id": "chitou",
@@ -2063,7 +2351,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/池頭夫人",
       "https://www.wikidata.org/wiki/Q133187591"
-    ]
+    ],
+    "image": {
+      "src": "/deities/chitou.webp",
+      "alt": "池頭夫人",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%89%8B%E8%88%BA%E9%BE%8D%E5%B1%B1%E5%AF%BA%E6%B1%A0%E9%A0%AD%E5%A4%AB%E4%BA%BA_20250314.jpg"
+    }
   },
   {
     "id": "huagong",
@@ -2104,7 +2400,15 @@
         "note": "seed 事實基準，待逐條校"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/deities/huagong.webp",
+      "alt": "花公花婆",
+      "author": "Shizhao",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:She_Taijun_in_Beijing_Opera.JPG"
+    }
   },
   {
     "id": "huye",
@@ -2165,7 +2469,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/虎爺",
       "https://www.wikidata.org/wiki/Q15903662"
-    ]
+    ],
+    "image": {
+      "src": "/deities/huye.webp",
+      "alt": "虎爺",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%A5%80%E5%85%B8%E8%88%88%E6%BF%9F%E5%AE%AE%E8%99%8E%E7%88%BA.JPG"
+    }
   },
   {
     "id": "dasheng",
@@ -2286,7 +2598,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/天蓬元帥",
       "https://www.wikidata.org/wiki/Q10022741"
-    ]
+    ],
+    "image": {
+      "src": "/deities/tianpeng.webp",
+      "alt": "天蓬元帥",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E8%93%AC%E5%85%83%E5%B8%A5%E7%99%BC%E8%B2%A1%E5%AE%AE%E8%87%A8%E6%99%82%E4%BE%9B%E4%BF%B8%E8%99%95%E8%88%87%E6%8B%86%E9%81%B7%E5%89%8D%E7%9A%84%E5%A4%A9%E8%93%AC%E5%85%83%E5%B8%A5%E7%99%BC%E8%B2%A1%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "sheshen",
@@ -2372,7 +2692,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/玉皇大帝"
-    ]
+    ],
+    "image": {
+      "src": "/deities/yuhuang.webp",
+      "alt": "玉皇大帝",
+      "author": "AnonymousUnknown author",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Portraits_of_Jade_Emperor_and_the_Heavenly_Kings.JPG"
+    }
   },
   {
     "id": "sanguan",
@@ -2448,7 +2776,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/三官大帝"
-    ]
+    ],
+    "image": {
+      "src": "/deities/sanguan.webp",
+      "alt": "三官大帝",
+      "author": "Suzuki1314",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%85%AB%E5%BC%B5%E7%8A%81%E5%BB%A3%E8%88%88%E5%AE%AE%E4%B8%89%E5%AE%98%E5%A4%A7%E5%B8%9D.jpg"
+    }
   },
   {
     "id": "sanqing",
@@ -2509,7 +2845,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/三清"
-    ]
+    ],
+    "image": {
+      "src": "/deities/sanqing.webp",
+      "alt": "三清道祖",
+      "author": "A Chinese artist, according to the source.",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Taoist_Triad.jpg"
+    }
   },
   {
     "id": "wangmu",
@@ -2569,7 +2913,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/西王母",
       "https://www.wikidata.org/wiki/Q636107"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangmu.webp",
+      "alt": "瑤池金母",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%97%9C%E6%B8%A1%E5%AE%AE%E5%87%8C%E9%9C%84%E5%AF%B6%E6%AE%BF%E7%91%A4%E6%B1%A0%E9%87%91%E6%AF%8D_20241122.jpg"
+    }
   },
   {
     "id": "zaojun",
@@ -2624,7 +2976,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/灶神"
-    ]
+    ],
+    "image": {
+      "src": "/deities/zaojun.webp",
+      "alt": "灶神",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%96%8B%E5%9F%BA%E7%81%B6%E5%90%9B%E5%BB%9F%E7%9C%81%E6%B0%91%E5%A0%82.jpg"
+    }
   },
   {
     "id": "taiyin",
@@ -2668,7 +3028,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/太陰星君"
-    ]
+    ],
+    "image": {
+      "src": "/deities/taiyin.webp",
+      "alt": "太陰星君",
+      "author": "阿文",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%96%8B%E5%9F%BA%E7%8E%89%E7%9A%87%E5%AE%AE%E5%A4%AA%E9%99%B0%E6%98%9F%E5%90%9B.jpg"
+    }
   },
   {
     "id": "taiyang",
@@ -2711,7 +3079,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/太陽星君"
-    ]
+    ],
+    "image": {
+      "src": "/deities/taiyang.webp",
+      "alt": "太陽星君",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%89%8B%E8%88%BA%E9%BE%8D%E5%B1%B1%E5%AF%BA%E5%A4%A9%E4%B8%8A%E8%81%96%E6%AF%8D%E6%AE%BF%E5%A4%AA%E9%99%BD%E6%98%9F%E5%90%9B%E7%A5%9E%E9%BE%95_20240804.jpg"
+    }
   },
   {
     "id": "leigongdianmu",
@@ -2800,7 +3176,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/石敢當"
-    ]
+    ],
+    "image": {
+      "src": "/deities/shidan.webp",
+      "alt": "石敢當",
+      "author": "Foamingz",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%B3%B0%E5%B1%B1%E7%9F%B3%E6%95%A2%E7%95%B6%EF%BC%88%E5%9B%9B%E5%B7%9D%E7%80%98%E7%B8%A3%EF%BC%89.jpg"
+    }
   },
   {
     "id": "dashugong",
@@ -2844,7 +3228,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/神樹",
       "https://www.wikidata.org/wiki/Q12373247"
-    ]
+    ],
+    "image": {
+      "src": "/deities/dashugong.webp",
+      "alt": "大樹公",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%A8%B9%E5%BE%B7%E5%AE%AE%E5%A4%A7%E6%A8%B9%E5%85%AC_20250121.jpg"
+    }
   },
   {
     "id": "wangye_li",
@@ -2922,7 +3314,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/李大亮",
       "https://www.wikidata.org/wiki/Q11095869"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangye_li.webp",
+      "alt": "李府千歲",
+      "author": "Ying Jie Wang",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%A4%92%E5%BF%A0%E9%95%B7%E5%AE%89%E5%A3%87%E6%9D%8E%E5%BA%9C%E5%8D%83%E6%AD%B2_07.jpg"
+    }
   },
   {
     "id": "wangye_chi",
@@ -3009,7 +3409,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/池夢彪",
       "https://www.wikidata.org/wiki/Q10379427"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangye_chi.webp",
+      "alt": "池府千歲",
+      "author": "ZI641214",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BD%B3%E6%B1%A0%E5%AE%AE%E6%B1%A0%E5%BA%9C%E5%8D%83%E6%AD%B2.jpg"
+    }
   },
   {
     "id": "wangye_wu",
@@ -3107,7 +3515,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/吳孝寬",
       "https://www.wikidata.org/wiki/Q10918751"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangye_wu.webp",
+      "alt": "吳府千歲",
+      "author": "Suzuki1314 at Chinese Wikipedia",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%90%B3%E5%BA%9C%E5%8D%83%E6%AD%B2.JPG"
+    }
   },
   {
     "id": "wangye_zhu",
@@ -3190,7 +3606,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/朱叔裕",
       "https://www.wikidata.org/wiki/Q11093698"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wangye_zhu.webp",
+      "alt": "朱府千歲",
+      "author": "舟集 Toadboat",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%88%88%E4%BB%81%E6%87%8B%E9%9D%88%E6%AE%BF_(1)%E7%AB%8B%E9%9D%A2.jpg"
+    }
   },
   {
     "id": "wangye_fan",
@@ -3346,7 +3770,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/大稻埕霞海城隍廟",
       "https://www.wikidata.org/wiki/Q10937179"
-    ]
+    ],
+    "image": {
+      "src": "/deities/chenghuang_xiahai.webp",
+      "alt": "霞海城隍",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9D%88%E5%AE%89%E7%A4%BE%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E8%80%81%E7%A5%96_0032.jpg"
+    }
   },
   {
     "id": "chenghuang_tainanfu",
@@ -3421,7 +3853,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/臺灣府城隍廟",
       "https://www.wikidata.org/wiki/Q2593582"
-    ]
+    ],
+    "image": {
+      "src": "/deities/chenghuang_tainanfu.webp",
+      "alt": "台灣府城隍威靈公",
+      "author": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_Prefectural-City-God-Temple-Tainan-01.jpg"
+    }
   },
   {
     "id": "taisui",
@@ -3457,7 +3897,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/太歲"
-    ]
+    ],
+    "image": {
+      "src": "/deities/taisui.webp",
+      "alt": "太歲星君",
+      "author": "克勞棣",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yin-jiao,_the_leader_of_60_Tai-Sui_20101204.jpg"
+    }
   },
   {
     "id": "taisui_jiazi",
@@ -3496,7 +3944,15 @@
         "note": "具名太歲金辨大將軍、六十甲子輪流值歲、安太歲習俗（文化部典藏）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/deities/taisui_jiazi.webp",
+      "alt": "甲子太歲金辨大將軍",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C%E7%94%B2%E5%AD%90%E5%A4%AA%E6%AD%B2%E9%87%91%E8%BE%A8%E5%A4%A7%E5%B0%87%E8%BB%8D%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "taisui_yichou",
@@ -3530,7 +3986,15 @@
         "note": "具名太歲陳材大將軍、值年太歲定義、安太歲習俗（文化部典藏）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/deities/taisui_yichou.webp",
+      "alt": "乙丑太歲陳材大將軍",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C%E4%B9%99%E4%B8%91%E5%A4%AA%E6%AD%B2%E9%99%B3%E6%9D%90%E5%A4%A7%E5%B0%87%E8%BB%8D%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "taisui_bingyin",
@@ -3564,7 +4028,15 @@
         "note": "具名太歲耿章大將軍、值年太歲、安太歲習俗（文化部典藏；典藏單位雲林縣文化觀光處）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/deities/taisui_bingyin.webp",
+      "alt": "丙寅太歲耿章大將軍",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C%E4%B8%99%E5%AF%85%E5%A4%AA%E6%AD%B2%E8%80%BF%E7%AB%A0%E5%A4%A7%E5%B0%87%E8%BB%8D%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "qianliyan",
@@ -3644,7 +4116,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/千里眼"
-    ]
+    ],
+    "image": {
+      "src": "/deities/qianliyan.webp",
+      "alt": "千里眼",
+      "author": "舟集 Boattoad",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E5%8C%97%E8%88%88%E5%AE%89%E6%9C%83%E9%A4%A8_04_%E5%8D%83%E9%87%8C%E7%9C%BC.jpg"
+    }
   },
   {
     "id": "shunfenger",
@@ -3725,7 +4205,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/順風耳"
-    ]
+    ],
+    "image": {
+      "src": "/deities/shunfenger.webp",
+      "alt": "順風耳",
+      "author": "Rian15670905",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E8%82%A1%E9%BE%8D%E5%BE%B7%E5%AE%AE%E9%B3%B3%E9%BC%93%E6%A8%93%E9%A0%82%E9%A0%86%E9%A2%A8%E8%80%B3%E5%B0%87%E8%BB%8D.JPG"
+    }
   },
   {
     "id": "guanping",
@@ -3805,7 +4293,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/關平"
-    ]
+    ],
+    "image": {
+      "src": "/deities/guanping.webp",
+      "alt": "關平",
+      "author": "Unknown author",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Guan_Ping_Qing_portrait.jpg"
+    }
   },
   {
     "id": "zhoucang",
@@ -3887,7 +4383,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/周倉"
-    ]
+    ],
+    "image": {
+      "src": "/deities/zhoucang.webp",
+      "alt": "周倉",
+      "author": "Shizhao",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zhou_Cang_in_Beijing_opera.JPG"
+    }
   },
   {
     "id": "wenwang_qiansui",
@@ -3964,7 +4468,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/溫府千歲",
       "https://www.wikidata.org/wiki/Q10396614"
-    ]
+    ],
+    "image": {
+      "src": "/deities/wenwang_qiansui.webp",
+      "alt": "溫府千歲",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%B8%AF%E6%9D%B1%E9%9A%86%E5%AE%AE%E6%BA%AB%E5%BA%9C%E6%AD%A3%E4%BF%AE%E5%A0%82%E6%BA%AB%E5%BA%9C%E5%8D%83%E6%AD%B2_20250310.jpg"
+    }
   },
   {
     "id": "shier_wenwang",
@@ -4134,7 +4646,15 @@
     "draft": false,
     "sameAs": [
       "https://zh.wikipedia.org/wiki/趙公明"
-    ]
+    ],
+    "image": {
+      "src": "/deities/zhao_gongming.webp",
+      "alt": "趙公明",
+      "author": "ScribblingGeek",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zhao_Gongming_Caishen.jpg"
+    }
   },
   {
     "id": "zhuyi_shenjun",
@@ -4211,7 +4731,15 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/朱衣神",
       "https://www.wikidata.org/wiki/Q10331256"
-    ]
+    ],
+    "image": {
+      "src": "/deities/zhuyi_shenjun.webp",
+      "alt": "朱衣神君",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E6%98%8C%E5%AE%AE%E6%9C%B1%E8%A1%A3%E7%A5%9E%E5%90%9B%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "miaoying_xianfei",
@@ -4457,6 +4985,14 @@
     "sameAs": [
       "https://zh.wikipedia.org/wiki/地藏菩薩",
       "https://www.wikidata.org/wiki/Q1144347"
-    ]
+    ],
+    "image": {
+      "src": "/deities/dizang.webp",
+      "alt": "地藏王菩薩",
+      "author": "lienyuan lee",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%9C%B0%E8%97%8F%E7%8E%8B%E8%8F%A9%E8%96%A9_Ksitigarbha_Bodhisattva_-_panoramio.jpg"
+    }
   }
 ]

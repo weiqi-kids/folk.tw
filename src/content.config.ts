@@ -79,6 +79,17 @@ const deities = defineCollection({
     // 實體錨定：Wikidata／Wikipedia 等權威 URI（GEO 實體消歧，P2-6）
     sameAs: z.array(z.string()).default([]),
     sources: z.array(source).default([]),
+    // 代表圖（Wikimedia Commons，CC／公有領域）：神像／畫像／主祀廟；無合授權圖者留空、絕不杜撰。
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+        author: z.string(),
+        license: z.string(),
+        license_url: z.string().optional(),
+        source: z.string(),
+      })
+      .optional(),
     draft: z.boolean().default(false), // 無源不發佈 gate（§5）
   }),
 });
