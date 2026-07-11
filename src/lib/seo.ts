@@ -19,7 +19,7 @@ export function breadcrumb(items: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: it.name,
-      item: `${SITE}${it.path}`,
+      item: `${SITE}${it.path.endsWith('/') ? it.path : `${it.path}/`}`,
     })),
   };
 }

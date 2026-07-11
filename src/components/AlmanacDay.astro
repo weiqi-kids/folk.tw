@@ -81,13 +81,13 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
       <span class="nav-btn disabled">後一天 ›</span>
     )
   }
-  {!isToday && <a class="nav-btn today" href="/almanac">回今天</a>}
-  <a class="nav-btn" href="/almanac/archive">封存</a>
+  {!isToday && <a class="nav-btn today" href="/almanac/">回今天</a>}
+  <a class="nav-btn" href="/almanac/archive/">封存</a>
 </nav>
 <script is:inline define:vars={{ today }}>
   document.getElementById('almanac-date')?.addEventListener('change', (e) => {
     const v = e.target.value;
-    if (v) location.href = v === today ? '/almanac' : '/almanac/' + v;
+    if (v) location.href = v === today ? '/almanac/' : '/almanac/' + v + '/';
   });
 </script>
 
@@ -130,7 +130,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
       <dd>
         {
           birthdays.length > 0 ? (
-            birthdays.map((b, i) => (<>{i > 0 && '、'}<a href={`/deities/${b.deityId}`}>{b.name}</a></>))
+            birthdays.map((b, i) => (<>{i > 0 && '、'}<a href={`/deities/${b.deityId}/`}>{b.name}</a></>))
           ) : (
             <span class="muted">無</span>
           )
@@ -181,7 +181,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
       <ul class="links">
         {relatedPractices.map((p) => (
           <li>
-            <a href={`/practices/${p.id}`}>{p.data.title}</a>
+            <a href={`/practices/${p.id}/`}>{p.data.title}</a>
             {p.data.summary && <span class="muted small">　{p.data.summary}</span>}
           </li>
         ))}
@@ -196,7 +196,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
         {monthBirthdays.map((b) => (
           <li>
             <span class="muted small">{Number(b.date.slice(3))} 日</span>
-            <a href={`/deities/${b.deityId}`}>{b.name}</a>
+            <a href={`/deities/${b.deityId}/`}>{b.name}</a>
           </li>
         ))}
       </ul>

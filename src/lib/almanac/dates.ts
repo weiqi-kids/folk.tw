@@ -26,9 +26,9 @@ export function almanacRange(todayIso: string): { min: string; max: string } {
   return { min: ARCHIVE_START, max: addDays(todayIso, FUTURE_DAYS) };
 }
 
-/** 單一 canonical 連結：今日走 /almanac，其餘走 /almanac/YYYY-MM-DD。 */
+/** 單一 canonical 連結：今日走 /almanac/，其餘走 /almanac/YYYY-MM-DD/。 */
 export function almanacHref(iso: string, todayIso: string): string {
-  return iso === todayIso ? '/almanac' : `/almanac/${iso}`;
+  return iso === todayIso ? '/almanac/' : `/almanac/${iso}/`;
 }
 
 /** 封存內所有日期（不含今日；今日由 /almanac 提供，避免重複網址）。
