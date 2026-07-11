@@ -29,9 +29,24 @@ for (const p of practices) {
         <h2>{cat}</h2>
         <div class="grid cols">
           {list.map((p) => (
-            <a class="card" href={`/practices/${p.id}`}>
+            <a
+              class:list={['card', { 'card-photo': p.data.image }]}
+              href={`/practices/${p.id}`}
+            >
               <strong>{p.data.title}</strong>
               {p.data.summary && <div class="muted small">{p.data.summary}</div>}
+              {p.data.image && (
+                <img
+                  class="card-photo-img"
+                  src={p.data.image.src}
+                  alt={p.data.image.alt}
+                  title={`圖：${p.data.image.author}　·　${p.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
             </a>
           ))}
         </div>

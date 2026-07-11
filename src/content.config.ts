@@ -341,6 +341,17 @@ const practices = defineCollection({
       .default([]),
     summary: z.string().optional(),
     sources: z.array(source).default([]),
+    // 代表圖（Wikimedia Commons，CC／公有領域）：儀俗照；無合授權圖者留空、絕不杜撰。
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+        author: z.string(),
+        license: z.string(),
+        license_url: z.string().optional(),
+        source: z.string(),
+      })
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });
