@@ -29,12 +29,16 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
         const img = tradeImg(t);
         return (
           <a class:list={['card', 'trade-cell', { 'card-photo': img }]} href={`/trades/${t.id}`}>
-            <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
-            <span class="muted small">
-              {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+            <span class="card-head">
+              <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
             </span>
-            <span class="office muted small">
-              宜{t.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+            <span class="card-text">
+              <span class="muted small">
+                {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+              </span>
+              <span class="office muted small">
+                宜{t.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+              </span>
             </span>
             {img && (
               <img
@@ -59,7 +63,7 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
   </p>
 
   <style>
-    .trade-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .trade-cell .card-text { gap: 0.2rem; }
     .trade-cell strong { color: var(--ink); }
     .small { font-size: 0.98rem; }
     .trade-cell .muted { color: oklch(0.37 0.02 72); }

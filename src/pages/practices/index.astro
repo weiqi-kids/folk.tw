@@ -33,8 +33,12 @@ for (const p of practices) {
               class:list={['card', { 'card-photo': p.data.image }]}
               href={`/practices/${p.id}`}
             >
-              <strong>{p.data.title}</strong>
-              {p.data.summary && <div class="muted small">{p.data.summary}</div>}
+              <span class="card-head">
+                <strong>{p.data.title}</strong>
+              </span>
+              <span class="card-text">
+                {p.data.summary && <div class="muted small">{p.data.summary}</div>}
+              </span>
               {p.data.image && (
                 <img
                   class="card-photo-img"

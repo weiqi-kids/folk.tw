@@ -85,33 +85,36 @@ p { margin: 0.7rem 0; }
   border-radius: 0.5rem; padding: 1.1rem 1.25rem; margin: 0.8rem 0;
 }
 /* ── 卡片代表圖底圖（全站卡片統一呈現，首見於 /events）──
-   代表圖鋪在卡片右側、以斜向漸層遮罩往左柔和淡出（不硬切，主體＝神像頭臉完整保留），
-   文字直接疊壓在上、加紙色光暈保可讀。用法：
-     <a class="card card-photo"> …文字子元素… <img class="card-photo-img" src alt title loading="lazy"></a>
-   --pw 控制圖片覆蓋寬度（預設 60%）；object-position 偏上以保住頭部。
+   版面＝CSS Grid「文字欄 auto ｜ 圖片欄 1fr」：文字欄依內容自然撐開（過長才 wrap），
+   圖片欄吃掉剩餘寬度＝文字短圖片大、文字長圖片小，圖片多寡與位置由文字寬度決定。
+   圖片左緣以固定 rem 羽化並負邊距滑入交界，柔和淡入紙色（主體＝神像頭臉完整保留）。用法：
+     <a class="card card-photo"><span class="card-text">…文字子元素…</span>
+       <img class="card-photo-img" src alt title loading="lazy"></a>
    圖片務必為合授權來源（Commons CC／公有領域），並比照 /events 於 /about 標作者·授權，無圖留空。 */
-.card-photo { position: relative; overflow: hidden; --pw: 46%; }
+.card-text { display: flex; flex-direction: column; align-items: start; min-width: 0; }
+/* 版面＝標題整行（橫跨兩欄，永不被圖片擠斷）＋下一列「內文欄 auto ｜ 圖片欄 1fr」：
+   內文短→圖片大、內文長→圖片小，圖片多寡與位置由內文寬度決定。 */
+.card-photo {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(7rem, 1fr);
+  grid-template-areas: 'head head' 'body img';
+  align-items: stretch;
+  padding: 0; overflow: hidden;
+}
+.card-photo > .card-head { grid-area: head; padding: 1.05rem 1.2rem 0.3rem; min-width: 0; }
+.card-photo > .card-text { grid-area: body; padding: 0 1.1rem 1.05rem 1.2rem; }
 .card-photo-img {
-  position: absolute; right: 0; top: 0; bottom: 0;
-  width: var(--pw); height: 100%;
+  grid-area: img;
+  width: 100%; height: 100%; min-height: 4.6rem;
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
-  /* 短羽化只負責柔化圖片左硬邊；主漸層交給下方紙色襯底，兩者不再互相打架 */
-  -webkit-mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
-  mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
-  z-index: 0;
+  align-self: stretch;
+  margin-left: -1.2rem; /* 左緣滑入內文欄，讓羽化蓋在接縫上 */
+  /* 固定 rem 羽化：不論圖片欄多寬，左緣淡入帶恆為 ~2.4rem，正臉（圖片中段）永遠遠離漸層 */
+  -webkit-mask-image: linear-gradient(100deg, transparent 0, #000 2.4rem);
+  mask-image: linear-gradient(100deg, transparent 0, #000 2.4rem);
 }
-/* 主漸層＝紙色襯底：由左側文字區實心（48%）柔和淡出至透明（68%），
-   淡出帶正好落在圖片左段＝可見的漸層；68% 之後留給神像正臉的實心清楚區。 */
-.card-photo::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 48%, rgba(255, 255, 255, 0) 68%);
-  z-index: 0; pointer-events: none;
-}
-.card-photo > :not(.card-photo-img) {
-  position: relative; z-index: 1;
-  text-shadow: 0 0 5px var(--paper-2), 0 0 4px var(--paper-2), 0 0 3px var(--paper-2), 0 0 2px var(--paper-2);
-}
+.card-head strong { display: block; }
 .muted { color: var(--ink-soft); }
 .small { font-size: var(--text-sm); }
 .pending {
