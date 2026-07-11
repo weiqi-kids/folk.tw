@@ -84,6 +84,31 @@ p { margin: 0.7rem 0; }
   background: var(--paper-2); border: 1px solid var(--line);
   border-radius: 0.5rem; padding: 1.1rem 1.25rem; margin: 0.8rem 0;
 }
+/* ── 卡片斜切底圖（全站卡片統一呈現，首見於 /events）──
+   代表圖置於文字下層、填右下三角（卡片右邊 --pw × 下邊 --ph 的斜切），文字直接疊壓在上，
+   加 135° 紙色漸層遮罩＋文字光暈保可讀。用法：
+     <a class="card card-photo"> …文字子元素… <img class="card-photo-img" src alt title loading="lazy"></a>
+   尺寸可用 --pw/--ph 覆寫；圖片務必為合授權來源（Commons CC／公有領域），並比照 /events 於
+   /about 標作者·授權，無合授權圖者留空。 */
+.card-photo { position: relative; overflow: hidden; --pw: 70%; --ph: 50%; }
+.card-photo-img {
+  position: absolute; right: 0; bottom: 0;
+  width: var(--pw); height: var(--ph);
+  object-fit: cover;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  z-index: 0;
+}
+.card-photo::after {
+  content: ''; position: absolute; right: 0; bottom: 0;
+  width: var(--pw); height: var(--ph);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  background: linear-gradient(135deg, var(--paper-2) 0%, rgba(255, 255, 255, 0) 58%);
+  z-index: 0; pointer-events: none;
+}
+.card-photo > :not(.card-photo-img) {
+  position: relative; z-index: 1;
+  text-shadow: 0 0 4px var(--paper-2), 0 0 2px var(--paper-2);
+}
 .muted { color: var(--ink-soft); }
 .small { font-size: var(--text-sm); }
 .pending {

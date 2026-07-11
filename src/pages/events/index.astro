@@ -44,7 +44,7 @@ const groups = LEVELS.map((level) => ({
         </h2>
         <div class="ev-grid">
           {g.items.map((e) => (
-            <a class:list={['card', 'ev', { 'has-img': e.data.image }]} href={`/events/${e.id}`}>
+            <a class:list={['card', 'ev', { 'card-photo': e.data.image }]} href={`/events/${e.id}`}>
               <strong>{e.data.name}</strong>
               <div class="muted small when">
                 {CYCLE[e.data.cycle]}
@@ -62,7 +62,7 @@ const groups = LEVELS.map((level) => ({
               </div>
               {e.data.image && (
                 <img
-                  class="ev-thumb"
+                  class="card-photo-img"
                   src={e.data.image.src}
                   alt={e.data.image.alt}
                   title={`圖：${e.data.image.author}　·　${e.data.image.license}（Wikimedia Commons，詳見關於頁）`}
@@ -96,36 +96,6 @@ const groups = LEVELS.map((level) => ({
     .when { color: var(--accent-soft); }
     .small { font-size: 0.88rem; }
     .chips { margin-top: 0.1rem; }
-    /* 代表圖當底圖：右下 1/4 斜切三角（卡片「右邊中點→下邊中點」連線），
-       圖置於文字下層、文字直接壓在圖上（加 paper 光暈保可讀性） */
-    .ev.has-img { position: relative; overflow: hidden; --tw: 70%; --th: 50%; }
-    .ev-thumb {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: var(--tw);
-      height: var(--th);
-      object-fit: cover;
-      clip-path: polygon(100% 0, 100% 100%, 0 100%);
-      z-index: 0;
-    }
-    /* 紙色漸層遮罩：左上濃→右下透明，讓壓在圖上的字乾淨、又不擋照片主體 */
-    .ev.has-img::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: var(--tw);
-      height: var(--th);
-      clip-path: polygon(100% 0, 100% 100%, 0 100%);
-      background: linear-gradient(135deg, var(--paper-2) 0%, rgba(255, 255, 255, 0) 58%);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .ev.has-img > :not(.ev-thumb) {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 4px var(--paper-2), 0 0 2px var(--paper-2);
-    }
+    /* 斜切底圖呈現＝全站共用 .card-photo（見 global.css）；此頁沿用預設 70%×50% */
   </style>
 </Base>
