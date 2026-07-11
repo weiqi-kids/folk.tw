@@ -100,9 +100,15 @@ p { margin: 0.7rem 0; }
   mask-image: linear-gradient(115deg, transparent 15%, #000 55%);
   z-index: 0;
 }
+/* 紙色襯底：蓋在圖上、文字下方，左濃右透，讓壓在圖上的字有足夠底色可讀 */
+.card-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg, var(--paper-2) 30%, rgba(255, 255, 255, 0) 66%);
+  z-index: 0; pointer-events: none;
+}
 .card-photo > :not(.card-photo-img) {
   position: relative; z-index: 1;
-  text-shadow: 0 0 4px var(--paper-2), 0 0 3px var(--paper-2), 0 0 2px var(--paper-2);
+  text-shadow: 0 0 5px var(--paper-2), 0 0 4px var(--paper-2), 0 0 3px var(--paper-2), 0 0 2px var(--paper-2);
 }
 .muted { color: var(--ink-soft); }
 .small { font-size: var(--text-sm); }
