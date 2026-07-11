@@ -46,11 +46,11 @@ const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.lengt
 
   {
     towns.length > 0 && (
-      <div class="grid regions">
+      <div class="town-wall">
         {towns.map((r) => (
-          <a class="card region" href={`/temples/region/${slug}/${r.town}/`}>
+          <a class="card town" href={`/temples/region/${slug}/${r.town}/`}>
             <strong>{r.town}</strong>
-            <span class="muted small">{r.n} 間</span>
+            <span class="muted count">{r.n}</span>
           </a>
         ))}
       </div>
@@ -61,7 +61,7 @@ const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.lengt
     other.length > 0 && (
       <>
         <h2>其他（鄉鎮未判定）</h2>
-        <div class="grid">
+        <div class="grid cols">
           {other.map((t) => (
             <a class="card temple" href={`/temples/${t.id}/`}>
               <strong>{t.data.name}</strong>
@@ -79,7 +79,21 @@ const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.lengt
   <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
   <style>
     .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .region strong { color: var(--ink); }
+    .town-wall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+      gap: 0.6rem;
+    }
+    .town {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.6rem 0.85rem;
+      margin: 0;
+    }
+    .town strong { color: var(--ink); }
+    .town .count { font-size: var(--text-sm); }
     .temple { display: flex; flex-direction: column; gap: 0.25rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: 0.85rem; }

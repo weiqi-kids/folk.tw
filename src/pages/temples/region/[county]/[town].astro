@@ -42,7 +42,7 @@ const cName = countyName(slug) ?? slug;
   </nav>
   <h1>{cName}{town}廟宇</h1>
   <p class="muted">{cName}{town}收錄 {temples.length} 間。點主祀神可連到神明圖譜。</p>
-  <div class="grid">
+  <div class="grid cols">
     {
       temples.map((t) => (
         <a class="card temple" href={`/temples/${t.id}/`}>
