@@ -6,6 +6,8 @@ import comparisons from '../../data/comparisons.json';
 
 const deities = await getDeities();
 const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+// 卡片代表圖重用對照組首位神明（a）的神明圖
+const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
 ---
 
 <Base
@@ -21,12 +23,27 @@ const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 
   <div class="grid cols">
     {
-      comparisons.map((c) => (
-        <a class="card cmp-cell" href={`/compare/${c.slug}`}>
-          <strong>{nameById.get(c.a) ?? c.a}　vs　{nameById.get(c.b) ?? c.b}</strong>
-          <span class="muted small">{c.a_focus}｜{c.b_focus}</span>
-        </a>
-      ))
+      comparisons.map((c) => {
+        const img = imgById.get(c.a);
+        return (
+          <a class:list={['card', 'cmp-cell', { 'card-photo': img }]} href={`/compare/${c.slug}`}>
+            <strong>{nameById.get(c.a) ?? c.a}　vs　{nameById.get(c.b) ?? c.b}</strong>
+            <span class="muted small">{c.a_focus}｜{c.b_focus}</span>
+            {img && (
+              <img
+                class="card-photo-img"
+                src={img.src}
+                alt={img.alt}
+                title={`圖：${img.author}　·　${img.license}（Wikimedia Commons，詳見關於頁）`}
+                width="72"
+                height="72"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </a>
+        );
+      })
     }
   </div>
 

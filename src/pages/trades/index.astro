@@ -7,6 +7,9 @@ import { affairNameOf } from '../../lib/almanac/select';
 const trades = await getTrades();
 const deities = await getDeities();
 const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+// 卡片代表圖重用主要守護神的神明圖（首位 patron），不另備圖
+const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
+const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.deity_ref);
 ---
 
 <Base
@@ -22,17 +25,32 @@ const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 
   <div class="grid cols">
     {
-      trades.map((t) => (
-        <a class="card trade-cell" href={`/trades/${t.id}`}>
-          <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
-          <span class="muted small">
-            {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
-          </span>
-          <span class="office muted small">
-            宜{t.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
-          </span>
-        </a>
-      ))
+      trades.map((t) => {
+        const img = tradeImg(t);
+        return (
+          <a class:list={['card', 'trade-cell', { 'card-photo': img }]} href={`/trades/${t.id}`}>
+            <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
+            <span class="muted small">
+              {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+            </span>
+            <span class="office muted small">
+              宜{t.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+            </span>
+            {img && (
+              <img
+                class="card-photo-img"
+                src={img.src}
+                alt={img.alt}
+                title={`圖：${img.author}　·　${img.license}（Wikimedia Commons，詳見關於頁）`}
+                width="72"
+                height="72"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </a>
+        );
+      })
     }
   </div>
 

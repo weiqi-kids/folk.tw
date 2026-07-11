@@ -7,6 +7,9 @@ import { affairNameOf } from '../../lib/almanac/select';
 const scenarios = await getScenarios();
 const deities = await getDeities();
 const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
+// 卡片代表圖重用主要守護神的神明圖（首位 patron）
+const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
+const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]?.deity_ref);
 ---
 
 <Base
@@ -22,17 +25,32 @@ const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 
   <div class="grid cols">
     {
-      scenarios.map((s) => (
-        <a class="card scen-cell" href={`/scenarios/${s.id}`}>
-          <strong>{s.data.name}</strong>
-          <span class="muted small">
-            {s.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
-          </span>
-          <span class="office muted small">
-            宜{s.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
-          </span>
-        </a>
-      ))
+      scenarios.map((s) => {
+        const img = scenImg(s);
+        return (
+          <a class:list={['card', 'scen-cell', { 'card-photo': img }]} href={`/scenarios/${s.id}`}>
+            <strong>{s.data.name}</strong>
+            <span class="muted small">
+              {s.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
+            </span>
+            <span class="office muted small">
+              宜{s.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
+            </span>
+            {img && (
+              <img
+                class="card-photo-img"
+                src={img.src}
+                alt={img.alt}
+                title={`圖：${img.author}　·　${img.license}（Wikimedia Commons，詳見關於頁）`}
+                width="72"
+                height="72"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </a>
+        );
+      })
     }
   </div>
 
