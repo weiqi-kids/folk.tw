@@ -27,7 +27,15 @@
     "website": "https://www.dajiamazu.org.tw/",
     "founded": "清雍正10年（1732）",
     "history": "相傳清雍正8年（1730）湄洲人林永興奉請媽祖神像來台奉祀，雍正10年（1732）地方縉紳興建小祠。清乾隆35年（1770）改建為「天后宮」，乾隆52年（1787）由大甲分司宗覲庭、士紳等獻地重建擴建，改稱「鎮瀾宮」。1980年動工重建，1988年落成。",
-    "main_festival": "農曆三月「大甲媽祖遶境進香」，九天八夜跨台中、彰化、雲林、嘉義四縣市，2011年獲指定為國家重要民俗。"
+    "main_festival": "農曆三月「大甲媽祖遶境進香」，九天八夜跨台中、彰化、雲林、嘉義四縣市，2011年獲指定為國家重要民俗。",
+    "image": {
+      "src": "/temples/dajia_zhenlan.webp",
+      "alt": "大甲鎮瀾宮",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dajia_Jenn_Lann_Temple-02.2024-08-27.jpg"
+    }
   },
   {
     "id": "baishatun_gongtian",
@@ -57,7 +65,15 @@
     "website": "https://www.baishatunmazu.org.tw/",
     "founded": "清同治2年（1863）",
     "history": "清乾隆年間陳志城等人入墾白沙屯，居民奉請軟身媽祖（白沙屯媽）於民宅供奉。咸豐晚年村民倡議集資建廟，於同治2年（1863）建成拱天宮。主祀天上聖母。",
-    "main_festival": "農曆三月「白沙屯媽祖徒步進香」，無固定路線與日期、由神轎指示方向，終點為北港朝天宮，2011年獲指定為國家重要民俗。"
+    "main_festival": "農曆三月「白沙屯媽祖徒步進香」，無固定路線與日期、由神轎指示方向，終點為北港朝天宮，2011年獲指定為國家重要民俗。",
+    "image": {
+      "src": "/temples/baishatun_gongtian.webp",
+      "alt": "白沙屯拱天宮",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%99%BD%E6%B2%99%E5%B1%AF%E6%8B%B1%E5%A4%A9%E5%AE%AE%E6%AD%A3%E9%9D%A2%E7%85%A7.jpg"
+    }
   },
   {
     "id": "beigang_chaotian",
@@ -90,7 +106,15 @@
     "website": "https://www.matsu.org.tw/",
     "founded": "清康熙33年（1694）",
     "history": "清康熙33年（1694）臨濟正宗第34代樹璧和尚自福建湄洲朝天閣迎請媽祖金身來台，於笨港建廟。1730年改稱「天后宮」，1775年大修，1812年改稱「朝天宮」，日治1907至1912年由陳應彬主持大規模重建。1985年列二級古蹟，1997年改制為國定古蹟。",
-    "main_festival": "農曆三月廿三日天上聖母聖誕為春祭；農曆三月十九、二十日「北港迎媽祖」遶境規模最盛。"
+    "main_festival": "農曆三月廿三日天上聖母聖誕為春祭；農曆三月十九、二十日「北港迎媽祖」遶境規模最盛。",
+    "image": {
+      "src": "/temples/beigang_chaotian.webp",
+      "alt": "北港朝天宮",
+      "author": "Naplee12",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chaotian_Temple_20120716.jpg"
+    }
   },
   {
     "id": "donggang_dongling",
@@ -123,7 +147,15 @@
     "website": "https://www.66.org.tw/",
     "founded": "相傳清康熙四十五年（1706）創建",
     "history": "相傳康熙四十五年（1706）東港海岸發現漂來神木，居民以之興建溫王爺廟，取名「東隆宮」，為臺灣溫王信仰肇基之始。清光緒二十年（1894）海嘯大水災致廟坍毀，遷至「浮水蓮花」地穴重建。戰後歷經多次重建整修，以新修正殿及金製「黃金牌樓」著稱。",
-    "main_festival": "主祀溫府千歲；「東港迎王平安祭典」三年一科，以燒王船「送王」為壓軸，2011年列為國家重要民俗。"
+    "main_festival": "主祀溫府千歲；「東港迎王平安祭典」三年一科，以燒王船「送王」為壓軸，2011年列為國家重要民俗。",
+    "image": {
+      "src": "/temples/donggang_dongling.webp",
+      "alt": "東港東隆宮",
+      "author": "Adece033090",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%B8%AF%E6%9D%B1%E9%9A%86%E5%AE%AE20230822.jpg"
+    }
   },
   {
     "id": "xigang_qingan",
@@ -142,7 +174,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006",
         "note": "國定重要民俗西港香（刈香王醮）主辦廟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/xigang_qingan.webp",
+      "alt": "西港玉勅慶安宮",
+      "author": "Suzuki1314 at Chinese Wikipedia",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E6%B8%AF%E6%85%B6%E5%AE%89%E5%AE%AE.JPG"
+    }
   },
   {
     "id": "jilong_zhuputan",
@@ -161,7 +201,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
         "note": "國定重要民俗雞籠中元祭，起源咸豐5年（1855年）漳泉械鬥後整合字姓輪值制度"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/jilong_zhuputan.webp",
+      "alt": "基隆主普壇",
+      "author": "大摩 Bigmorr",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Keelung_Mid-Summer_Festival_2007_001.jpg"
+    }
   },
   {
     "id": "wanhua_qingshan",
@@ -199,7 +247,15 @@
     "website": "https://www.mjcsg.org.tw/",
     "founded": "清咸豐六年（1856）",
     "history": "主祀青山靈安尊王，相傳1854年（咸豐4年）艋舺瘟疫，泉州府惠安籍漁民自惠安青山宮分靈尊王來艋舺奉祀；1856年（咸豐6年）於蕃薯市街（今貴陽街現址）建廟，1859年落成。為泉州三邑惠安人的信仰中心，1985年公告為直轄市定古蹟，「艋舺青山宮暗訪暨遶境」2010年登錄為無形文化資產。",
-    "main_festival": "青山靈安尊王聖誕為農曆十月二十二日，每年農曆十月二十至二十三日舉行青山王祭（含暗訪、正日遶境），俗稱「艋舺大拜拜」。"
+    "main_festival": "青山靈安尊王聖誕為農曆十月二十二日，每年農曆十月二十至二十三日舉行青山王祭（含暗訪、正日遶境），俗稱「艋舺大拜拜」。",
+    "image": {
+      "src": "/temples/wanhua_qingshan.webp",
+      "alt": "艋舺青山宮",
+      "author": "Yu tptw",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Manka_Qingshan_Temple_20220617.jpg"
+    }
   },
   {
     "id": "yanshui_wumiao",
@@ -218,7 +274,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004",
         "note": "台南市定民俗「鹽水蜂炮」主辦廟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/yanshui_wumiao.webp",
+      "alt": "鹽水武廟",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E5%8D%97%E9%B9%BD%E6%B0%B4%E6%AD%A6%E5%BB%9F.JPG"
+    }
   },
   {
     "id": "neimen_zizhusi",
@@ -237,7 +301,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001",
         "note": "國定重要民俗「內門宋江陣（羅漢門迎佛祖）」主辦廟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/neimen_zizhusi.webp",
+      "alt": "內門紫竹寺",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A7%E9%96%80%E7%B4%AB%E7%AB%B9%E5%AF%BA.JPG"
+    }
   },
   {
     "id": "toucheng_zhongyuan",
@@ -256,7 +328,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002",
         "note": "宜蘭縣定民俗「頭城搶孤」主辦廟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/toucheng_zhongyuan.webp",
+      "alt": "頭城慶元宮",
+      "author": "創作者：蔡明志/ 葉永韶。貢獻者：宜蘭縣政府文化局",
+      "license": "CC BY 3.0 tw",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/tw/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%A0%AD%E5%9F%8E%E6%85%B6%E5%85%83%E5%AE%AE%E5%BB%BA%E7%AF%89%E6%B2%BF%E9%9D%A9.jpg"
+    }
   },
   {
     "id": "xinpu_baozhongting_yimiao",
@@ -275,7 +355,15 @@
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
         "note": "國定重要民俗「褒忠亭義民節祭典」主辦廟；新竹縣縣定古蹟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/xinpu_baozhongting_yimiao.webp",
+      "alt": "新埔褒忠亭義民廟",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E7%AB%B9%E6%96%B0%E5%9F%94%E8%A4%92%E5%BF%A0%E4%BA%AD%E7%BE%A9%E6%B0%91%E5%BB%9F%E7%9A%84%E8%A4%92%E5%BF%A0%E5%8C%BE.jpg"
+    }
   },
   {
     "id": "songshan_ciyou",
@@ -305,7 +393,15 @@
     "website": "https://www.ssjyg.org.tw/",
     "founded": "清乾隆18年（1753）勘址，乾隆22年（1757）落成",
     "history": "廟方宮誌載行腳僧林守義於乾隆18年（1753）勘輿選址，乾隆22年（1757）廟成，初名「錫口媽祖宮」。日治1915年由福州名匠全面改建，1937年重修。後配合地名改稱「松山慈祐宮」。正殿主祀黑面天上聖母。",
-    "main_festival": "農曆三月廿三至廿六日媽祖聖誕遶境，範圍涵蓋十三街庄。"
+    "main_festival": "農曆三月廿三至廿六日媽祖聖誕遶境，範圍涵蓋十三街庄。",
+    "image": {
+      "src": "/temples/songshan_ciyou.webp",
+      "alt": "松山慈祐宮",
+      "author": "Cmglee",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Taipei_Ciyou_Temple_facade.jpg"
+    }
   },
   {
     "id": "dalongdong_baoan",
@@ -348,7 +444,15 @@
     "website": "https://www.baoan.org.tw/",
     "founded": "清乾隆七年（1742）草創；現址廟宇清嘉慶十年（1805）募建、道光十年（1830）落成",
     "history": "主祀保生大帝，香火源自泉州同安白礁慈濟宮分靈。乾隆七年（1742）草創，嘉慶十年（1805）募款興建、道光十年（1830）落成，大正六至八年（1917-1919）由郭塔與陳應彬「對場作」大規模重修。修復工程2003年獲UNESCO亞太區文物古蹟保護獎榮譽獎，2018年指定為國定古蹟。",
-    "main_festival": "以農曆三月十五日保生大帝聖誕為核心，行三獻禮並施放「放火獅」，1994年起每年舉辦「保生文化祭」。"
+    "main_festival": "以農曆三月十五日保生大帝聖誕為核心，行三獻禮並施放「放火獅」，1994年起每年舉辦「保生文化祭」。",
+    "image": {
+      "src": "/temples/dalongdong_baoan.webp",
+      "alt": "大龍峒保安宮",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E9%BE%8D%E5%B3%92%E4%BF%9D%E5%AE%89%E5%AE%AE20171210_1_(2).jpg"
+    }
   },
   {
     "id": "wanhua_longshan",
@@ -388,7 +492,15 @@
     "website": "https://www.lungshan.org.tw/",
     "founded": "清乾隆三年（1738）",
     "history": "創建於清乾隆三年（1738），主祀觀世音菩薩，分靈自福建晉江安海龍山寺。現貌主要為日治大正九年（1920）由泉州名匠王益順設計改建；二戰末1945年臺北大空襲正殿遭炸毀，戰後重建，1959年完工安座。1985年指定為古蹟，2018年升格為國定古蹟。",
-    "main_festival": "農曆二月十九日觀世音菩薩聖誕為主要祭典。"
+    "main_festival": "農曆二月十九日觀世音菩薩聖誕為主要祭典。",
+    "image": {
+      "src": "/temples/wanhua_longshan.webp",
+      "alt": "艋舺龍山寺",
+      "author": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Taipei_Taiwan_Mengjia-Longshan-Temple-00.jpg"
+    }
   },
   {
     "id": "taipei_xingtian",
@@ -421,7 +533,15 @@
     "website": "https://www.ht.org.tw/",
     "founded": "民國57年（1968）",
     "history": "由玄空師父（黃欉居士，1911-1970）獨力捐資興建，台北本宮於民國53年（1964）動土、民國57年（1968）1月25日慶成，與三峽行修宮、北投分宮合稱「行天三宮」。主祀關聖帝君（恩主公），以不焚化金紙、不設功德箱、不收香油錢、不供奉牲禮、不設乩扶鸞為特色，並提供收驚等免費濟世科儀。",
-    "main_festival": "關聖帝君聖誕，農曆六月二十四日。"
+    "main_festival": "關聖帝君聖誕，農曆六月二十四日。",
+    "image": {
+      "src": "/temples/taipei_xingtian.webp",
+      "alt": "行天宮",
+      "author": "Wikimedia Commons contributor",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Hsing_Tian_Kong_20051228.jpg"
+    }
   },
   {
     "id": "dadaocheng_xiahai",
@@ -454,7 +574,15 @@
     "website": "http://www.tpecitygod.org/",
     "founded": "清咸豐六年（1856）興建、咸豐九年（1859）落成",
     "history": "清道光元年（1821）同安人奉泉州府同安縣霞海城隍神像來臺，初奉於艋舺八甲庄。咸豐三年（1853）頂下郊拚械鬥，落敗的同安人攜神像遷至大稻埕；咸豐六年（1856）街民捐款於南街建廟，咸豐九年（1859）落成。1985年公告為直轄市定古蹟，現以月老信俗聞名全臺。",
-    "main_festival": "霞海城隍聖誕為農曆五月十三日，當日舉行迎城隍遶境（大稻埕迎城隍），素有「五月十三人看人」之稱。"
+    "main_festival": "霞海城隍聖誕為農曆五月十三日，當日舉行迎城隍遶境（大稻埕迎城隍），素有「五月十三人看人」之稱。",
+    "image": {
+      "src": "/temples/dadaocheng_xiahai.webp",
+      "alt": "台北霞海城隍廟",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg"
+    }
   },
   {
     "id": "tainan_fu_chenghuang",
@@ -473,7 +601,15 @@
         "ref": "台灣府城隍廟官網 https://www.twcitygod.org.tw/",
         "note": "廟方官網；「爾來了」大匾與大算盤為著名文物"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/tainan_fu_chenghuang.webp",
+      "alt": "台灣府城隍廟",
+      "author": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_Prefectural-City-God-Temple-Tainan-01.jpg"
+    }
   },
   {
     "id": "tainan_da_tianhou",
@@ -506,7 +642,15 @@
     "website": "https://www.gtainanmazu.org.tw/",
     "founded": "明永曆卅七年（1683）由寧靖王府邸改為東寧天妃宮；康熙廿三年（1684）施琅奏請改建為天后宮",
     "history": "原為明寧靖王朱術桂府邸，永曆卅七年（1683）改為「東寧天妃宮」。康熙廿三年（1684）清廷晉封天妃為天后，廟改稱天后宮；康熙五十九年（1720）納入春秋祀典，遂稱「祀典大天后宮」。嘉慶廿三年（1818）遭火災，由府城三郊主持重建，至道光十年（1830）完成。民國七十四年（1985）公告為第一級古蹟，現為國定古蹟。",
-    "main_festival": "主祀天上聖母，例祭為農曆三月廿三日媽祖聖誕。"
+    "main_festival": "主祀天上聖母，例祭為農曆三月廿三日媽祖聖誕。",
+    "image": {
+      "src": "/temples/tainan_da_tianhou.webp",
+      "alt": "祀典大天后宮",
+      "author": "Mengmengann",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%A5%80%E5%85%B8%E5%A4%A7%E5%A4%A9%E5%90%8E%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "nankunshen_daitian",
@@ -541,7 +685,15 @@
     "website": "https://www.nkstemple.org.tw/",
     "founded": "明永曆十六年（1662）創建落成於南鯤鯓嶼",
     "history": "明永曆十六年（1662）創建於南鯤鯓沙洲。原址因沙洲遭海水侵蝕，信眾於嘉慶廿二年（1817）決議遷建，道光二年（1822）於北門槺榔山虎峰地帶竣工，定名代天府。同治三年（1864）重修，日治時期（1923–1937）由泉州名匠王益順等大規模擴建。民國七十四年（1985）指定為國定古蹟。",
-    "main_festival": "主祀李、池、吳、朱、范五府千歲；五府千歲進香期於2013年公告為國家重要民俗。"
+    "main_festival": "主祀李、池、吳、朱、范五府千歲；五府千歲進香期於2013年公告為國家重要民俗。",
+    "image": {
+      "src": "/temples/nankunshen_daitian.webp",
+      "alt": "南鯤鯓代天府",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E9%AF%A4%E9%AF%93%E4%BB%A3%E5%A4%A9%E5%BA%9C.JPG"
+    }
   },
   {
     "id": "beigang_wude",
@@ -574,7 +726,15 @@
     "website": "https://www.wude.org.tw/",
     "founded": "1970年前後設壇，1980年於現址落成入火安座",
     "history": "創辦人陳茂霖於1955年在北港中山路開設保生堂中藥舖；1970年前後經扶乩確認宅中供奉者為武財神趙公明（神尊相傳道光年間由陳姓信徒自山東迎請來臺），遂塑金身設壇，啟用「武德宮」之名。1978年捐地興建新廟，1980年於現址落成入火安座，為全臺第一間五路財神廟。廟埕「天庫」金爐2015年獲金氏世界紀錄認證為全球最大金爐。",
-    "main_festival": "主祀五路武財神趙公明（玄壇真君），例祭為農曆三月十五日武財神聖誕。"
+    "main_festival": "主祀五路武財神趙公明（玄壇真君），例祭為農曆三月十五日武財神聖誕。",
+    "image": {
+      "src": "/temples/beigang_wude.webp",
+      "alt": "北港武德宮",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beigang_Wude_Temple-06.2024-09-18.jpg"
+    }
   },
   {
     "id": "lugang_tianhou",
@@ -602,7 +762,15 @@
     "website": "https://www.lugangmazu.org/",
     "founded": "明萬曆19年（1591）創建，清雍正3年（1725）遷建現址",
     "history": "相傳明萬曆19年（1591）當地民眾集資建鹿港天妃廟。1683年施琅平台時迎請湄洲開基媽祖神像來台並留祀本宮。雍正3年（1725）施世榜獻地遷建現址。1927至1936年由辜顯榮等倡議改築，奠定今日規模。2019年升格為國定古蹟，奉祀湄洲開基天上聖母神尊。",
-    "main_festival": "農曆三月廿三日天上聖母聖誕例祭。"
+    "main_festival": "農曆三月廿三日天上聖母聖誕例祭。",
+    "image": {
+      "src": "/temples/lugang_tianhou.webp",
+      "alt": "鹿港天后宮",
+      "author": "Regina800809",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%B9%BF%E6%B8%AF%E5%A4%A9%E5%90%8E%E5%AE%AE.JPG"
+    }
   },
   {
     "id": "xuejia_cijigong",
@@ -635,7 +803,15 @@
     "website": "https://www.tcgs.org.tw/",
     "founded": "清康熙四十年（1701）正式建廟（神像相傳明鄭時期由李勝迎奉來臺）",
     "history": "保生大帝開基神像「開基二大帝」相傳於明鄭時期由李勝自福建泉州白礁迎奉來臺，初奉於下社角。康熙四十年（1701）正式建廟，其後歷經乾隆九年（1744）、嘉慶十一年（1806）、咸豐十年（1860）等多次整建。民國七十四年（1985）登錄為臺南市定古蹟。",
-    "main_festival": "主祀保生大帝，聖誕為農曆三月十五日；每年農曆三月十一日舉行「上白礁」謁祖祭典，逢子、辰、申年擴大舉辦「學甲香」刈香（2022年登錄國家重要民俗）。"
+    "main_festival": "主祀保生大帝，聖誕為農曆三月十五日；每年農曆三月十一日舉行「上白礁」謁祖祭典，逢子、辰、申年擴大舉辦「學甲香」刈香（2022年登錄國家重要民俗）。",
+    "image": {
+      "src": "/temples/xuejia_cijigong.webp",
+      "alt": "學甲慈濟宮",
+      "author": "Guan Zhen Chen",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%AD%B8%E7%94%B2%E6%85%88%E6%BF%9F%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "madou_daitian",
@@ -668,7 +844,15 @@
     "website": "https://www.5god.com.tw/",
     "founded": "前身「保寧宮」相傳明永曆十六年（1662）創建；今廟重建於民國四十五年（1956）、民國五十五年（1966）完工",
     "history": "前身相傳為明永曆十六年（1662）創建之「保寧宮」，奉祀李、池、吳三府千歲。清乾隆二十年（1755）後麻豆港衰落，咸豐七年（1857）廟遷麻豆頂街改名「保安宮」。民國四十五年（1956）於今址重建、五十五年（1966）完工，並擴祀朱、范二王，合稱五府千歲。民國六十五年（1976）首辦祈安清醮。",
-    "main_festival": "主祀五府千歲；「麻豆香」遶境每三年（牛、龍、羊、狗年）一科，於農曆三、四月間舉行；建醮大典約每十二年（龍年）啟建一次。"
+    "main_festival": "主祀五府千歲；「麻豆香」遶境每三年（牛、龍、羊、狗年）一科，於農曆三、四月間舉行；建醮大典約每十二年（龍年）啟建一次。",
+    "image": {
+      "src": "/temples/madou_daitian.webp",
+      "alt": "麻豆代天府",
+      "author": "Craigbossley",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C_Madou_Daitian_Temple_entrance.jpg"
+    }
   },
   {
     "id": "jilong_laodagong",
@@ -706,7 +890,15 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001016&id=2229",
         "note": "新北市定古蹟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/xinzhuang_dizhong_mazu.webp",
+      "alt": "新莊地藏庵（地藏王廟）",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5%E6%AD%A3%E9%9D%A2%E7%85%A7.jpg"
+    }
   },
   {
     "id": "luermen_shengmu",
@@ -734,7 +926,15 @@
     "website": "https://luermen.org.tw/",
     "founded": "相傳古鹿耳門媽祖廟歷史逾四百年；今廟二建於1918年",
     "history": "相傳古鹿耳門已建小廟奉祀鹿耳門媽祖，1661年鄭成功登陸鹿耳門曾向廟焚香祝禱。道光年後台江內海陸化，1831年古廟傾圮，神像「寄佛」於府城海安宮。1918年土城居民以沉沒古廟建材二建大廟、迎回寄佛神像；1975年三度重建為現貌。民國49年（1960）定名「正統鹿耳門聖母廟」。",
-    "main_festival": "農曆三月媽祖聖誕祭典；逢年另有鹿耳門迎春牛、香醮等活動。"
+    "main_festival": "農曆三月媽祖聖誕祭典；逢年另有鹿耳門迎春牛、香醮等活動。",
+    "image": {
+      "src": "/temples/luermen_shengmu.webp",
+      "alt": "正統鹿耳門聖母廟",
+      "author": "阿道",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Orthodox_Luermen_Sheng-Mu_Temple-01.2024-10-08.jpg"
+    }
   },
   {
     "id": "tainan_kaiji_tianhou",
@@ -753,7 +953,15 @@
         "ref": "台南市文化資產管理處 https://tmach-culture.tainan.gov.tw/",
         "note": "台南市市定古蹟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/tainan_kaiji_tianhou.webp",
+      "alt": "台南開基天后宮",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E5%8D%97%E9%96%8B%E5%9F%BA%E5%A4%A9%E5%90%8E%E5%AE%AE.JPG"
+    }
   },
   {
     "id": "xinying_nankun_fenci",
@@ -772,7 +980,15 @@
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001119&id=2636",
         "note": "台灣知名三太子廟"
       }
-    ]
+    ],
+    "image": {
+      "src": "/temples/xinying_nankun_fenci.webp",
+      "alt": "新營太子宮",
+      "author": "Candyji",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CC-Candyji-%E6%96%B0%E7%87%9F%E5%A4%AA%E5%AD%90%E5%AE%AE1_3.0.jpg"
+    }
   },
   {
     "id": "moi_0_竹圍仔福德祠",
@@ -92317,7 +92533,7 @@
     "main_deity_ref": "tudigong",
     "district": "屏東縣長治鄉復興村新興路",
     "lng": 0.000321865256410092,
-    "lat": 0.0000751018887967803,
+    "lat": 7.51018887967803e-05,
     "sources": [
       {
         "type": "gov",

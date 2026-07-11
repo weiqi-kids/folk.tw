@@ -207,6 +207,17 @@ const temples = defineCollection({
     history: z.string().optional(), // 沿革 2–4 句（客觀事實）
     main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句
     sources: z.array(source).default([]),
+    // 代表圖（Wikimedia Commons，CC／公有領域）：廟宇建築照；無合授權圖者留空、絕不杜撰。
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+        author: z.string(),
+        license: z.string(),
+        license_url: z.string().optional(),
+        source: z.string(),
+      })
+      .optional(),
   }),
 });
 

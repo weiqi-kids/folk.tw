@@ -46,12 +46,27 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
         <h2>代表名廟</h2>
         <div class="grid cols">
           {featured.map((t) => (
-            <a class="card temple" href={`/temples/${t.id}`}>
+            <a
+              class:list={['card', 'temple', { 'card-photo': t.data.image }]}
+              href={`/temples/${t.id}`}
+            >
               <strong>{t.data.name}</strong>
               <span class="muted small">
                 {t.data.district}
                 {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
               </span>
+              {t.data.image && (
+                <img
+                  class="card-photo-img"
+                  src={t.data.image.src}
+                  alt={t.data.image.alt}
+                  title={`圖：${t.data.image.author}　·　${t.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
             </a>
           ))}
         </div>

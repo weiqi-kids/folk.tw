@@ -1,12 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import { breadcrumb } from '../lib/seo';
-import { getEvents, getDeities } from '../lib/queries';
+import { getEvents, getDeities, getTemples } from '../lib/queries';
 
 // 圖片來源彙整：代表圖皆取自 Wikimedia Commons（CC／公有領域），逐張標作者·授權·出處。
-const imageCredits = [...(await getDeities()), ...(await getEvents())]
-  .filter((e) => e.data.image)
-  .map((e) => ({ name: e.data.name, ...e.data.image! }));
+const creditOf = (items: { data: { name: string; image?: unknown } }[]) =>
+  items.filter((e) => e.data.image).map((e) => ({ name: e.data.name, ...(e.data.image as any) }));
+const creditGroups = [
+  { label: '神明', items: creditOf(await getDeities()) },
+  { label: '廟宇', items: creditOf(await getTemples()) },
+  { label: '民俗活動', items: creditOf(await getEvents()) },
+].filter((g) => g.items.length > 0);
 
 // 常見問答（AEO：問答友善＋FAQPage schema）
 const faqs = [
@@ -121,27 +125,32 @@ const faqLd = {
       並依授權標示原作者與條款；找不到合授權圖片的活動一律留空、不使用未授權圖。
       圖片經縮圖處理、自存於本站（非熱連）。以下為逐張出處：
     </p>
-    <ul class="credits">
-      {
-        imageCredits.map((c) => (
-          <li>
-            <a href={c.source} target="_blank" rel="noopener nofollow">
-              {c.name}
-            </a>
-            {' — '}
-            {c.author}
-            {'，'}
-            {c.license_url ? (
-              <a href={c.license_url} target="_blank" rel="noopener nofollow">
-                {c.license}
-              </a>
-            ) : (
-              c.license
-            )}
-          </li>
-        ))
-      }
-    </ul>
+    {
+      creditGroups.map((g) => (
+        <>
+          <h3>{g.label}（{g.items.length}）</h3>
+          <ul class="credits">
+            {g.items.map((c) => (
+              <li>
+                <a href={c.source} target="_blank" rel="noopener nofollow">
+                  {c.name}
+                </a>
+                {' — '}
+                {c.author}
+                {'，'}
+                {c.license_url ? (
+                  <a href={c.license_url} target="_blank" rel="noopener nofollow">
+                    {c.license}
+                  </a>
+                ) : (
+                  c.license
+                )}
+              </li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
   </section>
 
   <section>
