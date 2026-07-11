@@ -96,14 +96,14 @@ p { margin: 0.7rem 0; }
   width: var(--pw); height: 100%;
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
-  -webkit-mask-image: linear-gradient(115deg, transparent 15%, #000 55%);
-  mask-image: linear-gradient(115deg, transparent 15%, #000 55%);
+  -webkit-mask-image: linear-gradient(115deg, transparent 24%, #000 66%);
+  mask-image: linear-gradient(115deg, transparent 24%, #000 66%);
   z-index: 0;
 }
 /* 紙色襯底：蓋在圖上、文字下方，左濃右透，讓壓在圖上的字有足夠底色可讀 */
 .card-photo::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 30%, rgba(255, 255, 255, 0) 66%);
+  background: linear-gradient(100deg, var(--paper-2) 54%, rgba(255, 255, 255, 0) 84%);
   z-index: 0; pointer-events: none;
 }
 .card-photo > :not(.card-photo-img) {
