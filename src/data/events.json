@@ -128,6 +128,14 @@
           "note": "登錄為國家重要民俗之官方頁面"
         }
       ]
+    },
+    "image": {
+      "src": "/events/dajia.webp",
+      "alt": "大甲媽祖遶境進香",
+      "author": "Mazubobee",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021%E5%A4%A7%E7%94%B2%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83_02.jpg"
     }
   },
   {
@@ -220,6 +228,14 @@
           "note": "登錄為國家重要民俗之官方頁面"
         }
       ]
+    },
+    "image": {
+      "src": "/events/baishatun.webp",
+      "alt": "白沙屯媽祖進香",
+      "author": "@闇大分享@ (GABBY)",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Baishatun_Mazu_Pilgrimage_in_Huwei_2009_01.jpg"
     }
   },
   {
@@ -312,6 +328,14 @@
           "note": "登錄為國家重要民俗之官方頁面"
         }
       ]
+    },
+    "image": {
+      "src": "/events/beigang.webp",
+      "alt": "北港朝天宮迎媽祖",
+      "author": "Jhwtuk731982",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%9C%9D%E5%A4%A9%E5%AE%AE%E6%AD%A3%E6%AE%BF%E5%AA%BD%E7%A5%96%E8%81%96%E5%83%8F.JPG"
     }
   },
   {
@@ -348,7 +372,15 @@
         "ref": "東港東隆宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/donggang.webp",
+      "alt": "東港迎王平安祭典",
+      "author": "Oliver515",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ong-tsun_Taiwan.jpg"
+    }
   },
   {
     "id": "xigang",
@@ -437,6 +469,14 @@
           "note": "登錄為國家重要民俗之官方頁面"
         }
       ]
+    },
+    "image": {
+      "src": "/events/xigang.webp",
+      "alt": "西港香（刈香王醮）",
+      "author": "Wcr1268",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E6%B8%AF%E9%A6%99%E8%AB%8B%E5%A4%A7%E9%81%93%E5%85%AC.jpg"
     }
   },
   {
@@ -468,7 +508,15 @@
         "note": "登錄年 2008；2008年1月29日文建會指定為國家重要民俗，為全臺第一個登錄之重要民俗；起源咸豐5年（1855年）漳泉械鬥後整合字姓輪值制度"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/jilong.webp",
+      "alt": "雞籠中元祭",
+      "author": "總統府",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022%E5%A3%AC%E5%AF%85%E9%9B%9E%E7%B1%A0%E4%B8%AD%E5%85%83%E7%A5%AD%E9%96%8B%E7%87%88%E6%94%BE%E5%BD%A9%E6%B4%BB%E5%8B%95.jpg"
+    }
   },
   {
     "id": "qingshan",
@@ -504,7 +552,15 @@
         "ref": "艋舺青山宮"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/qingshan.webp",
+      "alt": "艋舺青山王祭（暗訪）",
+      "author": "Taiwankengo",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2017%E8%89%8B%E8%88%BA%E9%9D%92%E5%B1%B1%E5%AE%AE%E9%9D%92%E5%B1%B1%E7%8E%8B%E7%A5%ADz.jpg"
+    }
   },
   {
     "id": "yanshui",
@@ -540,7 +596,15 @@
         "ref": "鹽水武廟"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/yanshui.webp",
+      "alt": "鹽水蜂炮",
+      "author": "YULINGTENG",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yanshui_Beehive_Fireworks_Festival_in_Taiwan.jpg"
+    }
   },
   {
     "id": "neimen",
@@ -578,7 +642,15 @@
         "ref": "內門紫竹寺"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/neimen.webp",
+      "alt": "內門宋江陣",
+      "author": "WEI, WAN-CHEN",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A7%E9%96%80%E5%AE%8B%E6%B1%9F%E9%99%A3%E8%97%9D%E9%99%A3%E8%A1%A8%E6%BC%9402.jpg"
+    }
   },
   {
     "id": "toucheng",
@@ -609,7 +681,15 @@
         "note": "登錄年 2006；宜蘭縣定民俗（非國家重要民俗）；首次登錄2006年（府文資字第0950007040號），後於2020年重新公告"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/toucheng.webp",
+      "alt": "頭城搶孤",
+      "author": "曾坤城",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%90%B6%E5%AD%A4%E7%85%99%E7%81%AB%E5%A4%9C%E4%B9%8B%E7%BE%8E.tif"
+    }
   },
   {
     "id": "yimin",
@@ -647,7 +727,15 @@
         "ref": "新埔褒忠亭義民廟"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/yimin.webp",
+      "alt": "褒忠義民節（義民祭）",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E7%81%A3%E5%AE%A2%E5%AE%B6%E7%BE%A9%E6%B0%91%E7%AF%80%E4%B9%8B%E9%9D%A2%E7%87%83%E5%A4%A7%E5%A3%AB%E7%B4%99%E7%B4%AE%E7%A5%9E%E5%83%8F.jpg"
+    }
   },
   {
     "id": "dadaocheng_chenghuang",
@@ -688,7 +776,15 @@
         "note": "1853年頂下郊拼後同安人奉霞海城隍落腳大稻埕之歷史"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/dadaocheng_chenghuang.webp",
+      "alt": "大稻埕霞海城隍迎城隍（五月十三）",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg"
+    }
   },
   {
     "id": "xuejia_shangbaijiao",
@@ -729,7 +825,15 @@
         "note": "農曆三月十一將軍溪遙祭白礁祖廟、整合學甲十三庄之歷史"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/xuejia_shangbaijiao.webp",
+      "alt": "學甲上白礁暨刈香",
+      "author": "nanluman",
+      "license": "Public domain",
+      "license_url": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Baijiaoting,_Syuejia,_Tainan_County_2007-04.jpg"
+    }
   },
   {
     "id": "dalongdong_baosheng",
@@ -765,7 +869,15 @@
         "note": "建於清乾隆年間（1742年）；遶境、放火獅、過火、家姓戲等五大項活動"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/dalongdong_baosheng.webp",
+      "alt": "大龍峒保安宮保生大帝聖誕慶典",
+      "author": "Sdfery",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E9%BE%8D%E5%B3%92%E4%BF%9D%E5%AE%89%E5%AE%AE%E5%A4%9C%E6%99%AF_20190416.jpg"
+    }
   },
   {
     "id": "sanxia_qingshui",
@@ -805,7 +917,15 @@
         "ref": "財團法人新北市三峽長福巖清水祖師公官網 http://www.longfuyan.org.tw/"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/sanxia_qingshui.webp",
+      "alt": "三峽長福巖清水祖師聖誕祭典",
+      "author": "Art PH Chen",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%B3%BD%E7%A5%96%E5%B8%AB%E5%BB%9F%E6%AD%A3%E9%9D%A2_20200911.jpg"
+    }
   },
   {
     "id": "kouhu_qianshuizang",
@@ -845,7 +965,15 @@
         "note": "全臺唯一源自真實歷史災難事件的民俗祭儀"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/kouhu_qianshuizang.webp",
+      "alt": "口湖牽水車藏（狀）",
+      "author": "Cpc3711",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%89%BD%E6%B0%B4%E7%8B%80-%E5%BC%B5%E5%88%A9%E8%81%B0.jpg"
+    }
   },
   {
     "id": "taitung_handan",
@@ -881,7 +1009,15 @@
         "note": "民國79年台東玄武堂成立後復出；寒單爺即武財神趙公明（中路財神）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/taitung_handan.webp",
+      "alt": "臺東炮炸寒單爺",
+      "author": "Mhnler",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%82%B8%E5%AF%92%E5%96%AE.jpg"
+    }
   },
   {
     "id": "mamingshan_wunian",
@@ -922,7 +1058,15 @@
         "ref": "臺灣宗教文化地圖〈馬鳴山五年千歲吃飯擔〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=82"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/mamingshan_wunian.webp",
+      "alt": "馬鳴山五年千歲大科",
+      "author": "Jhenyuan21ma",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%BB%BA%E9%86%AE%E6%9C%9F%E9%96%93%E7%82%BA%E6%95%B8%E7%9C%BE%E5%A4%9A%E7%9A%84%E7%87%88%E7%AF%99.jpg"
+    }
   },
   {
     "id": "nankunshen_jinxiang",
@@ -963,7 +1107,15 @@
         "note": "全年四進香期：農曆四月、六月、八月、九月"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/nankunshen_jinxiang.webp",
+      "alt": "南鯤鯓代天府五府千歲進香期",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E9%AF%A4%E9%AF%93%E4%BB%A3%E5%A4%A9%E5%BA%9C%E5%BB%A3%E5%A0%B4.jpg"
+    }
   },
   {
     "id": "dongshan_yingfozu",
@@ -998,7 +1150,15 @@
         "note": "源自道光12年（1832）張丙之亂；途經東山、白河20庄頭，山區徒步古香路"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/dongshan_yingfozu.webp",
+      "alt": "東山碧軒寺迎佛祖暨遶境",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%B1%B1%E7%A2%A7%E8%BB%92%E5%AF%BA%E8%BF%8E%E4%BD%9B%E7%A5%96%E6%9A%A8%E9%81%B6%E5%A2%83.jpg"
+    }
   },
   {
     "id": "hanxi_mazu_shibazhuang",
@@ -1038,7 +1198,15 @@
         "note": "樂成宮建於清乾隆55年（1790）；遶境涵蓋大里、烏日、太平、霧峰等十八庄"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/hanxi_mazu_shibazhuang.webp",
+      "alt": "旱溪媽祖遶境十八庄",
+      "author": "總統府",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:10.17_%E5%89%AF%E7%B8%BD%E7%B5%B1%E5%87%BA%E5%B8%AD%E3%80%8C%E6%A8%82%E6%88%90%E5%AE%AE%E6%97%B1%E6%BA%AA%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E5%8D%81%E5%85%AB%E5%BA%84%E7%A5%88%E5%AE%89%E6%A4%8D%E7%A6%8F%E6%B4%BB%E5%8B%95%E8%B5%B7%E9%A7%95%E5%85%B8%E7%A6%AE%E3%80%8D_(50496492446).jpg"
+    }
   },
   {
     "id": "daxi_pujitang_guangong",
@@ -1076,7 +1244,15 @@
         "note": "鏡像佐證公告文號與等級"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/daxi_pujitang_guangong.webp",
+      "alt": "大溪普濟堂關聖帝君聖誕慶典暨遶境",
+      "author": "Taiwankengo",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_Daxi_Puji_Temple_b.jpg"
+    }
   },
   {
     "id": "shetou_72zhuang_mazu",
@@ -1115,7 +1291,15 @@
         "note": "鏡像佐證"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/shetou_72zhuang_mazu.webp",
+      "alt": "社頭枋橋頭七十二莊迓媽祖",
+      "author": "S131479",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%9E%8B%E6%A9%8B%E9%A0%AD%E4%B8%83%E5%8D%81%E4%BA%8C%E5%BA%84%E5%A4%A9%E9%96%80%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "tonganliao_12zhuang_mazu",
@@ -1187,7 +1371,15 @@
         "note": "鏡像佐證"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/mingjian_shoutiangong_xuantian.webp",
+      "alt": "南投縣名間鄉受天宮玄天上帝香期",
+      "author": "lienyuan lee",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%90%8D%E9%96%93%E5%8F%97%E5%A4%A9%E5%AE%AE_Mingjian_Shoutian_Temple_-_panoramio.jpg"
+    }
   },
   {
     "id": "xinzhuang_dizangan_dazhongye",
@@ -1225,7 +1417,15 @@
         "note": "鏡像；文武大眾爺=陰神，main_deity 對映 haoxiongdi"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/xinzhuang_dizangan_dazhongye.webp",
+      "alt": "新莊地藏庵文武大眾爺祭典",
+      "author": "林高志",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5%E6%96%87%E6%AD%A6%E5%A4%A7%E7%9C%BE%E7%88%BA%E7%A5%AD%E5%85%B8_174402.jpg"
+    }
   },
   {
     "id": "houlong_ciyungong_paocheng",
@@ -1261,7 +1461,15 @@
         "note": "鏡像佐證"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/houlong_ciyungong_paocheng.webp",
+      "alt": "後龍慈雲宮攻炮城",
+      "author": "夜貓",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E5%BE%8C%E9%BE%8D%E6%85%88%E9%9B%B2%E5%AE%AE%E5%A4%A7%E9%96%80_20110203.jpg"
+    }
   },
   {
     "id": "wanhegong_laoerma_xitun",
@@ -1297,7 +1505,15 @@
         "note": "鏡像佐證週期與等級"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/wanhegong_laoerma_xitun.webp",
+      "alt": "萬和宮老二媽西屯省親遶境",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E4%B8%AD%E8%90%AC%E5%92%8C%E5%AE%AE%E8%83%8C%E9%9D%A2.jpg"
+    }
   },
   {
     "id": "minxiong_dashiye",
@@ -1327,7 +1543,15 @@
         "note": "嘉義縣定民俗；主祀觀音大士（大士爺），普渡後火化升天"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/minxiong_dashiye.webp",
+      "alt": "民雄大士爺祭典",
+      "author": "Husky221",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%B0%91%E9%9B%84%E5%A4%A7%E5%A3%AB%E7%88%BA%E7%A5%AD%E5%85%B8.jpg"
+    }
   },
   {
     "id": "hengchun_qianggu",
@@ -1358,7 +1582,15 @@
         "note": "屏東縣定民俗；源自清光緒5年（1879）爬孤棚競賽取孤品"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/hengchun_qianggu.webp",
+      "alt": "恆春搶孤及爬孤棚",
+      "author": "Outlookxp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%81%86%E6%98%A5%E6%90%B6%E5%AD%A4%E5%8F%8A%E7%88%AC%E5%AD%A4%E6%A3%9A.jpg"
+    }
   },
   {
     "id": "wugu_kaitai_guolu",
@@ -1420,7 +1652,15 @@
         "note": "國家重要民俗（離島第一個）；人力蜈蚣座、輦轎、藝閣、神將"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/kinmen_yingchenghuang.webp",
+      "alt": "金門迎城隍",
+      "author": "張秀凰",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Memorybank2019-%E9%87%91%E9%96%80%E8%9C%88%E8%9A%A3%E9%99%A3.jpg"
+    }
   },
   {
     "id": "xiaqieding_jinluangong_wangjiao",
@@ -1453,7 +1693,15 @@
         "note": "高雄市直轄市定民俗；主祀媽祖；約每十年一科王船醮典；舊下茄萣庄五里"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/xiaqieding_jinluangong_wangjiao.webp",
+      "alt": "下茄萣金鑾宮王醮大典",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%8B%E8%8C%84%E8%90%A3%E9%87%91%E9%91%BE%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "nanguanxian_wangjiao",
@@ -1485,7 +1733,15 @@
         "note": "國家重要民俗；南關線慶成式五朝王醮醮型"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/nanguanxian_wangjiao.webp",
+      "alt": "南關線三大廟王醮暨遊社",
+      "author": "Pbdragonwang",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E9%97%9C%E5%BB%9F%E5%B1%B1%E8%A5%BF%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "anding_zhenhugong_wangchuan",
@@ -1518,7 +1774,15 @@
         "note": "臺南市直轄市定民俗；蘇厝地區，主祀五府千歲（李府千歲主辦）"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/anding_zhenhugong_wangchuan.webp",
+      "alt": "安定真護宮王船祭",
+      "author": "Enfull",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E8%98%87%E5%8E%9D%E7%9C%9F%E8%AD%B7%E5%AE%AE.jpg"
+    }
   },
   {
     "id": "erjie_wanggong_guohuo",
@@ -1550,6 +1814,14 @@
         "note": "宜蘭縣定民俗；主祀古公三王（無對應 deity id）；武轎掠童乩過萬斤炭火，全台最大過火"
       }
     ],
-    "draft": false
+    "draft": false,
+    "image": {
+      "src": "/events/erjie_wanggong_guohuo.webp",
+      "alt": "二結王公過火",
+      "author": "林坤德",
+      "license": "CC BY 3.0 tw",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/tw/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%8C%E7%B5%90%E7%8E%8B%E5%85%AC%E9%81%8E%E7%81%AB_%E4%BA%94%E7%B5%90%E7%BE%A9%E6%B6%88_20100228.jpg"
+    }
   }
 ]

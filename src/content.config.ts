@@ -263,6 +263,18 @@ const events = defineCollection({
       })
       .optional(),
     sources: z.array(source).default([]),
+    // 代表圖（來自 Wikimedia Commons，皆 CC/公有領域）：無合授權圖者留空、絕不杜撰。
+    // 授權標示：卡片 hover 顯示 author·license，/about「圖片來源」彙整全部出處連結。
+    image: z
+      .object({
+        src: z.string(), // /events/<id>.webp（自存縮圖，非熱連）
+        alt: z.string(),
+        author: z.string(),
+        license: z.string(), // 如 "CC BY-SA 4.0"
+        license_url: z.string().optional(),
+        source: z.string(), // Commons 檔案頁 URL
+      })
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });

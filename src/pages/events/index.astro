@@ -44,7 +44,7 @@ const groups = LEVELS.map((level) => ({
         </h2>
         <div class="ev-grid">
           {g.items.map((e) => (
-            <a class="card ev" href={`/events/${e.id}`}>
+            <a class:list={['card', 'ev', { 'has-img': e.data.image }]} href={`/events/${e.id}`}>
               <strong>{e.data.name}</strong>
               <div class="muted small when">
                 {CYCLE[e.data.cycle]}
@@ -60,6 +60,18 @@ const groups = LEVELS.map((level) => ({
                 ))}
                 {e.data.heritage && !e.data.heritage.verified && <span class="tag">待核</span>}
               </div>
+              {e.data.image && (
+                <img
+                  class="ev-thumb"
+                  src={e.data.image.src}
+                  alt={e.data.image.alt}
+                  title={`圖：${e.data.image.author}　·　${e.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
             </a>
           ))}
         </div>
@@ -84,5 +96,18 @@ const groups = LEVELS.map((level) => ({
     .when { color: var(--accent-soft); }
     .small { font-size: 0.88rem; }
     .chips { margin-top: 0.1rem; }
+    /* 右下角代表圖：絕對定位釘在卡片右下，chips 留右側空位避免重疊 */
+    .ev.has-img { position: relative; }
+    .ev.has-img .chips { padding-right: 5rem; }
+    .ev-thumb {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: 4.5rem;
+      height: 4.5rem;
+      object-fit: cover;
+      border-radius: 0.4rem;
+      border: 1px solid var(--line);
+    }
   </style>
 </Base>

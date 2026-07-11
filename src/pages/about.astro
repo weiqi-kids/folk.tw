@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import { breadcrumb } from '../lib/seo';
+import { getEvents } from '../lib/queries';
+
+// 圖片來源彙整：民俗活動代表圖皆取自 Wikimedia Commons（CC／公有領域），逐張標作者·授權·出處。
+const imageCredits = (await getEvents())
+  .filter((e) => e.data.image)
+  .map((e) => ({ name: e.data.name, ...e.data.image! }));
 
 // 常見問答（AEO：問答友善＋FAQPage schema）
 const faqs = [
@@ -109,6 +115,36 @@ const faqLd = {
   </section>
 
   <section>
+    <h2>圖片來源</h2>
+    <p class="muted small">
+      民俗活動頁的代表圖皆取自 <strong>Wikimedia Commons</strong>，採 CC 授權或公有領域，
+      並依授權標示原作者與條款；找不到合授權圖片的活動一律留空、不使用未授權圖。
+      圖片經縮圖處理、自存於本站（非熱連）。以下為逐張出處：
+    </p>
+    <ul class="credits">
+      {
+        imageCredits.map((c) => (
+          <li>
+            <a href={c.source} target="_blank" rel="noopener nofollow">
+              {c.name}
+            </a>
+            {' — '}
+            {c.author}
+            {'，'}
+            {c.license_url ? (
+              <a href={c.license_url} target="_blank" rel="noopener nofollow">
+                {c.license}
+              </a>
+            ) : (
+              c.license
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section>
     <h2>可信度與勘誤</h2>
     <p>
       本站每條目具來源標註。發現錯誤（事實、來源或判讀）歡迎回報；
@@ -129,5 +165,7 @@ const faqLd = {
     .faq { border-bottom: 1px dashed var(--line); padding: 0.5rem 0; }
     .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
     .faq p { margin: 0.5rem 0 0; color: var(--ink-soft); }
+    .credits { font-size: 0.85rem; color: var(--ink-soft); }
+    .credits li { margin: 0.15rem 0; }
   </style>
 </Base>
