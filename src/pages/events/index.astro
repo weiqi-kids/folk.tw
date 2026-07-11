@@ -93,8 +93,9 @@ const groups = LEVELS.map((level) => ({
     }
     .ev { display: flex; flex-direction: column; gap: 0.3rem; }
     .ev strong { color: var(--ink); font-size: 1.05rem; }
-    .when { color: var(--accent-soft); }
-    .small { font-size: 0.88rem; }
+    .small { font-size: 0.98rem; } /* 年長者友善：放大 */
+    .ev .muted { color: oklch(0.37 0.02 72); } /* 次要文字加深 */
+    .ev .when { color: var(--accent); } /* 時序：深朱紅（順序在後勝出） */
     .chips { margin-top: 0.1rem; }
     /* 斜切底圖呈現＝全站共用 .card-photo（見 global.css）；此頁沿用預設 70%×50% */
   </style>

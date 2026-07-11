@@ -62,8 +62,9 @@ const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]
   <style>
     .scen-cell { display: flex; flex-direction: column; gap: 0.2rem; }
     .scen-cell strong { color: var(--ink); }
-    .small { font-size: 0.85rem; }
-    .office { color: var(--accent-soft); }
+    .small { font-size: 0.98rem; }
+    .scen-cell .muted { color: oklch(0.37 0.02 72); }
+    .scen-cell .office { color: var(--accent); }
     .lead { font-size: 1.05rem; }
   </style>
 </Base>

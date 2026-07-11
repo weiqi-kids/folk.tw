@@ -90,20 +90,21 @@ p { margin: 0.7rem 0; }
      <a class="card card-photo"> …文字子元素… <img class="card-photo-img" src alt title loading="lazy"></a>
    --pw 控制圖片覆蓋寬度（預設 60%）；object-position 偏上以保住頭部。
    圖片務必為合授權來源（Commons CC／公有領域），並比照 /events 於 /about 標作者·授權，無圖留空。 */
-.card-photo { position: relative; overflow: hidden; --pw: 60%; }
+.card-photo { position: relative; overflow: hidden; --pw: 44%; }
 .card-photo-img {
   position: absolute; right: 0; top: 0; bottom: 0;
   width: var(--pw); height: 100%;
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
-  -webkit-mask-image: linear-gradient(115deg, transparent 24%, #000 66%);
-  mask-image: linear-gradient(115deg, transparent 24%, #000 66%);
+  /* 左緣短羽化即轉清楚：神像正臉落在右側「無漸層」清楚區 */
+  -webkit-mask-image: linear-gradient(110deg, transparent 6%, #000 42%);
+  mask-image: linear-gradient(110deg, transparent 6%, #000 42%);
   z-index: 0;
 }
-/* 紙色襯底：蓋在圖上、文字下方，左濃右透，讓壓在圖上的字有足夠底色可讀 */
+/* 紙色襯底：只鋪左側文字區（實心到 50%、72% 前透明），右側清楚區留給神像正臉 */
 .card-photo::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 54%, rgba(255, 255, 255, 0) 84%);
+  background: linear-gradient(100deg, var(--paper-2) 50%, rgba(255, 255, 255, 0) 72%);
   z-index: 0; pointer-events: none;
 }
 .card-photo > :not(.card-photo-img) {

@@ -61,7 +61,8 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
   <style>
     .trade-cell { display: flex; flex-direction: column; gap: 0.2rem; }
     .trade-cell strong { color: var(--ink); }
-    .small { font-size: 0.85rem; }
-    .office { color: var(--accent-soft); }
+    .small { font-size: 0.98rem; }
+    .trade-cell .muted { color: oklch(0.37 0.02 72); }
+    .trade-cell .office { color: var(--accent); }
   </style>
 </Base>
