@@ -24,11 +24,20 @@
           "clicks": 299,
           "ctr": 0.0157,
           "note": "無專屬廟宇 cohort GSC 指標，用站級 CTR 當代理：站級 CTR 持續緩降（0.0175→0.0162→0.0157）符合既有『曝光稀釋非退步』框架（clicks 持續上升 172→222→299），非回退訊號。反思層另粗算 pageQueryCross Top-200 廟宇子集 CTR 7.04%→11.9%，但標記為可能是選樣偏誤（更多廟宇頁擠進 Top-200 而非真實群體回升），不採信。首訊日已到但無足夠獨立訊號可判，維持 open。"
+        },
+        {
+          "date": "2026-07-13",
+          "pos": null,
+          "impr": 26543,
+          "clicks": 434,
+          "ctr": 0.01635,
+          "note": "全窗日。站級 CTR 代理近一週已止跌企穩：0.0157(7/8)→0.01635(7/9)→0.01604(7/10)→0.01627(7/11)→0.01658(7/12)→0.01635(7/13)，在 1.57-1.66% 窄帶內震盪、不再延續 6/23 前的單調下滑，但也未見明確回升趨勢（clicks 則全程單調上升 299→333→351→388→423→434）。topPages/pageQueryCross 廟宇子集 CTR 8-17% 區間震盪上行，但頁數同時從 50 增到 83（更多廟宇頁擠進榜單），選樣偏誤無法排除，7/8 已標記不採信。全程缺乏廟宇專屬 cohort 級 GSC 指標，無法乾淨歸因『補 meta description』單一動作的效果。"
         }
       ],
-      "status": "open",
-      "verdict": null,
-      "verdict_date": null
+      "status": "resolved",
+      "verdict": "inconclusive",
+      "verdict_date": "2026-07-13",
+      "verdict_note": "站級 CTR 代理顯示止跌企穩（未再下滑），弱支持假說前半『止跌』；但因無廟宇專屬 cohort 隔離指標、且唯一可用的廟宇子集代理（pageQueryCross Top-200）樣本隨時間變化、選樣偏誤已知存在，無法乾淨判定『回升』是否成立，亦無法排除。判定 inconclusive 而非 win/loss；不觸發回退（clicks 全程無下降）。"
     },
     {
       "id": "2026-07-04-soushen-seodesc",
@@ -206,6 +215,33 @@
       "expected_first_signal_date": "2026-07-13",
       "expected_full_window_date": "2026-07-20",
       "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0, "scope": "cohort", "note": "代表樣本（今日 highImpZeroClick 常駐日期頁，皆 0 click）：2026-07-03(impr4/pos9.5、impr4/pos6.75)、2026-07-04(impr11/pos9、impr3/pos6.67)、2026-07-05(impr11/pos6.55)、2026-07-08(impr7/pos7.29)。" },
+      "checks": [
+        {
+          "date": "2026-07-13",
+          "pos": null,
+          "impr": 60,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "首訊日。pageQueryCross 全部 48 筆 almanac 日期頁列（不含月份樞紐）clicks=0/impr=60，CTR 仍 0%，尚無改善訊號。但今日 GSC 資料窗為 2026-07-02..2026-07-09，僅涵蓋部署當天（7/9）本身、幾乎無部署後天數，屬預期內『太早看不出』，非退步訊號。繼續觀察，全窗日 7/20。"
+        }
+      ],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-13-zhengde-lifeng-seodesc",
+      "placed_date": "2026-07-13",
+      "cohort": "striking-distance",
+      "target": { "page": "/allusions/zhengde_lifeng", "query": "正德君戲李鳳姐" },
+      "hypothesis": "seoDesc 補故事摘要（比照 soushen 7/4 先例），SERP 摘要與查詢重疊度提升，CTR 由 3.85% 提升",
+      "factual": true,
+      "change_commit": "2bb8a9a",
+      "change_files": ["src/content/allusions/zhengde_lifeng.md"],
+      "deploy_date": "2026-07-13",
+      "expected_first_signal_date": "2026-07-17",
+      "expected_full_window_date": "2026-07-24",
+      "baseline": { "pos": 9.04, "impr": 26, "clicks": 1, "ctr": 0.0385, "scope": "page-query" },
       "checks": [],
       "status": "open",
       "verdict": null,
