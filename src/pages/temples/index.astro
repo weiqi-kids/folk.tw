@@ -50,14 +50,10 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
               class:list={['card', 'temple', { 'card-photo': t.data.image }]}
               href={`/temples/${t.id}`}
             >
-              <span class="card-head">
-                <strong>{t.data.name}</strong>
-              </span>
-              <span class="card-text">
-                <span class="muted small">
-                  {t.data.district}
-                  {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
-                </span>
+              <strong>{t.data.name}</strong>
+              <span class="muted small">
+                {t.data.district}
+                {t.data.main_deity_raw && `　·　主祀 ${t.data.main_deity_raw}`}
               </span>
               {t.data.image && (
                 <img
@@ -96,7 +92,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
     }
     .county strong { color: var(--ink); }
     .county .count { font-size: var(--text-sm); }
-    .temple .card-text { gap: 0.25rem; }
+    .temple { display: flex; flex-direction: column; gap: 0.25rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: 0.98rem; }
     .temple .muted { color: oklch(0.37 0.02 72); }

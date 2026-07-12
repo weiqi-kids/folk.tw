@@ -45,25 +45,21 @@ const groups = LEVELS.map((level) => ({
         <div class="ev-grid">
           {g.items.map((e) => (
             <a class:list={['card', 'ev', { 'card-photo': e.data.image }]} href={`/events/${e.id}`}>
-              <span class="card-head">
-                <strong>{e.data.name}</strong>
-              </span>
-              <span class="card-text">
-                <div class="muted small when">
-                  {CYCLE[e.data.cycle]}
-                  {e.data.date_note && `　·　${e.data.date_note}`}
-                </div>
-                <div class="muted small">
-                  主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
-                  {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
-                </div>
-                <div class="chips">
-                  {e.data.type.map((t) => (
-                    <span class="tag">{t}</span>
-                  ))}
-                  {e.data.heritage && !e.data.heritage.verified && <span class="tag">待核</span>}
-                </div>
-              </span>
+              <strong>{e.data.name}</strong>
+              <div class="muted small when">
+                {CYCLE[e.data.cycle]}
+                {e.data.date_note && `　·　${e.data.date_note}`}
+              </div>
+              <div class="muted small">
+                主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
+                {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
+              </div>
+              <div class="chips">
+                {e.data.type.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+                {e.data.heritage && !e.data.heritage.verified && <span class="tag">待核</span>}
+              </div>
               {e.data.image && (
                 <img
                   class="card-photo-img"
@@ -94,9 +90,8 @@ const groups = LEVELS.map((level) => ({
       grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
       gap: 0.8rem;
       margin-top: 1rem;
-      align-items: start;
     }
-    .ev .card-text { gap: 0.3rem; }
+    .ev { display: flex; flex-direction: column; gap: 0.3rem; }
     .ev strong { color: var(--ink); font-size: 1.05rem; }
     .small { font-size: 0.98rem; } /* 年長者友善：放大 */
     .ev .muted { color: oklch(0.37 0.02 72); } /* 次要文字加深 */

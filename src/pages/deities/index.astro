@@ -33,18 +33,14 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
                 class:list={['card', 'deity-cell', { 'card-photo': dd.data.image }]}
                 href={`/deities/${dd.id}`}
               >
-                <span class="card-head">
-                  <strong>{dd.data.name}</strong>
-                  {dd.data.is_category && <span class="tag">類別</span>}
-                </span>
-                <span class="card-text">
-                  {dd.data.aliases.length > 0 && (
-                    <span class="muted small">{dd.data.aliases.slice(0, 3).join('·')}</span>
-                  )}
-                  {dd.data.office.length > 0 && (
-                    <span class="office muted small">{dd.data.office.slice(0, 3).join('·')}</span>
-                  )}
-                </span>
+                <strong>{dd.data.name}</strong>
+                {dd.data.is_category && <span class="tag">類別</span>}
+                {dd.data.aliases.length > 0 && (
+                  <span class="muted small">{dd.data.aliases.slice(0, 3).join('·')}</span>
+                )}
+                {dd.data.office.length > 0 && (
+                  <span class="office muted small">{dd.data.office.slice(0, 3).join('·')}</span>
+                )}
                 {dd.data.image && (
                   <img
                     class="card-photo-img"
@@ -88,7 +84,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
   <style>
     .cat h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; }
     .count { font-size: 0.85rem; font-weight: 400; }
-    .deity-cell .card-text { gap: 0.25rem; }
+    .deity-cell { display: flex; flex-direction: column; gap: 0.25rem; align-items: start; }
     .deity-cell strong { color: var(--ink); }
     .small { font-size: 0.98rem; } /* 別名／職司放大（年長者友善） */
     .deity-cell .muted { color: oklch(0.37 0.02 72); } /* 別名：加深 */

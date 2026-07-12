@@ -29,16 +29,12 @@ const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]
         const img = scenImg(s);
         return (
           <a class:list={['card', 'scen-cell', { 'card-photo': img }]} href={`/scenarios/${s.id}`}>
-            <span class="card-head">
-              <strong>{s.data.name}</strong>
+            <strong>{s.data.name}</strong>
+            <span class="muted small">
+              {s.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
             </span>
-            <span class="card-text">
-              <span class="muted small">
-                {s.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
-              </span>
-              <span class="office muted small">
-                宜{s.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
-              </span>
+            <span class="office muted small">
+              宜{s.data.affairs_yi.map((a) => affairNameOf(a)).join('·')}
             </span>
             {img && (
               <img
@@ -64,7 +60,7 @@ const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]
   </p>
 
   <style>
-    .scen-cell .card-text { gap: 0.2rem; }
+    .scen-cell { display: flex; flex-direction: column; gap: 0.2rem; }
     .scen-cell strong { color: var(--ink); }
     .small { font-size: 0.98rem; }
     .scen-cell .muted { color: oklch(0.37 0.02 72); }
