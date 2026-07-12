@@ -98,17 +98,18 @@ p { margin: 0.7rem 0; }
   display: grid;
   grid-template-columns: minmax(0, auto) minmax(7rem, 1fr);
   grid-template-areas: 'head head' 'body img';
-  align-items: stretch;
+  align-content: start;
   padding: 0; overflow: hidden;
 }
 .card-photo > .card-head { grid-area: head; padding: 1.05rem 1.2rem 0.3rem; min-width: 0; }
 .card-photo > .card-text { grid-area: body; padding: 0 1.1rem 1.05rem 1.2rem; }
 .card-photo-img {
   grid-area: img;
-  width: 100%; height: 100%; min-height: 4.6rem;
+  width: 100%;
+  height: var(--card-photo-h, 8rem); /* 鎖定高度：圖片高不再被內文行數牽著跑（避免跑版）；寬度仍隨內文伸縮 */
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
-  align-self: stretch;
+  align-self: start; /* 內文較高時圖片靠上，不被拉伸 */
   margin-left: -1.2rem; /* 左緣滑入內文欄，讓羽化蓋在接縫上 */
   /* 固定 rem 羽化：不論圖片欄多寬，左緣淡入帶恆為 ~2.4rem，正臉（圖片中段）永遠遠離漸層 */
   -webkit-mask-image: linear-gradient(100deg, transparent 0, #000 2.4rem);
@@ -121,6 +122,6 @@ p { margin: 0.7rem 0; }
   color: var(--gold); font-size: var(--text-sm); font-style: italic;
   border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0;
 }
-.grid { display: grid; gap: 0.8rem; }
+.grid { display: grid; gap: 0.8rem; align-items: start; } /* 卡片依內容自然高度，不強制等高（避免短卡被撐高後圖片周圍留空） */
 .grid.cols { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
 .lines-vertical { font-size: var(--text-xl); letter-spacing: 0.15em; line-height: 2.2; }
