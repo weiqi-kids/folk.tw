@@ -92,7 +92,7 @@ const jsonLd: object[] = [
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
 >
-  <nav class="crumb"><a href="/events">民俗活動</a></nav>
+  <nav class="crumb"><a href="/events/">民俗活動</a></nav>
   <h1>{e.name}</h1>
   <p class="summary">{pageDesc}</p>
   <p>{e.type.map((t) => <span class="tag">{t}</span>)}</p>
@@ -102,7 +102,7 @@ const jsonLd: object[] = [
       <dt>主神</dt>
       <dd>
         {isNode(e.main_deity)
-          ? <a href={`/deities/${e.main_deity}`}>{deityName.get(e.main_deity)}</a>
+          ? <a href={`/deities/${e.main_deity}/`}>{deityName.get(e.main_deity)}</a>
           : <span>{e.main_deity} <span class="tag">節點待建</span></span>}
       </dd>
     </div>
@@ -110,7 +110,7 @@ const jsonLd: object[] = [
       <dt>主辦廟</dt>
       <dd>
         {hostIsTemple
-          ? <a href={`/temples/${e.host_temple}`}>{templeName.get(e.host_temple!)}</a>
+          ? <a href={`/temples/${e.host_temple}/`}>{templeName.get(e.host_temple!)}</a>
           : (e.host_temple ?? '—')}
       </dd>
     </div>
@@ -119,7 +119,7 @@ const jsonLd: object[] = [
         <dt>目的廟</dt>
         <dd>
           {destIsTemple
-            ? <a href={`/temples/${e.destination_temple}`}>{templeName.get(e.destination_temple!)}</a>
+            ? <a href={`/temples/${e.destination_temple}/`}>{templeName.get(e.destination_temple!)}</a>
             : e.destination_temple}
         </dd>
       </div>

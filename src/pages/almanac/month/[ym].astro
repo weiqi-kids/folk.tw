@@ -35,9 +35,9 @@ const hasAnyYi = allYiAffairs.some((a) => (yiDays.get(a) ?? []).length > 0);
   description={`${y}年${m}月 每日農曆、節氣、干支、建除、廿八宿、沖煞、宜忌、七十二候與神明聖誕一覽。`}
 >
   <nav class="month-nav" aria-label="月份導覽">
-    {prevYm ? <a class="nav-btn" href={`/almanac/month/${prevYm}`} rel="prev">‹ {label(prevYm)}</a> : <span class="nav-btn disabled">‹ 上個月</span>}
-    <a class="nav-btn" href="/almanac/archive">封存索引</a>
-    {nextYm ? <a class="nav-btn" href={`/almanac/month/${nextYm}`} rel="next">{label(nextYm)} ›</a> : <span class="nav-btn disabled">下個月 ›</span>}
+    {prevYm ? <a class="nav-btn" href={`/almanac/month/${prevYm}/`} rel="prev">‹ {label(prevYm)}</a> : <span class="nav-btn disabled">‹ 上個月</span>}
+    <a class="nav-btn" href="/almanac/archive/">封存索引</a>
+    {nextYm ? <a class="nav-btn" href={`/almanac/month/${nextYm}/`} rel="next">{label(nextYm)} ›</a> : <span class="nav-btn disabled">下個月 ›</span>}
   </nav>
 
   <h1>{y}年{m}月 農民曆</h1>
@@ -60,7 +60,7 @@ const hasAnyYi = allYiAffairs.some((a) => (yiDays.get(a) ?? []).length > 0);
           if (!rows.length) return null;
           return (
             <p>
-              <a href={`/trades/${t.id}`}><strong>{t.data.name}</strong></a>：
+              <a href={`/trades/${t.id}/`}><strong>{t.data.name}</strong></a>：
               {rows.map((r, i) => (
                 <>
                   {i > 0 && '；'}
@@ -81,7 +81,7 @@ const hasAnyYi = allYiAffairs.some((a) => (yiDays.get(a) ?? []).length > 0);
       )
     }
     <p class="muted small">
-      僅列已考據核校之事項，未列不代表不吉。各行業守護神與近期吉日見 <a href="/trades">行業守護神</a>。
+      僅列已考據核校之事項，未列不代表不吉。各行業守護神與近期吉日見 <a href="/trades/">行業守護神</a>。
     </p>
   </section>
 

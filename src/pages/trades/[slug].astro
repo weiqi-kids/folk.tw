@@ -31,7 +31,7 @@ const patrons = t.patrons
 const next60 = Array.from({ length: 60 }, (_, i) => addDays(today, i));
 const yiDays = verifiedYiDays(next60, t.affairs_yi);
 const fmt = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8))}`;
-const monthHref = `/almanac/month/${today.slice(0, 7)}`;
+const monthHref = `/almanac/month/${today.slice(0, 7)}/`;
 
 // 聖誕（農曆）：僅實際日期（同神明頁規則）
 const bdaysOf = (p: (typeof patrons)[number]) =>
@@ -76,7 +76,7 @@ const jsonLd = [
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
 >
-  <nav class="crumb"><a href="/trades">行業守護神</a> ／ {t.name}</nav>
+  <nav class="crumb"><a href="/trades/">行業守護神</a> ／ {t.name}</nav>
 
   <header class="dh">
     <h1>{t.name}的守護神與吉日</h1>
@@ -103,7 +103,7 @@ const jsonLd = [
         return (
           <div class="patron">
             <p class="patron-head">
-              <a href={`/deities/${p.deity_ref}`}><strong>{d.name}</strong></a>
+              <a href={`/deities/${p.deity_ref}/`}><strong>{d.name}</strong></a>
               <span class="tag">{p.role}</span>
               {d.office.slice(0, 3).map((o) => (
                 <span class="tag soft">{o}</span>
@@ -119,11 +119,11 @@ const jsonLd = [
                 {temples.map((tp, i) => (
                   <>
                     {i > 0 && '、'}
-                    <a href={`/temples/${tp.id}`}>{tp.data.name}</a>
+                    <a href={`/temples/${tp.id}/`}>{tp.data.name}</a>
                   </>
                 ))}
                 {(tByDeity.get(p.deity_ref) ?? []).length > 6 && (
-                  <a href={`/deities/${p.deity_ref}`}>　…看全部 →</a>
+                  <a href={`/deities/${p.deity_ref}/`}>　…看全部 →</a>
                 )}
               </p>
             )}
@@ -168,7 +168,7 @@ const jsonLd = [
       {t.affairs_ji.length > 0 && <>　忌側觀察：{t.affairs_ji.map((a) => <span class="tag soft">{affairNameOf(a)}</span>)}</>}
     </p>
     <p class="muted small">
-      逐日詳情與推導出處見 <a href={monthHref}>本月農民曆</a> 或 <a href="/almanac">今日農民曆</a>。
+      逐日詳情與推導出處見 <a href={monthHref}>本月農民曆</a> 或 <a href="/almanac/">今日農民曆</a>。
     </p>
   </section>
 
