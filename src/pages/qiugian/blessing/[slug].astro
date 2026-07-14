@@ -7,6 +7,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import { breadcrumb } from '../../../lib/seo';
 import topical from '../../../data/topical.json';
+import stats from '../../../data/qiugian-stats.json';
 
 export const getStaticPaths = (async () => {
   // 全部項目都出頁（含 archived 範例）；archived 走 noindex，只有 active 事件對搜尋引擎開放。
@@ -15,6 +16,7 @@ export const getStaticPaths = (async () => {
 
 const { item } = Astro.props;
 const isActive = item.status === 'active';
+const blessCount = (stats as { topical?: Record<string, number> }).topical?.[item.id] ?? 0;
 
 const pageDesc = `${item.title}。${item.event}`.slice(0, 150);
 
@@ -58,8 +60,12 @@ const jsonLd = [
 
   <div class="hearth">
     <div class="hearth-h"><span class="flame" aria-hidden="true"></span>{item.title.replace(/（範例）$/, '')}</div>
-    <p class="cold small">這裡剛點上一盞——<b id="qifuCount" class="count">一起</b>為此刻的平安祈福。</p>
-    <button class="qi" id="qifuBtn" type="button">🕯 為○○祈福 · 點一盞</button>
+    {blessCount > 0 ? (
+      <p class="cold small">已有 <b id="qifuCount" class="count">{blessCount}</b> 個人，在這裡一起為平安點了一盞。</p>
+    ) : (
+      <p class="cold small">這裡剛點上一盞——<b id="qifuCount" class="count">一起</b>為此刻的平安祈福。</p>
+    )}
+    <button class="qi" id="qifuBtn" type="button">🕯 點一盞 · 一起祈福</button>
     <p id="qifuDone" class="note small"></p>
   </div>
 
@@ -110,7 +116,8 @@ const jsonLd = [
       btn.classList.add('done');
       btn.textContent = '🕯 已為' + title + '點上一盞';
       const c = document.getElementById('qifuCount')!;
-      c.textContent = '和你一起';
+      const n = parseInt(c.textContent || '', 10);
+      c.textContent = Number.isFinite(n) ? String(n + 1) : '和你一起';
       document.getElementById('qifuDone')!.textContent = '謝謝你的心意——願平安。';
     });
   </script>

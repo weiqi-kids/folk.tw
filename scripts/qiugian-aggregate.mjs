@@ -41,6 +41,7 @@ const concernIds = JSON.parse(readFileSync('src/data/concerns.json', 'utf8')).ma
 const draws = await countBy('qiugian', ['customEvent:concern']); // [{keys:[concern], n}]
 const drawsByPoem = await countBy('qiugian', ['customEvent:concern', 'customEvent:poem_no']);
 const baoxi = await countBy('baoxi', ['customEvent:concern', 'customEvent:outcome']);
+const qifu = await countBy('qifu', ['customEvent:concern']); // 集氣；時事祈福頁 concern=topical:<id>
 
 const drawMap = Object.fromEntries(draws.filter((r) => !notSet(r.keys[0])).map((r) => [r.keys[0], r.n]));
 
@@ -63,6 +64,16 @@ for (const id of concernIds) {
   out[id] = { week_draws, baoxi: baoxiTotal, top, joys };
 }
 
+// 時事祈福頁集氣數（concern=topical:<id>）
+const topical = {};
+for (const r of qifu) {
+  if (!notSet(r.keys[0]) && r.keys[0].startsWith('topical:')) {
+    const id = r.keys[0].slice('topical:'.length);
+    topical[id] = (topical[id] ?? 0) + r.n;
+  }
+}
+out.topical = topical;
+
 writeFileSync(STATS_FILE, JSON.stringify(out, null, 2) + '\n');
 const summary = concernIds.map((id) => `${id}:求${out[id].week_draws}/報喜${out[id].baoxi}`).join('  ');
-console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}`);
+console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}；時事集氣 ${Object.keys(topical).length} 案`);
