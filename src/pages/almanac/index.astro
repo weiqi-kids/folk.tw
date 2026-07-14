@@ -55,8 +55,10 @@ if (faq) jsonLd.push(faq);
 >
   <AlmanacDay iso={iso} today={iso} />
 
-  <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存，提升 /almanac/archive 可發現性。 -->
+  <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存＋長尾樞紐（宜忌詞義／沖煞），提升可發現性。 -->
   <nav class="almanac-more" aria-label="更多農民曆">
+    <a href="/almanac/yiji/">宜忌事項是什麼？用事白話解釋 →</a>
+    <a href="/almanac/chongsha/">今日沖什麼生肖？沖煞查詢 →</a>
     <a href="/almanac/archive/">歷代農民曆封存（依年月瀏覽）→</a>
   </nav>
 </Base>
@@ -67,6 +69,9 @@ if (faq) jsonLd.push(faq);
     padding-top: 1rem;
     border-top: 1px solid var(--line);
     font-size: var(--text-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   .almanac-more a { color: var(--accent); }
 </style>

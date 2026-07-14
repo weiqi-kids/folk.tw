@@ -47,6 +47,8 @@ export interface LunarAstronomicalProvider extends AstronomicalProvider {
 
 // lunar-javascript 之建除回簡體，正規化為繁體（滿/執/開/閉）
 const ZHI_NORM: Record<string, string> = { 闭: '閉', 满: '滿', 执: '執', 开: '開' };
+// getDaySha 之煞方回簡體（东/南/西/北），僅「东」簡繁有別，正規化為繁體。
+const SHA_TRAD: Record<string, string> = { 东: '東' };
 
 export const lunarProvider: LunarAstronomicalProvider = {
   // lunar-javascript 實務涵蓋年限充裕；宣告保守範圍（C.8 有效年限）
@@ -112,7 +114,7 @@ export const lunarProvider: LunarAstronomicalProvider = {
 
   shaDirection(jdn) {
     const s = lunarOf(jdn).getDaySha();
-    return s ? `煞${s}` : null;
+    return s ? `煞${SHA_TRAD[s] ?? s}` : null;
   },
 
   festivals(jdn) {

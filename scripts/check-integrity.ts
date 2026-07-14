@@ -36,6 +36,9 @@ const affairs: any[] = JSON.parse(
 const votes: any[] = JSON.parse(
   readFileSync(join(root, 'src/lib/almanac/rules/votes.json'), 'utf8'),
 ).votes;
+const yijiTerms: Record<string, unknown> = JSON.parse(
+  readFileSync(join(root, 'src/data/yiji-terms.json'), 'utf8'),
+).terms;
 
 const allusionIds = new Set(allusionIdList);
 const systemIds = new Set(systems.map((s) => s.id));
@@ -91,6 +94,10 @@ for (const c of comparisons) {
   for (const sc of c.related_scenarios ?? []) {
     if (!scenarios.some((s) => s.id === sc)) hard(`comparison ${c.slug}: related_scenario「${sc}」不存在`);
   }
+}
+// 宜忌詞義頁 → affair 節點（dangling → /almanac/yiji/[affair] 會壞頁面）
+for (const id of Object.keys(yijiTerms)) {
+  if (!affairIds.has(id)) hard(`yiji-terms: 事項「${id}」不在 rules/affairs.json`);
 }
 if (hardErrors === 0) console.log('  ✓ 全數通過');
 

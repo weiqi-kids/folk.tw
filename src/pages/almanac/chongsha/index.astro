@@ -1,0 +1,156 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { todayInTaipei } from '../../../lib/daily';
+import { addDays } from '../../../lib/almanac/dates';
+import { computeDayRecord } from '../../../lib/almanac';
+import { lunarProvider } from '../../../lib/almanac/provider';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+
+// 今日沖生肖 / 沖煞查詢：純干支曆算（日支對沖生肖＋日煞方），非命理預測。
+// 沖生肖與煞方皆為決定性事實，用站上既有農民曆引擎（computeDayRecord）算，不自建算法。
+const { iso: todayIso } = todayInTaipei();
+
+// 近 30 天（含今日）每日沖煞，供表格與前端「挑今日」用。
+const rows = [] as { iso: string; md: string; zodiac: string; dir: string }[];
+for (let i = 0; i < 30; i++) {
+  const iso = addDays(todayIso, i);
+  const [y, m, d] = iso.split('-').map(Number);
+  const cs = computeDayRecord(y, m, d, { astro: lunarProvider }).chongSha.value;
+  rows.push({
+    iso,
+    md: `${m}/${d}`,
+    zodiac: cs?.zodiac ?? '—',
+    dir: (cs?.direction ?? '').replace(/^煞/, '') || '—', // 只留方位字（東/南/西/北）
+  });
+}
+const heroDay = rows[0]; // build 期今日；前端會依台灣當下日期改寫為正確今日。
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '農民曆', path: '/almanac' },
+    { name: '今日沖煞', path: '/almanac/chongsha' },
+  ]),
+];
+const faq = faqPage([
+  {
+    q: '今天沖什麼生肖？',
+    a: `農民曆的「沖」是當日地支對沖之生肖。${todayIso}（台灣）沖${heroDay.zodiac}、煞${heroDay.dir}方；沖煞逐日不同，本頁列有近 30 天一覽。`,
+  },
+  {
+    q: '農民曆的「沖煞」是什麼意思？',
+    a: '「沖」指當日相沖的生肖，該生肖的人遇重要場合（如嫁娶、出殯）宜暫避；「煞方」指當日的凶方位，行事盡量避免朝該方向。沖煞是干支曆算，逐日推定。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title="今日沖什麼生肖？農民曆沖煞查詢"
+  description="今日沖生肖、煞方即時查詢，附近 30 天每日沖煞一覽。沖煞為干支曆算：沖指相沖生肖，煞指當日凶方位。"
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.hero-answer']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/almanac/">農民曆</a> ／ 今日沖煞
+  </nav>
+
+  <h1>今日沖什麼生肖？</h1>
+
+  <section class="hero" data-hero>
+    <p class="hero-answer">
+      今日（<span data-role="date">{todayIso}</span>）沖
+      <strong data-role="zodiac">{heroDay.zodiac}</strong>、煞
+      <strong data-role="dir">{heroDay.dir}</strong>方。
+    </p>
+    <p class="muted small">以台灣時區（UTC+8）當日為準；沖煞為干支曆算，每天不同。</p>
+  </section>
+
+  <section class="explain">
+    <h2>什麼是沖煞？</h2>
+    <p>
+      <strong>沖（相沖生肖）</strong>：農民曆每天都有一個相沖的生肖，是由當日的地支對沖推算而來（子午相沖、丑未相沖…）。
+      被沖到生肖的人，遇上嫁娶、出殯等重要場合時，習俗上會暫避一下。
+    </p>
+    <p>
+      <strong>煞（煞方）</strong>：指當日的凶方位，可能是東、南、西、北。不論當天要做什麼，行事時盡量避免朝該方向，是民俗上趨吉避凶的講究。
+    </p>
+    <p class="muted small">
+      沖煞屬客觀干支曆算（非吉凶預測）。名詞解釋參考
+      <a href="https://www.epochtimes.com/b5/5/11/17/n1122603.htm" rel="nofollow">大紀元農民曆用事解說</a>
+      與通行黃曆體例。
+    </p>
+  </section>
+
+  <section class="table-wrap">
+    <h2>近 30 天每日沖煞一覽</h2>
+    <table class="chong" data-chong>
+      <thead>
+        <tr><th>日期</th><th>沖生肖</th><th>煞方</th></tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr data-date={r.iso} data-zodiac={r.zodiac} data-dir={r.dir}>
+              <td><a href={`/almanac/${r.iso}/`}>{r.md}</a></td>
+              <td>{r.zodiac}</td>
+              <td>{r.dir}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p class="muted small">點日期可看該日完整農民曆（宜忌、節氣、干支、神明聖誕等）。</p>
+  </section>
+
+  <nav class="more" aria-label="更多農民曆">
+    <a href="/almanac/">回今日農民曆 →</a>
+    <a href="/almanac/yiji/">農民曆宜忌事項一覽 →</a>
+  </nav>
+</Base>
+
+<!-- 依台灣當下日期改寫「今日」沖煞、標示今日列、隱藏已過日期，故 build 不新鮮時也永遠準。 -->
+<script is:inline>
+  (function () {
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+    const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+    const t0 = toUTC(today);
+    const table = document.querySelector('[data-chong]');
+    let hit = null;
+    if (table) {
+      table.querySelectorAll('tr[data-date]').forEach((tr) => {
+        const iso = tr.getAttribute('data-date');
+        const days = Math.round((toUTC(iso) - t0) / 86400000);
+        if (days < 0) { tr.style.display = 'none'; return; }
+        if (days === 0) { tr.classList.add('is-today'); hit = tr; }
+      });
+    }
+    const hero = document.querySelector('[data-hero]');
+    if (hero && hit) {
+      const set = (role, val) => { const el = hero.querySelector('[data-role=' + role + ']'); if (el) el.textContent = val; };
+      set('date', today);
+      set('zodiac', hit.getAttribute('data-zodiac'));
+      set('dir', hit.getAttribute('data-dir'));
+    }
+  })();
+</script>
+
+<style>
+  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 0.8rem; }
+  .crumbs a { color: var(--accent); }
+  .hero { margin: 0.6rem 0 1.8rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 0.5rem; background: var(--paper-2); }
+  .hero-answer { font-size: var(--text-xl); line-height: 1.7; margin: 0 0 0.3rem; }
+  .hero-answer strong { color: var(--accent); }
+  .explain h2, .table-wrap h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; font-size: var(--text-lg); margin-top: 1.8rem; }
+  .explain p { line-height: 1.9; margin: 0.6rem 0; }
+  .table-wrap { overflow-x: auto; }
+  table.chong { border-collapse: collapse; width: 100%; margin-top: 0.6rem; font-size: var(--text-base); }
+  table.chong th, table.chong td { border: 1px solid var(--line); padding: 0.45rem 0.7rem; text-align: center; }
+  table.chong thead th { background: var(--paper-2); }
+  table.chong td a { color: var(--accent); font-weight: 700; }
+  table.chong tr.is-today { background: color-mix(in oklch, var(--accent) 12%, var(--paper-2)); }
+  table.chong tr.is-today td { font-weight: 700; }
+  .more { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1rem; font-size: var(--text-sm); }
+  .more a { color: var(--accent); }
+  .small { font-size: 0.85rem; }
+</style>

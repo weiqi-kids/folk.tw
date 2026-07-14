@@ -1,0 +1,98 @@
+---
+import Base from '../../../layouts/Base.astro';
+import affairsData from '../../../lib/almanac/rules/affairs.json';
+import termsData from '../../../data/yiji-terms.json';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+
+// 宜忌事項總覽（樞紐）：把農民曆「宜／忌」後面那些用事術語逐一白話解釋，各連到詞義頁。
+const affairs = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
+const terms = (termsData as { terms: Record<string, { def: string; note?: string }> }).terms;
+
+// 依 affairs.json 的 group 分組（保留原順序），僅列已有詞義者。
+const groups: { group: string; items: { id: string; name: string; def: string }[] }[] = [];
+for (const a of affairs) {
+  const t = terms[a.id];
+  if (!t) continue;
+  let g = groups.find((x) => x.group === a.group);
+  if (!g) { g = { group: a.group, items: [] }; groups.push(g); }
+  g.items.push({ id: a.id, name: a.name, def: t.def });
+}
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '農民曆', path: '/almanac' },
+    { name: '宜忌事項', path: '/almanac/yiji' },
+  ]),
+];
+const faq = faqPage([
+  {
+    q: '農民曆的「宜」和「忌」是什麼意思？',
+    a: '農民曆每天會列出「宜」（適合做的事）與「忌」（不宜做的事），後面接的嫁娶、動土、開市、安床等，都是傳統的「用事」項目。本頁逐一白話解釋這些名詞。',
+  },
+  {
+    q: '嫁娶、納采、入宅、移徙有什麼不同？',
+    a: '嫁娶是正式完婚、納采是婚前下聘；入宅偏指遷入新落成的宅第、移徙則是一般搬家。四者雖相近，擇日時分屬不同用事。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title="農民曆宜忌事項一覽 · 用事白話解釋"
+  description="嫁娶、動土、安床、入宅、開市、祭祀、安葬…農民曆上的「宜忌用事」是什麼意思？逐項白話解釋，並附近期宜此事的日子。"
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/almanac/">農民曆</a> ／ 宜忌事項
+  </nav>
+
+  <h1>農民曆宜忌事項一覽</h1>
+  <p class="lead">
+    農民曆每天列的「宜」與「忌」，後面那串嫁娶、動土、開市、安床…到底是什麼意思？
+    這裡把常見的用事項目逐一用白話說清楚，點進去還能看到本站近期宜這件事的日子。
+  </p>
+
+  {
+    groups.map((g) => (
+      <section class="grp">
+        <h2>{g.group}</h2>
+        <ul class="terms">
+          {g.items.map((it) => (
+            <li>
+              <a href={`/almanac/yiji/${it.id}/`}><strong>{it.name}</strong></a>
+              <span class="muted">{it.def}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <nav class="more" aria-label="更多農民曆">
+    <a href="/almanac/">回今日農民曆 →</a>
+    <a href="/almanac/chongsha/">今日沖什麼生肖？沖煞查詢 →</a>
+  </nav>
+
+  <p class="muted small">
+    宜忌定義引自
+    <a href="https://www.epochtimes.com/b5/5/11/17/n1122603.htm" rel="nofollow">大紀元《農民曆：擇日宜忌事項解說》</a>；
+    用事分類本於《欽定協紀辨方書》卷十一。近期宜日僅列本站已考據核校（verified）者。
+  </p>
+</Base>
+
+<style>
+  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 0.8rem; }
+  .crumbs a { color: var(--accent); }
+  .lead { font-size: var(--text-base); line-height: 1.9; margin: 0.4rem 0 1.6rem; }
+  .grp { margin-top: 1.6rem; }
+  .grp h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; font-size: var(--text-lg); }
+  .terms { list-style: none; padding-left: 0; }
+  .terms li { padding: 0.5rem 0; border-bottom: 1px dashed var(--line); line-height: 1.7; }
+  .terms li a { color: var(--accent); margin-right: 0.5rem; white-space: nowrap; }
+  .terms .muted { font-size: var(--text-sm); }
+  .more { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1rem; font-size: var(--text-sm); }
+  .more a { color: var(--accent); }
+  .small { font-size: 0.85rem; margin-top: 1.2rem; }
+</style>

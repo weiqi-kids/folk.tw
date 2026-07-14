@@ -122,7 +122,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
     <div><dt>廿八宿</dt><dd>{record.ershiba.value ?? '—'}</dd></div>
     <div>
       <dt>沖煞</dt>
-      <dd>沖 {record.chongSha.value?.zodiac ?? '—'}　{record.chongSha.value?.direction ?? ''}</dd>
+      <dd>沖 {record.chongSha.value?.zodiac ?? '—'}　{record.chongSha.value?.direction ?? ''}　<a class="mini-link" href="/almanac/chongsha/">沖煞是什麼？</a></dd>
     </div>
     {record.festivals.length > 0 && <div><dt>節日</dt><dd>{record.festivals.join('、')}</dd></div>}
     <div>
@@ -258,6 +258,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
   .rec dt { font-weight: 700; color: var(--accent); }
   .rec dd { margin: 0; }
   .src { color: var(--gold); }
+  .mini-link { font-size: var(--text-xs); color: var(--accent); white-space: nowrap; }
   .yiji p { margin: 0.4rem 0; font-size: 1.05rem; }
   .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: #2e6b3a; border: 1px solid #9bbf9b; border-radius: 0.3rem; }
   .ji { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.3rem; }

@@ -1,0 +1,142 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { todayInTaipei } from '../../../lib/daily';
+import { addDays } from '../../../lib/almanac/dates';
+import { verifiedYiDays } from '../../../lib/almanac/select';
+import affairsData from '../../../lib/almanac/rules/affairs.json';
+import termsData from '../../../data/yiji-terms.json';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+
+const affairs = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
+const terms = (termsData as { terms: Record<string, { def: string; note?: string }> }).terms;
+
+// 詞義頁：每個有詞義的宜忌事項一頁（slug = affair id，永久承諾）。
+// 注意：getStaticPaths 為隔離執行，不可用上方 frontmatter 的 const，需自 import 取資料。
+export function getStaticPaths() {
+  const list = (affairsData as { affairs: { id: string }[] }).affairs;
+  const t = (termsData as { terms: Record<string, unknown> }).terms;
+  return list.filter((a) => t[a.id]).map((a) => ({ params: { affair: a.id } }));
+}
+
+const { affair } = Astro.params;
+const meta = affairs.find((a) => a.id === affair)!;
+const term = terms[affair!];
+
+// 近期宜此事的日子：僅用 verifiedYiDays（M3 唯一入口），窗口為今日起 60 天。
+const { iso: todayIso } = todayInTaipei();
+const windowDays: string[] = [];
+for (let i = 0; i < 60; i++) windowDays.push(addDays(todayIso, i));
+const yiDays = verifiedYiDays(windowDays, [affair!]).get(affair!) ?? [];
+const md = (s: string) => `${Number(s.slice(5, 7))}/${Number(s.slice(8, 10))}`;
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '農民曆', path: '/almanac' },
+    { name: '宜忌事項', path: '/almanac/yiji' },
+    { name: meta.name, path: `/almanac/yiji/${affair}` },
+  ]),
+];
+const faq = faqPage([
+  { q: `${meta.name}是什麼意思？`, a: term.def },
+  ...(term.note ? [{ q: `${meta.name}和相近的用事有什麼不同？`, a: term.note }] : []),
+  {
+    q: `近期哪幾天宜${meta.name}？`,
+    a: yiDays.length
+      ? `依本站已考據核校的資料，未來六十天內宜${meta.name}的日子有：${yiDays.map(md).join('、')}。`
+      : '',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title={`${meta.name}是什麼？農民曆宜忌用事解釋`}
+  description={`${meta.name}是什麼意思？${term.def}附近期宜${meta.name}的日子。`}
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/almanac/">農民曆</a> ／ <a href="/almanac/yiji/">宜忌事項</a> ／ {meta.name}
+  </nav>
+
+  <h1>{meta.name}是什麼？</h1>
+  <p class="lead">{term.def}</p>
+  {term.note && <p class="note">{term.note}</p>}
+
+  <section class="yi-days">
+    <h2>近期宜{meta.name}的日子</h2>
+    {
+      yiDays.length ? (
+        <ul class="days" data-yidays>
+          {yiDays.map((d) => (
+            <li class="day-item" data-date={d}>
+              <a href={`/almanac/${d}/`}>{md(d)}</a>
+              <span class="cd" data-role="countdown" />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="muted">
+          本站宜忌一律以已考據核校（verified）者為準；「{meta.name}」近期沒有 verified 的宜日資料，
+          故此處不列（未列不代表不吉，只是尚未核校）。可到<a href="/almanac/">今日農民曆</a>逐日查看。
+        </p>
+      )
+    }
+    {yiDays.length > 0 && (
+      <p class="muted small">
+        僅列本站已考據核校之宜日（M3：無源不發佈），點日期可看該日完整農民曆。未列的日子不代表不吉。
+      </p>
+    )}
+  </section>
+
+  <nav class="more" aria-label="更多">
+    <a href="/almanac/yiji/">回宜忌事項一覽 →</a>
+    <a href="/almanac/">今日農民曆 →</a>
+    <a href="/almanac/chongsha/">今日沖什麼生肖 →</a>
+  </nav>
+
+  <p class="muted small src">
+    定義引自
+    <a href="https://www.epochtimes.com/b5/5/11/17/n1122603.htm" rel="nofollow">大紀元《農民曆：擇日宜忌事項解說》</a>；
+    用事分類本於《欽定協紀辨方書》卷十一。
+  </p>
+</Base>
+
+<!-- 倒數與「隱藏已過」依台灣當下日期即時算，故 build 不新鮮時倒數仍正確（比照聖誕曆做法）。 -->
+<script is:inline>
+  (function () {
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+    const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+    const t0 = toUTC(today);
+    document.querySelectorAll('[data-yidays]').forEach((ul) => {
+      ul.querySelectorAll('.day-item').forEach((li) => {
+        const iso = li.getAttribute('data-date');
+        const days = Math.round((toUTC(iso) - t0) / 86400000);
+        if (days < 0) { li.style.display = 'none'; return; }
+        const el = li.querySelector('[data-role=countdown]');
+        if (el) el.textContent = days === 0 ? '今天' : days === 1 ? '明天' : days + ' 天後';
+      });
+    });
+  })();
+</script>
+
+<style>
+  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 0.8rem; }
+  .crumbs a { color: var(--accent); }
+  .lead { font-size: var(--text-lg); line-height: 1.9; margin: 0.4rem 0 0.8rem; }
+  .note { font-size: var(--text-base); color: var(--ink-soft); line-height: 1.8; margin: 0 0 1rem; padding-left: 0.8rem; border-left: 3px solid var(--line); }
+  .yi-days { margin-top: 1.8rem; }
+  .yi-days h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; font-size: var(--text-lg); }
+  .days { display: grid; grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr)); gap: 0.5rem; list-style: none; padding-left: 0; }
+  .day-item {
+    display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0;
+    border: 1px solid var(--line); border-radius: 0.4rem; background: var(--paper-2);
+  }
+  .day-item a { color: var(--accent); font-weight: 700; }
+  .day-item .cd { font-size: var(--text-xs); color: var(--gold); }
+  .more { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1rem; font-size: var(--text-sm); }
+  .more a { color: var(--accent); }
+  .small { font-size: 0.85rem; }
+  .src { margin-top: 1.2rem; }
+</style>
