@@ -63,7 +63,7 @@ const featuredDeities = [
         <article class="daily card">
           <header class="daily-head">
             <h2>
-              <a href={`/poems/${todayPoem.id}`}>
+              <a href={`/poems/${todayPoem.id}/`}>
                 第 {todayPoem.data.no} 籤 · {todayPoem.data.ganzhi}
               </a>
             </h2>
@@ -74,12 +74,12 @@ const featuredDeities = [
           </p>
           {allusion && (
             <p class="allusion-hint">
-              卦頭故事：<a href={`/allusions/${allusion.id}`}>{allusion.data.name}</a>
+              卦頭故事：<a href={`/allusions/${allusion.id}/`}>{allusion.data.name}</a>
               {allusion.data.source && <span class="muted">（{allusion.data.source}）</span>}
             </p>
           )}
           <p class="daily-cta">
-            <a href={`/poems/${todayPoem.id}`}>讀解碼：四句賞析 · 典故 · 分項解 →</a>
+            <a href={`/poems/${todayPoem.id}/`}>讀解碼：四句賞析 · 典故 · 分項解 →</a>
           </p>
         </article>
       )
@@ -119,7 +119,7 @@ const featuredDeities = [
     <p class="featured-links">
       {
         featuredDeities.map((d) => (
-          <a href={`/deities/${d.id}`}>{d.name}</a>
+          <a href={`/deities/${d.id}/`}>{d.name}</a>
         ))
       }
       <a class="more" href="/deities/">看全部神明 →</a>

@@ -32,7 +32,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
   <div class="county-wall">
     {
       regions.map((r) => (
-        <a class="card county" href={`/temples/region/${r.slug}`}>
+        <a class="card county" href={`/temples/region/${r.slug}/`}>
           <strong>{r.name}</strong>
           <span class="muted count">{r.n}</span>
         </a>
@@ -48,7 +48,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
           {featured.map((t) => (
             <a
               class:list={['card', 'temple', { 'card-photo': t.data.image }]}
-              href={`/temples/${t.id}`}
+              href={`/temples/${t.id}/`}
             >
               <strong>{t.data.name}</strong>
               <span class="muted small">

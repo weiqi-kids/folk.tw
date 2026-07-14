@@ -64,14 +64,14 @@ export function deityThing(d: {
   return {
     '@context': 'https://schema.org',
     '@type': 'Thing',
-    '@id': `${SITE}/deities/${d.id}`,
+    '@id': `${SITE}/deities/${d.id}/`,
     name: d.name,
     ...(d.aliases?.length ? { alternateName: d.aliases } : {}),
     ...(d.summary ? { description: d.summary } : {}),
     additionalType: 'https://schema.org/Intangible',
     keywords: [d.category, ...(d.office ?? [])].join('、'),
     ...(d.sameAs?.length ? { sameAs: d.sameAs } : {}),
-    url: `${SITE}/deities/${d.id}`,
+    url: `${SITE}/deities/${d.id}/`,
     isPartOf: { '@type': 'Dataset', name: '神酷（神庫）', url: SITE },
     publisher: ORG,
   };
@@ -163,9 +163,9 @@ export function templePlace(t: {
   return {
     '@context': 'https://schema.org',
     '@type': ['Place', 'PlaceOfWorship'],
-    '@id': `${SITE}/temples/${t.id}`,
+    '@id': `${SITE}/temples/${t.id}/`,
     name: t.name,
-    url: `${SITE}/temples/${t.id}`,
+    url: `${SITE}/temples/${t.id}/`,
     ...(t.deity ? { description: `主祀${t.deity}` } : {}),
     ...(t.address ? { address: { '@type': 'PostalAddress', addressCountry: 'TW', streetAddress: t.address } } : {}),
     ...(Number.isFinite(t.lat) && Number.isFinite(t.lng)
@@ -188,7 +188,7 @@ export function poemWork(p: {
   return {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    '@id': `${SITE}/poems/${p.id}`,
+    '@id': `${SITE}/poems/${p.id}/`,
     name: `第 ${p.no} 籤 ${p.label}`,
     inLanguage: 'zh-Hant-TW',
     genre: '籤詩',

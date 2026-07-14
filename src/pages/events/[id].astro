@@ -162,7 +162,7 @@ const jsonLd: object[] = [
               {s.role && <span class="tag">{s.role}</span>}
               {s.district && <span class="muted small">　{s.district}</span>}
               {s.lat != null && s.lng != null && (
-                <a class="map" href={`https://www.openstreetmap.org/?mlat=${s.lat}&mlon=${s.lng}#map=15/${s.lat}/${s.lng}`} target="_blank" rel="noopener">地圖 ↗</a>
+                <a class="map" href={`https://www.openstreetmap.org/?mlat=${s.lat}&mlon=${s.lng}#map=15/${s.lat}/${s.lng}/`} target="_blank" rel="noopener">地圖 ↗</a>
               )}
             </li>
           ))}

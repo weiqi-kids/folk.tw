@@ -78,7 +78,7 @@ const jsonLd: object[] = [
 ---
 
 <Base title={p.title} description={p.occasion ? `${p.summary}｜${p.occasion}` : p.summary} ogType="article" jsonLd={jsonLd} speakable={['h1', '.summary']}>
-  <nav class="crumb"><a href="/practices">拜拜習俗</a> ／ {p.category}</nav>
+  <nav class="crumb"><a href="/practices/">拜拜習俗</a> ／ {p.category}</nav>
   <h1>{p.title}</h1>
   {p.summary && <p class="summary">{p.summary}</p>}
 
@@ -92,7 +92,7 @@ const jsonLd: object[] = [
             {p.deities.map((id, i) => (
               <>
                 {i > 0 && '、'}
-                {isNode(id) ? <a href={`/deities/${id}`}>{deityName.get(id)}</a> : <span>{id} <span class="tag">待建</span></span>}
+                {isNode(id) ? <a href={`/deities/${id}/`}>{deityName.get(id)}</a> : <span>{id} <span class="tag">待建</span></span>}
               </>
             ))}
           </dd>
@@ -146,7 +146,7 @@ const jsonLd: object[] = [
         <ul class="event-refs">
           {relatedEvents.map((e) => (
             <li>
-              <a href={`/events/${e.id}`}>{e.data.name}</a>
+              <a href={`/events/${e.id}/`}>{e.data.name}</a>
               {e.data.region.length > 0 && <span class="muted small">　{e.data.region.join('、')}</span>}
             </li>
           ))}

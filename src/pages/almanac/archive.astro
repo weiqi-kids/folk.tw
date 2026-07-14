@@ -23,7 +23,7 @@ const lastM = months[months.length - 1];
   <h1>農民曆封存</h1>
   <p class="muted">
     收錄 {first} 至 {lastM} 之每日農曆考據——農曆、節氣、四柱干支、建除、廿八宿、沖煞、
-    宜忌、七十二候、納音、月相與神明聖誕。選擇年月瀏覽，或回<a href="/almanac">今日農民曆</a>。
+    宜忌、七十二候、納音、月相與神明聖誕。選擇年月瀏覽，或回<a href="/almanac/">今日農民曆</a>。
   </p>
   {
     years.map(([y, yms]) => (
@@ -31,7 +31,7 @@ const lastM = months[months.length - 1];
         <h2>{y} 年</h2>
         <ul class="months">
           {yms.map((ym) => (
-            <li><a href={`/almanac/month/${ym}`}>{Number(ym.slice(5))} 月</a></li>
+            <li><a href={`/almanac/month/${ym}/`}>{Number(ym.slice(5))} 月</a></li>
           ))}
         </ul>
       </section>

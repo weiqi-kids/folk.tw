@@ -31,7 +31,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
             {list.map((dd) => (
               <a
                 class:list={['card', 'deity-cell', { 'card-photo': dd.data.image }]}
-                href={`/deities/${dd.id}`}
+                href={`/deities/${dd.id}/`}
               >
                 <strong>{dd.data.name}</strong>
                 {dd.data.is_category && <span class="tag">類別</span>}
@@ -72,7 +72,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
             {list.map((dd, i) => (
               <>
                 {i > 0 && '、'}
-                <a href={`/deities/${dd.id}`}>{dd.data.name}</a>
+                <a href={`/deities/${dd.id}/`}>{dd.data.name}</a>
               </>
             ))}
           </p>

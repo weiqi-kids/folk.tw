@@ -18,7 +18,7 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
   <h1>神明比較</h1>
   <p class="lead">
     職司相近或常被混淆的神明，究竟差在哪？本頁逐項對照別稱、信仰類別、主要職司與聖誕，
-    對照內容衍生自逐條掛來源的<a href="/deities">神明圖譜</a>。
+    對照內容衍生自逐條掛來源的<a href="/deities/">神明圖譜</a>。
   </p>
 
   <div class="grid cols">
@@ -26,7 +26,7 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
       comparisons.map((c) => {
         const img = imgById.get(c.a);
         return (
-          <a class:list={['card', 'cmp-cell', { 'card-photo': img }]} href={`/compare/${c.slug}`}>
+          <a class:list={['card', 'cmp-cell', { 'card-photo': img }]} href={`/compare/${c.slug}/`}>
             <strong>{nameById.get(c.a) ?? c.a}　vs　{nameById.get(c.b) ?? c.b}</strong>
             <span class="muted small">{c.a_focus}｜{c.b_focus}</span>
             {img && (
@@ -48,7 +48,7 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
   </div>
 
   <p class="muted small">
-    相關：<a href="/scenarios">拜什麼神（依情境）</a>｜<a href="/trades">行業守護神</a>｜<a href="/deities">神明圖譜</a>
+    相關：<a href="/scenarios/">拜什麼神（依情境）</a>｜<a href="/trades/">行業守護神</a>｜<a href="/deities/">神明圖譜</a>
   </p>
 
   <style>

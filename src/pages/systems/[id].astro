@@ -53,7 +53,7 @@ const jsonLd = [
       ) : (
         <ul class="deity-list">
           {deities.map((dd) => (
-            <li><a href={`/deities/${dd.id}`}>{dd.data.name}</a> <span class="muted small">{dd.data.category}</span></li>
+            <li><a href={`/deities/${dd.id}/`}>{dd.data.name}</a> <span class="muted small">{dd.data.category}</span></li>
           ))}
         </ul>
       )
@@ -65,7 +65,7 @@ const jsonLd = [
     <div class="grid cols">
       {
         poems.map((p) => (
-          <a class="card" href={`/poems/${p.id}`}>
+          <a class="card" href={`/poems/${p.id}/`}>
             第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}
           </a>
         ))

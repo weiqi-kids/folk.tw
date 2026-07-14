@@ -21,7 +21,7 @@ for (const p of practices) {
     拜拜習俗與科儀的步驟知識庫；部分條目的步驟與地方差異仍在補齊掛源中。
   </p>
   <p class="links">
-    <a href="/jiaobei">擲筊判讀 →</a>　<a href="/vocabulary">金紙·供品·陣頭受控詞彙 →</a>
+    <a href="/jiaobei/">擲筊判讀 →</a>　<a href="/vocabulary/">金紙·供品·陣頭受控詞彙 →</a>
   </p>
   {
     [...byCat.entries()].map(([cat, list]) => (
@@ -31,7 +31,7 @@ for (const p of practices) {
           {list.map((p) => (
             <a
               class:list={['card', { 'card-photo': p.data.image }]}
-              href={`/practices/${p.id}`}
+              href={`/practices/${p.id}/`}
             >
               <strong>{p.data.title}</strong>
               {p.data.summary && <div class="muted small">{p.data.summary}</div>}

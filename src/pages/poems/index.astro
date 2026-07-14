@@ -28,12 +28,12 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
       return (
         <section>
           <h2>
-            <a href={`/systems/${s.id}`}>{s.data.name}</a>
+            <a href={`/systems/${s.id}/`}>{s.data.name}</a>
             <span class="count muted">（{list.length} 首）</span>
           </h2>
           <div class="grid cols poem-grid">
             {list.map((p) => (
-              <a class="poem-cell card" href={`/poems/${p.id}`}>
+              <a class="poem-cell card" href={`/poems/${p.id}/`}>
                 <span class="no">第 {p.data.no} 籤</span>
                 <span class="gz">
                   {p.data.ganzhi ?? p.data.title}

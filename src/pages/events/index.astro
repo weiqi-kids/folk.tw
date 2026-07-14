@@ -44,7 +44,7 @@ const groups = LEVELS.map((level) => ({
         </h2>
         <div class="ev-grid">
           {g.items.map((e) => (
-            <a class:list={['card', 'ev', { 'card-photo': e.data.image }]} href={`/events/${e.id}`}>
+            <a class:list={['card', 'ev', { 'card-photo': e.data.image }]} href={`/events/${e.id}/`}>
               <strong>{e.data.name}</strong>
               <div class="muted small when">
                 {CYCLE[e.data.cycle]}

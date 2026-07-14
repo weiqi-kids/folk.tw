@@ -72,7 +72,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
 >
-  <nav class="crumb"><a href="/compare">神明比較</a> ／ {A.name}與{B.name}</nav>
+  <nav class="crumb"><a href="/compare/">神明比較</a> ／ {A.name}與{B.name}</nav>
 
   <header class="dh">
     <h1>{cmp.question}</h1>
@@ -87,8 +87,8 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
         <thead>
           <tr>
             <th>項目</th>
-            <th><a href={`/deities/${cmp.a}`}>{A.name}</a></th>
-            <th><a href={`/deities/${cmp.b}`}>{B.name}</a></th>
+            <th><a href={`/deities/${cmp.a}/`}>{A.name}</a></th>
+            <th><a href={`/deities/${cmp.b}/`}>{B.name}</a></th>
           </tr>
         </thead>
         <tbody>
@@ -106,11 +106,11 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
 
   <section class="summaries">
     <div>
-      <h3><a href={`/deities/${cmp.a}`}>{A.name}</a></h3>
+      <h3><a href={`/deities/${cmp.a}/`}>{A.name}</a></h3>
       {A.summary && <p>{A.summary}</p>}
     </div>
     <div>
-      <h3><a href={`/deities/${cmp.b}`}>{B.name}</a></h3>
+      <h3><a href={`/deities/${cmp.b}/`}>{B.name}</a></h3>
       {B.summary && <p>{B.summary}</p>}
     </div>
   </section>
@@ -122,7 +122,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
         {relScen.map((id, i) => (
           <>
             {i > 0 && '、'}
-            <a href={`/scenarios/${id}`}>{scenName.get(id)}要拜什麼神</a>
+            <a href={`/scenarios/${id}/`}>{scenName.get(id)}要拜什麼神</a>
           </>
         ))}
       </p>
@@ -130,7 +130,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
   }
 
   <p class="muted small extend">
-    延伸：<a href="/compare">其他比較</a>｜<a href="/scenarios">拜什麼神</a>｜<a href="/deities">神明圖譜</a>
+    延伸：<a href="/compare/">其他比較</a>｜<a href="/scenarios/">拜什麼神</a>｜<a href="/deities/">神明圖譜</a>
   </p>
 
   {sources.length > 0 && (

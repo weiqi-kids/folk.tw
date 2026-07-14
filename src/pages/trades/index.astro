@@ -28,7 +28,7 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
       trades.map((t) => {
         const img = tradeImg(t);
         return (
-          <a class:list={['card', 'trade-cell', { 'card-photo': img }]} href={`/trades/${t.id}`}>
+          <a class:list={['card', 'trade-cell', { 'card-photo': img }]} href={`/trades/${t.id}/`}>
             <strong>{t.data.name}{t.data.modern && <span class="tag">現代延伸</span>}</strong>
             <span class="muted small">
               {t.data.patrons.map((p) => nameById.get(p.deity_ref) ?? p.deity_ref).join('、')}
@@ -55,7 +55,7 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
   </div>
 
   <p class="muted small">
-    相關：<a href="/deities">神明圖譜</a>｜<a href="/almanac">今日農民曆</a>｜<a href="/almanac/archive">農民曆封存</a>
+    相關：<a href="/deities/">神明圖譜</a>｜<a href="/almanac/">今日農民曆</a>｜<a href="/almanac/archive/">農民曆封存</a>
   </p>
 
   <style>
