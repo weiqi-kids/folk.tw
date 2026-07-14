@@ -19,6 +19,7 @@
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
     "data:seo-daily": "node scripts/seo-daily.mjs",
+    "data:qiugian": "node scripts/qiugian-aggregate.mjs",
     "data:weekly": "node scripts/seo-weekly.mjs --dry",
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
