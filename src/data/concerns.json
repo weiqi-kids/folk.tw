@@ -8,5 +8,65 @@
     "system": "guandi_lingqian",
     "deities": ["guangong", "wenchang"],
     "blurb": "關聖帝君主事業信義、文昌帝君佑功名——都是台灣人為工作求籤時會拜的神。"
+  },
+  {
+    "id": "ganqing",
+    "label": "感情",
+    "h1": "為感情求一支籤",
+    "intent": "曖昧、告白、挽回、走出分手",
+    "aspect": "姻緣",
+    "system": "liushi_jiazi",
+    "deities": ["yuelao"],
+    "blurb": "月下老人專司姻緣紅線——不管是曖昧沒進展還是想挽回，台灣人求感情籤多半先拜月老。"
+  },
+  {
+    "id": "kaoshi",
+    "label": "考試",
+    "h1": "為考試求一支籤",
+    "intent": "學測、國考、證照、口試",
+    "aspect": "功名",
+    "system": "guandi_lingqian",
+    "deities": ["wenchang", "kuixing"],
+    "blurb": "文昌帝君掌文運、魁星點功名，考季廟裡最多學生拜的就是這兩尊。"
+  },
+  {
+    "id": "caiyun",
+    "label": "財運",
+    "h1": "為財運求一支籤",
+    "intent": "求財、業績、理財、還債",
+    "aspect": "求財",
+    "system": "liushi_jiazi",
+    "deities": ["zhao_gongming", "guangong"],
+    "blurb": "武財神趙公明管財源、關聖帝君兼武財神主商業——求財、拚業績的人都會拜這兩位。"
+  },
+  {
+    "id": "jiankang",
+    "label": "家人健康",
+    "h1": "為家人健康求一支籤",
+    "intent": "手術平安、病快好、身體康復",
+    "aspect": "疾病",
+    "system": "liushi_jiazi",
+    "deities": ["baosheng", "shennong"],
+    "blurb": "保生大帝是台灣的醫神、神農大帝嘗百草掌醫藥，家裡有人開刀生病都會來拜。"
+  },
+  {
+    "id": "yunshi",
+    "label": "運勢",
+    "h1": "為運勢求一支籤",
+    "intent": "迷惘、今年運勢、該不該換跑道",
+    "aspect": "運勢",
+    "system": "liushi_jiazi",
+    "deities": ["mazu", "chenghuang"],
+    "blurb": "媽祖救苦救難、城隍監察善惡，年頭迷惘、想問一整年運勢，拜這兩尊主神求六十甲子籤最通用。"
+  },
+  {
+    "id": "qiuzi",
+    "label": "求子",
+    "h1": "為求子好孕求一支籤",
+    "intent": "備孕、求好孕、求順產",
+    "aspect": "六甲",
+    "system": "liushi_jiazi",
+    "deities": ["zhusheng", "linshui"],
+    "blurb": "註生娘娘管子嗣生育、臨水夫人護產安胎——想求子、備孕的人多半拜這兩尊。"
   }
 ]

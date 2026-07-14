@@ -179,6 +179,7 @@ const interpretations = defineCollection({
     運勢: z.string().optional(),
     求財: z.string().optional(),
     姻緣: z.string().optional(),
+    六甲: z.string().optional(), // 求子／胎孕（民俗問事類別，依傳統六十甲子籤六甲/求兒解，本站語氣撰寫）
     功名: z.string().optional(),
     訴訟: z.string().optional(),
     疾病: z.string().optional(),

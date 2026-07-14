@@ -1,0 +1,117 @@
+---
+// 時事層 · 集體祈福頁：真實集體焦慮時刻（地震／颱風／災難）快速立一個「為○○祈福／集氣」頁。
+// 鐵則：只做「為平安／復原／集氣」的正向祈福 — 沒有求籤、沒有吉凶、不算命、不變現、語氣莊重；
+// 事件事實掛真實來源（不杜撰）。設計沿用 folk 設計系統（global.css 的 OKLCH token 與字級，明體）。
+// 速度：填一筆 topical.json 資料 + build 即上線。
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import { breadcrumb } from '../../../lib/seo';
+import topical from '../../../data/topical.json';
+
+export const getStaticPaths = (async () => {
+  // 全部項目都出頁（含 archived 範例）；archived 走 noindex，只有 active 事件對搜尋引擎開放。
+  return topical.map((t) => ({ params: { slug: t.id }, props: { item: t } }));
+}) satisfies GetStaticPaths;
+
+const { item } = Astro.props;
+const isActive = item.status === 'active';
+
+const pageDesc = `${item.title}。${item.event}`.slice(0, 150);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '求籤', path: '/qiugian/' },
+    { name: item.title, path: `/qiugian/blessing/${item.id}/` },
+  ]),
+];
+---
+
+<Base
+  title={item.title}
+  description={pageDesc}
+  ogType="article"
+  jsonLd={jsonLd}
+  noindex={!isActive}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/">神酷</a> ／ <a href="/qiugian/">求籤</a> ／ 集氣祈福</nav>
+  <p class="eyebrow">集氣祈福 · 一起為平安</p>
+  <h1>{item.title}</h1>
+
+  {!isActive && (
+    <p class="example-note small">這是一則<strong>範例頁</strong>（已封存）。真實事件發生時，才會立起對應的祈福頁。</p>
+  )}
+
+  <p class="lead">{item.event}</p>
+
+  {item.sources?.length > 0 && (
+    <p class="sources small muted">
+      事件出處：
+      {item.sources.map((s, i) => (
+        <>
+          {i > 0 && '、'}
+          <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+        </>
+      ))}
+    </p>
+  )}
+
+  <div class="hearth">
+    <div class="hearth-h"><span class="flame" aria-hidden="true"></span>{item.title.replace(/（範例）$/, '')}</div>
+    <p class="cold small">這裡剛點上一盞——<b id="qifuCount" class="count">一起</b>為此刻的平安祈福。</p>
+    <button class="qi" id="qifuBtn" type="button">🕯 為○○祈福 · 點一盞</button>
+    <p id="qifuDone" class="note small"></p>
+  </div>
+
+  <p class="closing">願受影響的人都平安，願家園早日復原。這裡沒有吉凶、沒有籤，只有一份一起的心意。</p>
+
+  <div id="cfg" data-id={item.id} data-title={item.title} hidden></div>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
+    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
+    .example-note { color: var(--gold); border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0 0; }
+    .lead { font-size: var(--text-base); margin: 1rem 0 0.4rem; }
+    .sources { margin: 0.4rem 0 0; }
+    .sources a { text-decoration: underline; text-underline-offset: 3px; }
+    .closing { font-size: var(--text-base); color: var(--ink-soft); margin: 2rem 0 0; }
+
+    .hearth { margin-top: 1.6rem; border-radius: 0.9rem; padding: 1.2rem 1.2rem 0.8rem;
+      background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2);
+      border: 1px solid var(--line); }
+    .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.3rem; }
+    .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
+      box-shadow: 0 0 0.6rem 0.1rem var(--accent-soft); }
+    .cold { color: var(--ink-soft); margin: 0 0 0.9rem; }
+    .cold .count { color: var(--accent); font-variant-numeric: tabular-nums; }
+    .qi { width: 100%; margin: 0 0 0.5rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.85rem; }
+    .qi:hover { background: var(--accent); color: var(--paper); }
+    .qi:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
+    .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
+    .note { color: var(--ink-soft); min-height: 1.1rem; margin: 0; }
+  </style>
+
+  <script>
+    const cfg = document.getElementById('cfg')!.dataset;
+    const id = cfg.id!;
+    const title = (cfg.title || '').replace(/（範例）$/, '');
+    const g = (name: string, params: Record<string, unknown>) => {
+      // @ts-ignore
+      if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    };
+    // 冷啟動：本機記一盞（誠實文案，不假裝有大量人數）。
+    let lit = false;
+    const btn = document.getElementById('qifuBtn')!;
+    btn.textContent = '🕯 為' + title + '祈福 · 點一盞';
+    btn.addEventListener('click', () => {
+      if (lit) return; lit = true;
+      g('qifu', { concern: 'topical:' + id });
+      btn.classList.add('done');
+      btn.textContent = '🕯 已為' + title + '點上一盞';
+      const c = document.getElementById('qifuCount')!;
+      c.textContent = '和你一起';
+      document.getElementById('qifuDone')!.textContent = '謝謝你的心意——願平安。';
+    });
+  </script>
+</Base>

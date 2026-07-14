@@ -31,7 +31,7 @@ const poemLabel = (p: typeof poem) => `第 ${p.data.no} 籤${(p.data.ganzhi || p
 
 // 白話賞析（版面主角，§0.5）＝ interpretation md body；八項分項解 ＝ frontmatter（次級）
 const ai = interp?.data ?? {};
-const ASPECTS = ['運勢', '求財', '姻緣', '功名', '訴訟', '疾病', '行人', '失物'] as const;
+const ASPECTS = ['運勢', '求財', '姻緣', '六甲', '功名', '訴訟', '疾病', '行人', '失物'] as const;
 const interpVals = ai as Record<string, string | undefined>;
 const hasAnyInterp = ASPECTS.some((a) => interpVals[a]);
 const hasShangxi = interp ? (interp.body ?? '').trim().length > 0 : false;
@@ -68,6 +68,7 @@ const ASPECT_Q: Record<(typeof ASPECTS)[number], string> = {
   運勢: `${qlabel}的運勢如何？`,
   求財: `${qlabel}求財順利嗎？`,
   姻緣: `${qlabel}的姻緣如何？`,
+  六甲: `${qlabel}求子（六甲、生育）如何？`,
   功名: `${qlabel}的功名（考運）如何？`,
   訴訟: `${qlabel}的訴訟結果如何？`,
   疾病: `${qlabel}的疾病能否痊癒？`,
