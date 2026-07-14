@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import { breadcrumb } from '../../lib/seo';
+import concerns from '../../data/concerns.json';
+
+const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
+---
+
+<Base
+  title="求籤 · 為心裡的那件事"
+  description="在為工作、感情、考試這些事煩惱嗎？選一件，求一支籤，看白話解籤——也看看有多少人跟你一樣。"
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
+  <p class="eyebrow">求籤 · 為心裡的那件事</p>
+  <h1>你在為什麼煩惱？</h1>
+  <p class="lead">選一件，靜下心求一支籤，看白話解籤——也看看有多少人，正跟你一樣。</p>
+
+  <div class="grid cols concern-grid">
+    {concerns.map((c) => (
+      <a class="card concern" href={`/qiugian/${c.id}/`}>
+        <div class="n">為{c.label}</div>
+        <div class="muted small">{c.intent}</div>
+      </a>
+    ))}
+  </div>
+  <p class="muted small more-soon">更多情境（感情、考試…）陸續開放。</p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
+    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
+    .lead { font-size: var(--text-base); margin: 0 0 1.2rem; }
+    .concern-grid { margin: 1rem 0; }
+    .concern { text-decoration: none; color: var(--ink); }
+    .concern:hover { border-color: var(--accent-soft); }
+    .concern .n { font-size: var(--text-lg); }
+    .more-soon { margin-top: 1rem; }
+  </style>
+</Base>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "qiuzhi",
+    "label": "工作",
+    "h1": "為工作求一支籤",
+    "intent": "求職、面試、轉職",
+    "aspect": "功名",
+    "system": "guandi_lingqian",
+    "deities": ["guangong", "wenchang"],
+    "blurb": "關聖帝君主事業信義、文昌帝君佑功名——都是台灣人為工作求籤時會拜的神。"
+  }
+]

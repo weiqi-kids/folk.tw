@@ -1,0 +1,292 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import concerns from '../../data/concerns.json';
+import stats from '../../data/qiugian-stats.json';
+
+export const getStaticPaths = (async () => {
+  return concerns.map((c) => ({ params: { slug: c.id }, props: { concern: c } }));
+}) satisfies GetStaticPaths;
+
+const { concern } = Astro.props;
+
+const systems = await getSystems();
+const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+const deities = await getDeities();
+const deityById = new Map(deities.map((d) => [d.id, d.data]));
+
+// 抽籤資料集：本情境對映籤系的每一籤 → 四句 + 對映面向（既有籤解，零杜撰）。
+const poems = await getPoems();
+const interps = await interpretationById();
+const qianData = poems
+  .filter((p) => p.data.system.id === concern.system)
+  .sort((a, b) => a.data.no - b.data.no)
+  .map((p) => ({
+    no: p.data.no,
+    id: p.id,
+    label: p.data.title ?? p.data.ganzhi ?? '',
+    fortune: p.data.fortune ?? '',
+    lines: p.data.lines,
+    aspect: ((interps.get(p.id)?.data ?? {}) as Record<string, string | undefined>)[concern.aspect] ?? '',
+  }))
+  .filter((q) => q.aspect);
+
+type Agg = { week_draws: number; baoxi: number; top: Record<string, number>; joys: { text: string; meta: string }[] };
+const st: Agg = (stats as unknown as Record<string, Agg>)[concern.id] ?? { week_draws: 0, baoxi: 0, top: {}, joys: [] };
+
+const sysLabel = systemName.get(concern.system) ?? concern.system;
+const patronDeities = concern.deities.map((id) => ({ id, name: deityById.get(id)?.name ?? id })).filter((d) => deityById.has(d.id));
+
+const pageDesc = `為${concern.label}（${concern.intent}）求一支${sysLabel}，看「${concern.aspect}」面向的白話解籤。和同樣在為${concern.label}煩惱的人，一起。`;
+
+const faq = faqPage([
+  { q: `為${concern.label}求籤，該拜哪位神？`, a: patronDeities.length ? `${patronDeities.map((d) => d.name).join('、')}——都是台灣人為${concern.label}求籤時會拜的神。` : '' },
+  { q: `為${concern.label}適合求哪種籤？`, a: `可求${sysLabel}，就「${concern.aspect}」面向看解籤。` },
+]);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '求籤', path: '/qiugian/' },
+    { name: concern.h1, path: `/qiugian/${concern.id}/` },
+  ]),
+  ...(faq ? [faq] : []),
+];
+---
+
+<Base title={concern.h1} description={pageDesc} ogType="article" jsonLd={jsonLd} speakable={['h1', '.lead']}>
+  <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
+  <p class="eyebrow">求籤 · 為心裡的那件事</p>
+  <h1>{concern.h1}</h1>
+
+  {st.week_draws > 0 ? (
+    <p class="lead">在為{concern.label}煩惱的，不只你。本週有 <b>{st.week_draws}</b> 個人，在這裡為{concern.intent}求了籤。</p>
+  ) : (
+    <p class="lead">在為{concern.label}煩惱的，不只你。這裡才剛開張——你可能是最早來為{concern.label}求籤的人之一。</p>
+  )}
+  <p class="muted small blurb">{concern.blurb}</p>
+
+  <div class="actions">
+    <button class="btn btn-primary" id="drawBtn" type="button">求一支籤<small>靜下心，想著這件事</small></button>
+    <button class="btn btn-ghost" id="qifuBtn" type="button">為{concern.label}集氣<small>給同樣在拚的人</small></button>
+  </div>
+  <p class="draw-alt small">
+    在廟裡抽到了？輸入籤號：
+    <input id="noInput" type="number" min="1" inputmode="numeric" aria-label="籤號" />
+    <button class="linklike" id="noBtn" type="button">看這支</button>
+  </p>
+  <p id="topNote" class="note small"></p>
+
+  <div id="result" hidden></div>
+
+  <div class="divider">別人後來怎麼了</div>
+  <div class="joys" id="joys">
+    {st.joys.length ? st.joys.map((j) => (
+      <div class="joy card"><span class="k">{j.text}</span><span class="m">{j.meta}</span></div>
+    )) : (
+      <p class="muted small" id="joysEmpty">還沒有人回來報喜。事情有結果了，你可以是第一個。</p>
+    )}
+  </div>
+
+  <div class="baoxi">
+    <p class="small">你也曾在這裡為{concern.label}求籤嗎？有結果了回來說一聲——後面還在找的人會看到。</p>
+    <button class="btn btn-ghost bx-open" id="bxOpen" type="button">🎋 我也回來報喜</button>
+    <div id="bxChips" hidden>
+      <p class="q small">後來怎麼了？</p>
+      <div class="chips">
+        <button class="chip" type="button" data-outcome="上岸">錄取了 / 上岸</button>
+        <button class="chip" type="button" data-outcome="還在等">還在等結果</button>
+        <button class="chip" type="button" data-outcome="繼續找">還沒上，繼續找</button>
+      </div>
+    </div>
+    <p id="bxDone" class="note small"></p>
+  </div>
+
+  <div class="divider">為{concern.label}，常拜這幾位</div>
+  <div class="gods">
+    {patronDeities.map((d) => (
+      <a class="god card" href={`/deities/${d.id}/`}><div class="n">{d.name}</div></a>
+    ))}
+  </div>
+
+  <script type="application/json" id="qiandata" set:html={JSON.stringify(qianData)} />
+  <script type="application/json" id="statsdata" set:html={JSON.stringify(st)} />
+  <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
+    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
+    .lead { font-size: var(--text-base); margin: 0 0 0.3rem; }
+    .lead b { color: var(--accent); font-variant-numeric: tabular-nums; }
+    .blurb { margin: 0.3rem 0 0; }
+
+    .actions { display: flex; gap: 0.7rem; margin: 1.4rem 0 0.5rem; }
+    .btn { font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+      border-radius: 0.6rem; padding: 0.85rem 1rem; flex: 1; text-align: center; border: 1px solid transparent; }
+    .btn:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
+    .btn small { display: block; font-weight: 400; font-size: var(--text-xs); opacity: 0.85; margin-top: 0.15rem; }
+    .btn-primary { background: var(--accent); color: var(--paper); }
+    .btn-ghost { background: var(--paper-2); color: var(--ink); border-color: var(--line); }
+    .btn-ghost:hover { border-color: var(--accent-soft); }
+    .bx-open { flex: 0 0 auto; align-self: flex-start; }
+
+    .draw-alt { color: var(--ink-soft); margin: 0.6rem 0 0; }
+    .draw-alt input { width: 4rem; font-family: inherit; font-size: var(--text-sm); padding: 0.2rem 0.4rem;
+      border: 1px solid var(--line); border-radius: 0.4rem; background: var(--paper-2); color: var(--ink); }
+    .linklike { background: none; border: none; color: var(--accent); font-family: inherit; font-size: var(--text-sm);
+      cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .note { color: var(--ink-soft); min-height: 1.1rem; }
+
+    .divider { display: flex; align-items: center; gap: 0.8rem; color: var(--ink-soft); font-size: var(--text-xs);
+      letter-spacing: 0.1em; margin: 2rem 0 1rem; }
+    .divider::before, .divider::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+
+    .joys { display: flex; flex-direction: column; gap: 0.55rem; }
+    .joy { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--ok-green); }
+    .joy .k { font-size: var(--text-base); }
+    .joy .m { font-size: var(--text-sm); color: var(--ink-soft); margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    .baoxi { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1rem; }
+    .baoxi .q { color: var(--ink); margin: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip { font-family: inherit; font-size: var(--text-sm); cursor: pointer; color: var(--ink); background: var(--paper-2);
+      border: 1px solid var(--line); border-radius: 1rem; padding: 0.45rem 0.9rem; }
+    .chip:hover { border-color: var(--accent-soft); }
+    .chip:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
+
+    .gods { display: flex; gap: 0.6rem; }
+    .god { flex: 1; padding: 0.8rem 0.9rem; text-decoration: none; color: var(--ink); }
+    .god .n { font-size: var(--text-lg); }
+
+    /* 求籤結果 */
+    #result { margin-top: 1.4rem; }
+    .rslip-row { display: flex; gap: 1.1rem; align-items: stretch; }
+    .rslip { border-top: 4px solid var(--accent); padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; min-width: 9rem; }
+    .rslip .rno { font-size: var(--text-sm); color: var(--accent); letter-spacing: 0.05em; text-align: center; }
+    .rpoem { display: flex; flex-direction: row-reverse; gap: 0.35rem; justify-content: center; }
+    .rpoem .pl { writing-mode: vertical-rl; text-orientation: upright; font-size: var(--text-lg); letter-spacing: 0.12em; line-height: 1.5; color: var(--ink); }
+    .rslip .rfortune { font-size: var(--text-sm); color: var(--gold); letter-spacing: 0.1em; }
+    .reading { flex: 1; padding-top: 0.2rem; }
+    .reading .rtag { font-size: var(--text-sm); letter-spacing: 0.08em; color: var(--accent); font-weight: 700; }
+    .reading h2 { font-size: var(--text-lg); margin: 0.3rem 0 0.5rem; }
+    .reading p { font-size: var(--text-base); margin: 0 0 0.6rem; }
+    .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+
+    .hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1.1rem 1.1rem 0.5rem;
+      background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2); border: 1px solid var(--line); }
+    .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-base); font-weight: 700; margin-bottom: 0.2rem; }
+    .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
+      box-shadow: 0 0 0.6rem 0.1rem var(--accent-soft); }
+    .estat { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+    .estat:last-of-type { border-bottom: none; }
+    .estat .big { font-size: var(--text-xl); color: var(--accent); font-variant-numeric: tabular-nums; }
+    .estat.j .big { color: var(--ok-green); }
+    .qi { width: 100%; margin: 0.9rem 0 0.6rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.75rem; }
+    .qi:hover { background: var(--accent); color: var(--paper); }
+    .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
+
+    @media (max-width: 30rem) { .rslip-row { flex-direction: column; } }
+  </style>
+
+  <script>
+    const cfg = document.getElementById('cfg')!.dataset;
+    const QIAN = JSON.parse(document.getElementById('qiandata')!.textContent || '[]');
+    const STAT = JSON.parse(document.getElementById('statsdata')!.textContent || '{}');
+    const g = (name: string, params: Record<string, unknown>) => {
+      // @ts-ignore
+      if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    };
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+    function render(item: any) {
+      const week = STAT.week_draws || 0;
+      const per = (STAT.top && STAT.top[item.no]) || 0;
+      const baoxi = STAT.baoxi || 0;
+      const e1 = week > 0 ? `<b class="big">${week}</b><span>人，本週也為「${esc(cfg.label!)}」求了籤</span>`
+        : `<span>你是最近少數為「${esc(cfg.label!)}」求籤的人之一。</span>`;
+      const e2 = per > 0 ? `<div class="estat"><b class="big">${per}</b><span>人，和你抽到同一支</span></div>` : '';
+      const e3 = baoxi > 0 ? `<div class="estat j"><b class="big">${baoxi}</b><span>人，求了籤後回來報喜 ✨</span></div>`
+        : `<div class="estat j"><span>事情有結果了，回來說一聲——你可能是第一個。</span></div>`;
+      const lines = item.lines.map((l: string) => `<span class="pl">${esc(l)}</span>`).join('');
+      document.getElementById('result')!.innerHTML = `
+        <p class="draw-head small muted">你為 <b>${esc(cfg.label!)} · ${esc(cfg.aspect!)}</b> 求得——</p>
+        <div class="rslip-row">
+          <div class="rslip card">
+            <div class="rno">${esc(cfg.system!)} · 第 ${item.no} 籤${item.label ? ' · ' + esc(item.label) : ''}</div>
+            <div class="rpoem">${lines}</div>
+            ${item.fortune ? `<div class="rfortune">${esc(item.fortune)}</div>` : ''}
+          </div>
+          <div class="reading">
+            <p class="rtag">就你問的「${esc(cfg.label!)}」而言</p>
+            <h2>${esc(cfg.aspect!)}</h2>
+            <p>${esc(item.aspect)}</p>
+            <a class="more" href="/poems/${esc(item.id)}/">看完整籤解與其他面向 →</a>
+          </div>
+        </div>
+        <div class="hearth">
+          <div class="hearth-h"><span class="flame" aria-hidden="true"></span>和你一起的人</div>
+          <div class="estat">${e1}</div>
+          ${e2}
+          ${e3}
+          <button class="qi" id="qiInline" type="button">🙏 為自己的${esc(cfg.label!)}集氣</button>
+        </div>
+        <p class="note small caption-time">為明天的事求的嗎？收藏這頁，有結果了回來報喜——這裡記得你來過。</p>`;
+      document.getElementById('result')!.hidden = false;
+      document.getElementById('qiInline')!.addEventListener('click', qifuInline);
+      document.getElementById('result')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function draw() {
+      if (!QIAN.length) return;
+      const item = QIAN[Math.floor(Math.random() * QIAN.length)];
+      g('qiugian', { concern: cfg.concern, poem_no: item.no });
+      render(item);
+    }
+    function drawByNo() {
+      const v = parseInt((document.getElementById('noInput') as HTMLInputElement).value, 10);
+      const item = QIAN.find((q: any) => q.no === v);
+      const note = document.getElementById('topNote')!;
+      if (!item) { note.textContent = `這個籤系沒有第 ${v || '?'} 籤，或該籤暫無解。試試「求一支籤」。`; return; }
+      note.textContent = '';
+      g('qiugian', { concern: cfg.concern, poem_no: item.no, by_no: true });
+      render(item);
+    }
+
+    let qifuDone = false;
+    function qifuInline() {
+      const b = document.getElementById('qiInline')!;
+      if (qifuDone) return; qifuDone = true;
+      g('qifu', { concern: cfg.concern });
+      b.classList.add('done'); b.textContent = '🕯 已為你的' + cfg.label + '點上一盞';
+    }
+    document.getElementById('qifuBtn')!.addEventListener('click', () => {
+      g('qifu', { concern: cfg.concern });
+      document.getElementById('topNote')!.textContent = '🕯 已集氣——也幫還在拚' + cfg.label + '的人一起集了氣。';
+    });
+
+    document.getElementById('drawBtn')!.addEventListener('click', draw);
+    document.getElementById('noBtn')!.addEventListener('click', drawByNo);
+
+    // 報喜（還願）：按類別、不打字 → 送 GA 事件，當場加進喜訊牆
+    document.getElementById('bxOpen')!.addEventListener('click', () => {
+      document.getElementById('bxChips')!.hidden = false;
+      (document.getElementById('bxOpen') as HTMLElement).style.display = 'none';
+    });
+    for (const chip of document.querySelectorAll('.chip')) {
+      chip.addEventListener('click', () => {
+        const outcome = (chip as HTMLElement).dataset.outcome!;
+        g('baoxi', { concern: cfg.concern, outcome });
+        document.getElementById('bxChips')!.hidden = true;
+        document.getElementById('bxDone')!.textContent = '謝了，加上去了——後面還在找的人會看到。🕯';
+        const joys = document.getElementById('joys')!;
+        const empty = document.getElementById('joysEmpty'); if (empty) empty.remove();
+        const el = document.createElement('div'); el.className = 'joy card';
+        const k = document.createElement('span'); k.className = 'k'; k.textContent = (chip as HTMLElement).textContent!.trim();
+        const m = document.createElement('span'); m.className = 'm'; m.textContent = '剛剛 · 你';
+        el.append(k, m); joys.insertBefore(el, joys.firstChild);
+      });
+    }
+  </script>
+</Base>
