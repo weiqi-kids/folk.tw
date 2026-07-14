@@ -15,6 +15,7 @@
     "check": "astro check",
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
     "check:canonical": "node scripts/check-canonical-links.mjs",
+    "check:rendered": "node scripts/check-rendered.mjs",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
     "data:seo-daily": "node scripts/seo-daily.mjs",

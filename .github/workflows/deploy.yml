@@ -39,6 +39,8 @@ jobs:
         run: pnpm build
       - name: canonical 連結檢查（非斜線內部網址→301，阻擋部署）
         run: pnpm check:canonical
+      - name: render 不變量檢查（廟頁求籤區塊全量比對資料，阻擋部署）
+        run: pnpm check:rendered
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
