@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getTemples, getDeities, getEvents } from '../../lib/queries';
+import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 
@@ -14,6 +14,9 @@ const { temple } = Astro.props;
 const t = temple.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const deityData = new Map(deities.map((d) => [d.id, d.data]));
+const systems = await getSystems();
+const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 const events = await getEvents();
 // 此廟主辦之活動（host_temple 對映 temple.id）
 const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
@@ -27,6 +30,10 @@ const speakable = t.history ? ['h1', '.temple-history'] : undefined;
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
+
+// 求籤入口（主題集群邊）：把廟宇頁流量（全站曝光大宗）以 1 跳導入高 CTR 的籤詩集群。
+// 僅取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
+const lingqianSystems = refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
 
 // 廟宇頁 meta description（原本無此 prop、全站落回首頁通用文案，
 // 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
@@ -100,6 +107,20 @@ const jsonLd = [
       )
     }
   </dl>
+
+  {
+    lingqianSystems.length > 0 && (
+      <section class="temple-lingqian">
+        <h2>到{t.name}求籤</h2>
+        <p class="muted small">{mainDeity}的靈籤，可線上查閱籤詩與白話解籤：</p>
+        <ul>
+          {lingqianSystems.map((s) => (
+            <li><a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   {
     hasHistory && (
