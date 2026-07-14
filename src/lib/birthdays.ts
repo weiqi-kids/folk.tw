@@ -30,6 +30,8 @@ function lunarDayCn(d: number): string {
   return '三十';
 }
 const labelOf = (key: string) => `農曆${lunarMonthCn(Number(key.slice(0, 2)))}月${lunarDayCn(Number(key.slice(3)))}`;
+/** 農曆「MM-DD」→ 中文標籤（如「03-23」→「農曆三月廿三」）。供廟宇頁 answer-first 摘要重用同一套轉換。 */
+export const lunarDateLabel = (mmdd: string): string => (/^\d{2}-\d{2}$/.test(mmdd) ? labelOf(mmdd) : '');
 // 該國曆日是否為農曆月最後一日（明日農曆月份不同即是）。
 function isLunarMonthEnd(iso: string): boolean {
   const t = addDays(iso, 1);

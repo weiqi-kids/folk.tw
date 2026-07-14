@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
+import { lunarDateLabel } from '../../lib/birthdays';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -24,9 +25,8 @@ const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
 // 上行連結：縣市→鄉鎮二級樞紐（給爬蟲/讀者橫向出口，不建廟對廟密網）。
 const county = templeCounty(t.district);
 const township = templeTownship(t.district);
-// 名廟沿革（#1 內容豐化）：有沿革才宣告 speakable（AEO answer-first）。
+// 名廟沿革（#1 內容豐化）：有沿革才顯示沿革區塊。
 const hasHistory = !!(t.founded || t.history || t.main_festival);
-const speakable = t.history ? ['h1', '.temple-history'] : undefined;
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
@@ -34,6 +34,28 @@ const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) 
 // 求籤入口（主題集群邊）：把廟宇頁流量（全站曝光大宗）以 1 跳導入高 CTR 的籤詩集群。
 // 僅取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
 const lingqianSystems = refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
+
+// 主祀神聖誕（農曆）：僅取 deity 節點既有 birthday_lunar 中 kind==='聖誕' 者，轉中文標籤；無源不補。
+const birthdayLunar = refOk
+  ? ((deityData.get(t.main_deity_ref!)?.birthday_lunar ?? []).find((b: { kind?: string; date?: string }) => b.kind === '聖誕')?.date ?? '')
+  : '';
+const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
+
+// answer-first 摘要（全體廟頁皆有）：純用既有欄位重組，緊扣「XX宮是什麼廟／在哪／拜誰」搜尋意圖，絕不補新事實。
+const regionLabelForSummary = county ? `${county.name}${township?.name ?? ''}` : (t.district ?? '');
+const historyFirstSentence = t.history ? (t.history.split(/(?<=[。！？])/)[0] ?? '').trim() : '';
+const summaryText = [
+  `${t.name}`,
+  regionLabelForSummary ? `位於${regionLabelForSummary}` : '',
+  mainDeity ? `，主祀${mainDeity}` : '',
+  birthdayLabel ? `（聖誕${birthdayLabel}）` : '',
+  lingqianSystems.length > 0 ? '，可線上求籤解籤' : '',
+  '。',
+  historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
+].join('');
+
+// speakable 對全體廟頁生效：以頁首 .summary 直答區塊為主（不再只限有沿革者）。
+const speakable = ['h1', '.summary'];
 
 // 廟宇頁 meta description（原本無此 prop、全站落回首頁通用文案，
 // 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
@@ -45,14 +67,31 @@ const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' 
 // 全站 7891 廟 100% 具 district，加上鄉鎮地名可消歧並強化在地搜尋匹配（僅用既有欄位，不補新事實）。
 const templeTitle = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `${t.name}・${t.district}` : t.name);
 
+// FAQ（AEO）：全數就既有欄位出題，faqPage 會過濾空答；無資料的題目不生，絕不杜撰。
+const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);
+const festivalOrHistory = t.main_festival
+  ? `${t.name}的主要祭典為${t.main_festival}。`
+  : historyFirstSentence
+    ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}`
+    : '';
 const faq = faqPage([
   {
     q: `${t.name}主祀哪位神明？`,
-    a: mainDeity ? `${t.name}主祀${mainDeity}。` : '',
+    a: mainDeity
+      ? `${t.name}主祀${mainDeity}${birthdayLabel ? `，聖誕為${birthdayLabel}` : ''}。`
+      : '',
   },
   {
     q: `${t.name}在哪裡？`,
-    a: t.district ? `${t.name}位於${t.district}。` : '',
+    a: regionLabelForSummary ? `${t.name}位於${regionLabelForSummary}。` : (t.district ? `${t.name}位於${t.district}。` : ''),
+  },
+  {
+    q: `${t.name}可以求籤嗎？`,
+    a: lingqianNames.length > 0 ? `可以。${t.name}主祀${mainDeity}，可線上查閱${lingqianNames.join('、')}與白話解籤。` : '',
+  },
+  {
+    q: t.main_festival ? `${t.name}的主要祭典是什麼？` : `${t.name}的沿革為何？`,
+    a: festivalOrHistory,
   },
 ]);
 
@@ -81,6 +120,8 @@ const jsonLd = [
     {county && township && <> ／ <a href={`/temples/region/${county.slug}/${township.name}/`}>{township.name}</a></>}
   </nav>
   <h1>{t.name}</h1>
+
+  <p class="summary">{summaryText}</p>
 
   <dl class="rec">
     {t.district && <div><dt>行政區</dt><dd>{t.district}</dd></div>}
@@ -159,6 +200,7 @@ const jsonLd = [
 
   <style>
     .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .summary { font-size: 1.05rem; line-height: 1.8; margin: 0.6rem 0 1rem; }
     .rec { display: grid; gap: 0.4rem; margin: 1rem 0; }
     .rec > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
     .rec dt { font-weight: 700; color: var(--accent); }

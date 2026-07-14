@@ -30,6 +30,10 @@ function expectedSystems(t) {
 }
 
 const SECTION_MARK = 'class="temple-lingqian"';
+// answer-first 摘要（全體廟頁必有，speakable 抓取對象）與 FAQPage 結構化資料（全體廟頁必有，
+// 因「在哪裡」一題恆有答＝全站 100% 具 district）。兩者皆為模板層改動、7891 頁一次生效，逐頁全驗。
+const SUMMARY_MARK = 'class="summary"';
+const FAQ_MARK = '"@type":"FAQPage"';
 const violations = [];
 let checked = 0;
 let missingPages = 0;
@@ -42,6 +46,10 @@ for (const t of temples) {
   const hasSection = html.includes(SECTION_MARK);
   const systems = expectedSystems(t);
   checked++;
+
+  // 不變量（全體廟頁）：頁首 answer-first 摘要 + FAQPage 結構化資料，缺一即違規。
+  if (!html.includes(SUMMARY_MARK)) violations.push(`${t.id} 缺少 answer-first 摘要元素（${SUMMARY_MARK}）`);
+  if (!html.includes(FAQ_MARK)) violations.push(`${t.id} 缺少 FAQPage 結構化資料（${FAQ_MARK}）`);
 
   if (systems.length > 0) {
     expectedCount++;
@@ -60,7 +68,7 @@ for (const t of temples) {
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料。`);
   process.exit(0);
 }
 
