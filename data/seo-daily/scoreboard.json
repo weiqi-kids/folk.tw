@@ -60,11 +60,20 @@
           "clicks": 0,
           "ctr": 0,
           "note": "首訊日到，但 GSC 資料窗（06-27~07-04）僅尾端 07-04 觸及部署時點（07-04 22:03 UTC），且本身查詢量極小（impr 3），樣本不足以判讀，持續 0 click 屬預期內、非退步。"
+        },
+        {
+          "date": "2026-07-15",
+          "pos": 11,
+          "impr": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "全窗日。逐日複查 7/4-7/15 全部 12 天資料：clicks 全程恆為 0（未曾轉正），impr 由基準 11 一路降至 1-4（曝光量本身萎縮非稀釋所致，此頁查詢量太小不受站級稀釋框架解釋），position 8.6-15 之間游走、無改善趨勢。假說『CTR 由 0 轉正』明確未成立。"
         }
       ],
-      "status": "open",
-      "verdict": null,
-      "verdict_date": null
+      "status": "resolved",
+      "verdict": "loss",
+      "verdict_date": "2026-07-15",
+      "verdict_note": "全窗 12 天 clicks 恆為 0，CTR 從未轉正，impr 同步萎縮、position 無改善，假說不成立判 loss。內容本身無害（如實摘要既有故事，未新增杜撰事實），不觸發回退，僅留作『seoDesc 對極低曝光量(impr<15)頁效果有限』的經驗教訓，供後續同類候選挑選時參考（優先挑 impr 較高者，如 zhengde_lifeng bet impr26）。"
     },
     {
       "id": "2026-07-05-temple-title-disambig",
