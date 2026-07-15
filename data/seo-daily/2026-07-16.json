@@ -1,0 +1,2556 @@
+{
+  "date": "2026-07-16",
+  "generatedAt": "2026-07-15T20:30:01.645Z",
+  "ga4": {
+    "range": "7daysAgo..yesterday",
+    "sessions": 548,
+    "users": 504,
+    "views": 1003,
+    "avgDurationSec": 112,
+    "taiwanOrganicSessions": 469,
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "sessions": 485
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 52
+      },
+      {
+        "channel": "Direct",
+        "sessions": 40
+      },
+      {
+        "channel": "Cross-network",
+        "sessions": 12
+      },
+      {
+        "channel": "Referral",
+        "sessions": 2
+      }
+    ],
+    "topPages": [
+      {
+        "path": "/deities/",
+        "views": 36
+      },
+      {
+        "path": "/poems/",
+        "views": 36
+      },
+      {
+        "path": "/temples/region/kaohsiung/",
+        "views": 31
+      },
+      {
+        "path": "/",
+        "views": 25
+      },
+      {
+        "path": "/temples/",
+        "views": 16
+      },
+      {
+        "path": "/scenarios/",
+        "views": 12
+      },
+      {
+        "path": "/deities/guangze/",
+        "views": 8
+      },
+      {
+        "path": "/events/",
+        "views": 8
+      },
+      {
+        "path": "/practices/",
+        "views": 8
+      },
+      {
+        "path": "/almanac/",
+        "views": 7
+      },
+      {
+        "path": "/deities/mazu/",
+        "views": 7
+      },
+      {
+        "path": "/temples/moi_8248_忠義公廟/",
+        "views": 7
+      },
+      {
+        "path": "/trades/",
+        "views": 7
+      },
+      {
+        "path": "/deities/tudigong/",
+        "views": 6
+      },
+      {
+        "path": "/deities/guangong/",
+        "views": 5
+      }
+    ]
+  },
+  "gsc": {
+    "range": "2026-07-05..2026-07-12",
+    "totals": {
+      "clicks": 476,
+      "impressions": 28534,
+      "ctr": 0.016681853227728326,
+      "position": 9.388343730286676
+    },
+    "topQueries": [
+      {
+        "query": "和美三順宮",
+        "clicks": 4,
+        "impressions": 102,
+        "ctr": 0.0392156862745098,
+        "position": 5.254901960784314
+      },
+      {
+        "query": "江中立欽賜狀元",
+        "clicks": 4,
+        "impressions": 17,
+        "ctr": 0.23529411764705882,
+        "position": 5.705882352941177
+      },
+      {
+        "query": "三順宮",
+        "clicks": 3,
+        "impressions": 115,
+        "ctr": 0.02608695652173913,
+        "position": 4.556521739130435
+      },
+      {
+        "query": "埔里慈願寺",
+        "clicks": 3,
+        "impressions": 58,
+        "ctr": 0.05172413793103448,
+        "position": 11.189655172413794
+      },
+      {
+        "query": "天慈佛院",
+        "clicks": 3,
+        "impressions": 18,
+        "ctr": 0.16666666666666666,
+        "position": 9.11111111111111
+      },
+      {
+        "query": "銅銀買紙靴 典故",
+        "clicks": 3,
+        "impressions": 11,
+        "ctr": 0.2727272727272727,
+        "position": 4
+      },
+      {
+        "query": "王昭君和番籤詩",
+        "clicks": 2,
+        "impressions": 4,
+        "ctr": 0.5,
+        "position": 10.5
+      },
+      {
+        "query": "蘭陽南海宮",
+        "clicks": 2,
+        "impressions": 14,
+        "ctr": 0.14285714285714285,
+        "position": 19
+      },
+      {
+        "query": "霖鳳宮",
+        "clicks": 2,
+        "impressions": 15,
+        "ctr": 0.13333333333333333,
+        "position": 10.733333333333333
+      },
+      {
+        "query": "七股西寮西興宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 4.6
+      },
+      {
+        "query": "三聖宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "query": "三重法主公",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 9.8
+      },
+      {
+        "query": "下湖關帝廟",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 6.545454545454546
+      },
+      {
+        "query": "中埔福德宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 3.8
+      },
+      {
+        "query": "中路萬福宮",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 9
+      },
+      {
+        "query": "二崙興國宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 5.333333333333333
+      },
+      {
+        "query": "五龍山靈聖堂",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 5.636363636363637
+      },
+      {
+        "query": "仁武武聖廟",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 12
+      },
+      {
+        "query": "佛前發誓無異心且看前途得好音此物原來本是鐵也能變化得成金",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 46
+      },
+      {
+        "query": "冬山廣聖宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 10.25
+      },
+      {
+        "query": "劉文龍求官",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 26
+      },
+      {
+        "query": "南中慈惠堂",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 8.666666666666668
+      },
+      {
+        "query": "南光寺",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 8.5
+      },
+      {
+        "query": "南化宮",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 9.285714285714286
+      },
+      {
+        "query": "南壇宮",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 6.625
+      }
+    ],
+    "topPages": [
+      {
+        "page": "https://folk.tw/temples/moi_7095_%E4%B8%89%E9%A0%86%E5%AE%AE/",
+        "clicks": 11,
+        "impressions": 425,
+        "ctr": 0.02588235294117647,
+        "position": 5.178823529411765
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "clicks": 6,
+        "impressions": 36,
+        "ctr": 0.16666666666666666,
+        "position": 4.888888888888889
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-35",
+        "clicks": 5,
+        "impressions": 15,
+        "ctr": 0.3333333333333333,
+        "position": 13.066666666666666
+      },
+      {
+        "page": "https://folk.tw/deities/miaoying_xianfei/",
+        "clicks": 4,
+        "impressions": 88,
+        "ctr": 0.045454545454545456,
+        "position": 8.636363636363637
+      },
+      {
+        "page": "https://folk.tw/allusions/tonggin_zhixue/",
+        "clicks": 3,
+        "impressions": 22,
+        "ctr": 0.13636363636363635,
+        "position": 4.909090909090909
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-40/",
+        "clicks": 3,
+        "impressions": 17,
+        "ctr": 0.17647058823529413,
+        "position": 6.882352941176471
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-55/",
+        "clicks": 3,
+        "impressions": 49,
+        "ctr": 0.061224489795918366,
+        "position": 13.142857142857142
+      },
+      {
+        "page": "https://folk.tw/temples/moi_5018_%E9%AB%98%E9%9B%84%E6%85%88%E6%83%A0%E5%A0%82/",
+        "clicks": 3,
+        "impressions": 42,
+        "ctr": 0.07142857142857142,
+        "position": 9.261904761904763
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6471_%E7%83%88%E6%82%8C%E5%AE%AE/",
+        "clicks": 3,
+        "impressions": 132,
+        "ctr": 0.022727272727272728,
+        "position": 6.984848484848484
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7934_%E6%85%88%E9%A1%98%E5%AF%BA/",
+        "clicks": 3,
+        "impressions": 137,
+        "ctr": 0.021897810218978103,
+        "position": 10.576642335766424
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_41/",
+        "clicks": 2,
+        "impressions": 5,
+        "ctr": 0.4,
+        "position": 8.6
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "clicks": 2,
+        "impressions": 23,
+        "ctr": 0.08695652173913043,
+        "position": 5.478260869565218
+      },
+      {
+        "page": "https://folk.tw/almanac/2028-05-28/",
+        "clicks": 2,
+        "impressions": 13,
+        "ctr": 0.15384615384615385,
+        "position": 3.8461538461538463
+      },
+      {
+        "page": "https://folk.tw/deities/qiyebaye/",
+        "clicks": 2,
+        "impressions": 149,
+        "ctr": 0.013422818791946308,
+        "position": 8.261744966442954
+      },
+      {
+        "page": "https://folk.tw/deities/taisui_yichou/",
+        "clicks": 2,
+        "impressions": 15,
+        "ctr": 0.13333333333333333,
+        "position": 5.466666666666667
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-13",
+        "clicks": 2,
+        "impressions": 5,
+        "ctr": 0.4,
+        "position": 23
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-70/",
+        "clicks": 2,
+        "impressions": 21,
+        "ctr": 0.09523809523809523,
+        "position": 8.761904761904763
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-74/",
+        "clicks": 2,
+        "impressions": 21,
+        "ctr": 0.09523809523809523,
+        "position": 17.047619047619047
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-77/",
+        "clicks": 2,
+        "impressions": 16,
+        "ctr": 0.125,
+        "position": 7.625
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-26/",
+        "clicks": 2,
+        "impressions": 9,
+        "ctr": 0.2222222222222222,
+        "position": 21.444444444444443
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-47/",
+        "clicks": 2,
+        "impressions": 12,
+        "ctr": 0.16666666666666666,
+        "position": 27.916666666666668
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-50/",
+        "clicks": 2,
+        "impressions": 27,
+        "ctr": 0.07407407407407407,
+        "position": 15.074074074074074
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-54/",
+        "clicks": 2,
+        "impressions": 42,
+        "ctr": 0.047619047619047616,
+        "position": 16.476190476190474
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1045_%E8%8A%B1%E8%8F%93%E5%B1%B1%E5%A4%A9%E9%9F%B3%E5%AF%BA",
+        "clicks": 2,
+        "impressions": 4,
+        "ctr": 0.5,
+        "position": 10.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11002_%E5%A5%89%E5%A4%A9%E5%BA%9C/",
+        "clicks": 2,
+        "impressions": 14,
+        "ctr": 0.14285714285714285,
+        "position": 4.357142857142858
+      }
+    ],
+    "pageQueryCross": [
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "query": "江中立欽賜狀元",
+        "clicks": 4,
+        "impressions": 17,
+        "ctr": 0.23529411764705882,
+        "position": 5.705882352941177
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7095_%E4%B8%89%E9%A0%86%E5%AE%AE/",
+        "query": "和美三順宮",
+        "clicks": 4,
+        "impressions": 102,
+        "ctr": 0.0392156862745098,
+        "position": 5.254901960784314
+      },
+      {
+        "page": "https://folk.tw/allusions/tonggin_zhixue/",
+        "query": "銅銀買紙靴 典故",
+        "clicks": 3,
+        "impressions": 11,
+        "ctr": 0.2727272727272727,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7095_%E4%B8%89%E9%A0%86%E5%AE%AE/",
+        "query": "三順宮",
+        "clicks": 3,
+        "impressions": 115,
+        "ctr": 0.02608695652173913,
+        "position": 4.556521739130435
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7934_%E6%85%88%E9%A1%98%E5%AF%BA/",
+        "query": "埔里慈願寺",
+        "clicks": 3,
+        "impressions": 58,
+        "ctr": 0.05172413793103448,
+        "position": 11.189655172413794
+      },
+      {
+        "page": "https://folk.tw/temples/moi_5_%E8%98%AD%E9%99%BD%E5%8D%97%E6%B5%B7%E5%AE%AE/",
+        "query": "蘭陽南海宮",
+        "clicks": 2,
+        "impressions": 14,
+        "ctr": 0.14285714285714285,
+        "position": 19
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9068_%E9%9C%96%E9%B3%B3%E5%AE%AE/",
+        "query": "霖鳳宮",
+        "clicks": 2,
+        "impressions": 15,
+        "ctr": 0.13333333333333333,
+        "position": 10.733333333333333
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9182_%E5%A4%A9%E6%85%88%E4%BD%9B%E9%99%A2/",
+        "query": "天慈佛院",
+        "clicks": 2,
+        "impressions": 10,
+        "ctr": 0.2,
+        "position": 9.2
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_35/",
+        "query": "王昭君和番籤詩",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 34
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_41/",
+        "query": "劉文龍求官",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 26
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "query": "江中立",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 4.5
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬故事",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 3
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "秦叔寶救李淵",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 8.11111111111111
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻為母救主",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr": 0.043478260869565216,
+        "position": 5.6521739130434785
+      },
+      {
+        "page": "https://folk.tw/deities/dasheng/",
+        "query": "大圣爷",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 53
+      },
+      {
+        "page": "https://folk.tw/deities/taiyin/",
+        "query": "太陰娘娘",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 19.2
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_zhu/",
+        "query": "朱叔裕",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr": 0.0625,
+        "position": 10.25
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-35",
+        "query": "王昭君和番籤詩",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 10.5
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-66/",
+        "query": "杜甫遊春",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-70/",
+        "query": "雷雨風雲各有司姻緣",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 31
+      },
+      {
+        "page": "https://folk.tw/poems/guandi_lingqian-74/",
+        "query": "崔武求官",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 29
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-39/",
+        "query": "意中若問神仙路 勸爾且退望高樓 寬心且守寬心坐 必然遇得貴人扶",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 45
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-47/",
+        "query": "君爾何須問聖跡 自己心中皆有益 於今且看月中旬 凶事脫出化成吉",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 35
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-50/",
+        "query": "佛前發誓無異心且看前途得好音此物原來本是鐵也能變化得成金",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 46
+      },
+      {
+        "page": "https://folk.tw/poems/liushi_jiazi-55/",
+        "query": "癸丑籤",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 19
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10068_%E8%88%88%E5%9C%8B%E5%AE%AE/",
+        "query": "二崙興國宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 5.333333333333333
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10302_%E5%8D%97%E5%A4%A9%E5%AE%AE",
+        "query": "南天宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10615_%E5%A4%A9%E5%AF%B6%E5%AE%AE/",
+        "query": "大城天寶宮",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 3.2857142857142856
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10621_%E6%AD%A6%E8%81%96%E5%BB%9F/",
+        "query": "仁武武聖廟",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10697_%E6%9C%9D%E6%98%8E%E5%AE%AE/",
+        "query": "美濃朝明宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10927_%E6%B0%B8%E6%85%B6%E5%AE%AE/",
+        "query": "鹽水永慶宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 23
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10951_%E5%A4%A7%E5%AE%85%E4%B8%AD%E5%AE%89%E5%AE%AE/",
+        "query": "大宅中安宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 7.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10972_%E7%9F%B3%E9%96%80%E6%B4%9E%E4%BA%94%E9%BE%8D%E5%AE%AE/",
+        "query": "石門五龍宮主神",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/temples/moi_10989_%E5%9C%8B%E9%82%91%E6%AD%A6%E7%95%B6%E5%B1%B1%E7%9C%9F%E6%AD%A6%E5%BB%9F/",
+        "query": "國邑武當山真武廟",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 7.333333333333333
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1123_%E5%BB%A3%E8%81%96%E5%AE%AE/",
+        "query": "冬山廣聖宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 10.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11288_%E5%A4%A9%E6%BF%9F%E5%AE%AE/",
+        "query": "天濟宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11388_%E6%82%9F%E4%BF%AE%E5%A0%82/",
+        "query": "城隍爺",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11674_%E9%B6%AF%E6%AD%8C%E8%81%96%E9%B6%AF%E5%AE%AE/",
+        "query": "鶯歌聖鶯宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 11.2
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11774_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E5%A4%A9%E9%87%91%E5%A0%82/",
+        "query": "大寮天金堂",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 5.142857142857143
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11883_%E8%87%BA%E6%9D%B1%E7%B8%A3%E6%BF%9F%E5%85%AC%E5%A0%82/",
+        "query": "台東濟公堂",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 6.4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11897_%E5%8D%97%E5%A3%87%E5%AE%AE/",
+        "query": "南壇宮",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 6.625
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11902_%E5%8D%97%E5%8C%96%E5%AE%AE/",
+        "query": "南化宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 3.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1190_%E9%9D%88%E9%9A%B1%E5%AF%BA/",
+        "query": "霧峰靈隱寺",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 6.666666666666667
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12003_%E6%99%AE%E7%85%A7%E6%A5%AD%E5%AF%BA/",
+        "query": "普照業寺",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 6.285714285714286
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12075_%E6%98%8E%E8%A1%8C%E5%AF%BA/",
+        "query": "明行寺",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 5.75
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12113_%E6%B1%A0%E9%BE%8D%E5%AE%AE/",
+        "query": "池龍宮",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 8.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12137_%E6%B3%B0%E7%A5%A5%E5%AE%AE/",
+        "query": "楊梅泰祥宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 9.666666666666666
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12203_%E5%A4%A9%E8%8F%AF%E5%AE%AE/",
+        "query": "天華宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1331_%E8%81%96%E7%91%A4%E5%AE%AE/",
+        "query": "大村聖瑤宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1403_%E5%A4%A7%E9%87%8C%E6%B1%A0%E7%8E%8B%E5%AE%AE/",
+        "query": "大里池王宮",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr": 0.07692307692307693,
+        "position": 7.153846153846154
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1403_%E5%A4%A7%E9%87%8C%E6%B1%A0%E7%8E%8B%E5%AE%AE/",
+        "query": "池府王爺",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1477_%E6%9D%BE%E5%B1%B1%E6%85%88%E6%83%A0%E5%A0%82/",
+        "query": "慈惠堂",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 59
+      },
+      {
+        "page": "https://folk.tw/temples/moi_159_%E9%B3%B3%E5%84%80%E5%AE%AE/",
+        "query": "莿桐鳳儀宮",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 9.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1760_%E8%AD%B7%E5%AE%89%E5%BA%9C/",
+        "query": "山寮護安府",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 11.3
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1772_%E8%A5%BF%E8%88%88%E5%AE%AE/",
+        "query": "七股西寮西興宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 4.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1772_%E8%A5%BF%E8%88%88%E5%AE%AE/",
+        "query": "西寮西興宮",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 5.375
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1900_%E6%9D%B1%E5%A4%A9%E5%AE%AE/",
+        "query": "東天宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 3.6666666666666665
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1904_%E8%90%AC%E7%A6%8F%E5%AE%AE/",
+        "query": "中路萬福宮",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1972_%E8%A6%8B%E9%BE%8D%E5%AE%AE/",
+        "query": "見龍宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 17
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2135_%E5%A5%89%E5%AE%89%E5%AE%AE",
+        "query": "水上外林奉安宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 5.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2335_%E5%A4%A7%E9%9B%B2%E5%90%88%E8%81%96%E5%AE%AE/",
+        "query": "合聖宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 10.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2462_%E6%9E%97%E5%8F%A3%E9%9B%B7%E8%88%88%E5%AF%BA%E4%BB%99%E5%85%AC%E5%BB%9F/",
+        "query": "林口雷興寺",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 7.75
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2498_%E5%B4%87%E5%AF%A7%E5%AE%AE/",
+        "query": "崇寧宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 7.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2731_%E7%A6%8F%E5%9F%BA%E6%85%88%E6%83%A0%E5%A0%82/",
+        "query": "南投慈惠堂",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_2960_%E6%B7%A1%E6%B0%B4%E8%A1%8C%E5%BF%A0%E5%AE%AE/",
+        "query": "行忠宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 8.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3079_%E4%B8%8B%E6%B9%96%E9%97%9C%E5%B8%9D%E5%BB%9F/",
+        "query": "下湖關帝廟",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 6.545454545454546
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3206_%E9%BE%8D%E6%B1%A0%E5%AE%AE/",
+        "query": "龍池宮",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr": 0.043478260869565216,
+        "position": 7.304347826086956
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3313_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E5%A5%89%E5%A4%A9%E5%AE%AE/",
+        "query": "新竹奉天宮",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3393_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E6%89%BF%E5%A4%A9%E6%AD%A6%E8%81%96/",
+        "query": "承天武聖廟",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 7.222222222222222
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3529_%E7%8E%89%E7%9A%87%E5%AE%AE",
+        "query": "玉皇宮員林",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 6.666666666666667
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3529_%E7%8E%89%E7%9A%87%E5%AE%AE/",
+        "query": "玉 皇宫 源潭里",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 4.7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3913_%E7%A6%8F%E5%A4%A9%E5%AE%AE/",
+        "query": "大村福天宮",
+        "clicks": 1,
+        "impressions": 21,
+        "ctr": 0.047619047619047616,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3984_%E7%B8%BD%E9%A0%AD%E5%AF%AE%E8%88%88%E5%AE%89%E5%AE%AE/",
+        "query": "總頭寮興安宮",
+        "clicks": 1,
+        "impressions": 28,
+        "ctr": 0.03571428571428571,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4135_%E8%81%96%E5%92%8C%E5%AE%AE/",
+        "query": "聖和宮籤詩",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4515_%E6%AD%A6%E5%85%8C%E5%AE%AE/",
+        "query": "武兌宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 10.4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4739_%E9%9C%87%E5%AE%89%E5%AE%AE/",
+        "query": "嘉義中埔震安宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 6.75
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4801_%E6%B0%B8%E9%A0%86%E5%AE%AE/",
+        "query": "永順宮",
+        "clicks": 1,
+        "impressions": 17,
+        "ctr": 0.058823529411764705,
+        "position": 6.705882352941177
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4858_%E9%8E%AE%E5%8D%97%E6%AE%BF/",
+        "query": "神農大帝廟",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4858_%E9%8E%AE%E5%8D%97%E6%AE%BF/",
+        "query": "鎮南殿",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 9.4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4939_%E9%8E%AE%E5%85%83%E5%AE%AE/",
+        "query": "鎮元宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 6.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4967_%E6%AD%A6%E5%AE%89%E5%AE%AE/",
+        "query": "武關公廟",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4968_%E6%9C%9D%E5%A4%A9%E5%AE%AE/",
+        "query": "台東朝天宮",
+        "clicks": 1,
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 8.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_5018_%E9%AB%98%E9%9B%84%E6%85%88%E6%83%A0%E5%A0%82/",
+        "query": "王母娘娘",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_5018_%E9%AB%98%E9%9B%84%E6%85%88%E6%83%A0%E5%A0%82/",
+        "query": "高雄王母娘娘廟",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_5241_%E9%8E%AE%E5%8D%97%E5%AE%AE/",
+        "query": "西螺鎮南宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6030_%E6%9D%BF%E6%A9%8B%E9%8E%AE%E5%AE%89%E5%AE%AE/",
+        "query": "板橋鎮安宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 3.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6199_%E4%B8%89%E8%81%96%E5%AE%AE/",
+        "query": "三聖宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6208_%E7%8E%89%E8%88%88%E5%AE%AE/",
+        "query": "玉興宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6511_%E7%A5%9E%E5%85%83%E5%AE%AE/",
+        "query": "燕巢神元宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_668_%E6%B0%B8%E5%AE%89%E5%AE%AE/",
+        "query": "永安區永安宮",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6895_%E5%8D%97%E4%B8%AD%E6%85%88%E6%83%A0%E5%A0%82/",
+        "query": "南中慈惠堂",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 8.666666666666668
+      },
+      {
+        "page": "https://folk.tw/temples/moi_6955_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7/",
+        "query": "台中大里杙福興宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7128_%E9%A0%86%E5%AE%89%E5%AE%AE/",
+        "query": "三重法主公",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 9.8
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7224_%E5%8D%97%E9%9A%B1%E5%AE%AE/",
+        "query": "南隱宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 8.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7304_%E9%AB%98%E9%9B%84%E5%B7%A6%E7%87%9F%E8%81%96%E9%96%80%E9%9D%88%E9%9C%84/",
+        "query": "左營大路天公廟",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7366_%E5%8D%97%E6%B8%AF%E8%81%96%E5%BE%B7%E5%AE%AE/",
+        "query": "聖德宮",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7413_%E7%A6%8F%E6%BF%9F%E5%AE%AE/",
+        "query": "福濟宮",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 9.222222222222221
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7531_%E5%A4%AA%E5%AD%90%E5%AE%AE/",
+        "query": "屏東太子宮",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 6.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7838_%E4%B8%89%E5%AF%B6%E9%96%80%E4%BF%9D%E5%AE%89%E5%BA%9C/",
+        "query": "嘉義三寶門保安府",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 17
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7877_%E6%B3%89%E5%AE%89%E5%BA%9C/",
+        "query": "泉安府",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 4.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7932_%E6%9C%AC%E6%B4%B2%E9%87%8C%E5%8C%97%E8%88%88%E5%AE%AE/",
+        "query": "本洲北興宮",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 5.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8020_%E5%A4%A9%E7%A5%9D%E5%AE%AE/",
+        "query": "天祝宮",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 10.75
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8115_%E4%BA%94%E9%BE%8D%E5%B1%B1%E9%9D%88%E8%81%96%E5%A0%82/",
+        "query": "五龍山靈聖堂",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 5.636363636363637
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8221_%E5%BB%A3%E5%AF%A7%E5%AE%AE%E4%B8%89%E5%B1%B1%E5%9C%8B%E7%8E%8B/",
+        "query": "嘉義廣寧宮三山國王",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8586_%E8%AA%BF%E8%A8%93%E5%AE%AE/",
+        "query": "調訓宮",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8678_%E6%96%B0%E5%BA%84%E4%BB%94%E5%A4%A9%E5%85%AC%E5%BB%9F/",
+        "query": "新莊仔天公廟",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 9.714285714285714
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9027_%E5%8D%97%E5%85%89%E5%AF%BA/",
+        "query": "南光寺",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 8.5
+      },
+      {
+        "page": "https://folk.tw/temples/moi_910_%E5%A4%A7%E7%A4%BE%E8%81%96%E5%B8%9D%E6%AE%BF/",
+        "query": "關帝廟",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9182_%E5%A4%A9%E6%85%88%E4%BD%9B%E9%99%A2",
+        "query": "天慈佛院",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9392_%E9%80%9A%E5%A4%A9%E5%AE%AE/",
+        "query": "通天宮",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9724_%E5%96%84%E8%A6%BA%E7%A6%AA%E5%AF%BA/",
+        "query": "善覺禪寺",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 10.8
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9961_%E5%B4%91%E5%B1%B1%E5%AE%AE/",
+        "query": "潭底崑山宮",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 8.285714285714285
+      },
+      {
+        "page": "https://folk.tw/temples/region/changhua/%E5%9F%A4%E9%A0%AD%E9%84%89",
+        "query": "太乙堂",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/region/chiayi/%E4%B8%AD%E5%9F%94%E9%84%89/",
+        "query": "中埔福德宮",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/temples/region/chiayicity/%E6%9D%B1%E5%8D%80/",
+        "query": "嘉義王爺廟",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 103
+      },
+      {
+        "page": "https://folk.tw/allusions/baishe/",
+        "query": "白蛇精遇許漢文",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 60
+      },
+      {
+        "page": "https://folk.tw/allusions/chengdu_bo/",
+        "query": "渡伯",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_10/",
+        "query": "冉伯牛染病",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_13/",
+        "query": "姜太公釣魚含義",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_13/",
+        "query": "姜太公釣魚故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 42
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_14/",
+        "query": "王月英",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_16/",
+        "query": "王祥臥冰",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_20/",
+        "query": "嚴子陵登釣臺",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_22/",
+        "query": "李太白遇唐明皇",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_24/",
+        "query": "張騫誤入斗牛宮",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_26/",
+        "query": "邵堯夫",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "query": "江東得道",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_28/",
+        "query": "相如題橋",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_29/",
+        "query": "司馬溫公嗟困",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_3/",
+        "query": "賈誼遇漢文帝",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.666666666666666
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_30",
+        "query": "柳毅傳書",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_35/",
+        "query": "昭君和番",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_36/",
+        "query": "羅隱求官",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_36/",
+        "query": "羅隱求官典故",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3.25
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_39/",
+        "query": "赏菊",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_45/",
+        "query": "丁公",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_52",
+        "query": "匡衡夜讀書",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_57",
+        "query": "爛柯觀棋",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_57",
+        "query": "觀棋爛柯",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_58/",
+        "query": "蘇秦背劍故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_6/",
+        "query": "完璧歸趙",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_63/",
+        "query": "楊令公撞李陵碑",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_66/",
+        "query": "杜甫遊春",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_72/",
+        "query": "范蠡典故",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_72/",
+        "query": "范蠡故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_73/",
+        "query": "王昭君憶漢帝",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_74/",
+        "query": "崔武求官",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_75/",
+        "query": "劉小姐愛蒙正典故",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_77/",
+        "query": "呂后害韓信",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 5.2
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_78/",
+        "query": "袁安守困",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_84/",
+        "query": "須賈害范雎",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_87",
+        "query": "武侯與子敬同舟",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_9",
+        "query": "宋太祖陳橋即位",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.666666666666667
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_9/",
+        "query": "宋太祖陳橋即位",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_95/",
+        "query": "張文遠",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "page": "https://folk.tw/allusions/soushen",
+        "query": "范丹洗浴遇賢妻",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://folk.tw/allusions/soushen",
+        "query": "范丹遇賢妻",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "page": "https://folk.tw/allusions/soushen/",
+        "query": "范丹洗浴遇賢妻",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "page": "https://folk.tw/allusions/soushen/",
+        "query": "范丹遇賢妻",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "楊管醉玉仝坐馬",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "page": "https://folk.tw/allusions/suqin/",
+        "query": "蘇秦假不第",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.666666666666666
+      },
+      {
+        "page": "https://folk.tw/allusions/tonggin_zhixue/",
+        "query": "銅銀買紙靴",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 5.333333333333333
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻救母救主",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 6.75
+      },
+      {
+        "page": "https://folk.tw/allusions/xie_tianxiang/",
+        "query": "仕途坎坷",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://folk.tw/allusions/xue_gang_fantang/",
+        "query": "薛丁山征西故事",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.75
+      },
+      {
+        "page": "https://folk.tw/allusions/zhengde_lifeng/",
+        "query": "正德君戲李鳳姐",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 8.65
+      },
+      {
+        "page": "https://folk.tw/almanac/",
+        "query": "明日農曆",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "page": "https://folk.tw/almanac/",
+        "query": "明日農民曆",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "page": "https://folk.tw/almanac/2020-07-14/",
+        "query": "農曆 7 月 14",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "page": "https://folk.tw/almanac/2020-07-16",
+        "query": "今天有神明生日嗎",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2022-06-24/",
+        "query": "今天有神明生日嗎",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/almanac/2022-07-08",
+        "query": "2022/07/08",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/almanac/2022-12-19/",
+        "query": "2022/12/19",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://folk.tw/almanac/2023-09-30/",
+        "query": "2023-09-30",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/almanac/2024-02-15",
+        "query": "2024-02-15",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2024-09-06/",
+        "query": "2024-09-06",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://folk.tw/almanac/2024-09-20",
+        "query": "2024-09-20",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2024-10-11",
+        "query": "2024/10/11",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/almanac/2024-10-27/",
+        "query": "2024/10/27",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-01-19/",
+        "query": "2025-01-19",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-02-02/",
+        "query": "2025-02-02",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-04-09/",
+        "query": "2025/04/09",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-04-30/",
+        "query": "2025/04/30",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-05-01",
+        "query": "2025/05/01",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-05-07/",
+        "query": "2025/05/07",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-05-12/",
+        "query": "2025-05-12",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-05-30/",
+        "query": "2025/05/30",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-06-30/",
+        "query": "2025/06/30",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-01/",
+        "query": "2025-07-01",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-06/",
+        "query": "2025-07-06",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-06/",
+        "query": "2025/07/06",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-08",
+        "query": "2025/07/08",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-08/",
+        "query": "2025/07/08",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-09",
+        "query": "2025/07/09",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.666666666666667
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-09/",
+        "query": "2025-07-09",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-10",
+        "query": "2025/07/10",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-11/",
+        "query": "2025/07/11",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-12/",
+        "query": "2025/07/12",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      }
+    ],
+    "strikingDistance": [
+      {
+        "page": "https://folk.tw/temples/moi_7095_%E4%B8%89%E9%A0%86%E5%AE%AE/",
+        "query": "和美三順宮",
+        "clicks": 4,
+        "impressions": 102,
+        "ctr": 0.0392156862745098,
+        "position": 5.254901960784314
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7934_%E6%85%88%E9%A1%98%E5%AF%BA/",
+        "query": "埔里慈願寺",
+        "clicks": 3,
+        "impressions": 58,
+        "ctr": 0.05172413793103448,
+        "position": 11.189655172413794
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3984_%E7%B8%BD%E9%A0%AD%E5%AF%AE%E8%88%88%E5%AE%89%E5%AE%AE/",
+        "query": "總頭寮興安宮",
+        "clicks": 1,
+        "impressions": 28,
+        "ctr": 0.03571428571428571,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻為母救主",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr": 0.043478260869565216,
+        "position": 5.6521739130434785
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3206_%E9%BE%8D%E6%B1%A0%E5%AE%AE/",
+        "query": "龍池宮",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr": 0.043478260869565216,
+        "position": 7.304347826086956
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3913_%E7%A6%8F%E5%A4%A9%E5%AE%AE/",
+        "query": "大村福天宮",
+        "clicks": 1,
+        "impressions": 21,
+        "ctr": 0.047619047619047616,
+        "position": 10.333333333333334
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4968_%E6%9C%9D%E5%A4%A9%E5%AE%AE/",
+        "query": "台東朝天宮",
+        "clicks": 1,
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 8.6
+      },
+      {
+        "page": "https://folk.tw/allusions/zhengde_lifeng/",
+        "query": "正德君戲李鳳姐",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 8.65
+      },
+      {
+        "page": "https://folk.tw/allusions/jiangzhongli/",
+        "query": "江中立欽賜狀元",
+        "clicks": 4,
+        "impressions": 17,
+        "ctr": 0.23529411764705882,
+        "position": 5.705882352941177
+      },
+      {
+        "page": "https://folk.tw/temples/moi_4801_%E6%B0%B8%E9%A0%86%E5%AE%AE/",
+        "query": "永順宮",
+        "clicks": 1,
+        "impressions": 17,
+        "ctr": 0.058823529411764705,
+        "position": 6.705882352941177
+      },
+      {
+        "page": "https://folk.tw/deities/wangye_zhu/",
+        "query": "朱叔裕",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr": 0.0625,
+        "position": 10.25
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9068_%E9%9C%96%E9%B3%B3%E5%AE%AE/",
+        "query": "霖鳳宮",
+        "clicks": 2,
+        "impressions": 15,
+        "ctr": 0.13333333333333333,
+        "position": 10.733333333333333
+      },
+      {
+        "page": "https://folk.tw/temples/moi_12003_%E6%99%AE%E7%85%A7%E6%A5%AD%E5%AF%BA/",
+        "query": "普照業寺",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 6.285714285714286
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1403_%E5%A4%A7%E9%87%8C%E6%B1%A0%E7%8E%8B%E5%AE%AE/",
+        "query": "大里池王宮",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr": 0.07692307692307693,
+        "position": 7.153846153846154
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8020_%E5%A4%A9%E7%A5%9D%E5%AE%AE/",
+        "query": "天祝宮",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 10.75
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3079_%E4%B8%8B%E6%B9%96%E9%97%9C%E5%B8%9D%E5%BB%9F/",
+        "query": "下湖關帝廟",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 6.545454545454546
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8115_%E4%BA%94%E9%BE%8D%E5%B1%B1%E9%9D%88%E8%81%96%E5%A0%82/",
+        "query": "五龍山靈聖堂",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 5.636363636363637
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9182_%E5%A4%A9%E6%85%88%E4%BD%9B%E9%99%A2/",
+        "query": "天慈佛院",
+        "clicks": 2,
+        "impressions": 10,
+        "ctr": 0.2,
+        "position": 9.2
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11883_%E8%87%BA%E6%9D%B1%E7%B8%A3%E6%BF%9F%E5%85%AC%E5%A0%82/",
+        "query": "台東濟公堂",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 6.4
+      },
+      {
+        "page": "https://folk.tw/temples/moi_159_%E9%B3%B3%E5%84%80%E5%AE%AE/",
+        "query": "莿桐鳳儀宮",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 9.6
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1760_%E8%AD%B7%E5%AE%89%E5%BA%9C/",
+        "query": "山寮護安府",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 11.3
+      },
+      {
+        "page": "https://folk.tw/temples/moi_8586_%E8%AA%BF%E8%A8%93%E5%AE%AE/",
+        "query": "調訓宮",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 7
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9724_%E5%96%84%E8%A6%BA%E7%A6%AA%E5%AF%BA/",
+        "query": "善覺禪寺",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 10.8
+      },
+      {
+        "page": "https://folk.tw/allusions/suitang_qinshubao/",
+        "query": "秦叔寶救李淵",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 8.11111111111111
+      },
+      {
+        "page": "https://folk.tw/temples/moi_3393_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E6%89%BF%E5%A4%A9%E6%AD%A6%E8%81%96/",
+        "query": "承天武聖廟",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 7.222222222222222
+      },
+      {
+        "page": "https://folk.tw/temples/moi_7413_%E7%A6%8F%E6%BF%9F%E5%AE%AE/",
+        "query": "福濟宮",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 9.222222222222221
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11897_%E5%8D%97%E5%A3%87%E5%AE%AE/",
+        "query": "南壇宮",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 6.625
+      },
+      {
+        "page": "https://folk.tw/temples/moi_1772_%E8%A5%BF%E8%88%88%E5%AE%AE/",
+        "query": "西寮西興宮",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 5.375
+      },
+      {
+        "page": "https://folk.tw/temples/moi_9182_%E5%A4%A9%E6%85%88%E4%BD%9B%E9%99%A2",
+        "query": "天慈佛院",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/temples/moi_11774_%E8%B2%A1%E5%9C%98%E6%B3%95%E4%BA%BA%E5%A4%A9%E9%87%91%E5%A0%82/",
+        "query": "大寮天金堂",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 5.142857142857143
+      }
+    ],
+    "highImpZeroClick": [
+      {
+        "page": "https://folk.tw/allusions/zhengde_lifeng/",
+        "query": "正德君戲李鳳姐",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 8.65
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_95/",
+        "query": "張文遠",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_77/",
+        "query": "呂后害韓信",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 5.2
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_84/",
+        "query": "須賈害范雎",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_36/",
+        "query": "羅隱求官典故",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3.25
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_9/",
+        "query": "宋太祖陳橋即位",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://folk.tw/allusions/wuhan_qizhu/",
+        "query": "吳漢殺妻救母救主",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 6.75
+      },
+      {
+        "page": "https://folk.tw/allusions/yangjiajiang/",
+        "query": "楊文廣",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.75
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_24/",
+        "query": "張騫誤入斗牛宮",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_27/",
+        "query": "江東得道",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_3/",
+        "query": "賈誼遇漢文帝",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.666666666666666
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_63/",
+        "query": "楊令公撞李陵碑",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.333333333333334
+      },
+      {
+        "page": "https://folk.tw/allusions/gd_9",
+        "query": "宋太祖陳橋即位",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.666666666666667
+      },
+      {
+        "page": "https://folk.tw/allusions/suqin/",
+        "query": "蘇秦假不第",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4.666666666666666
+      },
+      {
+        "page": "https://folk.tw/allusions/tonggin_zhixue/",
+        "query": "銅銀買紙靴",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 5.333333333333333
+      },
+      {
+        "page": "https://folk.tw/almanac/2025-07-09",
+        "query": "2025/07/09",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.666666666666667
+      }
+    ]
+  },
+  "index": {
+    "sitemaps": [
+      {
+        "path": "https://folk.tw/sitemap-0.xml",
+        "submitted": 9825,
+        "errors": "0",
+        "warnings": "0"
+      },
+      {
+        "path": "https://folk.tw/sitemap-index.xml",
+        "submitted": 9825,
+        "errors": "0",
+        "warnings": "0"
+      }
+    ],
+    "coverage": [
+      {
+        "url": "https://folk.tw/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-09T14:07:10Z"
+      },
+      {
+        "url": "https://folk.tw/almanac",
+        "coverageState": "Page with redirect",
+        "lastCrawlTime": "2026-07-14T14:44:00Z"
+      },
+      {
+        "url": "https://folk.tw/deities/mazu/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-29T16:29:10Z"
+      },
+      {
+        "url": "https://folk.tw/deities/guangong/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-13T19:32:28Z"
+      },
+      {
+        "url": "https://folk.tw/deities/birthdays/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-13T09:07:33Z"
+      },
+      {
+        "url": "https://folk.tw/poems/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-14T20:21:34Z"
+      },
+      {
+        "url": "https://folk.tw/poems/liushi_jiazi-1/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-10T13:03:14Z"
+      },
+      {
+        "url": "https://folk.tw/allusions/suitang_qinshubao/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-09T22:02:41Z"
+      },
+      {
+        "url": "https://folk.tw/temples",
+        "coverageState": "Page with redirect",
+        "lastCrawlTime": "2026-07-12T14:01:13Z"
+      },
+      {
+        "url": "https://folk.tw/temples/dajia_zhenlan/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-06-21T17:05:59Z"
+      },
+      {
+        "url": "https://folk.tw/temples/moi_0_竹圍仔福德祠/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-03T07:27:24Z"
+      },
+      {
+        "url": "https://folk.tw/scenarios/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-07T13:03:12Z"
+      },
+      {
+        "url": "https://folk.tw/scenarios/qiu-yinyuan/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-07T18:19:53Z"
+      },
+      {
+        "url": "https://folk.tw/scenarios/kaoshi-gongming/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-11T01:31:09Z"
+      },
+      {
+        "url": "https://folk.tw/compare/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-08T19:02:22Z"
+      },
+      {
+        "url": "https://folk.tw/compare/yuelao-vs-zhusheng/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-07T23:04:06Z"
+      },
+      {
+        "url": "https://folk.tw/almanac/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-14T14:44:00Z"
+      },
+      {
+        "url": "https://folk.tw/events/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-08T09:18:58Z"
+      },
+      {
+        "url": "https://folk.tw/practices/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-06T22:56:00Z"
+      },
+      {
+        "url": "https://folk.tw/trades/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-02T22:32:48Z"
+      },
+      {
+        "url": "https://folk.tw/systems/liushi_jiazi/",
+        "coverageState": "Submitted and indexed",
+        "lastCrawlTime": "2026-07-12T01:25:52Z"
+      }
+    ]
+  }
+}
