@@ -2,8 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import { breadcrumb } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
+import topical from '../../data/topical.json';
 
 const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
+// 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
+// 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
+const activeTopical = topical.filter((t) => t.status === 'active');
 ---
 
 <Base
@@ -17,6 +21,15 @@ const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
   <p class="eyebrow">求籤 · 為心裡的那件事</p>
   <h1>你在為什麼煩惱？</h1>
   <p class="lead">選一件，靜下心求一支籤，看白話解籤——也看看有多少人，正跟你一樣。</p>
+
+  {activeTopical.length > 0 && (
+    <div class="topical-box">
+      <p class="topical-h">此刻集氣</p>
+      {activeTopical.map((t) => (
+        <a class="topical-link" href={`/qiugian/blessing/${t.id}/`}>🕯 {t.title} →</a>
+      ))}
+    </div>
+  )}
 
   <div class="grid cols concern-grid">
     {concerns.map((c) => (
@@ -32,6 +45,11 @@ const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
     .lead { font-size: var(--text-base); margin: 0 0 1.2rem; }
+    .topical-box { margin: 0 0 1.2rem; padding: 0.9rem 1rem; border-radius: 0.7rem;
+      border: 1px solid var(--line); background: var(--paper-2); }
+    .topical-h { font-size: var(--text-xs); letter-spacing: 0.15em; color: var(--accent); font-weight: 700; margin: 0 0 0.4rem; }
+    .topical-link { display: block; color: var(--ink); text-decoration: none; padding: 0.15rem 0; }
+    .topical-link:hover { color: var(--accent); }
     .concern-grid { margin: 1rem 0; }
     .concern { text-decoration: none; color: var(--ink); }
     .concern:hover { border-color: var(--accent-soft); }
