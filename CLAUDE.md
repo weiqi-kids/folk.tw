@@ -19,8 +19,10 @@
 3. **廟宇頁 CTR（新焦點）**：廟宇頁已佔曝光 **52%**（基準時「廟宇頁 0 搜尋貢獻」的前提已被推翻）。
    CTR≈0 的結構性根因（全站 ~6500 廟宇頁無 meta description、落回首頁通用文案）已由大腦 7/2
    commit `a231e2d` 修復；**7/4 起看廟宇頁整體 CTR 是否回升**（結構性改動，看群體趨勢非單頁）。
-4. **Sitemap 提交數疑點**：週報顯示 GSC「已提交 19,570」但線上 sitemap 應為 9,415——疑新舊 sitemap/分片
-   重複計數；下次週報若仍如此，進 GSC 後台查是否有舊 sitemap 該刪。
+4. **Sitemap 提交數疑點（2026-07-16 已修正結案）**：根因＝**週報腳本計數 bug**，非 GSC 後台有問題。
+   線上結構正確（robots.txt 只宣告 `sitemap-index.xml` 包裹層→指向 `sitemap-0.xml`），但 GSC API 會同時
+   列出 index 與其子檔（各報 submitted 9,825），`seo-weekly.mjs` 原本一併相加＝雙倍虛胖（9,825×2≈19,570）。
+   commit `fa480f6` 改為**只計葉子 sitemap、跳過 `isSitemapsIndex` 包裹層**，乾跑回正 9,825。無需進 GSC 刪 sitemap。
 
 ## 🔁 每日自動優化閉環（2026-07-02 起由統一框架 `/root/seo-ops` 接手）
 
