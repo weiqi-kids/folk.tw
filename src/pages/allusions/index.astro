@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getAllusions, poemsByAllusion } from '../../lib/queries';
+import { breadcrumb } from '../../lib/seo';
+
+const allusions = (await getAllusions()).sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-Hant'));
+const poemIndex = await poemsByAllusion();
+
+const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
+---
+
+<Base
+  title="卦頭典故總覽"
+  description={`籤詩卦頭典故總覽：${allusions.length} 則公有領域故事，逐則標出典並反查出現於哪些籤。`}
+  jsonLd={ld}
+>
+  <nav class="crumb"><a href="/poems/">籤詩</a> ／ 典故</nav>
+  <h1>卦頭典故總覽</h1>
+  <p class="muted">
+    籤詩四句之外的卦頭故事，共 {allusions.length} 則；同一典故可能橫跨多支籤，這裡也能反查出現於哪些籤。
+  </p>
+  <div class="grid cols allusion-grid">
+    {
+      allusions.map((a) => {
+        const poems = (poemIndex.get(a.id) ?? []).sort((x, y) => x.data.no - y.data.no);
+        return (
+          <a class="allusion-cell card" href={`/allusions/${a.id}/`}>
+            <span class="name">{a.data.name}</span>
+            {a.data.source && <span class="source muted small">出典：{a.data.source}</span>}
+            {poems.length > 0 && (
+              <span class="poems muted small">見第 {poems.map((p) => p.data.no).join('、')} 籤</span>
+            )}
+          </a>
+        );
+      })
+    }
+  </div>
+  <style>
+    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .allusion-grid { margin-top: 1.2rem; }
+    .allusion-cell { display: flex; flex-direction: column; gap: 0.2rem; }
+    .allusion-cell .name { font-weight: 700; color: var(--ink); }
+    .allusion-cell .small { font-size: 0.85rem; }
+  </style>
+</Base>
