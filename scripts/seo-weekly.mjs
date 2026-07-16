@@ -82,7 +82,13 @@ async function fetchAll() {
   }
   // ── sitemap 提交數
   let submitted = 0, smErr = 0;
-  try { for (const x of await sitemapsList(gscSiteUrl)) { submitted += (x.contents ?? []).reduce((a, c) => a + Number(c.submitted), 0); smErr += Number(x.errors ?? 0); } } catch { /* noop */ }
+  try {
+    const sms = await sitemapsList(gscSiteUrl);
+    // 只計葉子 sitemap，跳過 index 包裹層（isSitemapsIndex）：GSC 會同時列出 index 與其子檔，
+    // 兩者的 submitted 相同，若一併相加會雙倍虛胖（曾誤報 ~19,570＝9,825×2）。無葉子時才退回計 index。
+    const leaves = sms.filter((x) => !x.isSitemapsIndex);
+    for (const x of (leaves.length ? leaves : sms)) { submitted += (x.contents ?? []).reduce((a, c) => a + Number(c.submitted), 0); smErr += Number(x.errors ?? 0); }
+  } catch { /* noop */ }
 
   return { ga4Now, ga4Prev, gNow, gPrev, impUnique, impTemple, impOther, cov, submitted, smErr };
 }
