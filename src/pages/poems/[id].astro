@@ -84,7 +84,7 @@ if (faq) ld.push(faq);
 ---
 
 <Base
-  title={`第 ${d.no} 籤${d.ganzhi ? ` ${d.ganzhi}` : d.title ? ` ${d.title}` : ''}`}
+  title={`${d.lines[0] ? `${d.lines[0]}｜` : ''}${sysName}第 ${d.no} 籤${label ? `（${label}）` : ''}`}
   description={pageDesc}
   jsonLd={ld}
   ogType="article"
