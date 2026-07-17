@@ -4,10 +4,33 @@
     "title": "為 921 大地震週年祈福（範例）",
     "event": "1999 年 9 月 21 日凌晨，台灣中部發生芮氏規模 7.3 的集集大地震（俗稱 921 大地震）。每逢週年，各界會以追思與祈福，記得逝去的人、也為家園復原集氣。",
     "sources": [
-      { "ref": "維基百科：921大地震", "url": "https://zh.wikipedia.org/wiki/921%E5%A4%A7%E5%9C%B0%E9%9C%87" },
-      { "ref": "交通部中央氣象署地震測報中心", "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data" }
+      {
+        "ref": "維基百科：921大地震",
+        "url": "https://zh.wikipedia.org/wiki/921%E5%A4%A7%E5%9C%B0%E9%9C%87"
+      },
+      {
+        "ref": "交通部中央氣象署地震測報中心",
+        "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
+      }
     ],
     "since": "2026-07-14",
     "status": "archived"
+  },
+  {
+    "id": "eq-attibqh8",
+    "title": "為墨西哥地震平安祈福",
+    "event": "2026年7月17日,墨西哥太平洋沿岸外海(Puerto Madero西南方約71公里)發生規模7.4強震,為當地居民及沿海地區祈求平安、盼救援與復原順利。",
+    "sources": [
+      {
+        "ref": "USGS 地震資訊",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/attibqh8"
+      },
+      {
+        "ref": "交通部中央氣象署地震測報中心",
+        "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
+      }
+    ],
+    "since": "2026-07-17",
+    "status": "active"
   }
 ]
