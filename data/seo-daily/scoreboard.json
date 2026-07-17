@@ -285,6 +285,14 @@
           "clicks": 0,
           "ctr": 0,
           "note": "資料窗已完全在部署後（2026-07-05..07-12）。pageQueryCross 30 筆 almanac 日期頁列 clicks=0/impr=37，CTR 仍 0%。未見改善，但未到全窗日（7/20）、不觸發回退（無下降，本來就是 0）。"
+        },
+        {
+          "date": "2026-07-17",
+          "pos": null,
+          "impr": 33,
+          "clicks": 1,
+          "ctr": 0.0303,
+          "note": "資料窗 2026-07-06..07-13。pageQueryCross 28 筆 almanac 日期頁列合計 clicks=1/impr=33，較前次（impr37/click0）首度出現非零點擊，但單筆樣本雜訊過大，暫不視為確認改善。未到全窗日（7/20），不觸發回退。"
         }
       ],
       "status": "open",
@@ -304,7 +312,16 @@
       "expected_first_signal_date": "2026-07-17",
       "expected_full_window_date": "2026-07-24",
       "baseline": { "pos": 9.04, "impr": 26, "clicks": 1, "ctr": 0.0385, "scope": "page-query" },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-17",
+          "pos": 8.7,
+          "impr": 20,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "首訊日。資料窗 2026-07-06..07-13（部署 7/13 當天起算，僅涵蓋部署後極少天）。單頁 clicks 0/impr20/pos8.7，較基準（impr26/click1/ctr3.85%）暫看不出改善，但屬預期內『太早看不出』，非退步訊號（GSC 延遲＋樣本窗尚短）。繼續觀察，全窗日 7/24。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
