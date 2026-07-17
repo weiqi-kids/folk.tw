@@ -74,12 +74,15 @@ const speakablePage =
 // 排序依 GSC 近 28 天實測需求（2026-07-02 全量 page 維度）：
 // 廟宇 imp 10,343 ≫ 籤詩 658 > 神明 508 > 農民曆 177 > 拜拜習俗 104 > 民俗活動 11。
 // 「關於」移 footer（本有連結）；「行業守護神」為新模組入口（乙案：入口放進強元素）。
+// 「典故」（2026-07-17 新增）：全站原本無入口，僅能從個別籤詩頁點入，是策略主軸（放大籤詩/典故
+// 曝光）明確要補的樞紐可發現性缺口，故排在籤詩旁——非依當期 GSC 量排序，是策略性優先放置。
 // href 一律用 canonical 尾斜線（對齊 build format:'directory' 的 canonical/sitemap）：
 // 讓每頁 nav 直接連到 canonical、免經 301，避免內鏈權重卡在非 canonical 形式（/poems 曾因此孤兒化）。
 const nav = [
   { href: '/', label: '今日' },
   { href: '/temples/', label: '廟宇' },
   { href: '/poems/', label: '籤詩' },
+  { href: '/allusions/', label: '典故' },
   { href: '/qiugian/', label: '求籤' },
   { href: '/deities/', label: '神明' },
   { href: '/almanac/', label: '農民曆' },
