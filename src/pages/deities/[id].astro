@@ -314,7 +314,7 @@ const jsonLd = [
   {d.sources.length > 0 && <p class="src footer-src">來源：{d.sources.map((s) => s.ref).join('；')}</p>}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }
     .dh h1 { margin: 0.2rem 0 0.4rem; }
     .summary { font-size: 1.05rem; }
     .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; }
@@ -326,7 +326,7 @@ const jsonLd = [
     .small { font-size: 0.85rem; }
     .rels { list-style: none; padding: 0; }
     .rels li { padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
-    .reltype { color: var(--accent); font-size: 0.9rem; }
+    .reltype { color: var(--accent); font-size: var(--text-sm); }
     .placeholder { color: var(--ink-soft); }
     .poem-group { margin: 0.6rem 0 1rem; }
     .poem-links { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.1rem 1rem; }

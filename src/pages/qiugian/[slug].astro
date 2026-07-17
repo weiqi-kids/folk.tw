@@ -79,11 +79,13 @@ const jsonLd = [
     <button class="btn btn-primary" id="drawBtn" type="button">求一支籤<small>靜下心，想著這件事</small></button>
     <button class="btn btn-ghost" id="qifuBtn" type="button">為{concern.label}集氣<small>給同樣在拚的人</small></button>
   </div>
-  <p class="draw-alt small">
-    在廟裡抽到了？輸入籤號：
-    <input id="noInput" type="number" min="1" inputmode="numeric" aria-label="籤號" />
-    <button class="linklike" id="noBtn" type="button">看這支</button>
-  </p>
+  <div class="draw-alt small">
+    <span>在廟裡抽到了？直接查籤號</span>
+    <span class="draw-alt-field">
+      <input id="noInput" type="number" min="1" inputmode="numeric" placeholder="籤號" aria-label="籤號" />
+      <button class="btn-num" id="noBtn" type="button">看這支</button>
+    </span>
+  </div>
   <p id="topNote" class="note small"></p>
 
   <div id="result" hidden></div>
@@ -145,11 +147,15 @@ const jsonLd = [
     .btn-ghost:hover { border-color: var(--accent-soft); }
     .bx-open { flex: 0 0 auto; align-self: flex-start; }
 
-    .draw-alt { color: var(--ink-soft); margin: 0.6rem 0 0; }
-    .draw-alt input { width: 4rem; font-family: inherit; font-size: var(--text-sm); padding: 0.2rem 0.4rem;
+    .draw-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem; color: var(--ink-soft); margin: 0.7rem 0 0; }
+    .draw-alt-field { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .draw-alt input { width: 4.5rem; font-family: inherit; font-size: var(--text-sm); padding: 0.35rem 0.5rem; text-align: center;
       border: 1px solid var(--line); border-radius: 0.4rem; background: var(--paper-2); color: var(--ink); }
-    .linklike { background: none; border: none; color: var(--accent); font-family: inherit; font-size: var(--text-sm);
-      cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .draw-alt input::placeholder { color: var(--ink-soft); }
+    .btn-num { font-family: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent);
+      background: transparent; border: 1px solid var(--accent-soft); border-radius: 0.4rem; padding: 0.35rem 0.85rem; }
+    .btn-num:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    .btn-num:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
     .note { color: var(--ink-soft); min-height: 1.1rem; }
 
     .divider { display: flex; align-items: center; gap: 0.8rem; color: var(--ink-soft); font-size: var(--text-xs);

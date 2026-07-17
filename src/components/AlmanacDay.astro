@@ -260,11 +260,11 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
   .src { color: var(--gold); }
   .mini-link { font-size: var(--text-xs); color: var(--accent); white-space: nowrap; }
   .yiji p { margin: 0.4rem 0; font-size: 1.05rem; }
-  .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: #2e6b3a; border: 1px solid #9bbf9b; border-radius: 0.3rem; }
+  .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--ok-green); border: 1px solid color-mix(in oklch, var(--ok-green) 42%, var(--paper)); border-radius: 0.3rem; }
   .ji { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.3rem; }
   .deriv { margin: 0.6rem 0; }
-  .deriv summary { cursor: pointer; color: var(--ink-soft); font-size: 0.9rem; }
-  .deriv li { padding: 0.2rem 0; font-size: 0.9rem; }
+  .deriv summary { cursor: pointer; color: var(--ink-soft); font-size: var(--text-sm); }
+  .deriv li { padding: 0.2rem 0; font-size: var(--text-sm); }
   .basis { margin-top: 2rem; color: var(--ink-soft); }
   .basis summary { cursor: pointer; font-size: var(--text-sm); }
   .basis .rec { margin-top: 0.6rem; }

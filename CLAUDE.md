@@ -127,8 +127,9 @@
 ## 關鍵指令 / 檔案備忘
 
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
-- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design-tokens` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
   - `check:scoped-styles`（2026-07-17 新增，deploy.yml build gate）：全站攔「Astro scoped `<style>` 套不到 client JS 注入 DOM」的 bug 類別（源自 /qiugian 抽籤結果卡四句擠一行事故）。命中即擋部署；修法＝該規則移 `<style is:global>`＋容器 id 命名空間。見 `scripts/check-scoped-styles.mjs` 檔頭。
+  - `check:design-tokens`（2026-07-17 新增，deploy.yml build gate）：守設計系統房規（見 memory design-system-tokens）。**顏色硬 gate**＝`<style>` 內禁 hex/rgb/hsl（改 `var(--…)`／`oklch`／`color-mix`；`<meta theme-color>` 屬 HTML 合法例外不掃）。**font-size 基線 gate**＝禁非 `var(--text-*)` 硬編字級，現有 69 處「非階梯值」記於 `scripts/design-tokens-baseline.json` 豁免、只擋新增；清債後跑 `--update-baseline` 縮小基線。見 `scripts/check-design-tokens.mjs` 檔頭。
 - `pnpm data:weekly`：本機週報乾跑預覽（＝`seo-weekly.mjs --dry`，不開 Issue/不發 Slack；需 scripts/.google-sa-key.json）
 - **主動通知搜尋引擎（部署後跑這支）**：`pnpm notify [url...|--all]`＝一鍵雙推，
   同一組網址同時送 Google＋IndexNow，涵蓋互補（Google 不參與 IndexNow）。
