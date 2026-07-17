@@ -39,6 +39,14 @@ const st: Agg = (stats as unknown as Record<string, Agg>)[concern.id] ?? { week_
 const sysLabel = systemName.get(concern.system) ?? concern.system;
 const patronDeities = concern.deities.map((id) => ({ id, name: deityById.get(id)?.name ?? id })).filter((d) => deityById.has(d.id));
 
+// 求籤（抽一支籤）↔ 情境（怎麼拜/拜哪尊）互連，見 src/pages/scenarios/[slug].astro 反向對照。
+const SCENARIO_BY_CONCERN: Record<string, { id: string; label: string }> = {
+  kaoshi: { id: 'kaoshi-gongming', label: '考試求功名' },
+  caiyun: { id: 'kaidian-qiucai', label: '開店求財' },
+  ganqing: { id: 'qiu-yinyuan', label: '求姻緣' },
+};
+const scenario = SCENARIO_BY_CONCERN[concern.id];
+
 const pageDesc = `為${concern.label}（${concern.intent}）求一支${sysLabel}，看「${concern.aspect}」面向的白話解籤。和同樣在為${concern.label}煩惱的人，一起。`;
 
 const faq = faqPage([
@@ -110,6 +118,12 @@ const jsonLd = [
     ))}
   </div>
 
+  {scenario && (
+    <p class="scenario-cta small muted">
+      想知道這幾尊「怎麼拜、擇哪天」？看 <a href={`/scenarios/${scenario.id}/`}>{scenario.label}</a>。
+    </p>
+  )}
+
   <script type="application/json" id="qiandata" set:html={JSON.stringify(qianData)} />
   <script type="application/json" id="statsdata" set:html={JSON.stringify(st)} />
   <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
@@ -158,6 +172,7 @@ const jsonLd = [
     .gods { display: flex; gap: 0.6rem; }
     .god { flex: 1; padding: 0.8rem 0.9rem; text-decoration: none; color: var(--ink); }
     .god .n { font-size: var(--text-lg); }
+    .scenario-cta { margin-top: 1rem; }
 
     /* 求籤結果 */
     #result { margin-top: 1.4rem; }

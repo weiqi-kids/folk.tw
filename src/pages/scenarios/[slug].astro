@@ -22,6 +22,15 @@ export const getStaticPaths = (async () => {
 const { scenario, deityById, tByDeity, today } = Astro.props;
 const s = scenario.data;
 
+// 情境（怎麼拜/拜哪尊）↔ 求籤（抽一支籤）互連：同一件煩惱的兩個入口，之前彼此埋沒。
+// key＝scenario id，value＝對應 qiugian concern id/label（見 src/data/concerns.json）。只掛語意明確的配對。
+const QIUGIAN_BY_SCENARIO: Record<string, { id: string; label: string }> = {
+  'kaoshi-gongming': { id: 'kaoshi', label: '考試' },
+  'kaidian-qiucai': { id: 'caiyun', label: '財運' },
+  'qiu-yinyuan': { id: 'ganqing', label: '感情' },
+};
+const qiugian = QIUGIAN_BY_SCENARIO[scenario.id];
+
 // 守護神卡：join 神明節點（integrity 已硬驗 deity_ref 存在；publishable gate 後仍防缺）
 const patrons = s.patrons
   .map((p) => ({ ...p, deity: deityById.get(p.deity_ref) }))
@@ -152,6 +161,12 @@ const jsonLd = [
     </p>
   </section>
 
+  {qiugian && (
+    <p class="qiugian-cta">
+      拜完想求個籤？<a href={`/qiugian/${qiugian.id}/`}>為{qiugian.label}求一支籤 →</a>
+    </p>
+  )}
+
   <p class="muted small extend">
     延伸：<a href="/trades/">行業守護神（依職業）</a>｜<a href="/compare/">神明比較</a>｜
     <a href="/scenarios/">其他情境</a>
@@ -176,6 +191,9 @@ const jsonLd = [
     .chip:hover { text-decoration: none; border-color: var(--accent-soft); }
     .src { color: var(--gold); font-size: 0.82rem; }
     .small { font-size: 0.85rem; }
+    .qiugian-cta { margin-top: 1.8rem; padding: 0.9rem 1rem; border-radius: 0.7rem;
+      border: 1px solid var(--line); background: var(--paper-2); font-size: var(--text-base); }
+    .qiugian-cta a { font-weight: 700; }
     .extend { margin-top: 1.5rem; }
     .footer-src { margin-top: 2rem; }
   </style>
