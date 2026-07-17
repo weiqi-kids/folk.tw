@@ -35,6 +35,8 @@ jobs:
         run: pnpm check:integrity
       - name: 型別檢查
         run: pnpm exec astro check
+      - name: scoped 樣式檢查（JS 注入 DOM 套不到 scoped <style>，阻擋部署）
+        run: pnpm check:scoped-styles
       - name: 建置（static）
         run: pnpm build
       - name: canonical 連結檢查（非斜線內部網址→301，阻擋部署）

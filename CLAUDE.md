@@ -127,7 +127,8 @@
 ## 關鍵指令 / 檔案備忘
 
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
-- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm verify:almanac` / `pnpm build`
+- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+  - `check:scoped-styles`（2026-07-17 新增，deploy.yml build gate）：全站攔「Astro scoped `<style>` 套不到 client JS 注入 DOM」的 bug 類別（源自 /qiugian 抽籤結果卡四句擠一行事故）。命中即擋部署；修法＝該規則移 `<style is:global>`＋容器 id 命名空間。見 `scripts/check-scoped-styles.mjs` 檔頭。
 - `pnpm data:weekly`：本機週報乾跑預覽（＝`seo-weekly.mjs --dry`，不開 Issue/不發 Slack；需 scripts/.google-sa-key.json）
 - **主動通知搜尋引擎（部署後跑這支）**：`pnpm notify [url...|--all]`＝一鍵雙推，
   同一組網址同時送 Google＋IndexNow，涵蓋互補（Google 不參與 IndexNow）。
