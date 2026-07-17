@@ -157,9 +157,6 @@ const jsonLd = [
     .divider::before, .divider::after { content: ""; height: 1px; background: var(--line); flex: 1; }
 
     .joys { display: flex; flex-direction: column; gap: 0.55rem; }
-    .joy { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--ok-green); }
-    .joy .k { font-size: var(--text-base); }
-    .joy .m { font-size: var(--text-sm); color: var(--ink-soft); margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
     .baoxi { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1rem; }
     .baoxi .q { color: var(--ink); margin: 0; }
@@ -174,35 +171,46 @@ const jsonLd = [
     .god .n { font-size: var(--text-lg); }
     .scenario-cta { margin-top: 1rem; }
 
-    /* 求籤結果 */
+  </style>
+
+  <!-- 求籤結果由 client JS 以 innerHTML 注入 #result，注入的元素不帶 Astro scope
+       (data-astro-cid) 屬性，若用一般 scoped <style> 這批規則會全部落空（籤詩四句
+       擠成一橫行、爐火區失樣）。故改 is:global，並一律以 #result 命名空間收斂避免外洩。
+       所有色彩/字級沿用 global.css 的 OKLCH token 與 --text-*，未自編 hex/px。 -->
+  <style is:global>
+    /* 報喜喜訊：靜態由 build 產出、動態由 JS 注入 #joys，兩者統一走 #joys 命名空間 */
+    #joys .joy { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--ok-green); }
+    #joys .joy .k { font-size: var(--text-base); }
+    #joys .joy .m { font-size: var(--text-sm); color: var(--ink-soft); margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
     #result { margin-top: 1.4rem; }
-    .rslip-row { display: flex; gap: 1.1rem; align-items: stretch; }
-    .rslip { border-top: 4px solid var(--accent); padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; min-width: 9rem; }
-    .rslip .rno { font-size: var(--text-sm); color: var(--accent); letter-spacing: 0.05em; text-align: center; }
-    .rpoem { display: flex; flex-direction: row-reverse; gap: 0.35rem; justify-content: center; }
-    .rpoem .pl { writing-mode: vertical-rl; text-orientation: upright; font-size: var(--text-lg); letter-spacing: 0.12em; line-height: 1.5; color: var(--ink); }
-    .rslip .rfortune { font-size: var(--text-sm); color: var(--gold); letter-spacing: 0.1em; }
-    .reading { flex: 1; padding-top: 0.2rem; }
-    .reading .rtag { font-size: var(--text-sm); letter-spacing: 0.08em; color: var(--accent); font-weight: 700; }
-    .reading h2 { font-size: var(--text-lg); margin: 0.3rem 0 0.5rem; }
-    .reading p { font-size: var(--text-base); margin: 0 0 0.6rem; }
-    .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+    #result .rslip-row { display: flex; gap: 1.1rem; align-items: stretch; }
+    #result .rslip { border-top: 4px solid var(--accent); padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; min-width: 9rem; }
+    #result .rslip .rno { font-size: var(--text-sm); color: var(--accent); letter-spacing: 0.05em; text-align: center; }
+    #result .rpoem { display: flex; flex-direction: row-reverse; gap: 0.35rem; justify-content: center; }
+    #result .rpoem .pl { writing-mode: vertical-rl; text-orientation: upright; font-size: var(--text-lg); letter-spacing: 0.12em; line-height: 1.5; color: var(--ink); }
+    #result .rslip .rfortune { font-size: var(--text-sm); color: var(--gold); letter-spacing: 0.1em; }
+    #result .reading { flex: 1; padding-top: 0.2rem; }
+    #result .reading .rtag { font-size: var(--text-sm); letter-spacing: 0.08em; color: var(--accent); font-weight: 700; }
+    #result .reading h2 { font-size: var(--text-lg); margin: 0.3rem 0 0.5rem; }
+    #result .reading p { font-size: var(--text-base); margin: 0 0 0.6rem; }
+    #result .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
 
-    .hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1.1rem 1.1rem 0.5rem;
+    #result .hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1.1rem 1.1rem 0.5rem;
       background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2); border: 1px solid var(--line); }
-    .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-base); font-weight: 700; margin-bottom: 0.2rem; }
-    .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
+    #result .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-base); font-weight: 700; margin-bottom: 0.2rem; }
+    #result .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
       box-shadow: 0 0 0.6rem 0.1rem var(--accent-soft); }
-    .estat { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
-    .estat:last-of-type { border-bottom: none; }
-    .estat .big { font-size: var(--text-xl); color: var(--accent); font-variant-numeric: tabular-nums; }
-    .estat.j .big { color: var(--ok-green); }
-    .qi { width: 100%; margin: 0.9rem 0 0.6rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+    #result .estat { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+    #result .estat:last-of-type { border-bottom: none; }
+    #result .estat .big { font-size: var(--text-xl); color: var(--accent); font-variant-numeric: tabular-nums; }
+    #result .estat.j .big { color: var(--ok-green); }
+    #result .qi { width: 100%; margin: 0.9rem 0 0.6rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
       border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.75rem; }
-    .qi:hover { background: var(--accent); color: var(--paper); }
-    .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
+    #result .qi:hover { background: var(--accent); color: var(--paper); }
+    #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
 
-    @media (max-width: 30rem) { .rslip-row { flex-direction: column; } }
+    @media (max-width: 30rem) { #result .rslip-row { flex-direction: column; } }
   </style>
 
   <script>
