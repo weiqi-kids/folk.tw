@@ -288,7 +288,7 @@ const jsonLd = [
           ${e3}
           <button class="qi" id="qiInline" type="button">🙏 為自己的${esc(cfg.label!)}集氣</button>
         </div>
-        <p class="note small caption-time">為明天的事求的嗎？收藏這頁，有結果了回來報喜——這裡記得你來過。</p>`;
+        <p class="note small caption-time">為明天的事求的？收藏這頁，之後有結果回來說一聲。</p>`;
       document.getElementById('result')!.hidden = false;
       document.getElementById('qiInline')!.addEventListener('click', qifuInline);
       // 不自動捲動：求籤/輸入籤號後就地展開結果，強制捲動反而打斷使用者視線（2026-07-17 用戶回報）。
@@ -309,7 +309,7 @@ const jsonLd = [
       let item = prev && now - prev.ts < DRAW_WINDOW ? QIAN.find((q: any) => q.no === prev.no) : null;
       const note = document.getElementById('topNote')!;
       if (item) {
-        note.textContent = '同一件事，一天求一支籤——這是你今天為' + cfg.label + '求得的。想換個心境，明天再來。';
+        note.textContent = '一天求一支就好——這是你今天為' + cfg.label + '求的，明天再來。';
       } else {
         item = QIAN[Math.floor(Math.random() * QIAN.length)];
         store[cfg.concern!] = { no: item.no, ts: now };
@@ -334,7 +334,7 @@ const jsonLd = [
       const b = document.getElementById('qiInline')!;
       if (qifuDone) return; qifuDone = true;
       g('qifu', { concern: cfg.concern });
-      b.classList.add('done'); b.textContent = '🕯 已為你的' + cfg.label + '點上一盞';
+      b.classList.add('done'); b.textContent = '🕯 已為自己的' + cfg.label + '集氣';
     }
     let qifuTopDone = false;
     document.getElementById('qifuBtn')!.addEventListener('click', () => {
@@ -345,9 +345,9 @@ const jsonLd = [
         qifuTopDone = true;
         g('qifu', { concern: cfg.concern });
         btn.classList.add('done');
-        btn.textContent = '🕯 已為' + cfg.label + '點上一盞';
+        btn.textContent = '🕯 已為' + cfg.label + '集氣';
       }
-      msg.textContent = '心意已收到——也替還在拚' + cfg.label + '的人，一起點上了一盞。';
+      msg.textContent = '也幫還在拚' + cfg.label + '的人一起集了氣。';
       altar.hidden = false;
       // 重觸發燭火點燃動畫（remove→reflow→add）
       altar.classList.remove('lighting');
