@@ -17,23 +17,6 @@
     "status": "archived"
   },
   {
-    "id": "eq-attibqh8",
-    "title": "為墨西哥地震平安祈福",
-    "event": "2026年7月17日,墨西哥太平洋沿岸外海(Puerto Madero西南方約71公里)發生規模7.4強震,為當地居民及沿海地區祈求平安、盼救援與復原順利。",
-    "sources": [
-      {
-        "ref": "USGS 地震資訊",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/attibqh8"
-      },
-      {
-        "ref": "交通部中央氣象署地震測報中心",
-        "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
-      }
-    ],
-    "since": "2026-07-17",
-    "status": "active"
-  },
-  {
     "id": "eq-us7000t1bu",
     "title": "為墨西哥地震平安祈福",
     "event": "2026年7月17日,墨西哥阿基萊斯塞爾丹西南方48公里發生規模7.3地震,願當地民眾平安無恙、家園早日恢復。",
