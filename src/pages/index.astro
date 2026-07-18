@@ -96,7 +96,7 @@ const featuredDeities = [
     <script is:inline>
       document.getElementById('cast')?.addEventListener('click', (e) => {
         const ids = e.currentTarget.dataset.ids.split(',');
-        location.href = '/poems/' + ids[Math.floor(Math.random() * ids.length)];
+        location.href = '/poems/' + ids[Math.floor(Math.random() * ids.length)] + '/';
       });
     </script>
   </section>
