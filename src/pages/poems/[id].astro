@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem } from '../../lib/queries';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
 
@@ -150,7 +151,7 @@ if (faq) ld.push(faq);
                   <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架）。</p>
                 )}
                 {a.sources.length > 0 && (
-                  <p class="src">來源：{a.sources.map((s) => s.ref).join('；')}</p>
+                  <p class="src"><Sources sources={a.sources} /></p>
                 )}
               </div>
             );

@@ -42,7 +42,7 @@ const faq = faqPage([
   {
     q: `近期哪幾天宜${meta.name}？`,
     a: yiDays.length
-      ? `依本站已考據核校的資料，未來六十天內宜${meta.name}的日子有：${yiDays.map(md).join('、')}。`
+      ? `未來六十天內宜${meta.name}的日子有：${yiDays.map(md).join('、')}。`
       : '',
   },
 ]);
@@ -78,14 +78,13 @@ if (faq) jsonLd.push(faq);
         </ul>
       ) : (
         <p class="muted">
-          本站宜忌一律以已考據核校（verified）者為準；「{meta.name}」近期沒有 verified 的宜日資料，
-          故此處不列（未列不代表不吉，只是尚未核校）。可到<a href="/almanac/">今日農民曆</a>逐日查看。
+          「{meta.name}」近期沒有可顯示的宜日資料。可到<a href="/almanac/">今日農民曆</a>逐日查看。
         </p>
       )
     }
     {yiDays.length > 0 && (
       <p class="muted small">
-        僅列本站已考據核校之宜日（M3：無源不發佈），點日期可看該日完整農民曆。未列的日子不代表不吉。
+        點日期可看該日完整農民曆。
       </p>
     )}
   </section>

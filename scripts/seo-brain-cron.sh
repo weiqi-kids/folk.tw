@@ -49,7 +49,7 @@ PROMPT="$(cat <<PROMPTEOF
 # 鐵則（違反即停手）
 1. 絕不杜撰：補事實型內容（神明 src/data/deities.json、廟宇、典故 allusions、民俗活動 events）一定先用 WebSearch 找到權威源（Wikidata／維基百科／文化部文資／廟方官網），把來源寫進該筆資料來源欄位；查無權威源就不補事實，只做不碰事實的動作（內鏈、meta／標題／描述、頁面結構）。seoDesc 等若含事實說法也須查證過或有源。
 2. 每天最多改 5 個檔，寧少勿多。
-3. 改完自我驗證：pnpm install --frozen-lockfile →（動到資料/schema）pnpm check:integrity → pnpm build。任一非零 → git checkout . 撤回、今日不 push、走步驟6發 Slack 標🔴回報。
+3. 改完自我驗證：pnpm install --frozen-lockfile →（動到資料/schema）pnpm check:integrity → pnpm check:copy-voice（改到 .astro 文案必跑，禁 AI 療癒腔）→ pnpm build。任一非零 → git checkout . 撤回、今日不 push、走步驟6發 Slack 標🔴回報。
 4. 內容改動集中成一個 commit、訊息前綴 [auto-claude-seo]，便於辨識與 git revert。
 
 # DRY_RUN
@@ -73,7 +73,7 @@ PROMPT="$(cat <<PROMPTEOF
 
 ## 4. 執行 + 自我驗證 + 上線（DRY_RUN=0 才 push）
 - 鐵則內改 ≤5 檔；事實型先 WebSearch 查證、來源寫進資料欄位。
-- pnpm install --frozen-lockfile →（動到資料/schema）pnpm check:integrity → pnpm build。任一失敗 → git checkout .、不 push、跳步驟5（Slack 標🔴）。
+- pnpm install --frozen-lockfile →（動到資料/schema）pnpm check:integrity → pnpm check:copy-voice → pnpm build。任一失敗 → git checkout .、不 push、跳步驟5（Slack 標🔴）。
 - 有內容改動且 DRY_RUN=0：
   - git add -A、git commit -m \"[auto-claude-seo] $DATE: <一句摘要>\"
   - git pull --rebase origin main（防搶先；衝突無法自動解 → git rebase --abort、放棄今日 push、跳步驟5）

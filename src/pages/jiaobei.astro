@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Sources from '../components/Sources.astro';
 import data from '../data/jiaobei.json';
 const { results, sequence_rule, sources } = data;
 ---
@@ -38,7 +39,7 @@ const { results, sequence_rule, sources } = data;
     <p class="muted small">{sequence_rule.variants}</p>
   </section>
 
-  <p class="src small">來源：{sources.map((s) => s.ref).join('；')}　·　判讀僅為文化呈現，非問事指導。</p>
+  <p class="src small"><Sources sources={sources} />　·　判讀僅為文化呈現，非問事指導。</p>
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

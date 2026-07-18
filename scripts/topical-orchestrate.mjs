@@ -23,7 +23,31 @@ async function fetchUSGS(params) {
   return (d.features || []).map((f) => ({
     id: 'eq-' + f.id, mag: f.properties.mag, place: f.properties.place,
     time: new Date(f.properties.time).toISOString().slice(0, 10), url: f.properties.url,
+    lon: f.geometry?.coordinates?.[0], lat: f.geometry?.coordinates?.[1],
   }));
+}
+
+// 兩點球面距離（km）。缺座標一律當「無限遠」（不誤併）。
+function km(a, b) {
+  if (a?.lat == null || b?.lat == null) return Infinity;
+  const R = 6371, rad = (d) => (d * Math.PI) / 180;
+  const dLat = rad(b.lat - a.lat), dLon = rad(b.lon - a.lon);
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(s)));
+}
+
+// 同一場地震會被不同觀測網（USGS 'us'、海嘯中心 'at'…）各報一筆、id 與規模略異
+// （2026-07-17 墨西哥 M7.x 就同時冒出 attibqh8 / us7000t1bu 兩筆重複祈福頁）。
+// 近距離＋近時間即視為同事件，靠此收斂，勿只認 id。
+const SAME_KM = 250, SAME_DAYS = 1;
+function sameEvent(a, b) {
+  return km(a, b) <= SAME_KM &&
+    Math.abs(Date.parse(a.time) - Date.parse(b.time)) / 864e5 <= SAME_DAYS;
+}
+// 同事件多筆解取代表：優先 USGS 'us' 網（最權威），否則取規模最大者。
+function pickCanonical(group) {
+  return group.find((e) => e.id.startsWith('eq-us')) ??
+    group.reduce((a, b) => ((b.mag ?? 0) > (a.mag ?? 0) ? b : a));
 }
 
 async function detect() {
@@ -33,8 +57,14 @@ async function detect() {
       fetchUSGS(`minmagnitude=${GLOBAL_MINMAG}`),
     ]);
     const byId = new Map();
-    for (const e of [...tw, ...global]) byId.set(e.id, e); // 去重（台灣重大地震兩邊都會出現）
-    return [...byId.values()];
+    for (const e of [...tw, ...global]) byId.set(e.id, e); // 先併相同 id（台灣重大地震兩邊都會出現）
+    // 再併「同震不同解」：近距離＋近時間分組，每組只留一筆代表。
+    const groups = [];
+    for (const e of byId.values()) {
+      const g = groups.find((grp) => sameEvent(grp[0], e));
+      if (g) g.push(e); else groups.push([e]);
+    }
+    return groups.map(pickCanonical);
   } catch (e) { console.error('[topical] USGS 取用失敗：' + e.message); return []; }
 }
 
@@ -69,6 +99,8 @@ for (const it of list) {
 // 2) 新事件 → 過正向閘 → 開頁
 for (const c of await detect()) {
   if (known.has(c.id)) continue;
+  // 跨執行去重：與既有條目（含已歸檔）同震者略過，免同一場地震換個網解又開一頁。
+  if (list.some((it) => sameEvent(it, c))) { console.error(`[topical] ${c.id} 與既有事件同震，略過`); continue; }
   const g = gateAndFrame(c);
   if (g.verdict !== 'pass' || !g.title) { console.error(`[topical] ${c.id} 未過閘：${g.reason || 'block'}`); continue; }
   list.push({
@@ -78,6 +110,8 @@ for (const c of await detect()) {
       { ref: 'USGS 地震資訊', url: c.url },
       { ref: '交通部中央氣象署地震測報中心', url: 'https://scweb.cwa.gov.tw/zh-tw/earthquake/data' },
     ],
+    // place/mag/lat/lon/time 留檔供跨執行 sameEvent 比對（舊條目無座標則退回 id 比對）。
+    place: c.place, mag: c.mag, lat: c.lat, lon: c.lon, time: c.time,
     since: today, status: 'active',
   });
   changed = true;

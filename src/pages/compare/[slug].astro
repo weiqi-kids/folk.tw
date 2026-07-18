@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getDeities, getScenarios } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import comparisons from '../../data/comparisons.json';
@@ -134,7 +135,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
   </p>
 
   {sources.length > 0 && (
-    <p class="src footer-src">來源：{sources.map((s) => s.ref).join('；')}</p>
+    <p class="src footer-src"><Sources sources={sources} /></p>
   )}
 
   <style>

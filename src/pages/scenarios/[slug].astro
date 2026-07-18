@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getScenarios, getDeities, templesByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { todayInTaipei } from '../../lib/daily';
@@ -127,7 +128,7 @@ const jsonLd = [
                 )}
               </p>
             )}
-            <p class="src">來源：{p.sources.map((src) => src.ref).join('；')}</p>
+            <p class="src"><Sources sources={p.sources} /></p>
           </div>
         );
       })
@@ -156,8 +157,7 @@ const jsonLd = [
       })
     }
     <p class="muted small">
-      僅顯示已考據核校（verified）之宜忌事項；未列出不代表不吉。完整逐日宜忌見
-      <a href={monthHref}>本月農民曆</a>。
+      完整逐日宜忌見 <a href={monthHref}>本月農民曆</a>。
     </p>
   </section>
 
@@ -172,7 +172,7 @@ const jsonLd = [
     <a href="/scenarios/">其他情境</a>
   </p>
 
-  {s.sources.length > 0 && <p class="src footer-src">來源：{s.sources.map((src) => src.ref).join('；')}</p>}
+  {s.sources.length > 0 && <p class="src footer-src"><Sources sources={s.sources} /></p>}
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

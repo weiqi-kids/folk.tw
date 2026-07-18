@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
 
@@ -175,12 +176,12 @@ const jsonLd: object[] = [
             </p>
           )
         }
-        {e.route.sources.length > 0 && <p class="src small">座標來源：{e.route.sources.map((s) => s.ref).join('；')}</p>}
+        {e.route.sources.length > 0 && <p class="src small"><Sources sources={e.route.sources} prefix="座標來源：" /></p>}
       </section>
     )
   }
 
-  {e.sources.length > 0 && <p class="src">來源：{e.sources.map((s) => s.ref).join('；')}</p>}
+  {e.sources.length > 0 && <p class="src"><Sources sources={e.sources} /></p>}
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

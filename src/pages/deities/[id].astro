@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 
@@ -149,7 +150,7 @@ const jsonLd = [
               <li>
                 <strong>{b.date}</strong> <span class="muted">{b.kind}</span>
                 {b.note && <span class="muted small">　{b.note}</span>}
-                {b.sources.length > 0 && <div class="src">{b.sources.map((s) => s.ref).join('；')}</div>}
+                {b.sources.length > 0 && <div class="src"><Sources sources={b.sources} prefix="" /></div>}
               </li>
             ))}
           </ul>
@@ -311,7 +312,7 @@ const jsonLd = [
     )
   }
 
-  {d.sources.length > 0 && <p class="src footer-src">來源：{d.sources.map((s) => s.ref).join('；')}</p>}
+  {d.sources.length > 0 && <p class="src footer-src"><Sources sources={d.sources} /></p>}
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

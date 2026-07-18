@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
@@ -196,7 +197,7 @@ const jsonLd = [
 
   {t.website && <p class="temple-site"><a href={t.website} target="_blank" rel="noopener">官方網站 →</a></p>}
 
-  {t.sources.length > 0 && <p class="src">來源：{t.sources.map((s) => s.ref).join('；')}</p>}
+  {t.sources.length > 0 && <p class="src"><Sources sources={t.sources} /></p>}
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

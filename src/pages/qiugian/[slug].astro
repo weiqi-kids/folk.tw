@@ -102,7 +102,7 @@ const jsonLd = [
     {st.joys.length ? st.joys.map((j) => (
       <div class="joy card"><span class="k">{j.text}</span><span class="m">{j.meta}</span></div>
     )) : (
-      <p class="muted small" id="joysEmpty">還沒有人回來報喜。事情有結果了，你可以是第一個。</p>
+      <p class="muted small" id="joysEmpty">還沒有人回來報喜。你有結果了，回來說一聲，後面還在找的人會看到。</p>
     )}
   </div>
 
@@ -264,7 +264,7 @@ const jsonLd = [
         : `<span>你是最近少數為「${esc(cfg.label!)}」求籤的人之一。</span>`;
       const e2 = per > 0 ? `<div class="estat"><b class="big">${per}</b><span>人，和你抽到同一支</span></div>` : '';
       const e3 = baoxi > 0 ? `<div class="estat j"><b class="big">${baoxi}</b><span>人，求了籤後回來報喜 ✨</span></div>`
-        : `<div class="estat j"><span>事情有結果了，回來說一聲——你可能是第一個。</span></div>`;
+        : `<div class="estat j"><span>還沒有人回來報喜——你有結果了，回來說一聲。</span></div>`;
       const lines = item.lines.map((l: string) => `<span class="pl">${esc(l)}</span>`).join('');
       document.getElementById('result')!.innerHTML = `
         <p class="draw-head small muted">你為 <b>${esc(cfg.label!)} · ${esc(cfg.aspect!)}</b> 求得——</p>

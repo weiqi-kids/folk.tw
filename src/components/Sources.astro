@@ -1,0 +1,29 @@
+---
+// 統一來源渲染：把 source.ref 內嵌的網址轉成錨文字連結（見 src/lib/sources.ts）。
+// 行內輸出「來源：名稱；名稱…」，外層 <p class="src">/<span> 由呼叫頁自理。
+// prefix 預設「來源：」，可傳空字串或「座標來源：」等自訂；無網址的來源退化為純文字。
+import { parseSourceRef, type SourceRef } from '../lib/sources';
+
+interface Props {
+  sources?: SourceRef[];
+  prefix?: string;
+}
+
+const { sources = [], prefix = '來源：' } = Astro.props;
+const parsed = sources.map(parseSourceRef);
+---
+{parsed.length > 0 && (
+  <Fragment>
+    {prefix}
+    {parsed.map((p, i) => (
+      <Fragment>
+        {i > 0 ? '；' : ''}
+        {p.url ? (
+          <a href={p.url} rel="nofollow noopener" target="_blank">{p.label}</a>
+        ) : (
+          p.label
+        )}
+      </Fragment>
+    ))}
+  </Fragment>
+)}

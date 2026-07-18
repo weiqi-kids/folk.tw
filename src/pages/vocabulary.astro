@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Sources from '../components/Sources.astro';
 import vocab from '../data/vocabulary.json';
 
 const groups: { key: keyof typeof vocab; label: string }[] = [
@@ -32,7 +33,7 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
                   {t.def}
                   {t.alias && t.alias.length > 0 && <span class="alias muted"> · 別名：{t.alias.join('、')}</span>}
                   {t.sources && t.sources.length > 0 && (
-                    <span class="src"> · {t.sources.map((s) => s.ref).join('；')}</span>
+                    <span class="src"> · <Sources sources={t.sources} prefix="" /></span>
                   )}
                 </dd>
               </div>

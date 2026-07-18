@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
 import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage, howTo } from '../../lib/seo';
 
@@ -132,7 +133,7 @@ const jsonLd: object[] = [
       ) : (
         <ul>
           {p.regional.map((r) => (
-            <li><strong>{r.area}</strong>：{r.note} {r.sources.length > 0 && <span class="src">（{r.sources.map((s) => s.ref).join('；')}）</span>}</li>
+            <li><strong>{r.area}</strong>：{r.note} {r.sources.length > 0 && <span class="src">（<Sources sources={r.sources} prefix="" />）</span>}</li>
           ))}
         </ul>
       )
@@ -155,7 +156,7 @@ const jsonLd: object[] = [
     )
   }
 
-  {p.sources.length > 0 && <p class="src footer-src">來源：{p.sources.map((s) => s.ref).join('；')}</p>}
+  {p.sources.length > 0 && <p class="src footer-src"><Sources sources={p.sources} /></p>}
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }

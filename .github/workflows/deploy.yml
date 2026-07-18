@@ -39,6 +39,8 @@ jobs:
         run: pnpm check:scoped-styles
       - name: 設計 token 檢查（硬編顏色 / 新增硬編 font-size，阻擋部署）
         run: pnpm check:design-tokens
+      - name: 文案 AI 味檢查（面向使用者的字禁療癒腔／假掰詩意，阻擋部署）
+        run: pnpm check:copy-voice
       - name: 建置（static）
         run: pnpm build
       - name: canonical 連結檢查（非斜線內部網址→301，阻擋部署）
