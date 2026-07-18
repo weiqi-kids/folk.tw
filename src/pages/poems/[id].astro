@@ -235,13 +235,13 @@ if (faq) ld.push(faq);
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }
     .ph h1 { margin: 0.2rem 0 0.6rem; }
     .ph .meta { margin-bottom: 0.5rem; }
-    .ph .lead { font-size: 0.92rem; margin: 0.2rem 0 0; }
+    .ph .lead { font-size: var(--text-sm); margin: 0.2rem 0 0; }
     .lines-block { margin: 1.8rem 0 2.2rem; display: flex; justify-content: center; }
     /* 四句直書（直排・右起），§0.5 四句直書 */
     .lines-zhi {
       writing-mode: vertical-rl;
       text-orientation: upright;
-      font-size: 1.55rem;
+      font-size: var(--text-xl);
       letter-spacing: 0.18em;
       line-height: 2.1;
       max-height: 18rem;
@@ -254,8 +254,8 @@ if (faq) ld.push(faq);
     }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 2rem; }
     .allusion .aname { font-weight: 700; margin: 0 0 0.3rem; }
-    .small { font-size: 0.88rem; }
-    .src { color: var(--gold); font-size: 0.82rem; }
+    .small { font-size: var(--text-sm); }
+    .src { color: var(--gold); font-size: var(--text-xs); }
     .interp { margin: 0.5rem 0; }
     .interp .row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
     .interp dt { font-weight: 700; color: var(--accent); }

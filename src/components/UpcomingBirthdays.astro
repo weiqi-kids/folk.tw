@@ -68,12 +68,12 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
   }
   .bd-when { display: flex; flex-direction: column; }
   .bd-solar { font-weight: 700; color: var(--accent); }
-  .bd-countdown { font-size: 0.78rem; color: var(--gold); }
+  .bd-countdown { font-size: var(--text-xs); color: var(--gold); }
   .bd-lunar { font-size: var(--text-sm); }
   .bd-deities a { color: var(--ink); }
   @media (max-width: 480px) {
     .bd-item { grid-template-columns: 3.8rem 1fr; }
-    .bd-lunar { grid-column: 2; font-size: 0.82rem; }
+    .bd-lunar { grid-column: 2; font-size: var(--text-xs); }
     .bd-deities { grid-column: 2; }
   }
 </style>

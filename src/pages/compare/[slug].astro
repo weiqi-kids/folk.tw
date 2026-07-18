@@ -140,7 +140,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.5rem; }
     .dh h1 { margin: 0.2rem 0 0.4rem; }
-    .lead { font-size: 1.05rem; }
+    .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.6rem; }
     .tbl-wrap { overflow-x: auto; }
     table { border-collapse: collapse; width: 100%; }
@@ -150,8 +150,8 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
     .summaries { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; margin-top: 1.4rem; }
     .summaries h3 { margin: 0 0 0.3rem; }
     @media (max-width: 560px) { .summaries { grid-template-columns: 1fr; } }
-    .src { color: var(--gold); font-size: 0.82rem; }
-    .small { font-size: 0.85rem; }
+    .src { color: var(--gold); font-size: var(--text-xs); }
+    .small { font-size: var(--text-sm); }
     .extend { margin-top: 1.5rem; }
     .footer-src { margin-top: 2rem; }
   </style>

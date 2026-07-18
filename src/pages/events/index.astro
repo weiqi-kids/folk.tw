@@ -84,7 +84,7 @@ const groups = LEVELS.map((level) => ({
       padding-bottom: 0.3rem;
       margin-top: 1.8rem;
     }
-    .count { font-size: 0.85rem; font-weight: 400; }
+    .count { font-size: var(--text-sm); font-weight: 400; }
     .ev-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -92,8 +92,8 @@ const groups = LEVELS.map((level) => ({
       margin-top: 1rem;
     }
     .ev { display: flex; flex-direction: column; gap: 0.3rem; }
-    .ev strong { color: var(--ink); font-size: 1.05rem; }
-    .small { font-size: 0.98rem; } /* 年長者友善：放大 */
+    .ev strong { color: var(--ink); font-size: var(--text-base); }
+    .small { font-size: var(--text-base); } /* 年長者友善：放大 */
     .ev .muted { color: oklch(0.37 0.02 72); } /* 次要文字加深 */
     .ev .when { color: var(--accent); } /* 時序：深朱紅（順序在後勝出） */
     .chips { margin-top: 0.1rem; }

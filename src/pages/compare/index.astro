@@ -54,8 +54,8 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
   <style>
     .cmp-cell { display: flex; flex-direction: column; gap: 0.2rem; }
     .cmp-cell strong { color: var(--ink); }
-    .small { font-size: 0.98rem; }
+    .small { font-size: var(--text-base); }
     .cmp-cell .muted { color: oklch(0.37 0.02 72); }
-    .lead { font-size: 1.05rem; }
+    .lead { font-size: var(--text-base); }
   </style>
 </Base>

@@ -3,22 +3,19 @@
 // OKLCH 調色盤與 --text-* 字級，禁自編 hex/rgb/hsl 顏色與硬編 font-size。只掃 .astro 的
 // <style> 區塊內容（不掃 HTML 屬性，如 <meta name="theme-color"> 規範上只能用字面色，屬合法例外）。
 //
-// 兩層規則：
-//   1) 顏色（硬 gate）：<style> 內出現 #hex / rgb() / rgba() / hsl() / hsla() 一律違規 → 改用
-//      var(--…) token 或 oklch()／color-mix(in oklch, …)。目前全站已清為 0。
-//   2) font-size（基線 gate）：<style> 內 font-size 若非 var(--text-*) 即為硬編。全站現存約 69 處
-//      「非階梯值」（0.85/1.05/0.82rem…，硬套 token 會改變字級、涉及 33 頁），經用戶決策採「等值先換
-//      ＋基線擋新」：等值者已換 var()，其餘記進 scripts/design-tokens-baseline.json；gate 只擋「新增／
-//      超出基線」的硬編 font-size，不強迫改動現有外觀。現有債日後想清再逐頁清（清完基線會自然縮小）。
+// 兩層規則（皆硬 gate，命中即 exit 1 → deploy.yml build job 失敗 → 不部署）：
+//   1) 顏色：<style> 內出現 #hex / rgb() / rgba() / hsl() / hsla() 一律違規 → 改用 var(--…) token
+//      或 oklch()／color-mix(in oklch, …)。
+//   2) font-size：<style> 內 font-size 必須是 var(--text-*)；任何硬編數值（rem/px/em）皆違規 →
+//      對到最近／語意相符的 --text-* 階梯（xs .8／sm .9／base 1.1／lg 1.3／xl 1.6／2xl 2／3xl 2.5）。
 //
-// 用法：`node scripts/check-design-tokens.mjs`（CI build gate 前跑）；
-//       `node scripts/check-design-tokens.mjs --update-baseline` 重建基線（清債或蓄意新增後）。
-import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
+// 沿革：2026-07-17 首版曾用「基線」豁免既有 69 處非階梯值；2026-07-18 用戶要求「不要有基線暫時
+//      放行」，已把 69 處全數收斂到 token（語意對映）、刪除基線，本 gate 即為零硬編硬性檢查。
+// 用法：`node scripts/check-design-tokens.mjs`（CI build gate；本機 pnpm check:design-tokens）。
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOTS = ['src/pages', 'src/components', 'src/layouts'];
-const BASELINE_PATH = 'scripts/design-tokens-baseline.json';
-const update = process.argv.includes('--update-baseline');
 
 function walk(dir) {
   const out = [];
@@ -43,7 +40,7 @@ function styleBodies(src) {
 
 const files = ROOTS.flatMap((r) => walk(r));
 const colorViolations = [];
-const fontCounts = {}; // file → { "0.85rem": n }
+const fontViolations = [];
 
 for (const f of files) {
   const css = styleBodies(readFileSync(f, 'utf8'));
@@ -53,36 +50,16 @@ for (const f of files) {
   for (const cm of css.matchAll(/#[0-9a-fA-F]{3,8}\b|(?:rgba?|hsla?)\s*\(/g))
     colorViolations.push({ file: f, token: cm[0] });
 
-  // font-size：非 var(--…) 且含數值即硬編
+  // font-size：必須 var(--…)；含數值即硬編
   for (const cm of css.matchAll(/font-size\s*:\s*([^;}]+)/g)) {
     const val = cm[1].trim();
     if (val.includes('var(') || !/[0-9]/.test(val)) continue; // token 或 inherit/keyword
-    (fontCounts[f] ??= {})[val] = ((fontCounts[f] ??= {})[val] ?? 0) + 1;
+    fontViolations.push({ file: f, val });
   }
 }
 
-if (update) {
-  writeFileSync(BASELINE_PATH, JSON.stringify(fontCounts, null, 2) + '\n');
-  const total = Object.values(fontCounts).reduce((s, m) => s + Object.values(m).reduce((a, b) => a + b, 0), 0);
-  console.log(`✓ 已更新 font-size 基線：${Object.keys(fontCounts).length} 檔、共 ${total} 處硬編記入 ${BASELINE_PATH}。`);
-  if (colorViolations.length) console.error(`⚠ 注意：仍有 ${colorViolations.length} 處硬編顏色（基線不涵蓋顏色，顏色為硬 gate，請一併清除）。`);
-  process.exit(0);
-}
-
-const baseline = existsSync(BASELINE_PATH) ? JSON.parse(readFileSync(BASELINE_PATH, 'utf8')) : {};
-// 新增/超出基線的 font-size 硬編
-const newFonts = [];
-for (const [f, counts] of Object.entries(fontCounts)) {
-  for (const [val, n] of Object.entries(counts)) {
-    const allowed = baseline[f]?.[val] ?? 0;
-    if (n > allowed) newFonts.push({ file: f, val, extra: n - allowed });
-  }
-}
-
-const ok = colorViolations.length === 0 && newFonts.length === 0;
-if (ok) {
-  const based = Object.values(baseline).reduce((s, m) => s + Object.values(m).reduce((a, b) => a + b, 0), 0);
-  console.log(`✓ 設計 token 檢查通過：<style> 內無硬編顏色；font-size 無新增硬編（現有 ${based} 處在基線內、豁免）。`);
+if (colorViolations.length === 0 && fontViolations.length === 0) {
+  console.log(`✓ 設計 token 檢查通過：掃 ${files.length} 個 .astro，<style> 內無硬編顏色、font-size 全用 var(--text-*)。`);
   process.exit(0);
 }
 
@@ -90,8 +67,8 @@ if (colorViolations.length) {
   console.error(`✗ 硬編顏色 ${colorViolations.length} 處（<style> 內禁 hex/rgb/hsl，改 var(--…)／oklch／color-mix）：`);
   for (const v of colorViolations.slice(0, 30)) console.error(`  ✗ ${v.file}：${v.token}`);
 }
-if (newFonts.length) {
-  console.error(`✗ 新增硬編 font-size ${newFonts.reduce((s, v) => s + v.extra, 0)} 處（請改 var(--text-*)；若蓄意且合理，跑 --update-baseline 重建基線）：`);
-  for (const v of newFonts.slice(0, 30)) console.error(`  ✗ ${v.file}：font-size: ${v.val}（超出基線 ${v.extra}）`);
+if (fontViolations.length) {
+  console.error(`✗ 硬編 font-size ${fontViolations.length} 處（必須用 var(--text-*)）：`);
+  for (const v of fontViolations.slice(0, 30)) console.error(`  ✗ ${v.file}：font-size: ${v.val}`);
 }
 process.exit(1);
