@@ -140,6 +140,10 @@ const normPath = trimSlash(path);
         <script is:inline define:vars={{ GA4_ID }}>
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
+          // 必須掛上 window：Astro define:vars 會把本段包進 IIFE，function gtag 只存在於閉包，
+          // 站上其他 script 的 window.gtag 會是 undefined → 自訂事件（qiugian/qifu/baoxi）永遠送不出。
+          // （2026-07-18 無頭瀏覽器實測抓到：page_view 有、自訂事件全 0 的病灶就在這。）
+          window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', GA4_ID, { anonymize_ip: true });
           var loadGA = function () {
