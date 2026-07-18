@@ -79,6 +79,13 @@ const jsonLd = [
     <button class="btn btn-primary" id="drawBtn" type="button">求一支籤<small>靜下心，想著這件事</small></button>
     <button class="btn btn-ghost" id="qifuBtn" type="button">為{concern.label}集氣<small>給同樣在拚的人</small></button>
   </div>
+
+  <div id="qifuAltar" class="altar" hidden aria-live="polite">
+    <span class="altar-glow" aria-hidden="true"></span>
+    <span class="altar-lamp" aria-hidden="true">🕯️</span>
+    <p class="altar-msg" id="altarMsg"></p>
+  </div>
+
   <div class="draw-alt small">
     <span>在廟裡抽到了？直接查籤號</span>
     <span class="draw-alt-field">
@@ -145,7 +152,26 @@ const jsonLd = [
     .btn-primary { background: var(--accent); color: var(--paper); }
     .btn-ghost { background: var(--paper-2); color: var(--ink); border-color: var(--line); }
     .btn-ghost:hover { border-color: var(--accent-soft); }
+    .btn.done { background: var(--accent); color: var(--paper); border-color: var(--accent); cursor: default; }
     .bx-open { flex: 0 0 auto; align-self: flex-start; }
+
+    /* 集氣儀式：點一盞燈的畫面感（暖光暈＋燭火搖曳），非純文字 */
+    .altar { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;
+      gap: 0.35rem; margin: 0.9rem 0 0; padding: 1.3rem 1rem 1.1rem; border-radius: 0.9rem;
+      border: 1px solid var(--line);
+      background: radial-gradient(120% 100% at 50% 0%, oklch(0.63 0.10 45 / 0.16), transparent 62%), var(--paper-2); }
+    .altar[hidden] { display: none; }
+    .altar-glow { position: absolute; top: -2.5rem; left: 50%; width: 9rem; height: 9rem; transform: translateX(-50%);
+      background: radial-gradient(circle, var(--accent-soft), transparent 65%); opacity: 0.3; pointer-events: none;
+      animation: altar-glow 2.6s ease-in-out infinite; }
+    .altar-lamp { font-size: var(--text-2xl); line-height: 1; transform-origin: 50% 85%;
+      filter: drop-shadow(0 0 0.55rem var(--accent-soft)); animation: altar-flicker 1.7s ease-in-out infinite; }
+    .altar-msg { position: relative; margin: 0; text-align: center; font-size: var(--text-base); color: var(--ink); }
+    .altar.lighting .altar-lamp { animation: altar-rise 0.7s ease-out, altar-flicker 1.7s ease-in-out 0.7s infinite; }
+    @keyframes altar-flicker { 0%, 100% { transform: scale(1) rotate(-1deg); } 50% { transform: scale(1.07) rotate(1.5deg); } }
+    @keyframes altar-rise { from { opacity: 0; transform: translateY(0.5rem) scale(0.55); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes altar-glow { 0%, 100% { opacity: 0.22; transform: translateX(-50%) scale(0.9); } 50% { opacity: 0.42; transform: translateX(-50%) scale(1.06); } }
+    @media (prefers-reduced-motion: reduce) { .altar-lamp, .altar-glow, .altar.lighting .altar-lamp { animation: none; } }
 
     .draw-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem; color: var(--ink-soft); margin: 0.7rem 0 0; }
     .draw-alt-field { display: inline-flex; align-items: center; gap: 0.4rem; }
@@ -215,7 +241,7 @@ const jsonLd = [
     #result .qi { width: 100%; margin: 0.9rem 0 0.6rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
       border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.75rem; }
     #result .qi:hover { background: var(--accent); color: var(--paper); }
-    #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
+    #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; box-shadow: 0 0 0.85rem 0.05rem var(--accent-soft); }
 
     @media (max-width: 30rem) { #result .rslip-row { flex-direction: column; } }
   </style>
@@ -268,10 +294,29 @@ const jsonLd = [
       // 不自動捲動：求籤/輸入籤號後就地展開結果，強制捲動反而打斷使用者視線（2026-07-17 用戶回報）。
     }
 
+    // 同一件事，一天求一支：23 小時內再求同一情境＝同一支籤（求籤是問神、不是刷結果）。
+    // 用 localStorage 記 {no, ts}／情境；GA 只在「新抽出」時送一次，重看不重複計數。
+    const DRAW_KEY = 'folk_qg_draw_v1';
+    const DRAW_WINDOW = 23 * 60 * 60 * 1000;
+    function readDrawStore(): Record<string, { no: number; ts: number }> {
+      try { return JSON.parse(localStorage.getItem(DRAW_KEY) || '{}'); } catch { return {}; }
+    }
     function draw() {
       if (!QIAN.length) return;
-      const item = QIAN[Math.floor(Math.random() * QIAN.length)];
-      g('qiugian', { concern: cfg.concern, poem_no: item.no });
+      const store = readDrawStore();
+      const prev = store[cfg.concern!];
+      const now = Date.now();
+      let item = prev && now - prev.ts < DRAW_WINDOW ? QIAN.find((q: any) => q.no === prev.no) : null;
+      const note = document.getElementById('topNote')!;
+      if (item) {
+        note.textContent = '同一件事，一天求一支籤——這是你今天為' + cfg.label + '求得的。想換個心境，明天再來。';
+      } else {
+        item = QIAN[Math.floor(Math.random() * QIAN.length)];
+        store[cfg.concern!] = { no: item.no, ts: now };
+        try { localStorage.setItem(DRAW_KEY, JSON.stringify(store)); } catch {}
+        g('qiugian', { concern: cfg.concern, poem_no: item.no });
+        note.textContent = '';
+      }
       render(item);
     }
     function drawByNo() {
@@ -291,9 +336,23 @@ const jsonLd = [
       g('qifu', { concern: cfg.concern });
       b.classList.add('done'); b.textContent = '🕯 已為你的' + cfg.label + '點上一盞';
     }
+    let qifuTopDone = false;
     document.getElementById('qifuBtn')!.addEventListener('click', () => {
-      g('qifu', { concern: cfg.concern });
-      document.getElementById('topNote')!.textContent = '🕯 已集氣——也幫還在拚' + cfg.label + '的人一起集了氣。';
+      const btn = document.getElementById('qifuBtn')!;
+      const altar = document.getElementById('qifuAltar')!;
+      const msg = document.getElementById('altarMsg')!;
+      if (!qifuTopDone) {
+        qifuTopDone = true;
+        g('qifu', { concern: cfg.concern });
+        btn.classList.add('done');
+        btn.textContent = '🕯 已為' + cfg.label + '點上一盞';
+      }
+      msg.textContent = '心意已收到——也替還在拚' + cfg.label + '的人，一起點上了一盞。';
+      altar.hidden = false;
+      // 重觸發燭火點燃動畫（remove→reflow→add）
+      altar.classList.remove('lighting');
+      void (altar as HTMLElement).offsetWidth;
+      altar.classList.add('lighting');
     });
 
     document.getElementById('drawBtn')!.addEventListener('click', draw);
