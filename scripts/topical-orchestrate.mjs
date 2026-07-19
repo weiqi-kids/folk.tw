@@ -74,14 +74,26 @@ function gateAndFrame(c) {
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本/土耳其地震祈福**）；若震央在**無人或極少人海域/偏遠區、規模雖大但無實質受影響者**，判 block（不必為每個地震都開頁）。
   b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。任一不符即 block。
-任務(2) 若 pass，產生莊重的繁體中文：title 形如「為○○地震平安祈福」（○○用可辨識中文地名，國際地名用通用中文譯名如「土耳其」「日本能登」；不確定精確中文地名就用保守描述如「台灣東部外海」），event 為一到兩句、只依上述事實、不誇大、不編造傷亡人數。
+任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○地震平安祈福」，event 為一到兩句。硬性要求：
+  - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
+  - **地名以上述 USGS「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留英文原名或用保守描述（如「墨西哥外海」「台灣東部外海」）——絕不自創或套大陸譯名**。距離/規模一律照 USGS，勿改數字。
+  - 只依上述事實，不誇大、不編造傷亡人數。
 只輸出單行 JSON：{"verdict":"pass"|"block","title":"…","event":"…"}。`;
   const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
     { encoding: 'utf8', timeout: 120000, env: { ...process.env, IS_SANDBOX: '1' } });
   if (r.status !== 0 || !r.stdout) return { verdict: 'block', reason: 'claude 執行失敗' };
   const m = r.stdout.match(/\{[\s\S]*\}/);
   if (!m) return { verdict: 'block', reason: '無 JSON 輸出' };
-  try { return JSON.parse(m[0]); } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
+  try {
+    const g = JSON.parse(m[0]);
+    // 機械保底：claude 偶爾仍吐半形逗號/分號（見 2026-07-19 墨西哥頁事故）。緊鄰中文字者一律轉全形，
+    // 英文語境（如「Madero, Mexico」）左側為拉丁字母故不動；不碰句號免誤傷「7.3」這種小數。
+    const zh = (s) => typeof s === 'string'
+      ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
+      : s;
+    g.title = zh(g.title); g.event = zh(g.event);
+    return g;
+  } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
 }
 
 const list = JSON.parse(readFileSync(TOPICAL, 'utf8'));
