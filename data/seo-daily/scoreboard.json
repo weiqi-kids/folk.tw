@@ -7,15 +7,26 @@
       "id": "2026-07-02-temple-meta-description",
       "placed_date": "2026-07-02",
       "cohort": "temple-ctr",
-      "target": { "page": "/temples/*", "query": null },
+      "target": {
+        "page": "/temples/*",
+        "query": null
+      },
       "hypothesis": "廟宇頁補 meta description（原落回首頁通用文案）後，廟宇頁群體 CTR 止跌回升",
       "factual": false,
       "change_commit": "a231e2d",
-      "change_files": ["src/pages/temples/[id].astro"],
+      "change_files": [
+        "src/pages/temples/[id].astro"
+      ],
       "deploy_date": "2026-07-02",
       "expected_first_signal_date": "2026-07-06",
       "expected_full_window_date": "2026-07-13",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0175, "scope": "cohort" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": 0.0175,
+        "scope": "cohort"
+      },
       "checks": [
         {
           "date": "2026-07-08",
@@ -43,15 +54,26 @@
       "id": "2026-07-04-soushen-seodesc",
       "placed_date": "2026-07-04",
       "cohort": "striking-distance",
-      "target": { "page": "/allusions/soushen", "query": "范丹洗浴遇賢妻" },
+      "target": {
+        "page": "/allusions/soushen",
+        "query": "范丹洗浴遇賢妻"
+      },
       "hypothesis": "seoDesc 複誦故事情節，SERP 摘要與查詢重疊度提升，CTR 由 0 轉正",
       "factual": true,
       "change_commit": "85c0701",
-      "change_files": ["src/content/allusions/soushen.md"],
+      "change_files": [
+        "src/content/allusions/soushen.md"
+      ],
       "deploy_date": "2026-07-04",
       "expected_first_signal_date": "2026-07-08",
       "expected_full_window_date": "2026-07-15",
-      "baseline": { "pos": 10, "impr": 11, "clicks": 0, "ctr": 0, "scope": "page-query" },
+      "baseline": {
+        "pos": 10,
+        "impr": 11,
+        "clicks": 0,
+        "ctr": 0,
+        "scope": "page-query"
+      },
       "checks": [
         {
           "date": "2026-07-08",
@@ -79,15 +101,26 @@
       "id": "2026-07-05-temple-title-disambig",
       "placed_date": "2026-07-05",
       "cohort": "temple-ctr",
-      "target": { "page": "/temples/*", "query": null },
+      "target": {
+        "page": "/temples/*",
+        "query": null
+      },
       "hypothesis": "同名廟 title 加縣市鄉鎮消歧後，廟宇頁群體 CTR 止跌回升（與 a231e2d 同屬廟宇 CTR bundle）",
       "factual": false,
       "change_commit": "3521dd4",
-      "change_files": ["src/pages/temples/[id].astro"],
+      "change_files": [
+        "src/pages/temples/[id].astro"
+      ],
       "deploy_date": "2026-07-05",
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0.0162, "scope": "cohort" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": 0.0162,
+        "scope": "cohort"
+      },
       "checks": [
         {
           "date": "2026-07-09",
@@ -115,15 +148,26 @@
       "id": "2026-07-05-systems-template",
       "placed_date": "2026-07-05",
       "cohort": "template-structural",
-      "target": { "page": "/systems/*", "query": null },
+      "target": {
+        "page": "/systems/*",
+        "query": null
+      },
       "hypothesis": "systems 樞紐頁補 description/CreativeWorkSeries/speakable/breadcrumb→/poems 後，該 2 頁進 SERP 並助攻 /poems 收錄",
       "factual": false,
       "change_commit": "1dc83ca",
-      "change_files": ["src/pages/systems/[id].astro"],
+      "change_files": [
+        "src/pages/systems/[id].astro"
+      ],
       "deploy_date": "2026-07-05",
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": null,
+        "scope": "cohort"
+      },
       "checks": [
         {
           "date": "2026-07-09",
@@ -151,15 +195,26 @@
       "id": "2026-07-05-practices-description",
       "placed_date": "2026-07-05",
       "cohort": "template-structural",
-      "target": { "page": "/practices/*", "query": null },
+      "target": {
+        "page": "/practices/*",
+        "query": null
+      },
       "hypothesis": "12 習俗頁補 meta description（原落回通用文案）後，季節性高意圖查詢 CTR 提升",
       "factual": false,
       "change_commit": "1dc83ca",
-      "change_files": ["src/pages/practices/[id].astro"],
+      "change_files": [
+        "src/pages/practices/[id].astro"
+      ],
       "deploy_date": "2026-07-05",
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": null,
+        "scope": "cohort"
+      },
       "checks": [
         {
           "date": "2026-07-09",
@@ -187,15 +242,27 @@
       "id": "2026-07-05-deity-title-birthday",
       "placed_date": "2026-07-05",
       "cohort": "striking-distance",
-      "target": { "page": "/deities/*", "query": "七爺八爺聖誕 等聖誕/生日詞群" },
+      "target": {
+        "page": "/deities/*",
+        "query": "七爺八爺聖誕 等聖誕/生日詞群"
+      },
       "hypothesis": "神明頁 title 帶出聖誕農曆日期關鍵字後，qiyebaye 群等『X聖誕/生日』查詢（排名到位卻 0 click）CTR 轉正",
       "factual": false,
       "change_commit": "7897d55",
-      "change_files": ["src/pages/deities/[id].astro"],
+      "change_files": [
+        "src/pages/deities/[id].astro"
+      ],
       "deploy_date": "2026-07-05",
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
-      "baseline": { "pos": 6.5, "impr": 34, "clicks": 0, "ctr": 0, "scope": "page-query", "note": "七爺八爺聖誕 為代表；全群 ~115 impr 連 5+ 天 0 click" },
+      "baseline": {
+        "pos": 6.5,
+        "impr": 34,
+        "clicks": 0,
+        "ctr": 0,
+        "scope": "page-query",
+        "note": "七爺八爺聖誕 為代表；全群 ~115 impr 連 5+ 天 0 click"
+      },
       "checks": [
         {
           "date": "2026-07-09",
@@ -224,15 +291,26 @@
       "id": "2026-07-05-events-speakable",
       "placed_date": "2026-07-05",
       "cohort": "template-structural",
-      "target": { "page": "/events/*", "query": null },
+      "target": {
+        "page": "/events/*",
+        "query": null
+      },
       "hypothesis": "36 活動頁補 .summary answer-first 區塊＋speakable 後，AEO/GEO 抽取提升",
       "factual": false,
       "change_commit": "1dc83ca",
-      "change_files": ["src/pages/events/[id].astro"],
+      "change_files": [
+        "src/pages/events/[id].astro"
+      ],
       "deploy_date": "2026-07-05",
       "expected_first_signal_date": "2026-07-09",
       "expected_full_window_date": "2026-07-16",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": null, "scope": "cohort" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": null,
+        "scope": "cohort"
+      },
       "checks": [
         {
           "date": "2026-07-09",
@@ -260,15 +338,28 @@
       "id": "2026-07-09-almanac-birthday-summary",
       "placed_date": "2026-07-09",
       "cohort": "template-structural",
-      "target": { "page": "/almanac/*", "query": "純日期查詢（如 2026/07/04）" },
+      "target": {
+        "page": "/almanac/*",
+        "query": "純日期查詢（如 2026/07/04）"
+      },
       "hypothesis": "農民曆日期頁答案優先摘要（.day-summary，已在 speakable 內）補一句『神明聖誕：X』或『今天不是神明聖誕』後，0-click 純日期查詢的 CTR 提升（比對競品 nongminli.com 固定 answer-first 句）",
       "factual": false,
       "change_commit": "bc0f90c",
-      "change_files": ["src/components/AlmanacDay.astro", "src/pages/almanac/[date].astro"],
+      "change_files": [
+        "src/components/AlmanacDay.astro",
+        "src/pages/almanac/[date].astro"
+      ],
       "deploy_date": "2026-07-09",
       "expected_first_signal_date": "2026-07-13",
       "expected_full_window_date": "2026-07-20",
-      "baseline": { "pos": null, "impr": null, "clicks": null, "ctr": 0, "scope": "cohort", "note": "代表樣本（今日 highImpZeroClick 常駐日期頁，皆 0 click）：2026-07-03(impr4/pos9.5、impr4/pos6.75)、2026-07-04(impr11/pos9、impr3/pos6.67)、2026-07-05(impr11/pos6.55)、2026-07-08(impr7/pos7.29)。" },
+      "baseline": {
+        "pos": null,
+        "impr": null,
+        "clicks": null,
+        "ctr": 0,
+        "scope": "cohort",
+        "note": "代表樣本（今日 highImpZeroClick 常駐日期頁，皆 0 click）：2026-07-03(impr4/pos9.5、impr4/pos6.75)、2026-07-04(impr11/pos9、impr3/pos6.67)、2026-07-05(impr11/pos6.55)、2026-07-08(impr7/pos7.29)。"
+      },
       "checks": [
         {
           "date": "2026-07-13",
@@ -301,6 +392,14 @@
           "clicks": 1,
           "ctr": 0.0323,
           "note": "資料窗 2026-07-07..07-14。pageQueryCross 26 筆 almanac 日期頁列合計 clicks=1/impr=31，與前次（impr33/click1）持平、非零點擊持續但樣本仍小，不足以判斷是否為真實改善。未到全窗日（7/20），不觸發回退。"
+        },
+        {
+          "date": "2026-07-19",
+          "pos": null,
+          "impr": 38,
+          "clicks": 1,
+          "ctr": 0.0263,
+          "note": "資料窗 2026-07-08..07-15。pageQueryCross 31 筆 almanac 日期頁列合計 clicks=1/impr=38，與前次（impr31/click1）持平、非零點擊持續但樣本仍小。明日（7/20）為全窗日，屆時下 verdict。"
         }
       ],
       "status": "open",
@@ -311,15 +410,26 @@
       "id": "2026-07-13-zhengde-lifeng-seodesc",
       "placed_date": "2026-07-13",
       "cohort": "striking-distance",
-      "target": { "page": "/allusions/zhengde_lifeng", "query": "正德君戲李鳳姐" },
+      "target": {
+        "page": "/allusions/zhengde_lifeng",
+        "query": "正德君戲李鳳姐"
+      },
       "hypothesis": "seoDesc 補故事摘要（比照 soushen 7/4 先例），SERP 摘要與查詢重疊度提升，CTR 由 3.85% 提升",
       "factual": true,
       "change_commit": "2bb8a9a",
-      "change_files": ["src/content/allusions/zhengde_lifeng.md"],
+      "change_files": [
+        "src/content/allusions/zhengde_lifeng.md"
+      ],
       "deploy_date": "2026-07-13",
       "expected_first_signal_date": "2026-07-17",
       "expected_full_window_date": "2026-07-24",
-      "baseline": { "pos": 9.04, "impr": 26, "clicks": 1, "ctr": 0.0385, "scope": "page-query" },
+      "baseline": {
+        "pos": 9.04,
+        "impr": 26,
+        "clicks": 1,
+        "ctr": 0.0385,
+        "scope": "page-query"
+      },
       "checks": [
         {
           "date": "2026-07-17",
@@ -336,8 +446,45 @@
           "clicks": 0,
           "ctr": 0,
           "note": "資料窗 2026-07-07..07-14。單頁 clicks 0/impr21/pos8.67，與前次（impr20/pos8.7）幾乎持平，仍未見改善，但未到全窗日（7/24），不觸發回退。"
+        },
+        {
+          "date": "2026-07-19",
+          "pos": 8.71,
+          "impr": 17,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "資料窗 2026-07-08..07-15。單頁 clicks 0/impr17/pos8.71，與前次（impr21/pos8.67）持平，仍未見改善。未到全窗日（7/24），不觸發回退。"
         }
       ],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-19-gd77-seodesc",
+      "placed_date": "2026-07-19",
+      "cohort": "striking-distance",
+      "target": {
+        "page": "/allusions/gd_77",
+        "query": "呂后害韓信"
+      },
+      "hypothesis": "seoDesc 補故事摘要（比照 zhengde_lifeng/soushen 先例），SERP 摘要與查詢重疊度提升，CTR 由 0% 轉正。此查詢連續 6 天（7/14 起）持續出現於抽樣、曝光穩定成長（3→3→5→5→6→8）、排名穩定 4-5.3，屬乾淨可歸因目標（非 qiyebaye 式跨查詢聚合雜訊）。",
+      "factual": true,
+      "change_commit": "PENDING",
+      "change_files": [
+        "src/content/allusions/gd_77.md"
+      ],
+      "deploy_date": "2026-07-19",
+      "expected_first_signal_date": "2026-07-23",
+      "expected_full_window_date": "2026-07-30",
+      "baseline": {
+        "pos": 5.125,
+        "impr": 8,
+        "clicks": 0,
+        "ctr": 0,
+        "scope": "page-query"
+      },
+      "checks": [],
       "status": "open",
       "verdict": null,
       "verdict_date": null
