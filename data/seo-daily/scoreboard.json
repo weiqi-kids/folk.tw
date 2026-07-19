@@ -470,7 +470,7 @@
       },
       "hypothesis": "seoDesc 補故事摘要（比照 zhengde_lifeng/soushen 先例），SERP 摘要與查詢重疊度提升，CTR 由 0% 轉正。此查詢連續 6 天（7/14 起）持續出現於抽樣、曝光穩定成長（3→3→5→5→6→8）、排名穩定 4-5.3，屬乾淨可歸因目標（非 qiyebaye 式跨查詢聚合雜訊）。",
       "factual": true,
-      "change_commit": "PENDING",
+      "change_commit": "1ce8bd6",
       "change_files": [
         "src/content/allusions/gd_77.md"
       ],
