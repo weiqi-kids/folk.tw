@@ -30,6 +30,11 @@
         "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
       }
     ],
+    "place": "58 km WSW of Puerto Madero, Mexico",
+    "mag": 7.3,
+    "lat": 14.6043,
+    "lon": -92.9517,
+    "time": "2026-07-17",
     "since": "2026-07-17",
     "status": "active"
   }
