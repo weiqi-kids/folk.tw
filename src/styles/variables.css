@@ -8,7 +8,8 @@
  * 守門：scripts/check-design.mjs（pnpm build 自動先跑，違規直接 fail）。
  *
  * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
- * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 20px、body 22px）。 */
+ * 字級：標準階梯 --text-xs … --text-3xl（**值一律 ≥1.125rem＝18px 下限**，check-design 第 6 條守）；
+ * root 標準 16px、內文 22px（--text-base）。所有版面 rem 已 ×1.25 收斂使像素與原 20px-root 版一致。 */
 
 :root {
   /* ── 色彩（OKLCH）── */
@@ -27,16 +28,16 @@
   --mask-opaque: #000; /* mask-image 實心端（mask 只取 alpha，任何不透明色皆等效） */
 
   /* ── 字級階梯（rem，相對 root 20px）── */
-  --text-xs: 0.8rem; /* 16px */
-  --text-sm: 0.9rem; /* 18px */
-  --text-base: 1.1rem; /* 22px（內文） */
-  --text-lg: 1.3rem; /* 26px */
-  --text-xl: 1.6rem; /* 32px */
-  --text-2xl: 2rem; /* 40px */
-  --text-3xl: 2.5rem; /* 50px */
+  --text-xs: 1.125rem; /* 18px（≥18px 下限；原 16px 收斂至下限，.tag/footer 等使用處放大至 18px） */
+  --text-sm: 1.125rem; /* 18px */
+  --text-base: 1.375rem; /* 22px（內文） */
+  --text-lg: 1.625rem; /* 26px */
+  --text-xl: 2rem; /* 32px */
+  --text-2xl: 2.5rem; /* 40px */
+  --text-3xl: 3.125rem; /* 50px */
 
   /* ── 版面 ── */
-  --max: 58rem;
+  --max: 72.5rem;
   --lh: 1.85; /* 內文行高 */
   --lh-tight: 1.4; /* 標題行高 */
 }

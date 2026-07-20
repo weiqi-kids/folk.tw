@@ -231,47 +231,47 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
 
 <style>
   .almanac-nav {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
-    margin-bottom: 1.4rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem;
+    margin-bottom: 1.75rem;
   }
   .nav-btn {
-    padding: 0.3rem 0.8rem; border: 1px solid var(--line); border-radius: 0.4rem;
+    padding: 0.375rem 1rem; border: 1px solid var(--line); border-radius: 0.5rem;
     background: var(--paper-2); color: var(--ink); font-size: var(--text-sm);
   }
   .nav-btn:hover { text-decoration: none; border-color: var(--accent-soft); }
   .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
   .nav-btn.today { color: var(--accent); border-color: var(--accent-soft); }
   #almanac-date {
-    padding: 0.3rem 0.6rem; border: 1px solid var(--line); border-radius: 0.4rem;
+    padding: 0.375rem 0.75rem; border: 1px solid var(--line); border-radius: 0.5rem;
     background: var(--paper-2); color: var(--ink); font-family: inherit; font-size: var(--text-sm);
   }
-  h1 .wk { color: var(--ink-soft); font-size: var(--text-lg); margin-left: 0.3rem; }
+  h1 .wk { color: var(--ink-soft); font-size: var(--text-lg); margin-left: 0.375rem; }
   h1 .badge {
     font-size: var(--text-sm); color: var(--accent); border: 1px solid var(--accent-soft);
-    border-radius: 1rem; padding: 0.05rem 0.6rem; margin-left: 0.6rem; vertical-align: middle;
+    border-radius: 1.25rem; padding: 0.0625rem 0.75rem; margin-left: 0.75rem; vertical-align: middle;
   }
-  .day-summary { margin: 0.2rem 0 1.2rem; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.6; }
-  h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; margin-top: 1.8rem; }
+  .day-summary { margin: 0.25rem 0 1.5rem; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.6; }
+  h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
   .small { font-size: var(--text-sm); }
-  .rec { display: grid; gap: 0.4rem; }
-  .rec > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+  .rec { display: grid; gap: 0.5rem; }
+  .rec > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.625rem; padding: 0.375rem 0; border-bottom: 1px dashed var(--line); }
   .rec dt { font-weight: 700; color: var(--accent); }
   .rec dd { margin: 0; }
   .src { color: var(--gold); }
   .mini-link { font-size: var(--text-xs); color: var(--accent); white-space: nowrap; }
-  .yiji p { margin: 0.4rem 0; font-size: var(--text-base); }
-  .yi { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--ok-green); border: 1px solid color-mix(in oklch, var(--ok-green) 42%, var(--paper)); border-radius: 0.3rem; }
-  .ji { display: inline-block; min-width: 1.6rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.3rem; }
-  .deriv { margin: 0.6rem 0; }
+  .yiji p { margin: 0.5rem 0; font-size: var(--text-base); }
+  .yi { display: inline-block; min-width: 2rem; text-align: center; color: var(--ok-green); border: 1px solid color-mix(in oklch, var(--ok-green) 42%, var(--paper)); border-radius: 0.375rem; }
+  .ji { display: inline-block; min-width: 2rem; text-align: center; color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 0.375rem; }
+  .deriv { margin: 0.75rem 0; }
   .deriv summary { cursor: pointer; color: var(--ink-soft); font-size: var(--text-sm); }
-  .deriv li { padding: 0.2rem 0; font-size: var(--text-sm); }
-  .basis { margin-top: 2rem; color: var(--ink-soft); }
+  .deriv li { padding: 0.25rem 0; font-size: var(--text-sm); }
+  .basis { margin-top: 2.5rem; color: var(--ink-soft); }
   .basis summary { cursor: pointer; font-size: var(--text-sm); }
-  .basis .rec { margin-top: 0.6rem; }
-  .pengzu { margin: 0.5rem 0; padding-left: 1.2rem; }
-  .pengzu li { padding: 0.15rem 0; }
-  .cross .links li { padding: 0.25rem 0; }
-  .bdays { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.1rem 1rem; list-style: none; padding-left: 0; margin: 0.6rem 0; }
-  .bdays li { padding: 0.2rem 0; }
-  .bdays .muted { margin-right: 0.4rem; }
+  .basis .rec { margin-top: 0.75rem; }
+  .pengzu { margin: 0.625rem 0; padding-left: 1.5rem; }
+  .pengzu li { padding: 0.1875rem 0; }
+  .cross .links li { padding: 0.3125rem 0; }
+  .bdays { display: grid; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); gap: 0.125rem 1.25rem; list-style: none; padding-left: 0; margin: 0.75rem 0; }
+  .bdays li { padding: 0.25rem 0; }
+  .bdays .muted { margin-right: 0.5rem; }
 </style>

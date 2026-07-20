@@ -57,13 +57,13 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
 </script>
 
 <style>
-  .birthdays { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+  .birthdays { list-style: none; margin: 0.5rem 0 0; padding: 0; }
   .bd-item {
     display: grid;
-    grid-template-columns: 4.5rem 6rem 1fr;
-    gap: 0.6rem;
+    grid-template-columns: 5.625rem 7.5rem 1fr;
+    gap: 0.75rem;
     align-items: baseline;
-    padding: 0.4rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px dashed var(--line);
   }
   .bd-when { display: flex; flex-direction: column; }
@@ -72,7 +72,7 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
   .bd-lunar { font-size: var(--text-sm); }
   .bd-deities a { color: var(--ink); }
   @media (max-width: 480px) {
-    .bd-item { grid-template-columns: 3.8rem 1fr; }
+    .bd-item { grid-template-columns: 4.75rem 1fr; }
     .bd-lunar { grid-column: 2; font-size: var(--text-xs); }
     .bd-deities { grid-column: 2; }
   }

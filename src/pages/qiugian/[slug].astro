@@ -138,17 +138,17 @@ const jsonLd = [
   <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
-    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
-    .lead { font-size: var(--text-base); margin: 0 0 0.3rem; }
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
+    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
+    .lead { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .lead b { color: var(--accent); font-variant-numeric: tabular-nums; }
-    .blurb { margin: 0.3rem 0 0; }
+    .blurb { margin: 0.375rem 0 0; }
 
-    .actions { display: flex; gap: 0.7rem; margin: 1.4rem 0 0.5rem; }
+    .actions { display: flex; gap: 0.875rem; margin: 1.75rem 0 0.625rem; }
     .btn { font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
-      border-radius: 0.6rem; padding: 0.85rem 1rem; flex: 1; text-align: center; border: 1px solid transparent; }
+      border-radius: 0.75rem; padding: 1.0625rem 1.25rem; flex: 1; text-align: center; border: 1px solid transparent; }
     .btn:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
-    .btn small { display: block; font-weight: 400; font-size: var(--text-xs); opacity: 0.85; margin-top: 0.15rem; }
+    .btn small { display: block; font-weight: 400; font-size: var(--text-xs); opacity: 0.85; margin-top: 0.1875rem; }
     .btn-primary { background: var(--accent); color: var(--paper); }
     .btn-ghost { background: var(--paper-2); color: var(--ink); border-color: var(--line); }
     .btn-ghost:hover { border-color: var(--accent-soft); }
@@ -157,51 +157,51 @@ const jsonLd = [
 
     /* 集氣儀式：點一盞燈的畫面感（暖光暈＋燭火搖曳），非純文字 */
     .altar { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;
-      gap: 0.35rem; margin: 0.9rem 0 0; padding: 1.3rem 1rem 1.1rem; border-radius: 0.9rem;
+      gap: 0.4375rem; margin: 1.125rem 0 0; padding: 1.625rem 1.25rem 1.375rem; border-radius: 1.125rem;
       border: 1px solid var(--line);
       background: radial-gradient(120% 100% at 50% 0%, oklch(0.63 0.10 45 / 0.16), transparent 62%), var(--paper-2); }
     .altar[hidden] { display: none; }
-    .altar-glow { position: absolute; top: -2.5rem; left: 50%; width: 9rem; height: 9rem; transform: translateX(-50%);
+    .altar-glow { position: absolute; top: -3.125rem; left: 50%; width: 11.25rem; height: 11.25rem; transform: translateX(-50%);
       background: radial-gradient(circle, var(--accent-soft), transparent 65%); opacity: 0.3; pointer-events: none;
       animation: altar-glow 2.6s ease-in-out infinite; }
     .altar-lamp { font-size: var(--text-2xl); line-height: 1; transform-origin: 50% 85%;
-      filter: drop-shadow(0 0 0.55rem var(--accent-soft)); animation: altar-flicker 1.7s ease-in-out infinite; }
+      filter: drop-shadow(0 0 0.6875rem var(--accent-soft)); animation: altar-flicker 1.7s ease-in-out infinite; }
     .altar-msg { position: relative; margin: 0; text-align: center; font-size: var(--text-base); color: var(--ink); }
     .altar.lighting .altar-lamp { animation: altar-rise 0.7s ease-out, altar-flicker 1.7s ease-in-out 0.7s infinite; }
     @keyframes altar-flicker { 0%, 100% { transform: scale(1) rotate(-1deg); } 50% { transform: scale(1.07) rotate(1.5deg); } }
-    @keyframes altar-rise { from { opacity: 0; transform: translateY(0.5rem) scale(0.55); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes altar-rise { from { opacity: 0; transform: translateY(0.625rem) scale(0.55); } to { opacity: 1; transform: translateY(0) scale(1); } }
     @keyframes altar-glow { 0%, 100% { opacity: 0.22; transform: translateX(-50%) scale(0.9); } 50% { opacity: 0.42; transform: translateX(-50%) scale(1.06); } }
     @media (prefers-reduced-motion: reduce) { .altar-lamp, .altar-glow, .altar.lighting .altar-lamp { animation: none; } }
 
-    .draw-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem; color: var(--ink-soft); margin: 0.7rem 0 0; }
-    .draw-alt-field { display: inline-flex; align-items: center; gap: 0.4rem; }
-    .draw-alt input { width: 4.5rem; font-family: inherit; font-size: var(--text-sm); padding: 0.35rem 0.5rem; text-align: center;
-      border: 1px solid var(--line); border-radius: 0.4rem; background: var(--paper-2); color: var(--ink); }
+    .draw-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.875rem; color: var(--ink-soft); margin: 0.875rem 0 0; }
+    .draw-alt-field { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .draw-alt input { width: 5.625rem; font-family: inherit; font-size: var(--text-sm); padding: 0.4375rem 0.625rem; text-align: center;
+      border: 1px solid var(--line); border-radius: 0.5rem; background: var(--paper-2); color: var(--ink); }
     .draw-alt input::placeholder { color: var(--ink-soft); }
     .btn-num { font-family: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent);
-      background: transparent; border: 1px solid var(--accent-soft); border-radius: 0.4rem; padding: 0.35rem 0.85rem; }
+      background: transparent; border: 1px solid var(--accent-soft); border-radius: 0.5rem; padding: 0.4375rem 1.0625rem; }
     .btn-num:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
     .btn-num:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
-    .note { color: var(--ink-soft); min-height: 1.1rem; }
+    .note { color: var(--ink-soft); min-height: 1.375rem; }
 
-    .divider { display: flex; align-items: center; gap: 0.8rem; color: var(--ink-soft); font-size: var(--text-xs);
-      letter-spacing: 0.1em; margin: 2rem 0 1rem; }
+    .divider { display: flex; align-items: center; gap: 1rem; color: var(--ink-soft); font-size: var(--text-xs);
+      letter-spacing: 0.1em; margin: 2.5rem 0 1.25rem; }
     .divider::before, .divider::after { content: ""; height: 1px; background: var(--line); flex: 1; }
 
-    .joys { display: flex; flex-direction: column; gap: 0.55rem; }
+    .joys { display: flex; flex-direction: column; gap: 0.6875rem; }
 
-    .baoxi { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1rem; }
+    .baoxi { display: flex; flex-direction: column; gap: 0.875rem; margin-top: 1.25rem; }
     .baoxi .q { color: var(--ink); margin: 0; }
-    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.625rem; }
     .chip { font-family: inherit; font-size: var(--text-sm); cursor: pointer; color: var(--ink); background: var(--paper-2);
-      border: 1px solid var(--line); border-radius: 1rem; padding: 0.45rem 0.9rem; }
+      border: 1px solid var(--line); border-radius: 1.25rem; padding: 0.5625rem 1.125rem; }
     .chip:hover { border-color: var(--accent-soft); }
     .chip:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
 
-    .gods { display: flex; gap: 0.6rem; }
-    .god { flex: 1; padding: 0.8rem 0.9rem; text-decoration: none; color: var(--ink); }
+    .gods { display: flex; gap: 0.75rem; }
+    .god { flex: 1; padding: 1rem 1.125rem; text-decoration: none; color: var(--ink); }
     .god .n { font-size: var(--text-lg); }
-    .scenario-cta { margin-top: 1rem; }
+    .scenario-cta { margin-top: 1.25rem; }
 
   </style>
 
@@ -211,39 +211,39 @@ const jsonLd = [
        所有色彩/字級沿用 global.css 的 OKLCH token 與 --text-*，未自編 hex/px。 -->
   <style is:global>
     /* 報喜喜訊：靜態由 build 產出、動態由 JS 注入 #joys，兩者統一走 #joys 命名空間 */
-    #joys .joy { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--ok-green); }
+    #joys .joy { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.75rem 1.0625rem; border-left: 3px solid var(--ok-green); }
     #joys .joy .k { font-size: var(--text-base); }
     #joys .joy .m { font-size: var(--text-sm); color: var(--ink-soft); margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
-    #result { margin-top: 1.4rem; }
+    #result { margin-top: 1.75rem; }
     #result .note { color: var(--ink-soft); } /* 注入結尾說明句（.note 靜態版在 scoped 區塊，注入版需這條才有灰色） */
-    #result .rslip-row { display: flex; gap: 1.1rem; align-items: stretch; }
-    #result .rslip { border-top: 4px solid var(--accent); padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; min-width: 9rem; }
+    #result .rslip-row { display: flex; gap: 1.375rem; align-items: stretch; }
+    #result .rslip { border-top: 4px solid var(--accent); padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.875rem; min-width: 11.25rem; }
     #result .rslip .rno { font-size: var(--text-sm); color: var(--accent); letter-spacing: 0.05em; text-align: center; }
-    #result .rpoem { display: flex; flex-direction: row-reverse; gap: 0.35rem; justify-content: center; }
+    #result .rpoem { display: flex; flex-direction: row-reverse; gap: 0.4375rem; justify-content: center; }
     #result .rpoem .pl { writing-mode: vertical-rl; text-orientation: upright; font-size: var(--text-lg); letter-spacing: 0.12em; line-height: 1.5; color: var(--ink); }
     #result .rslip .rfortune { font-size: var(--text-sm); color: var(--gold); letter-spacing: 0.1em; }
-    #result .reading { flex: 1; padding-top: 0.2rem; }
+    #result .reading { flex: 1; padding-top: 0.25rem; }
     #result .reading .rtag { font-size: var(--text-sm); letter-spacing: 0.08em; color: var(--accent); font-weight: 700; }
-    #result .reading h2 { font-size: var(--text-lg); margin: 0.3rem 0 0.5rem; }
-    #result .reading p { font-size: var(--text-base); margin: 0 0 0.6rem; }
+    #result .reading h2 { font-size: var(--text-lg); margin: 0.375rem 0 0.625rem; }
+    #result .reading p { font-size: var(--text-base); margin: 0 0 0.75rem; }
     #result .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
 
-    #result .hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1.1rem 1.1rem 0.5rem;
+    #result .hearth { margin-top: 1.75rem; border-radius: 1.125rem; padding: 1.375rem 1.375rem 0.625rem;
       background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2); border: 1px solid var(--line); }
-    #result .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-base); font-weight: 700; margin-bottom: 0.2rem; }
-    #result .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
-      box-shadow: 0 0 0.6rem 0.1rem var(--accent-soft); }
-    #result .estat { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+    #result .hearth-h { display: flex; align-items: center; gap: 0.6875rem; font-size: var(--text-base); font-weight: 700; margin-bottom: 0.25rem; }
+    #result .flame { width: 0.6875rem; height: 0.6875rem; border-radius: 50%; background: var(--accent-soft);
+      box-shadow: 0 0 0.75rem 0.125rem var(--accent-soft); }
+    #result .estat { display: flex; align-items: baseline; gap: 0.625rem; padding: 0.6875rem 0; border-bottom: 1px solid var(--line); }
     #result .estat:last-of-type { border-bottom: none; }
     #result .estat .big { font-size: var(--text-xl); color: var(--accent); font-variant-numeric: tabular-nums; }
     #result .estat.j .big { color: var(--ok-green); }
-    #result .qi { width: 100%; margin: 0.9rem 0 0.6rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
-      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.75rem; }
+    #result .qi { width: 100%; margin: 1.125rem 0 0.75rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.75rem; padding: 0.9375rem; }
     #result .qi:hover { background: var(--accent); color: var(--paper); }
-    #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; box-shadow: 0 0 0.85rem 0.05rem var(--accent-soft); }
+    #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; box-shadow: 0 0 1.0625rem 0.0625rem var(--accent-soft); }
 
-    @media (max-width: 30rem) { #result .rslip-row { flex-direction: column; } }
+    @media (max-width: 37.5rem) { #result .rslip-row { flex-direction: column; } }
   </style>
 
   <script>

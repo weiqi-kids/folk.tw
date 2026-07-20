@@ -82,13 +82,13 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
   }
 
   <style>
-    .cat h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.3rem; }
+    .cat h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; }
     .count { font-size: var(--text-sm); font-weight: 400; }
-    .deity-cell { display: flex; flex-direction: column; gap: 0.25rem; align-items: start; }
+    .deity-cell { display: flex; flex-direction: column; gap: 0.3125rem; align-items: start; }
     .deity-cell strong { color: var(--ink); }
     .small { font-size: var(--text-base); } /* 別名／職司放大（年長者友善） */
     .deity-cell .muted { color: oklch(0.37 0.02 72); } /* 別名：加深 */
     .deity-cell .office { color: var(--accent); } /* 職司：深朱紅、加深（順序在後勝出） */
-    .groups { margin-top: 2rem; }
+    .groups { margin-top: 2.5rem; }
   </style>
 </Base>

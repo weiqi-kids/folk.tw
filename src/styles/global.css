@@ -7,7 +7,7 @@
 * { box-sizing: border-box; }
 
 html {
-  font-size: 125%; /* 20px 基準 → 內文 22px（放大內文） */
+  font-size: 100%; /* 標準 16px 基準（team 規範，關「大 root 開小門」）；rem 尺寸已全數 ×1.25 收斂，版面像素不變 */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -27,36 +27,36 @@ h1, h2, h3 { line-height: var(--lh-tight); }
 h1 { font-size: var(--text-2xl); }
 h2 { font-size: var(--text-xl); }
 h3 { font-size: var(--text-lg); }
-p { margin: 0.7rem 0; }
+p { margin: 0.875rem 0; }
 
 /* ── 版頭／主區／頁尾 ── */
 .site-header {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem;
-  max-width: var(--max); margin: 0 auto; padding: 1.2rem 1.25rem 0.8rem;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.625rem 1.875rem;
+  max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.5625rem 1rem;
   border-bottom: 2px solid var(--accent);
 }
 .brand { font-size: var(--text-xl); font-weight: 700; color: var(--ink); letter-spacing: 0.08em; }
-.site-header nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; margin-left: auto; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.375rem 1.5rem; margin-left: auto; }
 .site-header nav a { color: var(--ink-soft); font-size: var(--text-base); }
 .site-header nav a.active { color: var(--accent); font-weight: 700; }
-.site-main { max-width: var(--max); margin: 0 auto; padding: 1.6rem 1.25rem 3rem; }
+.site-main { max-width: var(--max); margin: 0 auto; padding: 2rem 1.5625rem 3.75rem; }
 .site-footer {
-  max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem;
+  max-width: var(--max); margin: 0 auto; padding: 1.875rem 1.5625rem 3.125rem;
   border-top: 1px solid var(--line); color: var(--ink-soft); font-size: var(--text-sm);
 }
-.site-footer p { margin: 0.4rem 0; }
+.site-footer p { margin: 0.5rem 0; }
 .site-footer .meta { color: var(--gold); }
 
 /* ── 共用元件 ── */
 .tag {
-  display: inline-block; font-size: var(--text-xs); padding: 0.1rem 0.55rem;
-  border: 1px solid var(--line); border-radius: 1rem; color: var(--ink-soft);
-  background: var(--paper-2); margin: 0 0.2rem 0.2rem 0;
+  display: inline-block; font-size: var(--text-xs); padding: 0.125rem 0.6875rem;
+  border: 1px solid var(--line); border-radius: 1.25rem; color: var(--ink-soft);
+  background: var(--paper-2); margin: 0 0.25rem 0.25rem 0;
 }
 .tag.fortune { border-color: var(--accent-soft); color: var(--accent); }
 .card {
   background: var(--paper-2); border: 1px solid var(--line);
-  border-radius: 0.5rem; padding: 1.1rem 1.25rem; margin: 0.8rem 0;
+  border-radius: 0.625rem; padding: 1.375rem 1.5625rem; margin: 1rem 0;
 }
 /* ── 卡片代表圖底圖（全站卡片統一呈現，首見於 /events）──
    代表圖鋪在卡片右側、以斜向漸層遮罩往左柔和淡出（不硬切，主體＝神像頭臉完整保留），
@@ -90,8 +90,8 @@ p { margin: 0.7rem 0; }
 .small { font-size: var(--text-sm); }
 .pending {
   color: var(--gold); font-size: var(--text-sm); font-style: italic;
-  border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0;
+  border-left: 3px solid var(--line); padding-left: 0.875rem; margin: 0.75rem 0;
 }
-.grid { display: grid; gap: 0.8rem; }
-.grid.cols { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+.grid { display: grid; gap: 1rem; }
+.grid.cols { grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr)); }
 .lines-vertical { font-size: var(--text-xl); letter-spacing: 0.15em; line-height: 2.2; }

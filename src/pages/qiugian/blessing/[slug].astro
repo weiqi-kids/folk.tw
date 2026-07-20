@@ -207,46 +207,46 @@ if (isMemorial) {
   )}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
-    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
-    .badge { display: inline-block; margin-left: 0.6rem; font-size: var(--text-xs); font-weight: 700;
-      letter-spacing: 0.1em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.5rem;
-      padding: 0.1rem 0.5rem; vertical-align: middle; }
-    .example-note { color: var(--gold); border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0 0; }
-    .lead { font-size: var(--text-base); margin: 1rem 0 0.4rem; }
-    .sources { margin: 0.4rem 0 0; }
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
+    .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
+    .badge { display: inline-block; margin-left: 0.75rem; font-size: var(--text-xs); font-weight: 700;
+      letter-spacing: 0.1em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.625rem;
+      padding: 0.125rem 0.625rem; vertical-align: middle; }
+    .example-note { color: var(--gold); border-left: 3px solid var(--line); padding-left: 0.875rem; margin: 0.75rem 0 0; }
+    .lead { font-size: var(--text-base); margin: 1.25rem 0 0.5rem; }
+    .sources { margin: 0.5rem 0 0; }
     .sources a { text-decoration: underline; text-underline-offset: 3px; }
-    .closing { font-size: var(--text-base); color: var(--ink-soft); margin: 2rem 0 0; }
+    .closing { font-size: var(--text-base); color: var(--ink-soft); margin: 2.5rem 0 0; }
 
-    .hearth { margin-top: 1.6rem; border-radius: 0.9rem; padding: 1.2rem 1.2rem 0.8rem;
+    .hearth { margin-top: 2rem; border-radius: 1.125rem; padding: 1.5rem 1.5rem 1rem;
       background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2);
       border: 1px solid var(--line); }
-    .hearth-h { display: flex; align-items: center; gap: 0.55rem; font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.3rem; }
-    .flame { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent-soft);
-      box-shadow: 0 0 0.6rem 0.1rem var(--accent-soft); }
-    .cold { color: var(--ink-soft); margin: 0 0 0.9rem; }
+    .hearth-h { display: flex; align-items: center; gap: 0.6875rem; font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.375rem; }
+    .flame { width: 0.6875rem; height: 0.6875rem; border-radius: 50%; background: var(--accent-soft);
+      box-shadow: 0 0 0.75rem 0.125rem var(--accent-soft); }
+    .cold { color: var(--ink-soft); margin: 0 0 1.125rem; }
     .cold .count { color: var(--accent); font-variant-numeric: tabular-nums; }
-    .qi { width: 100%; margin: 0 0 0.5rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
-      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.6rem; padding: 0.85rem; }
+    .qi { width: 100%; margin: 0 0 0.625rem; font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 0.75rem; padding: 1.0625rem; }
     .qi:hover { background: var(--accent); color: var(--paper); }
     .qi:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
     .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
-    .note { color: var(--ink-soft); min-height: 1.1rem; margin: 0; }
+    .note { color: var(--ink-soft); min-height: 1.375rem; margin: 0; }
 
     /* memorial 態：靜態「當時的集氣」＋後續發展時間軸 */
-    .past-hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1rem 1.2rem 0.6rem;
+    .past-hearth { margin-top: 1.75rem; border-radius: 1.125rem; padding: 1.25rem 1.5rem 0.75rem;
       background: var(--paper-2); border: 1px solid var(--line); }
-    .past-h { font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.4rem; }
-    .timeline { margin-top: 2rem; }
-    .timeline h2 { font-size: var(--text-lg); font-weight: 700; margin: 0 0 0.8rem; }
+    .past-h { font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.5rem; }
+    .timeline { margin-top: 2.5rem; }
+    .timeline h2 { font-size: var(--text-lg); font-weight: 700; margin: 0 0 1rem; }
     .timeline ol { list-style: none; margin: 0; padding: 0; }
-    .timeline li { position: relative; padding: 0 0 1.2rem 1.1rem; border-left: 2px solid var(--line); }
-    .timeline li::before { content: ''; position: absolute; left: -0.32rem; top: 0.35rem;
-      width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent-soft); }
+    .timeline li { position: relative; padding: 0 0 1.5rem 1.375rem; border-left: 2px solid var(--line); }
+    .timeline li::before { content: ''; position: absolute; left: -0.4rem; top: 0.4375rem;
+      width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--accent-soft); }
     .timeline li:last-child { padding-bottom: 0; }
     .timeline .date { display: block; font-size: var(--text-sm); color: var(--ink-soft);
-      font-variant-numeric: tabular-nums; margin-bottom: 0.2rem; }
-    .timeline .utext { font-size: var(--text-base); margin: 0 0 0.3rem; }
+      font-variant-numeric: tabular-nums; margin-bottom: 0.25rem; }
+    .timeline .utext { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .timeline .usources { margin: 0; }
     .timeline .usources a { text-decoration: underline; text-underline-offset: 3px; }
   </style>

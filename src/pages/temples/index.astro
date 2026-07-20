@@ -78,24 +78,24 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
   <style>
     .county-wall {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
-      gap: 0.6rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.25rem;
     }
     .county {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 0.5rem;
-      padding: 0.6rem 0.85rem;
+      gap: 0.625rem;
+      padding: 0.75rem 1.0625rem;
       margin: 0;
     }
     .county strong { color: var(--ink); }
     .county .count { font-size: var(--text-sm); }
-    .temple { display: flex; flex-direction: column; gap: 0.25rem; }
+    .temple { display: flex; flex-direction: column; gap: 0.3125rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: var(--text-base); }
     .temple .muted { color: oklch(0.37 0.02 72); }
-    .src { margin-top: 1.5rem; color: var(--gold); }
+    .src { margin-top: 1.875rem; color: var(--gold); }
   </style>
 </Base>
