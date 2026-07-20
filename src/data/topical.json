@@ -67,7 +67,7 @@
     "followup": {
       "sealed": false,
       "last_checked": "2026-07-20",
-      "empty_runs": 0
+      "empty_runs": 1
     },
     "memorial_at": "2026-07-20"
   },
@@ -107,6 +107,30 @@
         ],
         "added": "2026-07-20T04:52:38.794Z",
         "hash": "777c1788703d"
+      },
+      {
+        "date": "2026-07-20",
+        "text": "事故路段沿線交通已見復原，行經山崩現場的鐵路路線已恢復正常通行，部分市區道路仍維持管制。",
+        "sources": [
+          {
+            "ref": "雑記ブログ",
+            "url": "https://www.kicks-blog.com/entry/2026/07/20/093415"
+          }
+        ],
+        "added": "2026-07-20T12:31:53.315Z",
+        "hash": "9d7505f1d475"
+      },
+      {
+        "date": "2026-07-20",
+        "text": "足利市政府宣布自七月二十一日起開設罹災證明特設窗口與諮詢專線，協助受災居民辦理相關證明與後續生活支援申請。",
+        "sources": [
+          {
+            "ref": "下野新聞デジタル",
+            "url": "https://www.shimotsuke.co.jp/articles/-/1388092"
+          }
+        ],
+        "added": "2026-07-20T12:31:54.938Z",
+        "hash": "cf4983727871"
       }
     ],
     "followup": {
@@ -139,7 +163,7 @@
     "followup": {
       "sealed": false,
       "last_checked": "2026-07-20",
-      "empty_runs": 1
+      "empty_runs": 2
     }
   },
   {
@@ -191,7 +215,7 @@
     "followup": {
       "sealed": false,
       "last_checked": "2026-07-20",
-      "empty_runs": 0
+      "empty_runs": 1
     }
   }
 ]
