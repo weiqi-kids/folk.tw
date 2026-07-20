@@ -38,5 +38,47 @@
     "time": "2026-07-17",
     "since": "2026-07-17",
     "status": "active"
+  },
+  {
+    "id": "news-landslide-20260717-e147bd",
+    "eventType": "landslide",
+    "title": "為日本栃木縣足利市山崩平安祈福",
+    "event": "日本栃木縣足利市於七月中旬因連日豪雨引發山崩，造成住宅倒塌、居民傷亡，願罹難者安息，也祈願當地鄉親都能平安度過這場天災。",
+    "sources": [
+      {
+        "ref": "NHKニュース",
+        "url": "https://news.web.nhk/newsweb/na/na-k10015180561000"
+      },
+      {
+        "ref": "Yahoo!ニュース（朝日新聞）",
+        "url": "https://news.yahoo.co.jp/articles/e9529d99d21b076421b682cd828af651e5f4aeb9"
+      }
+    ],
+    "place": "栃木県足利市",
+    "time": "2026-07-17",
+    "detector": "news",
+    "since": "2026-07-20",
+    "status": "active"
+  },
+  {
+    "id": "news-bridge-collapse-20260718-2575e5",
+    "eventType": "bridge-collapse",
+    "title": "為群馬縣前橋市橋樑坍塌平安祈福",
+    "event": "日本群馬縣前橋市因豪雨河川暴漲，市道桂川橋崩落中斷通行，所幸未造成人員傷亡。祈願當地平安無虞，橋樑早日修復通行。",
+    "sources": [
+      {
+        "ref": "NHKニュース",
+        "url": "https://news.web.nhk/newsweb/na/nb-1000130615"
+      },
+      {
+        "ref": "上毛新聞電子版",
+        "url": "https://www.jomo-news.co.jp/articles/-/982715"
+      }
+    ],
+    "place": "群馬県前橋市",
+    "time": "2026-07-18",
+    "detector": "news",
+    "since": "2026-07-20",
+    "status": "active"
   }
 ]
