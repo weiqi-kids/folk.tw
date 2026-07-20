@@ -400,11 +400,20 @@
           "clicks": 1,
           "ctr": 0.0263,
           "note": "資料窗 2026-07-08..07-15。pageQueryCross 31 筆 almanac 日期頁列合計 clicks=1/impr=38，與前次（impr31/click1）持平、非零點擊持續但樣本仍小。明日（7/20）為全窗日，屆時下 verdict。"
+        },
+        {
+          "date": "2026-07-20",
+          "pos": null,
+          "impr": 30,
+          "clicks": 1,
+          "ctr": 0.0333,
+          "note": "全窗日。資料窗 2026-07-09..07-16。pageQueryCross 23 筆 almanac 日期頁列合計 clicks=1/impr=30，與前次（impr38/click1）持平。連續 4 筆 checks（7/17-7/20）皆由基準 0% 轉為非零點擊、CTR 穩定落在 2.6%-3.3%，方向為正但單窗最高僅 1 次點擊、樣本量過薄，不足以排除雜訊。下 verdict：inconclusive。"
         }
       ],
-      "status": "open",
-      "verdict": null,
-      "verdict_date": null
+      "status": "resolved",
+      "verdict": "inconclusive",
+      "verdict_date": "2026-07-20",
+      "verdict_note": "基準持續 0% CTR，部署後連續 4 個資料窗（7/17-7/20）皆轉為非零點擊、CTR 穩定於 2.6%-3.3%，方向正向；但屬跨頁聚合世代、單窗最高僅 1 次點擊，樣本量過薄無法排除為查詢組合輪替造成的雜訊，故不判 win。此類『純日期查詢』世代已非近期策略焦點（見 playbook），不建議依此再擴大同類改動，除非未來曝光量顯著提升出現更乾淨的樣本。"
     },
     {
       "id": "2026-07-13-zhengde-lifeng-seodesc",
@@ -454,6 +463,14 @@
           "clicks": 0,
           "ctr": 0,
           "note": "資料窗 2026-07-08..07-15。單頁 clicks 0/impr17/pos8.71，與前次（impr21/pos8.67）持平，仍未見改善。未到全窗日（7/24），不觸發回退。"
+        },
+        {
+          "date": "2026-07-20",
+          "pos": 8.32,
+          "impr": 22,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "資料窗 2026-07-09..07-16。單頁 clicks 0/impr22/pos8.32，較前次（impr17/pos8.71）排名微升、仍未見點擊。未到全窗日（7/24），不觸發回退（0 clicks 為持平非新退步）。"
         }
       ],
       "status": "open",
@@ -480,6 +497,35 @@
       "baseline": {
         "pos": 5.125,
         "impr": 8,
+        "clicks": 0,
+        "ctr": 0,
+        "scope": "page-query"
+      },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-20-gd24-seodesc",
+      "placed_date": "2026-07-20",
+      "cohort": "striking-distance",
+      "target": {
+        "page": "/allusions/gd_24",
+        "query": "張騫誤入斗牛宮"
+      },
+      "hypothesis": "seoDesc 補故事摘要（比照 gd_77/zhengde_lifeng/soushen 先例），SERP 摘要與查詢重疊度提升；該頁排名已是第 1 名（pos 1.43）但 CTR 0%，屬明確標題/摘要吸引力缺口而非排名問題",
+      "factual": true,
+      "change_commit": "93b9393",
+      "change_files": [
+        "src/content/allusions/gd_24.md"
+      ],
+      "deploy_date": "2026-07-20",
+      "expected_first_signal_date": "2026-07-24",
+      "expected_full_window_date": "2026-07-31",
+      "baseline": {
+        "pos": 1.43,
+        "impr": 7,
         "clicks": 0,
         "ctr": 0,
         "scope": "page-query"
