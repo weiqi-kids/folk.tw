@@ -2,30 +2,78 @@
 // 時事層 · 集體祈福頁：真實集體焦慮時刻（地震／颱風／災難）快速立一個「為○○祈福／集氣」頁。
 // 鐵則：只做「為平安／復原／集氣」的正向祈福 — 沒有求籤、沒有吉凶、不算命、不變現、語氣莊重；
 // 事件事實掛真實來源（不杜撰）。設計沿用 folk 設計系統（global.css 的 OKLCH token 與字級，明體）。
-// 速度：填一筆 topical.json 資料 + build 即上線。
+//
+// 三態生命週期（P3）：同一網址 /qiugian/blessing/<id>/ 隨事件走過三態，網址永不遷移（slug 永久承諾）。
+//   active   ＝ 即時集氣版（集氣鈕、qifu 打點）。
+//   archived ＝ 過渡薄頁（集氣告一段落、尚無後續發展）→ noindex。範例頁走此態。
+//   memorial ＝ 事件記錄頁（凍結集氣快照＋後續發展時間軸）→ 有 updates 才對搜尋引擎開放。
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
-import { breadcrumb } from '../../../lib/seo';
+import { breadcrumb, memorialArticle } from '../../../lib/seo';
 import topical from '../../../data/topical.json';
 import stats from '../../../data/qiugian-stats.json';
 
+type Src = { ref?: string; url?: string };
+type Update = { date?: string; text?: string; sources?: Src[]; added?: string; hash?: string };
+type Topical = {
+  id: string;
+  title: string;
+  event: string;
+  status: string;
+  sources?: Src[];
+  since: string;
+  example?: boolean;
+  bless_snapshot?: number;
+  updates?: Update[];
+  archived_at?: string;
+  memorial_at?: string;
+};
+
 export const getStaticPaths = (async () => {
-  // 全部項目都出頁（含 archived 範例）；archived 走 noindex，只有 active 事件對搜尋引擎開放。
+  // 全部項目都出頁（含 archived／memorial）；index 政策在頁內依 status 決定（見 isIndexable）。
   return topical.map((t) => ({ params: { slug: t.id }, props: { item: t } }));
 }) satisfies GetStaticPaths;
 
-const { item } = Astro.props;
-const isActive = item.status === 'active';
+const item = Astro.props.item as unknown as Topical;
+const status = item.status ?? 'active';
+const isActive = status === 'active';
+const isMemorial = status === 'memorial';
+const isArchived = status === 'archived';
+const isExample = item.example === true;
+
+// 後續發展時間軸（memorial 才顯示）：依 date 升冪排序，過濾無文字者。
+const updates = [...(item.updates ?? [])]
+  .filter((u) => (u.text ?? '').trim())
+  .sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')));
+
+// index 政策（取代舊 noindex={!isActive}）：
+// active 恆收；memorial 需「非範例且有 updates」才收；archived／memorial 無 updates／example 一律 noindex。
+const isIndexable = isActive || (isMemorial && !isExample && updates.length > 0);
+
+// 即時集氣數（僅 active 動態顯示）；memorial 顯示凍結峰值快照 bless_snapshot。
 const blessCount = (stats as { topical?: Record<string, number> }).topical?.[item.id] ?? 0;
+const snapshot = typeof item.bless_snapshot === 'number' ? item.bless_snapshot : 0;
 
 const pageDesc = `${item.title}。${item.event}`.slice(0, 150);
 
-const jsonLd = [
+const jsonLd: object[] = [
   breadcrumb([
     { name: '求籤', path: '/qiugian/' },
     { name: item.title, path: `/qiugian/blessing/${item.id}/` },
   ]),
 ];
+if (isMemorial) {
+  jsonLd.push(
+    memorialArticle({
+      id: item.id,
+      title: item.title,
+      event: item.event,
+      since: item.since,
+      sources: item.sources,
+      updates: item.updates,
+    }),
+  );
+}
 ---
 
 <Base
@@ -33,49 +81,137 @@ const jsonLd = [
   description={pageDesc}
   ogType="article"
   jsonLd={jsonLd}
-  noindex={!isActive}
+  noindex={!isIndexable}
   speakable={['h1', '.lead']}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ <a href="/qiugian/">求籤</a> ／ 集氣祈福</nav>
-  <p class="eyebrow">集氣祈福 · 一起為平安</p>
-  <h1>{item.title}</h1>
+  <nav class="crumb"><a href="/">神酷</a> ／ <a href="/qiugian/">求籤</a> ／ {isMemorial ? '事件記錄' : '集氣祈福'}</nav>
 
-  {!isActive && (
+  {isMemorial ? (
+    <p class="eyebrow">事件記錄 · 已封存</p>
+  ) : (
+    <p class="eyebrow">集氣祈福 · 一起為平安</p>
+  )}
+
+  <h1>{item.title}{isMemorial && <span class="badge">事件記錄</span>}</h1>
+
+  {isExample && (
     <p class="example-note small">這是一則<strong>範例頁</strong>（已封存）。真實事件發生時，才會立起對應的祈福頁。</p>
   )}
 
   <p class="lead">{item.event}</p>
 
-  {item.sources?.length > 0 && (
-    <p class="sources small muted">
-      事件出處：
-      {item.sources.map((s, i) => (
-        <>
-          {i > 0 && '、'}
-          <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-        </>
-      ))}
-    </p>
+  {isMemorial ? (
+    <>
+      <div class="past-hearth">
+        <div class="past-h">當時的集氣</div>
+        {snapshot > 0 ? (
+          <p class="cold small">當時共有 <b class="count">{snapshot}</b> 個人，在這裡一起為平安點了一盞。</p>
+        ) : (
+          <p class="cold small">當時有人在這裡一起為平安點了一盞。</p>
+        )}
+      </div>
+
+      {updates.length > 0 && (
+        <section class="timeline" aria-label="後續發展">
+          <h2>後續發展</h2>
+          <ol>
+            {updates.map((u) => (
+              <li>
+                {u.date && <span class="date">{u.date}</span>}
+                <p class="utext">{u.text}</p>
+                {u.sources && u.sources.length > 0 && (
+                  <p class="usources small muted">
+                    來源：
+                    {u.sources.map((s, i) => (
+                      <>
+                        {i > 0 && '、'}
+                        <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {item.sources && item.sources.length > 0 && (
+        <p class="sources small muted">
+          事件出處：
+          {item.sources.map((s, i) => (
+            <>
+              {i > 0 && '、'}
+              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+            </>
+          ))}
+        </p>
+      )}
+
+      <p class="closing">記下這一段，是為了記得受影響的人、也記得曾有許多人一起為平安集氣。</p>
+    </>
+  ) : isArchived ? (
+    <>
+      {item.sources && item.sources.length > 0 && (
+        <p class="sources small muted">
+          事件出處：
+          {item.sources.map((s, i) => (
+            <>
+              {i > 0 && '、'}
+              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+            </>
+          ))}
+        </p>
+      )}
+
+      <div class="hearth">
+        <div class="hearth-h"><span class="flame" aria-hidden="true"></span>本次集氣已告一段落</div>
+        {snapshot > 0 ? (
+          <p class="cold small">當時共有 <b class="count">{snapshot}</b> 個人，在這裡一起為平安點了一盞。</p>
+        ) : (
+          <p class="cold small">當時有人在這裡一起為平安點了一盞。</p>
+        )}
+      </div>
+
+      <p class="closing">願受影響的人都平安，願家園早日復原。</p>
+    </>
+  ) : (
+    <>
+      {item.sources && item.sources.length > 0 && (
+        <p class="sources small muted">
+          事件出處：
+          {item.sources.map((s, i) => (
+            <>
+              {i > 0 && '、'}
+              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+            </>
+          ))}
+        </p>
+      )}
+
+      <div class="hearth">
+        <div class="hearth-h"><span class="flame" aria-hidden="true"></span>{item.title}</div>
+        {blessCount > 0 ? (
+          <p class="cold small">已有 <b id="qifuCount" class="count">{blessCount}</b> 個人，在這裡一起為平安點了一盞。</p>
+        ) : (
+          <p class="cold small">這裡剛點上一盞——<b id="qifuCount" class="count">一起</b>為此刻的平安祈福。</p>
+        )}
+        <button class="qi" id="qifuBtn" type="button">🕯 點一盞 · 一起祈福</button>
+        <p id="qifuDone" class="note small"></p>
+      </div>
+
+      <p class="closing">願受影響的人都平安，願家園早日復原。這裡沒有吉凶、沒有籤，只有一份一起的心意。</p>
+
+      <div id="cfg" data-id={item.id} data-title={item.title} hidden></div>
+    </>
   )}
-
-  <div class="hearth">
-    <div class="hearth-h"><span class="flame" aria-hidden="true"></span>{item.title.replace(/（範例）$/, '')}</div>
-    {blessCount > 0 ? (
-      <p class="cold small">已有 <b id="qifuCount" class="count">{blessCount}</b> 個人，在這裡一起為平安點了一盞。</p>
-    ) : (
-      <p class="cold small">這裡剛點上一盞——<b id="qifuCount" class="count">一起</b>為此刻的平安祈福。</p>
-    )}
-    <button class="qi" id="qifuBtn" type="button">🕯 點一盞 · 一起祈福</button>
-    <p id="qifuDone" class="note small"></p>
-  </div>
-
-  <p class="closing">願受影響的人都平安，願家園早日復原。這裡沒有吉凶、沒有籤，只有一份一起的心意。</p>
-
-  <div id="cfg" data-id={item.id} data-title={item.title} hidden></div>
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
+    .badge { display: inline-block; margin-left: 0.6rem; font-size: var(--text-xs); font-weight: 700;
+      letter-spacing: 0.1em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.5rem;
+      padding: 0.1rem 0.5rem; vertical-align: middle; }
     .example-note { color: var(--gold); border-left: 3px solid var(--line); padding-left: 0.7rem; margin: 0.6rem 0 0; }
     .lead { font-size: var(--text-base); margin: 1rem 0 0.4rem; }
     .sources { margin: 0.4rem 0 0; }
@@ -96,29 +232,50 @@ const jsonLd = [
     .qi:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
     .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
     .note { color: var(--ink-soft); min-height: 1.1rem; margin: 0; }
+
+    /* memorial 態：靜態「當時的集氣」＋後續發展時間軸 */
+    .past-hearth { margin-top: 1.4rem; border-radius: 0.9rem; padding: 1rem 1.2rem 0.6rem;
+      background: var(--paper-2); border: 1px solid var(--line); }
+    .past-h { font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.4rem; }
+    .timeline { margin-top: 2rem; }
+    .timeline h2 { font-size: var(--text-lg); font-weight: 700; margin: 0 0 0.8rem; }
+    .timeline ol { list-style: none; margin: 0; padding: 0; }
+    .timeline li { position: relative; padding: 0 0 1.2rem 1.1rem; border-left: 2px solid var(--line); }
+    .timeline li::before { content: ''; position: absolute; left: -0.32rem; top: 0.35rem;
+      width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent-soft); }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline .date { display: block; font-size: var(--text-sm); color: var(--ink-soft);
+      font-variant-numeric: tabular-nums; margin-bottom: 0.2rem; }
+    .timeline .utext { font-size: var(--text-base); margin: 0 0 0.3rem; }
+    .timeline .usources { margin: 0; }
+    .timeline .usources a { text-decoration: underline; text-underline-offset: 3px; }
   </style>
 
   <script>
-    const cfg = document.getElementById('cfg')!.dataset;
-    const id = cfg.id!;
-    const title = (cfg.title || '').replace(/（範例）$/, '');
-    const g = (name: string, params: Record<string, unknown>) => {
-      // @ts-ignore
-      if (typeof window.gtag === 'function') window.gtag('event', name, params);
-    };
-    // 冷啟動：本機記一盞（誠實文案，不假裝有大量人數）。
-    let lit = false;
-    const btn = document.getElementById('qifuBtn')!;
-    btn.textContent = '🕯 為' + title + '祈福 · 點一盞';
-    btn.addEventListener('click', () => {
-      if (lit) return; lit = true;
-      g('qifu', { concern: 'topical:' + id });
-      btn.classList.add('done');
-      btn.textContent = '🕯 已為' + title + '點上一盞';
-      const c = document.getElementById('qifuCount')!;
-      const n = parseInt(c.textContent || '', 10);
-      c.textContent = Number.isFinite(n) ? String(n + 1) : '和你一起';
-      document.getElementById('qifuDone')!.textContent = '謝謝你的心意——願平安。';
-    });
+    // 僅 active 態渲染 #cfg；其餘態該元素不存在 → 整段 no-op（避免歸檔／記錄頁誤觸集氣邏輯）。
+    const cfgEl = document.getElementById('cfg');
+    if (cfgEl) {
+      const cfg = cfgEl.dataset;
+      const id = cfg.id!;
+      const title = cfg.title || '';
+      const g = (name: string, params: Record<string, unknown>) => {
+        // @ts-ignore
+        if (typeof window.gtag === 'function') window.gtag('event', name, params);
+      };
+      // 冷啟動：本機記一盞（誠實文案，不假裝有大量人數）。
+      let lit = false;
+      const btn = document.getElementById('qifuBtn')!;
+      btn.textContent = '🕯 為' + title + '祈福 · 點一盞';
+      btn.addEventListener('click', () => {
+        if (lit) return; lit = true;
+        g('qifu', { concern: 'topical:' + id });
+        btn.classList.add('done');
+        btn.textContent = '🕯 已為' + title + '點上一盞';
+        const c = document.getElementById('qifuCount')!;
+        const n = parseInt(c.textContent || '', 10);
+        c.textContent = Number.isFinite(n) ? String(n + 1) : '和你一起';
+        document.getElementById('qifuDone')!.textContent = '謝謝你的心意——願平安。';
+      });
+    }
   </script>
 </Base>

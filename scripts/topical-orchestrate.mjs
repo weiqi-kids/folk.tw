@@ -172,7 +172,7 @@ let changed = false;
 // 1) 逾期 active → 歸檔（頁面轉 noindex）
 for (const it of list) {
   if (it.status === 'active' && it.since && (Date.parse(today) - Date.parse(it.since)) / 864e5 > ARCHIVE_DAYS) {
-    if (!DRY) { it.status = 'archived'; changed = true; }
+    if (!DRY) { it.status = 'archived'; it.archived_at = today; changed = true; }
     console.log(`ARCHIVED\t${it.id}\t${it.title}`);
   }
 }

@@ -17,6 +17,25 @@ const TUDIGONG_TEMPLE_PATHS = EXCLUDE_TUDIGONG_FROM_SITEMAP
     )
   : new Set();
 
+// ── 時事祈福頁三態一致性（P3）：noindex 的祈福頁不得留在 sitemap ──────────
+// 頁內 index 政策（見 src/pages/qiugian/blessing/[slug].astro 的 isIndexable）：
+//   active 恆收；memorial 需「非範例且有 updates」才收；archived／memorial 無 updates／example 一律 noindex。
+// sitemap 必須與之一致：把「不可 index 的祈福頁路徑」算出來從 sitemap 排除，避免「noindex 卻仍在 sitemap」。
+const TOPICAL = JSON.parse(readFileSync(new URL('./src/data/topical.json', import.meta.url), 'utf8'));
+const topicalIndexable = (/** @type {{ status?: string, example?: boolean, updates?: unknown[] }} */ t) =>
+  t.status === 'active' ||
+  (t.status === 'memorial' && !t.example && Array.isArray(t.updates) && t.updates.length > 0);
+const TOPICAL_NOINDEX_PATHS = new Set(
+  TOPICAL.filter((/** @type {{ status?: string, example?: boolean, updates?: unknown[] }} */ t) => !topicalIndexable(t))
+    .map((/** @type {{ id: string }} */ t) => `/qiugian/blessing/${t.id}`),
+);
+// serialize 只會看到「留在 sitemap」的祈福頁（不可 index 者已被 filter 排除）：
+// active 給較高權重（時效性、weekly）、有 updates 的 memorial 給穩定封存權重（monthly）。
+const TOPICAL_ACTIVE_PATHS = new Set(
+  TOPICAL.filter((/** @type {{ status?: string }} */ t) => t.status === 'active')
+    .map((/** @type {{ id: string }} */ t) => `/qiugian/blessing/${t.id}`),
+);
+
 // 部署：GitHub Pages + 自訂網域 folk.tw（CNAME）→ 根路徑供應，site 設正式網域、無 base 前綴。
 // 輸出：純靜態（static），跨文本追蹤與農民曆於 build 期預生（§1）。
 // 全文檢索：Pagefind 於 postbuild 對 dist 建索引（見 package.json）。
@@ -42,6 +61,13 @@ export default defineConfig({
           let p = page.replace('https://folk.tw', '').replace(/\/$/, '');
           try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
           if (TUDIGONG_TEMPLE_PATHS.has(p)) return false;
+        }
+        // 時事祈福頁：不可 index 者（archived／memorial 無 updates／example）移出 sitemap，
+        // 與頁內 noindex 保持一致；active 與有 updates 的 memorial 保留。
+        if (TOPICAL_NOINDEX_PATHS.size) {
+          let p = page.replace('https://folk.tw', '').replace(/\/$/, '');
+          try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
+          if (TOPICAL_NOINDEX_PATHS.has(p)) return false;
         }
         // 今日（Asia/Taipei, UTC+8）ISO 日期，與站內 today 定義一致。
         const TODAY = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
@@ -76,6 +102,12 @@ export default defineConfig({
             changefreq: ChangeFreqEnum.DAILY,
             lastmod: new Date().toISOString(),
           };
+        }
+        // 時事祈福頁（留在 sitemap 者）：active 時效性高（weekly），memorial 為穩定事件記錄（monthly）。
+        if (/^\/qiugian\/blessing\/[^/]+$/.test(path)) {
+          return TOPICAL_ACTIVE_PATHS.has(path)
+            ? { ...item, priority: 0.6, changefreq: ChangeFreqEnum.WEEKLY }
+            : { ...item, priority: 0.5, changefreq: ChangeFreqEnum.MONTHLY };
         }
         // 廟宇詳情頁：內政部開放資料大量匯入（約 7.9k），多為樣板化小廟，
         // 比照封存日期頁以最低優先降稀釋（保護新域爬取預算）；仍可被索引與內連。

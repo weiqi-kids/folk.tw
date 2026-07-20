@@ -150,6 +150,40 @@ export function eventThing(e: {
   };
 }
 
+/** 時事祈福「事件記錄頁」（Article）JSON-LD（P3 歷史記錄態）。
+ *  刻意用保守的一般 Article（非 NewsArticle/LiveBlogPosting）：本站為民俗祈福站、非新聞機構，
+ *  不宜宣稱新聞屬性；只做事實記錄。有值才帶欄位；citation 收斂事件出處與各後續發展來源之 url（去重去空）。 */
+export function memorialArticle(a: {
+  id: string;
+  title: string;
+  event?: string;
+  since: string;
+  sources?: { ref?: string; url?: string }[];
+  updates?: { date?: string; sources?: { ref?: string; url?: string }[] }[];
+}) {
+  const url = `${SITE}/qiugian/blessing/${a.id}/`;
+  const updateDates = (a.updates ?? []).map((u) => u.date).filter((d): d is string => !!d).sort();
+  const dateModified = updateDates.length ? updateDates[updateDates.length - 1] : a.since;
+  const citationUrls = [
+    ...(a.sources ?? []).map((s) => s.url),
+    ...(a.updates ?? []).flatMap((u) => (u.sources ?? []).map((s) => s.url)),
+  ].filter((u): u is string => !!u);
+  const citation = [...new Set(citationUrls)].map((u) => ({ '@type': 'CreativeWork', url: u }));
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': url,
+    url,
+    headline: a.title,
+    inLanguage: 'zh-Hant-TW',
+    datePublished: a.since,
+    dateModified,
+    ...(a.event ? { about: a.event } : {}),
+    ...(citation.length ? { citation } : {}),
+    publisher: ORG,
+  };
+}
+
 /** 廟宇（Place / PlaceOfWorship）JSON-LD。有座標時附 GeoCoordinates，利在地/地圖結果。 */
 export function templePlace(t: {
   id: string;

@@ -14,7 +14,8 @@
       }
     ],
     "since": "2026-07-14",
-    "status": "archived"
+    "status": "archived",
+    "example": true
   },
   {
     "id": "eq-us7000t1bu",
