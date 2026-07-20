@@ -12,7 +12,6 @@ import { ga4RunReport, loadConfig } from './lib/google-data.mjs';
 const STATS_FILE = 'src/data/qiugian-stats.json';
 const { ga4PropertyId } = loadConfig();
 
-const OUTCOME_LABEL = { 上岸: '錄取了 / 上岸', 還在等: '還在等結果', 繼續找: '還沒上，繼續找' };
 const notSet = (v) => !v || v === '(not set)' || v === '(other)';
 
 // 依 eventName 過濾、依指定自訂維度分組取 eventCount。查詢失敗（維度未就緒等）→ 回空陣列，不中斷。
@@ -36,7 +35,12 @@ async function countBy(eventName, dims) {
 }
 
 const existing = JSON.parse(readFileSync(STATS_FILE, 'utf8'));
-const concernIds = JSON.parse(readFileSync('src/data/concerns.json', 'utf8')).map((c) => c.id);
+const concerns = JSON.parse(readFileSync('src/data/concerns.json', 'utf8'));
+const concernIds = concerns.map((c) => c.id);
+// outcome 值→顯示標籤，依 concern 作用域（各情境選項不同、值可跨情境重複）；單一真實來源＝concerns.json。
+const OUTCOME_LABEL = Object.fromEntries(
+  concerns.map((c) => [c.id, Object.fromEntries((c.outcomes ?? []).map((o) => [o.value, o.label]))]),
+);
 
 const draws = await countBy('qiugian', ['customEvent:concern']); // [{keys:[concern], n}]
 const drawsByPoem = await countBy('qiugian', ['customEvent:concern', 'customEvent:poem_no']);
@@ -58,7 +62,7 @@ for (const id of concernIds) {
   for (const r of baoxi) {
     if (r.keys[0] !== id || notSet(r.keys[1])) continue;
     baoxiTotal += r.n;
-    joys.push({ text: OUTCOME_LABEL[r.keys[1]] ?? r.keys[1], meta: `本週 ${r.n} 人` });
+    joys.push({ text: OUTCOME_LABEL[id]?.[r.keys[1]] ?? r.keys[1], meta: `本週 ${r.n} 人` });
   }
   joys.sort((a, b) => Number(b.meta.replace(/\D/g, '')) - Number(a.meta.replace(/\D/g, '')));
   out[id] = { week_draws, baoxi: baoxiTotal, top, joys };

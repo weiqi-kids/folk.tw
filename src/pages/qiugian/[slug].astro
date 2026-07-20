@@ -112,9 +112,9 @@ const jsonLd = [
     <div id="bxChips" hidden>
       <p class="q small">後來怎麼了？</p>
       <div class="chips">
-        <button class="chip" type="button" data-outcome="上岸">錄取了 / 上岸</button>
-        <button class="chip" type="button" data-outcome="還在等">還在等結果</button>
-        <button class="chip" type="button" data-outcome="繼續找">還沒上，繼續找</button>
+        {concern.outcomes.map((o) => (
+          <button class="chip" type="button" data-outcome={o.value}>{o.label}</button>
+        ))}
       </div>
     </div>
     <p id="bxDone" class="note small"></p>

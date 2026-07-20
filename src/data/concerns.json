@@ -6,8 +6,25 @@
     "intent": "求職、面試、轉職",
     "aspect": "功名",
     "system": "guandi_lingqian",
-    "deities": ["guangong", "wenchang"],
-    "blurb": "關聖帝君主事業信義、文昌帝君佑功名——都是台灣人為工作求籤時會拜的神。"
+    "deities": [
+      "guangong",
+      "wenchang"
+    ],
+    "blurb": "關聖帝君主事業信義、文昌帝君佑功名——都是台灣人為工作求籤時會拜的神。",
+    "outcomes": [
+      {
+        "value": "上岸",
+        "label": "錄取了 / 上岸"
+      },
+      {
+        "value": "還在等",
+        "label": "還在等結果"
+      },
+      {
+        "value": "繼續找",
+        "label": "還沒上，繼續找"
+      }
+    ]
   },
   {
     "id": "ganqing",
@@ -16,8 +33,24 @@
     "intent": "曖昧、告白、挽回、走出分手",
     "aspect": "姻緣",
     "system": "liushi_jiazi",
-    "deities": ["yuelao"],
-    "blurb": "月下老人專司姻緣紅線——不管是曖昧沒進展還是想挽回，台灣人求感情籤多半先拜月老。"
+    "deities": [
+      "yuelao"
+    ],
+    "blurb": "月下老人專司姻緣紅線——不管是曖昧沒進展還是想挽回，台灣人求感情籤多半先拜月老。",
+    "outcomes": [
+      {
+        "value": "在一起",
+        "label": "在一起了 / 復合了"
+      },
+      {
+        "value": "還在等",
+        "label": "還在曖昧 / 等回應"
+      },
+      {
+        "value": "還沒到",
+        "label": "緣分還沒到"
+      }
+    ]
   },
   {
     "id": "kaoshi",
@@ -26,8 +59,25 @@
     "intent": "學測、國考、證照、口試",
     "aspect": "功名",
     "system": "guandi_lingqian",
-    "deities": ["wenchang", "kuixing"],
-    "blurb": "文昌帝君掌文運、魁星點功名，考季廟裡最多學生拜的就是這兩尊。"
+    "deities": [
+      "wenchang",
+      "kuixing"
+    ],
+    "blurb": "文昌帝君掌文運、魁星點功名，考季廟裡最多學生拜的就是這兩尊。",
+    "outcomes": [
+      {
+        "value": "考上",
+        "label": "考上了 / 上榜"
+      },
+      {
+        "value": "等放榜",
+        "label": "還在等放榜"
+      },
+      {
+        "value": "再拼",
+        "label": "沒考好，明年再拼"
+      }
+    ]
   },
   {
     "id": "caiyun",
@@ -36,8 +86,25 @@
     "intent": "求財、業績、理財、還債",
     "aspect": "求財",
     "system": "liushi_jiazi",
-    "deities": ["zhao_gongming", "guangong"],
-    "blurb": "武財神趙公明管財源、關聖帝君兼武財神主商業——求財、拚業績的人都會拜這兩位。"
+    "deities": [
+      "zhao_gongming",
+      "guangong"
+    ],
+    "blurb": "武財神趙公明管財源、關聖帝君兼武財神主商業——求財、拚業績的人都會拜這兩位。",
+    "outcomes": [
+      {
+        "value": "有進帳",
+        "label": "賺到了 / 有進帳"
+      },
+      {
+        "value": "還在拚",
+        "label": "還在拚，等時機"
+      },
+      {
+        "value": "沒起色",
+        "label": "還沒起色"
+      }
+    ]
   },
   {
     "id": "jiankang",
@@ -46,8 +113,25 @@
     "intent": "手術平安、病快好、身體康復",
     "aspect": "疾病",
     "system": "liushi_jiazi",
-    "deities": ["baosheng", "shennong"],
-    "blurb": "保生大帝是台灣的醫神、神農大帝嘗百草掌醫藥，家裡有人開刀生病都會來拜。"
+    "deities": [
+      "baosheng",
+      "shennong"
+    ],
+    "blurb": "保生大帝是台灣的醫神、神農大帝嘗百草掌醫藥，家裡有人開刀生病都會來拜。",
+    "outcomes": [
+      {
+        "value": "康復",
+        "label": "康復了 / 平安出院"
+      },
+      {
+        "value": "治療中",
+        "label": "還在治療 / 觀察"
+      },
+      {
+        "value": "調養中",
+        "label": "慢慢調養中"
+      }
+    ]
   },
   {
     "id": "yunshi",
@@ -56,8 +140,25 @@
     "intent": "迷惘、今年運勢、該不該換跑道",
     "aspect": "運勢",
     "system": "liushi_jiazi",
-    "deities": ["mazu", "chenghuang"],
-    "blurb": "媽祖救苦救難、城隍監察善惡，年頭迷惘、想問一整年運勢，拜這兩尊主神求六十甲子籤最通用。"
+    "deities": [
+      "mazu",
+      "chenghuang"
+    ],
+    "blurb": "媽祖救苦救難、城隍監察善惡，年頭迷惘、想問一整年運勢，拜這兩尊主神求六十甲子籤最通用。",
+    "outcomes": [
+      {
+        "value": "順了",
+        "label": "順起來了 / 想通了"
+      },
+      {
+        "value": "起伏中",
+        "label": "還在起起伏伏"
+      },
+      {
+        "value": "還迷惘",
+        "label": "還在迷惘，再想想"
+      }
+    ]
   },
   {
     "id": "qiuzi",
@@ -66,7 +167,24 @@
     "intent": "備孕、求好孕、求順產",
     "aspect": "六甲",
     "system": "liushi_jiazi",
-    "deities": ["zhusheng", "linshui"],
-    "blurb": "註生娘娘管子嗣生育、臨水夫人護產安胎——想求子、備孕的人多半拜這兩尊。"
+    "deities": [
+      "zhusheng",
+      "linshui"
+    ],
+    "blurb": "註生娘娘管子嗣生育、臨水夫人護產安胎——想求子、備孕的人多半拜這兩尊。",
+    "outcomes": [
+      {
+        "value": "有了",
+        "label": "好孕了 / 有了"
+      },
+      {
+        "value": "備孕中",
+        "label": "還在努力備孕"
+      },
+      {
+        "value": "沒消息",
+        "label": "還沒消息，繼續拚"
+      }
+    ]
   }
 ]

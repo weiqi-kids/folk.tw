@@ -3,11 +3,18 @@ import Base from '../../layouts/Base.astro';
 import { breadcrumb } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
 import topical from '../../data/topical.json';
+import stats from '../../data/qiugian-stats.json';
 
 const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
 // 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
 // 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
 const activeTopical = topical.filter((t) => t.status === 'active');
+
+// 集氣無 active 事件時的替代內容：帶入「大家最近在求」的熱門煩惱（依 GA 聚合 week_draws 排序）。
+// 冷啟動全 0 → 穩定排序退回 concerns.json 原序；取前 4。
+const drawCount = (id: string) =>
+  (stats as Record<string, { week_draws?: number }>)[id]?.week_draws ?? 0;
+const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.id)).slice(0, 4);
 ---
 
 <Base
@@ -43,7 +50,14 @@ const activeTopical = topical.filter((t) => t.status === 'active');
         ))}
       </div>
     ) : (
-      <p class="muted small jiqi-empty">目前沒有進行中的集氣。遇到地震、颱風這類時刻，這裡會立起一頁，讓大家一起為平安點一盞。</p>
+      <div class="jiqi-empty">
+        <p class="muted small">此刻沒有進行中的集氣。大家最近正在為這些事求籤——也一起為他們集氣：</p>
+        <div class="hot-chips">
+          {hotConcerns.map((c) => (
+            <a class="hot-chip" href={`/qiugian/${c.id}/`}>為{c.label}</a>
+          ))}
+        </div>
+      </div>
     )}
   </section>
 
@@ -59,7 +73,11 @@ const activeTopical = topical.filter((t) => t.status === 'active');
       border: 1px solid var(--line); background: var(--paper-2); }
     .topical-link { display: block; color: var(--ink); text-decoration: none; padding: 0.15rem 0; }
     .topical-link:hover { color: var(--accent); }
-    .jiqi-empty { margin: 0; }
+    .jiqi-empty p { margin: 0; }
+    .hot-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+    .hot-chip { display: inline-block; padding: 0.35rem 0.8rem; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: var(--text-sm); }
+    .hot-chip:hover { border-color: var(--accent-soft); color: var(--accent); }
     .concern-grid { margin: 0; }
     .concern { text-decoration: none; color: var(--ink); }
     .concern:hover { border-color: var(--accent-soft); }
