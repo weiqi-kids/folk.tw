@@ -18,42 +18,52 @@ const activeTopical = topical.filter((t) => t.status === 'active');
   speakable={['h1', '.lead']}
 >
   <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
-  <p class="eyebrow">求籤 · 為心裡的那件事</p>
+  <p class="eyebrow">求籤</p>
   <h1>你在為什麼煩惱？</h1>
   <p class="lead">選一件，靜下心求一支籤，看白話解籤——也看看有多少人，正跟你一樣。</p>
 
-  {activeTopical.length > 0 && (
-    <div class="topical-box">
-      <p class="topical-h">此刻集氣</p>
-      {activeTopical.map((t) => (
-        <a class="topical-link" href={`/qiugian/blessing/${t.id}/`}>🕯 {t.title} →</a>
+  <section class="qsec" aria-labelledby="sec-choutian">
+    <h2 id="sec-choutian" class="sec-h">抽籤 · 為心裡的那件事</h2>
+    <div class="grid cols concern-grid">
+      {concerns.map((c) => (
+        <a class="card concern" href={`/qiugian/${c.id}/`}>
+          <div class="n">為{c.label}</div>
+          <div class="muted small">{c.intent}</div>
+        </a>
       ))}
     </div>
-  )}
+  </section>
 
-  <div class="grid cols concern-grid">
-    {concerns.map((c) => (
-      <a class="card concern" href={`/qiugian/${c.id}/`}>
-        <div class="n">為{c.label}</div>
-        <div class="muted small">{c.intent}</div>
-      </a>
-    ))}
-  </div>
+  <section class="qsec" aria-labelledby="sec-jiqi">
+    <h2 id="sec-jiqi" class="sec-h">集氣 · 為此刻的平安</h2>
+    {activeTopical.length > 0 ? (
+      <div class="topical-box">
+        {activeTopical.map((t) => (
+          <a class="topical-link" href={`/qiugian/blessing/${t.id}/`}>🕯 {t.title} →</a>
+        ))}
+      </div>
+    ) : (
+      <p class="muted small jiqi-empty">目前沒有進行中的集氣。遇到地震、颱風這類時刻，這裡會立起一頁，讓大家一起為平安點一盞。</p>
+    )}
+  </section>
+
   <p class="muted small more-soon">想知道每件事「拜哪尊神、怎麼拜」？看 <a href="/scenarios/">拜哪尊</a>。</p>
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.6rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.3rem; }
-    .lead { font-size: var(--text-base); margin: 0 0 1.2rem; }
-    .topical-box { margin: 0 0 1.2rem; padding: 0.9rem 1rem; border-radius: 0.7rem;
+    .lead { font-size: var(--text-base); margin: 0 0 1.4rem; }
+    .qsec { margin: 1.6rem 0; }
+    .sec-h { font-size: var(--text-lg); margin: 0 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--line); }
+    .topical-box { padding: 0.9rem 1rem; border-radius: 0.7rem;
       border: 1px solid var(--line); background: var(--paper-2); }
-    .topical-h { font-size: var(--text-xs); letter-spacing: 0.15em; color: var(--accent); font-weight: 700; margin: 0 0 0.4rem; }
     .topical-link { display: block; color: var(--ink); text-decoration: none; padding: 0.15rem 0; }
     .topical-link:hover { color: var(--accent); }
-    .concern-grid { margin: 1rem 0; }
+    .jiqi-empty { margin: 0; }
+    .concern-grid { margin: 0; }
     .concern { text-decoration: none; color: var(--ink); }
     .concern:hover { border-color: var(--accent-soft); }
     .concern .n { font-size: var(--text-lg); }
-    .more-soon { margin-top: 1rem; }
+    .more-soon { margin-top: 1.4rem; }
   </style>
 </Base>
