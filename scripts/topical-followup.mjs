@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { hasBannedNumber } from './lib/topical-guard.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -137,6 +138,8 @@ async function verifyUpdate(item, u, existingHashes, existingUrls) {
   console.error(`[followup] 複驗後續：「${label}」（date=${u.date}）`);
 
   if (!text) { console.error('[followup]   丟棄：text 空'); return null; }
+  // 硬守門：後續更新絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）——觸雷即丟棄該筆。
+  if (hasBannedNumber(text)) { console.error(`[followup]   丟棄：含具體傷亡/災損數字「${text.slice(0, 30)}…」`); return null; }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(u.date || ''))) {
     console.error(`[followup]   丟棄：date 格式非法（${u.date}）`); return null;
   }

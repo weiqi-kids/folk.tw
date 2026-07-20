@@ -126,6 +126,9 @@
 
 ## 關鍵指令 / 檔案備忘
 
+- **時事集氣祈福自動化（P1-P4，全自動開頁/追蹤/轉記錄頁）完整 SOP＝[`docs/topical-blessing.md`](docs/topical-blessing.md)**。
+  🔴 紅線：只做正向祈福、**絕不杜撰**（來源機器複驗）、**面向使用者文案絕不出現具體傷亡/災損數字**
+  （硬 gate `scripts/lib/topical-guard.mjs`，非靠 LLM prompt 自律；改管線前先讀 SOP）。
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
   - `check:design`（2026-07-20 新增，**團隊統一設計規範守門 v2**，已內建進 `pnpm build` 最前段＝本機/CI/seo-ops gate 全繼承）：掃 `src/**/*.{css,astro,svelte}` 五條規則——①font-size 禁 px（一律 `var(--text-*)`）②顏色（hex/rgb/hsl）只准 `src/styles/variables.css`（token 唯一來源；oklch/color-mix/var 合規）③禁 `!important` ④禁外部 CDN（fonts.googleapis/cdnjs/unpkg/jsdelivr）⑤src/ 下 .css 白名單只准 `src/styles/{variables,global}.css`（元件樣式寫 scoped `<style>`）。本站唯一例外＝`<meta name="theme-color">`（HTML 規格只能字面色，腳本內註明）。token 已於 2026-07-20 自 global.css 拆出 `variables.css`（global.css 首行 `@import` 保持載入順序）。見 `scripts/check-design.mjs` 檔頭。

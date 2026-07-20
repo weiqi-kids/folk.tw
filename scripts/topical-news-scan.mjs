@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -235,11 +236,15 @@ async function main() {
     if (g.verdict !== 'pass' || !g.title) {
       console.error(`[news-scan] ${id} 未過閘：${g.reason || 'block'}`); continue;
     }
+    // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
+    if (hasBannedNumber(g.title)) { console.error(`[news-scan] ${id} 標題含具體數字，攔下不開頁`); continue; }
+    let safeEvent = g.event || SAFE_EVENT;
+    if (hasBannedNumber(safeEvent)) { console.error(`[news-scan] ${id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
 
     // (f) 寫入
     const rec = {
       id, eventType: v.eventType, title: g.title,
-      event: g.event || '願受影響的人都平安、家園早日復原。',
+      event: safeEvent,
       sources: v.sources,
       place: v.place, time: v.time,
       ...(v.lat != null && v.lon != null ? { lat: v.lat, lon: v.lon } : {}),

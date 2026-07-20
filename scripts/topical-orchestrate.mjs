@@ -7,6 +7,7 @@
 // 用法：node scripts/topical-orchestrate.mjs [--dry]（--dry 只偵測＋過閘＋印，不寫檔）。
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -184,9 +185,13 @@ for (const c of await detect()) {
   if (list.some((it) => sameEvent(it, c))) { console.error(`[topical] ${c.id} 與既有事件同震，略過`); continue; }
   const g = gateAndFrame(c);
   if (g.verdict !== 'pass' || !g.title) { console.error(`[topical] ${c.id} 未過閘：${g.reason || 'block'}`); continue; }
+  // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
+  if (hasBannedNumber(g.title)) { console.error(`[topical] ${c.id} 標題含具體傷亡/災損數字，攔下不開頁`); continue; }
+  let safeEvent = g.event || SAFE_EVENT;
+  if (hasBannedNumber(safeEvent)) { console.error(`[topical] ${c.id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
   const rec = {
     id: c.id, eventType: c.eventType, title: g.title,
-    event: g.event || `願受影響的人都平安、家園早日復原。`,
+    event: safeEvent,
     sources: c.sources,
     // place/severity/mag/lat/lon/time 留檔供跨執行 sameEvent 比對。
     place: c.place, time: c.time,
