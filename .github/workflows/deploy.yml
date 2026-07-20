@@ -63,6 +63,22 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
+  # 上線後把 sitemap URL 送 IndexNow（Bing/Yandex/Seznam/Naver 即時收錄；Google 不吃 IndexNow）。
+  # 金鑰非機密（本就公開託管於 /<key>.txt），直接寫在 env。任何失敗 exit 0，不擋部署。
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://folk.tw
+      INDEXNOW_KEY: 70b5e40d2e314f4a126b322cc2bd0672
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Submit sitemap URLs to IndexNow
+        run: node scripts/indexnow-submit.mjs
+
   # 守門擋下／部署失敗 → Slack 告警（團隊統一模板 2026-07-20）。
   # secrets（SLACK_BOT_TOKEN / SLACK_CHANNEL_ID）未設定時自動靜默略過。
   notify-failure:
