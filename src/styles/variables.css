@@ -1,0 +1,42 @@
+/* 設計 token（全站唯一來源）— 神酷（神庫）。
+ * 規範（團隊網站共用設計守門 v2，同 dreamer868/credo/yao.care）：
+ * 1. font-size 禁 px 硬編，一律 var(--text-*) 階梯（最小 18px；內文不得小於 --text-base）
+ * 2. 顏色（hex/rgb/hsl）只准出現在本檔；元件與 global.css 只准 var(--…)／oklch／color-mix
+ * 3. 禁 important 覆寫
+ * 4. 字型自託管或系統堆疊，禁外部 CDN
+ * 5. src/ 下 .css 只准 src/styles/{variables,global}.css；元件樣式寫 scoped <style>
+ * 守門：scripts/check-design.mjs（pnpm build 自動先跑，違規直接 fail）。
+ *
+ * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
+ * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 20px、body 22px）。 */
+
+:root {
+  /* ── 色彩（OKLCH）── */
+  --ink: oklch(0.24 0.008 70); /* 主文字（暖近黑） */
+  --ink-soft: oklch(0.43 0.014 72); /* 次要文字 */
+  --paper: oklch(0.965 0.012 88); /* 背景暖紙 */
+  --paper-2: oklch(0.992 0.006 95); /* 卡片／淺面 */
+  --line: oklch(0.87 0.026 86); /* 邊線／分隔 */
+  --accent: oklch(0.48 0.132 25); /* 朱紅（品牌主色） */
+  --accent-soft: oklch(0.63 0.10 45); /* 朱橙 */
+  --gold: oklch(0.585 0.075 82); /* 金（出處／註記） */
+  --ok-green: oklch(0.52 0.10 150); /* 宜（吉） */
+
+  /* ── 透明度／遮罩變體（元件內禁 rgba/hex，一律引用這些）── */
+  --white-a0: rgba(255, 255, 255, 0); /* 白色全透明（漸層淡出端） */
+  --mask-opaque: #000; /* mask-image 實心端（mask 只取 alpha，任何不透明色皆等效） */
+
+  /* ── 字級階梯（rem，相對 root 20px）── */
+  --text-xs: 0.8rem; /* 16px */
+  --text-sm: 0.9rem; /* 18px */
+  --text-base: 1.1rem; /* 22px（內文） */
+  --text-lg: 1.3rem; /* 26px */
+  --text-xl: 1.6rem; /* 32px */
+  --text-2xl: 2rem; /* 40px */
+  --text-3xl: 2.5rem; /* 50px */
+
+  /* ── 版面 ── */
+  --max: 58rem;
+  --lh: 1.85; /* 內文行高 */
+  --lh-tight: 1.4; /* 標題行高 */
+}

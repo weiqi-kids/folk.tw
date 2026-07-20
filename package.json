@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-design.mjs && astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -17,6 +17,7 @@
     "check:canonical": "node scripts/check-canonical-links.mjs",
     "check:rendered": "node scripts/check-rendered.mjs",
     "check:scoped-styles": "node scripts/check-scoped-styles.mjs",
+    "check:design": "node scripts/check-design.mjs",
     "check:design-tokens": "node scripts/check-design-tokens.mjs",
     "check:copy-voice": "node scripts/check-copy-voice.mjs",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",

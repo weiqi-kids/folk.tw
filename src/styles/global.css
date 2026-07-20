@@ -1,34 +1,8 @@
-/* 神酷（神庫）統一設計 token 與全域基礎樣式。
- * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
- * 字級：標準階梯 --text-xs … --text-3xl；基準字放大（root 20px、body 22px）。
- * 參考 yao.care 的 token 設定方式（Tailwind 風 oklch 調色盤 + --text-* 字級）。 */
-
-:root {
-  /* ── 色彩（OKLCH）── */
-  --ink: oklch(0.24 0.008 70); /* 主文字（暖近黑） */
-  --ink-soft: oklch(0.43 0.014 72); /* 次要文字 */
-  --paper: oklch(0.965 0.012 88); /* 背景暖紙 */
-  --paper-2: oklch(0.992 0.006 95); /* 卡片／淺面 */
-  --line: oklch(0.87 0.026 86); /* 邊線／分隔 */
-  --accent: oklch(0.48 0.132 25); /* 朱紅（品牌主色） */
-  --accent-soft: oklch(0.63 0.10 45); /* 朱橙 */
-  --gold: oklch(0.585 0.075 82); /* 金（出處／註記） */
-  --ok-green: oklch(0.52 0.10 150); /* 宜（吉） */
-
-  /* ── 字級階梯（rem，相對 root 20px）── */
-  --text-xs: 0.8rem; /* 16px */
-  --text-sm: 0.9rem; /* 18px */
-  --text-base: 1.1rem; /* 22px（內文） */
-  --text-lg: 1.3rem; /* 26px */
-  --text-xl: 1.6rem; /* 32px */
-  --text-2xl: 2rem; /* 40px */
-  --text-3xl: 2.5rem; /* 50px */
-
-  /* ── 版面 ── */
-  --max: 58rem;
-  --lh: 1.85; /* 內文行高 */
-  --lh-tight: 1.4; /* 標題行高 */
-}
+/* 神酷（神庫）全域基礎樣式。
+ * 設計 token（色彩／字級階梯／版面）已拆至 variables.css（全站唯一 token 來源，
+ * 2026-07-20 設計守門 v2 整併；@import 在最前＝載入順序與原單檔時完全一致）。
+ * 本檔禁 hex/rgb/hsl（守門 scripts/check-design.mjs），一律 var(--…)。 */
+@import './variables.css';
 
 * { box-sizing: border-box; }
 
@@ -97,15 +71,15 @@ p { margin: 0.7rem 0; }
   object-fit: cover;
   object-position: center top; /* 直式神像頭在上，保住頭臉不裁掉 */
   /* 短羽化只負責柔化圖片左硬邊；主漸層交給下方紙色襯底，兩者不再互相打架 */
-  -webkit-mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
-  mask-image: linear-gradient(105deg, transparent 3%, #000 22%);
+  -webkit-mask-image: linear-gradient(105deg, transparent 3%, var(--mask-opaque) 22%);
+  mask-image: linear-gradient(105deg, transparent 3%, var(--mask-opaque) 22%);
   z-index: 0;
 }
 /* 主漸層＝紙色襯底：由左側文字區實心（48%）柔和淡出至透明（68%），
    淡出帶正好落在圖片左段＝可見的漸層；68% 之後留給神像正臉的實心清楚區。 */
 .card-photo::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 48%, rgba(255, 255, 255, 0) 68%);
+  background: linear-gradient(100deg, var(--paper-2) 48%, var(--white-a0) 68%);
   z-index: 0; pointer-events: none;
 }
 .card-photo > :not(.card-photo-img) {

@@ -39,6 +39,7 @@ jobs:
         run: pnpm check:scoped-styles
       - name: 設計 token 檢查（硬編顏色 / 新增硬編 font-size，阻擋部署）
         run: pnpm check:design-tokens
+      # 設計規範守門 v2（團隊統一，2026-07-20）另由 pnpm build 內建先跑（scripts/check-design.mjs）
       - name: 文案 AI 味檢查（面向使用者的字禁療癒腔／假掰詩意，阻擋部署）
         run: pnpm check:copy-voice
       - name: 建置（static）
@@ -61,3 +62,26 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # 守門擋下／部署失敗 → Slack 告警（團隊統一模板 2026-07-20）。
+  # secrets（SLACK_BOT_TOKEN / SLACK_CHANNEL_ID）未設定時自動靜默略過。
+  notify-failure:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: |
+          if [ -z "$SLACK_BOT_TOKEN" ] || [ -z "$SLACK_CHANNEL_ID" ]; then
+            echo "Slack secrets not set; skip notify."
+            exit 0
+          fi
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          TEXT="🚨 ${{ github.repository }} 部署被守門擋下（commit ${GITHUB_SHA::7}）。請修正設計規範/建置錯誤後 push，workflow 會自動重審。詳情： $RUN_URL"
+          curl -sf -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
+            -H 'Content-type: application/json; charset=utf-8' \
+            -d "$(jq -n --arg ch "$SLACK_CHANNEL_ID" --arg t "$TEXT" '{channel:$ch,text:$t}')"
