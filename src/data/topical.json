@@ -37,7 +37,39 @@
     "lon": -92.9517,
     "time": "2026-07-17",
     "since": "2026-07-17",
-    "status": "active"
+    "status": "memorial",
+    "updates": [
+      {
+        "date": "2026-07-17",
+        "text": "恰帕斯州州長召開擴大內閣會議，協調各單位評估震損並強化跨部門應變，以保障居民安全。",
+        "sources": [
+          {
+            "ref": "El Congresista",
+            "url": "https://elcongresista.mx/politica/chiapas/despliegue-seguridad-sismo-chiapas-julio-2026"
+          }
+        ],
+        "added": "2026-07-20T04:51:59.125Z",
+        "hash": "2a35780148c8"
+      },
+      {
+        "date": "2026-07-19",
+        "text": "墨西哥恰帕斯州當局初步勘查地震災情，指出部分民宅、學校、醫療站與宗教場所出現結構受損，各級政府持續派員赴災區複勘。",
+        "sources": [
+          {
+            "ref": "N+ (nmas.com.mx)",
+            "url": "https://www.nmas.com.mx/chiapas/sociedad/hubo-danos-sismo-chiapas-7-4-autoridades-informan-como-estan-municipios-estado/"
+          }
+        ],
+        "added": "2026-07-20T04:51:58.124Z",
+        "hash": "51864a0df0cf"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-20",
+      "empty_runs": 0
+    },
+    "memorial_at": "2026-07-20"
   },
   {
     "id": "news-landslide-20260717-e147bd",
@@ -58,7 +90,30 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-19",
+        "text": "足利市小俣町住宅倒塌現場，搜救人員尋獲先前失聯的男性住戶，搜救行動至此告一段落。",
+        "sources": [
+          {
+            "ref": "読売新聞オンライン",
+            "url": "https://news.yahoo.co.jp/articles/cf22325dc7ab7ff70810e72b2055de3f58e67a50"
+          },
+          {
+            "ref": "日本テレビ（Infoseekニュース）",
+            "url": "https://news.infoseek.co.jp/article/ntv_2026071907347825/"
+          }
+        ],
+        "added": "2026-07-20T04:52:38.794Z",
+        "hash": "777c1788703d"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-20",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-bridge-collapse-20260718-2575e5",
@@ -79,6 +134,64 @@
     "time": "2026-07-18",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-20",
+      "empty_runs": 1
+    }
+  },
+  {
+    "id": "news-landslide-20260717-470423",
+    "eventType": "landslide",
+    "title": "為重慶彭水山崩平安祈福",
+    "event": "中國重慶市彭水縣於七月十七日發生山崩，願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "聯合新聞網",
+        "url": "https://udn.com/news/story/7332/9636502"
+      },
+      {
+        "ref": "中央社",
+        "url": "https://www.cna.com.tw/news/acn/202607170339.aspx"
+      }
+    ],
+    "place": "重慶市彭水縣",
+    "time": "2026-07-17",
+    "detector": "news",
+    "since": "2026-07-20",
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-18",
+        "text": "重慶彭水山崩現場，搜救人員在偵測到生命跡象的位置上方開挖破口，持續以機具搭配人力方式清理搜尋受困者。",
+        "sources": [
+          {
+            "ref": "騰訊新聞",
+            "url": "https://news.qq.com/rain/a/20260718A09BXA00"
+          }
+        ],
+        "added": "2026-07-20T04:54:05.790Z",
+        "hash": "7c6e5fe37fc8"
+      },
+      {
+        "date": "2026-07-20",
+        "text": "官方指出，崩塌陡壁頂部與兩側仍有零星危岩，加上強降雨與持續高溫等極端天氣，現場仍存在再度崩塌的風險；搜救工作持續進行，中央也已調撥賑災物資協助當地安置。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-07-20/doc-iniikxuq9835682.shtml"
+          }
+        ],
+        "added": "2026-07-20T04:54:05.916Z",
+        "hash": "08be8e8f8cd2"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-20",
+      "empty_runs": 0
+    }
   }
 ]
