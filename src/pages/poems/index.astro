@@ -19,7 +19,11 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
 <Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。" jsonLd={ld}>
   <h1>籤詩解碼</h1>
   <p class="muted">
-    六十甲子籤與關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。
+    {systems
+      .filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0)
+      .map((s, i) => (
+        <>{i > 0 && '與'}<a class="sys-jump" href={`#${s.id}`}>{s.data.name}</a></>
+      ))}：四句本文、卦頭故事典故、白話賞析與分項解。
   </p>
   <p class="allusion-link"><a href="/allusions/">看全部卦頭典故總覽 →</a></p>
   {
@@ -27,7 +31,7 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
       const list = bySystem.get(s.id) ?? [];
       if (list.length === 0) return null;
       return (
-        <section>
+        <section id={s.id} class="sys">
           <h2>
             <a href={`/systems/${s.id}/`}>{s.data.name}</a>
             <span class="count muted">（{list.length} 首）</span>
@@ -50,6 +54,8 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
     })
   }
   <style>
+    .sys-jump { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .sys { scroll-margin-top: 1rem; }
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .count { font-size: var(--text-sm); font-weight: 400; }
     .poem-grid { margin-top: 1.25rem; }
