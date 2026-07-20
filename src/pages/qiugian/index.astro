@@ -29,18 +29,6 @@ const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.i
   <h1>你在為什麼煩惱？</h1>
   <p class="lead">選一件，靜下心求一支籤，看白話解籤——也看看有多少人，正跟你一樣。</p>
 
-  <section class="qsec" aria-labelledby="sec-choutian">
-    <h2 id="sec-choutian" class="sec-h">抽籤 · 為心裡的那件事</h2>
-    <div class="grid cols concern-grid">
-      {concerns.map((c) => (
-        <a class="card concern" href={`/qiugian/${c.id}/`}>
-          <div class="n">為{c.label}</div>
-          <div class="muted small">{c.intent}</div>
-        </a>
-      ))}
-    </div>
-  </section>
-
   <section class="qsec" aria-labelledby="sec-jiqi">
     <h2 id="sec-jiqi" class="sec-h">集氣 · 為此刻的平安</h2>
     {activeTopical.length > 0 ? (
@@ -59,6 +47,18 @@ const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.i
         </div>
       </div>
     )}
+  </section>
+
+  <section class="qsec" aria-labelledby="sec-choutian">
+    <h2 id="sec-choutian" class="sec-h">抽籤 · 為心裡的那件事</h2>
+    <div class="grid cols concern-grid">
+      {concerns.map((c) => (
+        <a class="card concern" href={`/qiugian/${c.id}/`}>
+          <div class="n">為{c.label}</div>
+          <div class="muted small">{c.intent}</div>
+        </a>
+      ))}
+    </div>
   </section>
 
   <p class="muted small more-soon">想知道每件事「拜哪尊神、怎麼拜」？看 <a href="/scenarios/">拜哪尊</a>。</p>
