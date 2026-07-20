@@ -217,5 +217,26 @@
       "last_checked": "2026-07-20",
       "empty_runs": 1
     }
+  },
+  {
+    "id": "news-landslide-20260717-660351",
+    "eventType": "landslide",
+    "title": "為重慶彭水山崩平安祈福",
+    "event": "重慶彭水近日發生山體崩塌，造成傷亡、多人失聯，搜救行動持續進行中。祈願罹難者安息，失聯者早日尋獲，救援人員平安順利。",
+    "sources": [
+      {
+        "ref": "中央社 CNA",
+        "url": "https://www.cna.com.tw/news/acn/202607170339.aspx"
+      },
+      {
+        "ref": "聯合新聞網",
+        "url": "https://udn.com/news/story/7332/9636502"
+      }
+    ],
+    "place": "重慶市彭水苗族土家族自治縣",
+    "time": "2026-07-17",
+    "detector": "news",
+    "since": "2026-07-20",
+    "status": "active"
   }
 ]
