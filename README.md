@@ -61,6 +61,18 @@ pnpm check:integrity   # 完整性與對映率報表（R5／§9.6）
 
 > `pnpm dev` 顯示全部資料（含 draft）；`pnpm build`（production）套用「無源不發佈」gate，draft 與待查欄位不輸出。
 
+### 內容守門（去 AI 味）— 兩個表面互補
+
+兩支腳本掃**不同表面**、規則同源，不是替換關係，都在 `pnpm build` 前置（本機／CI／seo-ops gate 全繼承）：
+
+| 腳本 | script | 掃描表面 | 攔什麼 |
+|---|---|---|---|
+| `check-copy-voice.mjs` | `check:copy-voice` | `src/**/*.astro`（產品 chrome／UI 文案） | 面向使用者的字出現 AI 療癒腔／假掰詩意（禁語逐次養、只收嚴） |
+| `check-content.mjs` | `check:content` | `src/**/*.md(x)`（典故／籤解等**文章正文**） | 跨站統一去 AI 味引擎（強指紋 ERROR + 四層軟訊號跨 ≥3 層升 ERROR），另 port folk 療癒腔黑名單為站台特化 ERROR |
+
+- `check:content` 預設只掃「相對 origin/main 變動的 .md(x)」（**grandfather 存量**：既有 297 篇不回溯擋，只有新改/新增文章受檢）；`check:content:all` 全站盤點（永遠 exit 0，供人工普查）。公有領域籤詩四句本文在 `*.json`，兩支都不掃。
+- folk 療癒腔（`放下了`/`釋懷了`/`(添|多)了一分暖`/`不是一個人走過`/`照亮彼此`/`你的消息會陪`/`你(可能|可以…)是第一個`）在 UI 與文章都該擋：UI 面補 `check-copy-voice.mjs` 的 `BANNED`，文章面補 `check-content.mjs` 的 `SITE_ERROR_TELLS`，兩處同步。
+
 ## 專案結構
 
 ```

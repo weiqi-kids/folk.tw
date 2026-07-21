@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-design.mjs && astro build",
+    "build": "node scripts/check-design.mjs && node scripts/check-content.mjs && astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -20,6 +20,8 @@
     "check:design": "node scripts/check-design.mjs",
     "check:design-tokens": "node scripts/check-design-tokens.mjs",
     "check:copy-voice": "node scripts/check-copy-voice.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:content:all": "node scripts/check-content.mjs --all",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",
     "data:seo-daily": "node scripts/seo-daily.mjs",
