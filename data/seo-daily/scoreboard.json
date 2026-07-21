@@ -471,6 +471,14 @@
           "clicks": 0,
           "ctr": 0,
           "note": "資料窗 2026-07-09..07-16。單頁 clicks 0/impr22/pos8.32，較前次（impr17/pos8.71）排名微升、仍未見點擊。未到全窗日（7/24），不觸發回退（0 clicks 為持平非新退步）。"
+        },
+        {
+          "date": "2026-07-21",
+          "pos": 8.32,
+          "impr": 25,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "資料窗約 2026-07-10..07-17。單頁 clicks 0/impr25/pos8.32，較前次（impr22/pos8.32）排名持平、曝光微增，仍未見點擊。未到全窗日（7/24），不觸發回退（0 clicks 為持平非新退步）。"
         }
       ],
       "status": "open",
@@ -526,6 +534,35 @@
       "baseline": {
         "pos": 1.43,
         "impr": 7,
+        "clicks": 0,
+        "ctr": 0,
+        "scope": "page-query"
+      },
+      "checks": [],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    },
+    {
+      "id": "2026-07-21-liuyi-seodesc",
+      "placed_date": "2026-07-21",
+      "cohort": "highImpZeroClick",
+      "target": {
+        "page": "/allusions/liuyi",
+        "query": "盧龍王次子招親"
+      },
+      "hypothesis": "seoDesc 補故事摘要（比照 gd_24/gd_77/zhengde_lifeng 先例），SERP 摘要與查詢重疊度提升；該頁排名已是第 1 名（pos 1）但 CTR 0%，屬明確標題/摘要吸引力缺口而非排名問題",
+      "factual": true,
+      "change_commit": null,
+      "change_files": [
+        "src/content/allusions/liuyi.md"
+      ],
+      "deploy_date": "2026-07-21",
+      "expected_first_signal_date": "2026-07-25",
+      "expected_full_window_date": "2026-08-01",
+      "baseline": {
+        "pos": 1,
+        "impr": 8,
         "clicks": 0,
         "ctr": 0,
         "scope": "page-query"
