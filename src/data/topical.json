@@ -238,5 +238,26 @@
     "detector": "news",
     "since": "2026-07-20",
     "status": "active"
+  },
+  {
+    "id": "news-landslide-20260717-e48f26",
+    "eventType": "landslide",
+    "title": "為重慶彭水山崩平安祈福",
+    "event": "重慶市彭水苗族土家族自治縣漢葭街道近日發生山崩，多棟民宅遭掩埋，造成傷亡，搜救工作仍在進行中。願失聯者早日尋獲、當地鄉親平安渡過此劫。",
+    "sources": [
+      {
+        "ref": "新华网",
+        "url": "https://www.xinhuanet.com/20260718/d76806aed0ac4a3e808b3142058a11c4/c.html"
+      },
+      {
+        "ref": "自由亞洲電台（RFA）",
+        "url": "https://www.rfa.org/mandarin/shehui/2026/07/20/chinachongqing-landslide-pengshui/"
+      }
+    ],
+    "place": "重庆彭水县汉葭街道",
+    "time": "2026-07-17",
+    "detector": "news",
+    "since": "2026-07-21",
+    "status": "active"
   }
 ]
