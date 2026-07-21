@@ -62,12 +62,24 @@
         ],
         "added": "2026-07-20T04:51:58.124Z",
         "hash": "51864a0df0cf"
+      },
+      {
+        "date": "2026-07-21",
+        "text": "恰帕斯州官方持續複勘後正式公布受損鄉鎮範圍，部分住宅經評估列為不可居住，當地持續進行後續安置與處置。",
+        "sources": [
+          {
+            "ref": "Proceso",
+            "url": "https://www.proceso.com.mx/nacional/estados/2026/7/21/sismos-en-chiapas-dejan-danos-en-17-municipios-reportan-22-viviendas-inhabitables-376517.html"
+          }
+        ],
+        "added": "2026-07-21T12:31:05.307Z",
+        "hash": "8ae6885ee915"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-20",
-      "empty_runs": 1
+      "last_checked": "2026-07-21",
+      "empty_runs": 0
     },
     "memorial_at": "2026-07-20"
   },
@@ -131,11 +143,23 @@
         ],
         "added": "2026-07-20T12:31:54.938Z",
         "hash": "cf4983727871"
+      },
+      {
+        "date": "2026-07-21",
+        "text": "當局公布罹難夫婦死因判定為多發性外傷，事故調查告一段落。",
+        "sources": [
+          {
+            "ref": "チバテレ＋プラス（FNN）",
+            "url": "https://www.chiba-tv.com/plus/detail/2026071837871"
+          }
+        ],
+        "added": "2026-07-21T12:33:24.702Z",
+        "hash": "57753e0e353b"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-20",
+      "last_checked": "2026-07-21",
       "empty_runs": 0
     }
   },
@@ -162,8 +186,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-20",
-      "empty_runs": 2
+      "last_checked": "2026-07-21",
+      "empty_runs": 3
     }
   },
   {
@@ -214,8 +238,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-20",
-      "empty_runs": 1
+      "last_checked": "2026-07-21",
+      "empty_runs": 2
     }
   },
   {
@@ -237,7 +261,42 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-20",
+        "text": "重慶彭水山體崩塌現場完成危岩孤石爆破作業，搜救工作進入更深層階段，救援人員持續以機械掘進搭配人工排查方式推進。",
+        "sources": [
+          {
+            "ref": "京報網",
+            "url": "https://news.bjd.com.cn/2026/07/20/90088780.shtml"
+          },
+          {
+            "ref": "新浪科技",
+            "url": "https://finance.sina.com.cn/tech/roll/2026-07-20/doc-iniimkkn8100534.shtml"
+          }
+        ],
+        "added": "2026-07-21T12:36:09.431Z",
+        "hash": "51a0941ad043"
+      },
+      {
+        "date": "2026-07-21",
+        "text": "重慶彭水山體崩塌搜救行動持續進行中，救援人員仍在現場全力搜尋失聯者。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/politics/20260721/9b7a8b3e76ba473e8317c1ef7498c376/c.html"
+          }
+        ],
+        "added": "2026-07-21T12:36:11.806Z",
+        "hash": "e4b6028c3f25"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-21",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-landslide-20260717-e48f26",
@@ -258,6 +317,61 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-21",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-18",
+        "text": "搜救人員在搜救犬協助下於崩塌現場鎖定生命跡象位置，隨即在上方開口搶通，持續清理搜尋。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-18/10662111.shtml"
+          }
+        ],
+        "added": "2026-07-21T12:37:30.181Z",
+        "hash": "68196ac7cd28"
+      },
+      {
+        "date": "2026-07-18",
+        "text": "重慶市級地質專家研判，此次崩塌屬自然因素引發，因岩體長期風化，加上連日降雨滲入軟弱層潤滑，天氣轉晴後岩體收縮變形，產生局部滑移翻轉而崩塌。",
+        "sources": [
+          {
+            "ref": "川觀新聞",
+            "url": "https://cbgc.scol.com.cn/news/7770968"
+          }
+        ],
+        "added": "2026-07-21T12:37:32.695Z",
+        "hash": "5e500cfb4721"
+      },
+      {
+        "date": "2026-07-20",
+        "text": "自然資源系統專家團隊進駐現場，協助研判山體穩定性，並監測後續搶險作業安全，搜救工作持續進行中。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/gn/2026/07-20/10662827.shtml"
+          }
+        ],
+        "added": "2026-07-21T12:37:33.030Z",
+        "hash": "dafcbea241d6"
+      },
+      {
+        "date": "2026-07-20",
+        "text": "搜救人員晝夜持續作業，罹難者遺體陸續尋獲，仍有失聯者下落待確認，搶險救援未曾間斷。",
+        "sources": [
+          {
+            "ref": "自由亞洲電台",
+            "url": "https://www.rfa.org/mandarin/shehui/2026/07/20/chinachongqing-landslide-pengshui/"
+          }
+        ],
+        "added": "2026-07-21T12:37:33.563Z",
+        "hash": "c77b8032acfc"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-21",
+      "empty_runs": 0
+    }
   }
 ]
