@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
-      "empty_runs": 0
+      "last_checked": "2026-07-22",
+      "empty_runs": 1
     },
     "memorial_at": "2026-07-20"
   },
@@ -155,11 +155,23 @@
         ],
         "added": "2026-07-21T12:33:24.702Z",
         "hash": "57753e0e353b"
+      },
+      {
+        "date": "2026-07-22",
+        "text": "足利市自七月二十二日起開始受理本次豪雨災害義援金，供社會大眾捐款協助災區居民後續生活重建。",
+        "sources": [
+          {
+            "ref": "足利市公式網站",
+            "url": "https://www.city.ashikaga.tochigi.jp/disaster-prevension/000001/p008550.html"
+          }
+        ],
+        "added": "2026-07-22T12:32:22.263Z",
+        "hash": "c17bbe7e136e"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
+      "last_checked": "2026-07-22",
       "empty_runs": 0
     }
   },
@@ -186,8 +198,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
-      "empty_runs": 3
+      "last_checked": "2026-07-22",
+      "empty_runs": 4
     }
   },
   {
@@ -238,8 +250,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
-      "empty_runs": 2
+      "last_checked": "2026-07-22",
+      "empty_runs": 3
     }
   },
   {
@@ -290,11 +302,23 @@
         ],
         "added": "2026-07-21T12:36:11.806Z",
         "hash": "e4b6028c3f25"
+      },
+      {
+        "date": "2026-07-22",
+        "text": "重慶彭水山體崩塌搜救持續推進，救援人員因應深度搜救需要再次實施爆破作業，成功排除現場巨石障礙、繼續向下掘進",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-22/10664225.shtml"
+          }
+        ],
+        "added": "2026-07-22T12:36:48.754Z",
+        "hash": "f7ae7a227d8f"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
+      "last_checked": "2026-07-22",
       "empty_runs": 0
     }
   },
@@ -366,11 +390,23 @@
         ],
         "added": "2026-07-21T12:37:33.563Z",
         "hash": "c77b8032acfc"
+      },
+      {
+        "date": "2026-07-22",
+        "text": "因應深度搜救需要，搶險人員針對現場危岩巨石展開新一輪爆破作業並順利完成，搜救工作持續推進中。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-22/10664225.shtml"
+          }
+        ],
+        "added": "2026-07-22T12:37:33.949Z",
+        "hash": "93e1a25d1fd8"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-21",
+      "last_checked": "2026-07-22",
       "empty_runs": 0
     }
   }
