@@ -13,9 +13,12 @@
     "joys": []
   },
   "kaoshi": {
-    "week_draws": 0,
+    "week_draws": 2,
     "baoxi": 0,
-    "top": {},
+    "top": {
+      "15": 1,
+      "83": 1
+    },
     "joys": []
   },
   "caiyun": {
@@ -31,9 +34,12 @@
     "joys": []
   },
   "yunshi": {
-    "week_draws": 0,
+    "week_draws": 2,
     "baoxi": 0,
-    "top": {},
+    "top": {
+      "39": 1,
+      "53": 1
+    },
     "joys": []
   },
   "qiuzi": {
@@ -42,5 +48,8 @@
     "top": {},
     "joys": []
   },
-  "topical": {}
+  "topical": {
+    "eq-attibqh8": 3,
+    "news-landslide-20260717-e147bd": 1
+  }
 }
