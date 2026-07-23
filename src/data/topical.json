@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
-      "empty_runs": 1
+      "last_checked": "2026-07-23",
+      "empty_runs": 2
     },
     "memorial_at": "2026-07-20"
   },
@@ -167,11 +167,23 @@
         ],
         "added": "2026-07-22T12:32:22.263Z",
         "hash": "c17bbe7e136e"
+      },
+      {
+        "date": "2026-07-22",
+        "text": "栃木縣政府公布足利市小俣町山崩事故成因分析，研判為坡地表層經豪雨滲透鬆動後崩落所致，並提醒周邊同類地質地帶仍有再次發生走山的風險，籲請當地居民留意後續降雨動態。",
+        "sources": [
+          {
+            "ref": "下野新聞",
+            "url": "https://www.shimotsuke.co.jp/articles/-/1389557"
+          }
+        ],
+        "added": "2026-07-23T12:32:35.377Z",
+        "hash": "72861696d069"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
+      "last_checked": "2026-07-23",
       "empty_runs": 0
     }
   },
@@ -198,8 +210,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
-      "empty_runs": 4
+      "last_checked": "2026-07-23",
+      "empty_runs": 5
     }
   },
   {
@@ -246,12 +258,36 @@
         ],
         "added": "2026-07-20T04:54:05.916Z",
         "hash": "08be8e8f8cd2"
+      },
+      {
+        "date": "2026-07-22",
+        "text": "救援人員在崩塌現場執行新一輪巨石爆破作業，持續朝深度救援方向推進。",
+        "sources": [
+          {
+            "ref": "中國新聞網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-22/10664276.shtml"
+          }
+        ],
+        "added": "2026-07-23T12:34:17.008Z",
+        "hash": "d745c6179027"
+      },
+      {
+        "date": "2026-07-23",
+        "text": "救援隊指揮官表示，鑑於崩塌現場地質狀況嚴峻，失聯者生還機會渺茫，搜救工作仍持續進行。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7332/9646748"
+          }
+        ],
+        "added": "2026-07-23T12:34:17.646Z",
+        "hash": "630b3f4ea363"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
-      "empty_runs": 3
+      "last_checked": "2026-07-23",
+      "empty_runs": 0
     }
   },
   {
@@ -318,8 +354,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
-      "empty_runs": 0
+      "last_checked": "2026-07-23",
+      "empty_runs": 1
     }
   },
   {
@@ -406,8 +442,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-22",
-      "empty_runs": 0
+      "last_checked": "2026-07-23",
+      "empty_runs": 1
     }
   },
   {
@@ -428,6 +464,12 @@
     "lon": 128.4,
     "detector": "gdacs",
     "since": "2026-07-23",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-23",
+      "empty_runs": 1
+    }
   }
 ]
