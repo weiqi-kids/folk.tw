@@ -409,5 +409,25 @@
       "last_checked": "2026-07-22",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "gdacs-tc-1001294",
+    "eventType": "cyclone",
+    "title": "為中國熱帶氣旋平安祈福",
+    "event": "西北太平洋熱帶氣旋侵襲中國沿海地區，強風可能對當地居民生活造成影響。願上蒼庇佑，人人平安無虞、早日恢復如常。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001294"
+      }
+    ],
+    "place": "China",
+    "time": "2026-07-23",
+    "severity": "Tropical Depression (maximum wind speed of 139 km/h)，Population affected by Category 1 (120 km/h) wind speeds or higher is 17.242 million",
+    "lat": 17.4,
+    "lon": 128.4,
+    "detector": "gdacs",
+    "since": "2026-07-23",
+    "status": "active"
   }
 ]
