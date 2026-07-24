@@ -101,6 +101,11 @@
         "type": "gov",
         "ref": "文化部國家文化資產網〈國定古蹟-北港朝天宮〉 https://nchdb.boch.gov.tw/assets/overview/monument/19851127000036",
         "note": "國定古蹟登錄"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「北港朝天宮」座標 https://zh.wikipedia.org/wiki/%E5%8C%97%E6%B8%AF%E6%9C%9D%E5%A4%A9%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.matsu.org.tw/",
@@ -114,7 +119,9 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:Chaotian_Temple_20120716.jpg"
-    }
+    },
+    "lat": 23.567717,
+    "lng": 120.304627
   },
   {
     "id": "donggang_dongling",
@@ -142,6 +149,11 @@
         "type": "gov",
         "ref": "臺灣宗教文化地圖「東港迎王平安祭典」 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85",
         "note": "迎王平安祭典國家重要民俗"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：東港東隆宮, 21-1, 東隆街（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.66.org.tw/",
@@ -155,7 +167,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%B8%AF%E6%9D%B1%E9%9A%86%E5%AE%AE20230822.jpg"
-    }
+    },
+    "lat": 22.463068,
+    "lng": 120.448789
   },
   {
     "id": "xigang_qingan",
@@ -173,6 +187,11 @@
         "type": "gov",
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006",
         "note": "國定重要民俗西港香（刈香王醮）主辦廟"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「西港慶安宮」座標 https://zh.wikipedia.org/wiki/%E8%A5%BF%E6%B8%AF%E6%85%B6%E5%AE%89%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "image": {
@@ -182,7 +201,9 @@
       "license": "Public domain",
       "license_url": "",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E6%B8%AF%E6%85%B6%E5%AE%89%E5%AE%AE.JPG"
-    }
+    },
+    "lat": 23.12135,
+    "lng": 120.201742
   },
   {
     "id": "jilong_zhuputan",
@@ -242,6 +263,11 @@
         "type": "web",
         "ref": "維基百科「艋舺青山宮」 https://zh.wikipedia.org/zh-tw/艋舺青山宮",
         "note": "1985市定古蹟、2010暗訪遶境登錄、聖誕農曆10/22"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「艋舺青山宮」座標 https://zh.wikipedia.org/wiki/%E8%89%8B%E8%88%BA%E9%9D%92%E5%B1%B1%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.mjcsg.org.tw/",
@@ -255,7 +281,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Manka_Qingshan_Temple_20220617.jpg"
-    }
+    },
+    "lat": 25.04,
+    "lng": 121.499444
   },
   {
     "id": "yanshui_wumiao",
@@ -273,6 +301,11 @@
         "type": "gov",
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004",
         "note": "台南市定民俗「鹽水蜂炮」主辦廟"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「鹽水武廟」座標 https://zh.wikipedia.org/wiki/%E9%B9%BD%E6%B0%B4%E6%AD%A6%E5%BB%9F",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "image": {
@@ -282,7 +315,9 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E5%8D%97%E9%B9%BD%E6%B0%B4%E6%AD%A6%E5%BB%9F.JPG"
-    }
+    },
+    "lat": 23.323898,
+    "lng": 120.265822
   },
   {
     "id": "neimen_zizhusi",
@@ -300,6 +335,11 @@
         "type": "gov",
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001",
         "note": "國定重要民俗「內門宋江陣（羅漢門迎佛祖）」主辦廟"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：內門紫竹寺, 18, 中正路115巷（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "image": {
@@ -309,7 +349,9 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A7%E9%96%80%E7%B4%AB%E7%AB%B9%E5%AF%BA.JPG"
-    }
+    },
+    "lat": 22.917132,
+    "lng": 120.455036
   },
   {
     "id": "toucheng_zhongyuan",
@@ -327,6 +369,11 @@
         "type": "gov",
         "ref": "文化部國家文化資產網 https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002",
         "note": "宜蘭縣定民俗「頭城搶孤」主辦廟"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：頭城慶元宮, 105, 和平街（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "image": {
@@ -336,7 +383,9 @@
       "license": "CC BY 3.0 tw",
       "license_url": "https://creativecommons.org/licenses/by/3.0/tw/deed.en",
       "source": "https://commons.wikimedia.org/wiki/File:%E9%A0%AD%E5%9F%8E%E6%85%B6%E5%85%83%E5%AE%AE%E5%BB%BA%E7%AF%89%E6%B2%BF%E9%9D%A9.jpg"
-    }
+    },
+    "lat": 24.85731,
+    "lng": 121.824104
   },
   {
     "id": "xinpu_baozhongting_yimiao",
@@ -439,6 +488,11 @@
         "type": "web",
         "ref": "維基百科「大龍峒保安宮」 https://zh.wikipedia.org/zh-tw/大龍峒保安宮",
         "note": "UNESCO榮譽獎、2018國定古蹟、聖誕、放火獅、保生文化祭"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：大龍峒保安宮, 61, 哈密街（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.baoan.org.tw/",
@@ -452,7 +506,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E9%BE%8D%E5%B3%92%E4%BF%9D%E5%AE%89%E5%AE%AE20171210_1_(2).jpg"
-    }
+    },
+    "lat": 25.072337,
+    "lng": 121.515585
   },
   {
     "id": "wanhua_longshan",
@@ -528,6 +584,11 @@
         "type": "web",
         "ref": "維基百科 行天宮 https://zh.wikipedia.org/zh-tw/行天宮",
         "note": "台北本宮1968落成、主祀關聖帝君、聖誕農曆6/24、五不、收驚"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「行天宮」座標 https://zh.wikipedia.org/wiki/%E8%A1%8C%E5%A4%A9%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.ht.org.tw/",
@@ -541,7 +602,9 @@
       "license": "CC BY-SA 3.0",
       "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Hsing_Tian_Kong_20051228.jpg"
-    }
+    },
+    "lat": 25.063073,
+    "lng": 121.533846
   },
   {
     "id": "dadaocheng_xiahai",
@@ -569,6 +632,11 @@
         "type": "gov",
         "ref": "內政部臺灣宗教文化地圖 大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58",
         "note": "1856興建1859完工、直轄市定古蹟1985、農曆五月十三"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「台北霞海城隍廟」座標 https://zh.wikipedia.org/wiki/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "http://www.tpecitygod.org/",
@@ -582,7 +650,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg"
-    }
+    },
+    "lat": 25.055618,
+    "lng": 121.510276
   },
   {
     "id": "tainan_fu_chenghuang",
@@ -600,6 +670,11 @@
         "type": "temple",
         "ref": "台灣府城隍廟官網 https://www.twcitygod.org.tw/",
         "note": "廟方官網；「爾來了」大匾與大算盤為著名文物"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：台灣府城隍廟, 133, 青年路（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "image": {
@@ -609,7 +684,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_Prefectural-City-God-Temple-Tainan-01.jpg"
-    }
+    },
+    "lat": 22.992205,
+    "lng": 120.209109
   },
   {
     "id": "tainan_da_tianhou",
@@ -637,6 +714,11 @@
         "type": "web",
         "ref": "維基百科「大天后宮」 https://zh.wikipedia.org/zh-tw/大天后宮",
         "note": "創建、敕封、納入祀典、嘉慶火災重建、古蹟、聖誕"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「大天后宮」座標 https://zh.wikipedia.org/wiki/%E5%A4%A7%E5%A4%A9%E5%90%8E%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.gtainanmazu.org.tw/",
@@ -650,7 +732,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E7%A5%80%E5%85%B8%E5%A4%A7%E5%A4%A9%E5%90%8E%E5%AE%AE.jpg"
-    }
+    },
+    "lat": 22.996911,
+    "lng": 120.201051
   },
   {
     "id": "nankunshen_daitian",
@@ -721,6 +805,11 @@
         "type": "temple",
         "ref": "北港武德宮官方網站 https://www.wude.org.tw/",
         "note": "廟方沿革與五路財神"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：北港武德宮, 330, 華勝路（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.wude.org.tw/",
@@ -734,7 +823,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Beigang_Wude_Temple-06.2024-09-18.jpg"
-    }
+    },
+    "lat": 23.581016,
+    "lng": 120.299695
   },
   {
     "id": "lugang_tianhou",
@@ -757,6 +848,11 @@
         "type": "web",
         "ref": "維基百科〈鹿港天后宮〉 https://zh.wikipedia.org/zh-tw/鹿港天后宮",
         "note": "創建1591、1725遷建、2019國定古蹟、聖誕例祭"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「鹿港天后宮」座標 https://zh.wikipedia.org/wiki/%E9%B9%BF%E6%B8%AF%E5%A4%A9%E5%90%8E%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.lugangmazu.org/",
@@ -770,7 +866,9 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E9%B9%BF%E6%B8%AF%E5%A4%A9%E5%90%8E%E5%AE%AE.JPG"
-    }
+    },
+    "lat": 24.059338,
+    "lng": 120.43138
   },
   {
     "id": "xuejia_cijigong",
@@ -798,6 +896,11 @@
         "type": "web",
         "ref": "維基百科「學甲慈濟宮」 https://zh.wikipedia.org/zh-tw/學甲慈濟宮",
         "note": "康熙40年建廟、歷次整建、古蹟、上白礁與聖誕"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「學甲慈濟宮」座標 https://zh.wikipedia.org/wiki/%E5%AD%B8%E7%94%B2%E6%85%88%E6%BF%9F%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.tcgs.org.tw/",
@@ -811,7 +914,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%AD%B8%E7%94%B2%E6%85%88%E6%BF%9F%E5%AE%AE.jpg"
-    }
+    },
+    "lat": 23.233948,
+    "lng": 120.180491
   },
   {
     "id": "madou_daitian",
@@ -839,6 +944,11 @@
         "type": "gov",
         "ref": "中研院文化資源地理資訊系統「麻豆代天府」 https://crgis.rchss.sinica.edu.tw/temples/TainanCity/madou/1107014-MDDTF",
         "note": "沿革佐證"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「麻豆代天府」座標 https://zh.wikipedia.org/wiki/%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
     ],
     "website": "https://www.5god.com.tw/",
@@ -852,7 +962,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E9%BA%BB%E8%B1%86%E4%BB%A3%E5%A4%A9%E5%BA%9C_Madou_Daitian_Temple_entrance.jpg"
-    }
+    },
+    "lat": 23.190231,
+    "lng": 120.258245
   },
   {
     "id": "jilong_laodagong",
@@ -5555,8 +5667,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：無極山寺, 虎頭山產業道路, 紅葉村（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.518685,
+    "lng": 121.339406
   },
   {
     "id": "moi_432_北極殿",
@@ -18615,8 +18734,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：蜩鳴宮 - 溫府王爺, 彰9-1, 小赤崁（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.660596,
+    "lng": 119.597462
   },
   {
     "id": "moi_1693_勝安宮",
@@ -25111,8 +25237,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：五鶴山五穀宮, 苗25, 石埔子（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.523543,
+    "lng": 120.826599
   },
   {
     "id": "moi_2319_行修寺",
@@ -28271,8 +28404,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：九湖武聖廟, 苗82;苗38-1, 九湖（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.477192,
+    "lng": 120.776436
   },
   {
     "id": "moi_2609_福安宮",
@@ -31477,8 +31617,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：鹽埕保安宮, 鹽埕路291巷32弄, 光明里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.970206,
+    "lng": 120.186392
   },
   {
     "id": "moi_2906_慈保宮",
@@ -35303,8 +35450,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：指雲宮, 瑞濱隧道, 瑞濱里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 25.112218,
+    "lng": 121.814017
   },
   {
     "id": "moi_3282_石和宮",
@@ -41221,8 +41375,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：慈山聖善王母宮, 南蛇崎道路, 北平里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.853558,
+    "lng": 121.079438
   },
   {
     "id": "moi_3879_東嶽殿",
@@ -41331,8 +41492,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「新埔與天宮」座標 https://zh.wikipedia.org/wiki/%E6%96%B0%E5%9F%94%E8%88%87%E5%A4%A9%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.827815,
+    "lng": 121.073495
   },
   {
     "id": "moi_3894_萬安古地廟",
@@ -41569,8 +41737,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：金玉堂, 竹39, 煙寮坪（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.697341,
+    "lng": 121.059965
   },
   {
     "id": "moi_3921_靈巖寺",
@@ -42555,8 +42730,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：慈蓮寺, 鐵山里, 外埔區（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.345383,
+    "lng": 120.645712
   },
   {
     "id": "moi_4022_五間厝福德宮",
@@ -43453,8 +43635,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：慈善寺, 成功路122巷, 黃厝（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.976052,
+    "lng": 121.262331
   },
   {
     "id": "moi_4111_玉里福德宮",
@@ -47447,8 +47636,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：溪州后天宮, 20, 東光路（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.854117,
+    "lng": 120.495188
   },
   {
     "id": "moi_4497_代天宮",
@@ -51481,8 +51677,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：靜法寺, 18, 崙內（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.688178,
+    "lng": 120.354291
   },
   {
     "id": "moi_4910_龍山寺",
@@ -52321,8 +52524,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：社中建隆宮, 建隆路, 土庫厝（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.621191,
+    "lng": 120.470929
   },
   {
     "id": "moi_4995_松山聚福廟",
@@ -53167,8 +53377,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：福陽宮, 縱貫公路, 山腳（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.659154,
+    "lng": 120.862712
   },
   {
     "id": "moi_5088_順天宮",
@@ -54187,8 +54404,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：烈嶼保生大帝廟, 3之2, 上庫（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.422221,
+    "lng": 118.234
   },
   {
     "id": "moi_5196_廣泉宮",
@@ -55001,8 +55225,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：先農廟, 北山, 古寧村（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.480472,
+    "lng": 118.309603
   },
   {
     "id": "moi_5273_神農廟",
@@ -55047,8 +55278,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：大道宮, 66, 珠山（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.402067,
+    "lng": 118.321849
   },
   {
     "id": "moi_5276_石門妙法寺",
@@ -56093,8 +56331,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：宏善堂, 尖豐公路, 朝陽口（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.514113,
+    "lng": 120.789288
   },
   {
     "id": "moi_5378_太子廟",
@@ -57569,8 +57814,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：安南鹽田境主代天永鎮宮, 鹽田六街, 北寮（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.033464,
+    "lng": 120.147197
   },
   {
     "id": "moi_5531_寶靈殿",
@@ -57583,8 +57835,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：寶靈殿, 仁堡路, 中堡（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.458549,
+    "lng": 118.337671
   },
   {
     "id": "moi_5533_礁溪協天廟",
@@ -57677,8 +57936,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：高梘頭福德祠, 文昌街, 文林村（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.772958,
+    "lng": 121.082313
   },
   {
     "id": "moi_5544_南興宮",
@@ -58375,8 +58641,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：賜安宮, 雲171, 溪底（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.659897,
+    "lng": 120.27481
   },
   {
     "id": "moi_5608_寒林寺",
@@ -58533,8 +58806,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：下排仔福德祠, 東寧路三段199巷, 竹東里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.740846,
+    "lng": 121.084423
   },
   {
     "id": "moi_5623_竹東鎮中山福德宮",
@@ -58787,8 +59067,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：至揚宮, 二城路, 中西（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.890742,
+    "lng": 120.360386
   },
   {
     "id": "moi_5645_國王廟",
@@ -59327,8 +59614,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：北嵩福德祠, 中陽路, 北陽里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.249645,
+    "lng": 120.736582
   },
   {
     "id": "moi_5701_雙吉宮",
@@ -59847,8 +60141,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：蘆竹德林寺, 黃墘溪, 中福里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 25.005571,
+    "lng": 121.25851
   },
   {
     "id": "moi_5753_七星宮",
@@ -61981,8 +62282,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「彰化南瑤宮」座標 https://zh.wikipedia.org/wiki/%E5%BD%B0%E5%8C%96%E5%8D%97%E7%91%A4%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.067726,
+    "lng": 120.538514
   },
   {
     "id": "moi_5962_古龍山",
@@ -66216,8 +66524,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：雙鯉古地(關帝廟), 寧湖路, 林厝（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.475998,
+    "lng": 118.311259
   },
   {
     "id": "moi_6393_玉鳳宮",
@@ -67195,8 +67510,6 @@
     "main_deity_raw": "福德正神",
     "main_deity_ref": "tudigong",
     "district": "雲林縣林內鄉烏塗村22之5號",
-    "lng": 0.00139904103707522,
-    "lat": 0.000600814877543598,
     "sources": [
       {
         "type": "gov",
@@ -67802,8 +68115,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：受興宮, 大鞍路, 冷水坑（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.655389,
+    "lng": 120.697878
   },
   {
     "id": "moi_6549_永天宮",
@@ -74530,8 +74850,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「烏面將軍廟」座標 https://zh.wikipedia.org/wiki/%E7%83%8F%E9%9D%A2%E5%B0%87%E8%BB%8D%E5%BB%9F",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.009646,
+    "lng": 120.517549
   },
   {
     "id": "moi_7253_金鳳寺",
@@ -76122,8 +76449,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：五塊寮 慶和宮, 長和路一段845巷56弄, 東和里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.061103,
+    "lng": 120.226735
   },
   {
     "id": "moi_7403_雲林太子宮",
@@ -77298,8 +77632,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：龍洲宮, 天祥街二段505巷, 青草（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.714322,
+    "lng": 120.866383
   },
   {
     "id": "moi_7513_大社東安宮",
@@ -82232,8 +82573,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：建安堂, 帝君巷, 新年莊（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.872819,
+    "lng": 120.871818
   },
   {
     "id": "moi_7989_三元宮",
@@ -83396,8 +83744,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：栢龍寺, 中肚巷, 福興村（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.919379,
+    "lng": 120.51316
   },
   {
     "id": "moi_8114_龍聖宮",
@@ -83986,8 +84341,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：朝陽宮, 239, 史館路（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.983557,
+    "lng": 120.663928
   },
   {
     "id": "moi_8174_東龍宮",
@@ -84064,8 +84426,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：泰安殿, 雲96, 三結社區（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.666527,
+    "lng": 120.449965
   },
   {
     "id": "moi_8179_靈聖宮",
@@ -84172,8 +84541,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：玉窩堂, 36, 立德八路（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.977252,
+    "lng": 120.214401
   },
   {
     "id": "moi_8190_前甲顯明殿",
@@ -85056,8 +85432,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：水里憫世寶宮仙公廟, 56, 永郡洞（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.818729,
+    "lng": 120.852035
   },
   {
     "id": "moi_8259_忠義歲廟",
@@ -86180,8 +86563,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：明新堂, 銅鑼交流道, 東田洋（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.47656,
+    "lng": 120.789061
   },
   {
     "id": "moi_8375_慈玄宮",
@@ -88858,8 +89248,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：文昌宮, 中興路一段, 龍山里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.880194,
+    "lng": 120.567161
   },
   {
     "id": "moi_8658_國王宮",
@@ -91791,8 +92188,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：東嶽泰山廟, 埔華路, 大地（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.478538,
+    "lng": 118.46256
   },
   {
     "id": "moi_8973_慈雲玄聖宮",
@@ -92532,8 +92936,6 @@
     "main_deity_raw": "福德正神",
     "main_deity_ref": "tudigong",
     "district": "屏東縣長治鄉復興村新興路",
-    "lng": 0.000321865256410092,
-    "lat": 7.51018887967803e-05,
     "sources": [
       {
         "type": "gov",
@@ -93831,8 +94233,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「武昌宮」座標 https://zh.wikipedia.org/wiki/%E6%AD%A6%E6%98%8C%E5%AE%AE",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.831675,
+    "lng": 120.792361
   },
   {
     "id": "moi_9167_復興宮",
@@ -94449,8 +94858,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：山南宮, 高136, 內東里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.915194,
+    "lng": 120.418134
   },
   {
     "id": "moi_9222_草湖拱后宮",
@@ -95969,8 +96385,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：保順宮, 永發巷, 新寶（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.977877,
+    "lng": 120.3507
   },
   {
     "id": "moi_9395_玉繩宮",
@@ -97731,8 +98154,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：福同宮, 桃米巷, 紙寮坑（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.942622,
+    "lng": 120.930775
   },
   {
     "id": "moi_9583_導化堂",
@@ -98047,8 +98477,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：金面山福德廟, 北宜路二段2巷, 大金面（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.860089,
+    "lng": 121.795343
   },
   {
     "id": "moi_9607_龍山大廈宮",
@@ -98205,8 +98642,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：受奉宮, 福興路, 福興里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.008262,
+    "lng": 120.969098
   },
   {
     "id": "moi_9623_西勢里福德祠",
@@ -98823,8 +99267,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：紫竹林北后寺, 內湖, 尚德村（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.726626,
+    "lng": 121.709061
   },
   {
     "id": "moi_9685_五龍山鳳山寺",
@@ -100175,8 +100626,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：正義福德宮, 正義路, 鹿厨坑（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.729442,
+    "lng": 120.911803
   },
   {
     "id": "moi_9821_蔡文福靈宮",
@@ -100237,8 +100695,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科條目「明新書院」座標 https://zh.wikipedia.org/wiki/%E6%98%8E%E6%96%B0%E6%9B%B8%E9%99%A2",
+        "note": "經緯度回填（縣市範圍＋條目名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.827262,
+    "lng": 120.799803
   },
   {
     "id": "moi_9826_大礁溪福安宮",
@@ -103711,8 +104176,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：魚寮天和宮, 新厝巷, 埔尾（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.091594,
+    "lng": 120.445969
   },
   {
     "id": "moi_10169_慈天必生宮",
@@ -103725,8 +104197,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：慈天必生宮, 雙鐵綠廊(大埤線), 竹圍（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.662063,
+    "lng": 120.44607
   },
   {
     "id": "moi_10170_明興宮",
@@ -106779,8 +107258,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：福仙宮, 嘉134, 下莊仔（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.429326,
+    "lng": 120.536297
   },
   {
     "id": "moi_10472_達天宮",
@@ -110397,8 +110883,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：溝坪興天宮, 40, 廣福（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.992802,
+    "lng": 120.500829
   },
   {
     "id": "moi_10820_內門南海紫竹寺",
@@ -110411,8 +110904,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：內門南海紫竹寺, 內山公路, 十三甲（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.941708,
+    "lng": 120.461278
   },
   {
     "id": "moi_10821_埔尾天后宮",
@@ -111917,8 +112417,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：廣濟廟, 128-6, 頂堡（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.449401,
+    "lng": 118.339418
   },
   {
     "id": "moi_10969_北辰宮",
@@ -115463,8 +115970,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：澎湖觀音亭, 介壽路, 金龍頭（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.567615,
+    "lng": 119.561974
   },
   {
     "id": "moi_11315_溫極殿",
@@ -117603,8 +118117,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：雞林仁愛福德宮, 北興路二段81巷9弄, 仁愛里（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.73883,
+    "lng": 121.092473
   },
   {
     "id": "moi_11520_護國宮",
@@ -118353,8 +118874,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "web",
+        "ref": "OpenStreetMap（Nominatim 地理編碼）",
+        "note": "座標回填自 OSM：靈聖宮, 12, 原子街（縣市範圍＋宗教類＋廟名校驗通過），2026-07-24"
       }
-    ]
+    ],
+    "lat": 24.145431,
+    "lng": 120.673442
   },
   {
     "id": "moi_11584_元始大天聖道院",
