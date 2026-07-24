@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
-      "empty_runs": 2
+      "last_checked": "2026-07-24",
+      "empty_runs": 3
     },
     "memorial_at": "2026-07-20"
   },
@@ -179,11 +179,23 @@
         ],
         "added": "2026-07-23T12:32:35.377Z",
         "hash": "72861696d069"
+      },
+      {
+        "date": "2026-07-23",
+        "text": "足利市災害志工清運行動全面展開，協助受災住戶搬運泡水家具與家電、清除淤泥，因當地高溫特報一度調整作業時段。",
+        "sources": [
+          {
+            "ref": "とちぎテレビ（Yahoo!ニュース）",
+            "url": "https://news.yahoo.co.jp/articles/c114b4737f91ff4a8176c9873ba27b1862b4c242"
+          }
+        ],
+        "added": "2026-07-24T12:33:12.644Z",
+        "hash": "0ff4499c65fa"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
+      "last_checked": "2026-07-24",
       "empty_runs": 0
     },
     "bless_snapshot": 1
@@ -211,8 +223,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
-      "empty_runs": 5
+      "last_checked": "2026-07-24",
+      "empty_runs": 6
     }
   },
   {
@@ -283,11 +295,27 @@
         ],
         "added": "2026-07-23T12:34:17.646Z",
         "hash": "630b3f4ea363"
+      },
+      {
+        "date": "2026-07-24",
+        "text": "官方證實搶救現場經多輪生命探測搜尋，已確認無生命跡象，搜救工作轉入遺體搜尋及後續善後階段。",
+        "sources": [
+          {
+            "ref": "中國新聞網",
+            "url": "https://www.chinanews.com.cn/sh/shipin/cns-d/2026/07-24/news1063061.shtml"
+          },
+          {
+            "ref": "ECNS（中新社英文網）",
+            "url": "http://www.ecns.cn/cns-wire/2026-07-24/detail-ihfhqwkz8169739.shtml"
+          }
+        ],
+        "added": "2026-07-24T12:35:41.570Z",
+        "hash": "df56d02fa323"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
+      "last_checked": "2026-07-24",
       "empty_runs": 0
     }
   },
@@ -351,12 +379,24 @@
         ],
         "added": "2026-07-22T12:36:48.754Z",
         "hash": "f7ae7a227d8f"
+      },
+      {
+        "date": "2026-07-23",
+        "text": "重慶彭水山體崩塌搶險救援指揮部公布，經廣泛線索征集、走訪調查與技術甄別等方式，核實確認罹難與失聯人員統計結果，搜救工作持續進入深層階段。",
+        "sources": [
+          {
+            "ref": "人民網重慶頻道",
+            "url": "http://cq.people.com.cn/n2/2026/0723/c365401-41648246.html"
+          }
+        ],
+        "added": "2026-07-24T12:36:51.837Z",
+        "hash": "40acfa9b3170"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
-      "empty_runs": 1
+      "last_checked": "2026-07-24",
+      "empty_runs": 0
     }
   },
   {
@@ -439,12 +479,24 @@
         ],
         "added": "2026-07-22T12:37:33.949Z",
         "hash": "93e1a25d1fd8"
+      },
+      {
+        "date": "2026-07-23",
+        "text": "救援指揮部表示，經多輪生命探測儀器搜尋後現場已無生命跡象，搜救工作轉入以搜尋罹難者遺體為主的階段",
+        "sources": [
+          {
+            "ref": "財新網",
+            "url": "https://china.caixin.com/2026-07-23/102467403.html"
+          }
+        ],
+        "added": "2026-07-24T12:37:50.022Z",
+        "hash": "754bdaee5354"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
-      "empty_runs": 1
+      "last_checked": "2026-07-24",
+      "empty_runs": 0
     }
   },
   {
@@ -469,8 +521,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-23",
-      "empty_runs": 1
+      "last_checked": "2026-07-24",
+      "empty_runs": 2
     }
   }
 ]
