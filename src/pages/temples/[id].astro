@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import TempleMap from '../../components/TempleMap.astro';
 import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
@@ -9,10 +10,17 @@ import { lunarDateLabel } from '../../lib/birthdays';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
-  return temples.map((t) => ({ params: { id: t.id }, props: { temple: t } }));
+  // 廟名頻率表：名稱在全站唯一者才用「廟名」嵌入 Google 地圖（顯示含星等的商家卡片，
+  // 且不會解析到別間同名廟）；同名廟改用座標嵌入，精準釘位不指錯。見 TempleMap.astro。
+  const nameCount = new Map<string, number>();
+  for (const t of temples) nameCount.set(t.data.name, (nameCount.get(t.data.name) ?? 0) + 1);
+  return temples.map((t) => ({
+    params: { id: t.id },
+    props: { temple: t, uniqueName: nameCount.get(t.data.name) === 1 },
+  }));
 }) satisfies GetStaticPaths;
 
-const { temple } = Astro.props;
+const { temple, uniqueName } = Astro.props;
 const t = temple.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
@@ -149,6 +157,8 @@ const jsonLd = [
       )
     }
   </dl>
+
+  {t.lng != null && t.lat != null && <TempleMap name={t.name} lat={t.lat} lng={t.lng} uniqueName={uniqueName} />}
 
   {
     lingqianSystems.length > 0 && (

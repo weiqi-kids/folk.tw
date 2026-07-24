@@ -1,0 +1,81 @@
+---
+// 廟宇位置與 Google 評論外連（方案 3「輕連結」）。
+// 政策紅線：不抓取、不快取 Google 評論，不對非本站擁有的商家標 aggregateRating（Google 明文禁止 self-serving 評論標記）。
+// 只做：① 免 API key 的地圖嵌入（output=embed，靜態站零金鑰）② 導去 Google 商家看評論／導航的外連。
+// 評論資料與責任皆留在 Google 端；本站只提供入口。
+interface Props {
+  name: string;
+  lat: number;
+  lng: number;
+  // 廟名是否全站唯一（getStaticPaths 算好）。唯一→用廟名嵌入（顯示含星等的商家卡片）；
+  // 同名→用座標嵌入，精準釘位不會指到別間同名廟。
+  uniqueName?: boolean;
+}
+const { name, lat, lng, uniqueName = false } = Astro.props;
+
+// 嵌入來源：唯一名用廟名（Google 解析到該商家、卡片顯示星等）；同名廟用座標（精準釘位不指錯）。
+const embedQuery = uniqueName ? encodeURIComponent(name) : `${lat},${lng}`;
+const embedSrc = `https://maps.google.com/maps?q=${embedQuery}&z=16&hl=zh-TW&output=embed`;
+// 看評論外連：唯一名直接查廟名；同名廟以「廟名＋座標」消歧，導到座標附近的正確那間。
+const reviewsQuery = uniqueName ? name : `${name} ${lat},${lng}`;
+const reviewsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(reviewsQuery)}`;
+// 導航：座標最可靠，避免同名廟解析錯誤。
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+---
+
+<section class="temple-map" aria-label="地圖與 Google 評論">
+  <h2>位置與 Google 評論</h2>
+  <div class="map-frame">
+    <iframe
+      src={embedSrc}
+      title={`${name}的 Google 地圖`}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="map-actions">
+    <a class="btn primary" href={reviewsUrl} target="_blank" rel="noopener">在 Google 地圖看評論 ↗</a>
+    <a class="btn" href={directionsUrl} target="_blank" rel="noopener">路線導航 ↗</a>
+  </div>
+  <p class="map-note muted small">評論由 Google 提供並託管於 Google 地圖，非本站內容。</p>
+</section>
+
+<style>
+  .temple-map { margin-top: 1.5rem; }
+  .temple-map h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin: 1rem 0 0.875rem;
+    border: 1px solid var(--line);
+    border-radius: 0.625rem;
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .map-actions { display: flex; flex-wrap: wrap; gap: 0.625rem; }
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.625rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .btn.primary {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
+  .map-note { margin: 0.75rem 0 0; }
+  .small { font-size: var(--text-sm); }
+</style>
