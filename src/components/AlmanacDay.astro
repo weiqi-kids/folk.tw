@@ -11,8 +11,10 @@ import { addDays, almanacRange, almanacHref } from '../lib/almanac/dates';
 interface Props {
   iso: string; // 本頁日期（YYYY-MM-DD，UTC+8）
   today: string; // 站台「今日」（決定可瀏覽範圍與翻頁連結）
+  hub?: boolean; // 是否為 /almanac 首頁 hub。true＝首頁（不 pagefind 忽略、無「回今天」）；
+  // false＝dated 頁（含今日鏡像頁，走 is-dated 樣式＋pagefind 忽略＋顯示「回今天」連回 hub）。
 }
-const { iso, today } = Astro.props;
+const { iso, today, hub = false } = Astro.props;
 const [y, m, dd] = iso.split('-').map(Number);
 
 const record = computeDayRecord(y, m, dd, { astro: lunarProvider });
@@ -81,7 +83,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
       <span class="nav-btn disabled">後一天 ›</span>
     )
   }
-  {!isToday && <a class="nav-btn today" href="/almanac/">回今天</a>}
+  {!hub && <a class="nav-btn today" href="/almanac/">回今天</a>}
   <a class="nav-btn" href="/almanac/archive/">封存</a>
 </nav>
 <script is:inline define:vars={{ today }}>
@@ -91,7 +93,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
   });
 </script>
 
-<div class:list={['almanac-day', { 'is-dated': !isToday }]} data-pagefind-ignore={!isToday}>
+<div class:list={['almanac-day', { 'is-dated': !hub }]} data-pagefind-ignore={!hub}>
   <h1>{iso}<span class="wk">（星期{wk}）</span>{isToday && <span class="badge">今日</span>}</h1>
 
   {summary && <p class="day-summary">{summary}</p>}

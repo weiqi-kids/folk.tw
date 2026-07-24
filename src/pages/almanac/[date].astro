@@ -54,11 +54,23 @@ const faq = faqPage([
   },
 ]);
 if (faq) jsonLd.push(faq);
+
+// meta/og description（P1-4 延伸）：answer-first，直接帶當日 verified 宜忌，與畫面同源（yiV/jiV）。
+// 宜有料→列宜；宜空但忌有料→列忌（誠實反映，與內頁「無確證宜事」語義一致）；兩者皆空→退回通用句。
+// 上限 8 項避免諸事不宜日（忌可達 20 項）撐爆卡片；查無 verified 者一律不列，不杜撰。
+const capAffairs = (arr: string[], n = 8) => (arr.length > n ? `${arr.slice(0, n).join('、')}等` : arr.join('、'));
+const lunarPrefix = lunar ? `農曆${lunar.isLeap ? '閏' : ''}${lunar.month}/${lunar.day}` : date;
+const metaDescription = yiV.length
+  ? `${lunarPrefix}，宜${capAffairs(yiV)}。`
+  : jiV.length
+    ? `${lunarPrefix}，忌${capAffairs(jiV)}。`
+    : `${date} 的農曆、節氣、干支、建除、廿八宿、沖煞、七十二候與神明聖誕。`;
 ---
 
 <Base
   title={`農民曆 · ${date}`}
-  description={`${date} 的農曆、節氣、干支、建除、廿八宿、沖煞、七十二候與神明聖誕。`}
+  description={metaDescription}
+  canonical={date === today ? '/almanac/' : undefined}
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.day-summary', '.yiji-section']}

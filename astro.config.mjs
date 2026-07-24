@@ -74,7 +74,10 @@ export default defineConfig({
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。
         const m = page.match(/\/almanac\/(\d{4}-\d{2}-\d{2})\/?$/);
         if (!m) return true; // 非日期頁（首頁、模組頁、month 樞紐、archive…）一律保留
-        return m[1] <= TODAY; // 過去與今日保留；未來（嚴格大於今日）排除
+        // 過去日期頁保留；未來（嚴格大於今日）排除；今日的 dated 頁為「可分享鏡像」
+        // （canonical 指回 /almanac/，見 src/lib/almanac/dates.ts），一併排除避免 sitemap
+        // 與 canonical 不一致（正本 /almanac/ 另已在 sitemap）。故用嚴格小於。
+        return m[1] < TODAY;
       },
       // 優先級分層（降稀釋的正解：不砍過去封存頁，改以 priority 標示價值高低，
       // 引導爬取預算流向獨特內容）；changefreq 標示更新頻率。

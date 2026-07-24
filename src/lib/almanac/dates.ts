@@ -31,14 +31,17 @@ export function almanacHref(iso: string, todayIso: string): string {
   return iso === todayIso ? '/almanac/' : `/almanac/${iso}/`;
 }
 
-/** 封存內所有日期（不含今日；今日由 /almanac 提供，避免重複網址）。
+/** 封存內所有日期（含今日）。今日的 dated 頁為「可分享鏡像」：canonical 指回 /almanac/、
+ *  排除於 sitemap（見 astro.config.mjs），存在的唯一理由＝提供一個「網址帶日期」的分享入口，
+ *  讓社群卡片的 og:description 帶當日宜忌且免重部署也不過期（爬蟲不跑 JS、Pages 無 edge，
+ *  故 OG 新鮮度只能靠 URL 帶日期保證）。/almanac 首頁仍是今日 hub。
  *  必須每次 build 都輸出「整個」[ARCHIVE_START, today+FUTURE_DAYS] 範圍，
  *  否則先前已生成的頁會從 dist 消失而 404。ISO 字串比較即年代序。 */
 export function almanacDates(todayIso: string): string[] {
   const out: string[] = [];
   const max = addDays(todayIso, FUTURE_DAYS);
   for (let d = ARCHIVE_START; d <= max; d = addDays(d, 1)) {
-    if (d !== todayIso) out.push(d);
+    out.push(d);
   }
   return out;
 }

@@ -8,11 +8,12 @@ interface Props {
   noindex?: boolean; // 對搜尋引擎不索引（如農民曆滾動日期頁，避免視窗滾動後 404 與薄內容稀釋）
   ogType?: string; // Open Graph 類型；列表／首頁用 'website'，內容／詳情頁傳 'article'
   speakable?: string[]; // AEO：可朗讀／可被語音助理與 AI 答案引擎擷取為直接答案的元素 CSS 選擇器（如 ['h1', '.summary']）
+  canonical?: string; // canonical override（相對路徑，如 '/almanac/'）；不給則以本頁路徑自我 canonical。用於鏡像頁指回正本。
 }
 import { GA4_ID } from '../consts';
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
-const { title, description, ogTitle, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable } = Astro.props;
+const { title, description, ogTitle, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable, canonical: canonicalOverride } = Astro.props;
 const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
@@ -21,7 +22,7 @@ const fullTitle = title
   : '神酷｜台灣民俗信仰資料庫、籤詩解讀與神明關係圖譜';
 const ogFullTitle = ogTitle ?? fullTitle; // OG 標題（社群分享）
 const desc = description ?? '神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。';
-const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://folk.tw').href;
+const canonical = new URL(canonicalOverride ?? Astro.url.pathname, Astro.site ?? 'https://folk.tw').href;
 // Schema.org：以「知識系統 / 資料庫」呈現（非單純 website），利 AI 理解與引用（GEO）
 const jsonLd = {
   '@context': 'https://schema.org',

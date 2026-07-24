@@ -53,7 +53,11 @@ if (faq) jsonLd.push(faq);
   description="每日農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕，可瀏覽任一日期。"
   jsonLd={jsonLd}
 >
-  <AlmanacDay iso={iso} today={iso} />
+  <AlmanacDay iso={iso} today={iso} hub />
+
+  <!-- 分享用固定連結：/almanac 網址不帶日期，社群卡片的 og 無法免重部署保持當日；
+       故導向今日的 dated 鏡像頁（網址帶日期→卡片帶當日宜忌且永不過期）。 -->
+  <p class="almanac-share"><a href={`/almanac/${iso}/`}>分享今日黃道吉日（固定連結）→</a></p>
 
   <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存＋長尾樞紐（宜忌詞義／沖煞），提升可發現性。 -->
   <nav class="almanac-more" aria-label="更多農民曆">
@@ -74,4 +78,9 @@ if (faq) jsonLd.push(faq);
     gap: 0.625rem;
   }
   .almanac-more a { color: var(--accent); }
+  .almanac-share {
+    margin-top: 1.5rem;
+    font-size: var(--text-sm);
+  }
+  .almanac-share a { color: var(--accent); }
 </style>
