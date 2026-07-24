@@ -1001,6 +1001,11 @@
         "type": "gov",
         "ref": "交通部觀光署 https://www.taiwan.net.tw/m1.aspx?sNo=0001016&id=2229",
         "note": "新北市定古蹟"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
+        "note": "WGS84 座標；MOI 記錄「新莊地藏庵」新北市新莊區立人里中正路84號（name+town-distinct 校驗），2026-07-24"
       }
     ],
     "image": {
@@ -1010,7 +1015,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5%E6%AD%A3%E9%9D%A2%E7%85%A7.jpg"
-    }
+    },
+    "lat": 25.03717,
+    "lng": 121.457001
   },
   {
     "id": "luermen_shengmu",
@@ -1033,6 +1040,11 @@
         "type": "web",
         "ref": "維基百科〈正統鹿耳門聖母廟〉 https://zh.wikipedia.org/zh-tw/正統鹿耳門聖母廟",
         "note": "古廟相傳逾四百年、1831傾圮、1918二建、1975三建、1960定名"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
+        "note": "WGS84 座標；MOI 記錄「正統鹿耳門聖母廟」臺南市安南區城安路160號（name+town-distinct 校驗），2026-07-24"
       }
     ],
     "website": "https://luermen.org.tw/",
@@ -1046,7 +1058,9 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Orthodox_Luermen_Sheng-Mu_Temple-01.2024-10-08.jpg"
-    }
+    },
+    "lat": 23.06683,
+    "lng": 120.127296
   },
   {
     "id": "tainan_kaiji_tianhou",
@@ -25111,8 +25125,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
+        "note": "WGS84 座標；MOI 記錄「北柵福德祠」屏東縣麟洛鄉麟蹄村第1鄰1號（name+town-distinct 校驗），2026-07-24"
       }
-    ]
+    ],
+    "lat": 22.651199,
+    "lng": 120.5271
   },
   {
     "id": "moi_2308_郡界鎮山宮",
@@ -61454,8 +61475,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
+        "note": "WGS84 座標；MOI 記錄「林厝寮保安宮」雲林縣四湖鄉林東村14鄰中華路81號（addr-exact 校驗），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.672331,
+    "lng": 120.1791
   },
   {
     "id": "moi_5884_天雲寺",
@@ -66286,8 +66314,15 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款"
+      },
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
+        "note": "WGS84 座標；MOI 記錄「正德廟」澎湖縣西嶼鄉竹灣村19鄰65-1號（name+town+loc 校驗），2026-07-24"
       }
-    ]
+    ],
+    "lat": 23.631857,
+    "lng": 119.52359
   },
   {
     "id": "moi_6371_仁厚宮",
