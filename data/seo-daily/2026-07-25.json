@@ -1,25 +1,29 @@
 {
-  "date": "2026-07-24",
-  "generatedAt": "2026-07-24T11:22:23.253Z",
+  "date": "2026-07-25",
+  "generatedAt": "2026-07-24T20:30:01.960Z",
   "ga4": {
     "range": "7daysAgo..yesterday",
-    "sessions": 1140,
-    "users": 1058,
-    "views": 1865,
-    "avgDurationSec": 97,
-    "taiwanOrganicSessions": 1050,
+    "sessions": 1145,
+    "users": 1072,
+    "views": 1792,
+    "avgDurationSec": 102,
+    "taiwanOrganicSessions": 1051,
     "channels": [
       {
         "channel": "Organic Search",
-        "sessions": 1066
+        "sessions": 1067
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 74
       },
       {
         "channel": "Direct",
-        "sessions": 65
+        "sessions": 64
       },
       {
         "channel": "AI Assistant",
-        "sessions": 4
+        "sessions": 3
       },
       {
         "channel": "Organic Social",
@@ -33,63 +37,63 @@
     "topPages": [
       {
         "path": "/",
-        "views": 53
+        "views": 45
       },
       {
         "path": "/deities/",
-        "views": 46
+        "views": 41
       },
       {
         "path": "/qiugian/",
-        "views": 33
+        "views": 29
       },
       {
         "path": "/trades/",
-        "views": 32
-      },
-      {
-        "path": "/poems/",
-        "views": 28
-      },
-      {
-        "path": "/temples/",
         "views": 26
       },
       {
-        "path": "/scenarios/",
-        "views": 21
+        "path": "/poems/",
+        "views": 24
+      },
+      {
+        "path": "/temples/",
+        "views": 18
       },
       {
         "path": "/temples/moi_7304_高雄左營聖門靈霄/",
-        "views": 19
-      },
-      {
-        "path": "/deities/guanyin/",
-        "views": 16
+        "views": 18
       },
       {
         "path": "/allusions/",
+        "views": 17
+      },
+      {
+        "path": "/practices/",
+        "views": 16
+      },
+      {
+        "path": "/deities/guanyin/",
+        "views": 15
+      },
+      {
+        "path": "/poems/liushi_jiazi-46/",
+        "views": 15
+      },
+      {
+        "path": "/scenarios/",
         "views": 15
       },
       {
         "path": "/almanac/",
-        "views": 15
-      },
-      {
-        "path": "/practices/",
-        "views": 15
-      },
-      {
-        "path": "/deities/xuantian/",
-        "views": 13
+        "views": 14
       },
       {
         "path": "/events/",
-        "views": 13
+        "views": 12
       },
       {
-        "path": "/temples/moi_3322_昊天宮/",
-        "views": 13
+        "path": "/deities/xuantian/",
+        "views": 11
       }
     ],
     "daily": [
@@ -290,6 +294,12 @@
         "sessions": 134,
         "avgDurationSec": 96,
         "taiwanOrganic": 128
+      },
+      {
+        "date": "2026-07-24",
+        "sessions": 149,
+        "avgDurationSec": 124,
+        "taiwanOrganic": 130
       }
     ]
   },
@@ -2525,7 +2535,7 @@
       {
         "url": "https://folk.tw/almanac",
         "coverageState": "Page with redirect",
-        "lastCrawlTime": "2026-07-21T21:38:36Z"
+        "lastCrawlTime": "2026-07-24T14:47:35Z"
       },
       {
         "url": "https://folk.tw/deities/mazu/",
@@ -2555,7 +2565,7 @@
       {
         "url": "https://folk.tw/allusions/suitang_qinshubao/",
         "coverageState": "Submitted and indexed",
-        "lastCrawlTime": "2026-07-17T02:39:38Z"
+        "lastCrawlTime": "2026-07-24T14:21:58Z"
       },
       {
         "url": "https://folk.tw/temples",
@@ -2610,7 +2620,7 @@
       {
         "url": "https://folk.tw/almanac/",
         "coverageState": "Submitted and indexed",
-        "lastCrawlTime": "2026-07-21T21:38:36Z"
+        "lastCrawlTime": "2026-07-24T19:29:39Z"
       },
       {
         "url": "https://folk.tw/events/",
@@ -2638,6 +2648,33 @@
     "range": "2026-07-15..2026-07-21",
     "prevRange": "2026-07-08..2026-07-14",
     "rows": [
+      {
+        "query": "籤詩",
+        "pinned": true,
+        "position": null,
+        "prevPosition": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": 0
+      },
+      {
+        "query": "求籤",
+        "pinned": true,
+        "position": null,
+        "prevPosition": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": 0
+      },
+      {
+        "query": "媽祖",
+        "pinned": true,
+        "position": null,
+        "prevPosition": null,
+        "impressions": 0,
+        "clicks": 0,
+        "ctr": 0
+      },
       {
         "query": "宜蘭保民廟",
         "pinned": false,
