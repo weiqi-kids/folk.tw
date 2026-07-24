@@ -29,7 +29,8 @@
     "data:weekly": "node scripts/seo-weekly.mjs --dry",
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
-    "notify": "node scripts/notify.mjs"
+    "notify": "node scripts/notify.mjs",
+    "data:temple-coords": "node --experimental-strip-types scripts/refresh-temple-coords.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

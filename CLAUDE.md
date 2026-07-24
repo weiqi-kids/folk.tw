@@ -147,3 +147,9 @@
 - 部署驗證坑：`gh run list` 要**比對 headSha 是否為本次 commit**，否則會抓到上一次 run 誤判成功。
 - 稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。
 - 廟宇 staging：`scripts/import-temples.ts <temple.xml> --write`（MOI 端點境外 IP 連不到，須台灣端下載 XML）。
+- **廟宇座標回填（可重複、安全閘內建）**：`pnpm data:temple-coords <temple.xml>`（乾跑）→ 審 → 加 `--write` 回寫 →
+  `pnpm check:integrity && pnpm build` → push → `pnpm notify`。只碰缺座標/垃圾座標的廟、不動策展欄位；
+  匹配限「地址精確／廟名完全相符＋同鄉鎮＋(長獨特名或里村佐證)」＋縣市 bbox，通用名無地名佐證不採（防同名跨村塞假座標）。
+  **XML 取得**：MOI 擋境外 IP（本 server／GitHub Actions 皆連不到，25s timeout），data.gov.tw 也只轉址回同一被擋端點＝
+  **無境外可達鏡像**；須台灣 IP 下載 `https://religion.moi.gov.tw/Report/temple.xml`（資料集 8203，約每月更新）後放本機指定路徑。
+  詳見 `scripts/refresh-temple-coords.ts` 檔頭與記憶 [[temple-google-map-reviews]]。
