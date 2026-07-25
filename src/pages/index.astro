@@ -4,6 +4,7 @@ import { getPoems, getAllusions } from '../lib/queries';
 import { todayInTaipei, pickDailyIndex } from '../lib/daily';
 import { upcomingDeityBirthdays } from '../lib/birthdays';
 import UpcomingBirthdays from '../components/UpcomingBirthdays.astro';
+import { orgNode } from '../lib/seo';
 
 // 今日中樞（§0.5）：每日一籤領銜（情感主角），模組入口平等可達。
 // 不把運勢吉凶當頭條；吉凶若有也僅作輔標（本系統籤詩多無吉凶定級）。
@@ -53,6 +54,7 @@ const featuredDeities = [
 <Base
   description="神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。"
   ogTitle="神酷｜查月老籤、媽祖信仰與台灣民俗百科"
+  jsonLd={orgNode()}
 >
   <header class="brand-hero">
     <h1>神酷<span class="alt">（神庫）</span></h1>

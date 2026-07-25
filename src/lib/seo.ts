@@ -1,7 +1,7 @@
 // SEO / GEO 結構化資料輔助：BreadcrumbList 與實體 schema 產生器。
 const SITE = 'https://folk.tw';
 
-/** 共用 Organization（E-E-A-T，P2-7）：作為各實體的 publisher。 */
+/** 共用 Organization（E-E-A-T，P2-7）：作為各實體的 publisher（嵌入用，不帶 @context）。 */
 export const ORG = {
   '@type': 'Organization',
   name: '神酷',
@@ -9,6 +9,23 @@ export const ORG = {
   url: SITE,
   sameAs: ['https://github.com/weiqi-kids/folk.tw'],
 };
+
+/** 首頁發布者 Organization JSON-LD（GEO 實體錨定，P2-7）：獨立節點、帶 @context 與 logo。
+ *  sameAs 僅放本站真實實體連結（GitHub 專案；本站無社群帳號，來源稀疏故僅此一項）。 */
+export function orgNode() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE}/#organization`,
+    name: '神酷',
+    alternateName: ['神庫', 'Shenku'],
+    url: SITE,
+    logo: `${SITE}/icon-512.png`,
+    description:
+      '台灣漢人民間信仰的結構化考據知識系統：籤詩解讀、神明關係圖譜、廟宇文化、農民曆與拜拜習俗，逐條掛來源、諸說並陳。',
+    sameAs: ORG.sameAs,
+  };
+}
 
 /** BreadcrumbList JSON-LD。items：[{name, path}]，path 為站內路徑（如 /poems）。 */
 export function breadcrumb(items: { name: string; path: string }[]) {
