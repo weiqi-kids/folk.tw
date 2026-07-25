@@ -198,7 +198,9 @@
       "last_checked": "2026-07-25",
       "empty_runs": 1
     },
-    "bless_snapshot": 1
+    "bless_snapshot": 1,
+    "lat": 36.3400358,
+    "lon": 139.4488397
   },
   {
     "id": "news-bridge-collapse-20260718-2575e5",
@@ -225,7 +227,9 @@
       "sealed": false,
       "last_checked": "2026-07-25",
       "empty_runs": 7
-    }
+    },
+    "lat": 36.3893418,
+    "lon": 139.0632826
   },
   {
     "id": "news-landslide-20260717-470423",
@@ -240,6 +244,14 @@
       {
         "ref": "中央社",
         "url": "https://www.cna.com.tw/news/acn/202607170339.aspx"
+      },
+      {
+        "ref": "新华网",
+        "url": "https://www.xinhuanet.com/20260718/d76806aed0ac4a3e808b3142058a11c4/c.html"
+      },
+      {
+        "ref": "自由亞洲電台（RFA）",
+        "url": "https://www.rfa.org/mandarin/shehui/2026/07/20/chinachongqing-landslide-pengshui/"
       }
     ],
     "place": "重慶市彭水縣",
@@ -259,6 +271,18 @@
         ],
         "added": "2026-07-20T04:54:05.790Z",
         "hash": "7c6e5fe37fc8"
+      },
+      {
+        "date": "2026-07-18",
+        "text": "重慶市級地質專家研判，此次崩塌屬自然因素引發，因岩體長期風化，加上連日降雨滲入軟弱層潤滑，天氣轉晴後岩體收縮變形，產生局部滑移翻轉而崩塌。",
+        "sources": [
+          {
+            "ref": "川觀新聞",
+            "url": "https://cbgc.scol.com.cn/news/7770968"
+          }
+        ],
+        "added": "2026-07-21T12:37:32.695Z",
+        "hash": "5e500cfb4721"
       },
       {
         "date": "2026-07-20",
@@ -333,7 +357,9 @@
       "sealed": false,
       "last_checked": "2026-07-25",
       "empty_runs": 0
-    }
+    },
+    "lat": 29.2962877,
+    "lon": 108.1610845
   },
   {
     "id": "news-landslide-20260717-660351",
@@ -425,7 +451,12 @@
       "sealed": false,
       "last_checked": "2026-07-25",
       "empty_runs": 0
-    }
+    },
+    "mergedInto": "news-landslide-20260717-470423",
+    "merged_at": "2026-07-25",
+    "merged_reason": "與 news-landslide-20260717-470423 為同一事件（2026-07-17 重慶彭水山崩），P2 掃描因來源地名寫法不同而重開頁",
+    "lat": 29.2962877,
+    "lon": 108.1610845
   },
   {
     "id": "news-landslide-20260717-e48f26",
@@ -541,7 +572,12 @@
       "sealed": false,
       "last_checked": "2026-07-25",
       "empty_runs": 0
-    }
+    },
+    "mergedInto": "news-landslide-20260717-470423",
+    "merged_at": "2026-07-25",
+    "merged_reason": "與 news-landslide-20260717-470423 為同一事件（2026-07-17 重慶彭水山崩），P2 掃描因來源地名寫法不同而重開頁",
+    "lat": 29.2973,
+    "lon": 108.16
   },
   {
     "id": "gdacs-tc-1001294",
