@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
-import { getScenarios, getDeities, templesByDeity } from '../../lib/queries';
+import { getScenarios, getDeities, templesByDeity, getSystems } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { todayInTaipei } from '../../lib/daily';
 import { addDays, almanacHref } from '../../lib/almanac/dates';
@@ -13,14 +13,16 @@ export const getStaticPaths = (async () => {
   const deities = await getDeities();
   const deityById = new Map(deities.map((d) => [d.id, d]));
   const tByDeity = await templesByDeity();
+  const systems = await getSystems();
+  const systemName = new Map(systems.map((sys) => [sys.id, sys.data.name]));
   const { iso } = todayInTaipei();
   return scenarios.map((s) => ({
     params: { slug: s.id },
-    props: { scenario: s, deityById, tByDeity, today: iso },
+    props: { scenario: s, deityById, tByDeity, systemName, today: iso },
   }));
 }) satisfies GetStaticPaths;
 
-const { scenario, deityById, tByDeity, today } = Astro.props;
+const { scenario, deityById, tByDeity, systemName, today } = Astro.props;
 const s = scenario.data;
 
 // 情境（怎麼拜/拜哪尊）↔ 求籤（抽一支籤）互連：同一件煩惱的兩個入口，之前彼此埋沒。
@@ -126,6 +128,17 @@ const jsonLd = [
                 {(tByDeity.get(p.deity_ref) ?? []).length > 6 && (
                   <a href={`/deities/${p.deity_ref}/`}>　…看全部 →</a>
                 )}
+              </p>
+            )}
+            {d.divination_systems.length > 0 && (
+              <p class="muted small">
+                求籤：
+                {d.divination_systems.map((sys, i) => (
+                  <>
+                    {i > 0 && '、'}
+                    <a href={`/systems/${sys.id}/`}>{systemName.get(sys.id) ?? sys.id}</a>
+                  </>
+                ))}
               </p>
             )}
             <p class="src"><Sources sources={p.sources} /></p>
