@@ -68,6 +68,9 @@ async function fetchOk(url) {
 // ── (1) 追蹤對象挑選 ──────────────────────────────────────────────────────────
 function isTracked(item) {
   if (item.example) return false;
+  // 併頁後的舊條目（mergedInto）只剩 redirect、沒有頁面可呈現時間軸，追蹤它等於白花 LLM 與
+  // fetch 額度，還會讓同一事件的後續散在兩處（2026-07-25 併頁後補上）。
+  if (item.mergedInto) return false;
   if (item.followup?.sealed) return false;
   const st = item.status ?? 'active';
   if (!['active', 'archived', 'memorial'].includes(st)) return false;

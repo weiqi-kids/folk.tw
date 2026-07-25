@@ -12,6 +12,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
+import { geocodePlace } from './lib/topical-geo.mjs';
+import { findDuplicate, normPlace } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -25,24 +27,8 @@ const TYPE_LABEL = {
 };
 const VALID_TYPES = new Set(Object.keys(TYPE_LABEL));
 
-// 去重輔助（複製自 orchestrate.mjs 精神；新聞事件常無座標→須 place fallback）。
-const normPlace = (s) => String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[，,、]/g, '');
-const inferType = (e) => e.eventType ?? (e.mag != null || String(e.id).startsWith('eq-') ? 'quake' : 'other');
-function km(a, b) {
-  if (a?.lat == null || b?.lat == null) return Infinity;
-  const R = 6371, rad = (d) => (d * Math.PI) / 180;
-  const dLat = rad(b.lat - a.lat), dLon = rad(b.lon - a.lon);
-  const s = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLon / 2) ** 2;
-  return 2 * R * Math.asin(Math.min(1, Math.sqrt(s)));
-}
-// 同事件判定：同 eventType 且時間差 ≤3 天 且（座標 ≤10km 或 normPlace 相符）。
-function sameEvent(a, b) {
-  if (inferType(a) !== inferType(b)) return false;
-  if (Math.abs(Date.parse(a.time) - Date.parse(b.time)) / 864e5 > 3) return false;
-  const d = km(a, b);
-  if (d !== Infinity) return d <= 10;
-  return normPlace(a.place) && normPlace(a.place) === normPlace(b.place);
-}
+// 去重輔助已抽到 lib/topical-dedup.mjs（純函式、可用歷史事故資料回測；見該檔檔頭）。
+// 本檔只在 makeId 用到 normPlace，其餘判定一律走 findDuplicate。
 
 // ── (a) LLM 掃描：要求 claude 用 WebSearch 實際搜尋、只回找得到且點得開的事件 ──────────
 function scanNews() {
@@ -216,19 +202,25 @@ async function main() {
     const v = await verifyCandidate(cand);
     if (!v) continue;
 
+    // (b2) 地名 → 座標：新聞來源不給座標，沒有它下面 (d3) 的 ≤10km 判定形同虛設，
+    // 同一起事件只要換個地名寫法（繁簡／縣vs自治縣vs街道）就會漏過去重而重開頁（2026-07-25 事故）。
+    // 查無座標則 v.lat/lon 維持 undefined，去重自動退回字串比對，不影響原有行為。
+    if (v.lat == null || v.lon == null) {
+      const geo = await geocodePlace(v.place);
+      if (geo) { v.lat = geo.lat; v.lon = geo.lon; console.error(`[news-scan]   地理編碼：${v.place} → ${geo.lat.toFixed(4)},${geo.lon.toFixed(4)}`); }
+      else console.error(`[news-scan]   地理編碼查無「${v.place}」，去重退回字串比對`);
+    }
+
     // (c) id
     const id = makeId(v);
-    const rec0 = { id, eventType: v.eventType, place: v.place, time: v.time };
+    const rec0 = { id, eventType: v.eventType, place: v.place, time: v.time, lat: v.lat, lon: v.lon, sources: v.sources };
 
-    // (d) 去重
+    // (d) 去重：id 已存在，或 findDuplicate 命中三道規則之一（見 lib/topical-dedup.mjs）
     if (known.has(id)) { console.error(`[news-scan] ${id} id 已存在，略過`); continue; }
-    // 類型無關去重：同地名＋時間差≤3天即同一事件（防 LLM 對同事件給不同 eventType→id 前綴不同而重開頁）。
-    if (list.some((it) => normPlace(it.place) && normPlace(it.place) === normPlace(v.place) &&
-        Math.abs(Date.parse(it.time) - Date.parse(v.time)) / 864e5 <= 3)) {
-      console.error(`[news-scan] ${id}（${v.place}）與既有事件同地同期，略過`); continue;
-    }
-    if (list.some((it) => sameEvent(it, rec0))) {
-      console.error(`[news-scan] ${id}（${v.place}）與既有事件同震，略過`); continue;
+    const dup = findDuplicate(list, rec0);
+    if (dup) {
+      const why = { place: '同地同期', 'source-url': '引用同一篇報導', geo: '同型別且相距 ≤10km' }[dup.rule];
+      console.error(`[news-scan] ${id}（${v.place}）與 ${dup.id} ${why}，略過`); continue;
     }
 
     // (e) 正向閘

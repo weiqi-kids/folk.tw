@@ -31,7 +31,11 @@ type Topical = {
 
 export const getStaticPaths = (async () => {
   // 全部項目都出頁（含 archived／memorial）；index 政策在頁內依 status 決定（見 isIndexable）。
-  return topical.map((t) => ({ params: { slug: t.id }, props: { item: t } }));
+  // 例外：`mergedInto`（同事件重複開頁併頁後的舊網址）不由本路由產頁，改由 astro.config.mjs
+  // 的 `redirects` 產出導向正本的靜態 redirect 頁——網址仍活著，不違反 slug 永久承諾。
+  return topical
+    .filter((t) => !(t as { mergedInto?: string }).mergedInto)
+    .map((t) => ({ params: { slug: t.id }, props: { item: t } }));
 }) satisfies GetStaticPaths;
 
 const item = Astro.props.item as unknown as Topical;

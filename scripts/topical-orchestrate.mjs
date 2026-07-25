@@ -172,6 +172,7 @@ let changed = false;
 
 // 1) 逾期 active → 歸檔（頁面轉 noindex）
 for (const it of list) {
+  if (it.mergedInto) continue; // 併頁後的舊條目只剩 redirect，狀態無意義、不必歸檔
   if (it.status === 'active' && it.since && (Date.parse(today) - Date.parse(it.since)) / 864e5 > ARCHIVE_DAYS) {
     if (!DRY) { it.status = 'archived'; it.archived_at = today; changed = true; }
     console.log(`ARCHIVED\t${it.id}\t${it.title}`);

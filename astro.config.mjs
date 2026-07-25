@@ -26,8 +26,20 @@ const topicalIndexable = (/** @type {{ status?: string, example?: boolean, updat
   t.status === 'active' ||
   (t.status === 'memorial' && !t.example && Array.isArray(t.updates) && t.updates.length > 0);
 const TOPICAL_NOINDEX_PATHS = new Set(
-  TOPICAL.filter((/** @type {{ status?: string, example?: boolean, updates?: unknown[] }} */ t) => !topicalIndexable(t))
+  TOPICAL.filter((/** @type {{ status?: string, example?: boolean, updates?: unknown[], mergedInto?: string }} */ t) =>
+    t.mergedInto || !topicalIndexable(t))
     .map((/** @type {{ id: string }} */ t) => `/qiugian/blessing/${t.id}`),
+);
+
+// ── 同一事件重複開頁的併頁（2026-07-25）────────────────────────────────────
+// P2 新聞掃描曾因「來源原文地名寫法不同」（重慶市彭水縣／彭水苗族土家族自治縣／彭水县汉葭街道）
+// 對同一起事件開了三頁。合併留一頁（canonical），其餘標 `mergedInto` → 這裡轉成靜態 redirect：
+// 靜態輸出會產出 meta-refresh ＋ canonical 指向正本，**網址仍活著**（紅線 4「slug 永久承諾、不可 404」）。
+// 併頁條目仍留在 topical.json，讓 P2 去重能繼續用它們的地名字串擋住同事件再開頁。
+const TOPICAL_MERGED_REDIRECTS = Object.fromEntries(
+  TOPICAL.filter((/** @type {{ mergedInto?: string }} */ t) => t.mergedInto)
+    .map((/** @type {{ id: string, mergedInto: string }} */ t) =>
+      [`/qiugian/blessing/${t.id}`, `/qiugian/blessing/${t.mergedInto}/`]),
 );
 // serialize 只會看到「留在 sitemap」的祈福頁（不可 index 者已被 filter 排除）：
 // active 給較高權重（時效性、weekly）、有 updates 的 memorial 給穩定封存權重（monthly）。
@@ -43,6 +55,7 @@ export default defineConfig({
   site: 'https://folk.tw',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
+  redirects: TOPICAL_MERGED_REDIRECTS,
   // 農民曆日期頁為「固定過去錨點＋向前展望」之穩定封存（見 src/lib/almanac/dates.ts）：
   // 集合單調成長、永不移除，故任何網址永不 404。
   //

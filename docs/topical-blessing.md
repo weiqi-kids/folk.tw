@@ -53,8 +53,43 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 - ≥N 個 `http(s)` 來源（P2 開頁需 ≥2、P4 更新需 ≥1）。
 - **逐一實 `fetch`（browser UA、redirect follow、15s timeout），要求最終 2xx 存活**達門檻；死連結/擋爬者剔除。
 - **內容比對**（P2）：去 HTML 標籤後至少一頁需含事件關鍵詞（地名等），擋「真 URL＋假內容」。
-- 去重：deterministic id ＋ 同地同期 ＋ hash(url+text)。時效：只收近 21 天內、非未來。
+- 去重：見下方 §3.5（2026-07-25 重寫）。時效：只收近 21 天內、非未來。
 - 失敗一律保守 **block/丟棄**（寧漏不錯）。
+
+### 3.5 同事件去重：`scripts/lib/topical-dedup.mjs`（純函式，可回測）
+
+> ⚠️ **2026-07-25 事故（修法的由來）**：2026-07-17 重慶彭水山崩被 P2 開了**三頁**——
+> 「重慶市彭水縣」／「重慶市彭水苗族土家族自治縣」／「重庆彭水县汉葭街道」。
+> 根因：prompt 要求「地名用來源原文」（紅線 5），而去重只有 `normPlace` **字串完全相等**這條退路；
+> 新聞型事件又沒有座標（`km()` 回 `Infinity`，10km 判定形同虛設）→ 三種寫法互不相等 → 各自開頁
+> （id ＝ `hash(normPlace+time)`，也跟著分裂）。`/qiugian/` 清單上同一件事因此列了三次。
+
+`findDuplicate(list, cand)` 三道規則，任一命中即不開頁；全部先要求**時間差 ≤3 天**：
+
+| 規則 | 內容 | 擋得住什麼 |
+|---|---|---|
+| `place` | `normPlace` 字串相等 | 同一寫法重複回報（原有規則） |
+| `source-url` | 候選與既有條目**引用到同一篇報導**（`normSourceUrl`：去 protocol/www/query/尾斜線） | 地名寫法變了但引用同一批新聞——上面事故的第二頁就屬此類 |
+| `geo` | 同 `eventType` 且**距離 ≤10km** | 地名寫法與來源都不同時的最後一道；靠座標，與字串無關 |
+
+- **座標哪來**：P2 在複驗通過後對地名做地理編碼（`lib/topical-geo.mjs`，Nominatim，內建 1.2s 間隔＋UA）。
+  上述三種寫法實測都落在 29.296,108.161 附近（相距 <0.2 km）。**查無座標或服務失效一律回 `null`，
+  去重自動退回字串比對**——不因外部服務掛掉而放行或誤擋。既有條目座標已於 2026-07-25 一次性回填。
+- **`list` 要傳全部條目**（含 `mergedInto` 的併頁舊條目）：它們的地名字串仍是擋住同事件再開頁的有效線索。
+- **回測**：這是純函式，改規則後請用歷史事故資料驗，至少涵蓋「當初漏掉的三種寫法會被擋」與
+  「不同事件（如前橋橋樑坍塌）不被誤擋」兩側。2026-07-25 實測：A 情境（同來源）`source-url` 擋下、
+  B 情境（來源全新）補座標後 `geo` 擋下、四種地名寫法全擋、對照組不誤擋。
+
+### 3.6 已重複開頁時怎麼併（`mergedInto`）
+
+紅線 4 說 slug 永久承諾、不可 404，所以**併頁不是刪頁**：
+
+1. 挑一頁當正本（canonical，通常是最早、地名最通用的那個 id），把其餘條目的 `sources` 併進正本（去重），
+   後續（`updates`）只挑「內容真正新增且來源網址未用過」的併入——**整份時間軸照搬會在正本頁內製造新的重複**。
+2. 被併條目加 `mergedInto: '<canonical id>'`（另記 `merged_at`／`merged_reason`），**條目留在 `topical.json` 不刪**。
+3. 其餘全自動：`[slug].astro` 的 `getStaticPaths` 跳過它們 → `astro.config.mjs` 依 `mergedInto` 產靜態
+   redirect（meta-refresh ＋ canonical 指向正本 ＋ noindex）→ sitemap 排除 → `/qiugian/` 清單排除 →
+   P4 不再追蹤（`isTracked` 回 false）→ P1 不再改其狀態。
 
 ### (b) 禁數字：`scripts/lib/topical-guard.mjs`（純函式，三支共用）
 - `hasBannedNumber(text)`：偵測「數字（阿拉伯/全形/中文）＋傷亡/災損量詞（人/名/罹難/失蹤/棟/戶/座/億/萬/元…）」。
@@ -78,5 +113,6 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 - 改 `topical.json` schema → 顧及既有 archived 條目**向後相容**（靠 `inferType` 推論）、舊網址不 404。
 - 改任何 cron → 同步更新 `/etc/cron.d/folk-qiugian` 註解與本檔（根 CLAUDE.md 紅線）。
 - 改 `topical-guard.mjs` → 跑其自測。改複驗邏輯 → 用真實觸雷案例回歸。
+- 改 `topical-dedup.mjs`／地理編碼 → 依 §3.5 用歷史事故資料回測（含「不同事件不被誤擋」的對照組）。
 - 全站文案／設計另受 `check:copy-voice`、`check-design.mjs` gate（見 CLAUDE.md）。⚠️ topical.json 的
   title/event/update 文字**不被 check:copy-voice 掃**（那只掃 .astro），故其品質靠本頁 §3 gate ＋ 人工 Slack 把關。
