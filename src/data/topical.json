@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
-      "empty_runs": 3
+      "last_checked": "2026-07-25",
+      "empty_runs": 4
     },
     "memorial_at": "2026-07-20"
   },
@@ -195,8 +195,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
-      "empty_runs": 0
+      "last_checked": "2026-07-25",
+      "empty_runs": 1
     },
     "bless_snapshot": 1
   },
@@ -223,8 +223,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
-      "empty_runs": 6
+      "last_checked": "2026-07-25",
+      "empty_runs": 7
     }
   },
   {
@@ -311,11 +311,27 @@
         ],
         "added": "2026-07-24T12:35:41.570Z",
         "hash": "df56d02fa323"
+      },
+      {
+        "date": "2026-07-24",
+        "text": "搜救隊伍在遺體搜尋階段持續尋获罹難者遺體，各專業力量夜以繼日推進搜尋工作。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260724/01e4d1559d454c63b9c6a1af56c3f638/c.html"
+          },
+          {
+            "ref": "大紀元",
+            "url": "https://www.epochtimes.com/gb/26/7/25/n14817175.htm"
+          }
+        ],
+        "added": "2026-07-25T12:33:53.071Z",
+        "hash": "83acc85d7ac1"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
+      "last_checked": "2026-07-25",
       "empty_runs": 0
     }
   },
@@ -391,11 +407,23 @@
         ],
         "added": "2026-07-24T12:36:51.837Z",
         "hash": "40acfa9b3170"
+      },
+      {
+        "date": "2026-07-24",
+        "text": "重慶彭水山體崩塌現場搜救持續進行，當日再尋獲罹難者遺體，罹難人數續有增加，相關統計與核實工作仍在進行中。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260724/01e4d1559d454c63b9c6a1af56c3f638/c.html"
+          }
+        ],
+        "added": "2026-07-25T12:34:24.940Z",
+        "hash": "1a09f7ccdc3c"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
+      "last_checked": "2026-07-25",
       "empty_runs": 0
     }
   },
@@ -491,11 +519,27 @@
         ],
         "added": "2026-07-24T12:37:50.022Z",
         "hash": "754bdaee5354"
+      },
+      {
+        "date": "2026-07-24",
+        "text": "搜救人員在崩塌現場拓寬多個作業面持續搜尋，新尋獲數名罹難者遺體，死亡人數續增，專業隊伍與大型機具二十四小時不間斷搜救。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260724/01e4d1559d454c63b9c6a1af56c3f638/c.html"
+          },
+          {
+            "ref": "澎湃新聞",
+            "url": "https://www.thepaper.cn/newsDetail_forward_33654735"
+          }
+        ],
+        "added": "2026-07-25T12:35:44.635Z",
+        "hash": "6d977ad8fb18"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
+      "last_checked": "2026-07-25",
       "empty_runs": 0
     }
   },
@@ -518,11 +562,36 @@
     "detector": "gdacs",
     "since": "2026-07-23",
     "status": "active",
-    "updates": [],
+    "updates": [
+      {
+        "date": "2026-07-24",
+        "text": "颱風紅霞持續增強為強烈等級，預測即將於廣東沿海一帶登陸，當地已展開防風整備工作。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7266/9650503"
+          }
+        ],
+        "added": "2026-07-25T12:36:32.706Z",
+        "hash": "7732a0985e51"
+      },
+      {
+        "date": "2026-07-25",
+        "text": "香港天文台已發出颱風戒備信號，廣東東莞等地宣布停課停工停運停業以因應紅霞來襲。",
+        "sources": [
+          {
+            "ref": "星島頭條",
+            "url": "https://www.stheadline.com/realtime-china/3597164/%E9%A2%B1%E9%A2%A8%E7%B4%85%E9%9C%9E%E5%A4%A9%E6%96%87%E5%8F%B0%E4%BB%8A%E6%99%9A%E7%99%BC%E4%B8%80%E8%99%9F%E6%88%92%E5%82%99%E4%BF%A1%E8%99%9F-%E5%BB%A3%E6%9D%B1%E9%90%B5%E8%B7%AF%E5%91%A8%E6%97%A5%E6%88%96%E5%85%A8%E7%B7%9A%E5%81%9C%E9%81%8B"
+          }
+        ],
+        "added": "2026-07-25T12:36:33.164Z",
+        "hash": "f8ffd23151cd"
+      }
+    ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-24",
-      "empty_runs": 2
+      "last_checked": "2026-07-25",
+      "empty_runs": 0
     }
   }
 ]
