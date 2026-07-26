@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-25",
-      "empty_runs": 4
+      "last_checked": "2026-07-26",
+      "empty_runs": 5
     },
     "memorial_at": "2026-07-20"
   },
@@ -195,8 +195,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-25",
-      "empty_runs": 1
+      "last_checked": "2026-07-26",
+      "empty_runs": 2
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -225,8 +225,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-25",
-      "empty_runs": 7
+      "last_checked": "2026-07-26",
+      "empty_runs": 8
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -355,8 +355,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-25",
-      "empty_runs": 0
+      "last_checked": "2026-07-26",
+      "empty_runs": 1
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -624,11 +624,35 @@
         ],
         "added": "2026-07-25T12:36:33.164Z",
         "hash": "f8ffd23151cd"
+      },
+      {
+        "date": "2026-07-26",
+        "text": "颱風紅霞已於二十六日凌晨在廣東惠州沿海登陸，當地隨即在強風豪雨中展開緊急應變、多個地市同步採取停課停工等措施。",
+        "sources": [
+          {
+            "ref": "旺報",
+            "url": "https://www.chinatimes.com/realtimenews/20260726001442-260409"
+          }
+        ],
+        "added": "2026-07-26T12:33:58.486Z",
+        "hash": "5e10b295dd82"
+      },
+      {
+        "date": "2026-07-26",
+        "text": "廣東已將救災應急響應等級提升，並發布颱風登陸後首個洪水紅色預警，河流水位持續受到監控。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-07-26/doc-inikawym3839316.shtml"
+          }
+        ],
+        "added": "2026-07-26T12:34:00.825Z",
+        "hash": "8f86ae2ec060"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "empty_runs": 0
     }
   },
@@ -653,6 +677,49 @@
     "lon": 111.6457166,
     "detector": "news",
     "since": "2026-07-26",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-25",
+        "text": "受困人員已全數尋獲，搜救行動告一段落，傷者已送醫救治，生命徵象穩定。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-25/10666239.shtml"
+          }
+        ],
+        "added": "2026-07-26T12:34:34.929Z",
+        "hash": "be33a9718158"
+      },
+      {
+        "date": "2026-07-25",
+        "text": "官方初步研判，事發民居緊鄰山坡而建，近日降雨致黃土鬆動崩塌釀禍。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/wm/2026-07-25/doc-iniiytzr1450284.shtml"
+          }
+        ],
+        "added": "2026-07-26T12:34:35.051Z",
+        "hash": "c1bb871fbe0b"
+      },
+      {
+        "date": "2026-07-25",
+        "text": "當地已成立現場搶險救援指揮部，善後工作正有序進行。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.cn/2026-07-25/detail-iniizrfc1040891.d.html"
+          }
+        ],
+        "added": "2026-07-26T12:34:36.135Z",
+        "hash": "bacc0a51b545"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-26",
+      "empty_runs": 0
+    }
   }
 ]
