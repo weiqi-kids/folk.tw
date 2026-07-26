@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
+import { sharedCycloneName, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -78,8 +79,14 @@ async function gdacsDetector() {
     const lat = geo('lat'), lon = geo('long');
     const eventid = pick('eventid');
     const link = (pick('link') || '').replace(/&amp;/g, '&');
+    // 熱帶氣旋的國際命名只出現在 RSS 標題（`… tropical cyclone NOUL-26 …`）。留檔供跨產線去重：
+    // P2 從新聞只拿得到中文名（紅霞），靠 lib/typhoon-names.json 的 CWA 對照表換算才比得起來。
+    const cycloneName = GDACS_TYPE[etype] === 'cyclone'
+      ? (pick('title') || '').match(/tropical cyclone\s+([A-Za-z][A-Za-z-]+?)(?:-\d+)?[\s.,]/i)?.[1]
+      : undefined;
     out.push({
       id: `gdacs-${etype.toLowerCase()}-${eventid}`, eventType: GDACS_TYPE[etype], detector: 'gdacs',
+      ...(cycloneName ? { cycloneName } : {}),
       place: pick('country') || pick('eventname') || '',
       severity: [pick('severity'), pick('population')].filter(Boolean).join('，'),
       summary: pick('description') || pick('title') || '',
@@ -184,6 +191,16 @@ for (const c of await detect()) {
   if (known.has(c.id)) continue;
   // 跨執行去重：與既有條目（含已歸檔）同震者略過，免同一場事件換個網解又開一頁。
   if (list.some((it) => sameEvent(it, c))) { console.error(`[topical] ${c.id} 與既有事件同震，略過`); continue; }
+  // 跨產線去重（氣旋專用）：颱風會移動，上面的距離判定對它無效——P2 可能已先用中文名開過同一個颱風的頁。
+  // 這裡不動 sameEvent（它有地震 250km/1 天的專屬調校），只補一道名字比對。見 lib/topical-dedup.mjs dC。
+  if (c.eventType === 'cyclone') {
+    const dup = list.find((it) => it.eventType === 'cyclone' &&
+      Math.abs(Date.parse(it.time) - Date.parse(c.time)) / 864e5 <= CYCLONE_DAYS &&
+      sharedCycloneName(it, c));
+    if (dup) {
+      console.error(`[topical] ${c.id} 與 ${dup.id} 同一個颱風「${sharedCycloneName(dup, c)}」，略過`); continue;
+    }
+  }
   const g = gateAndFrame(c);
   if (g.verdict !== 'pass' || !g.title) { console.error(`[topical] ${c.id} 未過閘：${g.reason || 'block'}`); continue; }
   // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
@@ -194,8 +211,9 @@ for (const c of await detect()) {
     id: c.id, eventType: c.eventType, title: g.title,
     event: safeEvent,
     sources: c.sources,
-    // place/severity/mag/lat/lon/time 留檔供跨執行 sameEvent 比對。
+    // place/severity/mag/lat/lon/time 留檔供跨執行 sameEvent 比對；cycloneName（國際命名）供跨產線名字比對。
     place: c.place, time: c.time,
+    ...(c.cycloneName ? { cycloneName: c.cycloneName } : {}),
     ...(c.mag != null ? { mag: c.mag } : {}),
     ...(c.severity ? { severity: c.severity } : {}),
     ...(c.lat != null ? { lat: c.lat, lon: c.lon } : {}),

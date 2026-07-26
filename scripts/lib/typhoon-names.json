@@ -1,0 +1,571 @@
+{
+  "$comment": "西北太平洋及南海颱風「國際命名（英）↔ 中文譯名」對照，供時事祈福去重把 GDACS 的英文颱風名橋接到新聞的中文名（見 scripts/lib/topical-dedup.mjs）。純資料、不面向使用者。",
+  "source": {
+    "ref": "交通部中央氣象署《颱風百問》表 2-1「西北太平洋及南海颱風中文譯名及國際命名對照表」（2025 年 6 月更新）",
+    "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/typhoon/typhoon.pdf"
+  },
+  "retrieved": "2026-07-26",
+  "count": 140,
+  "names": [
+    {
+      "zh": "丹瑞",
+      "en": "Damrey"
+    },
+    {
+      "zh": "康芮",
+      "en": "Kong-rey"
+    },
+    {
+      "zh": "娜克莉",
+      "en": "Nakri"
+    },
+    {
+      "zh": "科羅旺",
+      "en": "Krovanh"
+    },
+    {
+      "zh": "翠絲",
+      "en": "Trases"
+    },
+    {
+      "zh": "天馬",
+      "en": "Tianma"
+    },
+    {
+      "zh": "銀杏",
+      "en": "Yinxing"
+    },
+    {
+      "zh": "風神",
+      "en": "Fengshen"
+    },
+    {
+      "zh": "杜鵑",
+      "en": "Dujuan"
+    },
+    {
+      "zh": "木蘭",
+      "en": "Mulan"
+    },
+    {
+      "zh": "鴻雁",
+      "en": "Kirogi"
+    },
+    {
+      "zh": "桔梗",
+      "en": "Toraji"
+    },
+    {
+      "zh": "海鷗",
+      "en": "Kalmaegi"
+    },
+    {
+      "zh": "舒力基",
+      "en": "Surigae"
+    },
+    {
+      "zh": "米雷",
+      "en": "Meari"
+    },
+    {
+      "zh": "鴛鴦",
+      "en": "Yun-yeung"
+    },
+    {
+      "zh": "萬宜",
+      "en": "Man-yi"
+    },
+    {
+      "zh": "鳳凰",
+      "en": "Fung-wong"
+    },
+    {
+      "zh": "彩雲",
+      "en": "Choi-wan"
+    },
+    {
+      "zh": "青馬",
+      "en": "Tsing-ma"
+    },
+    {
+      "zh": "小犬",
+      "en": "Koinu"
+    },
+    {
+      "zh": "天兔",
+      "en": "Usagi"
+    },
+    {
+      "zh": "天琴",
+      "en": "Koto"
+    },
+    {
+      "zh": "小熊",
+      "en": "Koguma"
+    },
+    {
+      "zh": "蝎虎",
+      "en": "Tokage"
+    },
+    {
+      "zh": "布拉萬",
+      "en": "Bolaven"
+    },
+    {
+      "zh": "帕布",
+      "en": "Pabuk"
+    },
+    {
+      "zh": "洛鞍",
+      "en": "Nokaen"
+    },
+    {
+      "zh": "薔琵",
+      "en": "Champi"
+    },
+    {
+      "zh": "坡鹿",
+      "en": "Ong-mang"
+    },
+    {
+      "zh": "三巴",
+      "en": "Sanba"
+    },
+    {
+      "zh": "蝴蝶",
+      "en": "Wutip"
+    },
+    {
+      "zh": "西望洋",
+      "en": "Penha"
+    },
+    {
+      "zh": "煙花",
+      "en": "In-Fa"
+    },
+    {
+      "zh": "梅花",
+      "en": "Muifa"
+    },
+    {
+      "zh": "鯉魚",
+      "en": "Jelawat"
+    },
+    {
+      "zh": "聖帕",
+      "en": "Sepat"
+    },
+    {
+      "zh": "鸚鵡",
+      "en": "Nuri"
+    },
+    {
+      "zh": "查帕卡",
+      "en": "Cempaka"
+    },
+    {
+      "zh": "莫柏",
+      "en": "Merbok"
+    },
+    {
+      "zh": "艾維尼",
+      "en": "Ewiniar"
+    },
+    {
+      "zh": "木恩",
+      "en": "Mun"
+    },
+    {
+      "zh": "辛樂克",
+      "en": "Sinlaku"
+    },
+    {
+      "zh": "尼伯特",
+      "en": "Nepartak"
+    },
+    {
+      "zh": "南瑪都",
+      "en": "Nanmadol"
+    },
+    {
+      "zh": "馬力斯",
+      "en": "Maliksi"
+    },
+    {
+      "zh": "丹娜絲",
+      "en": "Danas"
+    },
+    {
+      "zh": "哈格比",
+      "en": "Hagupit"
+    },
+    {
+      "zh": "盧碧",
+      "en": "Lupit"
+    },
+    {
+      "zh": "塔拉斯",
+      "en": "Talas"
+    },
+    {
+      "zh": "凱米",
+      "en": "Gaemi"
+    },
+    {
+      "zh": "百合",
+      "en": "Nari"
+    },
+    {
+      "zh": "薔蜜",
+      "en": "Jangmi"
+    },
+    {
+      "zh": "銀河",
+      "en": "Mirinae"
+    },
+    {
+      "zh": "核桃",
+      "en": "Hodu"
+    },
+    {
+      "zh": "巴比侖",
+      "en": "Prapiroon"
+    },
+    {
+      "zh": "薇帕",
+      "en": "Wipha"
+    },
+    {
+      "zh": "米克拉",
+      "en": "Mekkhala"
+    },
+    {
+      "zh": "妮妲",
+      "en": "Nida"
+    },
+    {
+      "zh": "庫拉",
+      "en": "Kulap"
+    },
+    {
+      "zh": "瑪莉亞",
+      "en": "Maria"
+    },
+    {
+      "zh": "范斯高",
+      "en": "Francisco"
+    },
+    {
+      "zh": "無花果",
+      "en": "Higos"
+    },
+    {
+      "zh": "奧麥斯",
+      "en": "Omais"
+    },
+    {
+      "zh": "洛克",
+      "en": "Roke"
+    },
+    {
+      "zh": "山神",
+      "en": "Son-Tinh"
+    },
+    {
+      "zh": "竹節草",
+      "en": "Co-may"
+    },
+    {
+      "zh": "巴威",
+      "en": "Bavi"
+    },
+    {
+      "zh": "布袋蓮",
+      "en": "Luc-Binh"
+    },
+    {
+      "zh": "桑卡",
+      "en": "Sonca"
+    },
+    {
+      "zh": "安比",
+      "en": "Ampil"
+    },
+    {
+      "zh": "柯羅莎",
+      "en": "Krosa"
+    },
+    {
+      "zh": "梅莎",
+      "en": "Maysak"
+    },
+    {
+      "zh": "璨樹",
+      "en": "Chanthu"
+    },
+    {
+      "zh": "尼莎",
+      "en": "Nesat"
+    },
+    {
+      "zh": "悟空",
+      "en": "Wukong"
+    },
+    {
+      "zh": "白鹿",
+      "en": "Bailu"
+    },
+    {
+      "zh": "海神",
+      "en": "Haishen"
+    },
+    {
+      "zh": "電母",
+      "en": "Dianmu"
+    },
+    {
+      "zh": "海棠",
+      "en": "Haitang"
+    },
+    {
+      "zh": "雲雀",
+      "en": "Jongdari"
+    },
+    {
+      "zh": "楊柳",
+      "en": "Podul"
+    },
+    {
+      "zh": "紅霞",
+      "en": "Noul"
+    },
+    {
+      "zh": "蒲公英",
+      "en": "Mindulle"
+    },
+    {
+      "zh": "蜻蜓",
+      "en": "Jamjari"
+    },
+    {
+      "zh": "珊珊",
+      "en": "Shanshan"
+    },
+    {
+      "zh": "玲玲",
+      "en": "Lingling"
+    },
+    {
+      "zh": "白海豚",
+      "en": "Dolphin"
+    },
+    {
+      "zh": "獅子山",
+      "en": "Lionrock"
+    },
+    {
+      "zh": "榕樹",
+      "en": "Banyan"
+    },
+    {
+      "zh": "摩羯",
+      "en": "Yagi"
+    },
+    {
+      "zh": "劍魚",
+      "en": "Kajiki"
+    },
+    {
+      "zh": "鯨魚",
+      "en": "Kujira"
+    },
+    {
+      "zh": "時鐘",
+      "en": "Tokei"
+    },
+    {
+      "zh": "山貓",
+      "en": "Yamaneko"
+    },
+    {
+      "zh": "麗琵",
+      "en": "Leepi"
+    },
+    {
+      "zh": "藍湖",
+      "en": "Nongfa"
+    },
+    {
+      "zh": "昌鴻",
+      "en": "Chan-hom"
+    },
+    {
+      "zh": "南修",
+      "en": "Namtheun"
+    },
+    {
+      "zh": "帕卡",
+      "en": "Pakhar"
+    },
+    {
+      "zh": "貝碧佳",
+      "en": "Bebinca"
+    },
+    {
+      "zh": "琵琶",
+      "en": "Peipah"
+    },
+    {
+      "zh": "琵鷺",
+      "en": "Peilou"
+    },
+    {
+      "zh": "瑪瑙",
+      "en": "Malou"
+    },
+    {
+      "zh": "珊瑚",
+      "en": "Sanvu"
+    },
+    {
+      "zh": "葡萄桑",
+      "en": "Pulasan"
+    },
+    {
+      "zh": "塔巴",
+      "en": "Tapah"
+    },
+    {
+      "zh": "南卡",
+      "en": "Nangka"
+    },
+    {
+      "zh": "妮亞圖",
+      "en": "Nyatoh"
+    },
+    {
+      "zh": "瑪娃",
+      "en": "Mawar"
+    },
+    {
+      "zh": "蘇力",
+      "en": "Soulik"
+    },
+    {
+      "zh": "米塔",
+      "en": "Mitag"
+    },
+    {
+      "zh": "沙德爾",
+      "en": "Saudel"
+    },
+    {
+      "zh": "沙布爾",
+      "en": "Sarbul"
+    },
+    {
+      "zh": "谷超",
+      "en": "Guchol"
+    },
+    {
+      "zh": "西馬隆",
+      "en": "Cimaron"
+    },
+    {
+      "zh": "樺加沙",
+      "en": "Ragasa"
+    },
+    {
+      "zh": "紫檀",
+      "en": "Narra"
+    },
+    {
+      "zh": "阿穆丘",
+      "en": "Amuyao"
+    },
+    {
+      "zh": "泰利",
+      "en": "Talim"
+    },
+    {
+      "zh": "燕子",
+      "en": "Jebi"
+    },
+    {
+      "zh": "浣熊",
+      "en": "Neoguri"
+    },
+    {
+      "zh": "簡拉維",
+      "en": "Gaenari"
+    },
+    {
+      "zh": "古莎莉",
+      "en": "Gosari"
+    },
+    {
+      "zh": "大麥",
+      "en": "Bori"
+    },
+    {
+      "zh": "山陀兒",
+      "en": "Krathon"
+    },
+    {
+      "zh": "博羅依",
+      "en": "Bualoi"
+    },
+    {
+      "zh": "閃電",
+      "en": "Atsani"
+    },
+    {
+      "zh": "芙蓉",
+      "en": "Chaba"
+    },
+    {
+      "zh": "卡努",
+      "en": "Khanun"
+    },
+    {
+      "zh": "百里嘉",
+      "en": "Barijat"
+    },
+    {
+      "zh": "麥德姆",
+      "en": "Matmo"
+    },
+    {
+      "zh": "艾陶",
+      "en": "Etau"
+    },
+    {
+      "zh": "艾利",
+      "en": "Aere"
+    },
+    {
+      "zh": "蘭恩",
+      "en": "Lan"
+    },
+    {
+      "zh": "潭美",
+      "en": "Trami"
+    },
+    {
+      "zh": "哈隆",
+      "en": "Halong"
+    },
+    {
+      "zh": "班朗",
+      "en": "Bang-lang"
+    },
+    {
+      "zh": "桑達",
+      "en": "Songda"
+    },
+    {
+      "zh": "海星",
+      "en": "Saobien"
+    }
+  ]
+}

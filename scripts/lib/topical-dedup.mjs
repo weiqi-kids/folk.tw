@@ -18,12 +18,16 @@
 // （place=`巴士海峽、東沙島海面及臺灣海峽`、地理編碼查無→無座標）——三道規則全漏，
 // 差點為同一個颱風開出第二頁。氣旋的自然主鍵是**名字**，故對 cyclone 改以名字比對。
 //
+// 兩條產線用的是兩套字串：P1（GDACS）只有國際命名 `NOUL`，P2（新聞）只有中文名「紅霞」。
+// 故名字集合裡一律把英文名用 CWA 對照表（lib/typhoon-names.json）換算成中文再比，兩個方向都擋得住。
+//
 // 名字抽取刻意「寧可過度抽取」：前後綴兩式各同時收 2 字與 3 字（颱風名 2～3 字皆有，
 // 如紅霞／杜蘇芮），因為最終要求**兩邊的名字集合有交集**才算命中，單邊的雜訊自然被交集濾掉。
 // 真正的誤併風險是「兩邊都抽到同一個常見詞」（如兩個不同颱風都寫『颱風登陸』），
 // 故用 CYCLONE_STOP 擋掉災防新聞裡緊鄰氣旋詞的常見詞彙。新踩到的詞往 CYCLONE_STOP 加。
 // 自我測試：`node scripts/lib/topical-dedup.mjs --selftest`（含上述紅霞案例與誤併反例）。
 
+import { readFileSync } from 'node:fs';
 import { normSourceUrl } from './topical-geo.mjs';
 
 export const SAME_EVENT_DAYS = 3;
@@ -70,9 +74,17 @@ const CYCLONE_STOP = new Set([
   '已經', '持續', '停課', '停班', '停止', '恢復', '防範', '準備', '整備', '應變', '疏散', '撤離', '救援',
 ]);
 
-/** 條目／候選可供比對的全部文字（標題、祈福語、摘要、地名、後續進展）。 */
+// 英文颱風名 → 中文譯名（CWA《颱風百問》表 2-1，140 筆；資料與出處見 lib/typhoon-names.json）。
+// 用途：GDACS 只給英文名（RSS 標題 `tropical cyclone NOUL-26`），新聞只給中文名（紅霞），
+// 少了這座橋，P1 開的頁與 P2 開的頁就是兩套字串、名字規則發動不了。
+const TYPHOON_ZH = new Map(
+  JSON.parse(readFileSync(new URL('./typhoon-names.json', import.meta.url), 'utf8'))
+    .names.map(({ zh, en }) => [en.toLowerCase().replace(/-/g, ''), zh]));
+
+/** 條目／候選可供比對的全部文字（標題、祈福語、摘要、地名、颱風英文名、後續進展）。 */
 export const eventText = (o) => [
-  o?.title, o?.event, o?.summary, o?.place, ...((o?.updates ?? []).map((u) => u?.text)),
+  o?.title, o?.event, o?.summary, o?.place, o?.cycloneName,
+  ...((o?.updates ?? []).map((u) => u?.text)),
 ].filter(Boolean).join('　');
 
 /**
@@ -90,6 +102,12 @@ export function cycloneNames(text) {
   // 前綴式：紅霞颱風 ／「紅霞」颱風
   for (const m of s.matchAll(new RegExp(`([一-鿿]{2,3})[」』"'’”]?${CYC_WORD}`, 'g'))) {
     push(m[1].slice(-2)); push(m[1]);
+  }
+  // 英文國際命名（GDACS 那側只有這個）→ 一律換算成中文名放進集合，兩側才比得起來。
+  // 只認 CWA 140 個正式名稱、且要求完整單詞邊界，不會誤抓一般英文字。
+  for (const m of s.matchAll(/[A-Za-z][A-Za-z-]{2,}/g)) {
+    const zh = TYPHOON_ZH.get(m[0].toLowerCase().replace(/-/g, ''));
+    if (zh) out.add(zh);
   }
   return out;
 }
@@ -177,6 +195,20 @@ if (process.argv[1]?.endsWith('topical-dedup.mjs') && process.argv.includes('--s
     findDuplicate([koguma], {
       eventType: 'cyclone', place: '沖繩', time: '2026-08-15', summary: '颱風紅霞…',
     }), null);
+
+  // (4b) P2→P1 方向（2026-07-26 補）：P2 先用中文名開了頁，P1 之後才從 GDACS 撈到同一個颱風
+  //      （GDACS 只給國際命名 NOUL）。靠 CWA 對照表 Noul→紅霞 橋接才擋得住。
+  check('P2 中文名頁 vs P1 的 GDACS 英文名候選 → 同事件',
+    findDuplicate([{
+      id: 'news-cyclone-20260724-abc123', eventType: 'cyclone', title: '為紅霞颱風平安祈福',
+      event: '颱風紅霞逼近，願平安。', place: '巴士海峽', time: '2026-07-24',
+    }], { eventType: 'cyclone', cycloneName: 'NOUL', place: 'China', time: '2026-07-26', lat: 17.4, lon: 128.4 }),
+    { id: 'news-cyclone-20260724-abc123', rule: 'cyclone-name', name: '紅霞' });
+  check('英文名對照表：Noul→紅霞、Koguma→小熊、Krathon→山陀兒',
+    ['Noul', 'Koguma', 'Krathon'].map((en) => [...cycloneNames(en)][0]), ['紅霞', '小熊', '山陀兒']);
+  check('不同颱風的英文名不互相橋接（NOUL vs KOGUMA）→ 不併',
+    findDuplicate([{ id: 'a', eventType: 'cyclone', cycloneName: 'KOGUMA', place: 'Japan', time: '2026-07-23' }],
+      { eventType: 'cyclone', cycloneName: 'NOUL', place: 'China', time: '2026-07-26' }), null);
 
   // (5) 強度形容詞不可被當成名字。
   check('「強烈颱風」不抽成名字', cycloneNames('強烈颱風紅霞').has('強烈'), false);
