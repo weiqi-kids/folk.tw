@@ -629,5 +629,28 @@
       "last_checked": "2026-07-25",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-landslide-20260724-3f215e",
+    "eventType": "landslide",
+    "title": "為山西臨汾洪洞好義村山崩平安祈福",
+    "event": "山西臨汾洪洞好義村七月二十四日夜間發生黃土崩塌，掩埋民宅、造成傷亡，願罹難者安息、傷者早日康復；也願當地鄉親平安度過這場難關。",
+    "sources": [
+      {
+        "ref": "央视网",
+        "url": "https://news.cctv.com/2026/07/25/ARTIhdTxfHhHrlqMVOTqRiDQ260725.shtml"
+      },
+      {
+        "ref": "新华网",
+        "url": "https://www.news.cn/local/20260725/0967adc670d24682a143b53ca4fe4429/c.html"
+      }
+    ],
+    "place": "山西省临汾市洪洞县好义村",
+    "time": "2026-07-24",
+    "lat": 36.3771496,
+    "lon": 111.6457166,
+    "detector": "news",
+    "since": "2026-07-26",
+    "status": "active"
   }
 ]
