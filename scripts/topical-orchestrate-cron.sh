@@ -2,22 +2,15 @@
 # 時事祈福自動編排 cron 包裝：pull → 跑編排 → topical.json 有變才 commit + push（觸發部署）+ Slack 通知。
 # 由 /etc/cron.d/folk-qiugian 每 20 分呼叫。時事頁時效性高 → 不用 [skip ci]，push 即自動部署上線。
 set -euo pipefail
-cd /root/folk.tw
+source "$(dirname "$(readlink -f "$0")")/lib/cron-worktree.sh"
 
-git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null || true; echo "[topical-cron] pull 失敗，跳過"; exit 1; }
+# 在隔離 worktree 執行：主工作樹的未提交改動不會被誤 commit（見 lib/cron-worktree.sh 檔頭）。
+cw_begin "[topical-cron]"
 
 OUT="$(/usr/bin/node scripts/topical-orchestrate.mjs)" || { echo "[topical-cron] 編排失敗"; exit 1; }
 [ -n "$OUT" ] && echo "$OUT"
 
-if git diff --quiet src/data/topical.json; then
-  echo "[topical-cron] 無變更"
-  exit 0
-fi
-
-git add src/data/topical.json
-git commit -q -m "feat(topical): 時事祈福自動編排 $(date -u +%FT%H:%MZ)"
-git push origin main
-echo "[topical-cron] 已 commit/push（觸發部署）"
+cw_commit_push "[topical-cron]" "feat(topical): 時事祈福自動編排 $(date -u +%FT%H:%MZ)" || { echo "[topical-cron] 無變更"; exit 0; }
 
 # 對每個新開的祈福頁發 Slack（過了正向議題閘、開後通知、可事後撤）
 TOKEN="$(cat /root/.config/folk-tw/slack-bot-token)"

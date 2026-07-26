@@ -4,29 +4,25 @@
 #   UPDATED／MEMORIAL 行發 Slack。後續發展屬持續記錄、非急件，但沿用 push 即部署上線。
 # 排程由主控者親自裝進 /etc/cron.d（本檔不自行安裝）。
 set -euo pipefail
-cd /root/folk.tw
+source "$(dirname "$(readlink -f "$0")")/lib/cron-worktree.sh"
 
-git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null || true; echo "[followup-cron] pull 失敗，跳過"; exit 1; }
+# 在隔離 worktree 執行：主工作樹的未提交改動不會被誤 commit（見 lib/cron-worktree.sh 檔頭）。
+cw_begin "[followup-cron]"
 
 OUT="$(/usr/bin/node scripts/topical-followup.mjs)" || { echo "[followup-cron] 追蹤失敗"; exit 1; }
 [ -n "$OUT" ] && echo "$OUT"
 
-if git diff --quiet src/data/topical.json; then
-  echo "[followup-cron] 無變更"
-  exit 0
-fi
-
-git add src/data/topical.json
 # followup 中繼（last_checked/empty_runs/sealed）不被任何渲染頁使用 → 只有中繼變動時用 [skip ci] 免每日無謂部署；
 # 有新進展（UPDATED）或升記錄頁（MEMORIAL）＝真的改到頁面 → 正常 push 觸發部署。
 if echo "$OUT" | grep -qE '^(UPDATED|MEMORIAL)'; then
-  git commit -q -m "feat(topical): 後續發展追蹤 $(date -u +%FT%H:%MZ)"
-  echo "[followup-cron] 已 commit/push（有新進展/升態，觸發部署）"
+  MSG="feat(topical): 後續發展追蹤 $(date -u +%FT%H:%MZ)"
+  NOTE="（有新進展/升態，觸發部署）"
 else
-  git commit -q -m "chore(topical): 後續追蹤中繼更新 $(date -u +%FT%H:%MZ) [skip ci]"
-  echo "[followup-cron] 已 commit/push（僅中繼更新，[skip ci] 不部署）"
+  MSG="chore(topical): 後續追蹤中繼更新 $(date -u +%FT%H:%MZ) [skip ci]"
+  NOTE="（僅中繼更新，[skip ci] 不部署）"
 fi
-git push origin main
+cw_commit_push "[followup-cron]" "$MSG" || { echo "[followup-cron] 無變更"; exit 0; }
+echo "[followup-cron] ${NOTE}"
 
 TOKEN="$(cat /root/.config/folk-tw/slack-bot-token)"
 slack() { # $1=text

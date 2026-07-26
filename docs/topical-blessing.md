@@ -23,8 +23,18 @@
 | P4 後續追蹤 | `topical-followup.mjs` | `30 12`（每日） | 追蹤中事件找新進展 → 機器複驗 → 掛源接時間軸；archived 有後續→memorial |
 | （集氣聚合） | `qiugian-aggregate.mjs` | `0 15`（每日） | GA4 → 集氣人數；峰值凍結回寫 `bless_snapshot` |
 
-每支都有 `*-cron.sh` 包裝：`pull --rebase --autostash → 跑 → topical.json 有變才 commit/push（觸發部署）→ Slack 通知`。
+每支都有 `*-cron.sh` 包裝：`備妥隔離 worktree → 跑 → topical.json 有變才 commit/push（觸發部署）→ Slack 通知`。
 腳本自身**不碰 git**；支援 `--dry`（只印不寫）。**push main 即自動部署，勿手動補跑 workflow**（見根 CLAUDE.md）。
+
+> 🔒 **三支 cron 一律在隔離 worktree 執行**（`scripts/lib/cron-worktree.sh`，2026-07-25 起）：
+> `/opt/folk-tw-cron/topical`，detached＋sparse（只取 `scripts`、`src/data`，約 5 MB），每輪先 reset 到 `origin/main`。
+> 起因：原本直接在 `/root/folk.tw` 跑，`git diff --quiet src/data/topical.json` 分不出「腳本寫的」與「人正在改的」，
+> 2026-07-25 P1 就把人手改到一半的併頁 WIP 連同工作樹 commit＋push（`a4e52da`，訊息卻寫「自動編排」）。
+> 現在 cron 看不到主工作樹，**只可能 commit 自己寫出來的內容**；另有硬檢查：異動範圍不是只有 `topical.json`
+> 就中止不 commit。三支共用一把 `flock`（都寫同一個檔，重疊會互蓋），取不到鎖即跳過本輪。
+> 驗證方式：主工作樹放一筆假 WIP → 跑 cron → WIP 必須原封不動且未被提交（2026-07-25 實測通過）。
+> ⚠️ 尚未納管：`qiugian-aggregate-cron.sh` 仍在主工作樹跑（它需要 `node_modules` 的 GA4 依賴），
+> 只 `git add src/data/qiugian-stats.json`；風險僅限「有人正在改那個檔」時。
 
 ### 事件生命週期（同一網址走三態，`src/data/topical.json` 的 `status`）
 ```

@@ -3,22 +3,15 @@
 #   commit + push（觸發部署）→ 對新開頁發 Slack。時效性高 → 不用 [skip ci]，push 即自動部署上線。
 # 排程由主控者親自裝進 /etc/cron.d（本檔不自行安裝）。
 set -euo pipefail
-cd /root/folk.tw
+source "$(dirname "$(readlink -f "$0")")/lib/cron-worktree.sh"
 
-git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null || true; echo "[news-scan-cron] pull 失敗，跳過"; exit 1; }
+# 在隔離 worktree 執行：主工作樹的未提交改動不會被誤 commit（見 lib/cron-worktree.sh 檔頭）。
+cw_begin "[news-scan-cron]"
 
 OUT="$(/usr/bin/node scripts/topical-news-scan.mjs)" || { echo "[news-scan-cron] 掃描失敗"; exit 1; }
 [ -n "$OUT" ] && echo "$OUT"
 
-if git diff --quiet src/data/topical.json; then
-  echo "[news-scan-cron] 無變更"
-  exit 0
-fi
-
-git add src/data/topical.json
-git commit -q -m "feat(topical): 新聞掃描自動編排 $(date -u +%FT%H:%MZ)"
-git push origin main
-echo "[news-scan-cron] 已 commit/push（觸發部署）"
+cw_commit_push "[news-scan-cron]" "feat(topical): 新聞掃描自動編排 $(date -u +%FT%H:%MZ)" || { echo "[news-scan-cron] 無變更"; exit 0; }
 
 # 對每個新開的祈福頁發 Slack（過了正向議題閘、開後通知、可事後撤）
 TOKEN="$(cat /root/.config/folk-tw/slack-bot-token)"
