@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hasBannedNumber } from './lib/topical-guard.mjs';
+import { officialCycloneName, typhoonZhName, eventText, CYC_WORD } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -180,6 +181,44 @@ async function verifyUpdate(item, u, existingHashes, existingUrls) {
   return { date: u.date, text, sources: alive, added: new Date().toISOString(), hash };
 }
 
+// ── (5b) 颱風事後補名（2026-07-26 加）────────────────────────────────────────
+// 為什麼需要：標題只在**開頁那一刻**產一次。若那時颱風還沒被命名（或名字沒被送進閘），
+// 頁面就會頂著「為○○熱帶氣旋平安祈福」這種沒有主角的標題到永遠——P4 是唯一每天回訪同一頁的
+// 環節，補名字理當在這裡做。名字來源只有兩條、都不靠 LLM：
+//   (a) 條目自己存的國際命名 cycloneName（GDACS 給的）→ 查 CWA 對照表；
+//   (b) 從本頁文字（含 P4 自己逐筆掛源接上的 updates）抽出、且**確實在 CWA 140 個正式名單裡**的中文名。
+// 改寫也純機械：把標題／祈福語裡的第一個氣旋詞換成「颱風○○」，不重跑 LLM、不改寫其他字。
+// 網址（id）不變，只變 title/event → 既有連結與收錄不受影響。
+function renameCyclone(item) {
+  if (item.eventType !== 'cyclone' || item.cycloneNameZh) return null;
+  const zhName = typhoonZhName(item.cycloneName) || officialCycloneName(eventText(item));
+  if (!zhName) return null;
+
+  const cycRe = new RegExp(CYC_WORD); // 不加 g：只換第一個氣旋詞
+  const withName = (s) => {
+    if (typeof s !== 'string' || !s) return s;
+    if (s.includes(zhName)) return s;          // 已經有名字了（例如 P2 開的頁）→ 不動
+    if (!cycRe.test(s)) return s;              // 沒有氣旋詞可換 → 保守不動，不硬塞
+    return s.replace(cycRe, `颱風${zhName}`);
+  };
+
+  const before = item.title;
+  const title = withName(item.title), event = withName(item.event);
+  // 機械把關：改寫後標題必須真的帶到名字，且不得因改寫引入數字（沿用全站禁數字紅線）。
+  if (!title || !title.includes(zhName)) {
+    console.error(`[followup]   ✗ 補名失敗：標題「${item.title}」找不到可替換的氣旋詞，維持原樣`);
+    return null;
+  }
+  if (hasBannedNumber(title) || hasBannedNumber(event)) {
+    console.error('[followup]   ✗ 補名後文案含具體數字，放棄改寫'); return null;
+  }
+  item.title = title; item.event = event;
+  item.cycloneNameZh = zhName;
+  item.renamed_at = today;
+  console.error(`[followup]   ✓ 補上颱風名「${zhName}」：${before} → ${title}`);
+  return { before, after: title };
+}
+
 // ── 主流程 ────────────────────────────────────────────────────────────────
 async function main() {
   const list = JSON.parse(readFileSync(TOPICAL, 'utf8'));
@@ -218,6 +257,13 @@ async function main() {
         console.log(`UPDATED\t${item.id}\t${item.title}\t${v.text}\t${pageUrl}`);
       }
       item.updates.sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')));
+      changed = true;
+    }
+
+    // 颱風事後補名：擺在 append 之後，這樣今天剛掛上的 updates（新聞多半會寫出颱風名）也算數。
+    const renamed = renameCyclone(item);
+    if (renamed) {
+      console.log(`RENAMED\t${item.id}\t${renamed.before}\t${renamed.after}\t${pageUrl}`);
       changed = true;
     }
 

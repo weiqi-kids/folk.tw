@@ -13,7 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
-import { findDuplicate, normPlace } from './lib/topical-dedup.mjs';
+import { findDuplicate, normPlace, officialCycloneName, eventText } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -160,16 +160,29 @@ function makeId(cand) {
 
 // ── (e) 正向議題閘＋莊重中文框架（複製自 orchestrate.mjs gateAndFrame 精神）───────────
 function gateAndFrame(c) {
-  const label = TYPE_LABEL[c.eventType] ?? '重大事件';
+  // 颱風要有名字（2026-07-26 加，與 orchestrate.mjs 同規）：新聞是中文的，名字多半就在摘要裡，
+  // 但「LLM 通常會自己帶到」不是保證——改成機械抽出（只認 CWA 正式名單）再硬性要求寫進標題。
+  const zhName = c.eventType === 'cyclone' ? officialCycloneName(eventText(c)) : null;
+  const label = zhName ? '颱風' : (TYPE_LABEL[c.eventType] ?? '重大事件');
+  const nameLine = zhName ? `\n${label}名稱：「${zhName}」（中央氣象署正式中文譯名，直接照抄勿改）` : '';
+  const nameRule = zhName
+    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那幾個字，不得改寫或自創其他譯名。`
+    : '';
   const src = c.sources?.[0]?.ref || '新聞來源';
   const PROMPT = `你是台灣民俗祈福站的守門與編輯。以下是來自新聞（「${src}」等）的災難事實：
 類型：${label}
 地點：「${c.place}」
-日期：${c.time}${c.summary ? `\n事件摘要：${c.summary}` : ''}
+日期：${c.time}${nameLine}${c.summary ? `\n事件摘要：${c.summary}` : ''}
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
-  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。任一不符即 block。
-任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：
+  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。
+  c. **災害已經實際發生，不是還在預報階段**——**沒有災害就不用祈福**。兩類分開看：
+     ・地震、山崩、橋垮、氣爆、火災這種「發生即是事件」者：事實本身就代表已經發生，天然符合本條。
+     ・颱風、洪水這種「先預警、後致災」者：必須**已經登陸／已經淹到／已經對人造成影響**才算；
+       若報導通篇只有「預計」「可能」「將會」「發布警報」「加強戒備」這類未來式而無已發生的災情，
+       判 block，等真的發生了再開（P2 每 8 小時掃一次，下一輪會再掃到，不會漏）。
+  任一不符即 block。
+任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
   - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
   - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。
   - 只依上述事實，不誇大。**event 不要寫出任何具體傷亡／失聯／疏散人數或金額**（這些數字未經機器複驗、且常隨救援變動；具體數字留給有逐筆掛源的後續發展時間軸）。event 只做莊重的事件描述＋祈福祝願，可用「造成傷亡」「多人失聯」等不帶數字的概述。
@@ -238,11 +251,16 @@ async function main() {
     if (hasBannedNumber(safeEvent)) { console.error(`[news-scan] ${id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
 
     // (f) 寫入
+    // 颱風中文名（取自摘要＋剛產出的標題／祈福語）留檔：供跨產線去重，也讓 P4 知道
+    // 「這頁已經有名字了、不必再補名」。只認 CWA 正式名單，抽不到就留空。
+    const cycloneNameZh = v.eventType === 'cyclone'
+      ? officialCycloneName(eventText({ ...v, title: g.title, event: safeEvent })) : null;
     const rec = {
       id, eventType: v.eventType, title: g.title,
       event: safeEvent,
       sources: v.sources,
       place: v.place, time: v.time,
+      ...(cycloneNameZh ? { cycloneNameZh } : {}),
       ...(v.lat != null && v.lon != null ? { lat: v.lat, lon: v.lon } : {}),
       detector: 'news', since: today, status: 'active',
     };

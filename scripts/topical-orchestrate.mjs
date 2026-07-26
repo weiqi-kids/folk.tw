@@ -71,6 +71,9 @@ async function gdacsDetector() {
     const alert = pick('alertlevel');
     if (!GDACS_TYPE[etype] || !(alert === 'Orange' || alert === 'Red')) continue;
     if ((pick('iscurrent') || '').toLowerCase() !== 'true') continue;
+    // 「沒有災害不用祈福」的機械前哨（2026-07-26 加）：氣旋若連受影響國家都沒有＝還在大洋上，
+    // 那是預警不是災情，連閘都不必進。真正的「已發生 vs 只是預報」判定在下方正向閘條件 c。
+    if (GDACS_TYPE[etype] === 'cyclone' && !pick('country')) continue;
     const from = pick('fromdate');
     const time = from ? new Date(from).toISOString().slice(0, 10) : today;
     if ((Date.parse(today) - Date.parse(time)) / 864e5 > GDACS_FRESH_DAYS) continue;
@@ -165,7 +168,15 @@ function gateAndFrame(c) {
 日期：${c.time}${nameLine}${fact ? `\n嚴重度：${fact}` : ''}${c.summary ? `\n事件摘要：${c.summary}` : ''}
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
-  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。任一不符即 block。
+  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。
+  c. **災害已經實際發生，不是還在預報階段**——**沒有災害就不用祈福**。兩類分開看：
+     ・地震、山崩、氣爆、火災這種「發生即是事件」者：事實本身就代表已經發生，天然符合本條。
+     ・颱風、洪水這種「先預警、後致災」者：必須**已經登陸／已經淹到／已經對人造成影響**才算；
+       若只有路徑預測、警報發布、防災整備、或模式推算的可能影響範圍，判 block，等真的發生了再開
+       （P1 每 20 分跑一次，下一輪會再掃到，不會漏）。
+     ⚠️ 熱帶氣旋特別注意：GDACS 摘要的「Population affected by … wind speeds」是**模式推估的暴露人口**，
+     講的是「可能會被吹到的人有多少」，**不是已經發生的災情**——只有這個數字而無已致災事實時，判 block。
+  任一不符即 block。
 任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
   - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
   - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述（如「墨西哥外海」）——絕不自創或套大陸譯名**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。

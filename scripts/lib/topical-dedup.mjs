@@ -63,7 +63,8 @@ export function sameEvent(a, b) {
 
 // ── 氣旋：以颱風名判同事件 ───────────────────────────────────────────────
 // 氣旋詞（長的排前面，正則交替取最先匹配者，避免「強烈颱風」被「颱風」吃掉）。
-const CYC_WORD = '(?:超強颱風|強烈颱風|熱帶氣旋|熱帶風暴|熱帶低壓|強颱|中颱|輕颱|颱風|台風|颶風)';
+// 匯出給 P4 事後補名用（把標題裡的氣旋詞替換成「颱風○○」），改動請兩處一起想。
+export const CYC_WORD = '(?:超強颱風|強烈颱風|熱帶氣旋|熱帶風暴|熱帶低壓|強颱|中颱|輕颱|颱風|台風|颶風)';
 // 緊鄰氣旋詞、但絕不是颱風名的常見詞（含強度形容詞、災防動作、時間詞）。只收嚴不放寬。
 const CYCLONE_STOP = new Set([
   '超強', '強烈', '中度', '輕度', '熱帶', '這個', '本次', '此次', '該起', '今年', '首個', '今夏', '上述',
@@ -121,6 +122,21 @@ export function typhoonZhName(en) {
   if (!en) return null;
   const key = String(en).trim().toLowerCase().replace(/-\d+$/, '').replace(/-/g, '');
   return TYPHOON_ZH.get(key) ?? null;
+}
+
+/** CWA 140 個正式中文譯名的集合，供「抽到的詞是不是真的颱風名」這道權威濾網。 */
+const TYPHOON_ZH_SET = new Set(TYPHOON_ZH.values());
+
+/**
+ * 從文字抽出**確定是 CWA 正式颱風名**的中文名，供面向使用者的標題用。
+ * 與 cycloneNames() 的差別：那支刻意過度抽取、靠「兩造取交集」濾雜訊；這支只有單邊文字可用，
+ * 故改以正式名單當濾網，並要求**恰好命中一個**（命中兩個以上代表文中混著別的颱風，寧可放棄）。
+ * 這樣「颱風登陸」的『登陸』、「颱風假」的『假期』都不可能通過。查無回 null。
+ */
+export function officialCycloneName(text) {
+  const hits = new Set();
+  for (const n of cycloneNames(text)) if (TYPHOON_ZH_SET.has(n)) hits.add(n);
+  return hits.size === 1 ? [...hits][0] : null;
 }
 
 /** 兩造是否指向同一個有名字的氣旋；回傳共同的名字（無則 null）。 */
@@ -226,6 +242,15 @@ if (process.argv[1]?.endsWith('topical-dedup.mjs') && process.argv.includes('--s
   check('「強烈颱風紅霞」抽得到紅霞', cycloneNames('強烈颱風紅霞').has('紅霞'), true);
   check('「紅霞颱風」抽得到紅霞', cycloneNames('為紅霞颱風平安祈福').has('紅霞'), true);
   check('三字名（杜蘇芮）抽得到', cycloneNames('颱風杜蘇芮登陸').has('杜蘇芮'), true);
+
+  // (5b) officialCycloneName：只認 CWA 正式名單、且要恰好一個（供 P2 產標題與 P4 事後補名）。
+  check('正式名單濾網：抽得到紅霞', officialCycloneName('颱風紅霞持續增強，即將於廣東登陸。'), '紅霞');
+  check('正式名單濾網：英文名也換得到', officialCycloneName('tropical cyclone NOUL-26 was active'), '紅霞');
+  check('正式名單濾網：「颱風登陸」不會被當名字', officialCycloneName('颱風登陸廣東沿海。'), null);
+  check('正式名單濾網：「颱風假」不會被當名字', officialCycloneName('明日是否放颱風假仍待宣布。'), null);
+  check('正式名單濾網：文中混兩個颱風 → 放棄不猜',
+    officialCycloneName('颱風紅霞減弱，颱風康芮接續生成。'), null);
+  check('正式名單濾網：無氣旋詞的文字 → null', officialCycloneName('重慶市彭水縣發生山崩。'), null);
 
   // (6) 既有規則不得退化：2026-07-17 重慶彭水山崩三種寫法仍要被擋（走 geo）。
   const pengshui = { id: 'news-landslide-20260717-470423', eventType: 'landslide', place: '重慶市彭水縣', time: '2026-07-17', lat: 29.293, lon: 108.166 };

@@ -14,7 +14,7 @@ OUT="$(/usr/bin/node scripts/topical-followup.mjs)" || { echo "[followup-cron] �
 
 # followup 中繼（last_checked/empty_runs/sealed）不被任何渲染頁使用 → 只有中繼變動時用 [skip ci] 免每日無謂部署；
 # 有新進展（UPDATED）或升記錄頁（MEMORIAL）＝真的改到頁面 → 正常 push 觸發部署。
-if echo "$OUT" | grep -qE '^(UPDATED|MEMORIAL)'; then
+if echo "$OUT" | grep -qE '^(UPDATED|MEMORIAL|RENAMED)'; then
   MSG="feat(topical): 後續發展追蹤 $(date -u +%FT%H:%MZ)"
   NOTE="（有新進展/升態，觸發部署）"
 else
@@ -41,4 +41,10 @@ done
 # 升為事件記錄頁通知
 echo "$OUT" | grep '^MEMORIAL' | while IFS=$'\t' read -r _ id title url; do
   slack "📖 祈福頁已轉為事件記錄頁：${title}  ${url}" && echo "[followup-cron] 已通知轉記錄頁：$title"
+done
+
+# 颱風事後補名通知（標題變動＝面向使用者的字變了，要讓人看得到並可回覆訂正）
+echo "$OUT" | grep '^RENAMED' | while IFS=$'\t' read -r _ id before after url; do
+  slack "🌀 颱風名確認，已補進標題：「${before}」→「${after}」  ${url}（若有誤可回覆）" \
+    && echo "[followup-cron] 已通知補名：$after"
 done
