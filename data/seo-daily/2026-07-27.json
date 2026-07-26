@@ -1,21 +1,25 @@
 {
-  "date": "2026-07-26",
-  "generatedAt": "2026-07-26T15:37:46.415Z",
+  "date": "2026-07-27",
+  "generatedAt": "2026-07-26T20:30:09.581Z",
   "ga4": {
     "range": "7daysAgo..yesterday",
-    "sessions": 1225,
-    "users": 1155,
-    "views": 1840,
-    "avgDurationSec": 77,
-    "taiwanOrganicSessions": 1068,
+    "sessions": 1212,
+    "users": 1125,
+    "views": 1796,
+    "avgDurationSec": 83,
+    "taiwanOrganicSessions": 1041,
     "channels": [
       {
         "channel": "Organic Search",
-        "sessions": 1085
+        "sessions": 1056
       },
       {
         "channel": "Direct",
-        "sessions": 136
+        "sessions": 147
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 104
       },
       {
         "channel": "Organic Social",
@@ -24,63 +28,51 @@
       {
         "channel": "AI Assistant",
         "sessions": 1
-      },
-      {
-        "channel": "Unassigned",
-        "sessions": 1
       }
     ],
     "topPages": [
       {
         "path": "/deities/",
-        "views": 44
-      },
-      {
-        "path": "/",
-        "views": 36
+        "views": 37
       },
       {
         "path": "/poems/",
-        "views": 29
+        "views": 36
+      },
+      {
+        "path": "/",
+        "views": 35
       },
       {
         "path": "/qiugian/",
-        "views": 27
+        "views": 35
       },
       {
-        "path": "/trades/",
-        "views": 22
+        "path": "/temples/moi_4480_玉安宮/",
+        "views": 17
       },
       {
         "path": "/temples/",
-        "views": 16
-      },
-      {
-        "path": "/poems/liushi_jiazi-46/",
         "views": 15
       },
       {
+        "path": "/trades/",
+        "views": 15
+      },
+      {
+        "path": "/poems/liushi_jiazi-11/",
+        "views": 14
+      },
+      {
         "path": "/allusions/",
-        "views": 14
-      },
-      {
-        "path": "/temples/moi_7304_高雄左營聖門靈霄/",
-        "views": 14
-      },
-      {
-        "path": "/deities/guanyin/",
         "views": 13
       },
       {
-        "path": "/almanac/",
-        "views": 12
+        "path": "/deities/guanyin/",
+        "views": 11
       },
       {
-        "path": "/deities/wangye_chi/",
-        "views": 12
-      },
-      {
-        "path": "/deities/wangye/",
+        "path": "/poems/liushi_jiazi-45/",
         "views": 11
       },
       {
@@ -88,8 +80,16 @@
         "views": 11
       },
       {
-        "path": "/temples/moi_11665_長興宮/",
+        "path": "/temples/moi_4077_財團法人高雄市鳳/",
         "views": 11
+      },
+      {
+        "path": "/temples/moi_5621_蔡文聲靈宮/",
+        "views": 11
+      },
+      {
+        "path": "/almanac/",
+        "views": 10
       }
     ],
     "daily": [
@@ -302,6 +302,12 @@
         "sessions": 249,
         "avgDurationSec": 39,
         "taiwanOrganic": 164
+      },
+      {
+        "date": "2026-07-26",
+        "sessions": 235,
+        "avgDurationSec": 145,
+        "taiwanOrganic": 200
       }
     ]
   },
