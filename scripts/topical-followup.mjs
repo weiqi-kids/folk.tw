@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { hasBannedNumber } from './lib/topical-guard.mjs';
+import { hasBannedNumber, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { officialCycloneName, typhoonZhName, eventText, CYC_WORD } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
@@ -137,7 +137,14 @@ function eventStart(item) {
 }
 
 async function verifyUpdate(item, u, existingHashes, existingUrls) {
-  const text = zh(String(u.text ?? '').trim());
+  let text = zh(String(u.text ?? '').trim());
+  // 大陸用語機械替換（見 lib/topical-guard.mjs）：事件多在中國、LLM 讀的是陸媒，prompt 的軟約束
+  // 擋不住「機械掘進搭配人工排查」這種句子。表內每個詞都有一對一台灣說法，故直接替換不必丟棄該筆。
+  const cnHits = findMainlandTerms(text);
+  if (cnHits.length) {
+    text = replaceMainlandTerms(text);
+    console.error(`[followup]   ⚑ 陸用語替換：${cnHits.map((h) => `${h.term}→${h.tw}`).join('、')}`);
+  }
   const label = `${(text || '(空)').slice(0, 24)}…`;
   console.error(`[followup] 複驗後續：「${label}」（date=${u.date}）`);
 

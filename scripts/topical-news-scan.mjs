@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
+import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
 import { findDuplicate, normPlace, officialCycloneName, eventText } from './lib/topical-dedup.mjs';
 
@@ -198,7 +198,14 @@ function gateAndFrame(c) {
     const zh = (s) => typeof s === 'string'
       ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
       : s;
-    g.title = zh(g.title); g.event = zh(g.event);
+    // 大陸用語機械替換（見 lib/topical-guard.mjs）：P2 讀的多是陸媒報導，最容易沾到。
+    const tw = (s) => {
+      const hits = findMainlandTerms(s);
+      if (!hits.length) return s;
+      console.error(`[news-scan] ⚑ 陸用語替換：${hits.map((h) => `${h.term}→${h.tw}`).join('、')}`);
+      return replaceMainlandTerms(s);
+    };
+    g.title = tw(zh(g.title)); g.event = tw(zh(g.event));
     return g;
   } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
 }

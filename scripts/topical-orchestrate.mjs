@@ -7,7 +7,7 @@
 // 用法：node scripts/topical-orchestrate.mjs [--dry]（--dry 只偵測＋過閘＋印，不寫檔）。
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
+import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { sharedCycloneName, typhoonZhName, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
@@ -194,7 +194,14 @@ function gateAndFrame(c) {
     const zh = (s) => typeof s === 'string'
       ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
       : s;
-    g.title = zh(g.title); g.event = zh(g.event);
+    // 大陸用語機械替換（見 lib/topical-guard.mjs）：prompt 的「禁大陸用語」是軟約束，這裡才是強制層。
+    const tw = (s) => {
+      const hits = findMainlandTerms(s);
+      if (!hits.length) return s;
+      console.error(`[topical] ⚑ 陸用語替換：${hits.map((h) => `${h.term}→${h.tw}`).join('、')}`);
+      return replaceMainlandTerms(s);
+    };
+    g.title = tw(zh(g.title)); g.event = tw(zh(g.event));
     return g;
   } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
 }
