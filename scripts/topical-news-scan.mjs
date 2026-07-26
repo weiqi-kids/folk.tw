@@ -213,14 +213,18 @@ async function main() {
 
     // (c) id
     const id = makeId(v);
-    const rec0 = { id, eventType: v.eventType, place: v.place, time: v.time, lat: v.lat, lon: v.lon, sources: v.sources };
+    // summary 一併帶上：氣旋類的去重靠颱風名，名字通常只出現在摘要文字裡（見 lib/topical-dedup.mjs dC）。
+    const rec0 = { id, eventType: v.eventType, place: v.place, time: v.time, lat: v.lat, lon: v.lon, sources: v.sources, summary: v.summary };
 
-    // (d) 去重：id 已存在，或 findDuplicate 命中三道規則之一（見 lib/topical-dedup.mjs）
+    // (d) 去重：id 已存在，或 findDuplicate 命中四道規則之一（見 lib/topical-dedup.mjs）
+    const dupWhy = (d) => ({
+      place: '同地同期', 'source-url': '引用同一篇報導',
+      'cyclone-name': `同一個颱風「${d.name}」`, geo: '同型別且相距 ≤10km',
+    }[d.rule]);
     if (known.has(id)) { console.error(`[news-scan] ${id} id 已存在，略過`); continue; }
     const dup = findDuplicate(list, rec0);
     if (dup) {
-      const why = { place: '同地同期', 'source-url': '引用同一篇報導', geo: '同型別且相距 ≤10km' }[dup.rule];
-      console.error(`[news-scan] ${id}（${v.place}）與 ${dup.id} ${why}，略過`); continue;
+      console.error(`[news-scan] ${id}（${v.place}）與 ${dup.id} ${dupWhy(dup)}，略過`); continue;
     }
 
     // (e) 正向閘
@@ -242,6 +246,13 @@ async function main() {
       ...(v.lat != null && v.lon != null ? { lat: v.lat, lon: v.lon } : {}),
       detector: 'news', since: today, status: 'active',
     };
+
+    // (f2) 過閘後再驗一次去重：颱風名有時只出現在 (e) 才產出的標題／祈福語裡
+    //      （摘要可能只寫「熱帶氣旋」不提名字），(d) 那輪自然抓不到。多驗一次不花成本。
+    const dup2 = findDuplicate(list, { ...rec0, title: rec.title, event: rec.event });
+    if (dup2) {
+      console.error(`[news-scan] ${id}（${g.title}）與 ${dup2.id} ${dupWhy(dup2)}，略過（過閘後複驗）`); continue;
+    }
     if (!DRY) { list.push(rec); known.add(id); changed = true; }
     console.log(`PUBLISHED\t${id}\t${g.title}\thttps://folk.tw/qiugian/blessing/${id}/`);
   }
