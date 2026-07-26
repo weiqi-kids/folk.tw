@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
-import { sharedCycloneName, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
+import { sharedCycloneName, typhoonZhName, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -79,14 +79,18 @@ async function gdacsDetector() {
     const lat = geo('lat'), lon = geo('long');
     const eventid = pick('eventid');
     const link = (pick('link') || '').replace(/&amp;/g, '&');
-    // 熱帶氣旋的國際命名只出現在 RSS 標題（`… tropical cyclone NOUL-26 …`）。留檔供跨產線去重：
-    // P2 從新聞只拿得到中文名（紅霞），靠 lib/typhoon-names.json 的 CWA 對照表換算才比得起來。
+    // 熱帶氣旋的國際命名只出現在 RSS 標題（`… tropical cyclone NOUL-26 …`），優先取 <gdacs:eventname>。
+    // 留檔供跨產線去重（P2 從新聞只拿得到中文名「紅霞」）**與標題命名**：
+    // 兩者都靠 lib/typhoon-names.json 的 CWA 對照表把 NOUL 換算成紅霞。
     const cycloneName = GDACS_TYPE[etype] === 'cyclone'
-      ? (pick('title') || '').match(/tropical cyclone\s+([A-Za-z][A-Za-z-]+?)(?:-\d+)?[\s.,]/i)?.[1]
+      ? ((pick('eventname') || '').match(/^([A-Za-z][A-Za-z-]*?)(?:-\d+)?$/)?.[1] ||
+         (pick('title') || '').match(/tropical cyclone\s+([A-Za-z][A-Za-z-]+?)(?:-\d+)?[\s.,]/i)?.[1])
       : undefined;
+    const cycloneNameZh = typhoonZhName(cycloneName); // 查無 CWA 中文名（如大西洋颶風）則 null，標題退回無名寫法
     out.push({
       id: `gdacs-${etype.toLowerCase()}-${eventid}`, eventType: GDACS_TYPE[etype], detector: 'gdacs',
       ...(cycloneName ? { cycloneName } : {}),
+      ...(cycloneNameZh ? { cycloneNameZh } : {}),
       place: pick('country') || pick('eventname') || '',
       severity: [pick('severity'), pick('population')].filter(Boolean).join('，'),
       summary: pick('description') || pick('title') || '',
@@ -141,17 +145,28 @@ async function detect() {
 
 // ── 正向議題閘＋莊重中文框架（型別無關）。回 { verdict, title, event }。失敗一律保守 block。──
 function gateAndFrame(c) {
-  const label = TYPE_LABEL[c.eventType] ?? '重大事件';
+  // 颱風有名字時，標籤改用台灣慣稱「颱風」而非學術詞「熱帶氣旋」（CWA 對照表有名字＝西北太平洋/南海）。
+  // 查無中文名（大西洋颶風等）則維持 TYPE_LABEL，標題退回無名寫法——絕不讓 LLM 自創音譯。
+  const zhName = c.cycloneNameZh || typhoonZhName(c.cycloneName);
+  const label = zhName ? '颱風' : (TYPE_LABEL[c.eventType] ?? '重大事件');
   const src = c.sources?.[0]?.ref || '來源';
   const fact = c.mag != null ? `規模 ${c.mag}` : (c.severity || '');
+  // 名字必須明白餵進 prompt：GDACS 摘要裡只有英文代號（NOUL-26），LLM 依「不得自創譯名」的規矩
+  // 只能略去不寫 → 標題長成「為中國熱帶氣旋平安祈福」這種沒有主角的樣子（2026-07-23 紅霞實例）。
+  const nameLine = zhName
+    ? `\n${label}名稱：「${zhName}」（國際命名 ${c.cycloneName}，中文名出自中央氣象署對照表，直接照抄勿改）`
+    : '';
+  const nameRule = zhName
+    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那三個字，不得改寫或自創其他譯名。`
+    : '';
   const PROMPT = `你是台灣民俗祈福站的守門與編輯。以下是來自「${src}」的災難事實：
 類型：${label}
 地點：「${c.place}」
-日期：${c.time}${fact ? `\n嚴重度：${fact}` : ''}${c.summary ? `\n事件摘要：${c.summary}` : ''}
+日期：${c.time}${nameLine}${fact ? `\n嚴重度：${fact}` : ''}${c.summary ? `\n事件摘要：${c.summary}` : ''}
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
   b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。任一不符即 block。
-任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：
+任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
   - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
   - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述（如「墨西哥外海」）——絕不自創或套大陸譯名**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。
   - 只依上述事實，不誇大。**event 不要寫出任何具體傷亡／失聯／疏散人數或金額**（這些數字未經機器複驗、且常隨救援變動；具體數字留給有逐筆掛源的後續發展時間軸）。event 只做莊重的事件描述＋祈福祝願，可用「造成傷亡」「多人失聯」等不帶數字的概述。
@@ -214,6 +229,7 @@ for (const c of await detect()) {
     // place/severity/mag/lat/lon/time 留檔供跨執行 sameEvent 比對；cycloneName（國際命名）供跨產線名字比對。
     place: c.place, time: c.time,
     ...(c.cycloneName ? { cycloneName: c.cycloneName } : {}),
+    ...(c.cycloneNameZh ? { cycloneNameZh: c.cycloneNameZh } : {}),
     ...(c.mag != null ? { mag: c.mag } : {}),
     ...(c.severity ? { severity: c.severity } : {}),
     ...(c.lat != null ? { lat: c.lat, lon: c.lon } : {}),

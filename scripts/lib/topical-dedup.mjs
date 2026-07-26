@@ -112,6 +112,17 @@ export function cycloneNames(text) {
   return out;
 }
 
+/**
+ * 國際命名（英，`NOUL` 或 GDACS 原樣的 `NOUL-26`）→ CWA 中文譯名；查無回 null。
+ * 給標題產線用：GDACS 那側只有英文名，但面向使用者的標題要寫台灣人認得的「紅霞」，
+ * 而中文名**只能查 CWA 對照表**、絕不可讓 LLM 自創音譯（紅線：絕不杜撰）。
+ */
+export function typhoonZhName(en) {
+  if (!en) return null;
+  const key = String(en).trim().toLowerCase().replace(/-\d+$/, '').replace(/-/g, '');
+  return TYPHOON_ZH.get(key) ?? null;
+}
+
 /** 兩造是否指向同一個有名字的氣旋；回傳共同的名字（無則 null）。 */
 export function sharedCycloneName(a, b) {
   const na = cycloneNames(eventText(a));
