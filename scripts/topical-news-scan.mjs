@@ -13,7 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
-import { findDuplicate, normPlace, officialCycloneName, eventText } from './lib/topical-dedup.mjs';
+import { findDuplicate, normPlace, officialCycloneName, eventText, findTitleClash } from './lib/topical-dedup.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -176,15 +176,18 @@ function gateAndFrame(c) {
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
   b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。
-  c. **災害已經實際發生，不是還在預報階段**——**沒有災害就不用祈福**。兩類分開看：
-     ・地震、山崩、橋垮、氣爆、火災這種「發生即是事件」者：事實本身就代表已經發生，天然符合本條。
-     ・颱風、洪水這種「先預警、後致災」者：必須**已經登陸／已經淹到／已經對人造成影響**才算；
-       若報導通篇只有「預計」「可能」「將會」「發布警報」「加強戒備」這類未來式而無已發生的災情，
-       判 block，等真的發生了再開（P2 每 8 小時掃一次，下一輪會再掃到，不會漏）。
+  c. **災害已經實際發生在人身上，不是只發生在地圖上**——**沒有災害就不用祈福**。兩類分開看：
+     ・地震、山崩、橋垮、氣爆、建物火災這種「發生即是災害」者：事件本身就直接作用在人與房舍上，天然符合本條。
+     ・颱風、洪水、**森林野火**這種「先發生在自然環境、之後才知道有沒有傷到人」者：必須有
+       **人員傷亡／住宅或村落被燒毀淹沒／居民撤離安置／聚落交通中斷**等已經發生的事實才算；
+       若報導通篇只有「預計」「可能」「將會」「發布警報」「加強戒備」這類未來式，或只講燒了多少林地、
+       淹了多少面積而未提到人，判 block，等真的傷到人了再開（P2 每 8 小時掃一次，下一輪會再掃到，不會漏）。
   任一不符即 block。
 任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
   - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
   - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。
+  - **event 只能寫上面事實真的說了的事**：來源沒提到的影響（「波及當地居民」這類）不得自行推導補上
+    （紅線：絕不杜撰）。來源沒說影響到人，就只寫事件本身加祝願，不要替它加戲。
   - 只依上述事實，不誇大。**event 不要寫出任何具體傷亡／失聯／疏散人數或金額**（這些數字未經機器複驗、且常隨救援變動；具體數字留給有逐筆掛源的後續發展時間軸）。event 只做莊重的事件描述＋祈福祝願，可用「造成傷亡」「多人失聯」等不帶數字的概述。
 只輸出單行 JSON：{"verdict":"pass"|"block","title":"…","event":"…"}。`;
   const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
@@ -254,6 +257,9 @@ async function main() {
     }
     // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
     if (hasBannedNumber(g.title)) { console.error(`[news-scan] ${id} 標題含具體數字，攔下不開頁`); continue; }
+    // 硬守門：標題不得與既有頁完全相同（見 lib/topical-dedup.mjs findTitleClash）。
+    const clash = findTitleClash(list, g.title);
+    if (clash) { console.error(`[news-scan] ${id} 標題「${g.title}」與 ${clash.id} 完全相同，攔下不開頁`); continue; }
     let safeEvent = g.event || SAFE_EVENT;
     if (hasBannedNumber(safeEvent)) { console.error(`[news-scan] ${id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
 

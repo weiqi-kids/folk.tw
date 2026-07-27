@@ -769,7 +769,7 @@
     "id": "gdacs-wf-1029794",
     "eventType": "wildfire",
     "title": "為西班牙野火平安祈福",
-    "event": "西班牙近日發生森林大火，延燒多日，當地居民生活受到影響。願火勢儘速獲得控制，受影響民眾平安無虞。",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
     "sources": [
       {
         "ref": "GDACS 全球災害預警系統",
@@ -783,13 +783,19 @@
     "lon": -0.24664571501763902,
     "detector": "gdacs",
     "since": "2026-07-27",
-    "status": "active"
+    "status": "archived",
+    "archived_at": "2026-07-27",
+    "retracted_reason": "GDACS 描述僅「某日某國起火、燒 N 公頃」，無任何已致災事實（ha 與 people affected 皆為推估），不符「沒有災害不用祈福」；原 event 另有「波及當地居民」等來源未載的推導（紅線 2）。同國三場火標題亦撞名無法辨識。",
+    "followup": {
+      "sealed": true
+    },
+    "glide": "WF-2026-000131-ESP"
   },
   {
     "id": "gdacs-wf-1029628",
     "eventType": "wildfire",
     "title": "為法國野火平安祈福",
-    "event": "法國於二零二六年七月二十二日發生森林野火，延燒林地並波及當地居民；祈願火勢儘速撲滅，居民平安、家園無恙。",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
     "sources": [
       {
         "ref": "GDACS 全球災害預警系統",
@@ -803,13 +809,19 @@
     "lon": -1.0371425526577218,
     "detector": "gdacs",
     "since": "2026-07-27",
-    "status": "active"
+    "status": "archived",
+    "archived_at": "2026-07-27",
+    "retracted_reason": "GDACS 描述僅「某日某國起火、燒 N 公頃」，無任何已致災事實（ha 與 people affected 皆為推估），不符「沒有災害不用祈福」；原 event 另有「波及當地居民」等來源未載的推導（紅線 2）。同國三場火標題亦撞名無法辨識。",
+    "followup": {
+      "sealed": true
+    },
+    "glide": "WF-2026-000129-FRA"
   },
   {
     "id": "gdacs-wf-1029643",
     "eventType": "wildfire",
     "title": "為西班牙野火平安祈福",
-    "event": "西班牙近日發生森林大火，延燒範圍廣泛，波及當地居民生活。願祝禱早日撲滅火勢，當地民眾平安無恙。",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
     "sources": [
       {
         "ref": "GDACS 全球災害預警系統",
@@ -823,13 +835,19 @@
     "lon": -4.547359678810068,
     "detector": "gdacs",
     "since": "2026-07-27",
-    "status": "active"
+    "status": "archived",
+    "archived_at": "2026-07-27",
+    "retracted_reason": "GDACS 描述僅「某日某國起火、燒 N 公頃」，無任何已致災事實（ha 與 people affected 皆為推估），不符「沒有災害不用祈福」；原 event 另有「波及當地居民」等來源未載的推導（紅線 2）。同國三場火標題亦撞名無法辨識。",
+    "followup": {
+      "sealed": true
+    },
+    "glide": "WF-2026-000130-ESP"
   },
   {
     "id": "gdacs-wf-1029540",
     "eventType": "wildfire",
     "title": "為西班牙野火平安祈福",
-    "event": "西班牙於七月中旬發生森林大火，延燒多日、範圍廣闊，當地民眾生活受到影響。願祝禱平安，願受影响之地早日復原、重歸寧靜。",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
     "sources": [
       {
         "ref": "GDACS 全球災害預警系統",
@@ -843,7 +861,13 @@
     "lon": -3.0589121528095387,
     "detector": "gdacs",
     "since": "2026-07-27",
-    "status": "active"
+    "status": "archived",
+    "archived_at": "2026-07-27",
+    "retracted_reason": "GDACS 描述僅「某日某國起火、燒 N 公頃」，無任何已致災事實（ha 與 people affected 皆為推估），不符「沒有災害不用祈福」；原 event 另有「波及當地居民」等來源未載的推導（紅線 2）。同國三場火標題亦撞名無法辨識。",
+    "followup": {
+      "sealed": true
+    },
+    "glide": "WF-2026-000128-ESP"
   },
   {
     "id": "news-flood-20260726-948ee6",

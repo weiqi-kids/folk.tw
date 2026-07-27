@@ -124,6 +124,27 @@ export function typhoonZhName(en) {
   return TYPHOON_ZH.get(key) ?? null;
 }
 
+/**
+ * 標題撞名檢查（2026-07-27 加）：新頁的標題若與既有「還看得到的」條目**完全相同**，
+ * 使用者在 /qiugian/ 清單上就只看到一排一模一樣的「🕯 為○○祈福 →」，分不出誰是誰。
+ *
+ * 由來：2026-07-27 GDACS 一次給了三場西班牙野火（座標相距數百公里、**確實是三場不同的火**，
+ * 不是重複開頁），但它的 `country` 欄只給國名，正向閘手上就只有「Spain」可寫 → 三頁全叫
+ * 「為西班牙野火平安祈福」。去重規則全對（本來就不同事件），問題出在**標題沒有辨識度**。
+ *
+ * 撞名＝來源給的地理資訊不足以區分這兩起事件，此時保守 block（寧漏不錯）：本站不必為每個事件開頁，
+ * 而掛一頁講不清是哪一場的頁面，對使用者是負值。若之後來源給出更細的地名，標題自然不撞、就會開成。
+ *
+ * @param {Array<object>} list topical.json 全部條目
+ * @param {string} title 待開頁的標題
+ * @returns {object|null} 撞到的既有條目（無則 null）
+ */
+export function findTitleClash(list, title) {
+  const t = String(title || '').trim();
+  if (!t) return null;
+  return list.find((it) => !it.mergedInto && it.status !== 'archived' && String(it.title || '').trim() === t) ?? null;
+}
+
 /** CWA 140 個正式中文譯名的集合，供「抽到的詞是不是真的颱風名」這道權威濾網。 */
 const TYPHOON_ZH_SET = new Set(TYPHOON_ZH.values());
 
@@ -155,6 +176,15 @@ export function sharedCycloneName(a, b) {
  * @returns {{ id: string, rule: 'place'|'source-url'|'cyclone-name'|'geo', name?: string } | null}
  */
 export function findDuplicate(list, cand) {
+  // d0 GLIDE：聯合國 OCHA／ReliefWeb 等機構共用的**災害事件唯一識別碼**（如 `WF-2026-000128-ESP`），
+  // GDACS 在 RSS 的 <gdacs:glide> 直接給。同一個 GLIDE ＝ 國際上登記為同一場災害，
+  // **不看距離也不看時間窗**（一場野火/洪水可以燒淹好幾週、橫跨大範圍，距離與時間都不可靠）。
+  // 這是目前最權威的一條，故排在最前面。查證來源：GDACS geteventdata API 的 `glide` 欄。
+  if (cand.glide) {
+    const hitGlide = list.find((it) => it.glide && it.glide === cand.glide);
+    if (hitGlide) return { id: hitGlide.id, rule: 'glide', name: cand.glide };
+  }
+
   const hitPlace = list.find((it) =>
     normPlace(it.place) && normPlace(it.place) === normPlace(cand.place) && withinDays(it, cand));
   if (hitPlace) return { id: hitPlace.id, rule: 'place' };
@@ -251,6 +281,40 @@ if (process.argv[1]?.endsWith('topical-dedup.mjs') && process.argv.includes('--s
   check('正式名單濾網：文中混兩個颱風 → 放棄不猜',
     officialCycloneName('颱風紅霞減弱，颱風康芮接續生成。'), null);
   check('正式名單濾網：無氣旋詞的文字 → null', officialCycloneName('重慶市彭水縣發生山崩。'), null);
+
+  // (5d) GLIDE：同一場災害被拆成多個 eventid 時唯一擋得住的規則；不同 GLIDE 則不可誤併。
+  //      實例（2026-07-27 查 GDACS geteventdata API 證實）：三場西班牙野火 GLIDE 各為
+  //      …000128/000130/000131-ESP ＝ 國際上登記為三場不同災害，即使同國、同期、同類型也不能併。
+  const wfEsp = { id: 'gdacs-wf-1029540', eventType: 'wildfire', place: 'Spain', time: '2026-07-18',
+    glide: 'WF-2026-000128-ESP', lat: 41.11, lon: -3.06 };
+  check('同 GLIDE（同一場災害被拆成兩個 eventid）→ 併',
+    findDuplicate([wfEsp], { eventType: 'wildfire', place: 'Spain', time: '2026-08-02',
+      glide: 'WF-2026-000128-ESP', lat: 40.2, lon: -4.9 }),
+    { id: 'gdacs-wf-1029540', rule: 'glide', name: 'WF-2026-000128-ESP' });
+  check('不同 GLIDE（同國同期的另一場火）→ 不併',
+    findDuplicate([wfEsp], { eventType: 'wildfire', place: 'Spain', time: '2026-07-22',
+      glide: 'WF-2026-000130-ESP', lat: 40.36, lon: -4.55 }), null);
+  check('GLIDE 相同但相距 400km、隔 15 天 → 仍併（野火會蔓延數週跨大範圍，距離時間都不可靠）',
+    findDuplicate([wfEsp], { eventType: 'wildfire', place: 'Spain', time: '2026-08-02',
+      glide: 'WF-2026-000128-ESP', lat: 39.88, lon: -0.25 })?.rule, 'glide');
+  check('候選無 GLIDE → 不因此誤併，退回原有規則',
+    findDuplicate([wfEsp], { eventType: 'wildfire', place: 'Portugal', time: '2026-07-19', lat: 39.5, lon: -8.0 }), null);
+
+  // (5c) findTitleClash：標題撞名＝來源地理資訊不足以辨識，須擋（2026-07-27 三場西班牙野火案）。
+  const wf = [
+    { id: 'gdacs-wf-1029540', status: 'active', title: '為西班牙野火平安祈福' },
+    { id: 'gdacs-wf-old', status: 'archived', title: '為葡萄牙野火平安祈福' },
+    { id: 'gdacs-wf-merged', mergedInto: 'gdacs-wf-1029540', title: '為義大利野火平安祈福' },
+  ];
+  check('標題與既有 active 頁完全相同 → 擋',
+    findTitleClash(wf, '為西班牙野火平安祈福')?.id, 'gdacs-wf-1029540');
+  check('標題不同（地名更細）→ 放行',
+    findTitleClash(wf, '為西班牙瓦倫西亞野火平安祈福'), null);
+  check('只與已撤下（archived）的頁同名 → 放行（清單上看不到它，不會混淆）',
+    findTitleClash(wf, '為葡萄牙野火平安祈福'), null);
+  check('只與併頁條目同名 → 放行（它只剩 redirect）',
+    findTitleClash(wf, '為義大利野火平安祈福'), null);
+  check('空標題 → null（交由上游的 !g.title 擋）', findTitleClash(wf, '  '), null);
 
   // (6) 既有規則不得退化：2026-07-17 重慶彭水山崩三種寫法仍要被擋（走 geo）。
   const pengshui = { id: 'news-landslide-20260717-470423', eventType: 'landslide', place: '重慶市彭水縣', time: '2026-07-17', lat: 29.293, lon: 108.166 };
