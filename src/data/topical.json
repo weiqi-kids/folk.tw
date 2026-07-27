@@ -764,5 +764,85 @@
       "last_checked": "2026-07-26",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "gdacs-wf-1029794",
+    "eventType": "wildfire",
+    "title": "為西班牙野火平安祈福",
+    "event": "西班牙近日發生森林大火，延燒多日，當地居民生活受到影響。願火勢儘速獲得控制，受影響民眾平安無虞。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029794"
+      }
+    ],
+    "place": "Spain",
+    "time": "2026-07-25",
+    "severity": "Green impact for forestfire in 11403 ha，17765 people affected in the area",
+    "lat": 39.8807326546269,
+    "lon": -0.24664571501763902,
+    "detector": "gdacs",
+    "since": "2026-07-27",
+    "status": "active"
+  },
+  {
+    "id": "gdacs-wf-1029628",
+    "eventType": "wildfire",
+    "title": "為法國野火平安祈福",
+    "event": "法國於二零二六年七月二十二日發生森林野火，延燒林地並波及當地居民；祈願火勢儘速撲滅，居民平安、家園無恙。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029628"
+      }
+    ],
+    "place": "France",
+    "time": "2026-07-22",
+    "severity": "Green impact for forestfire in 45290 ha，11606 people affected in the area",
+    "lat": 44.84734105777949,
+    "lon": -1.0371425526577218,
+    "detector": "gdacs",
+    "since": "2026-07-27",
+    "status": "active"
+  },
+  {
+    "id": "gdacs-wf-1029643",
+    "eventType": "wildfire",
+    "title": "為西班牙野火平安祈福",
+    "event": "西班牙近日發生森林大火，延燒範圍廣泛，波及當地居民生活。願祝禱早日撲滅火勢，當地民眾平安無恙。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029643"
+      }
+    ],
+    "place": "Spain",
+    "time": "2026-07-22",
+    "severity": "Green impact for forestfire in 63065 ha，17959 people affected in the area",
+    "lat": 40.35900808791651,
+    "lon": -4.547359678810068,
+    "detector": "gdacs",
+    "since": "2026-07-27",
+    "status": "active"
+  },
+  {
+    "id": "gdacs-wf-1029540",
+    "eventType": "wildfire",
+    "title": "為西班牙野火平安祈福",
+    "event": "西班牙於七月中旬發生森林大火，延燒多日、範圍廣闊，當地民眾生活受到影響。願祝禱平安，願受影响之地早日復原、重歸寧靜。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029540"
+      }
+    ],
+    "place": "Spain",
+    "time": "2026-07-18",
+    "severity": "Green impact for forestfire in 31628 ha，520 people affected in the area",
+    "lat": 41.11468936275462,
+    "lon": -3.0589121528095387,
+    "detector": "gdacs",
+    "since": "2026-07-27",
+    "status": "active"
   }
 ]
