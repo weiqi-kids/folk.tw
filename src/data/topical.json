@@ -844,5 +844,26 @@
     "detector": "gdacs",
     "since": "2026-07-27",
     "status": "active"
+  },
+  {
+    "id": "news-flood-20260726-948ee6",
+    "eventType": "flood",
+    "title": "為甘肅渭源雙石門水災平安祈福",
+    "event": "甘肅定西渭源縣雙石門景區七月二十六日下午突發山洪，多輛露營車輛遭沖走，造成人員傷亡。願罹難者安息、傷者早日康復，祈願當地民眾平安、早日恢復平靜。",
+    "sources": [
+      {
+        "ref": "香港01",
+        "url": "https://www.hk01.com/%E5%8D%B3%E6%99%82%E4%B8%AD%E5%9C%8B/60373811/%E7%94%98%E8%82%85%E6%B8%AD%E6%BA%90%E9%9B%99%E7%9F%B3%E9%96%80%E6%99%AF%E5%8D%80%E5%B1%B1%E6%B4%AA%E6%9A%B4%E7%99%BC%E8%87%B410%E6%AD%BB23%E5%82%B7"
+      },
+      {
+        "ref": "中時新聞網",
+        "url": "https://www.chinatimes.com/realtimenews/20260726002580-260409"
+      }
+    ],
+    "place": "甘肅省定西市渭源縣雙石門景區",
+    "time": "2026-07-26",
+    "detector": "news",
+    "since": "2026-07-27",
+    "status": "active"
   }
 ]
