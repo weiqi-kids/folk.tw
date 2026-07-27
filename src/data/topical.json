@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
-      "empty_runs": 5
+      "last_checked": "2026-07-27",
+      "empty_runs": 6
     },
     "memorial_at": "2026-07-20"
   },
@@ -195,8 +195,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
-      "empty_runs": 2
+      "last_checked": "2026-07-27",
+      "empty_runs": 3
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -225,8 +225,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
-      "empty_runs": 8
+      "last_checked": "2026-07-27",
+      "empty_runs": 9
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -394,12 +394,28 @@
         ],
         "added": "2026-07-25T12:33:53.071Z",
         "hash": "9890db800919"
+      },
+      {
+        "date": "2026-07-27",
+        "text": "重慶彭水山崩救援現場尋獲先前失聯的客運中巴車殘骸，殘骸內外並發現罹難者遺骸，相關單位正進行身分比對確認，搜尋工作持續推進。",
+        "sources": [
+          {
+            "ref": "新浪新聞",
+            "url": "https://news.sina.com.cn/c/2026-07-27/doc-inikevrk8443877.shtml"
+          },
+          {
+            "ref": "中國青年網",
+            "url": "https://news.youth.cn/jsxw/202607/t20260727_16785646.htm"
+          }
+        ],
+        "added": "2026-07-27T12:32:57.437Z",
+        "hash": "1d0a3ccc5ebd"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
-      "empty_runs": 1
+      "last_checked": "2026-07-27",
+      "empty_runs": 0
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -691,11 +707,47 @@
         ],
         "added": "2026-07-26T12:34:00.825Z",
         "hash": "8f86ae2ec060"
+      },
+      {
+        "date": "2026-07-26",
+        "text": "中國國家發展改革委已緊急撥款支持廣東展開颱風災後應急恢復，用於修復受損道路、水利及學校、醫院等公共設施。",
+        "sources": [
+          {
+            "ref": "中國新聞網",
+            "url": "https://www.chinanews.com.cn/gn/2026/07-26/10666755.shtml"
+          }
+        ],
+        "added": "2026-07-27T12:34:59.944Z",
+        "hash": "2c64e66f881e"
+      },
+      {
+        "date": "2026-07-26",
+        "text": "廣東省財政廳與應急管理廳已緊急下達省級救災資金，支援惠州、汕尾、揭陽、梅州、河源等受災地區展開應急搶救與災民救助。",
+        "sources": [
+          {
+            "ref": "澎湃新聞",
+            "url": "https://www.thepaper.cn/newsDetail_forward_33663600"
+          }
+        ],
+        "added": "2026-07-27T12:35:00.560Z",
+        "hash": "7480dfb9ca3e"
+      },
+      {
+        "date": "2026-07-27",
+        "text": "颱風紅霞已減弱為熱帶低壓，殘餘環流持續影響湖南等地，中央氣象台已解除颱風預警。",
+        "sources": [
+          {
+            "ref": "人民網",
+            "url": "http://society.people.com.cn/n1/2026/0727/c1008-40768634.html"
+          }
+        ],
+        "added": "2026-07-27T12:34:52.555Z",
+        "hash": "dbfc0a83aa01"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "empty_runs": 0
     }
   },
@@ -761,8 +813,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-26",
-      "empty_runs": 0
+      "last_checked": "2026-07-27",
+      "empty_runs": 1
     }
   },
   {
@@ -888,6 +940,37 @@
     "time": "2026-07-26",
     "detector": "news",
     "since": "2026-07-27",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-27",
+        "text": "甘肅渭源雙石門景區山洪搜救工作因當地持續降雨一度暫停，雨勢趨緩後搜救隊伍已重返河道沿線持續搜尋失聯人員。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-27/10666970.shtml"
+          }
+        ],
+        "added": "2026-07-27T12:36:29.529Z",
+        "hash": "3decaae913a0"
+      },
+      {
+        "date": "2026-07-27",
+        "text": "現場仍有露營遊客下落不明，家屬在河道旁等候搜救隊伍傳來消息。",
+        "sources": [
+          {
+            "ref": "網易新聞",
+            "url": "https://www.163.com/dy/article/L2S4AS6O051492T3.html"
+          }
+        ],
+        "added": "2026-07-27T12:36:30.796Z",
+        "hash": "b27aa19937bc"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-27",
+      "empty_runs": 0
+    }
   }
 ]
