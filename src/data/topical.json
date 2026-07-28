@@ -1037,5 +1037,26 @@
     "detector": "gdacs",
     "since": "2026-07-28",
     "status": "active"
+  },
+  {
+    "id": "news-landslide-20260726-777a6d",
+    "eventType": "landslide",
+    "title": "為四川九寨溝山崩祈福",
+    "event": "四川九寨溝景區因強降雨引發土石流及局部山體坍方，道路一度受阻，滯留遊客已在人員引導下平安撤離，願當地早日恢復平靜。",
+    "sources": [
+      {
+        "ref": "新浪財經",
+        "url": "https://finance.sina.com.cn/tech/roll/2026-07-26/doc-inikcymu8557379.shtml"
+      },
+      {
+        "ref": "新京報",
+        "url": "https://www.bjnews.com.cn/detail/1785067349129884.html"
+      }
+    ],
+    "place": "四川省九寨溝景區",
+    "time": "2026-07-26",
+    "detector": "news",
+    "since": "2026-07-28",
+    "status": "active"
   }
 ]
