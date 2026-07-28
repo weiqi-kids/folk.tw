@@ -8,7 +8,7 @@
 //    如此即使某天沒重新部署（每日收集 commit 帶 [skip ci] 不觸發 deploy），倒數仍永遠正確。
 
 import pkg from 'lunar-javascript';
-import { deityBirthdayIndex } from './queries';
+import { deityBirthdayIndex, getDeities, getSystems } from './queries';
 import { addDays } from './almanac/dates';
 
 const { Solar } = pkg;
@@ -17,7 +17,7 @@ export interface BirthdayEntry {
   iso: string; // 國曆 YYYY-MM-DD（自 fromIso 起的下一次）
   lunar: string; // 農曆 MM-DD
   lunarLabel: string; // 農曆 X月X日（中文）
-  deities: { deityId: string; name: string }[];
+  deities: { deityId: string; name: string; systems: { id: string; name: string }[] }[];
 }
 
 const CN_NUM = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
@@ -51,6 +51,16 @@ export async function upcomingDeityBirthdays(
   opts: { uniqueDeity?: boolean } = {},
 ): Promise<BirthdayEntry[]> {
   const idx = await deityBirthdayIndex(); // Map<"MM-DD", {deityId,name}[]>
+  // 求籤系統對映：只有登記 divination_systems 的神明（目前僅媽祖／關聖帝君）才會多顯示求籤連結。
+  const allDeities = await getDeities();
+  const systems = await getSystems();
+  const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+  const systemsByDeity = new Map(
+    allDeities.map((d) => [
+      d.id,
+      d.data.divination_systems.map((s) => ({ id: s.id, name: systemName.get(s.id) ?? s.id })),
+    ]),
+  );
   const seen = new Set<string>();
   const out: BirthdayEntry[] = [];
   for (let i = 0; i < days; i++) {
@@ -72,7 +82,12 @@ export async function upcomingDeityBirthdays(
         if (!deities.length) continue;
         deities.forEach((x) => seen.add(x.deityId));
       }
-      out.push({ iso, lunar: key, lunarLabel: labelOf(key), deities });
+      out.push({
+        iso,
+        lunar: key,
+        lunarLabel: labelOf(key),
+        deities: deities.map((x) => ({ ...x, systems: systemsByDeity.get(x.deityId) ?? [] })),
+      });
     }
   }
   return out;

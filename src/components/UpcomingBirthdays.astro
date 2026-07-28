@@ -27,6 +27,11 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
             <>
               {i > 0 && '、'}
               <a href={`/deities/${d.deityId}/`}>{d.name}</a>
+              {d.systems.map((sys) => (
+                <a class="bd-divine" href={`/systems/${sys.id}/`}>
+                  （求籤）
+                </a>
+              ))}
             </>
           ))}
         </span>
@@ -71,6 +76,7 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
   .bd-countdown { font-size: var(--text-xs); color: var(--gold); }
   .bd-lunar { font-size: var(--text-sm); }
   .bd-deities a { color: var(--ink); }
+  .bd-deities a.bd-divine { color: var(--accent); font-size: var(--text-xs); }
   @media (max-width: 480px) {
     .bd-item { grid-template-columns: 4.75rem 1fr; }
     .bd-lunar { grid-column: 2; font-size: var(--text-xs); }
