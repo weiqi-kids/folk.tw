@@ -154,9 +154,19 @@
   - `check:scoped-styles`（2026-07-17 新增，deploy.yml build gate）：全站攔「Astro scoped `<style>` 套不到 client JS 注入 DOM」的 bug 類別（源自 /qiugian 抽籤結果卡四句擠一行事故）。命中即擋部署；修法＝該規則移 `<style is:global>`＋容器 id 命名空間。見 `scripts/check-scoped-styles.mjs` 檔頭。
   - `check:design-tokens`（2026-07-17 新增、2026-07-18 收嚴，deploy.yml build gate；**2026-07-20 起與 v2 `check:design` 並存保留**——它的 font-size 規則比 v2 嚴：`<style>` 內任何硬編數值（含 rem/em）皆擋，v2 只擋 px，移除即放水故不撤）：守設計系統房規（見 memory design-system-tokens）。兩層皆**硬 gate 零容忍**：**顏色**＝`<style>` 內禁 hex/rgb/hsl（改 `var(--…)`／`oklch`／`color-mix`；`<meta theme-color>` 屬 HTML 合法例外不掃）；**font-size**＝必須 `var(--text-*)`，任何硬編數值皆擋。（原 69 處非階梯值已於 7/18 全數語意對映到 token、基線機制已移除，不再有「暫時放行」。）見 `scripts/check-design-tokens.mjs` 檔頭。
 - `pnpm data:weekly`：本機週報乾跑預覽（＝`seo-weekly.mjs --dry`，不開 Issue/不發 Slack；需 scripts/.google-sa-key.json）
+- **廟宇頁在地脈絡（2026-07-28）**：GSC 抽驗推估約 810 頁未索引，最單薄那批只有 273 字、4 條內鏈。
+  補了兩樣**每頁都不同、純由既有資料衍生**的：①脈絡句「本鎮登記在案的宮廟共 N 間，其中主祀○○者 M 間」
+  ②同鄉鎮鄰近宮廟 ≤5 條（優先已查證沿革/官網者，其餘依廟名排序＝固定不隨機）。仍守「廟宇不建密網」
+  （單向、上限 5、有鄉鎮樞紐可上行）。**刻意不引用神明節點的 `summary`**——那會讓數百間同主祀的廟
+  出現一模一樣的段落，反而加重重複內容。不變量已進 `check:rendered`（7884 間有鄰居的廟頁全驗）。
 - **主動通知搜尋引擎（部署後跑這支）**：`pnpm notify [url...|--all]`＝一鍵雙推，
   同一組網址同時送 Google＋IndexNow，涵蓋互補（Google 不參與 IndexNow）。
-  - 無參數＝高槓桿集（各模組首頁＋封存＋月份樞紐）；帶 url＝只送指定頁；`--all`＝整份 sitemap。
+  - 無參數＝高槓桿集（各模組首頁＋封存＋月份樞紐）；帶 url＝只送指定頁；`--all`＝整份 sitemap；
+    `--from <檔>`＝從檔案逐行讀網址（大批量用）。
+  - **待送佇列（2026-07-28）**：Google Indexing API 每日配額 200，一次要送幾百頁必然撞 429。
+    撞到（或超出單次上限）就把剩下的存進 `/root/.config/folk-tw/index-ping-queue.json`，
+    **下次執行優先送、成功即移除**，跨天自動續完，不必人記得補送。佇列刻意放 repo 外——
+    放進 repo 會被每日 cron 一起 commit 並觸發部署。
   - 內部分別呼叫：`pnpm index:ping`（Google Indexing API，每日配額 200，SA 須為 GSC 擁有者）
     與 `pnpm indexnow:ping`（IndexNow → Bing/Yandex/Seznam/Naver；金鑰檔 `public/<key>.txt`，
     內容＝檔名 stem，須先部署上線供驗證；回 HTTP 202＝已受理待驗證屬正常）。
