@@ -972,5 +972,26 @@
       "last_checked": "2026-07-27",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-flood-20260726-083601",
+    "eventType": "flood",
+    "title": "為甘肅渭源縣雙石門景區水災平安祈福",
+    "event": "甘肅省渭源縣雙石門景區日前因短時強降雨引發山洪，造成人員傷亡；祈願罹難者安息、傷者早日康復，當地民眾平安度過此劫。",
+    "sources": [
+      {
+        "ref": "中央社 CNA",
+        "url": "https://www.cna.com.tw/news/acn/202607260153.aspx"
+      },
+      {
+        "ref": "RTHK",
+        "url": "https://news.rthk.hk/rthk/ch/component/k2/1863820-20260726.htm"
+      }
+    ],
+    "place": "甘肅省渭源縣雙石門景區",
+    "time": "2026-07-26",
+    "detector": "news",
+    "since": "2026-07-28",
+    "status": "active"
   }
 ]
