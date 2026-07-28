@@ -14,13 +14,51 @@ export const getStaticPaths = (async () => {
   // 且不會解析到別間同名廟）；同名廟改用座標嵌入，精準釘位不指錯。見 TempleMap.astro。
   const nameCount = new Map<string, number>();
   for (const t of temples) nameCount.set(t.data.name, (nameCount.get(t.data.name) ?? 0) + 1);
-  return temples.map((t) => ({
-    params: { id: t.id },
-    props: { temple: t, uniqueName: nameCount.get(t.data.name) === 1 },
-  }));
+
+  // 在地脈絡（2026-07-28）：GSC 抽驗顯示廟宇頁約 12% 未索引（推估 810 頁），落在最單薄那批——
+  // 一頁只有名稱/地址/主祀神，內鏈 4 條，且 7891 頁彼此高度相似。這裡補的兩樣都**每頁不同**
+  // 且**純由既有資料衍生**：①該鄉鎮的宮廟總數與同主祀神間數 ②同鄉鎮的鄰近宮廟連結。
+  // 刻意不引用神明節點的 summary——那會讓數百間同主祀的廟出現一模一樣的段落，反而加重重複內容。
+  const byTown = new Map<string, typeof temples>();
+  for (const t of temples) {
+    const c = templeCounty(t.data.district), tw = templeTownship(t.data.district);
+    if (!c || !tw) continue;
+    const key = `${c.slug}/${tw.name}`;
+    (byTown.get(key) ?? byTown.set(key, []).get(key)!).push(t);
+  }
+
+  return temples.map((t) => {
+    const c = templeCounty(t.data.district), tw = templeTownship(t.data.district);
+    const inTown = c && tw ? (byTown.get(`${c.slug}/${tw.name}`) ?? []) : [];
+    const deityKey = t.data.main_deity_ref ?? t.data.main_deity_raw;
+    const sameDeityInTown = deityKey
+      ? inTown.filter((x) => (x.data.main_deity_ref ?? x.data.main_deity_raw) === deityKey).length
+      : 0;
+    // 鄰近宮廟：同鄉鎮、排除自己，優先已查證沿革／官網者（那些頁最值得被爬到），
+    // 其餘依廟名排序後取滿 5 間——排序固定＝每次 build 結果一致，不是隨機挑。
+    const neighbors = inTown
+      .filter((x) => x.id !== t.id)
+      .sort((a, b) => {
+        const w = (x: typeof a) => (x.data.history || x.data.website || x.data.founded ? 0 : 1);
+        return w(a) - w(b) || a.data.name.localeCompare(b.data.name);
+      })
+      .slice(0, 5)
+      .map((x) => ({ id: x.id, name: x.data.name, deity: x.data.main_deity_raw ?? '' }));
+
+    return {
+      params: { id: t.id },
+      props: {
+        temple: t,
+        uniqueName: nameCount.get(t.data.name) === 1,
+        townTotal: inTown.length,
+        sameDeityInTown,
+        neighbors,
+      },
+    };
+  });
 }) satisfies GetStaticPaths;
 
-const { temple, uniqueName } = Astro.props;
+const { temple, uniqueName, townTotal, sameDeityInTown, neighbors } = Astro.props;
 const t = temple.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
@@ -62,6 +100,14 @@ const summaryText = [
   '。',
   historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
 ].join('');
+
+// 在地脈絡句：每個「鄉鎮×主祀神」組合都不同，是這頁真正獨有的一句話（純由既有資料算出）。
+// 資料不足（無鄉鎮、該鎮只有這一間、無主祀神）就整句不出現，不硬湊。
+const townLabel = township?.name ?? '';
+const townContext = townLabel && townTotal > 1
+  ? `${townLabel}登記在案的宮廟共 ${townTotal} 間` +
+    (mainDeity && sameDeityInTown > 1 ? `，其中主祀${mainDeity}者 ${sameDeityInTown} 間。` : '。')
+  : '';
 
 // speakable 對全體廟頁生效：以頁首 .summary 直答區塊為主（不再只限有沿革者）。
 const speakable = ['h1', '.summary'];
@@ -198,6 +244,23 @@ const jsonLd = [
     )
   }
 
+  {
+    neighbors.length > 0 && county && township && (
+      <section class="nearby">
+        <h2>{township.name}的其他宮廟</h2>
+        {townContext && <p class="muted small">{townContext}</p>}
+        <ul class="nearby-list">
+          {neighbors.map((n) => (
+            <li>
+              <a href={`/temples/${n.id}/`}>{n.name}</a>
+              {n.deity && <span class="muted small">　主祀 {n.deity}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   {county && township && (
     <p class="region-link"><a href={`/temples/region/${county.slug}/${township.name}/`}>查看{county.name}{township.name}其他廟宇 →</a></p>
   )}
@@ -223,6 +286,9 @@ const jsonLd = [
     .temple-history .history-body { line-height: 1.8; }
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }
     .temple-history strong { color: var(--accent); margin-right: 0.375rem; }
+    .nearby { margin-top: 1.875rem; }
+    .nearby-list { list-style: none; padding: 0; margin: 0.625rem 0 0;
+      display: flex; flex-direction: column; gap: 0.4375rem; }
     .region-link { margin-top: 1.5rem; font-size: var(--text-sm); }
     .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1.25rem; font-size: var(--text-sm); }

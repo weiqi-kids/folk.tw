@@ -11,6 +11,8 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
 const DIST = 'dist';
+// 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
+const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
 
@@ -68,7 +70,40 @@ for (const t of temples) {
   }
 }
 
-// ── 不變量 2：鄉鎮頁的 answer-first 摘要（2026-07-28 加）───────────────────────
+// ── 不變量 2：廟頁的「同鄉鎮其他宮廟」區塊與脈絡句（2026-07-28 加）──────────────
+// 背景：GSC 抽驗顯示廟宇頁約 12% 未索引（推估 810 頁），最單薄的一批只有 273 字、4 條內鏈。
+//       補上同鄉鎮鄰近宮廟（≤5 條）與「本鎮共 N 間」脈絡句後，這裡逐頁驗：
+//       該鄉鎮不只一間廟時，區塊必須存在，且句中的 N 真的等於該鄉鎮的廟數。
+{
+  const inTownCount = new Map(); // `${slug}/${town}` → 廟數
+  for (const t of temples) {
+    const c = templeCounty(t.district), tw = templeTownship(t.district);
+    if (!c || !tw) continue;
+    const key = `${c.slug}/${tw.name}`;
+    inTownCount.set(key, (inTownCount.get(key) ?? 0) + 1);
+  }
+  let checkedNearby = 0;
+  for (const t of temples) {
+    const c = templeCounty(t.district), tw = templeTownship(t.district);
+    if (!c || !tw) continue;
+    const total = inTownCount.get(`${c.slug}/${tw.name}`) ?? 0;
+    if (total <= 1) continue; // 全鎮只有這一間 → 不該有鄰近區塊，正確地不驗
+    const file = `${DIST}/temples/${t.id}/index.html`;
+    if (!existsSync(file)) continue;
+    const html = readFileSync(file, 'utf8');
+    checkedNearby++;
+    if (!html.includes('class="nearby"')) {
+      violations.push(`${t.id}（${tw.name}共 ${total} 間）應有「同鄉鎮其他宮廟」區塊，實際缺少`);
+      continue;
+    }
+    if (!new RegExp(`登記在案的宮廟共\\s*${total}\\s*間`).test(html)) {
+      violations.push(`${t.id} 在地脈絡句的鄉鎮廟數與資料不符（資料 ${total} 間）`);
+    }
+  }
+  globalThis.__nearbyChecked = checkedNearby;
+}
+
+// ── 不變量 3：鄉鎮頁的 answer-first 摘要（2026-07-28 加）───────────────────────
 // 背景：鄉鎮頁原本只有「共 N 間」＋一長串清單＝薄列表頁，GSC 實測收錄率 23/40（57%），
 //       全站最低。補上由資料衍生的摘要（間數／主祀神分布／全縣排名）後，這裡逐頁驗
 //       「摘要存在，且裡面那個間數真的等於該鄉鎮的廟數」——防的是模板句寫死或統計算錯。
@@ -77,7 +112,7 @@ for (const t of temples) {
 // ⚠️ 地區解析**直接 import 頁面用的那支 lib**，絕不在本檔重寫一份規則——
 // 重寫就是新的漂移來源（本檔初版自行寫了正則，立刻在桃園區／麻豆區等 12 處對不上，
 // 因為 lib 的規則依縣市別區分後綴：市轄「區」、縣轄「鄉/鎮/市」，且先做臺→台正規化）。
-const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
+
 const normTw = (s) => String(s ?? '').replace(/臺/g, '台');
 const townCounts = new Map();
 for (const t of temples) {
@@ -114,7 +149,7 @@ for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符。`);
   process.exit(0);
 }
 

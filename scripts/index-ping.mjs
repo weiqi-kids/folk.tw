@@ -15,6 +15,8 @@
 // 配額：Indexing API 預設每日 200 筆。本腳本上限 MAX_PER_RUN 保護，超過會截斷並提示。
 // 提示：月份樞紐是關鍵——Google 爬每個樞紐即可發現該月所有日期頁連結（少量配額觸發大量發現）。
 
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { getAccessToken, loadConfig } from './lib/google-data.mjs';
 
 const PUBLISH = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
@@ -55,9 +57,28 @@ async function defaultUrls() {
 
 async function resolveUrls(args) {
   if (args.includes('--all')) return [...new Set(await sitemapUrls())];
-  const explicit = args.filter((a) => !a.startsWith('--'));
+  const fromIdx = args.indexOf('--from');
+  if (fromIdx >= 0 && args[fromIdx + 1]) {
+    const lines = readFileSync(args[fromIdx + 1], 'utf8').split('\n').map((l) => l.trim()).filter(Boolean);
+    return [...new Set(lines)];
+  }
+  const explicit = args.filter((a) => !a.startsWith('--') && a !== args[fromIdx + 1]);
   if (explicit.length) return [...new Set(explicit)];
   return defaultUrls();
+}
+
+// ── 待送佇列（2026-07-28 建）────────────────────────────────────────────────
+// Google Indexing API 每日配額 200，一次要送 351 個鄉鎮頁時必然撞 429。原本撞到就 break，
+// 沒送出去的網址直接消失——等於「配額不足＝默默丟掉」，人不看 log 根本不知道漏了什麼。
+// 改成：撞 429 就把剩下的存進佇列，下次執行**優先送佇列**，送成功的移除。這樣跨天自動續完。
+// 佇列刻意放 repo 外（純執行狀態，不是站台資料）：進 repo 會被每日 cron 一起 commit 並觸發部署。
+const QUEUE = '/root/.config/folk-tw/index-ping-queue.json';
+const readQueue = () => { try { return JSON.parse(readFileSync(QUEUE, 'utf8')); } catch { return []; } };
+function writeQueue(list) {
+  try {
+    mkdirSync(dirname(QUEUE), { recursive: true });
+    writeFileSync(QUEUE, JSON.stringify([...new Set(list)], null, 2) + '\n');
+  } catch (e) { console.log(`⚠️ 佇列寫入失敗（${e.message}），未送出的網址這次不會保留。`); }
 }
 
 async function main() {
@@ -69,8 +90,16 @@ async function main() {
   if (fixed.length) console.log(`⚠️ ${fixed.length} 筆缺尾斜線已自動補上（送 301 網址等於浪費配額）：${fixed.slice(0, 5).join(', ')}${fixed.length > 5 ? ' …' : ''}`);
   urls = [...new Set(urls.map(normalizeUrl))];
 
+  // 佇列優先：上次撞配額沒送完的，這次排在最前面（跨天自動續完，不必人記得補送）。
+  const queued = readQueue().map(normalizeUrl);
+  if (queued.length) {
+    console.log(`↻ 待送佇列有 ${queued.length} 筆，優先送出。`);
+    urls = [...new Set([...queued, ...urls])];
+  }
+
+  const overflow = urls.length > MAX_PER_RUN ? urls.slice(MAX_PER_RUN) : [];
   if (urls.length > MAX_PER_RUN) {
-    console.log(`⚠️ ${urls.length} 筆超過單次上限 ${MAX_PER_RUN}（每日配額 200），只送前 ${MAX_PER_RUN} 筆；其餘下次再送。`);
+    console.log(`⚠️ ${urls.length} 筆超過單次上限 ${MAX_PER_RUN}（每日配額 200），只送前 ${MAX_PER_RUN} 筆；其餘 ${overflow.length} 筆進佇列，下次優先送。`);
     urls = urls.slice(0, MAX_PER_RUN);
   }
   console.log(`送 ${urls.length} 筆（type=${type}）→ ${SITE}`);
@@ -81,22 +110,34 @@ async function main() {
   let ok = 0;
   let fail = 0;
   const errs = [];
+  const sent = new Set();
+  let quotaHit = false;
   for (const url of urls) {
     const r = await fetch(PUBLISH, { method: 'POST', headers, body: JSON.stringify({ url, type }) });
     if (r.status === 200) {
-      ok++;
+      ok++; sent.add(url);
     } else {
       fail++;
       const body = await r.text().catch(() => '');
       if (errs.length < 5) errs.push(`${url} → ${r.status} ${body.slice(0, 100)}`);
       if (r.status === 429) {
-        console.log('配額用盡（429），停止。');
+        console.log('配額用盡（429），停止；未送出的網址存進佇列，下次執行自動續送。');
+        quotaHit = true;
         break;
       }
     }
   }
+  // 佇列結算：這次沒送成功的（含撞 429 後略過的）＋ 超出單次上限的，全部留給下次。
+  const pending = [...urls.filter((u) => !sent.has(u)), ...overflow];
+  const stillQueued = queued.filter((u) => !sent.has(u));
+  const nextQueue = [...new Set([...stillQueued, ...pending])];
+  if (nextQueue.length || queued.length) writeQueue(nextQueue);
+
   console.log(`\n=== 完成：成功 ${ok}、失敗 ${fail} ===`);
+  if (nextQueue.length) console.log(`↻ 佇列剩 ${nextQueue.length} 筆待送（${QUEUE}），下次執行自動續送。`);
+  else if (queued.length) console.log('↻ 佇列已清空。');
   for (const e of errs) console.log('  ✗', e);
+  void quotaHit;
   if (fail && !ok) process.exitCode = 1;
 }
 
