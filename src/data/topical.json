@@ -1017,5 +1017,25 @@
     "detector": "usgs",
     "since": "2026-07-28",
     "status": "active"
+  },
+  {
+    "id": "gdacs-fl-1104051",
+    "eventType": "flood",
+    "title": "為中國水災平安祈福",
+    "event": "中國近日發生水災，造成人員傷亡，祈願受災鄉親平安、家園早日恢復。",
+    "sources": [
+      {
+        "ref": "GDACS 全球災害預警系統",
+        "url": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104051"
+      }
+    ],
+    "place": "China",
+    "time": "2026-07-25",
+    "severity": "Magnitude 0，0 deaths and 801000 displaced",
+    "lat": 22.7891796,
+    "lon": 115.3704551,
+    "detector": "gdacs",
+    "since": "2026-07-28",
+    "status": "active"
   }
 ]
