@@ -26,7 +26,21 @@ const SITE = gscSiteUrl.startsWith('sc-domain:')
   ? `https://${gscSiteUrl.slice('sc-domain:'.length)}`
   : gscSiteUrl.replace(/\/$/, '');
 
-const CORE = ['/', '/almanac', '/almanac/archive', '/poems', '/deities', '/events', '/practices', '/temples', '/about'];
+// ⚠️ 一律帶尾斜線：本站是 GitHub Pages，`/poems` 會 301 到 `/poems/`。少一個斜線＝主動請 Google
+// 收錄一個會重新導向的網址（2026-07-28 查 GSC「頁面會重新導向 2,304」時發現這 9 個裡有 8 個是 301）。
+const CORE = ['/', '/almanac/', '/almanac/archive/', '/poems/', '/deities/', '/events/', '/practices/', '/temples/', '/about/'];
+
+/**
+ * 送出前的機械保底：補上遺漏的尾斜線（帶副檔名的檔案路徑不動）。
+ * 靠人記得加斜線是不夠的——CORE 就這樣錯了很久，改用機械強制。
+ */
+export function normalizeUrl(u) {
+  try {
+    const x = new URL(u);
+    if (!x.pathname.endsWith('/') && !/\.[a-z0-9]{2,5}$/i.test(x.pathname)) x.pathname += '/';
+    return x.toString();
+  } catch { return u; }
+}
 
 async function sitemapUrls() {
   const xml = await (await fetch(`${SITE}/sitemap-0.xml`)).text();
@@ -50,6 +64,10 @@ async function main() {
   const args = process.argv.slice(2);
   const type = args.includes('--deleted') ? 'URL_DELETED' : 'URL_UPDATED';
   let urls = await resolveUrls(args);
+  // 機械保底：任何來源（CORE／命令列參數／sitemap）的網址都先正規化，絕不送出會 301 的網址。
+  const fixed = urls.filter((u) => normalizeUrl(u) !== u);
+  if (fixed.length) console.log(`⚠️ ${fixed.length} 筆缺尾斜線已自動補上（送 301 網址等於浪費配額）：${fixed.slice(0, 5).join(', ')}${fixed.length > 5 ? ' …' : ''}`);
+  urls = [...new Set(urls.map(normalizeUrl))];
 
   if (urls.length > MAX_PER_RUN) {
     console.log(`⚠️ ${urls.length} 筆超過單次上限 ${MAX_PER_RUN}（每日配額 200），只送前 ${MAX_PER_RUN} 筆；其餘下次再送。`);

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-design.mjs && node scripts/check-content.mjs && astro build",
+    "build": "node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -30,7 +30,8 @@
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "notify": "node scripts/notify.mjs",
-    "data:temple-coords": "node --experimental-strip-types scripts/refresh-temple-coords.ts"
+    "data:temple-coords": "node --experimental-strip-types scripts/refresh-temple-coords.ts",
+    "check:outbound-urls": "node scripts/check-outbound-urls.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

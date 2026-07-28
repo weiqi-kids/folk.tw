@@ -31,7 +31,7 @@ const arrow = (now, prev) => (prev == null ? '' : now > prev ? `↑ +${(now - pr
 const UNIQUE = [
   ['https://folk.tw/deities/mazu/', '媽祖'],
   ['https://folk.tw/deities/guangong/', '關聖帝君'],
-  ['https://folk.tw/poems', '籤詩首頁'],
+  ['https://folk.tw/poems/', '籤詩首頁'],
   ['https://folk.tw/poems/liushi_jiazi-1/', '六十甲子籤1'],
   ['https://folk.tw/allusions/suitang_qinshubao/', '典故·秦叔寶'],
 ];

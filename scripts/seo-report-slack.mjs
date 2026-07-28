@@ -50,7 +50,7 @@ const PAGE_NAME = {
   'https://folk.tw/': '首頁',
   'https://folk.tw/deities/mazu/': '媽祖',
   'https://folk.tw/deities/guangong/': '關聖帝君',
-  'https://folk.tw/poems': '籤詩首頁',
+  'https://folk.tw/poems/': '籤詩首頁',
   'https://folk.tw/poems/liushi_jiazi-1/': '六十甲子籤1',
   'https://folk.tw/allusions/suitang_qinshubao/': '典故·秦叔寶',
 };
@@ -58,7 +58,7 @@ const PAGE_NAME = {
 const FLAGSHIP = [
   'https://folk.tw/deities/mazu/',
   'https://folk.tw/deities/guangong/',
-  'https://folk.tw/poems',
+  'https://folk.tw/poems/',
   'https://folk.tw/poems/liushi_jiazi-1/',
   'https://folk.tw/allusions/suitang_qinshubao/',
 ];

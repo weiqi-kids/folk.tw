@@ -20,14 +20,14 @@ const OUT_DIR = join(repoRoot, 'data', 'seo-daily');
 // 稀釋監控 + 索引覆蓋追蹤清單（分子＝獨特頁、分母＝廟宇頁；週報 seo-weekly.mjs 用同一組）。
 const TRACK_URLS = [
   'https://folk.tw/',
-  'https://folk.tw/almanac',
-  'https://folk.tw/almanac/archive',
+  'https://folk.tw/almanac/',
+  'https://folk.tw/almanac/archive/',
   'https://folk.tw/deities/mazu/',
   'https://folk.tw/deities/guangong/',
-  'https://folk.tw/poems',
+  'https://folk.tw/poems/',
   'https://folk.tw/poems/liushi_jiazi-1/',
   'https://folk.tw/allusions/suitang_qinshubao/',
-  'https://folk.tw/temples',
+  'https://folk.tw/temples/',
   'https://folk.tw/temples/dajia_zhenlan/',
   'https://folk.tw/temples/moi_0_竹圍仔福德祠/',
 ];

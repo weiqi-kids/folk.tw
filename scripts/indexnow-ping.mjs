@@ -29,7 +29,17 @@ const SITE = gscSiteUrl.startsWith('sc-domain:')
   : gscSiteUrl.replace(/\/$/, '');
 const HOST = new URL(SITE).host;
 
-const CORE = ['/', '/almanac', '/almanac/archive', '/poems', '/deities', '/events', '/practices', '/temples', '/about'];
+// ⚠️ 一律帶尾斜線（同 index-ping.mjs）：本站是 GitHub Pages，`/poems` 會 301 到 `/poems/`。
+const CORE = ['/', '/almanac/', '/almanac/archive/', '/poems/', '/deities/', '/events/', '/practices/', '/temples/', '/about/'];
+
+/** 送出前的機械保底：補上遺漏的尾斜線（帶副檔名的檔案路徑不動）。 */
+function normalizeUrl(u) {
+  try {
+    const x = new URL(u);
+    if (!x.pathname.endsWith('/') && !/\.[a-z0-9]{2,5}$/i.test(x.pathname)) x.pathname += '/';
+    return x.toString();
+  } catch { return u; }
+}
 
 function resolveKey() {
   if (process.env.INDEXNOW_KEY) return process.env.INDEXNOW_KEY.trim();
@@ -73,7 +83,10 @@ async function main() {
   else if (args.length) urls = args.map((u) => (u.startsWith('http') ? u : SITE + (u.startsWith('/') ? u : '/' + u)));
   else urls = await defaultUrls();
 
-  urls = [...new Set(urls)].filter((u) => u.startsWith(SITE)); // IndexNow 要求同網域
+  // 機械保底：絕不送出會 301 的網址（2026-07-28 GSC「頁面會重新導向」查因時補上）。
+  const fixed = urls.filter((u) => normalizeUrl(u) !== u);
+  if (fixed.length) console.log(`⚠️ ${fixed.length} 筆缺尾斜線已自動補上：${fixed.slice(0, 5).join(', ')}${fixed.length > 5 ? ' …' : ''}`);
+  urls = [...new Set(urls.map(normalizeUrl))].filter((u) => u.startsWith(SITE)); // IndexNow 要求同網域
   if (!urls.length) { console.log('無可提交網址。'); return; }
 
   console.log(`IndexNow → ${HOST}（金鑰 ${keyLocation}）`);

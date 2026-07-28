@@ -130,7 +130,15 @@
   🔴 紅線：只做正向祈福、**絕不杜撰**（來源機器複驗）、**面向使用者文案絕不出現具體傷亡/災損數字**
   （硬 gate `scripts/lib/topical-guard.mjs`，非靠 LLM prompt 自律；改管線前先讀 SOP）。
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
-- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+  - **尾斜線兩道 gate，守的是兩個不同表面，別搞混**（2026-07-28 立；此根因已復發三次）：
+    `check:canonical`（build 後）掃 **dist 產物**的內部網址（nav/canonical/og:url/JSON-LD/sitemap）；
+    `check:outbound-urls`（已內建進 `pnpm build` 最前段）掃 **`scripts/` 裡會被主動送出去的網址**
+    （`pnpm notify` 的 CORE 清單、各報表腳本的追蹤網址）。**後者是前者長期的盲區**——站台輸出乾淨，
+    但 `pnpm notify` 的 9 個高槓桿網址裡有 8 個不帶尾斜線，每次部署後都在對 Google Indexing API 與
+    IndexNow 送 301 網址，GSC 因此累積「頁面會重新導向」且來源標成**網站**（＝我們自己提交的）。
+    另有第三層 runtime 保底：`index-ping.mjs`／`indexnow-ping.mjs` 送出前 `normalizeUrl()` 補斜線並印警告
+    （gate 擋靜態寫死的、normalize 擋命令列參數這類動態來的）。
   - `check:design`（2026-07-20 新增，**團隊統一設計規範守門 v2**，已內建進 `pnpm build` 最前段＝本機/CI/seo-ops gate 全繼承）：掃 `src/**/*.{css,astro,svelte}` 五條規則——①font-size 禁 px（一律 `var(--text-*)`）②顏色（hex/rgb/hsl）只准 `src/styles/variables.css`（token 唯一來源；oklch/color-mix/var 合規）③禁 `!important` ④禁外部 CDN（fonts.googleapis/cdnjs/unpkg/jsdelivr）⑤src/ 下 .css 白名單只准 `src/styles/{variables,global}.css`（元件樣式寫 scoped `<style>`）。本站唯一例外＝`<meta name="theme-color">`（HTML 規格只能字面色，腳本內註明）。token 已於 2026-07-20 自 global.css 拆出 `variables.css`（global.css 首行 `@import` 保持載入順序）。見 `scripts/check-design.mjs` 檔頭。
   - `check:copy-voice`（2026-07-18 新增，deploy.yml build gate＋大腦 headless 自驗）：攔「面向使用者的產品文案出現 AI 療癒腔／假掰詩意」（源自用戶反覆要求去 AI 味、人眼仍漏，如 /qiugian「…回來說一聲——你可能是第一個」）。只掃 `src/**/*.astro`（資料 json 含公有領域古文不掃），禁語清單**逐次養、只收嚴不放寬**（種子＝記憶 copy-voice-no-ai-speak 的地雷＋歷來被抓到的句子）。命中即擋部署。新增禁語直接在 `scripts/check-copy-voice.mjs` 的 `BANNED` 加一列。
   - `check:content`（2026-07-21 新增，跨站統一去 AI 味引擎，已內建進 `pnpm build`：`check:design && check:content && astro build`）：掃**文章正文** `src/**/*.md(x)`（典故 137＋籤解 160），與 `check:copy-voice` 掃 UI `.astro` 是**不同表面、互補不替換**。引擎＝`/root/.claude/skills/new-astro-site/templates/check-content.mjs` 統一版（強指紋單命中即 ERROR＋詞彙/句式/結構/語氣四層軟訊號跨 ≥3 層升 ERROR），另把 folk 療癒腔黑名單 port 進 `SITE_ERROR_TELLS`（`放下了`/`釋懷了`/`(添|多)了一分暖`/`不是一個人走過`/`照亮彼此`/`你的消息會陪`/`你(可能|可以…)是第一個`），與 UI gate 規則同源。**grandfather**：預設只掃相對 origin/main 變動的 md（既有 297 篇存量不回溯擋，全站盤點 `pnpm check:content:all` 永遠 exit 0）；CI 淺 checkout 抓不到 base 時掃 0 檔安全放行。新增禁語時 UI 補 `check-copy-voice.mjs`、文章補 `check-content.mjs`，兩處同步。首次全站盤點：298 檔 0 ERROR、178 WARN（172 為破折號單層軟訊號，未達門檻不擋）。
