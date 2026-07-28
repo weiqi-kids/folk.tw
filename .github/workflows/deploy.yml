@@ -48,7 +48,7 @@ jobs:
         run: pnpm check:canonical
       # 送出網址檢查（腳本主動送給 Google/IndexNow 的網址非斜線→301）另由 pnpm build 內建先跑
       # （scripts/check-outbound-urls.mjs，2026-07-28 補上 check:canonical 的盲區）
-      - name: render 不變量檢查（廟頁求籤區塊全量比對資料，阻擋部署）
+      - name: render 不變量檢查（廟頁求籤區塊＋鄉鎮頁摘要，全量比對資料，阻擋部署）
         run: pnpm check:rendered
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5

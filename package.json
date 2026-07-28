@@ -15,7 +15,7 @@
     "check": "astro check",
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
     "check:canonical": "node scripts/check-canonical-links.mjs",
-    "check:rendered": "node scripts/check-rendered.mjs",
+    "check:rendered": "node --experimental-strip-types scripts/check-rendered.mjs",
     "check:scoped-styles": "node scripts/check-scoped-styles.mjs",
     "check:design": "node scripts/check-design.mjs",
     "check:design-tokens": "node scripts/check-design-tokens.mjs",

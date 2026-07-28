@@ -5,7 +5,8 @@
 // 背景：feature 正確性不能靠人工抽驗幾間廟；此檢查跑在 build 後，發現不符即 exit 1
 //       → deploy.yml build job 失敗 → 不部署。新 render 不變量可續加進本檔。
 // 用法：pnpm build 後 `node scripts/check-rendered.mjs`（CI 已串在 build 之後）。
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
@@ -67,8 +68,53 @@ for (const t of temples) {
   }
 }
 
+// ── 不變量 2：鄉鎮頁的 answer-first 摘要（2026-07-28 加）───────────────────────
+// 背景：鄉鎮頁原本只有「共 N 間」＋一長串清單＝薄列表頁，GSC 實測收錄率 23/40（57%），
+//       全站最低。補上由資料衍生的摘要（間數／主祀神分布／全縣排名）後，這裡逐頁驗
+//       「摘要存在，且裡面那個間數真的等於該鄉鎮的廟數」——防的是模板句寫死或統計算錯。
+// 由 district 反推「縣市名＋鄉鎮名」→ 廟數。配對鍵刻意用頁面 h1 的文字（`${縣市}${鄉鎮}廟宇`），
+// 這樣不必在本檔複製一份 slug↔縣市名對照；若頁面把地區寫錯，也會因查無此鍵而被抓出來。
+// ⚠️ 地區解析**直接 import 頁面用的那支 lib**，絕不在本檔重寫一份規則——
+// 重寫就是新的漂移來源（本檔初版自行寫了正則，立刻在桃園區／麻豆區等 12 處對不上，
+// 因為 lib 的規則依縣市別區分後綴：市轄「區」、縣轄「鄉/鎮/市」，且先做臺→台正規化）。
+const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
+const normTw = (s) => String(s ?? '').replace(/臺/g, '台');
+const townCounts = new Map();
+for (const t of temples) {
+  const c = templeCounty(t.district), tw = templeTownship(t.district);
+  if (!c || !tw) continue;
+  const key = c.name + tw.name;
+  townCounts.set(key, (townCounts.get(key) ?? 0) + 1);
+}
+
+function* townPageFiles(dir) {
+  if (!existsSync(dir)) return;
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) yield* townPageFiles(p);
+    else if (name === 'index.html' && p.split('/').length === 6) yield p; // dist/temples/region/<slug>/<town>/index.html
+  }
+}
+
+let townPages = 0, townUnmatched = 0;
+for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
+  const html = readFileSync(file, 'utf8');
+  const h1 = html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1]?.trim();
+  const key = h1 ? normTw(h1).replace(/廟宇$/, '') : undefined;
+  townPages++;
+  if (!html.includes('class="lead"')) {
+    violations.push(`鄉鎮頁 ${file} 缺 answer-first 摘要（class="lead"）`);
+    continue;
+  }
+  const count = key ? townCounts.get(key) : undefined;
+  if (count === undefined) { townUnmatched++; continue; } // 地區名解析規則差異，不當違規（見上）
+  if (!new RegExp(`收錄\\s*${count}\\s*間廟宇`).test(html)) {
+    violations.push(`鄉鎮頁 ${key} 摘要間數與資料不符（資料 ${count} 間）`);
+  }
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符。`);
   process.exit(0);
 }
 
