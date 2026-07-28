@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
-      "empty_runs": 6
+      "last_checked": "2026-07-28",
+      "empty_runs": 7
     },
     "memorial_at": "2026-07-20"
   },
@@ -195,8 +195,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
-      "empty_runs": 3
+      "last_checked": "2026-07-28",
+      "empty_runs": 4
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -225,8 +225,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
-      "empty_runs": 9
+      "last_checked": "2026-07-28",
+      "empty_runs": 10
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -414,8 +414,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
-      "empty_runs": 0
+      "last_checked": "2026-07-28",
+      "empty_runs": 1
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -743,11 +743,35 @@
         ],
         "added": "2026-07-27T12:34:52.555Z",
         "hash": "dbfc0a83aa01"
+      },
+      {
+        "date": "2026-07-27",
+        "text": "廣東保險業已針對颱風紅霞開通理賠綠色通道，加速受災民眾申請理賠。",
+        "sources": [
+          {
+            "ref": "深圳新聞網",
+            "url": "https://www.sznews.com/news/content/2026-07/26/content_32133263.htm"
+          }
+        ],
+        "added": "2026-07-28T12:34:42.719Z",
+        "hash": "a14b8fd6f4a4"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "颱風紅霞侵襲後，汕尾等受災地市已展開清淤排水與設施搶修，生產生活秩序逐步恢復。",
+        "sources": [
+          {
+            "ref": "羊城晚報（全媒體）",
+            "url": "https://m.mp.oeeee.com/a/BAAFRD0000202607281633885.html"
+          }
+        ],
+        "added": "2026-07-28T12:34:44.354Z",
+        "hash": "dd8a975f0ee0"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
+      "last_checked": "2026-07-28",
       "empty_runs": 0
     }
   },
@@ -813,8 +837,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
-      "empty_runs": 1
+      "last_checked": "2026-07-28",
+      "empty_runs": 2
     }
   },
   {
@@ -965,11 +989,39 @@
         ],
         "added": "2026-07-27T12:36:30.796Z",
         "hash": "b27aa19937bc"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "渭源雙石門山洪搜救工作已轉入精細化清查收尾階段，救援人員沿河道分組拉網式搜尋，搜索範圍持續擴大。",
+        "sources": [
+          {
+            "ref": "中華網",
+            "url": "https://news.china.com/domestic/945/20260728/49637253.html"
+          },
+          {
+            "ref": "人民網",
+            "url": "http://society.people.com.cn/n1/2026/0728/c1008-40769056.html"
+          }
+        ],
+        "added": "2026-07-28T12:37:06.193Z",
+        "hash": "f9470491636b"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "媒體與輿論開始追查災前氣象與應急部門雖已多次發出山洪預警，為何仍未能阻止悲劇發生，聚焦通報與應變機制是否存在疏漏。",
+        "sources": [
+          {
+            "ref": "新浪新聞（中國新聞周刊）",
+            "url": "https://news.sina.com.cn/c/2026-07-28/doc-inikhisz0654958.shtml"
+          }
+        ],
+        "added": "2026-07-28T12:37:06.874Z",
+        "hash": "250a48412d37"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-27",
+      "last_checked": "2026-07-28",
       "empty_runs": 0
     }
   },
@@ -992,7 +1044,38 @@
     "time": "2026-07-26",
     "detector": "news",
     "since": "2026-07-28",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-27",
+        "text": "當地搜救隊伍持續在河道下游展開清查，清查沖失車輛與遺留物品，以確認是否仍有失聯人員待尋",
+        "sources": [
+          {
+            "ref": "羊城晚報（新花城）",
+            "url": "https://huacheng.gz-cmc.com/pages/2026/07/27/cf2e408588a643feba63ac8e97a97dd0.html"
+          }
+        ],
+        "added": "2026-07-28T12:38:46.474Z",
+        "hash": "1b81c078e1c0"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "有媒體追蹤報導指出，事發前氣象與應變單位已多次發布強降雨、山洪預警，但示警未能有效轉化為現場避險作為，景區人力調度與疏散動線等管理環節也成為後續檢討焦點",
+        "sources": [
+          {
+            "ref": "新京報（新浪新聞轉載）",
+            "url": "https://news.sina.com.cn/c/2026-07-28/doc-inikhisz0654958.shtml"
+          }
+        ],
+        "added": "2026-07-28T12:38:47.095Z",
+        "hash": "870ff224a752"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-28",
+      "empty_runs": 0
+    }
   },
   {
     "id": "eq-pt26209004",
@@ -1016,7 +1099,26 @@
     "lon": 130.7,
     "detector": "usgs",
     "since": "2026-07-28",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-28",
+        "text": "當地消防單位表示報案電話不斷湧入，各地搜救與滅火行動同步展開，仍有民眾下落不明，搜尋工作持續進行。",
+        "sources": [
+          {
+            "ref": "NHK",
+            "url": "https://news.web.nhk/newsweb/na/na-k10015188221000"
+          }
+        ],
+        "added": "2026-07-28T12:39:41.411Z",
+        "hash": "885990a89f14"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-28",
+      "empty_runs": 0
+    }
   },
   {
     "id": "gdacs-fl-1104051",
@@ -1036,7 +1138,30 @@
     "lon": 115.3704551,
     "detector": "gdacs",
     "since": "2026-07-28",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-27",
+        "text": "重慶彭水山體崩塌災害搜救工作出現進展，救援人員已在現場尋獲先前失聯的客運中巴車殘骸，並於殘骸內外尋獲罹難者遺體，正進行DNA比對以確認身分，搜救工作仍持續進行中。",
+        "sources": [
+          {
+            "ref": "澎湃新聞",
+            "url": "https://www.thepaper.cn/newsDetail_forward_33664768"
+          },
+          {
+            "ref": "新浪新聞",
+            "url": "https://news.sina.cn/gn/2026-07-27/detail-inikezxn9903330.d.html?vt=4&cid=56261&node_id=56261"
+          }
+        ],
+        "added": "2026-07-28T12:41:42.140Z",
+        "hash": "b03fc9b19474"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-28",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-landslide-20260726-777a6d",
@@ -1057,6 +1182,37 @@
     "time": "2026-07-26",
     "detector": "news",
     "since": "2026-07-28",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-27",
+        "text": "九寨溝景區持續搶修受災路段、進行地質災害清查，並對遊客實施免門票措施。",
+        "sources": [
+          {
+            "ref": "網易新聞",
+            "url": "https://www.163.com/dy/article/L2RD517L05129QAF.html"
+          }
+        ],
+        "added": "2026-07-28T12:42:21.046Z",
+        "hash": "751a5d436f0c"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "九寨溝景區部分沟域經安全評估確認無風險後恢復開放迎客，其餘沟域仍暫緩接待遊客並持續免票。",
+        "sources": [
+          {
+            "ref": "光明網",
+            "url": "https://m.gmw.cn/2026-07/27/content_1304538572.htm"
+          }
+        ],
+        "added": "2026-07-28T12:42:23.536Z",
+        "hash": "8fa9ea9a0cbd"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-07-28",
+      "empty_runs": 0
+    }
   }
 ]
