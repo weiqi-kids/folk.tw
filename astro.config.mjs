@@ -82,6 +82,10 @@ export default defineConfig({
           try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
           if (TOPICAL_NOINDEX_PATHS.has(p)) return false;
         }
+        // 站內搜尋結果頁移出 sitemap（2026-07-28，與頁內 noindex 一致）：它沒有自己的內容，
+        // 且 Google 會把首頁 SearchAction 的 urlTemplate 當真網址去抓——實測 `/search?q={search_term_string}`
+        // 就出現在 GSC「已檢索－目前尚未建立索引」清單裡。見 src/pages/search.astro 註解。
+        if (/\/search\/?$/.test(page.replace('https://folk.tw', ''))) return false;
         // 今日（Asia/Taipei, UTC+8）ISO 日期，與站內 today 定義一致。
         const TODAY = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。

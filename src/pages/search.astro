@@ -4,7 +4,14 @@ import Base from '../layouts/Base.astro';
 // 索引檔在 build 後才產生，故開發伺服器（pnpm dev）看不到結果，需 pnpm build && pnpm preview。
 ---
 
-<Base title="搜尋" description="全站搜尋：籤詩、典故、神明、農民曆、民俗活動、拜拜習俗。">
+<!--
+  noindex（2026-07-28）：站內搜尋結果頁不該進索引——它沒有自己的內容，只是別頁的入口，
+  Google 也明文建議別讓搜尋結果頁被收錄。實證：GSC「已檢索－目前尚未建立索引」的 310 頁裡，
+  就有 `/search?q={search_term_string}`——**首頁 SearchAction 的 urlTemplate 被當成真網址去抓了**，
+  抓回來是一個查詢字面值為 `{search_term_string}` 的空結果頁。加 noindex 並移出 sitemap 斷掉這條。
+  follow 保留：頁上的連結仍可被爬。
+-->
+<Base title="搜尋" description="全站搜尋：籤詩、典故、神明、農民曆、民俗活動、拜拜習俗。" noindex>
   <h1>搜尋</h1>
   <p class="muted">手上有籤？直接貼上整段籤詩四句就能查解，也可搜尋典故、神明、活動與習俗。</p>
   <div id="search" class="search-box"></div>
