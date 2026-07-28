@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# 全站索引涵蓋率稽核 cron 包裝（2026-07-28 建）。
+#
+# 做什麼：對站上每一個頁面逐一跑 GSC URL Inspection，把收錄狀態全量記錄下來（不抽樣）。
+#   每日配額 2,000、全站約 12,000 頁 → 約 6 天掃完一輪；掃完後自動改為滾動重查最舊的，
+#   所以長期永遠有一份「全站每頁的最新收錄狀態」，不必再從 GSC 後台匯出。
+#
+# 為什麼不進隔離 worktree：它**完全不碰 git**（進度檔在 repo 外 /root/.config/folk-tw/index-audit.json），
+#   且必須讀主工作樹的 dist/ 才涵蓋得到刻意排除 sitemap 的頁面（土地公廟／未來農民曆）。
+#   dist 不存在時腳本會自己退回線上 sitemap 並在 log 標明涵蓋範圍縮小。
+#
+# 查結果：node scripts/audit-index-coverage.mjs --report
+#         node scripts/audit-index-coverage.mjs --list "Crawled - currently not indexed"
+set -euo pipefail
+cd /root/folk.tw
+
+echo "=== $(date -u +%FT%H:%MZ) 全站索引稽核 ==="
+# --max 1800：留 200 額度給 seo-collect 的每日收錄檢查（它每天約用 34 次）與臨時人工查詢。
+/usr/bin/node scripts/audit-index-coverage.mjs --max 1800

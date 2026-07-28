@@ -1067,17 +1067,22 @@
     "name": "台南開基天后宮",
     "main_deity_raw": "天上聖母",
     "main_deity_ref": "mazu",
-    "district": "台南市中西區",
+    "district": "台南市北區自強街12號",
     "sources": [
       {
-        "type": "web",
-        "ref": "維基百科「開基天后宮」https://zh.wikipedia.org/zh-tw/%E9%96%8B%E5%9F%BA%E5%A4%A9%E5%90%8E%E5%AE%AE",
-        "note": "地址：台南市中西區北門路二段317號；俗稱「小媽祖廟」，創建鄭氏時期，與祀典大天后宮並列台南兩大媽祖廟"
+        "type": "gov",
+        "ref": "文化部文化資產局 國家文化資產網「開基天后宮」（公告日期 1985-11-27，案號 19851127000067）",
+        "note": "https://nchdb.boch.gov.tw/assets/advanceSearch/monument/19851127000067"
       },
       {
         "type": "gov",
-        "ref": "台南市文化資產管理處 https://tmach-culture.tainan.gov.tw/",
-        "note": "台南市市定古蹟"
+        "ref": "文化部文化資產局 國定古蹟環景導覽「開基天后宮」",
+        "note": "https://view.boch.gov.tw/NationalHistorical/itemspage.aspx?id=22 記載「臺南市,北區 自強街十二號」「創建於明永曆年間」及歷次修建年代"
+      },
+      {
+        "type": "web",
+        "ref": "維基百科「開基天后宮」https://zh.wikipedia.org/zh-tw/%E9%96%8B%E5%9F%BA%E5%A4%A9%E5%90%8E%E5%AE%AE",
+        "note": "地址臺南市北區自強街12號、座標 22.99962,120.20258、國定古蹟、別稱小媽祖廟"
       }
     ],
     "image": {
@@ -1087,7 +1092,11 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E5%8D%97%E9%96%8B%E5%9F%BA%E5%A4%A9%E5%90%8E%E5%AE%AE.JPG"
-    }
+    },
+    "lat": 22.99962,
+    "lng": 120.20258,
+    "founded": "明永曆年間（文化部文資局作「創建於明永曆年間」；維基百科載鄭成功於永曆十六年、1662 年改建德慶溪口媽祖寮而成）",
+    "history": "台南最早的媽祖廟，因與俗稱「大媽祖廟」的祀典大天后宮相對，別稱「小媽祖廟」。清乾隆三十年（1765）由台灣知府捐修並擴建，日治時期屢有修葺，二戰期間遭轟炸破壞，民國三十七年（1948）大修，民國六十至六十二年（1971－1973）重修為今貌。一九八五年十一月二十七日公告為古蹟，現指定為國定古蹟。"
   },
   {
     "id": "xinying_nankun_fenci",

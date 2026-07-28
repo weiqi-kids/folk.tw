@@ -33,20 +33,38 @@ const args = process.argv.slice(2);
 const argVal = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
 const MAX = Number(argVal('--max') ?? Infinity);
 
-/** 站上實際存在的每一個頁面（含刻意排除 sitemap 者：土地公廟頁、未來農民曆頁）。 */
-function allPageUrls() {
-  const out = [];
-  (function walk(dir) {
-    for (const name of readdirSync(dir)) {
-      const p = join(dir, name);
-      if (statSync(p).isDirectory()) walk(p);
-      else if (name === 'index.html') {
-        const path = p.slice(DIST.length, -'index.html'.length);
-        out.push(ORIGIN + encodeURI(path));
+/**
+ * 站上實際存在的每一個頁面。優先掃 build 產物 `dist/`——只有它涵蓋得到
+ * **刻意排除 sitemap** 的那兩批（土地公廟頁 1,384、未來農民曆頁 730），
+ * 而那兩批正是「Google 爬得到但我們沒提交」的灰色地帶，稽核不能漏。
+ * 無人值守執行時 dist 可能不存在（cron 不跑 build），此時退回線上 sitemap 並明白告知涵蓋範圍縮小。
+ */
+async function allPageUrls() {
+  try {
+    statSync(DIST);
+    const out = [];
+    (function walk(dir) {
+      for (const name of readdirSync(dir)) {
+        const p = join(dir, name);
+        if (statSync(p).isDirectory()) walk(p);
+        else if (name === 'index.html') {
+          const path = p.slice(DIST.length, -'index.html'.length);
+          out.push(ORIGIN + encodeURI(path));
+        }
       }
+    })(DIST);
+    return [...new Set(out)].sort();
+  } catch {
+    console.log('⚠️ 找不到 dist/（未 build），退回線上 sitemap——排除 sitemap 的頁面（土地公廟／未來農民曆）本輪掃不到。');
+    const idx = await (await fetch(`${ORIGIN}/sitemap-index.xml`)).text();
+    const maps = [...idx.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const out = [];
+    for (const m of maps.length ? maps : [`${ORIGIN}/sitemap-0.xml`]) {
+      const xml = await (await fetch(m)).text();
+      out.push(...[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((x) => x[1]));
     }
-  })(DIST);
-  return [...new Set(out)].sort();
+    return [...new Set(out)].sort();
+  }
 }
 
 const loadState = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return { results: {} }; } };
@@ -73,7 +91,7 @@ function report(state, urls) {
 }
 
 const state = loadState();
-const urls = allPageUrls();
+const urls = await allPageUrls();
 
 if (args.includes('--list')) {
   const want = argVal('--list');
