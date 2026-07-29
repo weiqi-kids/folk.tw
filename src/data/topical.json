@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 7
+      "last_checked": "2026-07-29",
+      "empty_runs": 8
     },
     "memorial_at": "2026-07-20"
   },
@@ -195,8 +195,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 4
+      "last_checked": "2026-07-29",
+      "empty_runs": 5
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -225,8 +225,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 10
+      "last_checked": "2026-07-29",
+      "empty_runs": 11
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -410,12 +410,28 @@
         ],
         "added": "2026-07-27T12:32:57.437Z",
         "hash": "1d0a3ccc5ebd"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "救援指揮部通報，搜救分區中已有區域全面完成搜尋，其餘區域進入最後攻堅階段，罹難者身分持續以DNA比對方式確認中。",
+        "sources": [
+          {
+            "ref": "央廣網",
+            "url": "https://cq.cnr.cn/tp/20260728/t20260728_527734950.shtml"
+          },
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7332/9656884"
+          }
+        ],
+        "added": "2026-07-29T12:33:48.631Z",
+        "hash": "5424c39f2d9a"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 1
+      "last_checked": "2026-07-29",
+      "empty_runs": 0
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -771,8 +787,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 0
+      "last_checked": "2026-07-29",
+      "empty_runs": 1
     }
   },
   {
@@ -837,8 +853,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 2
+      "last_checked": "2026-07-29",
+      "empty_runs": 3
     }
   },
   {
@@ -1021,8 +1037,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 0
+      "last_checked": "2026-07-29",
+      "empty_runs": 1
     }
   },
   {
@@ -1073,8 +1089,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
-      "empty_runs": 0
+      "last_checked": "2026-07-29",
+      "empty_runs": 1
     }
   },
   {
@@ -1112,11 +1128,35 @@
         ],
         "added": "2026-07-28T12:39:41.411Z",
         "hash": "885990a89f14"
+      },
+      {
+        "date": "2026-07-29",
+        "text": "日本首相高市早苗證實震災已有罹難者，搜救人員徹夜於倒塌的購物商場持續搜尋受困者，仍有人員下落不明。",
+        "sources": [
+          {
+            "ref": "CNN",
+            "url": "https://www.cnn.com/2026/07/28/world/live-news/japan-earthquake-kumamoto"
+          }
+        ],
+        "added": "2026-07-29T12:38:09.689Z",
+        "hash": "b5cfd9d9dac5"
+      },
+      {
+        "date": "2026-07-29",
+        "text": "當地居民陸續疏散至避難所安置，日本自衛隊已投入搜救與救援行動，餘震持續發生。",
+        "sources": [
+          {
+            "ref": "NBC News",
+            "url": "https://www.nbcnews.com/world/japan/earthquake-rocks-japan-tsunami-warnings-rcna589574"
+          }
+        ],
+        "added": "2026-07-29T12:38:10.296Z",
+        "hash": "c20e2bffd5a8"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
+      "last_checked": "2026-07-29",
       "empty_runs": 0
     }
   },
@@ -1155,11 +1195,35 @@
         ],
         "added": "2026-07-28T12:41:42.140Z",
         "hash": "b03fc9b19474"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "重慶彭水山體崩塌現場搜救持續深入，甲、乙區搜尋已全部完成，丙、丁區進入最後攻堅階段；經DNA比對，陸續有罹難者身分獲得確認。",
+        "sources": [
+          {
+            "ref": "央廣網",
+            "url": "https://cq.cnr.cn/tp/20260728/t20260728_527734950.shtml"
+          }
+        ],
+        "added": "2026-07-29T12:39:08.008Z",
+        "hash": "998f2ee5bd38"
+      },
+      {
+        "date": "2026-07-29",
+        "text": "搜救人員在現場丙區深處尋獲罹難者遺骸，經DNA鑑定確認為當地社區網格員，該員在山崩發生當下協助居民撤離而未及時脫身；地方政府持續進行家屬安撫、生活救助及周邊地質安全清查等善後工作。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-07-29/doc-iniknezi1703788.shtml"
+          }
+        ],
+        "added": "2026-07-29T12:39:09.110Z",
+        "hash": "9c9a91817785"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
+      "last_checked": "2026-07-29",
       "empty_runs": 0
     }
   },
@@ -1207,11 +1271,23 @@
         ],
         "added": "2026-07-28T12:42:23.536Z",
         "hash": "8fa9ea9a0cbd"
+      },
+      {
+        "date": "2026-07-29",
+        "text": "九寨溝景區經安全評估後宣布，自7月30日起全域恢復開放，先前仍暫緩接待的沟域也一併解除管制。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-29/10668504.shtml"
+          }
+        ],
+        "added": "2026-07-29T12:39:37.271Z",
+        "hash": "46184dd5bd63"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-28",
+      "last_checked": "2026-07-29",
       "empty_runs": 0
     }
   }
