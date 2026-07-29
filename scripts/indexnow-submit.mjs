@@ -87,6 +87,14 @@ try {
     console.log(`  批 ${Math.floor(i / BATCH) + 1}：${chunk.length} 筆 → HTTP ${res.status}${ok ? '（受理）' : '（失敗）'}`);
   }
   console.log(`IndexNow 完成：${okCount}/${urlList.length} 已受理`);
+  // 非全數受理就讓這個 job 標紅（它 needs: deploy，此時部署早已完成，標紅不影響上線）。
+  // 由來：2026-07-29 一次送 12,005 筆撞 IndexNow 的 10,000 上限、回 400 整批被拒，
+  // 但 job 只印回應碼就 exit 0 → run 顯示 success，要翻 log 才發現根本沒送出去。
+  // 「部署綠」不該掩蓋「沒送成功」，故改為未全數受理即回非零。
+  if (okCount < urlList.length) {
+    console.error(`✗ 有 ${urlList.length - okCount} 筆未受理，標記本 job 失敗（部署不受影響）。`);
+    process.exitCode = 1;
+  }
 } catch (e) {
   console.error(`IndexNow 送出失敗（不擋部署）：${e.message}`);
 }

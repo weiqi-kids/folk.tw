@@ -66,7 +66,10 @@ jobs:
         uses: actions/deploy-pages@v5
 
   # 上線後把 sitemap URL 送 IndexNow（Bing/Yandex/Seznam/Naver 即時收錄；Google 不吃 IndexNow）。
-  # 金鑰非機密（本就公開託管於 /<key>.txt），直接寫在 env。任何失敗 exit 0，不擋部署。
+  # 金鑰非機密（本就公開託管於 /<key>.txt），直接寫在 env。
+  # 本 job needs: deploy，所以它失敗時部署早已完成、不影響上線——因此**未全數受理就讓它標紅**
+  # （2026-07-29 前是無論如何都 exit 0，結果一次送 12,005 筆撞 IndexNow 的 10,000 上限、
+  # 回 400 整批被拒，run 卻顯示 success，要翻 log 才發現沒送出去）。
   indexnow:
     needs: deploy
     runs-on: ubuntu-latest
