@@ -137,8 +137,12 @@ async function main() {
   if (nextQueue.length) console.log(`↻ 佇列剩 ${nextQueue.length} 筆待送（${QUEUE}），下次執行自動續送。`);
   else if (queued.length) console.log('↻ 佇列已清空。');
   for (const e of errs) console.log('  ✗', e);
-  void quotaHit;
-  if (fail && !ok) process.exitCode = 1;
+  // 配額用盡**不算失敗**：未送出的都進了佇列、下次執行自動續送，是設計中的正常路徑。
+  // 若在此回非零，seo-collect 每天都會把「今天配額滿了」誤報成 index-ping 失敗
+  // （2026-07-29 實際發生：前一天人工送了 227 筆吃掉當日配額，隔天那輪就被標成失敗）。
+  // ⚠️ Google Indexing API 的每日配額以**太平洋時間**換日（UTC-7/8），不是 UTC 也不是台灣時間。
+  // 只有「非配額原因且一筆都沒送成」才是真的失敗。
+  if (fail && !ok && !quotaHit) process.exitCode = 1;
 }
 
 main().catch((e) => {
