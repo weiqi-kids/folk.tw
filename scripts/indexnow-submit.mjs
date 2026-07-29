@@ -62,25 +62,31 @@ if (!urlList.length) {
   process.exit(0);
 }
 
-const payload = {
-  host: site.host,
-  key: KEY,
-  keyLocation: new URL(`/${KEY}.txt`, site).href,
-  urlList,
-};
-console.log(`IndexNow：${urlList.length} 個 URL → ${payload.keyLocation}`);
+// ⚠️ IndexNow 規格單次上限 10,000 個 URL，超過一律 400。
+// 2026-07-29 實測踩到：改讀全站清單後一次送 12,005 筆 → HTTP 400，整批被拒（部署仍 success，
+// 所以「部署綠」不等於「送出去了」，一定要看 IndexNow 回應碼）。故分批送，每批 5,000 留餘裕。
+const BATCH = 5000;
+const keyLocation = new URL(`/${KEY}.txt`, site).href;
+console.log(`IndexNow：${urlList.length} 個 URL → ${keyLocation}（分 ${Math.ceil(urlList.length / BATCH)} 批）`);
 if (dry) {
-  console.log(JSON.stringify(payload, null, 2));
+  console.log(JSON.stringify({ host: site.host, key: KEY, keyLocation, urlList: urlList.slice(0, 3), '…': `共 ${urlList.length}` }, null, 2));
   process.exit(0);
 }
 
 try {
-  const res = await fetch("https://api.indexnow.org/indexnow", {
-    method: "POST",
-    headers: { "Content-Type": "application/json; charset=utf-8" },
-    body: JSON.stringify(payload),
-  });
-  console.log(`IndexNow 回應：${res.status}（200/202 為受理）`);
+  let okCount = 0;
+  for (let i = 0; i < urlList.length; i += BATCH) {
+    const chunk = urlList.slice(i, i + BATCH);
+    const res = await fetch("https://api.indexnow.org/indexnow", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ host: site.host, key: KEY, keyLocation, urlList: chunk }),
+    });
+    const ok = res.status === 200 || res.status === 202;
+    if (ok) okCount += chunk.length;
+    console.log(`  批 ${Math.floor(i / BATCH) + 1}：${chunk.length} 筆 → HTTP ${res.status}${ok ? '（受理）' : '（失敗）'}`);
+  }
+  console.log(`IndexNow 完成：${okCount}/${urlList.length} 已受理`);
 } catch (e) {
   console.error(`IndexNow 送出失敗（不擋部署）：${e.message}`);
 }
