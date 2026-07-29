@@ -79,7 +79,19 @@ async function main() {
   const args = process.argv.slice(2);
 
   let urls;
-  if (args.includes('--all')) urls = await sitemapUrls();
+  if (args.includes('--all')) {
+    // 優先用 build 產出的全站清單（含刻意排除 sitemap 的 2,122 頁）；線上還沒有就退回 sitemap。
+    // 見 scripts/gen-indexnow-urls.mjs：Google 不參與 IndexNow，故送這些頁不影響降稀釋設計。
+    urls = null;
+    try {
+      const r = await fetch(`${SITE}/indexnow-urls.txt`);
+      if (r.ok) {
+        const list = (await r.text()).split('\n').map((x) => x.trim()).filter(Boolean);
+        if (list.length) { urls = list; console.log(`使用全站清單 indexnow-urls.txt（${list.length} 筆）`); }
+      }
+    } catch { /* 退回 sitemap */ }
+    if (!urls) { urls = await sitemapUrls(); console.log(`退回 sitemap（${urls.length} 筆）`); }
+  }
   else if (args.length) urls = args.map((u) => (u.startsWith('http') ? u : SITE + (u.startsWith('/') ? u : '/' + u)));
   else urls = await defaultUrls();
 

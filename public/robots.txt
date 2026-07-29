@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+# 給 IndexNow 提交用的全站頁面清單（含刻意排除 sitemap 的土地公廟頁／未來農民曆頁）。
+# 它是給我們自己的 CI 讀的（fetch 不受 robots 限制），不是給爬蟲當發現來源——
+# 若讓 Googlebot 從這裡撈到那 2,122 頁，等於繞過 astro.config.mjs 的降稀釋設計。
+# 見 scripts/gen-indexnow-urls.mjs 檔頭。
+Disallow: /indexnow-urls.txt
 Sitemap: https://folk.tw/sitemap-index.xml

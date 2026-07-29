@@ -22,6 +22,21 @@ if (!SITE_URL || !KEY) {
 const site = new URL(SITE_URL);
 const locs = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
+/**
+ * 全站頁面清單（build 產出，見 scripts/gen-indexnow-urls.mjs）。
+ * 優先用它而非 sitemap：sitemap 少了刻意排除的 2,122 頁（土地公廟／未來農民曆），
+ * 那些頁照樣公開可爬卻從未經 IndexNow 提交，Bing Webmaster 因此報「重要頁未提交」。
+ * 讀不到就退回 sitemap（部署順序或舊版本仍可運作，不會整個掛掉）。
+ */
+async function allPageUrls() {
+  try {
+    const r = await fetch(new URL("indexnow-urls.txt", site).href);
+    if (!r.ok) return null;
+    const list = (await r.text()).split("\n").map((x) => x.trim()).filter(Boolean);
+    return list.length ? list : null;
+  } catch { return null; }
+}
+
 async function sitemapUrls() {
   let maps = [];
   try {
@@ -41,7 +56,7 @@ async function sitemapUrls() {
 
 const toUrl = (a) => (/^https?:\/\//.test(a) ? a : new URL(a.replace(/^\.?\//, ""), site).href);
 
-const urlList = urlArgs.length ? urlArgs.map(toUrl) : await sitemapUrls();
+const urlList = urlArgs.length ? urlArgs.map(toUrl) : ((await allPageUrls()) ?? (await sitemapUrls()));
 if (!urlList.length) {
   console.log("無 URL 可送。");
   process.exit(0);
