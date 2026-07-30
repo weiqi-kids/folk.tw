@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 8
+      "last_checked": "2026-07-30",
+      "empty_runs": 9
     },
     "memorial_at": "2026-07-20"
   },
@@ -191,12 +191,24 @@
         ],
         "added": "2026-07-24T12:33:12.644Z",
         "hash": "0ff4499c65fa"
+      },
+      {
+        "date": "2026-07-29",
+        "text": "足利市宣布將於八月一日舉行的足利花火大會現場設置豪雨災害義援金募款箱，盼藉大型活動人潮擴大社會捐助動能，協助災區居民生活重建。",
+        "sources": [
+          {
+            "ref": "東京新聞",
+            "url": "https://www.tokyo-np.co.jp/article/504790"
+          }
+        ],
+        "added": "2026-07-30T12:32:41.341Z",
+        "hash": "ca879387b922"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 5
+      "last_checked": "2026-07-30",
+      "empty_runs": 0
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -225,8 +237,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 11
+      "last_checked": "2026-07-30",
+      "empty_runs": 12
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -430,8 +442,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 0
+      "last_checked": "2026-07-30",
+      "empty_runs": 1
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -783,12 +795,24 @@
         ],
         "added": "2026-07-28T12:34:44.354Z",
         "hash": "dd8a975f0ee0"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "廣東電網公司已全面恢復颱風紅霞受災地區惠州、汕尾用戶供電，善後復原工作持續進行。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-07-30/doc-inikptar1289395.shtml"
+          }
+        ],
+        "added": "2026-07-30T12:35:21.420Z",
+        "hash": "d449965ccb3d"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 1
+      "last_checked": "2026-07-30",
+      "empty_runs": 0
     }
   },
   {
@@ -853,8 +877,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 3
+      "last_checked": "2026-07-30",
+      "empty_runs": 4
     }
   },
   {
@@ -1037,8 +1061,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 1
+      "last_checked": "2026-07-30",
+      "empty_runs": 2
     }
   },
   {
@@ -1089,8 +1113,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 1
+      "last_checked": "2026-07-30",
+      "empty_runs": 2
     }
   },
   {
@@ -1152,11 +1176,39 @@
         ],
         "added": "2026-07-29T12:38:10.296Z",
         "hash": "c20e2bffd5a8"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "熊本地震罹難人數持續攀升，搜救人員把握黃金搜救時間全力尋找仍下落不明的民眾。",
+        "sources": [
+          {
+            "ref": "讀賣新聞",
+            "url": "https://news.yahoo.co.jp/articles/2a5071434f7ee3af7b6c13d55efe75e852596f09"
+          },
+          {
+            "ref": "Japan Times",
+            "url": "https://www.japantimes.co.jp/news/2026/07/30/japan/earthquake-kumamoto-death-toll/"
+          }
+        ],
+        "added": "2026-07-30T12:38:24.808Z",
+        "hash": "047890eb26ec"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "嘉島町購物商場倒塌現場搜救持續進行，罹難人數增加，仍有受困者尚待尋獲。",
+        "sources": [
+          {
+            "ref": "KAB熊本ニュース",
+            "url": "https://news.yahoo.co.jp/articles/bea484fdaa1b7d095223006555fb325dd04921a2"
+          }
+        ],
+        "added": "2026-07-30T12:38:24.911Z",
+        "hash": "9233b582a480"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
+      "last_checked": "2026-07-30",
       "empty_runs": 0
     }
   },
@@ -1223,8 +1275,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 0
+      "last_checked": "2026-07-30",
+      "empty_runs": 1
     }
   },
   {
@@ -1287,8 +1339,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-29",
-      "empty_runs": 0
+      "last_checked": "2026-07-30",
+      "empty_runs": 1
     }
   }
 ]
