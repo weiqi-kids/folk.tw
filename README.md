@@ -105,3 +105,7 @@ scripts/check-integrity.ts  完整性與對映率報表
 
 - 程式碼：見 [LICENSE](./LICENSE)（MIT）。
 - 內容資料：各條目來源逐條標註於資料檔；公有領域本文、政府開放資料依各自條款，原創敘述（分項解、摘要）著作權歸本站。
+
+---
+
+Maintained by Light. I build and maintain websites with AI as a service: [arthurs.tw](https://arthurs.tw/?utm_source=github&utm_medium=readme&utm_campaign=oss)
