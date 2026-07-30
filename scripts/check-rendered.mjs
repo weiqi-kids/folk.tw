@@ -58,6 +58,21 @@ for (const t of temples) {
   if (!html.includes(SUMMARY_MARK)) violations.push(`${t.id} 缺少 answer-first 摘要元素（${SUMMARY_MARK}）`);
   if (!html.includes(FAQ_MARK)) violations.push(`${t.id} 缺少 FAQPage 結構化資料（${FAQ_MARK}）`);
 
+  // 不變量 1b（2026-07-30 加）：分享卡必須是「這間廟自己那張」，且分享標題不得出現站名。
+  // 背景：外撥把廟宇連結傳給廟方時，原本 12,018 頁共用同一張神酷品牌卡，
+  //       主委看到的是別人的招牌（用戶截圖實例）。這裡逐廟驗三件事：
+  //       og:image 指向本廟的卡、該檔真的存在（不能指向 404）、og:title 不含「神酷」。
+  const ogImg = html.match(/<meta property="og:image" content="([^"]*)"/)?.[1] ?? '';
+  const wantPath = `/og/temples/${encodeURIComponent(t.id)}.png`;
+  if (!ogImg.endsWith(wantPath)) {
+    violations.push(`${t.id} og:image 不是本廟專屬卡（實際：${ogImg || '無'}）`);
+  } else if (!existsSync(`${DIST}/og/temples/${t.id}.png`)) {
+    violations.push(`${t.id} og:image 指向的卡片檔不存在（dist/og/temples/${t.id}.png）`);
+  }
+  const ogTitle = html.match(/<meta property="og:title" content="([^"]*)"/)?.[1] ?? '';
+  if (!ogTitle) violations.push(`${t.id} 缺 og:title`);
+  else if (ogTitle.includes('神酷')) violations.push(`${t.id} og:title 仍含「神酷」：${ogTitle}`);
+
   if (systems.length > 0) {
     expectedCount++;
     if (!hasSection) {
@@ -278,7 +293,7 @@ for (const f of festivals) {
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符。`);
   process.exit(0);
 }
 

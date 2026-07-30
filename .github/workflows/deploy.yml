@@ -31,6 +31,11 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # 廟宇分享卡（postbuild 產 7,891 張 PNG）用 SVG→sharp 光柵化，中文靠系統字型。
+      # runner 沒有 CJK 字型時，卡面會整片變成空框（且檔案照樣產出、不會報錯）→ 明確安裝。
+      # 產生器本身另有 fc-match 前置檢查，缺字型會直接失敗而不是默默出空框。
+      - name: 安裝中文字型（分享卡光柵化用）
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
       - name: 完整性檢查（dangling ref 阻擋部署）
         run: pnpm check:integrity
       - name: 型別檢查

@@ -183,7 +183,16 @@ const jsonLd = [
 ];
 ---
 
-<Base title={templeTitle} description={templeDesc} ogType="article" jsonLd={jsonLd} speakable={speakable}>
+<Base
+  title={templeTitle}
+  description={templeDesc}
+  ogTitle={templeTitle}
+  ogImage={`/og/temples/${encodeURIComponent(t.id)}.png`}
+  ogImageAlt={`${t.name}${regionLabel ? `・${regionLabel}` : ''}`}
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={speakable}
+>
   <nav class="crumb">
     <a href="/temples/">廟宇</a>
     {county && <> ／ <a href={`/temples/region/${county.slug}/`}>{county.name}</a></>}

@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && astro build",
-    "postbuild": "pagefind --site dist && node scripts/gen-indexnow-urls.mjs",
+    "postbuild": "pagefind --site dist && node scripts/gen-indexnow-urls.mjs && node --experimental-strip-types scripts/gen-og-temples.mjs",
+    "og:temples": "node --experimental-strip-types scripts/gen-og-temples.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
