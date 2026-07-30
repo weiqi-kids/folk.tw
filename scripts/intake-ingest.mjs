@@ -72,6 +72,11 @@ function checkExpect(buf, expect, currentPath) {
   const bad = [];
   if (!expect) return bad;
 
+  // `record_status_only`：這個 job 的目的是「記錄那邊回什麼」，不是取得特定內容。
+  // 例：religion.moi.gov.tw/robots.txt 實回 404——404 本身是有效答案（未宣告抓取限制），
+  // 不該當失敗。故跳過所有內容檢查，由呼叫端把 meta.json 的狀態印出來供人判讀。
+  if (expect.record_status_only) return bad;
+
   if (expect.min_bytes != null && buf.length < expect.min_bytes) {
     bad.push(`大小 ${buf.length}B < 絕對下限 ${expect.min_bytes}B（疑為錯誤頁）`);
   }
@@ -167,9 +172,19 @@ for (const j of jobs) {
     continue;
   }
 
+  // 把台灣端記的 HTTP 狀態印出來——`record_status_only` 類的 job 全靠這個判讀。
+  const metaFile = `${src}.meta.json`;
+  let metaNote = '';
+  if (existsSync(metaFile)) {
+    try {
+      const m = JSON.parse(readFileSync(metaFile, 'utf8'));
+      metaNote = `｜HTTP ${m.http_status ?? '?'}｜抓取於 ${m.fetched_at ?? '?'}`;
+    } catch { metaNote = '｜meta.json 解析失敗'; }
+  }
+
   const dest = PROMOTE_TO[j.dest];
   if (!dest) {
-    console.log(`✓ ${j.id} 驗證通過（${buf.length}B）；此 job 無上位目標，留在 inbox 供人工/後續解析`);
+    console.log(`✓ ${j.id} 驗證通過（${buf.length}B）${metaNote}；此 job 無上位目標，留在 inbox 供後續解析`);
     continue;
   }
 

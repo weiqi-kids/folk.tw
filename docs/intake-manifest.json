@@ -42,7 +42,16 @@
       "dest": "misc/religion-robots.txt",
       "max_age_days": 90,
       "note": "抓取前的禮貌檢查：確認慶典查詢路徑未被 robots 禁止。",
-      "expect": { "http_status": 200, "min_bytes": 1 }
+      "expect": {
+        "http_status_any_of": [200, 404],
+        "record_status_only": true,
+        "_why": [
+          "台灣端 2026-07-30 回報此網址實回 404，而原本寫 http_status:200 會讓這個 job 永遠失敗（我的錯）。",
+          "robots.txt 回 404 本身就是有效答案＝該站未宣告任何抓取限制，不是錯誤。",
+          "故本 job 只記錄狀態、不以 HTTP 碼判成敗；404 時把回應內容（可能為空或錯誤頁）照樣送回即可，",
+          "由境外端判讀。若哪天變成 200 且含 Disallow，抓取範圍就要跟著改。"
+        ]
+      }
     }
   ]
 }
