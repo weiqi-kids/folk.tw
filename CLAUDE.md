@@ -182,6 +182,15 @@
     在有來源的史料上加自己的話＝杜撰風險大於收錄效益。
   - **灶神 `iconography` 不補**：唯一權威源（內政部全國宗教資訊網）擋境外 IP（`ECONNREFUSED`，
     與 MOI temple.xml 同一個問題），要補得從台灣端取得該頁內容。
+- **宮廟開發名單「每日五間」（2026-07-30 建，用戶指示）**：每天台北 04:30 推 Slack `#神酷-folk-tw`，
+  列出今天該打的五通電話（廟名／電話／負責人／近30日曝光點擊排名／頁面連結）。**純規則零 AI**：
+  門檻＝曝光≥50 ×「頁面尚無沿革且無官網」× MOI 有電話 × 7 天內未推播過；排序＝曝光 × 排名權重
+  × CTR缺口權重（已在第一頁、且高曝光零點擊者優先＝補內容邊際效益最大）。
+  **本體與帳本刻意在 repo 外**（含電話與負責人姓名＝個資，本 repo 為 public 且每日 cron 會 commit 工作區）：
+  腳本 `/root/folk-outreach/outreach-daily.mjs`、說明 `/root/folk-outreach/README.md`、
+  帳本 `/root/.config/folk-tw/outreach-sent.json`、MOI 來源 `/root/.config/folk-tw/temple.xml`、
+  排程 `/etc/cron.d/folk-outreach`。乾跑 `node /root/folk-outreach/outreach-daily.mjs --dry`、
+  查帳本 `--stats`。候選池目前 501 間（每天 5 間約 100 天輪完一圈）。
 - **缺座標廟宇地理編碼回填（不需 MOI XML）**：`node scripts/geocode-missing-temples.mjs [--write] [--max N]`。
   全站 229 間缺座標者用**既有完整地址**做地理編碼。五道安全閘：只補空值不覆寫既有座標／用地址不用廟名
   （全台數十間同名「福德宮」，用廟名查等於賭運氣）／命中須落在該縣市經驗 bbox 內／乾跑為預設／
