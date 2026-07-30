@@ -133,6 +133,37 @@
       立刻在桃園區/麻豆區等 12 處對不上（lib 依縣市別區分後綴＋臺→台正規化）。因此 `check:rendered`
       改用 `node --experimental-strip-types` 執行。
 
+- [x] **`/festivals/` 節日模組（2026-07-30 commit `279c351` 上線；農曆七月季節戰役的承重項）**：
+      用戶設定目標「2026-08-31 的 GA4 28 日活躍人數破 2 萬」（7/29 實測 3,189）。GSC 實查根因＝
+      **全站曝光 ≥100 的「非廟名」查詢只有 1 個**（5,633 查詢中 4,175 是廟名）＝頭部詞覆蓋率為零，
+      且週曝光已停滯（42,119→44,331，+5%）。28 日窗口（8/04–8/31）有 **19 天在農曆七月內**：
+      **鬼門開 8/13、七夕 8/19、放水燈 8/26、中元節 8/27**（鬼門關/地藏王聖誕 9/10 在窗口外）。
+      補的是 `practices.json` 早有 `festival_ref` 欄位卻**沒有對應模組**的懸空引用。
+      - 5 筆＋樞紐：`zhongyuan`／`qixi`／`guimenkai`／`jilong-zhongyuan`／`fangshuideng`，
+        **slug＝永久承諾勿改**。仿 `/compare/` 純 JSON 模式（`src/data/festivals.json`，非 collection——
+        所連的 practices/events/deities 三者都已有 Zod schema 與掛源閘，新建 collection 不多驗證任何東西）。
+      - **日期一律由 `src/lib/lunar-date.ts` 的 `lunarToNextSolar()` 在 build 時算**，倒數由
+        `FestivalCountdown.astro` 依台灣時區前端即時算（同 `UpcomingBirthdays` 機制，故 `[skip ci]`
+        不部署的日子倒數也不會過期）。**勿在頁面自行換算農曆**。
+      - ⚠️ **`src/lib/lunar-date.ts` 刻意零專案內 import**（連 `almanac/dates` 的 `addDays` 都不接，
+        改用 lunar-javascript 自己的 `Solar.next()`）：`birthdays.ts` 依賴 `astro:content`，
+        `scripts/check-rendered.mjs` 無法載入它 → 若不抽出來，gate 就得自己重寫一份日期邏輯（＝新的漂移源）。
+      - 第二批（9 月才到、常青、非 8/31 驅動項）待建：`qianggu`（頭城＋恆春搶孤）／`yimin`（義民祭 9/1）／
+        `dizang`（七月三十，本年短月順延廿九 9/10）／`baitiangong`／`qingming`。
+      - **不可寫**：大士爺／普渡公**無 deity 節點**（大士爺＝觀音經「點睛」附於鬼王，源：國史館）；
+        **7,891 間廟無一間** `main_festival` 提到七月/中元/普渡（僅 21 間有此欄）→ **不可在廟頁放七月祭典宣稱**。
+
+- [x] 神明頁 title 補國曆聖誕日（同 commit）：GSC 實測神明頁 CTR 僅 1.13%，主流意圖是「○○生日／聖誕」＝
+      一個日期就滿足（`朱府千歲生日` 曝139 **點0**、`七爺八爺生日` 曝79 **點0**）。原 title 只有農曆、
+      且用阿拉伯數字「農曆3月23日」——**從未命中查詢用的「農曆三月廿三」形式**，也沒有使用者真正要的國曆。
+      改為 `媽祖（天上聖母）・聖誕農曆三月廿三（國曆 4/29）`。同時修兩個既有錯誤：
+      ① `find(kind==='聖誕') ?? realBdays[0]` 會讓只有飛昇者的 title 出現「・飛昇…」；
+      ② **9 尊神有多筆聖誕**（七爺八爺 04-26/04-27/10-01、三官大帝 01-15/07-15/10-15…），
+      初版標籤取陣列首筆、國曆取最近一次＝**兩者不同筆**，產生「農曆四月廿六（國曆 11/9）」這種假事實
+      （**7 尊會帶錯日期上線，被新 gate 抓到**）。現改為逐筆算下一次、挑最近者，標籤與國曆同出一筆。
+      不變量已進 `check:rendered`（該檔首次涵蓋 deity 頁）：60 尊做**「國曆轉回農曆」往返驗證**——
+      刻意**不依賴「今天」**（build 與 gate 若跨越台灣午夜就會差一天而誤報），無聖誕的 15 尊雙向驗不得帶後綴。
+
 ## 關鍵指令 / 檔案備忘
 
 - **時事集氣祈福自動化（P1-P4，全自動開頁/追蹤/轉記錄頁）完整 SOP＝[`docs/topical-blessing.md`](docs/topical-blessing.md)**。
@@ -167,11 +198,21 @@
     撞到（或超出單次上限）就把剩下的存進 `/root/.config/folk-tw/index-ping-queue.json`，
     **下次執行優先送、成功即移除**，跨天自動續完，不必人記得補送。佇列刻意放 repo 外——
     放進 repo 會被每日 cron 一起 commit 並觸發部署。
+  - ⚠️ **`--from` 兩支子腳本都要支援**（2026-07-30 修，commit `5ea5dcc`）：`notify.mjs` 把同一組參數
+    轉給兩支，但 `indexnow-ping.mjs` 原本沒實作 `--from` → 會把「--from」本身當路徑組成網址送出
+    （實測送出 `https://folk.tw/--from`），**真正的 30 筆清單完全沒送到 Bing/Yandex/Seznam/Naver**，
+    而畫面只顯示「完成 2/2」看起來像成功。加子腳本參數時**兩支要對齊**。
   - 內部分別呼叫：`pnpm index:ping`（Google Indexing API，每日配額 200，SA 須為 GSC 擁有者）
     與 `pnpm indexnow:ping`（IndexNow → Bing/Yandex/Seznam/Naver；金鑰檔 `public/<key>.txt`，
     內容＝檔名 stem，須先部署上線供驗證；回 HTTP 202＝已受理待驗證屬正常）。
   - 慣用流程：**改內容 → `git push origin main` 部署 → `pnpm notify`（或帶改動頁 url）**。
 - 部署驗證坑：`gh run list` 要**比對 headSha 是否為本次 commit**，否則會抓到上一次 run 誤判成功。
+  - **2026-07-30 實遇「push 沒觸發 run」**：commit `279c351` push 成功（`git ls-remote` 確認遠端 main
+    已是該 SHA）、`deploy.yml` 為 `on: push` 無 paths 過濾、commit 訊息無 `[skip ci]`，但**等 8 分鐘完全沒有
+    該 SHA 的 run**＝GitHub 端自動觸發失靈。依 playbook 例外條款以 `gh workflow run deploy.yml --ref main`
+    **補觸發一次**（此時該 SHA 的 run 數為 0，不存在同 SHA 雙 run 毒化風險），build/deploy/indexnow 三 job 全綠。
+    **緊接的下一次 push（`5ea5dcc`）就正常自動觸發**＝屬偶發，不是設定問題。判斷準則不變：
+    先等約 2 分鐘、確認「本 SHA 的 run 數為 0」才補觸發；**若已有本 SHA 的 run，絕不再開第二個**。
 - 稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。
 - 廟宇 staging：`scripts/import-temples.ts <temple.xml> --write`（MOI 端點境外 IP 連不到，須台灣端下載 XML）。
 - **索引長尾決策（2026-07-28 定，用戶裁示「依建議進行」，勿再重開）**：GSC「已檢索－目前尚未建立索引」
