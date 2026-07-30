@@ -1,9 +1,22 @@
 # folk.tw（神酷）— 待辦與待驗證數據
 
-> 🇹🇼 **若你在台灣主機上讀到這份檔案**：有一批工作**只能在台灣 IP 執行**（內政部全國宗教資訊網
-> 與 MOI temple.xml 皆擋境外 IP），交接清單與「已實測沒用、別重做」的來源列表見
-> **[`docs/taiwan-host-handoff.md`](docs/taiwan-host-handoff.md)**。先跑該檔第 0 節的兩行 curl
-> 確認出口真的在台灣，再往下做。
+> 🇹🇼 **台灣端資料投遞管道（2026-07-30 建）**：內政部全國宗教資訊網與 MOI `temple.xml` 皆擋境外 IP。
+> 解法**不是搬主機**——只有「取資料」需要台灣 IP，解析／查證／gate／部署／seo-ops 全留這台。
+> 台灣主機跑定時腳本當**笨水管**（照清單抓、送原始 bytes、**一行都不解析**，因為慶典查詢是網頁 UI、
+> 境外看不到，parser 只能寫這邊）。
+> - 台灣端交接清單：**[`docs/taiwan-host-handoff.md`](docs/taiwan-host-handoff.md)**
+> - 抓取清單（我維護，台灣端每輪取最新）：**[`docs/intake-manifest.json`](docs/intake-manifest.json)**
+> - 收件：`/root/.config/folk-tw/intake/inbox/`（**repo 外**，因 temple.xml 含 12,419 間廟的
+>   電話與負責人＝個資，而本 repo 為 public 且每日 seo cron 會 commit 整個工作區）
+> - 處理：`scripts/intake-ingest.mjs`（驗 sha256＋expect → 原子 rename 上位 → 舊版進 archive）；
+>   `scripts/intake-watch-cron.sh`（每小時 :07 收件、每日 01:20 UTC 查新鮮度逾期發 Slack）；
+>   排程 `/etc/cron.d/folk-intake`
+> - ⚠️ **`expect` 的絕對下限擋不住殘檔**：2026-07-30 實測 5 MB 截斷檔（真檔 6.27 MB）通過
+>   `min_bytes: 4000000` 並**覆蓋掉完整檔**（12,419 筆只剩前 5 MB），靠 archive 救回。
+>   故必須有 `not_smaller_than_current_pct`（不得比現有檔小 10% 以上）與 `min_occurrences`
+>   （整檔記錄筆數下限）兩道**相對**檢查。改 manifest 時別把這兩道拿掉。
+> - ⚠️ 上位必須原子（寫暫存再 `rename`）：`/root/.config/folk-tw/temple.xml` 被
+>   `/root/folk-outreach/outreach-daily.mjs` 每日 04:30 台北讀取，讀到半個檔會產生錯誤的外撥名單。
 
 > 本檔在 `/root/folk.tw` 開新 session 會自動載入。詳細專案脈絡見自動記憶
 > `/root/.claude/projects/-root-folk-tw/memory/`（MEMORY.md 為索引）。
@@ -221,7 +234,9 @@
     台灣實務上年度主祭典就是主祀神聖誕，主委看日期自然知道所指，但我們不替他們斷言。**改措辭前先想清楚這條界線。**
   - **要有真正的廟宇活動只剩一條路**：全國宗教資訊網「慶(祭)典查詢」，但它擋境外 IP。
     2026-07-30 已實測 7 個替代來源全數不可用（MOI XML 無祭典欄位／nchdb 無 API／文化部藝文活動是表演展覽／
-    觀光署是靜態散文／CRGIS 連不上／data.gov.tw 7723 已下架）→ 清單與待辦見 `docs/taiwan-host-handoff.md`，**別重做一遍**。
+    觀光署是靜態散文／CRGIS 連不上／data.gov.tw 7723 已下架）→ 清單見 `docs/taiwan-host-handoff.md`，**別重做一遍**。
+    已建**台灣端投遞管道**取這份資料（見本檔開頭 🇹🇼 段）；拿到後填進既有的 `main_festival` 欄位即可，
+    卡片與 description 都已讀它、**不必改任何程式碼**。
   - `Base.astro` 新增 `ogImage`／`ogImageAlt`／（既有）`ogTitle` prop；廟宇頁傳 `ogTitle={templeTitle}`
     ＝**不帶站名**。⚠️ 頁面 `<title>` 仍保留「｜神酷」（瀏覽器分頁與 SEO），**只有 og:title 去站名**。
   - ⚠️ **PNG palette 固定 16 色**：實測 8 色會讓量化器拿硃紅去補文字抗鋸齒，廟名筆畫出現紅色雜邊；

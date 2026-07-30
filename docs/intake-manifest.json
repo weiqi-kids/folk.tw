@@ -1,0 +1,48 @@
+{
+  "_readme": [
+    "台灣端資料投遞清單。台灣主機的抓取腳本每輪先取這份最新版，照 jobs 逐項抓，",
+    "把原始 bytes（不解析）＋.sha256 送回本站主機的 inbox。完整交接說明見 docs/taiwan-host-handoff.md。",
+    "本檔刻意放 public repo：內容只有政府公開資料的網址，無任何機密。",
+    "取得方式：curl -fsSL https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-manifest.json",
+    "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
+    "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
+  ],
+  "version": 1,
+  "updated": "2026-07-30",
+  "politeness": {
+    "min_interval_ms": 1000,
+    "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
+    "max_requests_per_run": 200,
+    "backoff": "指數退避：失敗第 n 次等 2^n 秒（上限 300 秒）；連續 5 次失敗就記 state.json 收工，下輪再來"
+  },
+  "jobs": [
+    {
+      "id": "temple-xml",
+      "url": "https://religion.moi.gov.tw/Report/temple.xml",
+      "dest": "temple-xml/temple.xml",
+      "max_age_days": 35,
+      "note": "內政部全國宗教資訊系統・寺廟（data.gov.tw dataset 8203），約每月更新。境外 IP 擋。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 4000000,
+        "contains": "<OpenData_3>",
+        "not_smaller_than_current_pct": 90,
+        "min_occurrences": { "<OpenData_3>": 12000 },
+        "_why": [
+          "min_bytes 這種絕對下限擋不住殘檔：2026-07-30 實測投一個 5MB 截斷檔（真檔 6.27MB）",
+          "通過了 4MB 下限、也含 <OpenData_3>，直接覆蓋掉完整檔（12,419 筆只剩前 5MB）。",
+          "故必須有相對檢查：not_smaller_than_current_pct（不得比現有檔小超過 10%）",
+          "與 min_occurrences（整檔記錄筆數下限）。現況 12,419 筆，下限設 12,000 容許少量退場。"
+        ]
+      }
+    },
+    {
+      "id": "religion-robots",
+      "url": "https://religion.moi.gov.tw/robots.txt",
+      "dest": "misc/religion-robots.txt",
+      "max_age_days": 90,
+      "note": "抓取前的禮貌檢查：確認慶典查詢路徑未被 robots 禁止。",
+      "expect": { "http_status": 200, "min_bytes": 1 }
+    }
+  ]
+}
