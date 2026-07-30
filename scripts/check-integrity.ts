@@ -105,6 +105,11 @@ for (const id of Object.keys(yijiTerms)) {
 }
 // 節日頁 → practice/event/deity/temple/vocabulary 節點（dangling → /festivals/[slug] 會壞頁面或漏區塊）
 {
+  // 二十四節氣（solar_term 只准用這些；清明等節日不是農曆固定日，須走節氣表）
+  const JIEQI = new Set(
+    ('立春 雨水 驚蟄 春分 清明 穀雨 立夏 小滿 芒種 夏至 小暑 大暑 ' +
+      '立秋 處暑 白露 秋分 寒露 霜降 立冬 小雪 大雪 冬至 小寒 大寒').split(/\s+/),
+  );
   const practiceIds = new Set(practices.map((p) => p.id));
   const eventIds = new Set(events.map((e) => e.id));
   const templeIds = new Set(temples.map((t) => t.id));
@@ -114,8 +119,15 @@ for (const id of Object.keys(yijiTerms)) {
     // slug 是永久承諾（發佈後不可改、不可 404），重複即為錯誤
     if (seenSlugs.has(f.slug)) hard(`festival: slug「${f.slug}」重複`);
     seenSlugs.add(f.slug);
-    if (!/^\d{2}-\d{2}$/.test(f.lunar_date ?? '')) {
+    // 節日的日期來源恰須二選一：農曆月日（lunar_date）或節氣（solar_term，如清明——它不是農曆固定日）。
+    const hasLunar = typeof f.lunar_date === 'string' && f.lunar_date.length > 0;
+    const hasTerm = typeof f.solar_term === 'string' && f.solar_term.length > 0;
+    if (hasLunar === hasTerm) {
+      hard(`festival ${f.slug}: 須且僅須其一 lunar_date 或 solar_term（現 lunar_date=${f.lunar_date ?? '無'}、solar_term=${f.solar_term ?? '無'}）`);
+    } else if (hasLunar && !/^\d{2}-\d{2}$/.test(f.lunar_date)) {
       hard(`festival ${f.slug}: lunar_date「${f.lunar_date}」須為農曆 MM-DD`);
+    } else if (hasTerm && !JIEQI.has(f.solar_term)) {
+      hard(`festival ${f.slug}: solar_term「${f.solar_term}」不是二十四節氣之一`);
     }
     // 事實型頁面必須掛源（與 deities/events/practices 同一鐵則：絕不杜撰）
     if (!(f.sources ?? []).length) hard(`festival ${f.slug}: 無 sources（事實型頁面必須掛源）`);

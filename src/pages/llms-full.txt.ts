@@ -25,7 +25,8 @@ import {
   getTemples,
   allusionNameById,
 } from '../lib/queries';
-import { lunarDateLabel, lunarToNextSolar, solarMd } from '../lib/birthdays';
+import { lunarDateLabel, solarMd } from '../lib/birthdays';
+import { festivalNextSolar } from '../lib/lunar-date';
 import { todayInTaipei } from '../lib/daily';
 import concerns from '../data/concerns.json';
 import comparisons from '../data/comparisons.json';
@@ -232,12 +233,12 @@ export const GET: APIRoute = async () => {
   {
     const { iso: todayIso } = todayInTaipei();
     const rows = festivals
-      .map((f) => ({ f, iso: lunarToNextSolar(f.lunar_date, todayIso) }))
-      .filter((x): x is { f: (typeof festivals)[number]; iso: string } => x.iso !== null)
+      .map((f) => ({ f, ...festivalNextSolar(f, todayIso) }))
+      .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
       .sort((a, b) => a.iso.localeCompare(b.iso));
-    for (const { f, iso } of rows) {
+    for (const { f, iso, label } of rows) {
       push(
-        `- ${f.name}｜${lunarDateLabel(f.lunar_date)}｜下一次國曆：${iso}（${solarMd(iso)}）｜${SITE}/festivals/${f.slug}/`,
+        `- ${f.name}｜${label}｜下一次國曆：${iso}（${solarMd(iso)}）｜${SITE}/festivals/${f.slug}/`,
         `  ${f.lead}`,
         ...(f.date_note ? [`  期間：${f.date_note}`] : []),
         ...(f.aliases?.length ? [`  別稱：${f.aliases.join('、')}`] : []),

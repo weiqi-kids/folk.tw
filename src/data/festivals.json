@@ -44,7 +44,8 @@
         "ref": "https://zh.wikipedia.org/zh-tw/%E5%86%9C%E5%8E%86%E4%B8%83%E6%9C%88",
         "note": "維基百科〈農曆七月〉：閩南、台灣稱鬼月，七月初一鬼門開、七月三十鬼門關"
       }
-    ]
+    ],
+    "multi_day": false
   },
   {
     "slug": "qixi",
@@ -84,7 +85,8 @@
         "ref": "https://women.nmth.gov.tw/?p=1847",
         "note": "國立臺灣歷史博物館《臺灣女人》〈婦幼的守護神─臨水夫人〉：婆姐（三十六鳥母）為臨水夫人從神，守護小孩至十六歲成年"
       }
-    ]
+    ],
+    "multi_day": false
   },
   {
     "slug": "fangshuideng",
@@ -125,7 +127,8 @@
         "ref": "https://zh.wikipedia.org/zh-tw/%E6%94%BE%E6%B0%B4%E7%87%88",
         "note": "維基百科〈放水燈〉"
       }
-    ]
+    ],
+    "multi_day": false
   },
   {
     "slug": "zhongyuan",
@@ -179,7 +182,8 @@
         "ref": "https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%85%83%E7%AF%80",
         "note": "維基百科〈中元節〉"
       }
-    ]
+    ],
+    "multi_day": false
   },
   {
     "slug": "jilong-zhongyuan",
@@ -230,6 +234,219 @@
         "ref": "https://tour.klcg.gov.tw/zh-hant/attractions/12369370/",
         "note": "基隆市政府觀光旅遊〈主普壇（中元祭祀文物館）〉：位於中正公園內，各姓氏輪值主普之壇場"
       }
-    ]
+    ],
+    "multi_day": true
+  },
+  {
+    "slug": "qianggu",
+    "name": "搶孤",
+    "aliases": [
+      "爬孤棚"
+    ],
+    "season": "農曆七月",
+    "lunar_date": "07-15",
+    "date_note": "恆春搶孤及爬孤棚於七月十五中元普渡舉行；頭城搶孤在七月底、關鬼門前",
+    "question": "搶孤是什麼？頭城與恆春的搶孤在哪一天？",
+    "lead": "搶孤是普渡末尾的民俗競技：信眾競相攀爬高聳的孤棚搶奪供品，象徵驅除孤魂並分享福氣，以頭城與恆春兩地最著名。恆春搶孤及爬孤棚在七月十五中元普渡當天舉行，源自清光緒五年（1879）的爬孤棚競賽取孤品；頭城搶孤則排在七月底、關鬼門之前。兩者皆為縣定民俗。",
+    "practice_refs": [
+      "pudu"
+    ],
+    "event_refs": [
+      "toucheng",
+      "hengchun_qianggu"
+    ],
+    "deity_refs": [
+      "haoxiongdi"
+    ],
+    "vocab_refs": [
+      "搶孤",
+      "中元普渡"
+    ],
+    "temple_refs": [
+      "toucheng_zhongyuan"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081112000003",
+        "note": "文化部國家文化資產網〈恆春搶孤及爬孤棚〉：屏東縣定民俗，源自清光緒5年（1879）爬孤棚競賽取孤品；農曆7月15日中元普渡"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002",
+        "note": "文化部國家文化資產網〈頭城搶孤〉：宜蘭縣定民俗，七月底（關鬼門前）舉行；主辦廟為頭城慶元宮"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E6%90%B6%E5%AD%A4",
+        "note": "維基百科〈搶孤〉"
+      }
+    ],
+    "multi_day": false
+  },
+  {
+    "slug": "yimin",
+    "name": "褒忠義民節",
+    "aliases": [
+      "義民祭",
+      "義民節"
+    ],
+    "season": "農曆七月",
+    "lunar_date": "07-20",
+    "question": "義民節是哪一天？義民爺是誰、義民祭怎麼辦？",
+    "lead": "義民爺是清代台灣動亂中護鄉殉難的客家義民，死後由鄉親立廟奉祀為「褒忠義民」。新埔褒忠亭義民廟的義民節例祭定在農曆七月二十——原定十一月九日，道光十五年起為配合中元普渡改至此日，故它同時是客家的中元祭典。祭典由客家庄「輪值主普」逐年輪流承辦，以神豬祭與黑令旗為特色，2015 年登錄為國家重要民俗，是全國第 16 個、客家族群第 1 個重要民俗文化資產。",
+    "practice_refs": [
+      "pudu"
+    ],
+    "event_refs": [
+      "yimin"
+    ],
+    "deity_refs": [
+      "yimin"
+    ],
+    "vocab_refs": [
+      "中元普渡",
+      "神豬祭",
+      "字姓輪值"
+    ],
+    "temple_refs": [
+      "xinpu_baozhongting_yimiao"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
+        "note": "文化部國家文化資產網〈褒忠亭義民節祭典〉：2015 登錄國家重要民俗，全國第16個、客家族群第1個"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=13",
+        "note": "內政部全國宗教資訊網〈義民節〉：義民節農曆七月廿日；乾隆51年林爽文事件、同治元年戴潮春事件；客家庄輪值主普制度"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E8%A4%92%E5%BF%A0%E4%BA%AD%E7%BE%A9%E6%B0%91%E5%BB%9F",
+        "note": "維基百科〈褒忠亭義民廟〉：七月二十日為例祭，原定十一月九日"
+      },
+      {
+        "type": "web",
+        "ref": "https://www.sim.org.tw/festival67.html",
+        "note": "台灣民俗文化工作室〈義民節由來〉"
+      }
+    ],
+    "multi_day": false
+  },
+  {
+    "slug": "dizang",
+    "name": "地藏王菩薩聖誕",
+    "aliases": [
+      "地藏王聖誕",
+      "鬼門關"
+    ],
+    "season": "農曆七月",
+    "lunar_date": "07-30",
+    "date_note": "農曆七月三十；遇農曆七月僅廿九日之年（如 2026）順延至七月廿九，該日民間亦為鬼門關",
+    "question": "地藏王菩薩聖誕是哪一天？為什麼和鬼門關同一天？",
+    "lead": "地藏王菩薩聖誕為農曆七月三十，民間以這天為鬼門關閉之日，兩者因此同日。地藏王以「地獄不空，誓不成佛」之大願著稱，漢地民間奉為冥界主宰、稱「幽冥教主」，造型作僧形、右手持錫杖、左手持寶珠、坐騎諦聽，是新莊地藏庵等大眾爺／陰廟系統的主祀。基隆的關龕門儀式由道士主持封鬼門，各戶燒去門口掛燈、各寺廟撤下燈篙，農曆七月至此結束。",
+    "practice_refs": [
+      "pudu"
+    ],
+    "event_refs": [],
+    "deity_refs": [
+      "dizang",
+      "haoxiongdi"
+    ],
+    "vocab_refs": [
+      "起燈腳",
+      "豎燈篙",
+      "中元普渡"
+    ],
+    "temple_refs": [
+      "xinzhuang_dizhong_mazu"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879",
+        "note": "國家文化記憶庫〈地藏王菩薩〉：別稱幽冥教主、統轄十殿閻羅王、右手錫杖左手寶珠、坐騎諦聽"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5",
+        "note": "維基百科〈新莊地藏庵〉：農曆七月三十、鬼門關閉之日為地藏王菩薩誕辰"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "note": "國史館臺灣文獻館〈七月半之緣起及基隆中元慶典〉：三十日為關鬼門，道士擔任封鬼門儀式；各戶燒門口掛燈、各寺廟撤燈篙"
+      }
+    ],
+    "multi_day": false
+  },
+  {
+    "slug": "baitiangong",
+    "name": "拜天公",
+    "aliases": [
+      "天公生",
+      "玉皇大帝聖誕"
+    ],
+    "season": "正月",
+    "lunar_date": "01-09",
+    "question": "拜天公是哪一天？頂桌下桌怎麼分、要準備什麼？",
+    "lead": "正月初九為玉皇大帝聖誕，俗稱「天公生」。祭拜從初八子時（晚上十一點）起，設頂下桌：八仙桌墊高、四腳各放四疊壽金，前方綁「頭帶尾青」的甘蔗，供桌需「見天」。頂桌擺清素——鮮花、茶水三杯、壽麵三束、五果、五齋，嚴禁葷食；下桌才擺葷食與五牲。行三跪九叩，三柱香依序迎神、獻禮、焚金紙，清晨七時前完成。",
+    "practice_refs": [
+      "baitiangong"
+    ],
+    "event_refs": [],
+    "deity_refs": [
+      "yuhuang"
+    ],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "sources": [
+      {
+        "type": "web",
+        "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
+        "note": "方格子：拜天公頂下桌設置與流程"
+      },
+      {
+        "type": "web",
+        "ref": "https://health.businessweekly.com.tw/article/ARTL003015590",
+        "note": "良醫健康：正月初九天公生祭拜供品與時辰"
+      }
+    ],
+    "multi_day": false
+  },
+  {
+    "slug": "qingming",
+    "name": "清明",
+    "aliases": [
+      "掃墓",
+      "培墓"
+    ],
+    "season": "節氣",
+    "solar_term": "清明",
+    "question": "清明是哪一天？掃墓與培墓怎麼做？",
+    "lead": "清明是節氣、不是農曆固定日，國曆多落在 4 月 4 日至 6 日之間。台灣在清明前後掃墓、培墓，掛紙並拜后土。掃墓與培墓略有分別：培墓為隆重整修祭祀，掃墓則以清理環境與掛紙為主。",
+    "practice_refs": [
+      "saomu"
+    ],
+    "event_refs": [],
+    "deity_refs": [
+      "zushen"
+    ],
+    "vocab_refs": [
+      "大銀",
+      "小銀"
+    ],
+    "temple_refs": [],
+    "sources": [
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/zh-tw/%E6%B8%85%E6%98%8E%E7%AF%80",
+        "note": "維基百科〈清明節〉：清明為二十四節氣之一，國曆約 4/4–4/6"
+      }
+    ],
+    "multi_day": false
   }
 ]

@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, eventThing, faqPage } from '../../lib/seo';
-import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
+import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
@@ -28,20 +28,24 @@ export const getStaticPaths = (async () => {
   const { iso: today } = todayInTaipei();
 
   return festivals
-    .map((f) => ({ f, iso: lunarToNextSolar(f.lunar_date, today) }))
-    .filter((x): x is { f: (typeof festivals)[number]; iso: string } => x.iso !== null)
-    .map(({ f, iso }) => ({
+    .map((f) => ({ f, ...festivalNextSolar(f, today) }))
+    .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
+    .map(({ f, iso, label }) => ({
       params: { slug: f.slug },
-      props: { f, iso, deityById, practiceById, eventById, templeById, vocabByTerm },
+      props: { f, iso, dateLabel: label, deityById, practiceById, eventById, templeById, vocabByTerm },
     }));
 }) satisfies GetStaticPaths;
 
-const { f, iso, deityById, practiceById, eventById, templeById, vocabByTerm } = Astro.props;
+const { f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm } = Astro.props;
 
 const year = iso.slice(0, 4);
-const lunarLabel = lunarDateLabel(f.lunar_date);
-// 跨多日的節日（如雞籠中元祭整個農曆七月）一律用「起於」，否則標題與首句會與事實不符。
-const multiDay = Boolean(f.date_note);
+// 農曆節日＝「農曆七月十五」；節氣節日＝「節氣清明」。由 lib 統一產出，頁面不自行判斷型別。
+const lunarLabel = dateLabel;
+// 跨多日的節日（目前只有雞籠中元祭，橫跨整個農曆七月）用「起於」。
+// ⚠️ 判定用明確的 multi_day 欄位，**不可用 `Boolean(date_note)` 推斷**——
+// date_note 也用來寫純說明（如地藏王聖誕的短月順延、搶孤的頭城/恆春異地異日），
+// 初版誤把它當跨多日旗標，產生「地藏王菩薩聖誕｜農曆七月三十起・儀式順序」這種與事實不符的標題。
+const multiDay = f.multi_day === true;
 // answer-first 第一句：直接回答「今年是哪一天」——這是這類查詢唯一想要的答案。
 const dateSentence = multiDay
   ? `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`

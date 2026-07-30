@@ -116,7 +116,22 @@ const speakable = ['h1', '.summary'];
 // 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
 const regionLabel = county ? `${county.name}${township?.name ?? ''}` : '';
 const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${mainDeity}`].filter(Boolean);
-const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${t.history ?? '神酷（folk.tw）廟宇資料庫收錄，資料源自內政部全國宗教資訊網。'}`;
+// 2026-07-30：原本的尾句是「神酷（folk.tw）廟宇資料庫收錄，資料源自內政部全國宗教資訊網。」——
+// `history` 只有 22/7891 間有，其餘 ~7,869 間全落回這句**一字不差的樣板**，
+// 對「台南○○宮」這類查詢毫無資訊量（GSC 實測廟宇頁 CTR 僅 1.76%）。
+// 改為依序取「每頁天然不同」的既有衍生資料：沿革首句 → 主祀神聖誕 → 鄉鎮脈絡（間數/同主祀數）→ 可求籤。
+// 全部來自既有欄位與 build 期聚合，**不新增任何事實**；真的都沒有才留最後那句通用語。
+const descTail = [
+  historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
+  birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '',
+  townContext,
+  lingqianSystems.length > 0 ? '本站提供主祀神靈籤的白話解籤。' : '',
+]
+  .filter(Boolean)
+  .join('');
+const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${
+  descTail || '資料源自內政部全國宗教資訊網。'
+}`;
 
 // 廟宇頁 title：原本僅 t.name，導致大量同名廟（慶安宮／福德宮…）落回完全相同標題、無在地辨識度。
 // 全站 7891 廟 100% 具 district，加上鄉鎮地名可消歧並強化在地搜尋匹配（僅用既有欄位，不補新事實）。

@@ -75,3 +75,38 @@ export function lunarToNextSolar(mmdd: string, fromIso: string, days = 400): str
 
 /** 國曆 ISO → 「M/D」顯示形式（如 2026-08-27 → 8/27）。 */
 export const solarMd = (iso: string): string => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
+
+/**
+ * 節氣名（如「清明」「冬至」）→ 自 fromIso 起的下一次國曆日期，找不到回 null。
+ * 為何需要這支：**清明、冬至等節日是節氣、不是農曆月日**（清明約落在國曆 4/4–4/6，由太陽黃經定，
+ * 農曆日期每年不同），故不能用 lunarToNextSolar 表達。節氣表由 lunar-javascript 提供（與農民曆同源）。
+ */
+/**
+ * 節日 → 下一次國曆日期＋要顯示的日期標籤。統一 lunar_date（農曆月日）與 solar_term（節氣）兩種節日。
+ * 頁面與 gate 都走這支，避免各自判斷「這個節日是農曆還是節氣」。
+ */
+export function festivalNextSolar(
+  f: { lunar_date?: string; solar_term?: string },
+  fromIso: string,
+): { iso: string | null; label: string } {
+  if (f.solar_term) {
+    return { iso: solarTermToNextSolar(f.solar_term, fromIso), label: `節氣${f.solar_term}` };
+  }
+  if (f.lunar_date) {
+    return { iso: lunarToNextSolar(f.lunar_date, fromIso), label: lunarDateLabel(f.lunar_date) };
+  }
+  return { iso: null, label: '' };
+}
+
+export function solarTermToNextSolar(term: string, fromIso: string, years = 2): string | null {
+  const y0 = Number(fromIso.slice(0, 4));
+  for (let i = 0; i <= years; i++) {
+    const lunar = Solar.fromYmd(y0 + i, 6, 1).getLunar() as unknown as {
+      getJieQiTable(): Record<string, { toYmd(): string }>;
+    };
+    const hit = lunar.getJieQiTable()?.[term];
+    const iso = hit?.toYmd();
+    if (iso && iso >= fromIso) return iso;
+  }
+  return null;
+}

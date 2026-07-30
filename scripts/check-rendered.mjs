@@ -14,7 +14,7 @@ const DIST = 'dist';
 // 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
 const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
 // 農曆換算同理：用頁面用的同一支 lib（src/lib/lunar-date.ts 刻意零專案內 import，故本檔可直接載）。
-const { lunarDateLabel, isLunarMonthEnd } = await import('../src/lib/lunar-date.ts');
+const { lunarDateLabel, isLunarMonthEnd, festivalNextSolar } = await import('../src/lib/lunar-date.ts');
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
@@ -102,6 +102,18 @@ for (const t of temples) {
     }
     if (!new RegExp(`登記在案的宮廟共\\s*${total}\\s*間`).test(html)) {
       violations.push(`${t.id} 在地脈絡句的鄉鎮廟數與資料不符（資料 ${total} 間）`);
+    }
+    // 不變量 2b（2026-07-30 加）：meta description 不得落回通用樣板。
+    // 背景：原尾句「神酷（folk.tw）廟宇資料庫收錄，資料源自內政部…」在 ~7,869 頁一字不差
+    //       （history 只有 22 間有），對「台南○○宮」查詢零資訊量。改為由沿革/聖誕/鄉鎮脈絡衍生後，
+    //       這裡驗：**該鎮不只一間廟者**（＝townContext 必非空）description 一定有可衍生內容，
+    //       故不該出現通用尾句。這是防止未來改動又把它退回樣板。
+    const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
+    const desc = descMatch?.[1] ?? '';
+    if (!desc) {
+      violations.push(`${t.id} 缺 meta description`);
+    } else if (/資料源自內政部全國宗教資訊網。$/.test(desc)) {
+      violations.push(`${t.id}（${tw.name}共 ${total} 間，應有鄉鎮脈絡可寫）description 落回通用樣板`);
     }
   }
   globalThis.__nearbyChecked = checkedNearby;
@@ -236,14 +248,32 @@ for (const f of festivals) {
   if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
   if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
   if (!html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 缺 Event 結構化資料`);
-  const wantLabel = lunarDateLabel(f.lunar_date);
+  // 農曆節日與節氣節日（清明）走同一支 lib 取標籤，gate 不自行判斷型別。
+  const { label: wantLabel } = festivalNextSolar(f, '2026-01-01');
   if (wantLabel && !html.includes(wantLabel)) {
-    violations.push(`節日頁 ${f.slug} 未出現農曆標籤「${wantLabel}」`);
+    violations.push(`節日頁 ${f.slug} 未出現日期標籤「${wantLabel}」`);
   }
   const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
   const md = title.match(/(\d{1,2})\/(\d{1,2})/);
   if (!md && !f.date_note) {
     violations.push(`節日頁 ${f.slug} title 缺國曆日期：${title}`);
+  }
+  // 農曆節日再做一次往返驗證（節氣節日的國曆日由節氣表定、無農曆可往返，故只驗農曆型）。
+  if (md && f.lunar_date) {
+    const mo = Number(md[1]);
+    const day = Number(md[2]);
+    const wantM = Number(f.lunar_date.slice(0, 2));
+    const wantD = Number(f.lunar_date.slice(3));
+    const nowYear = new Date().getUTCFullYear();
+    const ok = [nowYear, nowYear + 1, nowYear + 2].some((y) => {
+      let s;
+      try { s = Solar.fromYmd(y, mo, day); } catch { return false; }
+      const l = s.getLunar();
+      if (l.getMonth() !== wantM) return false;
+      if (l.getDay() === wantD) return true;
+      return wantD === 30 && l.getDay() === 29 && isLunarMonthEnd(s.toYmd());
+    });
+    if (!ok) violations.push(`節日頁 ${f.slug} title 國曆 ${mo}/${day} 轉回農曆不等於 ${f.lunar_date}`);
   }
 }
 
