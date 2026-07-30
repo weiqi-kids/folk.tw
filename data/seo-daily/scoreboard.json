@@ -519,9 +519,10 @@
         "scope": "page-query"
       },
       "checks": [],
-      "status": "open",
-      "verdict": null,
-      "verdict_date": null
+      "status": "resolved",
+      "verdict": "inconclusive",
+      "verdict_date": "2026-07-30",
+      "verdict_note": "全窗期間（7/23-7/30）此 page-query 組合從未出現在任一日的 GSC 抽樣列表（topQueries/topPages/pageQueryCross/strikingDistance 逐日 grep 皆 0 命中），連一筆 check 都補不到。基準曝光僅 8（單日尺度），本就處於 GSC 抽樣門檻邊緣，全窗期間查詢本身可能真的變少見或只是持續被擠出樣本，兩者從现有資料無法區分，故判 inconclusive 而非 loss/win。內容為既有史實如實摘要、無杜撰、不觸發回退。經驗教訓：baseline impr個位數的 seoDesc 賭注，往後應提高下注門檻（比照 gd24/liuyi 待驗）或改用能直接查該頁曝光的資料源，而非依賴容易漏樣的 top-N 抽樣。"
     },
     {
       "id": "2026-07-20-gd24-seodesc",
