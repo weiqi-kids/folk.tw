@@ -92,7 +92,22 @@ async function main() {
     } catch { /* 退回 sitemap */ }
     if (!urls) { urls = await sitemapUrls(); console.log(`退回 sitemap（${urls.length} 筆）`); }
   }
-  else if (args.length) urls = args.map((u) => (u.startsWith('http') ? u : SITE + (u.startsWith('/') ? u : '/' + u)));
+  // `--from <檔>`：從檔案逐行讀網址（大批量用）。notify.mjs 會把同一組參數轉給兩支子腳本，
+  // 而本檔原本沒實作 --from → 會把「--from」本身當網址送出（實測送出 https://folk.tw/--from），
+  // 且真正的清單完全沒送。2026-07-30 補齊，與 index-ping.mjs 的參數介面對齊。
+  else if (args.includes('--from') && args[args.indexOf('--from') + 1]) {
+    const file = args[args.indexOf('--from') + 1];
+    urls = readFileSync(file, 'utf8').split('\n').map((l) => l.trim()).filter(Boolean);
+    console.log(`自 ${file} 讀入 ${urls.length} 筆`);
+  }
+  // 其餘位置參數＝明確指定的網址；跳過旗標與旗標的值。
+  else if (args.some((a) => !a.startsWith('--'))) {
+    const flagValues = new Set();
+    args.forEach((a, i) => { if (a === '--from') flagValues.add(args[i + 1]); });
+    urls = args
+      .filter((a) => !a.startsWith('--') && !flagValues.has(a))
+      .map((u) => (u.startsWith('http') ? u : SITE + (u.startsWith('/') ? u : '/' + u)));
+  }
   else urls = await defaultUrls();
 
   // 機械保底：絕不送出會 301 的網址（2026-07-28 GSC「頁面會重新導向」查因時補上）。
