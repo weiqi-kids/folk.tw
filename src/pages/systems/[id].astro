@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import { getSystems, getPoems, deitiesBySystem } from '../../lib/queries';
+import { getSystems, getPoems, deitiesBySystem, allusionNameById } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
@@ -20,6 +20,10 @@ export const getStaticPaths = (async () => {
 
 const { system, poems, deities } = Astro.props;
 const s = system.data;
+
+// 籤系樞紐頁原本只連向籤詩、不連典故（放大籤詩/典故雙資產曝光的既定策略主軸缺一角）：
+// 每張籤卡若該籤有掛典故，補一條連往典故頁的次要連結；純沿用既有 poem.allusions 欄位，不補新事實。
+const allusionName = await allusionNameById();
 
 // 籤系樞紐頁原本無 description / jsonLd / speakable（全站最弱模板）：補上結構型 SEO/AEO 元件，
 // 資料全取自 divination-systems.json 既有欄位（免查證），並讓 breadcrumb 指入 /poems 樞紐。
@@ -64,11 +68,21 @@ const jsonLd = [
     <h2>全部籤（{poems.length}）</h2>
     <div class="grid cols">
       {
-        poems.map((p) => (
-          <a class="card" href={`/poems/${p.id}/`}>
-            第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}
-          </a>
-        ))
+        poems.map((p) => {
+          const allusionRef = p.data.allusions[0]?.ref.id;
+          return (
+            <div class="card poem-card">
+              <a href={`/poems/${p.id}/`}>
+                第 {p.data.no} 籤{(p.data.ganzhi || p.data.title) && ` · ${p.data.ganzhi ?? p.data.title}`}
+              </a>
+              {allusionRef && (
+                <a class="allusion-sub" href={`/allusions/${allusionRef}/`}>
+                  典故：{allusionName.get(allusionRef) ?? allusionRef}
+                </a>
+              )}
+            </div>
+          );
+        })
       }
     </div>
   </section>
@@ -80,5 +94,8 @@ const jsonLd = [
     .deity-list { list-style: none; padding: 0; }
     .deity-list li { padding: 0.375rem 0; }
     .small { font-size: var(--text-sm); }
+    .poem-card { display: flex; flex-direction: column; gap: 0.375rem; }
+    .poem-card > a:first-child { font-weight: 600; }
+    .allusion-sub { font-size: var(--text-sm); color: var(--ink-soft); }
   </style>
 </Base>
