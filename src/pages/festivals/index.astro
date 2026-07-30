@@ -1,0 +1,110 @@
+---
+// 節日樞紐：把站內既有的「日期錨定」資料（practices 的 festival_ref、events、神明聖誕）
+// 聚合成一個節日模組。日期一律由 lunarToNextSolar 在 build 時算，倒數由前端即時算。
+import Base from '../../layouts/Base.astro';
+import FestivalCountdown from '../../components/FestivalCountdown.astro';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
+import { todayInTaipei } from '../../lib/daily';
+import festivals from '../../data/festivals.json';
+
+const { iso: today } = todayInTaipei();
+
+// 每個節日算「自今日起的下一次國曆日期」，依日期排序。
+const items = festivals
+  .map((f) => {
+    const iso = lunarToNextSolar(f.lunar_date, today);
+    return iso
+      ? {
+          slug: f.slug,
+          name: f.name,
+          iso,
+          lunarLabel: lunarDateLabel(f.lunar_date),
+          dateNote: f.date_note,
+          season: f.season,
+          question: f.question,
+        }
+      : null;
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null)
+  .sort((a, b) => a.iso.localeCompare(b.iso));
+
+// 依季節分組（目前只有「農曆七月」一組；日後加清明/正月自動成組）
+const seasons = [...new Set(items.map((i) => i.season))];
+
+const nextOne = items[0];
+const faq = faqPage([
+  ...(nextOne
+    ? [
+        {
+          q: '下一個民俗節日是什麼時候？',
+          a: `${nextOne.name}，國曆 ${nextOne.iso.slice(0, 4)} 年 ${solarMd(nextOne.iso)}（${nextOne.lunarLabel}）。`,
+        },
+      ]
+    : []),
+  {
+    q: '農曆七月有哪些節日？',
+    a: items
+      .filter((i) => i.season === '農曆七月')
+      .map((i) => `${i.name}（${i.lunarLabel}，國曆 ${solarMd(i.iso)}）`)
+      .join('；'),
+  },
+]);
+
+const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? [faq] : [])];
+---
+
+<Base
+  title="民俗節日曆—農曆節日的國曆日期與拜法"
+  description="中元節、七夕七娘媽生、鬼門開、放水燈、雞籠中元祭——農曆節日換算成今年的國曆日期，附各節日的祭拜順序、供品與金紙，資料逐條掛來源。"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <h1>民俗節日曆</h1>
+  <p class="lead">
+    農曆節日每年的國曆日期都不一樣。本頁把站內節日換算成今年的下一次國曆日期並即時倒數，
+    各節日內頁列出祭拜順序、供品與金紙，內容衍生自逐條掛來源的<a href="/practices/">拜拜習俗</a>與<a
+      href="/events/">民俗活動</a
+    >。
+  </p>
+
+  <section>
+    <h2>近期節日</h2>
+    <FestivalCountdown items={items} />
+  </section>
+
+  {
+    seasons.map((s) => (
+      <section>
+        <h2>{s}</h2>
+        <div class="grid cols">
+          {items
+            .filter((i) => i.season === s)
+            .map((i) => (
+              <a class="card fest-cell" href={`/festivals/${i.slug}/`}>
+                <strong>{i.name}</strong>
+                <span class="muted small">
+                  {i.lunarLabel}　·　國曆 {solarMd(i.iso)}
+                </span>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <p class="muted small">
+    相關：<a href="/deities/birthdays/">神明聖誕曆</a>｜<a href="/practices/">拜拜習俗</a>｜<a href="/events/"
+      >民俗活動</a
+    >｜<a href="/almanac/">農民曆</a>｜<a href="/qiugian/">線上求籤</a>
+  </p>
+
+  <style>
+    .lead { font-size: var(--text-base); }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
+    .fest-cell { display: flex; flex-direction: column; gap: 0.25rem; }
+    .fest-cell strong { color: var(--ink); }
+    .fest-cell .muted { color: oklch(0.37 0.02 72); }
+    .small { font-size: var(--text-sm); }
+  </style>
+</Base>

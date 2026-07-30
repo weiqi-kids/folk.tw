@@ -133,9 +133,18 @@ export default defineConfig({
         // 比照封存日期頁以最低優先降稀釋（保護新域爬取預算）；仍可被索引與內連。
         if (/^\/temples\/[^/]+$/.test(path)) return { ...item, priority: 0.3, changefreq: ChangeFreqEnum.YEARLY };
         // 模組樞紐／靜態頁。
+        // 樞紐頁 priority 0.8 / weekly。2026-07-30 補進 /festivals（新節日模組）與
+        // /qiugian、/scenarios、/compare——這三個原本漏列而落到 0.7/monthly 的一般分支，
+        // 其中 /qiugian/ 在 GSC 長期為「Discovered - currently not indexed」＝已發現未抓取。
+        // （它並非孤兒：nav 使全站 12,010/12,012 頁都連向它；比它更短的 /scenarios/、/compare/
+        //   反而已收錄 → 病灶是抓取優先序，不是內鏈或內容量。）
         const hubs = ['/poems', '/deities', '/events', '/practices', '/temples', '/trades',
+          '/festivals', '/qiugian', '/scenarios', '/compare',
           '/almanac/archive', '/jiaobei', '/vocabulary', '/about', '/search'];
         if (hubs.includes(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
+        // 節日詳情頁：日期錨定且逐年變動（渲染的國曆日期每年不同、倒數每日不同），
+        // 且農曆七月的節日必須在 8/13 鬼門開前被抓取，故比一般詳情頁高一階。
+        if (/^\/festivals\/[^/]+$/.test(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
         // 其餘為獨特內容詳情頁（神明／籤詩／典故／活動／習俗／籤系）。
         return { ...item, priority: 0.7, changefreq: ChangeFreqEnum.MONTHLY };
       },

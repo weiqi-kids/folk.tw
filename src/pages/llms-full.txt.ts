@@ -25,9 +25,11 @@ import {
   getTemples,
   allusionNameById,
 } from '../lib/queries';
-import { lunarDateLabel } from '../lib/birthdays';
+import { lunarDateLabel, lunarToNextSolar, solarMd } from '../lib/birthdays';
+import { todayInTaipei } from '../lib/daily';
 import concerns from '../data/concerns.json';
 import comparisons from '../data/comparisons.json';
+import festivals from '../data/festivals.json';
 import jiaobei from '../data/jiaobei.json';
 
 const SITE = 'https://folk.tw';
@@ -224,6 +226,26 @@ export const GET: APIRoute = async () => {
 
   // ── 四、分類導覽（各類正文摘要＋網址）──────────────────
   push('## 四、分類導覽', '');
+
+  // 節日：農曆→今年國曆的換算是 AI 引擎最常被問、也最容易引用的事實，故列在分類導覽最前。
+  push('### 節日（農曆節日的國曆日期）', `入口：${SITE}/festivals/`);
+  {
+    const { iso: todayIso } = todayInTaipei();
+    const rows = festivals
+      .map((f) => ({ f, iso: lunarToNextSolar(f.lunar_date, todayIso) }))
+      .filter((x): x is { f: (typeof festivals)[number]; iso: string } => x.iso !== null)
+      .sort((a, b) => a.iso.localeCompare(b.iso));
+    for (const { f, iso } of rows) {
+      push(
+        `- ${f.name}｜${lunarDateLabel(f.lunar_date)}｜下一次國曆：${iso}（${solarMd(iso)}）｜${SITE}/festivals/${f.slug}/`,
+        `  ${f.lead}`,
+        ...(f.date_note ? [`  期間：${f.date_note}`] : []),
+        ...(f.aliases?.length ? [`  別稱：${f.aliases.join('、')}`] : []),
+        ...(srcLine(f.sources as SourceLike[]) ? [`  ${srcLine(f.sources as SourceLike[])}`] : []),
+      );
+    }
+  }
+  push('');
 
   push('### 情境（這件事拜哪尊神）', `入口：${SITE}/scenarios/`);
   for (const s of scenarios) {

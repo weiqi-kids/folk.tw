@@ -1,0 +1,309 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Sources from '../../components/Sources.astro';
+import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
+import { breadcrumb, eventThing, faqPage } from '../../lib/seo';
+import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
+import { todayInTaipei } from '../../lib/daily';
+import festivals from '../../data/festivals.json';
+import vocab from '../../data/vocabulary.json';
+
+export const getStaticPaths = (async () => {
+  const [deities, practices, events, temples] = await Promise.all([
+    getDeities(),
+    getPractices(),
+    getEvents(),
+    getTemples(),
+  ]);
+  const deityById = new Map(deities.map((d) => [d.id, d]));
+  const practiceById = new Map(practices.map((p) => [p.id, p]));
+  const eventById = new Map(events.map((e) => [e.id, e]));
+  const templeById = new Map(temples.map((t) => [t.id, t]));
+  const vocabByTerm = new Map(
+    Object.values(vocab)
+      .flat()
+      .map((t) => [t.term, t as { term: string; def: string; alias?: string[]; sources?: unknown[] }]),
+  );
+  const { iso: today } = todayInTaipei();
+
+  return festivals
+    .map((f) => ({ f, iso: lunarToNextSolar(f.lunar_date, today) }))
+    .filter((x): x is { f: (typeof festivals)[number]; iso: string } => x.iso !== null)
+    .map(({ f, iso }) => ({
+      params: { slug: f.slug },
+      props: { f, iso, deityById, practiceById, eventById, templeById, vocabByTerm },
+    }));
+}) satisfies GetStaticPaths;
+
+const { f, iso, deityById, practiceById, eventById, templeById, vocabByTerm } = Astro.props;
+
+const year = iso.slice(0, 4);
+const lunarLabel = lunarDateLabel(f.lunar_date);
+// 跨多日的節日（如雞籠中元祭整個農曆七月）一律用「起於」，否則標題與首句會與事實不符。
+const multiDay = Boolean(f.date_note);
+// answer-first 第一句：直接回答「今年是哪一天」——這是這類查詢唯一想要的答案。
+const dateSentence = multiDay
+  ? `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
+  : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
+const pageTitle = multiDay
+  ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
+  : `${f.name}${year}是哪一天？${lunarLabel}・國曆${solarMd(iso)}`;
+
+const linkedPractices = (f.practice_refs ?? []).map((id) => practiceById.get(id)).filter(Boolean);
+const linkedEvents = (f.event_refs ?? []).map((id) => eventById.get(id)).filter(Boolean);
+const linkedDeities = (f.deity_refs ?? []).map((id) => deityById.get(id)).filter(Boolean);
+const linkedTemples = (f.temple_refs ?? []).map((id) => templeById.get(id)).filter(Boolean);
+const linkedVocab = (f.vocab_refs ?? []).map((t) => vocabByTerm.get(t)).filter(Boolean);
+
+// 主要儀式（取第一個 practice）的步驟／供品／金紙／禁忌——全部既有掛源欄位，不新增事實。
+// 在 frontmatter 先收斂成明確的陣列，模板才不必到處 `mp?.x?.length > 0`（該寫法在 ts 下為 possibly undefined）。
+const mainPractice = linkedPractices[0];
+const mp = mainPractice?.data;
+const steps = mp?.steps ?? [];
+const offerings = mp?.offerings ?? [];
+const jossPaper = mp?.joss_paper ?? [];
+const taboos = mp?.taboo ?? [];
+const regionals = mp?.regional ?? [];
+
+// 來源：節日自身來源 ＋ 所連 practice/event 的來源（去重）
+const allSources = [
+  ...(f.sources ?? []),
+  ...linkedPractices.flatMap((p) => p!.data.sources ?? []),
+  ...linkedEvents.flatMap((e) => e!.data.sources ?? []),
+];
+const seen = new Set<string>();
+const sources = allSources.filter((s: { ref: string }) => (seen.has(s.ref) ? false : (seen.add(s.ref), true)));
+
+const faq = faqPage([
+  { q: multiDay ? `${f.name}從哪一天開始？` : `${f.name}是哪一天？`, a: dateSentence },
+  { q: f.question, a: f.lead },
+  ...(steps.length > 0 && mp
+    ? [
+        {
+          q: `${f.name}怎麼拜？步驟是什麼？`,
+          a: `${mp.title}的步驟為：${steps.map((s, i) => `${i + 1}. ${s.action}`).join('；')}。`,
+        },
+      ]
+    : []),
+  ...(offerings.length > 0 || jossPaper.length > 0
+    ? [
+        {
+          q: `${f.name}要準備什麼供品和金紙？`,
+          a:
+            [
+              offerings.length > 0 ? `供品：${offerings.join('、')}` : '',
+              jossPaper.length > 0 ? `金紙：${jossPaper.join('、')}` : '',
+            ]
+              .filter(Boolean)
+              .join('；') + '。',
+        },
+      ]
+    : []),
+  ...(taboos.length > 0 ? [{ q: `${f.name}有什麼禁忌？`, a: `${taboos.join('；')}。` }] : []),
+]);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '節日', path: '/festivals' },
+    { name: f.name, path: `/festivals/${f.slug}` },
+  ]),
+  eventThing({
+    name: `${f.name}（${year}）`,
+    description: `${dateSentence}${f.lead}`,
+    startDate: iso,
+    eventType: '中元普渡',
+    url: `https://folk.tw/festivals/${f.slug}/`,
+  }),
+  ...(faq ? [faq] : []),
+].filter(Boolean);
+---
+
+<Base
+  title={pageTitle}
+  description={`${dateSentence}${f.lead.slice(0, 90)}`}
+  ogType="article"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/festivals/">節日</a> ／ {f.name}</nav>
+
+  <header class="dh">
+    <h1>{f.name}</h1>
+    <p class="when">
+      <strong>{year} 年國曆 {solarMd(iso)}</strong>
+      <span class="muted">（{lunarLabel}）</span>
+      <span class="cd" data-fest-date={iso}></span>
+    </p>
+    {f.date_note && <p class="muted small">{f.date_note}</p>}
+    {
+      f.aliases?.length > 0 && (
+        <p class="muted small">別稱：{f.aliases.join('、')}</p>
+      )
+    }
+  </header>
+
+  <p class="lead">{dateSentence}{f.lead}</p>
+
+  {
+    steps.length > 0 && mainPractice && (
+      <section>
+        <h2>{mainPractice.data.title}怎麼拜</h2>
+        <ol class="steps">
+          {steps.map((s) => (
+            <li>
+              {s.action}
+              {s.note && <span class="muted small"> — {s.note}</span>}
+              {(s.taboo ?? []).length > 0 && <span class="taboo"> ⚠ {(s.taboo ?? []).join('；')}</span>}
+            </li>
+          ))}
+        </ol>
+        <p class="muted small">
+          完整儀式流程與地區差異見 <a href={`/practices/${mainPractice.id}/`}>{mainPractice.data.title}</a>。
+        </p>
+      </section>
+    )
+  }
+
+  {
+    (offerings.length > 0 || jossPaper.length > 0) && (
+      <section>
+        <h2>供品與金紙</h2>
+        {offerings.length > 0 && (
+          <p><strong>供品：</strong>{offerings.join('、')}</p>
+        )}
+        {jossPaper.length > 0 && (
+          <p><strong>金紙：</strong>{jossPaper.join('、')}</p>
+        )}
+      </section>
+    )
+  }
+
+  {
+    taboos.length > 0 && (
+      <section>
+        <h2>禁忌</h2>
+        <ul>{taboos.map((t) => <li>{t}</li>)}</ul>
+      </section>
+    )
+  }
+
+  {
+    regionals.length > 0 && (
+      <section>
+        <h2>地區差異</h2>
+        <dl class="regional">
+          {regionals.map((r) => (
+            <>
+              <dt>{r.area}</dt>
+              <dd>{r.note}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
+  {
+    linkedVocab.length > 0 && (
+      <section>
+        <h2>相關詞彙</h2>
+        <dl class="regional">
+          {linkedVocab.map((t) => (
+            <>
+              <dt><a href={`/vocabulary/#${t!.term}`}>{t!.term}</a></dt>
+              <dd>{t!.def}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
+  {
+    linkedDeities.length > 0 && (
+      <section>
+        <h2>相關神明</h2>
+        <ul>
+          {linkedDeities.map((d) => (
+            <li>
+              <a href={`/deities/${d!.id}/`}>{d!.data.name}</a>
+              {d!.data.summary && <span class="muted small"> — {d!.data.summary}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    linkedEvents.length > 0 && (
+      <section>
+        <h2>相關民俗活動</h2>
+        <ul>
+          {linkedEvents.map((e) => (
+            <li>
+              <a href={`/events/${e!.id}/`}>{e!.data.name}</a>
+              {e!.data.date_note && <span class="muted small"> — {e!.data.date_note}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    linkedTemples.length > 0 && (
+      <section>
+        <h2>相關宮廟</h2>
+        <ul>
+          {linkedTemples.map((t) => (
+            <li>
+              <a href={`/temples/${t!.id}/`}>{t!.data.name}</a>
+              <span class="muted small"> — {t!.data.district}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <p class="muted small extend">
+    延伸：<a href="/festivals/">其他節日</a>｜<a href="/deities/birthdays/">神明聖誕曆</a>｜<a href="/practices/"
+      >拜拜習俗</a
+    >｜<a href="/qiugian/">線上求籤</a>｜<a href="/almanac/">農民曆</a>
+  </p>
+
+  {sources.length > 0 && <p class="src footer-src"><Sources sources={sources} /></p>}
+
+  <script is:inline>
+    (function () {
+      const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+      const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+      document.querySelectorAll('[data-fest-date]').forEach((el) => {
+        const days = Math.round((toUTC(el.getAttribute('data-fest-date')) - toUTC(today)) / 86400000);
+        if (days < 0) return;
+        el.textContent = days === 0 ? '就是今天' : days === 1 ? '明天' : days + ' 天後';
+      });
+    })();
+  </script>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .dh h1 { margin: 0.25rem 0 0.5rem; }
+    .when { margin: 0 0 0.375rem; }
+    .when strong { color: var(--accent); font-size: var(--text-lg); }
+    .cd { color: var(--gold); font-size: var(--text-sm); margin-left: 0.5rem; }
+    .lead { font-size: var(--text-base); }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
+    .steps { padding-left: 1.5rem; }
+    .steps li { margin-bottom: 0.625rem; }
+    .taboo { color: var(--accent); font-size: var(--text-sm); }
+    .regional dt { font-weight: 700; margin-top: 0.75rem; }
+    .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
+    .small { font-size: var(--text-sm); }
+    .src { color: var(--gold); font-size: var(--text-xs); }
+    .extend { margin-top: 1.875rem; }
+    .footer-src { margin-top: 2.5rem; }
+  </style>
+</Base>

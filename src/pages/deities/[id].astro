@@ -4,20 +4,42 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
+import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
+import { todayInTaipei } from '../../lib/daily';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
   const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
   const tByDeity = await templesByDeity();
+  // 聖誕的「下一次國曆日期」。
+  // ⚠️ 9 尊神有**多筆聖誕**（如七爺八爺 04-26／04-27／10-01、三官大帝 01-15／07-15／10-15）。
+  // 初版用 upcomingDeityBirthdays 取「最近一次」、卻用陣列第一筆做農曆標籤，兩者是不同筆 →
+  // 出現「聖誕農曆四月廿六（國曆 11/9）」這種農曆與國曆對不上的假事實（被 check:rendered 的往返驗證抓到）。
+  // 正解：逐筆算下一次國曆，挑最近的那一筆，**標籤與國曆同出一筆**。
+  const { iso: today } = todayInTaipei();
+  const pickShengdan = (d: (typeof deities)[number]) => {
+    const cands = d.data.birthday_lunar
+      .filter((b) => b.kind === '聖誕' && /^\d{2}-\d{2}$/.test(b.date))
+      .map((b) => ({ date: b.date, iso: lunarToNextSolar(b.date, today) }))
+      .filter((x): x is { date: string; iso: string } => x.iso !== null)
+      .sort((a, b) => a.iso.localeCompare(b.iso));
+    return cands[0] ?? null;
+  };
   return Promise.all(
     deities.map(async (d) => ({
       params: { id: d.id },
-      props: { deity: d, rels: await relationsOf(d.id), nameById, temples: tByDeity.get(d.id) ?? [] },
+      props: {
+        deity: d,
+        rels: await relationsOf(d.id),
+        nameById,
+        temples: tByDeity.get(d.id) ?? [],
+        shengdanPick: pickShengdan(d),
+      },
     })),
   );
 }) satisfies GetStaticPaths;
 
-const { deity, rels, nameById, temples } = Astro.props;
+const { deity, rels, nameById, temples, shengdanPick } = Astro.props;
 const d = deity.data;
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
@@ -40,27 +62,31 @@ const faqItems: { q: string; a: string }[] = [];
 const realBdays = d.birthday_lunar.filter(
   (b) => b.date && !['無定', '待查', '未定'].includes(b.date),
 );
+// 標題／描述／FAQ 一律用同一組聖誕字串，且**只取 kind==='聖誕'**。
+// 2026-07-30 修三個病灶（GSC 實測「朱府千歲生日」曝 139 點 0、「七爺八爺生日」曝 79 點 0）：
+//   (1) 原本只有農曆、沒有國曆——但使用者搜「○○生日 2026」要的正是國曆，農曆是他想換算的來源；
+//   (2) 原本用阿拉伯數字「農曆3月23日」，而查詢與全站其他頁用的是「農曆三月廿三」，標題從未命中該形式；
+//   (3) 原本 `find(kind==='聖誕') ?? realBdays[0]` 會讓只有飛昇/得道者的標題出現「・飛昇農曆9月9日」。
+// 國曆日期於 build 時算，且 deploy.yml 有每日 16:00 UTC 重建，故「下一次」永不過期。
+// shengdanPick 由 getStaticPaths 逐筆算過、挑最近一次，故 date 與 iso 必為同一筆（勿在此另挑）。
+const shengdanLunarLabel = shengdanPick ? lunarDateLabel(shengdanPick.date) : '';
+const solarPart = shengdanPick ? `（國曆 ${solarMd(shengdanPick.iso)}）` : '';
+
 if (realBdays.length > 0) {
-  const parts = realBdays.map((b) => `農曆${b.date}（${b.kind}）`).join('、');
+  const parts = realBdays
+    .map((b) => `${lunarDateLabel(b.date) || `農曆${b.date}`}（${b.kind}）`)
+    .join('、');
   faqItems.push({
     q: `${d.name}的聖誕（生日）是哪一天？`,
-    a: `${d.name}的聖誕日為${parts}。`,
+    a: shengdanPick
+      ? `${d.name}的聖誕為${shengdanLunarLabel}，下一次落在國曆 ${shengdanPick.iso.slice(0, 4)} 年 ${solarMd(shengdanPick.iso)}。${realBdays.length > 1 ? `本站收錄的日期共：${parts}。` : ''}`
+      : `${d.name}的聖誕日為${parts}。`,
   });
 }
-const birthdayLabel = (() => {
-  if (realBdays.length === 0) return '';
-  const [bm, bd] = realBdays[0].date.split('-').map(Number);
-  return `，${realBdays[0].kind}農曆${bm}月${bd}日`;
-})();
-// 標題也帶出聖誕日期關鍵字：反思層 2026-07-05 發現，聖誕/生日查詢（如「七爺八爺聖誕」）排名到位卻
-// 連 5+ 天 0 點擊，因日期只進了 .summary、title 從未帶「聖誕」字樣。優先取「聖誕」該筆，
-// 純沿用已查證的 birthday_lunar（不新增事實）。
-const titleBday = (() => {
-  const b = realBdays.find((x) => x.kind === '聖誕') ?? realBdays[0];
-  if (!b) return '';
-  const [bm, bd] = b.date.split('-').map(Number);
-  return `・${b.kind}農曆${bm}月${bd}日`;
-})();
+// 描述用：帶農曆中文標籤＋國曆。
+const birthdayLabel = shengdanLunarLabel ? `，聖誕${shengdanLunarLabel}${solarPart}` : '';
+// 標題用：同上（只有 kind==='聖誕' 才加後綴；14 尊無聖誕者不加）。
+const titleBday = shengdanLunarLabel ? `・聖誕${shengdanLunarLabel}${solarPart}` : '';
 
 // 職司／是什麼神：以 category＋office＋summary 答覆（answer-first）。
 {

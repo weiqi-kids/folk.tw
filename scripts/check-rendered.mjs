@@ -13,8 +13,12 @@ const require = createRequire(import.meta.url);
 const DIST = 'dist';
 // 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
 const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
+// 農曆換算同理：用頁面用的同一支 lib（src/lib/lunar-date.ts 刻意零專案內 import，故本檔可直接載）。
+const { lunarDateLabel, isLunarMonthEnd } = await import('../src/lib/lunar-date.ts');
+const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
+const festivals = normalize(require('../src/data/festivals.json'));
 
 function normalize(j) {
   if (Array.isArray(j)) return j;
@@ -148,8 +152,103 @@ for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
   }
 }
 
+// ── 不變量 4：神明頁 title 的聖誕日期（2026-07-30 加；本檔首次涵蓋 deity 頁）──────────
+// 背景：GSC 實測神明頁 CTR 僅 1.13%，主流意圖是「○○生日／聖誕」＝一個日期就滿足，
+//       但 title 原本只有農曆、且用阿拉伯數字（農曆3月23日），從未命中查詢用的「農曆三月廿三」形式，
+//       也沒有使用者真正要的國曆。改為「・聖誕農曆三月廿三（國曆 4/29）」後，這裡逐尊全驗。
+// ⚠️ 不用「今天」去算期望值（build 與 gate 若跨越台灣午夜就會差一天而誤報）。
+//    改做**往返驗證**：把 title 上印的國曆 M/D 轉回農曆，必須等於該尊的聖誕 MM-DD
+//    （短月順延：卅日聖誕落在僅廿九日之農曆月底亦算相符）。年份未印在 title，故容許今年或明年。
+let deityChecked = 0;
+let deityWithShengdan = 0;
+{
+  const nowYear = new Date().getUTCFullYear();
+  for (const d of deities) {
+    // draft（如 sheshen：聖誕待查）在 prod 不發佈頁，正確地不驗——與 queries.publishable() 一致。
+    if (d.draft) continue;
+    const file = `${DIST}/deities/${d.id}/index.html`;
+    if (!existsSync(file)) { violations.push(`神明頁未建置：${d.id}`); continue; }
+    const html = readFileSync(file, 'utf8');
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    deityChecked++;
+
+    const real = (d.birthday_lunar ?? []).filter(
+      (b) => b.date && !['無定', '待查', '未定'].includes(b.date),
+    );
+    const shengdan = real.find((b) => b.kind === '聖誕') ?? null;
+
+    if (!shengdan) {
+      // 雙向反例：無聖誕者（如好兄弟／城隍／太歲）不得出現聖誕後綴，
+      // 也不得因舊的 `?? realBdays[0]` 回退而漏出「・飛昇…」這類非聖誕字樣。
+      if (/・聖誕/.test(title)) violations.push(`${d.id} 無聖誕資料，title 卻出現「・聖誕」：${title}`);
+      if (/・(飛昇|得道|成道|其他)/.test(title)) {
+        violations.push(`${d.id} title 出現非聖誕的日期後綴（應只用 kind==='聖誕'）：${title}`);
+      }
+      continue;
+    }
+
+    deityWithShengdan++;
+    // 9 尊神有多筆聖誕（七爺八爺 04-26/04-27/10-01、三官大帝 01-15/07-15/10-15…），
+    // 頁面挑「下一次最近」的那筆。gate 刻意**不假設挑中哪一筆**（也就不依賴「今天」，
+    // 否則 build 與 gate 跨越台灣午夜就會誤報），只驗真正在意的不變量：
+    //   (a) title 印的農曆標籤必須是該尊「某一筆真實聖誕」；
+    //   (b) title 印的國曆 M/D 轉回農曆必須等於**同一筆**（短月順延亦算相符）。
+    const shengdanDates = real.filter((b) => b.kind === '聖誕').map((b) => b.date);
+    const shown = title.match(/・聖誕(農曆[^（|]+)/);
+    if (!shown) { violations.push(`${d.id} title 缺「・聖誕農曆…」（實際：${title}）`); continue; }
+    const shownLabel = shown[1].trim();
+    const matchedDate = shengdanDates.find((dt) => lunarDateLabel(dt) === shownLabel);
+    if (!matchedDate) {
+      violations.push(
+        `${d.id} title 的聖誕「${shownLabel}」不對應任何一筆資料（資料：${shengdanDates.map((x) => lunarDateLabel(x)).join('、')}）`,
+      );
+      continue;
+    }
+    const md = title.match(/（國曆\s*(\d{1,2})\/(\d{1,2})）/);
+    if (!md) { violations.push(`${d.id} title 缺國曆日期「（國曆 M/D）」：${title}`); continue; }
+    const mo = Number(md[1]);
+    const day = Number(md[2]);
+    const wantM = Number(matchedDate.slice(0, 2));
+    const wantD = Number(matchedDate.slice(3));
+    const roundTripOk = [nowYear, nowYear + 1, nowYear + 2].some((y) => {
+      let s;
+      try { s = Solar.fromYmd(y, mo, day); } catch { return false; }
+      const l = s.getLunar();
+      if (l.getMonth() !== wantM) return false;
+      if (l.getDay() === wantD) return true;
+      return wantD === 30 && l.getDay() === 29 && isLunarMonthEnd(s.toYmd());
+    });
+    if (!roundTripOk) {
+      violations.push(`${d.id} title 國曆 ${mo}/${day} 轉回農曆不等於所標示的聖誕 ${matchedDate}（${shownLabel}）`);
+    }
+  }
+}
+
+// ── 不變量 5：節日頁（2026-07-30 加）─────────────────────────────────────────
+// 每個 festivals.json 條目都必須有頁、有 answer-first .lead、有 FAQPage 與 Event 結構化資料，
+// 且 title 上的國曆 M/D 同樣做農曆往返驗證（防日期算錯或模板寫死）。
+let festChecked = 0;
+for (const f of festivals) {
+  const file = `${DIST}/festivals/${f.slug}/index.html`;
+  if (!existsSync(file)) { violations.push(`節日頁未建置：${f.slug}`); continue; }
+  const html = readFileSync(file, 'utf8');
+  festChecked++;
+  if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
+  if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
+  if (!html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 缺 Event 結構化資料`);
+  const wantLabel = lunarDateLabel(f.lunar_date);
+  if (wantLabel && !html.includes(wantLabel)) {
+    violations.push(`節日頁 ${f.slug} 未出現農曆標籤「${wantLabel}」`);
+  }
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  const md = title.match(/(\d{1,2})\/(\d{1,2})/);
+  if (!md && !f.date_note) {
+    violations.push(`節日頁 ${f.slug} title 缺國曆日期：${title}`);
+  }
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符。`);
   process.exit(0);
 }
 

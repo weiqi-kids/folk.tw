@@ -10,6 +10,8 @@
 import pkg from 'lunar-javascript';
 import { deityBirthdayIndex, getDeities, getSystems } from './queries';
 import { addDays } from './almanac/dates';
+// 農曆換算原語集中在 ./lunar-date（零 Astro 依賴，scripts/ 的 gate 也 import 同一份）——本檔不另寫一套。
+import { isLunarMonthEnd, lunarDateLabel } from './lunar-date';
 
 const { Solar } = pkg;
 
@@ -20,25 +22,8 @@ export interface BirthdayEntry {
   deities: { deityId: string; name: string; systems: { id: string; name: string }[] }[];
 }
 
-const CN_NUM = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
-const lunarMonthCn = (m: number) => CN_NUM[m] ?? String(m);
-function lunarDayCn(d: number): string {
-  if (d <= 10) return '初' + CN_NUM[d];
-  if (d < 20) return '十' + CN_NUM[d - 10];
-  if (d === 20) return '二十';
-  if (d < 30) return '廿' + CN_NUM[d - 20];
-  return '三十';
-}
-const labelOf = (key: string) => `農曆${lunarMonthCn(Number(key.slice(0, 2)))}月${lunarDayCn(Number(key.slice(3)))}`;
-/** 農曆「MM-DD」→ 中文標籤（如「03-23」→「農曆三月廿三」）。供廟宇頁 answer-first 摘要重用同一套轉換。 */
-export const lunarDateLabel = (mmdd: string): string => (/^\d{2}-\d{2}$/.test(mmdd) ? labelOf(mmdd) : '');
-// 該國曆日是否為農曆月最後一日（明日農曆月份不同即是）。
-function isLunarMonthEnd(iso: string): boolean {
-  const t = addDays(iso, 1);
-  const [y, m, d] = t.split('-').map(Number);
-  const [y0, m0, d0] = iso.split('-').map(Number);
-  return Solar.fromYmd(y, m, d).getLunar().getMonth() !== Solar.fromYmd(y0, m0, d0).getLunar().getMonth();
-}
+// 轉出 ./lunar-date 的純函式，維持既有 import 路徑（llms-full.txt.ts／temples/[id].astro）不變。
+export { lunarDateLabel, lunarToNextSolar, solarMd } from './lunar-date';
 
 /**
  * 自 fromIso（國曆）起 days 天內、依國曆日序排列的神明聖誕。
@@ -85,7 +70,7 @@ export async function upcomingDeityBirthdays(
       out.push({
         iso,
         lunar: key,
-        lunarLabel: labelOf(key),
+        lunarLabel: lunarDateLabel(key),
         deities: deities.map((x) => ({ ...x, systems: systemsByDeity.get(x.deityId) ?? [] })),
       });
     }

@@ -1,0 +1,86 @@
+---
+// 節日倒數（/festivals/ 樞紐＋節日詳情頁共用）。
+//
+// server 端輸出「國曆日期＋農曆標籤＋節日連結」＝靜態事實（可被 Google/AI 擷取）；
+// 「倒數 N 天」與「隱藏已過」由下方 is:inline script 依台灣當下日期即時算——
+// 與 UpcomingBirthdays.astro 同一套機制（⏱ 時間正確性保證）：即使某天沒重新部署
+// （每日收集 commit 帶 [skip ci] 不觸發 deploy），倒數仍永遠正確。
+//
+// ⚠️ 倒數文字寫進「模板裡已存在」的 .fc-countdown，不用 innerHTML 造新元素，
+//    故 scoped <style> 仍套得到（check:scoped-styles 的規則）。
+interface Item {
+  slug: string;
+  name: string;
+  iso: string; // 國曆 YYYY-MM-DD（下一次）
+  lunarLabel: string; // 農曆七月十五
+  dateNote?: string; // 跨多日者的期間說明
+}
+interface Props {
+  items: Item[];
+  limit?: number; // 前端濾掉已過者後最多顯示幾筆；不給＝全顯示
+}
+const { items, limit } = Astro.props;
+const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
+---
+
+<ul class="festivals" data-festivals data-limit={limit ?? undefined}>
+  {
+    items.map((f) => (
+      <li class="fc-item" data-date={f.iso}>
+        <span class="fc-when">
+          <span class="fc-solar">{mdOf(f.iso)}</span>
+          <span class="fc-countdown" data-role="countdown" />
+        </span>
+        <span class="fc-lunar muted">{f.lunarLabel}</span>
+        <span class="fc-name">
+          <a href={`/festivals/${f.slug}/`}>{f.name}</a>
+          {f.dateNote && <span class="fc-note muted">（{f.dateNote}）</span>}
+        </span>
+      </li>
+    ))
+  }
+</ul>
+
+<script is:inline>
+  (function () {
+    // 台灣當下日期（YYYY-MM-DD）——倒數以台灣時區為準，不受瀏覽者所在地影響。
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+    const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+    const t0 = toUTC(today);
+    document.querySelectorAll('[data-festivals]').forEach((ul) => {
+      const limit = parseInt(ul.getAttribute('data-limit') || '0', 10);
+      let shown = 0;
+      ul.querySelectorAll('.fc-item').forEach((li) => {
+        const iso = li.getAttribute('data-date');
+        const days = Math.round((toUTC(iso) - t0) / 86400000);
+        if (days < 0 || (limit && shown >= limit)) { li.style.display = 'none'; return; }
+        const el = li.querySelector('[data-role=countdown]');
+        if (el) el.textContent = days === 0 ? '今天' : days === 1 ? '明天' : days + ' 天後';
+        shown++;
+      });
+    });
+  })();
+</script>
+
+<style>
+  .festivals { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .fc-item {
+    display: grid;
+    grid-template-columns: 5.625rem 8.75rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .fc-when { display: flex; flex-direction: column; }
+  .fc-solar { font-weight: 700; color: var(--accent); }
+  .fc-countdown { font-size: var(--text-xs); color: var(--gold); }
+  .fc-lunar { font-size: var(--text-sm); }
+  .fc-name a { color: var(--ink); }
+  .fc-note { font-size: var(--text-xs); }
+  @media (max-width: 480px) {
+    .fc-item { grid-template-columns: 4.75rem 1fr; }
+    .fc-lunar { grid-column: 2; font-size: var(--text-xs); }
+    .fc-name { grid-column: 2; }
+  }
+</style>

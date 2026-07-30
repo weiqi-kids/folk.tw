@@ -30,6 +30,10 @@ const temples = load('temples.json');
 const trades = load('trades.json');
 const scenarios = load('scenarios.json');
 const comparisons = load('comparisons.json');
+const festivals = load('festivals.json');
+const vocabulary: Record<string, { term: string }[]> = JSON.parse(
+  readFileSync(join(root, 'src/data/vocabulary.json'), 'utf8'),
+);
 const affairs: any[] = JSON.parse(
   readFileSync(join(root, 'src/lib/almanac/rules/affairs.json'), 'utf8'),
 ).affairs;
@@ -98,6 +102,39 @@ for (const c of comparisons) {
 // 宜忌詞義頁 → affair 節點（dangling → /almanac/yiji/[affair] 會壞頁面）
 for (const id of Object.keys(yijiTerms)) {
   if (!affairIds.has(id)) hard(`yiji-terms: 事項「${id}」不在 rules/affairs.json`);
+}
+// 節日頁 → practice/event/deity/temple/vocabulary 節點（dangling → /festivals/[slug] 會壞頁面或漏區塊）
+{
+  const practiceIds = new Set(practices.map((p) => p.id));
+  const eventIds = new Set(events.map((e) => e.id));
+  const templeIds = new Set(temples.map((t) => t.id));
+  const vocabTerms = new Set(Object.values(vocabulary).flat().map((t) => t.term));
+  const seenSlugs = new Set<string>();
+  for (const f of festivals) {
+    // slug 是永久承諾（發佈後不可改、不可 404），重複即為錯誤
+    if (seenSlugs.has(f.slug)) hard(`festival: slug「${f.slug}」重複`);
+    seenSlugs.add(f.slug);
+    if (!/^\d{2}-\d{2}$/.test(f.lunar_date ?? '')) {
+      hard(`festival ${f.slug}: lunar_date「${f.lunar_date}」須為農曆 MM-DD`);
+    }
+    // 事實型頁面必須掛源（與 deities/events/practices 同一鐵則：絕不杜撰）
+    if (!(f.sources ?? []).length) hard(`festival ${f.slug}: 無 sources（事實型頁面必須掛源）`);
+    for (const r of f.practice_refs ?? []) {
+      if (!practiceIds.has(r)) hard(`festival ${f.slug}: practice_ref「${r}」不存在`);
+    }
+    for (const r of f.event_refs ?? []) {
+      if (!eventIds.has(r)) hard(`festival ${f.slug}: event_ref「${r}」不存在`);
+    }
+    for (const r of f.deity_refs ?? []) {
+      if (!deityIds.has(r)) hard(`festival ${f.slug}: deity_ref「${r}」不存在`);
+    }
+    for (const r of f.temple_refs ?? []) {
+      if (!templeIds.has(r)) hard(`festival ${f.slug}: temple_ref「${r}」不存在`);
+    }
+    for (const r of f.vocab_refs ?? []) {
+      if (!vocabTerms.has(r)) hard(`festival ${f.slug}: vocab_ref「${r}」不在 vocabulary.json`);
+    }
+  }
 }
 if (hardErrors === 0) console.log('  ✓ 全數通過');
 
