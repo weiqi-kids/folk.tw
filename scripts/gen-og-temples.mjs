@@ -2,14 +2,13 @@
 // 廟宇頁社群分享卡（og:image）產生器：每間廟一張 1200×630 PNG。
 //
 // 為什麼要做：分享廟宇連結給廟方（宮廟開發外撥流程）時，原本 12,018 頁共用同一張
-// `public/og.png`＝神酷品牌卡，廟方主委看到的是別人的招牌而不是自己的廟（實例見
-// docs/og-share-card.md）。改為每間廟一張只寫「廟名／地區／主祀神／近期活動」的卡，
-// **卡面完全不出現神酷或 folk.tw 字樣**（用戶要求）。
+// `public/og.png`＝神酷品牌卡，廟方主委看到的是別人的招牌而不是自己的廟。
+// 改為每間廟一張，**卡面完全不出現神酷或 folk.tw 字樣**（用戶要求）。
 //
-// 事實鐵則：卡面所有文字皆取自 temples.json 既有欄位，**絕不杜撰**。
-//   卡面＝廟名／縣市鄉鎮／主祀神，**外加**已查證的主要祭典（main_festival，僅 21 間有）。
-//   **沒有活動資料就只顯示名稱**（用戶 2026-07-30 指示）——不用主祀神聖誕充當「活動」，
-//   因為聖誕是神明的生日、不是該廟的活動，且多數落在數月之後，對廟方沒有意義。
+// 事實鐵則：卡面所有文字皆取自 temples.json／deities.json 既有欄位，**絕不杜撰**。
+//   第一行＝廟名；第二行＝縣市鄉鎮 · 主祀神；
+//   第三行（有才出現）＝主要祭典（main_festival，21 間）或「○○聖誕」（7,424 間＝94.1%）。
+//   措辭界線見下方 recentActivity() 的註解——**標籤寫「聖誕」而非「近期活動」是刻意的**。
 //
 // 字型：系統 Noto Serif CJK TC（與站台 global.css 的 'Noto Serif TC' 明體同族）。
 // 光柵化：sharp（已在 devDependencies）。SVG 走 librsvg，故顏色用 hex 而非 oklch。
@@ -54,7 +53,7 @@ function assertCjkFont() {
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const { templeCounty, templeTownship } = await import(join(root, 'src/lib/temple-region.ts'));
-// 註：卡面不放聖誕日期（見上），故不需 lunar-date 的換算。
+const { lunarDateLabel, lunarToNextSolar, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
 
 const temples = JSON.parse(readFileSync(join(root, 'src/data/temples.json'), 'utf8'));
 const deities = JSON.parse(readFileSync(join(root, 'src/data/deities.json'), 'utf8'));
@@ -91,22 +90,43 @@ function wrap(s, maxUnits) {
 }
 
 /**
- * 該廟的活動一行：**只認已查證的主要祭典**（main_festival，21/7891 間有）。
- * 查無則回 null → 卡面只顯示廟名／地區／主祀神。
- * 刻意不拿主祀神聖誕來填：那是神明生日、不是該廟的活動（用戶 2026-07-30 指示）。
+ * 卡面第二行：兩層，皆為既有資料，查無則回 null（→ 只顯示廟名／地區／主祀神）。
+ *
+ * 1) `main_festival`（21/7891 間）→ 標籤「主要祭典」＝該廟已查證的祭典。
+ * 2) 主祀神聖誕（**7,424/7891 間＝94.1%**）→ 標籤「○○聖誕」。
+ *
+ * ⚠️ 標籤措辭是刻意的，不是隨便寫：
+ *   ・標「近期活動：農曆三月廿三」＝**替廟方宣稱他們那天有辦活動**，我們沒有這個事實 → 杜撰。
+ *   ・標「媽祖聖誕：農曆三月廿三（國曆 4/29）」＝陳述**神明的**聖誕日，不宣稱該廟辦什麼。
+ * 台灣廟宇實務上年度主祭典就是主祀神聖誕（例祭日），主委看到日期自然知道所指，
+ * 但頁面/卡片不替他們斷言。**改這段措辭前先想清楚上面這條界線**（2026-07-30 用戶討論後定案）。
+ *
+ * 為何不用「近期活動」欄位：實測公開資料裡沒有涵蓋全台 7,891 間的活動行事曆——
+ * 全國宗教資訊網的慶(祭)典查詢擋境外 IP、nchdb 無公開 API、文化部藝文活動是表演展覽。
+ * 詳見 docs/taiwan-host-handoff.md。
  */
-export function recentActivity(t) {
-  if (!t.main_festival) return null;
-  const first = String(t.main_festival).split(/(?<=[。！？])/)[0].trim();
-  return first ? { label: '主要祭典', text: first } : null;
+export function recentActivity(t, todayIso) {
+  if (t.main_festival) {
+    const first = String(t.main_festival).split(/(?<=[。！？])/)[0].trim();
+    if (first) return { label: '主要祭典', text: first };
+  }
+  const d = t.main_deity_ref ? deityById.get(t.main_deity_ref) : null;
+  const b = (d?.birthday_lunar ?? []).find((x) => x.kind === '聖誕' && /^\d{2}-\d{2}$/.test(x.date));
+  if (!b) return null; // 城隍／太歲等 467 間無聖誕者：正確地不顯示，不硬湊
+  const deityName = t.main_deity_raw ?? d?.name ?? '';
+  const iso = todayIso ? lunarToNextSolar(b.date, todayIso) : null;
+  return {
+    label: `${deityName}聖誕`,
+    text: iso ? `${lunarDateLabel(b.date)}（國曆 ${solarMd(iso)}）` : lunarDateLabel(b.date),
+  };
 }
 
-export function cardSvg(t) {
+export function cardSvg(t, todayIso) {
   const county = templeCounty(t.district);
   const township = templeTownship(t.district);
   const region = county ? `${county.name}${township?.name ?? ''}` : '';
   const mainDeity = t.main_deity_raw ?? (t.main_deity_ref ? deityById.get(t.main_deity_ref)?.name : '') ?? '';
-  const act = recentActivity(t);
+  const act = recentActivity(t, todayIso);
 
   // 廟名自動縮級＋斷行：短名最大 118px，長名降到 82px，超長再兩行。
   const nameUnits = visualWidth(t.name);
@@ -152,8 +172,8 @@ export function cardSvg(t) {
 </svg>`;
 }
 
-export async function renderCard(t, outDir) {
-  const svg = cardSvg(t);
+export async function renderCard(t, outDir, todayIso) {
+  const svg = cardSvg(t, todayIso);
   // palette 16 色：10.4 KB/張。勿降到 8 色（文字邊緣會出現硃紅雜邊，實測）。
   const png = await sharp(Buffer.from(svg))
     .png({ compressionLevel: 9, palette: true, colors: 16 })
@@ -168,6 +188,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const outIdx = args.indexOf('--out');
   const outDir = outIdx >= 0 ? args[outIdx + 1] : join(root, 'dist', 'og', 'temples');
+  const todayIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
 
   const sampleIdx = args.indexOf('--sample');
   let list = temples;
@@ -179,13 +200,17 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   let bytes = 0;
   let n = 0;
-  let withAct = 0;
+  let withFest = 0;
+  let withBday = 0;
   for (const t of list) {
-    if (recentActivity(t)) withAct++;
-    bytes += await renderCard(t, outDir);
+    const act = recentActivity(t, todayIso);
+    if (act?.label === '主要祭典') withFest++;
+    else if (act) withBday++;
+    bytes += await renderCard(t, outDir, todayIso);
     if (++n % 1000 === 0) console.log(`  …${n}/${list.length}`);
   }
   console.log(
-    `✓ 產出 ${n} 張分享卡 → ${outDir}（共 ${(bytes / 1048576).toFixed(1)} MB；其中 ${withAct} 張含主要祭典、${n - withAct} 張只顯示名稱）`,
+    `✓ 產出 ${n} 張分享卡 → ${outDir}（共 ${(bytes / 1048576).toFixed(1)} MB；` +
+      `主要祭典 ${withFest} 張、主祀神聖誕 ${withBday} 張、僅廟名 ${n - withFest - withBday} 張）`,
   );
 }
