@@ -13,6 +13,7 @@
 // 禮貌用法：官方政策要求標明 User-Agent 且 ≤1 req/s，本模組內建 1.2s 間隔（P2 每 8 小時、候選個位數，綽綽有餘）。
 
 const ENDPOINT = 'https://nominatim.openstreetmap.org/search';
+const REVERSE_ENDPOINT = 'https://nominatim.openstreetmap.org/reverse';
 const UA = 'folk.tw-topical/1.0 (https://folk.tw; blessing pipeline)';
 const GAP_MS = 1200;
 let lastCall = 0;
@@ -43,6 +44,42 @@ export async function geocodePlace(place, opt = {}) {
     const lat = Number(hit.lat), lon = Number(hit.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
     return { lat, lon };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 座標 → 上級行政區名（縣/州/府）＋國家；查無/失敗回 null。
+ *
+ * 為什麼需要（2026-07-30 熊本地震實例）：USGS 的 `place` 是「距震央最近的城市」，
+ * 常常是沒人聽過的小鎮——熊本規模 7.1 地震在 USGS 是 `4 km SE of Uki, Japan`（宇城市），
+ * 而 prompt 明定「地名以來源為準」，於是標題產出「為日本宇城地震平安祈福」。
+ * 台灣沒人搜「宇城地震」，大家搜的是「熊本地震」——功能沒壞，但命名讓它找不到也認不出。
+ * 反查行政區後把「熊本縣」一起餵給 prompt，讓它選有辨識度的那個，且**仍是查來的事實、非自創譯名**。
+ *
+ * 邊界：失敗一律回 null，呼叫端照舊只用 `place`（地理服務失效不得影響開頁與否）。
+ */
+export async function reverseRegion(lat, lon, opt = {}) {
+  if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) return null;
+  const wait = GAP_MS - (Date.now() - lastCall);
+  if (wait > 0) await sleep(wait);
+  lastCall = Date.now();
+  try {
+    const url = `${REVERSE_ENDPOINT}?format=jsonv2&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
+    const res = await fetch(url, {
+      headers: { 'User-Agent': UA, 'Accept-Language': 'zh-TW,zh,en' },
+      signal: AbortSignal.timeout(opt.timeoutMs ?? 15000),
+    });
+    if (!res.ok) return null;
+    const j = await res.json();
+    const a = j?.address;
+    if (!a) return null;
+    // 由粗到細取第一個有值者：州/省/縣 → 郡 → 直轄市
+    const region = a.state || a.province || a.county || a.region || a.city || '';
+    const country = a.country || '';
+    if (!region && !country) return null;
+    return { region: String(region).trim(), country: String(country).trim() };
   } catch {
     return null;
   }

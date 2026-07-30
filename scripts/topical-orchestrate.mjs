@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { sharedCycloneName, typhoonZhName, findTitleClash, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
+import { reverseRegion } from './lib/topical-geo.mjs';
 
 const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
@@ -166,9 +167,14 @@ function gateAndFrame(c) {
   const nameRule = zhName
     ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那三個字，不得改寫或自創其他譯名。`
     : '';
+  // 地震來源的 place 是「距震央最近的城市」，常是無辨識度的小鎮（熊本 7.1 → Uki 宇城市）。
+  // 反查到的上級行政區一併提供，讓標題選台灣人真的會用的地名。
+  const regionLine = c.adminRegion
+    ? `\n所在行政區（由座標反查 OpenStreetMap，非自創）：「${c.adminCountry ?? ''}${c.adminRegion}」`
+    : '';
   const PROMPT = `你是台灣民俗祈福站的守門與編輯。以下是來自「${src}」的災難事實：
 類型：${label}
-地點：「${c.place}」
+地點：「${c.place}」${regionLine}
 日期：${c.time}${nameLine}${fact ? `\n嚴重度：${fact}` : ''}${c.summary ? `\n事件摘要：${c.summary}` : ''}
 任務(1) 相關性＋正向議題判定，pass 需同時滿足：
   a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
@@ -187,7 +193,13 @@ function gateAndFrame(c) {
   任一不符即 block。
 任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
   - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
-  - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述（如「墨西哥外海」）——絕不自創或套大陸譯名**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。
+  - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述（如「墨西哥外海」）——絕不自創或套大陸譯名**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。${
+    c.adminRegion
+      ? `\n  - ⚠️ **本則有「所在行政區」可用**：地震來源的地點是「距震央最近的城市」，常是台灣人沒聽過的小鎮。
+    若「${c.place}」的城市名不具辨識度，**改用上面那個行政區名**（2026-07-30 實例：USGS 給「4 km SE of Uki, Japan」＝宇城市，
+    但台灣人搜的、新聞寫的都是「熊本」；標題寫成「宇城地震」等於沒人找得到）。兩者皆為查得之事實，擇辨識度高者，仍不得自創。`
+      : ''
+  }
   - **event 只能寫上面事實真的說了的事**：來源沒提到的影響（「波及當地居民」「居民生活受到影響」這類）
     **不得自行推導補上**——2026-07-27 四則野火頁就是這樣把「燒了 N 公頃林地」腦補成「波及居民」（違反絕不杜撰）。
     來源沒說影響到人，就只寫「發生森林野火，延燒林地」加祝願，不要替它加戲。
@@ -249,6 +261,17 @@ for (const c of await detect()) {
       sharedCycloneName(it, c));
     if (dup) {
       console.error(`[topical] ${c.id} 與 ${dup.id} 同一個颱風「${sharedCycloneName(dup, c)}」，略過`); continue;
+    }
+  }
+  // 地震（USGS）的 place 是「距震央最近的城市」，常是沒人聽過的小鎮（熊本 7.1 →「Uki」宇城市），
+  // 導致標題變成沒人會搜的「宇城地震」。開頁前先由座標反查上級行政區（熊本縣）一併餵給 prompt，
+  // 讓它挑有辨識度的地名——仍是查來的事實，不違反「絕不自創譯名」。查不到就照舊只用 place。
+  if (c.eventType === 'quake' && c.lat != null && c.lon != null) {
+    const geo = await reverseRegion(c.lat, c.lon);
+    if (geo?.region) {
+      c.adminRegion = geo.region;
+      c.adminCountry = geo.country;
+      console.log(`[topical] ${c.id} 反查行政區：${geo.country}${geo.region}（place=${c.place}）`);
     }
   }
   const g = gateAndFrame(c);
