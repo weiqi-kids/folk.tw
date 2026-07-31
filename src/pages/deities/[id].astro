@@ -6,6 +6,7 @@ import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, pra
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
+import festivals from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -51,6 +52,7 @@ const relatedPoems = d.divination_systems.flatMap((s) => poemsBySys.get(s.id) ??
 const relatedPractices = (await practicesByDeity()).get(deity.id) ?? [];
 const relatedEvents = (await eventsByDeity()).get(deity.id) ?? [];
 const relatedTrades = (await tradesByDeity()).get(deity.id) ?? [];
+const relatedFestivals = festivals.filter((f) => f.deity_refs?.includes(deity.id));
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);
@@ -300,6 +302,20 @@ const jsonLd = [
           <>
             {i > 0 && '、'}
             <a href={`/trades/${t.id}/`}>{t.data.name}</a>
+          </>
+        ))}
+      </p>
+    )
+  }
+
+  {
+    relatedFestivals.length > 0 && (
+      <p class="muted">
+        相關節日：
+        {relatedFestivals.map((f, i) => (
+          <>
+            {i > 0 && '、'}
+            <a href={`/festivals/${f.slug}/`}>{f.name}</a>
           </>
         ))}
       </p>

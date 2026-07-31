@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage, howTo } from '../../lib/seo';
+import festivals from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
   const practices = await getPractices();
@@ -20,6 +21,9 @@ const eventsByD = await eventsByDeity();
 const relatedEvents = [
   ...new Map(p.deities.flatMap((id) => (eventsByD.get(id) ?? []).map((e) => [e.id, e]))).values(),
 ];
+// 相關節日：festivals.json 的 practice_refs 是唯一對到本頁 id 的權威欄位；
+// p.festival_ref（上面「關聯節日」）是季節描述文字，非節日代稱，故另開一列放真連結，不動原欄位。
+const relatedFestivals = festivals.filter((f) => f.practice_refs?.includes(practice.id));
 
 // P1-4 AEO：FAQ 由真實資料生成（步驟／供品／禁忌／場合），缺資料自動略過。
 const stepLine = p.steps
@@ -101,6 +105,21 @@ const jsonLd: object[] = [
       )
     }
     {p.festival_ref.length > 0 && <div><dt>關聯節日</dt><dd>{p.festival_ref.join('、')}</dd></div>}
+    {
+      relatedFestivals.length > 0 && (
+        <div>
+          <dt>相關節日活動</dt>
+          <dd>
+            {relatedFestivals.map((f, i) => (
+              <>
+                {i > 0 && '、'}
+                <a href={`/festivals/${f.slug}/`}>{f.name}</a>
+              </>
+            ))}
+          </dd>
+        </div>
+      )
+    }
     {p.joss_paper.length > 0 && <div><dt>金紙</dt><dd>{p.joss_paper.map((j) => <span class="tag">{j}</span>)}</dd></div>}
     {p.offerings.length > 0 && <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>}
   </dl>
