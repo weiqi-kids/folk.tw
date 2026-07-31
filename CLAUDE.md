@@ -71,7 +71,20 @@
 > 本節下方描述的 `scripts/seo-*` 舊腳本與 `/etc/cron.d/folk-tw-seo*` 已退役（腳本檔保留供查考；
 > cron 備份在 `/root/.claude/backups/seo-cutover-20260702-023954/`）。維運指南見 `seo-ops/README.md`。
 
-全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/seo-ops`，log 在 `/root/seo-ops/logs/`）。雲端三個 routine 與
+全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/seo-ops`，log 在 `/root/seo-ops/logs/`）。
+
+> 🔴 **2026-08-01 排程改點（勿順手改回清晨）**：folk.tw 三層從台北清晨移到下午——
+> **collect 15:30、反思 16:00、大腦 16:40**（UTC 07:30／08:00／08:40）。
+> 原因：**Google Indexing API 的每日 200 配額是 per GCP 專案**，不是 per 站
+> （API 實測回 `project_number:970644545797`、`quota_unit "1/d/{project}"`），
+> 而 seo-ops 有 **5 站共用同一把 `ga4-insights@yaocare`**（arthurs.tw／folk.tw／sutta.io／
+> twdro.net／vuko.life；12 個站台設定檔 sha256 比對，11 個完全相同），等於共搶同一份 200。
+> 配額以**太平洋時間**換日 ≈ 07:00 UTC ≈ **台北 15:00**。原本 folk.tw collect 排 20:30 UTC＝
+> 配額日 +13.5h，前面三站先吃光 → **實測待送佇列（含農曆七月節日頁）連兩天一筆都沒送出**，
+> 兩次手動執行都是第一筆就 429。移到 +0.5h 成為第一順位。
+> **代價**：每日 Slack 心跳（`seo-collect.mjs` 直接 import slack）從早上變下午，用戶已同意。
+> ⚠️ **要排進配額日前段就必然落在台北下午，無法兩全。** 完整緣由寫在 `/etc/cron.d/seo-ops` 的
+> folk.tw 段註解。雲端三個 routine 與
 `seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
 **維運操作用 `/seo` skill；完整 runbook 見 [`docs/seo-automation.md`](docs/seo-automation.md)。** 共五段（另有反思層 05:20 台排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
 1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
