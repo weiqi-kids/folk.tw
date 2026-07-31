@@ -73,11 +73,36 @@ async function resolveUrls(args) {
 // 改成：撞 429 就把剩下的存進佇列，下次執行**優先送佇列**，送成功的移除。這樣跨天自動續完。
 // 佇列刻意放 repo 外（純執行狀態，不是站台資料）：進 repo 會被每日 cron 一起 commit 並觸發部署。
 const QUEUE = '/root/.config/folk-tw/index-ping-queue.json';
-const readQueue = () => { try { return JSON.parse(readFileSync(QUEUE, 'utf8')); } catch { return []; } };
+
+/**
+ * ⚠️ 佇列毒化防線（2026-07-31 加，實遇）：佇列裡曾出現 `"3"`、`"1"` 這種**非網址**項目
+ * （某次執行把數字參數當成網址收了進去）。它們**永遠不可能送成功**（API 回 400
+ * `'url' is not in standard URL form`），而佇列只在成功時移除項目 →
+ * 於是每天每次執行都白送一次請求、印一次 400，且**永遠不會自己消失**。
+ * 故進出佇列一律只留「本站的 http(s) 絕對網址」，其餘直接丟棄並說明丟了什麼。
+ */
+const isSiteUrl = (u) => {
+  if (typeof u !== 'string') return false;
+  try {
+    const p = new URL(u);
+    return (p.protocol === 'https:' || p.protocol === 'http:') && `${p.protocol}//${p.host}` === SITE;
+  } catch { return false; }
+};
+
+function readQueue() {
+  let raw;
+  try { raw = JSON.parse(readFileSync(QUEUE, 'utf8')); } catch { return []; }
+  if (!Array.isArray(raw)) return [];
+  const good = raw.filter(isSiteUrl);
+  const bad = raw.filter((u) => !isSiteUrl(u));
+  if (bad.length) console.log(`⚠️ 佇列有 ${bad.length} 筆非本站網址，已丟棄（永遠送不成功、會每次白撞 400）：${bad.slice(0, 5).map((x) => JSON.stringify(x)).join(', ')}`);
+  return good;
+}
+
 function writeQueue(list) {
   try {
     mkdirSync(dirname(QUEUE), { recursive: true });
-    writeFileSync(QUEUE, JSON.stringify([...new Set(list)], null, 2) + '\n');
+    writeFileSync(QUEUE, JSON.stringify([...new Set(list.filter(isSiteUrl))], null, 2) + '\n');
   } catch (e) { console.log(`⚠️ 佇列寫入失敗（${e.message}），未送出的網址這次不會保留。`); }
 }
 
