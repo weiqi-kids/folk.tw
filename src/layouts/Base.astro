@@ -86,25 +86,82 @@ const speakablePage =
 // 廟宇/籤詩/典故次之——用戶產品判斷優先於當期 GSC 量排序（覆蓋先前 d7ef155 的 GSC 數據排序）。
 // href 一律用 canonical 尾斜線（對齊 build format:'directory' 的 canonical/sitemap）：
 // 讓每頁 nav 直接連到 canonical、免經 301，避免內鏈權重卡在非 canonical 形式（/poems 曾因此孤兒化）。
+// 2026-07-31 改版：13 個扁平項目 → 7 組（用戶指定）。行動版佔流量 70%（GA4 實測
+// 2,369/3,389），一長串扁平連結在小螢幕上是一面牆。四點命名修正皆為用戶裁示：
+//   ① 「今日運勢」→「今日宜忌」：首頁實際區塊是熱門神明／近期節日／近期神明聖誕／今日農民曆，
+//      **站上沒有運勢內容**。nav 錨文字是全站 12,000 頁指向首頁的訊號，用「運勢」會把
+//      Google 對首頁的主題認知帶往我們給不出的東西。
+//   ② 「籤詩」→「解籤」：與「我想…」裡的「求籤」區分。求籤＝抽一支（工具），
+//      解籤＝查第 X 籤（查詢）。GSC 實測籤詩頁查詢多為「第X籤」，人是來查的。
+//   ③ 擇日全部收進「我想…」，農民曆退回工具層——避免兩個入口通往同一批資料。
+//   ④ 「近期節日」→「節日」：錨文字要用使用者搜的字，「近期」是介面修飾。
+//
+// ⚠️ 三條鐵則：
+//   - href 一律帶尾斜線（/poems 曾因 nav 指非 canonical 而內鏈數＝0、從未被爬；
+//     `check:canonical` 會擋）。
+//   - 分組必須是**靜態 HTML**（<details>），不可由 JS 注入——爬蟲看不到，
+//     且會踩 Astro scoped style 套不到 JS 注入 DOM 的坑（見記憶 astro-scoped-style-innerhtml-pitfall）。
+//   - 擇日子項**只放目前真的推得出宜日的**。安床／開市／出行等 10 個用事恆空，
+//     補完前不得放進來——nav 指向空頁面比不放更糟。清單見 src/data/good-days.json。
+//
+// ⚠️ /qiugian/ 與 /jiaobei/ 是全站僅有的拼音 slug，其餘皆英文。/qiugian/ 已被 Google 收錄
+//    且在 seo-ops trackUrls 內，改網址會斷收錄，故維持不動。
 const nav = [
-  { href: '/', label: '今日' },
-  { href: '/qiugian/', label: '求籤' },
-  { href: '/trades/', label: '行業守護神' },
+  { href: '/', label: '今日宜忌' },
+  {
+    label: '我想…',
+    children: [
+      { href: '/qiugian/', label: '求籤' },
+      { href: '/scenarios/', label: '拜哪尊' },
+      { href: '/trades/', label: '行業守護神' },
+      { href: '/compare/', label: '神明比一比' },
+      { href: '/jiaobei/', label: '擲筊怎麼看' },
+      { href: '/good-days/wedding/', label: '結婚看日子' },
+      { href: '/good-days/moving/', label: '搬家入厝看日子' },
+      { href: '/good-days/groundbreaking/', label: '動土看日子' },
+      { href: '/good-days/burial/', label: '安葬看日子' },
+      { href: '/good-days/worship/', label: '拜拜看日子' },
+    ],
+  },
   { href: '/festivals/', label: '節日' },
-  { href: '/almanac/', label: '農民曆' },
-  { href: '/temples/', label: '廟宇' },
-  { href: '/poems/', label: '籤詩' },
-  { href: '/allusions/', label: '典故' },
-  { href: '/deities/', label: '神明' },
-  { href: '/scenarios/', label: '拜哪尊' },
-  { href: '/practices/', label: '拜拜習俗' },
-  { href: '/events/', label: '民俗活動' },
+  {
+    label: '農民曆',
+    children: [
+      { href: '/almanac/', label: '今日農民曆' },
+      { href: '/almanac/yiji/', label: '宜忌事項解釋' },
+      { href: '/almanac/chongsha/', label: '今日沖煞' },
+      { href: '/almanac/archive/', label: '過去日期封存' },
+    ],
+  },
+  {
+    label: '神明・宮廟・解籤',
+    children: [
+      { href: '/deities/', label: '神明' },
+      { href: '/deities/birthdays/', label: '神明聖誕曆' },
+      { href: '/temples/', label: '廟宇' },
+      { href: '/poems/', label: '解籤' },
+      { href: '/medicine-slips/', label: '保生大帝藥籤' },
+    ],
+  },
+  {
+    label: '習俗與典故',
+    children: [
+      { href: '/practices/', label: '拜拜習俗' },
+      { href: '/events/', label: '民俗活動' },
+      { href: '/allusions/', label: '典故' },
+      { href: '/vocabulary/', label: '詞彙' },
+    ],
+  },
   { href: '/search/', label: '搜尋' },
 ];
 const path = Astro.url.pathname;
 // active 判斷正規化尾斜線（trailingSlash:'ignore' 下 pathname 可能有無斜線兩態），不因 href 改斜線而失準。
 const trimSlash = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const normPath = trimSlash(path);
+const isActive = (href: string) =>
+  href === '/' ? normPath === '/' : normPath === trimSlash(href) || normPath.startsWith(trimSlash(href) + '/');
+// 群組是否含當前頁 → 該群組預設展開（<details open>），使用者一進站就看得到自己在哪一區。
+const groupActive = (children: { href: string }[]) => children.some((c) => isActive(c.href));
 ---
 
 <!doctype html>
@@ -177,14 +234,21 @@ const normPath = trimSlash(path);
       <a href="/" class="brand">神酷</a>
       <nav>
         {
-          nav.map((n) => (
-            <a
-              href={n.href}
-              class:list={[{ active: n.href === '/' ? normPath === '/' : normPath === trimSlash(n.href) || normPath.startsWith(trimSlash(n.href) + '/') }]}
-            >
-              {n.label}
-            </a>
-          ))
+          nav.map((n) =>
+            n.children ? (
+              // 靜態 <details>：無 JS、爬蟲讀得到全部子連結、鍵盤與螢幕閱讀器原生可用。
+              <details class="nav-group" open={groupActive(n.children)}>
+                <summary class:list={[{ active: groupActive(n.children) }]}>{n.label}</summary>
+                <div class="nav-sub">
+                  {n.children.map((c) => (
+                    <a href={c.href} class:list={[{ active: isActive(c.href) }]}>{c.label}</a>
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <a href={n.href} class:list={[{ active: isActive(n.href) }]}>{n.label}</a>
+            ),
+          )
         }
       </nav>
     </header>

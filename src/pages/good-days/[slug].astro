@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { addDays } from '../../lib/almanac/dates';
+import { verifiedYiDays, dayRecordCached, affairNameOf } from '../../lib/almanac/select';
+import goodDaysData from '../../data/good-days.json';
+import { breadcrumb, faqPage } from '../../lib/seo';
+
+interface Item {
+  slug: string; name: string; affairs: string[];
+  nav_label: string; intent: string; lead_verb: string; note: string;
+}
+
+// slug＝永久承諾（見 src/data/good-days.json）。getStaticPaths 隔離執行，需自 import 取資料。
+export function getStaticPaths() {
+  const list = (goodDaysData as { items: { slug: string }[] }).items;
+  return list.map((i) => ({ params: { slug: i.slug } }));
+}
+
+const { slug } = Astro.params;
+const item = (goodDaysData as { items: Item[] }).items.find((i) => i.slug === slug)!;
+
+// 近 90 天窗口（比詞義頁的 60 天長，因為擇日的人常要提前規劃）。
+const { iso: todayIso } = todayInTaipei();
+const windowDays: string[] = [];
+for (let i = 0; i < 90; i++) windowDays.push(addDays(todayIso, i));
+const byAffair = verifiedYiDays(windowDays, item.affairs);
+
+const WEEK = ['日', '一', '二', '三', '四', '五', '六'];
+const CN = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+// 農曆日中文（初一…三十）。與 src/lib/lunar-date.ts 的標籤同慣例，但此處資料來自
+// DayRecord.lunar（農民曆引擎自己算的），不另引一套換算，避免兩套結果漂移。
+function lunarDayLabel(d: number): string {
+  if (d <= 10) return `初${CN[d]}`;
+  if (d < 20) return `十${CN[d - 10]}`;
+  if (d === 20) return '二十';
+  if (d < 30) return `廿${CN[d - 20]}`;
+  return '三十';
+}
+
+/** 逐日取農曆／建除／干支——全部來自 dayRecordCached（與日期頁同一引擎、同一 provider）。 */
+function decorate(iso: string) {
+  const rec = dayRecordCached(iso);
+  const lunar = rec.lunar.value;
+  const day = new Date(`${iso}T00:00:00Z`).getUTCDay();
+  return {
+    iso,
+    md: `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`,
+    week: WEEK[day],
+    isWeekend: day === 0 || day === 6,
+    lunar: lunar ? `${lunar.isLeap ? '閏' : ''}${CN[lunar.month] ?? lunar.month}月${lunarDayLabel(lunar.day)}` : '',
+    jianchu: rec.jianchu.value ?? '',
+    ganzhi: rec.pillars.day.value ? `${rec.pillars.day.value.stem}${rec.pillars.day.value.branch}` : '',
+  };
+}
+
+// 一頁可對多個用事（拜拜＝祭祀＋祈福）——分組列出，不合併成一個模糊的「宜拜拜」。
+const groups = item.affairs.map((a) => ({
+  affair: a,
+  name: affairNameOf(a) ?? a,
+  days: (byAffair.get(a) ?? []).map(decorate),
+}));
+const total = new Set(groups.flatMap((g) => g.days.map((d) => d.iso))).size;
+const soonest = groups.flatMap((g) => g.days).map((d) => d.iso).sort()[0];
+const soonestLabel = soonest ? decorate(soonest) : null;
+
+const title = `${item.intent}｜近期宜${item.name}的日子`;
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '看日子', path: '/good-days/' },
+    { name: item.nav_label, path: `/good-days/${item.slug}/` },
+  ]),
+];
+const faq = faqPage([
+  {
+    q: `近期哪幾天宜${item.name}？`,
+    a: soonestLabel
+      ? `未來九十天內共有 ${total} 天。最近的一天是 ${soonestLabel.md}（農曆${soonestLabel.lunar}）。`
+      : '',
+  },
+  {
+    q: `${item.name}的日子是怎麼判斷的？`,
+    a: `依《欽定協紀辨方書》卷十一「用事」所載${groups.map((g) => g.name).join('、')}條的宜忌神煞，逐條核對四庫全書本原文後推算。查不到原文定位規則的神煞一律不採用。`,
+  },
+  { q: `看了這個日子就可以直接用嗎？`, a: `${item.note}通書吉日不含個人生辰，傳統擇日還要合當事人的八字。` },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title={title}
+  description={`未來九十天內宜${item.lead_verb}的日子共 ${total} 天${soonestLabel ? `，最近一天是 ${soonestLabel.md}（農曆${soonestLabel.lunar}）` : ''}。依《欽定協紀辨方書》卷十一用事推算、逐條掛原文出處，並說明通書吉日與合八字的差別。`}
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/good-days/">看日子</a> ／ {item.nav_label}
+  </nav>
+
+  <h1>{item.nav_label}</h1>
+
+  <p class="lead">
+    {soonestLabel ? (
+      <>
+        未來九十天內宜{item.lead_verb}的日子共 <strong>{total} 天</strong>，
+        最近的一天是 <strong>{soonestLabel.md}</strong>（農曆{soonestLabel.lunar}）。
+      </>
+    ) : (
+      <>未來九十天內，通書所載沒有合於宜{item.lead_verb}條件的日子。</>
+    )}
+    　判斷依據為《欽定協紀辨方書》卷十一「用事」，逐條核對四庫全書本原文。
+  </p>
+
+  <!-- 每頁的 note 已各自寫明該事項的界線，此處不再補一句通則，避免「通書吉日…通書吉日…」重複。 -->
+  <p class="gd-caveat"><strong>先講清楚：</strong>{item.note}</p>
+
+  {groups.map((g) => (
+    <section class="gd-group">
+      <h2>{groups.length > 1 ? `宜${g.name}的日子` : `近期宜${item.name}的日子`}
+        <span class="gd-count">共 {g.days.length} 天</span>
+      </h2>
+      {g.days.length > 0 ? (
+        <ul class="gd-days">
+          {g.days.map((d) => (
+            <li class:list={['gd-day', { weekend: d.isWeekend }]}>
+              <a href={`/almanac/${d.iso}/`}>
+                <span class="gd-md">{d.md}</span>
+                <span class="gd-week">（{d.week}）</span>
+                <span class="gd-lunar">農曆{d.lunar}</span>
+                <span class="gd-meta">{d.ganzhi}日・{d.jianchu}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="gd-empty">未來九十天內無合於條件的日子。</p>
+      )}
+    </section>
+  ))}
+
+  <section class="card">
+    <h2>這些日子是怎麼算的</h2>
+    <p>
+      取《欽定協紀辨方書》卷十一「用事」中{groups.map((g) => `「${g.name}」`).join('、')}該條所列的宜忌神煞，
+      再依卷四至卷六的「義例」推定各神煞當日是否生效。
+      <strong>凡查不到原文定位規則者一律不納入</strong>，寧可少列幾條，不給沒有依據的日子。
+    </p>
+    <p>
+      想知道每個詞的意思，可以看
+      {groups.map((g, i) => (
+        <>{i > 0 && '、'}<a href={`/almanac/yiji/${g.affair}/`}>{g.name}</a></>
+      ))}
+      的解釋；想看某一天的完整宜忌，點上面任一個日期即可。
+    </p>
+    <p class="src">
+      來源：《欽定協紀辨方書》（四庫全書本）
+      <a href="https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11" rel="nofollow noopener" target="_blank">卷十一・用事</a>
+    </p>
+  </section>
+
+  <nav class="gd-siblings" aria-label="其他事項">
+    <h2>其他要看日子的事</h2>
+    <ul>
+      {(goodDaysData as { items: Item[] }).items.filter((i) => i.slug !== item.slug).map((i) => (
+        <li><a href={`/good-days/${i.slug}/`}>{i.nav_label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</Base>
+
+<style>
+  .lead strong { color: var(--accent); }
+  .gd-caveat {
+    background: var(--paper-2); border-left: 3px solid var(--gold);
+    padding: 0.75rem 1rem; margin: 1.25rem 0; font-size: var(--text-sm); color: var(--ink-soft);
+  }
+  .gd-group { margin: 2rem 0; }
+  .gd-group h2 { font-size: var(--text-lg); border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+  .gd-count { color: var(--ink-soft); font-size: var(--text-sm); font-weight: 400; margin-left: 0.5rem; }
+  .gd-days { list-style: none; padding: 0; margin: 0.875rem 0 0; display: grid; gap: 0.375rem; }
+  .gd-day a {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.625rem;
+    padding: 0.5rem 0.75rem; border: 1px solid var(--line); border-radius: 0.375rem;
+    background: var(--paper-2); text-decoration: none; color: var(--ink);
+  }
+  .gd-day.weekend a { border-color: var(--accent-soft); }
+  .gd-md { font-size: var(--text-lg); font-weight: 700; color: var(--accent); }
+  .gd-week { font-size: var(--text-sm); color: var(--ink-soft); }
+  .gd-lunar { font-size: var(--text-base); }
+  .gd-meta { font-size: var(--text-sm); color: var(--ink-soft); margin-left: auto; }
+  .gd-empty { color: var(--ink-soft); }
+  .src { color: var(--ink-soft); font-size: var(--text-sm); }
+  .gd-siblings ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+</style>

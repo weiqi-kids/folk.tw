@@ -444,30 +444,44 @@ let yijiDaysChecked = 0;
     dayCache.set(iso, r);
     return r;
   };
-  for (const [affair, b] of banned) {
-    if (!b.jianchu.size && !b.branch.size && !b.stem.size) continue;
-    const page = join(DIST, 'almanac', 'yiji', affair, 'index.html');
-    if (!existsSync(page)) { violations.push(`擇日檢查：找不到 /almanac/yiji/${affair}/ 產物`); continue; }
+  // 檢查一個擇日露出面：把頁上列出的每個日期翻到該日農民曆頁，比對建除／日干／日支。
+  // ⚠️ 合併多個用事的頁（/good-days/worship/＝祭祀＋祈福）取各用事禁忌的**聯集**——
+  //    只要該日被其中任一用事明文所忌，就不該出現在這一頁上。
+  const checkPage = (page, label, affairs) => {
+    if (!existsSync(page)) { violations.push(`擇日檢查：找不到 ${label} 產物`); return; }
+    const b = { jianchu: new Set(), branch: new Set(), stem: new Set() };
+    for (const a of affairs) {
+      const x = banned.get(a);
+      if (!x) continue;
+      for (const k of ['jianchu', 'branch', 'stem']) for (const v of x[k]) b[k].add(v);
+    }
+    if (!b.jianchu.size && !b.branch.size && !b.stem.size) return;
     yijiPagesChecked++;
     const html = readFileSync(page, 'utf8');
     const dates = [...new Set([...html.matchAll(/href="\/almanac\/(\d{4}-\d{2}-\d{2})\/"/g)].map((m) => m[1]))];
     for (const iso of dates) {
       const day = readDay(iso);
-      if (!day) { violations.push(`擇日檢查：${affair} 列出 ${iso}，但找不到該日產物`); continue; }
+      if (!day) { violations.push(`擇日檢查：${label} 列出 ${iso}，但找不到該日產物`); continue; }
       yijiDaysChecked++;
       if (day.jianchu && b.jianchu.has(day.jianchu)) {
-        violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日建除為「${day.jianchu}」＝投票表明列所忌`);
+        violations.push(`擇日：${label} 列出 ${iso} 為宜，但該日建除為「${day.jianchu}」＝投票表明列所忌`);
       }
       if (day.ganzhi) {
         const [stem, branch] = day.ganzhi;
-        if (b.branch.has(branch)) {
-          violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日日支為「${branch}」＝投票表明列所忌`);
-        }
-        if (b.stem.has(stem)) {
-          violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日日干為「${stem}」＝投票表明列所忌`);
-        }
+        if (b.branch.has(branch)) violations.push(`擇日：${label} 列出 ${iso} 為宜，但該日日支為「${branch}」＝投票表明列所忌`);
+        if (b.stem.has(stem)) violations.push(`擇日：${label} 列出 ${iso} 為宜，但該日日干為「${stem}」＝投票表明列所忌`);
       }
     }
+  };
+
+  // ① 宜忌詞義頁（每頁一個用事）
+  for (const [affair, b] of banned) {
+    if (!b.jianchu.size && !b.branch.size && !b.stem.size) continue;
+    checkPage(join(DIST, 'almanac', 'yiji', affair, 'index.html'), `/almanac/yiji/${affair}/`, [affair]);
+  }
+  // ② 擇日專區（一頁可對多個用事；slug→affairs 讀 good-days.json，不在此重寫對映）
+  for (const it of require('../src/data/good-days.json').items) {
+    checkPage(join(DIST, 'good-days', it.slug, 'index.html'), `/good-days/${it.slug}/`, it.affairs);
   }
 }
 

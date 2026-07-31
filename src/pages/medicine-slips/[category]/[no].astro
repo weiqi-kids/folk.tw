@@ -1,0 +1,162 @@
+---
+import Base from '../../../layouts/Base.astro';
+import slipsData from '../../../data/yaoqian.import.json';
+import notesData from '../../../data/yaoqian-notes.json';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+
+interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
+// 醫師層四段（依藥方組成推估科別後，以「該科＋中醫科雙主修醫師」人格撰寫）。
+// ⚠️ 尚未經執業醫師逐首審閱，故頁面上**不得掛任何醫師姓名、不得宣稱由醫師撰寫**；
+//    審閱完成後才在 yaoqian-notes.json 補 reviewed_by 並改標示。措辭界線見 docs/yaoqian-physician-spec.md。
+interface Note {
+  id: string; specialty: string;
+  safety_flags: string; why_not_self_medicate: string; modern_care_pathway: string; physician_note: string;
+  reviewed_by?: string;
+}
+const noteById = new Map((notesData as Note[]).map((n) => [n.id, n]));
+
+// 四科 slug 對映：與 [category]/index.astro 同一份，改一處要同步。
+const CATS: Record<string, string> = { adult: '大人科', pediatric: '小兒科', surgical: '外科', ophthalmic: '眼科' };
+const SLUG_OF: Record<string, string> = Object.fromEntries(Object.entries(CATS).map(([k, v]) => [v, k]));
+
+// 330 首各一頁。slug＝/medicine-slips/<科>/<籤號>/，永久承諾。
+// getStaticPaths 隔離執行，需自 import 取資料。
+export function getStaticPaths() {
+  const cats: Record<string, string> = { adult: '大人科', pediatric: '小兒科', surgical: '外科', ophthalmic: '眼科' };
+  const slugOf: Record<string, string> = Object.fromEntries(Object.entries(cats).map(([k, v]) => [v, k]));
+  return (slipsData as Slip[]).map((s) => ({ params: { category: slugOf[s.category], no: String(s.no) } }));
+}
+
+const { category, no } = Astro.params;
+const catName = CATS[category!];
+const all = (slipsData as Slip[]).filter((s) => s.category === catName).sort((a, b) => a.no - b.no);
+const slip = all.find((s) => s.no === Number(no))!;
+const idx = all.findIndex((s) => s.no === Number(no));
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx < all.length - 1 ? all[idx + 1] : null;
+
+// 典藏本身即帶警語者——那是機構寫的，不是本站加的。措辭必須守住這個區別。
+const warned = /請勿使用|毒劇|有毒/.test(slip.formula + slip.institute_note);
+
+const note = noteById.get(slip.id) ?? null;
+const label = `${catName}第 ${slip.no} 首`;
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '保生大帝藥籤', path: '/medicine-slips/' },
+    { name: catName, path: `/medicine-slips/${category}/` },
+    { name: label, path: `/medicine-slips/${category}/${no}/` },
+  ]),
+];
+const faq = faqPage([
+  { q: `保生大帝藥籤${label}的藥方是什麼？`, a: slip.formula },
+  { q: `${label}的藥材有哪些作用？`, a: slip.institute_note },
+  {
+    q: `${label}可以照著抓藥嗎？`,
+    a: warned
+      ? '不可以。這一首的原始典藏本身就標註了藥材有毒或請勿使用。此外，衛生署已於民國 88 年明文禁止使用藥籤。'
+      : '不可以。衛生署已於民國 88 年明文禁止使用藥籤。古制劑量與今制不能換算、藥材基原古今有別、中藥需辨證論治，任何一項都足以讓照抄變成危險的事。身體不舒服請就醫。',
+  },
+  ...(note ? [
+    { q: `${label}有哪些安全警示？`, a: note.safety_flags },
+    { q: `有相關症狀應該看哪一科？`, a: note.modern_care_pathway },
+  ] : []),
+]);
+if (faq) jsonLd.push(faq);
+
+// meta description：取藥方（每首天然不同），過長則截到句末，不硬切。
+const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[、，。]$/, '') + '…' : slip.formula;
+---
+
+<Base
+  title={`保生大帝藥籤${label}`}
+  description={`保生大帝藥籤${label}：${descHead}${note ? ` 本首藥方指向${note.specialty}相關症狀，附安全警示與就醫指引。` : ""} 藥材說明引自衛生福利部國家中醫藥研究所典藏。`}
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/medicine-slips/">保生大帝藥籤</a> ／
+    <a href={`/medicine-slips/${category}/`}>{catName}</a> ／ 第 {slip.no} 首
+  </nav>
+
+  <h1>保生大帝藥籤{catName}第 {slip.no} 首</h1>
+
+  <p class="lead">
+    {note ? <>本首藥方指向{note.specialty}相關症狀。</> : null}
+    以下為文獻全文，不是可用的藥方。
+    {warned && <> 這一首的<strong>原始典藏本身就標註了藥材有毒或請勿使用</strong>。</>}
+    身體不舒服請就醫；想走中醫請掛合格中醫師門診當面辨證。
+  </p>
+
+  {warned && (
+    <p class="ms-flagbox">
+      ⚠️ 典藏標註不可使用 — 此警語出自衛生福利部國家中醫藥研究所的原始典藏，非本站加註。
+    </p>
+  )}
+
+  <section>
+    <h2>藥方原文</h2>
+    <p class="ms-formula">{slip.formula}</p>
+    <p class="ms-src">
+      數位物件授權：公眾領域標章（PDM）．
+      <a href={slip.source_url} rel="nofollow noopener" target="_blank">國家文化記憶庫典藏頁</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>藥材說明</h2>
+    <p class="ms-note">{slip.institute_note}</p>
+    <p class="ms-src">
+      本段<strong>引自衛生福利部國家中醫藥研究所</strong>（授權 OGDL 1.0），非本站撰寫。
+    </p>
+  </section>
+
+  {note && (
+    <section class="ms-doctor">
+      <h2>醫師解說</h2>
+      <p class="ms-spec">科別：{note.specialty}</p>
+
+      <h3>安全警示</h3>
+      <p>{note.safety_flags}</p>
+
+      <h3>為什麼不能照著抓藥</h3>
+      <p>{note.why_not_self_medicate}</p>
+
+      <h3>真的不舒服該去哪裡</h3>
+      <p>{note.modern_care_pathway}</p>
+
+      <h3>醫師說</h3>
+      <p>{note.physician_note}</p>
+    </section>
+  )}
+
+  <nav class="ms-nav" aria-label="前後籤">
+    {prev ? <a href={`/medicine-slips/${category}/${prev.no}/`}>← {catName}第 {prev.no} 首</a> : <span></span>}
+    <a href={`/medicine-slips/${category}/`}>{catName}全部 {all.length} 首</a>
+    {next ? <a href={`/medicine-slips/${category}/${next.no}/`}>{catName}第 {next.no} 首 →</a> : <span></span>}
+  </nav>
+</Base>
+
+<style>
+  .lead strong { color: var(--accent); }
+  .ms-flagbox {
+    background: var(--paper-2); border: 1px solid var(--accent-soft); border-radius: 0.5rem;
+    padding: 0.75rem 1rem; color: var(--accent); font-size: var(--text-sm);
+  }
+  .ms-formula {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 0.375rem;
+    padding: 0.875rem 1.125rem; font-size: var(--text-lg); line-height: 1.9;
+  }
+  .ms-note { font-size: var(--text-base); line-height: 1.9; }
+  .ms-src { color: var(--ink-soft); font-size: var(--text-xs); }
+  .ms-doctor { border-top: 2px solid var(--accent); margin-top: 2rem; padding-top: 1.25rem; }
+  .ms-doctor h2 { margin-top: 0; }
+  .ms-doctor h3 { font-size: var(--text-base); color: var(--accent); margin: 1.25rem 0 0.375rem; }
+  .ms-doctor p { line-height: 1.9; }
+  .ms-spec { color: var(--ink-soft); font-size: var(--text-sm); margin-top: 0; }
+  .ms-nav {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem;
+    border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1rem;
+    font-size: var(--text-sm);
+  }
+</style>

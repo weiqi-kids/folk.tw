@@ -10,11 +10,30 @@
 // 規則同源：記憶 copy-voice-no-ai-speak（面向使用者的字要像真台灣人講話，Dcard/PTT 白話、
 //           matter-of-fact；禁修飾性情感詩）。
 // 用法：`node scripts/check-copy-voice.mjs`（本機 pnpm check:copy-voice；CI 已串在 build gate 前）。
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 // 種子＝記憶列出的地雷 ＋ 歷來被用戶抓到的句子。誤傷時：先改寫文案；確認真的是誤傷才在此收斂
 // pattern（縮小、加界，別整條刪）。新增禁語直接往下加一列。
+// 2026-07-31：本檔原本只掃 .astro，check:content 只掃 .md(x)——於是**由 AI 產製、
+// 存在資料 JSON 裡的散文兩道 gate 都不掃**（藥籤醫師解說 330 首×4 段就是這種）。
+// 當初排除 JSON 的理由是「資料 JSON 含公有領域古文會誤判」，但這裡是白名單：
+// 只列**確定全部是現代散文**的檔與欄位，不整批放行 JSON。
+const PROSE_JSON = [
+  { file: 'src/data/yaoqian-notes.json', fields: ['safety_flags', 'why_not_self_medicate', 'modern_care_pathway', 'physician_note'] },
+];
+// 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
+const AI_TELLS = [
+  { re: /總的來說/, why: 'AI 套語' },
+  { re: /值得注意的是/, why: 'AI 套語' },
+  { re: /綜上所述/, why: 'AI 套語' },
+  { re: /總而言之/, why: 'AI 套語' },
+  { re: /需要注意的是/, why: 'AI 套語' },
+  { re: /讓我們/, why: 'AI 套語（第一人稱複數勸導腔）' },
+  { re: /首先[^，。]{0,8}其次/, why: 'AI 條列腔' },
+  { re: /不僅[^，。]{0,12}而且/, why: 'AI 排比腔' },
+];
+
 const BANNED = [
   { re: /放下了/, why: '假釋懷腔（用戶原話：這種講法「太 AI」）' },
   { re: /釋懷了/, why: '假釋懷腔' },
@@ -25,6 +44,27 @@ const BANNED = [
   { re: /你的消息會陪/, why: '情感詩' },
   { re: /你(可能|可以|也許|說不定|或許)(會)?是第一個/, why: '「當第一個」勸誘框，非真人語氣' },
 ];
+
+
+// 掃白名單資料 JSON 的散文欄位（AI 產製，非公有領域古文）。
+function scanProseJson(hits) {
+  for (const { file, fields } of PROSE_JSON) {
+    if (!existsSync(file)) continue;
+    let rows;
+    try { rows = JSON.parse(readFileSync(file, 'utf8')); } catch { continue; }
+    if (!Array.isArray(rows)) continue;
+    for (const row of rows) {
+      for (const k of fields) {
+        const v = row?.[k];
+        if (typeof v !== 'string') continue;
+        for (const b of AI_TELLS) {
+          const m = v.match(b.re);
+          if (m) hits.push({ f: `${file} → ${row.id ?? '?'}.${k}`, line: 0, phrase: m[0], why: b.why });
+        }
+      }
+    }
+  }
+}
 
 function walk(dir) {
   const out = [];
@@ -46,6 +86,8 @@ for (const f of files) {
     }
   });
 }
+
+scanProseJson(hits);
 
 if (hits.length) {
   console.error(`✗ 文案 AI 味 ${hits.length} 處（面向使用者的字要像真人；規則見記憶 copy-voice-no-ai-speak）：`);

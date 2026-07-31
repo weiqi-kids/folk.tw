@@ -1,0 +1,121 @@
+---
+import Base from '../../../layouts/Base.astro';
+import slipsData from '../../../data/yaoqian.import.json';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+
+interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
+
+// slug＝永久承諾。四科對映集中在此，勿在別處另建一份。
+const CATS: Record<string, { name: string; blurb: string }> = {
+  adult: { name: '大人科', blurb: '成人各類病症，是四科中收錄最多的一科。' },
+  pediatric: { name: '小兒科', blurb: '孩童病症。多首藥性峻烈，典藏本身即標註請勿使用——兒童體重輕、體液儲備少，峻下逐水藥的風險遠高於成人。' },
+  surgical: { name: '外科', blurb: '瘡瘍腫毒、外敷方為主。部分文句混用台語與漢文、藥材已難考，連典藏說明都只能寫「或許是」。' },
+  ophthalmic: { name: '眼科', blurb: '眼疾用方，多見清熱、明目、退翳藥。眼科是最禁不起等待的一科——視神經受損不可逆。' },
+};
+
+export function getStaticPaths() {
+  return ['adult', 'pediatric', 'surgical', 'ophthalmic'].map((category) => ({ params: { category } }));
+}
+
+const { category } = Astro.params;
+const meta = CATS[category!];
+const list = (slipsData as Slip[]).filter((s) => s.category === meta.name).sort((a, b) => a.no - b.no);
+// 典藏本身即帶警語者（如小兒科第一首「黑丑白丑屬毒劇、藥方請勿使用」）——那是機構寫的，不是我們加的。
+const isWarned = (s: Slip) => /請勿使用|毒劇|有毒/.test(s.formula + s.institute_note);
+const warned = list.filter(isWarned);
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '保生大帝藥籤', path: '/medicine-slips/' },
+    { name: meta.name, path: `/medicine-slips/${category}/` },
+  ]),
+];
+const faq = faqPage([
+  { q: `保生大帝藥籤${meta.name}有幾首？`, a: `臺南興濟宮版共 ${list.length} 首。` },
+  {
+    q: `${meta.name}的藥籤可以照著抓藥嗎？`,
+    a: '不可以。衛生署已於民國 88 年明文禁止使用藥籤。古制劑量與今制不能換算、藥材基原古今有別、中藥需辨證論治，任何一項都足以讓照抄變成危險的事。',
+  },
+  ...(warned.length
+    ? [{
+        q: `${meta.name}裡有哪些是典藏本身標註不可使用的？`,
+        a: `共 ${warned.length} 首，籤號為：${warned.map((s) => `第${s.no}首`).join('、')}。該警語出自原始典藏，非本站加註。`,
+      }]
+    : []),
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title={`保生大帝藥籤${meta.name} ${list.length} 首全文`}
+  description={`臺南興濟宮保生大帝藥籤${meta.name}共 ${list.length} 首全文與藥材說明。每首附藥方原文與藥材說明，引自衛生福利部國家中醫藥研究所典藏。`}
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/medicine-slips/">保生大帝藥籤</a> ／ {meta.name}
+  </nav>
+
+  <h1>保生大帝藥籤・{meta.name}</h1>
+
+  <p class="lead">
+    臺南興濟宮保生大帝藥籤{meta.name}共 <strong>{list.length} 首</strong>。{meta.blurb}
+  </p>
+
+
+  <ol class="ms-slips">
+    {list.map((s) => (
+      <li class:list={['ms-slip', { warned: isWarned(s) }]}>
+        <a class="ms-link" href={`/medicine-slips/${category}/${s.no}/`}>
+          <h2>{meta.name}第 {s.no} 首{isWarned(s) && <span class="ms-flag">典藏標註不可使用</span>}</h2>
+          <p class="ms-formula">{s.formula}</p>
+        </a>
+      </li>
+    ))}
+  </ol>
+
+  <section class="card">
+    <h2>藥材說明是誰寫的</h2>
+    <p>
+      上面每一首的藥材說明，都<strong>引自衛生福利部國家中醫藥研究所</strong>的數位典藏（授權 OGDL 1.0），
+      不是本站撰寫。藥方數位物件為公眾領域標章（PDM）。
+    </p>
+  </section>
+
+  <nav class="ms-siblings" aria-label="其他科別">
+    <h2>其他科別</h2>
+    <ul>
+      {Object.entries(CATS).filter(([k]) => k !== category).map(([k, v]) => (
+        <li><a href={`/medicine-slips/${k}/`}>{v.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+</Base>
+
+<style>
+  .lead strong { color: var(--accent); }
+  .ms-warn {
+    background: var(--paper-2); border-left: 3px solid var(--accent);
+    padding: 0.875rem 1.125rem; margin: 1.25rem 0 2rem; font-size: var(--text-sm);
+  }
+  .ms-slips { list-style: none; padding: 0; margin: 0; }
+  .ms-slip {
+    border-top: 1px solid var(--line); padding: 1.25rem 0;
+  }
+  .ms-link { display: block; text-decoration: none; color: inherit; }
+  .ms-slip h2 { margin: 0 0 0.5rem; font-size: var(--text-lg); }
+  .ms-slip.warned h2 { color: var(--accent); }
+  .ms-flag {
+    display: inline-block; margin-left: 0.625rem; padding: 0.125rem 0.625rem;
+    border: 1px solid var(--accent-soft); border-radius: 1.25rem;
+    font-size: var(--text-xs); font-weight: 400; color: var(--accent);
+  }
+  .ms-formula {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 0.375rem;
+    padding: 0.75rem 1rem; margin: 0 0 0.75rem; font-size: var(--text-base);
+  }
+  .ms-note { margin: 0 0 0.5rem; color: var(--ink); font-size: var(--text-sm); }
+  .ms-src { margin: 0; font-size: var(--text-xs); color: var(--ink-soft); }
+  .ms-siblings ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+</style>

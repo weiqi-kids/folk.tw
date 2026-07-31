@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { addDays } from '../../lib/almanac/dates';
+import { verifiedYiDays } from '../../lib/almanac/select';
+import goodDaysData from '../../data/good-days.json';
+import { breadcrumb, faqPage } from '../../lib/seo';
+
+const items = (goodDaysData as { items: { slug: string; name: string; affairs: string[]; nav_label: string; intent: string }[] }).items;
+
+// 近 60 天窗口，與各詳情頁同一組（verifiedYiDays 為 M3 唯一入口，不在此另建判定）。
+const { iso: todayIso } = todayInTaipei();
+const windowDays: string[] = [];
+for (let i = 0; i < 60; i++) windowDays.push(addDays(todayIso, i));
+const allAffairs = [...new Set(items.flatMap((i) => i.affairs))];
+const byAffair = verifiedYiDays(windowDays, allAffairs);
+
+const md = (s: string) => `${Number(s.slice(5, 7))}/${Number(s.slice(8, 10))}`;
+// 一頁可對多個用事（拜拜＝祭祀＋祈福），取聯集後排序，代表「這件事近期有哪些日子可選」。
+const rows = items.map((it) => {
+  const days = [...new Set(it.affairs.flatMap((a) => byAffair.get(a) ?? []))].sort();
+  return { ...it, days };
+});
+
+const jsonLd: object[] = [breadcrumb([{ name: '看日子', path: '/good-days/' }])];
+const faq = faqPage([
+  {
+    q: '這些日子是怎麼算出來的？',
+    a: '依《欽定協紀辨方書》卷十一「用事」所載各事項的宜忌神煞，逐條核對四庫全書本原文後推算。每一條規則都附原文出處，未查得原文者一律不採用。',
+  },
+  {
+    q: '看了這些日子就可以直接用嗎？',
+    a: '不行。通書吉日是共通的曆法判斷，不含個人生辰。傳統擇日還要合當事人的八字，尤其嫁娶要合男女雙方。這裡列的是起點，不是結論。',
+  },
+  {
+    q: '為什麼有些事項沒有列出來？',
+    a: '只列目前確實推得出「宜」日的事項。安床、開市、出行等用事所需的宜忌規則尚未考據完成，在補齊之前不列，以免給出沒有依據的日子。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title="看日子：結婚、搬家、動土、安葬、拜拜的近期吉日"
+  description="依《欽定協紀辨方書》卷十一用事推算，逐條掛原文出處。列出近六十天宜結婚、搬家入厝、動土、安葬、拜拜的日子，並說明通書吉日與合八字的差別。"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">看日子</nav>
+
+  <h1>看日子</h1>
+  <p class="lead">
+    這裡列出近六十天內，通書所載宜結婚、搬家入厝、動土、安葬、拜拜的日子。
+    判斷依據是《欽定協紀辨方書》卷十一「用事」所載的宜忌神煞，每一條規則都核對過四庫全書本原文。
+    <strong>通書吉日不含個人生辰</strong>——傳統擇日還要合當事人的八字，這裡列的是起點，不是結論。
+  </p>
+
+  <div class="gd-list">
+    {rows.map((r) => (
+      <a class="card gd-item" href={`/good-days/${r.slug}/`}>
+        <h2>{r.nav_label}</h2>
+        {r.days.length > 0 ? (
+          <p class="gd-next">
+            最近的日子：<strong>{r.days.slice(0, 4).map(md).join('、')}</strong>
+            {r.days.length > 4 && <span class="gd-more">　等 {r.days.length} 天</span>}
+          </p>
+        ) : (
+          <p class="gd-next gd-empty">近六十天內無合於條件的日子。</p>
+        )}
+      </a>
+    ))}
+  </div>
+
+  <section class="card">
+    <h2>這些日子是怎麼來的</h2>
+    <p>
+      每一個事項的宜忌，都取自《欽定協紀辨方書》卷十一「用事」該條所列的神煞清單，
+      再依卷四至卷六的「義例」推定各神煞當日是否生效。
+      <strong>凡是查不到原文定位規則的神煞，一律不納入判定</strong>——寧可少列幾條，不要給出沒有依據的日子。
+    </p>
+    <p>
+      舉例來說，卷十一的嫁娶條明列忌「平日、收日、閉日」——這三者是建除十二神而非神煞，
+      本站原本的判定漏掉了這個維度，於是把 2026 年 8 月 17 日（建除為「平」）誤列為宜嫁娶。
+      這個缺口已於 2026 年 7 月 31 日補上，並加了自動檢查防止再犯。
+    </p>
+    <p class="src">
+      來源：《欽定協紀辨方書》（四庫全書本）
+      <a href="https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11" rel="nofollow noopener" target="_blank">卷十一・用事</a>
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>還沒有列出來的事項</h2>
+    <p>
+      安床、開市、出行、移徙、納采、上樑、求嗣、開光、破土、入殮這十項，
+      目前的規則表只有「忌」而沒有「宜」的票，結構上推不出宜日，因此不列。
+      補齊所需的原文考據完成後會陸續加入。
+    </p>
+    <p>
+      想先查這些詞的意思，可以看
+      <a href="/almanac/yiji/">宜忌事項解釋</a>。
+    </p>
+  </section>
+</Base>
+
+<style>
+  .gd-list { display: grid; gap: 0.75rem; margin: 1.5rem 0 2rem; }
+  .gd-item { display: block; text-decoration: none; }
+  .gd-item h2 { margin: 0 0 0.375rem; font-size: var(--text-lg); color: var(--accent); }
+  .gd-next { margin: 0; color: var(--ink); font-size: var(--text-base); }
+  .gd-more { color: var(--ink-soft); font-size: var(--text-sm); }
+  .gd-empty { color: var(--ink-soft); }
+  .src { color: var(--ink-soft); font-size: var(--text-sm); }
+</style>

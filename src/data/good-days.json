@@ -1,0 +1,62 @@
+{
+  "_note": "擇日專區（/good-days/）的頁面定義。slug 為永久承諾，勿改。affairs 對應 src/lib/almanac/rules/affairs.json 的 id；一頁可對多個用事（如『拜拜』＝祭祀＋祈福）。宜日一律由 src/lib/almanac/select.ts 的 verifiedYiDays 取得（M3 唯一入口），本檔不含任何宜忌判定。",
+  "_policy": "只收『目前確實有 verified 宜日』的用事。安床／開市／出行等 10 個用事因投票表尚缺宜票而恆空，補完前不得放進本檔——nav 是全站 12,000 頁的內鏈，指向空頁面比不放更糟。",
+  "items": [
+    {
+      "slug": "wedding",
+      "name": "結婚",
+      "affairs": [
+        "jiaqu"
+      ],
+      "nav_label": "結婚看日子",
+      "intent": "結婚吉日",
+      "lead_verb": "結婚（嫁娶）",
+      "note": "台灣實務的嫁娶擇日還要合男女雙方八字。這裡列的是通書共通的曆法判斷，不含個人生辰——是起點，不是結論。"
+    },
+    {
+      "slug": "moving",
+      "name": "搬家入厝",
+      "affairs": [
+        "ruzhai"
+      ],
+      "nav_label": "搬家入厝看日子",
+      "intent": "入厝吉日",
+      "lead_verb": "搬家入厝（入宅）",
+      "note": "「入宅」指遷入新居；只是搬運物品而非正式入住，傳統上另有「移徙」一項。這裡列的是通書共通的曆法判斷，不含個人生辰。"
+    },
+    {
+      "slug": "groundbreaking",
+      "name": "動土",
+      "affairs": [
+        "dongtu"
+      ],
+      "nav_label": "動土看日子",
+      "intent": "動土吉日",
+      "lead_verb": "動土",
+      "note": "「動土」指陽宅興工；墓地興工傳統上另稱「破土」，兩者在通書中是不同用事。這裡列的是通書共通的曆法判斷，不含個人生辰。"
+    },
+    {
+      "slug": "burial",
+      "name": "安葬",
+      "affairs": [
+        "anzang"
+      ],
+      "nav_label": "安葬看日子",
+      "intent": "安葬吉日",
+      "lead_verb": "安葬",
+      "note": "喪葬事宜多由禮儀公司協同家族長輩決定，此處僅列通書所載宜安葬之日供參考，不含個人生辰。"
+    },
+    {
+      "slug": "worship",
+      "name": "拜拜",
+      "affairs": [
+        "jisi",
+        "qifu"
+      ],
+      "nav_label": "拜拜看日子",
+      "intent": "拜拜吉日",
+      "lead_verb": "拜拜",
+      "note": "通書把「拜拜」分成兩件事：祭祀（拜祖先、拜神明）與祈福（向神明祈求）。兩者宜日不完全相同，本頁分開列出。"
+    }
+  ]
+}

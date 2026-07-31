@@ -1,0 +1,121 @@
+---
+import Base from '../../layouts/Base.astro';
+import slipsData from '../../data/yaoqian.import.json';
+import { breadcrumb, faqPage } from '../../lib/seo';
+
+interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
+const slips = slipsData as Slip[];
+
+const CATS = [
+  { slug: 'adult', name: '大人科', desc: '成人各類病症，是四科中收錄最多的一科。' },
+  { slug: 'pediatric', name: '小兒科', desc: '孩童病症。多首藥性峻烈，典藏本身即標註請勿使用。' },
+  { slug: 'surgical', name: '外科', desc: '瘡瘍腫毒、外敷方為主，部分文句已難以完整還原。' },
+  { slug: 'ophthalmic', name: '眼科', desc: '眼疾用方，多見清熱、明目、退翳藥。' },
+];
+const counts = Object.fromEntries(CATS.map((c) => [c.name, slips.filter((s) => s.category === c.name).length]));
+const warned = slips.filter((s) => /請勿使用|毒劇|有毒/.test(s.formula + s.institute_note)).length;
+
+const jsonLd: object[] = [breadcrumb([{ name: '保生大帝藥籤', path: '/medicine-slips/' }])];
+const faq = faqPage([
+  {
+    q: '藥籤還可以使用嗎？',
+    a: '不可以。民國 88 年（1999 年），衛生署因藥籤管理不當遭監察院糾正，隨後明文禁止使用藥籤。在那之前的行政措施是要求廟方在藥籤上加註「僅供參考」或「需經中醫師確認」等警語。',
+  },
+  {
+    q: '既然禁止使用，為什麼還收錄？',
+    a: '因為這是民俗文獻。衛生福利部國家中醫藥研究所已將這批藥籤數位典藏，透過文化部「國家文化記憶庫」以公眾領域標章（PDM）公開。作為醫療手段它已被明令禁止，作為文獻則由政府自己保存並開放。本站收錄的是後者。',
+  },
+  {
+    q: '保生大帝藥籤總共有幾首？',
+    a: `本站收錄臺南興濟宮版共 330 首，分為大人科 ${counts['大人科']} 首、小兒科 ${counts['小兒科']} 首、外科 ${counts['外科']} 首、眼科 ${counts['眼科']} 首。`,
+  },
+  {
+    q: '身體不舒服應該怎麼辦？',
+    a: '請就醫。中醫需要當面辨證論治，西醫需要檢查與診斷，兩者都不是一張籤紙能取代的。如果想走中醫，請掛合格中醫師門診。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title="保生大帝藥籤：330 首全文"
+  description="臺南興濟宮保生大帝藥籤 330 首全文，含大人科 120、小兒科 60、外科 60、眼科 90。每首附藥方原文與藥材說明，引自衛生福利部國家中醫藥研究所典藏。"
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">保生大帝藥籤</nav>
+
+  <h1>保生大帝藥籤</h1>
+
+  <p class="lead">
+    臺南興濟宮保生大帝藥籤共 <strong>330 首</strong>，分大人科 120、小兒科 60、外科 60、眼科 90。
+    藥材說明引自衛生福利部國家中醫藥研究所的數位典藏，以公眾領域標章（PDM）公開。
+  </p>
+
+  <section class="ms-alert">
+    <h2>先講清楚三件事</h2>
+    <ol>
+      <li>
+        <strong>這些方子不能拿去抓藥。</strong> 古制的「錢」「分」與今制不同、無法直接換算；
+        藥材基原古今有別；中藥要辨證，同樣的症狀在不同體質上用藥可能完全相反。
+      </li>
+      <li>
+        <strong>有 {warned} 首的原始典藏本身就標註了警語</strong>，例如小兒科第一首在藥方原文中即寫明
+        「黑丑白丑屬毒劇、藥方請勿使用」。那不是本站加的，是保存這批文獻的機構自己寫的。
+      </li>
+      <li>
+        <strong>身體不舒服請就醫。</strong> 想走中醫也完全可以，請掛合格中醫師門診當面辨證。
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>四科</h2>
+    <div class="ms-cats">
+      {CATS.map((c) => (
+        <a class="card ms-cat" href={`/medicine-slips/${c.slug}/`}>
+          <h3>{c.name}<span class="ms-count">{counts[c.name]} 首</span></h3>
+          <p>{c.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>這批文獻的來歷</h2>
+    <p>
+      藥籤是台灣民間信仰裡一種特殊的求助方式：信眾到廟裡擲筊抽籤，籤上寫的不是吉凶，而是一帖藥方。
+      臺南興濟宮主祀保生大帝，宮內現存大人科 120、小兒科 60、外科 60 與眼科 90，共 330 首。
+      興濟宮的求籤程序頗特別——求籤者焚香稟明緣由後，把線香擺在手腕脈搏處，請保生大帝「把脈」，
+      待香灰掉落一次才抽籤。
+    </p>
+    <p>
+      在沒有健保、沒有影像檢查的年代，這是許多人生病時唯一負擔得起的選擇。
+      民國 88 年衛生署明文禁用之後，藥籤逐漸退出實際使用，成為民俗文獻。
+      衛生福利部國家中醫藥研究所將這批藥籤數位典藏並逐首撰寫藥材說明，
+      經文化部「國家文化記憶庫」公開。
+    </p>
+    <p class="src">
+      來源：<a href="https://tcmb.culture.tw/zh-tw" rel="nofollow noopener" target="_blank">國家文化記憶庫</a>，
+      衛生福利部國家中醫藥研究所典藏。藥方數位物件為公眾領域標章（PDM），描述文字為政府資料開放授權條款（OGDL 1.0）。
+    </p>
+  </section>
+
+</Base>
+
+<style>
+  .lead strong { color: var(--accent); }
+  .ms-alert {
+    background: var(--paper-2); border: 1px solid var(--accent-soft);
+    border-radius: 0.625rem; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+  }
+  .ms-alert h2 { margin-top: 0; font-size: var(--text-lg); }
+  .ms-alert ol { margin: 0; padding-left: 1.25rem; }
+  .ms-alert li { margin: 0.625rem 0; }
+  .ms-cats { display: grid; gap: 0.75rem; }
+  .ms-cat { display: block; text-decoration: none; }
+  .ms-cat h3 { margin: 0 0 0.375rem; font-size: var(--text-lg); color: var(--accent); }
+  .ms-count { color: var(--ink-soft); font-size: var(--text-sm); font-weight: 400; margin-left: 0.5rem; }
+  .ms-cat p { margin: 0; color: var(--ink-soft); font-size: var(--text-sm); }
+  .src { color: var(--ink-soft); font-size: var(--text-sm); }
+</style>
