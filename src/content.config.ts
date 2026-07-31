@@ -206,7 +206,21 @@ const temples = defineCollection({
     // 名廟內容豐化（僅可查證者填，無源留空，§5）：創建年代、沿革、主要祭典
     founded: z.string().optional(), // 創建年代（史料原話，含「相傳/約」如實標註）
     history: z.string().optional(), // 沿革 2–4 句（客觀事實）
-    main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句
+    main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句（21 間逐間查證的敘述句）
+    // 年度慶(祭)典（內政部全國宗教資訊網「慶(祭)典查詢」，2,500 間）。
+    // ⚠️ 曆別必須逐筆帶：來源 6,644 筆中農曆 6,365、國曆 279，官方 ODS 匯出**沒有這個標記**，
+    //    只用 ODS 會把農曆當國曆（媽祖聖誕農曆三月廿三 → 錯成國曆 3/23）。見 docs/festival-data-import.md。
+    // 顯示一律走 src/lib/temple-festival.ts，**勿在頁面自行挑代表筆或自行換算農曆**。
+    festivals: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          calendar: z.enum(['lunar', 'solar']),
+          date: z.string().regex(/^\d{2}-\d{2}$/), // MM-DD
+          desc: z.string().optional(),
+        }),
+      )
+      .optional(),
     sources: z.array(source).default([]),
     // 代表圖（Wikimedia Commons，CC／公有領域）：廟宇建築照；無合授權圖者留空、絕不杜撰。
     image: z

@@ -7,6 +7,13 @@ import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { lunarDateLabel } from '../../lib/birthdays';
+import {
+  pickMainFestival,
+  sortFestivals,
+  festivalDateLabel,
+  festivalSentence,
+  isGenericFestivalName,
+} from '../../lib/temple-festival.ts';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -88,6 +95,19 @@ const birthdayLunar = refOk
   : '';
 const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
 
+// 年度慶(祭)典（內政部全國宗教資訊網，2,500 間）。這是**該廟向政府登記的自家祭典**，
+// 與「主祀神聖誕」（神明的生日）不同——故可以標「主要祭典」，不算替廟方斷言。
+// 代表筆的挑選與句子生成一律走 lib，頁面不自行判斷（gate 與 OG 卡走同一支）。
+const todayIso = new Date().toISOString().slice(0, 10);
+const festivalList = sortFestivals(t.festivals ?? []);
+const mainFestival = pickMainFestival(t.festivals);
+// 已查證的敘述句（21 間）優先於 MOI 短語；兩者皆無則空字串。
+const festivalLine = t.main_festival
+  ? `${t.name}的主要祭典為${t.main_festival}。`
+  : mainFestival
+    ? festivalSentence(t.name, mainFestival, todayIso)
+    : '';
+
 // answer-first 摘要（全體廟頁皆有）：純用既有欄位重組，緊扣「XX宮是什麼廟／在哪／拜誰」搜尋意圖，絕不補新事實。
 const regionLabelForSummary = county ? `${county.name}${township?.name ?? ''}` : (t.district ?? '');
 const historyFirstSentence = t.history ? (t.history.split(/(?<=[。！？])/)[0] ?? '').trim() : '';
@@ -121,9 +141,13 @@ const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${
 // 對「台南○○宮」這類查詢毫無資訊量（GSC 實測廟宇頁 CTR 僅 1.76%）。
 // 改為依序取「每頁天然不同」的既有衍生資料：沿革首句 → 主祀神聖誕 → 鄉鎮脈絡（間數/同主祀數）→ 可求籤。
 // 全部來自既有欄位與 build 期聚合，**不新增任何事實**；真的都沒有才留最後那句通用語。
+// 2026-07-31：慶(祭)典匯入後，2,500 間廟有了**該廟自己登記的年度祭典**。
+// 它排在主祀神聖誕之前，因為那是這間廟獨有的事實，而聖誕是全台同主祀神數百間廟共用的日期；
+// 且有祭典時就不再輸出聖誕句——兩者常是同一天（如「天上聖母聖誕」對農曆三月廿三），會重複。
 const descTail = [
   historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
-  birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '',
+  festivalLine,
+  !festivalLine && birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '',
   townContext,
   lingqianSystems.length > 0 ? '本站提供主祀神靈籤的白話解籤。' : '',
 ]
@@ -139,8 +163,8 @@ const templeTitle = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `
 
 // FAQ（AEO）：全數就既有欄位出題，faqPage 會過濾空答；無資料的題目不生，絕不杜撰。
 const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);
-const festivalOrHistory = t.main_festival
-  ? `${t.name}的主要祭典為${t.main_festival}。`
+const festivalOrHistory = festivalLine
+  ? festivalLine
   : historyFirstSentence
     ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}`
     : '';
@@ -160,7 +184,13 @@ const faq = faqPage([
     a: lingqianNames.length > 0 ? `可以。${t.name}主祀${mainDeity}，可線上查閱${lingqianNames.join('、')}與白話解籤。` : '',
   },
   {
-    q: t.main_festival ? `${t.name}的主要祭典是什麼？` : `${t.name}的沿革為何？`,
+    // 泛稱名（「祭典」「祀慶」等 756 間）的答句是「年度祭典在<日期>」＝答的是時間，
+    // 故問句也要問時間，否則「主要祭典是什麼？」配上一個日期＝答非所問。
+    q: !festivalLine
+      ? `${t.name}的沿革為何？`
+      : !t.main_festival && mainFestival && isGenericFestivalName(mainFestival.name)
+        ? `${t.name}的年度祭典在什麼時候？`
+        : `${t.name}的主要祭典是什麼？`,
     a: festivalOrHistory,
   },
 ]);
@@ -256,6 +286,26 @@ const jsonLd = [
   }
 
   {
+    festivalList.length > 0 && (
+      <section class="temple-festivals">
+        <h2>年度祭典</h2>
+        <p class="muted small">
+          以下為{t.name}向內政部登記的年度慶(祭)典。農曆日期為廟方登記值，括號內國曆為下一次對應日期。
+        </p>
+        <ul class="festival-list">
+          {festivalList.map((f) => (
+            <li>
+              <span class="fdate">{festivalDateLabel(f, todayIso)}</span>
+              <span class="fname">{f.name}</span>
+              {f.desc && <span class="fdesc">{f.desc}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
     hostedEvents.length > 0 && (
       <section>
         <h2>主辦民俗活動</h2>
@@ -310,6 +360,18 @@ const jsonLd = [
     .temple-history .history-body { line-height: 1.8; }
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }
     .temple-history strong { color: var(--accent); margin-right: 0.375rem; }
+    .temple-festivals { margin-top: 1.5rem; }
+    .festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: flex; flex-direction: column; gap: 0.625rem; }
+    .festival-list li { display: grid; grid-template-columns: 11rem 1fr; gap: 0.25rem 0.75rem;
+      padding-bottom: 0.5rem; border-bottom: 1px dashed var(--line); }
+    .festival-list .fdate { color: var(--accent); font-weight: 600; font-size: var(--text-sm); }
+    .festival-list .fname { font-weight: 600; }
+    .festival-list .fdesc { grid-column: 2; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.7; }
+    @media (max-width: 32rem) {
+      .festival-list li { grid-template-columns: 1fr; }
+      .festival-list .fdesc { grid-column: 1; }
+    }
     .nearby { margin-top: 1.875rem; }
     .nearby-list { list-style: none; padding: 0; margin: 0.625rem 0 0;
       display: flex; flex-direction: column; gap: 0.4375rem; }

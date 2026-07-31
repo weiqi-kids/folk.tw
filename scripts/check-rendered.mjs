@@ -15,6 +15,13 @@ const DIST = 'dist';
 const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
 // 農曆換算同理：用頁面用的同一支 lib（src/lib/lunar-date.ts 刻意零專案內 import，故本檔可直接載）。
 const { lunarDateLabel, isLunarMonthEnd, festivalNextSolar } = await import('../src/lib/lunar-date.ts');
+// 廟宇年度祭典的代表筆挑選與句子生成同理：頁面、OG 卡、本 gate 走同一支 lib。
+const { pickMainFestival, festivalSentence } = await import('../src/lib/temple-festival.ts');
+const TODAY = new Date().toISOString().slice(0, 10);
+// 內文節點與屬性值的跳脫規則不同（屬性多跳脫引號），比對時要分開用，
+// 否則哪天資料出現 &／"／< 就會 gate 誤報。目前資料無此字元，但別把它留成未來的陷阱。
+const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escAttr = (s) => escText(s).replace(/"/g, '&quot;');
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
@@ -45,6 +52,7 @@ const violations = [];
 let checked = 0;
 let missingPages = 0;
 let expectedCount = 0;
+let festTemples = 0;
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -72,6 +80,46 @@ for (const t of temples) {
   const ogTitle = html.match(/<meta property="og:title" content="([^"]*)"/)?.[1] ?? '';
   if (!ogTitle) violations.push(`${t.id} 缺 og:title`);
   else if (ogTitle.includes('神酷')) violations.push(`${t.id} og:title 仍含「神酷」：${ogTitle}`);
+
+  // 不變量 1c（2026-07-31 加）：年度慶(祭)典區塊。
+  // 背景：內政部慶(祭)典資料匯入後 2,500 間廟有了自己登記的祭典（4,108 筆）。
+  //       這是廟宇頁最實質的獨有內容，也直接餵 meta description 與 OG 分享卡，
+  //       故逐頁驗**雙向**：有資料必須渲染且筆數相符、無資料必須不渲染（防模板寫死）。
+  // ⚠️ 代表筆與日期字串一律取 lib 的計算結果比對，不在本檔重寫挑選規則。
+  const templeFestivals = t.festivals ?? []; // 刻意不叫 festivals：模組層已有 festivals.json
+  const hasFestSection = html.includes('class="temple-festivals"');
+  if (templeFestivals.length > 0) {
+    festTemples++;
+    if (!hasFestSection) {
+      violations.push(`${t.id}（有 ${templeFestivals.length} 筆年度祭典）應顯示年度祭典區塊，實際缺少`);
+    } else {
+      // ⚠️ 逐項計數用 class="fdate" 出現次數，**不要**寫成 `<li><span class="fdate">`：
+      // Astro 會在每個元素補 data-astro-cid-* 屬性，那種寫法會恆為 0＝gate 靜默失效。
+      const items = (html.match(/class="fdate"/g) ?? []).length;
+      if (items !== templeFestivals.length) {
+        violations.push(`${t.id} 年度祭典列出 ${items} 筆，資料為 ${templeFestivals.length} 筆`);
+      }
+      // 每一筆的祭典名稱都必須真的出現在頁面上（防只渲染日期、或渲染到別間廟的資料）。
+      for (const f of templeFestivals) {
+        if (!html.includes(escText(f.name))) {
+          violations.push(`${t.id} 年度祭典缺少「${f.name}」`);
+          break;
+        }
+      }
+      // 代表筆（農曆日期最早）必須進 meta description——那是這批資料的 CTR 目的。
+      // 已查證 main_festival 的 21 間走原本的敘述句，不適用本檢查。
+      if (!t.main_festival) {
+        const main = pickMainFestival(templeFestivals);
+        const sentence = main ? festivalSentence(t.name, main, TODAY) : '';
+        const desc = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+        if (sentence && !desc.includes(escAttr(sentence))) {
+          violations.push(`${t.id} meta description 未含代表祭典句：${sentence}`);
+        }
+      }
+    }
+  } else if (hasFestSection) {
+    violations.push(`${t.id}（無年度祭典資料）不應顯示年度祭典區塊，實際卻有`);
+  }
 
   if (systems.length > 0) {
     expectedCount++;
@@ -263,6 +311,35 @@ for (const f of festivals) {
   if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
   if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
   if (!html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 缺 Event 結構化資料`);
+  // 不變量 5b（2026-07-31 加）：「當天有登記祭典的宮廟」名單。
+  // 這一段是節日頁對 appi.news 等內容站的差異化資產（逐廟、掛源、可反查），
+  // 故驗名單數量與資料完全相符——數字灌水或漏算都會被擋。
+  // 判定規則與頁面同源：該廟 festivals[] 有一筆農曆日期與本節日 lunar_date 完全相同。
+  // 同一農曆日期只有「festivals.json 先出現者」掛名單（07-15 給中元節不給搶孤、
+  // 07-01 給鬼門開不給雞籠中元祭），否則兩頁會帶一模一樣的清單＝自製重複內容。
+  // 非擁有者必須**沒有**名單，這裡一併驗，防未來改動讓它悄悄復活。
+  const ownsList = festivals.find((x) => x.lunar_date === f.lunar_date)?.slug === f.slug;
+  if (f.lunar_date && ownsList) {
+    const want = temples.filter((t) =>
+      (t.festivals ?? []).some((x) => x.calendar === 'lunar' && x.date === f.lunar_date),
+    ).length;
+    // 同上：不可假設是裸標籤（Astro 補 data-astro-cid-*），故先切出名單區間再數廟宇連結。
+    const listHtml = html.match(/class="on-date-list"[\s\S]*?<\/ul>/)?.[0] ?? '';
+    const shown = (listHtml.match(/href="\/temples\//g) ?? []).length;
+    if (want > 0) {
+      if (shown !== want) {
+        violations.push(`節日頁 ${f.slug} 當日祭典宮廟名單列出 ${shown} 間，資料為 ${want} 間`);
+      }
+      if (!new RegExp(`全台共\\s*${want}\\s*間宮廟`).test(html)) {
+        violations.push(`節日頁 ${f.slug} 名單間數敘述與資料不符（資料 ${want} 間）`);
+      }
+    } else if (shown > 0) {
+      violations.push(`節日頁 ${f.slug} 無資料卻列出 ${shown} 間宮廟`);
+    }
+  } else if (html.includes('class="on-date-list"')) {
+    // 非擁有者（搶孤／雞籠中元祭）或節氣型節日（清明）都不該有名單。
+    violations.push(`節日頁 ${f.slug} 不該有當日祭典宮廟名單（同日名單歸屬於別頁，或此為節氣型節日）`);
+  }
   // 農曆節日與節氣節日（清明）走同一支 lib 取標籤，gate 不自行判斷型別。
   const { label: wantLabel } = festivalNextSolar(f, '2026-01-01');
   if (wantLabel && !html.includes(wantLabel)) {
@@ -293,7 +370,7 @@ for (const f of festivals) {
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊。`);
   process.exit(0);
 }
 

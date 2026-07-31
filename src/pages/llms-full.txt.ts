@@ -319,6 +319,8 @@ export const GET: APIRoute = async () => {
     `入口：${SITE}/temples/（依縣市分區：${SITE}/temples/region/<縣市>/）`,
     `收錄全台 ${temples.length} 筆廟宇（對映內政部宗教團體開放資料），逐筆有主祀神祇、行政區與座標；` +
       `明細頁量大且多為樣板化小廟，本檔不逐筆收錄，完整網址見 ${SITE}/sitemap-index.xml。` +
+      `其中 ${temples.filter((t) => (t.data.festivals ?? []).length > 0).length} 間另有廟方向內政部登記的` +
+      `年度慶(祭)典（名稱與農曆／國曆日期，逐筆掛源），可於各廟明細頁與 ${SITE}/festivals/ 各節日頁反查；` +
       `以下為已完成沿革考據的 ${featuredTemples.length} 間代表名廟：`,
   );
   for (const t of featuredTemples) {

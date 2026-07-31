@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, eventThing, faqPage } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
+import { templeCounty } from '../../lib/temple-region';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
@@ -27,16 +28,61 @@ export const getStaticPaths = (async () => {
   );
   const { iso: today } = todayInTaipei();
 
+  // 當天有登記祭典的宮廟（2026-07-31，內政部慶(祭)典資料匯入後才有可能）。
+  // 🔴 判定＝該廟 `festivals[]` 有一筆**農曆日期與本節日完全相同**者，措辭也僅止於此：
+  //    「當天有登記祭典」是資料直述，**不是**「這些廟在過中元節」——後者是我們沒有的事實。
+  //    每間廟旁一律列出**該廟自己登記的祭典名稱**，讀者看得到我們憑什麼把它列在這裡。
+  // 節氣型節日（清明）無 lunar_date，自然不產生名單，不必特判。
+  // ⚠️ 同一個農曆日期只能有一個節日頁掛這份名單：`festivals.json` 中
+  //    07-15 有中元節與搶孤兩筆、07-01 有鬼門開與雞籠中元祭兩筆。若兩邊都渲染，
+  //    就會有兩頁各自帶著**一模一樣的 105 筆／15 筆清單**＝我們自己製造重複內容，
+  //    正好稀釋掉這批資料本來要強化的那一頁。
+  //    歸屬規則＝`festivals.json` 中**先出現者**（現行順序下為鬼門開、中元節，
+  //    正是該日期的主查詢頁；搶孤／雞籠中元祭是同日的特定儀式，不重複列全台名單）。
+  //    調整 festivals.json 的排序會改變歸屬——要改順序時記得回頭看這裡。
+  const listOwner = new Map<string, string>(); // lunar_date → 擁有名單的 slug
+  for (const f of festivals) {
+    const lunar = (f as { lunar_date?: string }).lunar_date;
+    if (lunar && !listOwner.has(lunar)) listOwner.set(lunar, f.slug);
+  }
+
+  const templesOnDate = new Map<string, { id: string; name: string; county: string; festival: string }[]>();
+  for (const f of festivals) {
+    const lunar = (f as { lunar_date?: string }).lunar_date;
+    if (!lunar || listOwner.get(lunar) !== f.slug) continue;
+    const hits = [];
+    for (const t of temples) {
+      const hit = (t.data.festivals ?? []).find((x) => x.calendar === 'lunar' && x.date === lunar);
+      if (!hit) continue;
+      const c = templeCounty(t.data.district);
+      hits.push({ id: t.id, name: t.data.name, county: c?.name ?? '', festival: hit.name });
+    }
+    // 固定排序（縣市→廟名）＝每次 build 結果一致，不是隨機挑。
+    hits.sort((a, b) => a.county.localeCompare(b.county, 'zh-Hant') || a.name.localeCompare(b.name, 'zh-Hant'));
+    templesOnDate.set(f.slug, hits);
+  }
+
   return festivals
     .map((f) => ({ f, ...festivalNextSolar(f, today) }))
     .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
     .map(({ f, iso, label }) => ({
       params: { slug: f.slug },
-      props: { f, iso, dateLabel: label, deityById, practiceById, eventById, templeById, vocabByTerm },
+      props: {
+        f,
+        iso,
+        dateLabel: label,
+        deityById,
+        practiceById,
+        eventById,
+        templeById,
+        vocabByTerm,
+        templesOnDate: templesOnDate.get(f.slug) ?? [],
+      },
     }));
 }) satisfies GetStaticPaths;
 
-const { f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm } = Astro.props;
+const { f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm, templesOnDate } =
+  Astro.props;
 
 const year = iso.slice(0, 4);
 // 農曆節日＝「農曆七月十五」；節氣節日＝「節氣清明」。由 lib 統一產出，頁面不自行判斷型別。
@@ -272,6 +318,27 @@ const jsonLd = [
     )
   }
 
+  {
+    templesOnDate.length > 0 && (
+      <section class="on-date">
+        <h2>{lunarLabel}當天有登記祭典的宮廟</h2>
+        <p class="muted small">
+          全台共 {templesOnDate.length} 間宮廟向內政部登記了{lunarLabel}的慶(祭)典。
+          廟名後為該廟自己登記的祭典名稱。資料源自內政部全國宗教資訊網「慶(祭)典查詢」。
+        </p>
+        <ul class="on-date-list">
+          {templesOnDate.map((t) => (
+            <li>
+              <a href={`/temples/${t.id}/`}>{t.name}</a>
+              {t.county && <span class="muted small"> {t.county}</span>}
+              <span class="fname small"> — {t.festival}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <p class="muted small extend">
     延伸：<a href="/festivals/">其他節日</a>｜<a href="/deities/birthdays/">神明聖誕曆</a>｜<a href="/practices/"
       >拜拜習俗</a
@@ -307,6 +374,10 @@ const jsonLd = [
     .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
     .small { font-size: var(--text-sm); }
     .src { color: var(--gold); font-size: var(--text-xs); }
+    .on-date-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
+    .on-date-list li { padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
+    .on-date-list .fname { color: var(--ink-soft); }
     .extend { margin-top: 1.875rem; }
     .footer-src { margin-top: 2.5rem; }
   </style>

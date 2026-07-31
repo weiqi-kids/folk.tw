@@ -186,6 +186,36 @@ const tWithRef = temples.filter((t) => t.main_deity_ref);
 const tUnm = tWithRef.map((t) => t.main_deity_ref).filter((x: string) => !deityIds.has(x));
 rate('廟宇主祀 → 神明節點', temples.length, tWithRef.length - tUnm.length, tUnm);
 
+// 廟宇年度慶(祭)典（內政部全國宗教資訊網匯入）——硬驗，因為每一條壞掉都直接變成假事實：
+//   ・曆別必須逐筆帶：官方 ODS 匯出**沒有農曆／國曆標記**，農曆佔 96%，
+//     少一個標記就是把農曆三月廿三印成國曆 3/23（見 docs/festival-data-import.md 陷阱一）。
+//   ・日期必須是真的存在的日子：來源含 07/00、02/31 這類髒值。
+//   ・名稱必須有漢字：來源含 `.`／`33333` 這類鍵入殘留，有合法日期、會通過其他檢查。
+//   ・有 festivals 必須有對應來源標註（§5 無源不發佈）。
+const FESTIVAL_SOURCE = '內政部全國宗教資訊網・慶(祭)典查詢';
+let tf = 0;
+let tfTemples = 0;
+for (const t of temples) {
+  const list = t.festivals ?? [];
+  if (list.length === 0) continue;
+  tfTemples++;
+  tf += list.length;
+  for (const f of list) {
+    const at = `temple ${t.id} 慶典「${f.name}」`;
+    if (f.calendar !== 'lunar' && f.calendar !== 'solar') hard(`${at}：calendar 必須是 lunar 或 solar（實為 ${f.calendar}）`);
+    if (!/^\d{2}-\d{2}$/.test(f.date ?? '')) hard(`${at}：date 必須為 MM-DD（實為 ${f.date}）`);
+    else {
+      const [mm, dd] = f.date.split('-').map(Number);
+      const max = f.calendar === 'lunar' ? 30 : [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mm - 1];
+      if (mm < 1 || mm > 12 || dd < 1 || dd > max) hard(`${at}：日期 ${f.date} 不存在（${f.calendar}）`);
+    }
+    if (!/[一-鿿]/.test(f.name ?? '')) hard(`${at}：祭典名稱須含漢字（來源有 .／33333 這類殘留）`);
+  }
+  if (!(t.sources ?? []).some((s: { ref?: string }) => (s.ref ?? '').includes(FESTIVAL_SOURCE)))
+    hard(`temple ${t.id}：有 festivals 卻無「${FESTIVAL_SOURCE}」來源標註`);
+}
+softReport.push(`廟宇年度慶(祭)典：${tfTemples}/${temples.length} 間、共 ${tf} 筆（內政部全國宗教資訊網）`);
+
 // 待查 / draft 統計（§5 無源不發佈）
 const draftDe = deities.filter((d) => d.draft).map((d) => d.id);
 const draftPr = practices.filter((p) => p.draft).length;

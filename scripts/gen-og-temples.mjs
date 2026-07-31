@@ -54,6 +54,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const { templeCounty, templeTownship } = await import(join(root, 'src/lib/temple-region.ts'));
 const { lunarDateLabel, lunarToNextSolar, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
+const { pickMainFestival, festivalCardLine } = await import(join(root, 'src/lib/temple-festival.ts'));
 
 const temples = JSON.parse(readFileSync(join(root, 'src/data/temples.json'), 'utf8'));
 const deities = JSON.parse(readFileSync(join(root, 'src/data/deities.json'), 'utf8'));
@@ -109,6 +110,14 @@ export function recentActivity(t, todayIso) {
   if (t.main_festival) {
     const first = String(t.main_festival).split(/(?<=[。！？])/)[0].trim();
     if (first) return { label: '主要祭典', text: first };
+  }
+  // 2026-07-31：內政部慶(祭)典資料匯入後，2,500 間廟有了**自己登記的**年度祭典。
+  // 它排在主祀神聖誕之前——外撥時主委看到的是自家廟的祭典，而不是全台同主祀神共用的神明生日。
+  // 挑代表筆與措辭一律走 lib（頁面、gate 同一支），本檔不自行判斷。
+  const own = pickMainFestival(t.festivals);
+  if (own) {
+    const line = festivalCardLine(own, todayIso);
+    if (line.text) return line;
   }
   const d = t.main_deity_ref ? deityById.get(t.main_deity_ref) : null;
   const b = (d?.birthday_lunar ?? []).find((x) => x.kind === '聖誕' && /^\d{2}-\d{2}$/.test(x.date));
