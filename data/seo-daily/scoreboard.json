@@ -548,10 +548,20 @@
         "ctr": 0,
         "scope": "page-query"
       },
-      "checks": [],
-      "status": "open",
-      "verdict": null,
-      "verdict_date": null
+      "checks": [
+        {
+          "date": "2026-07-31",
+          "pos": 3,
+          "impr": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "全窗日。此 page-query 組合曝光量太低（基準 impr7）從未進入 topQueries/pageQueryCross Top-200 抽樣，改直接查 GSC page×query API（dimensionFilterGroups 過濾 gd_24）取得乾淨值：資料窗 2026-07-20..07-27，impr3/click0/pos3，較基準（impr7/pos1.43）曝光與排名皆下滑，但雙邊皆為個位數曝光，與 gd77（同招式、baseline impr8）判為 inconclusive 屬同一結構性問題——樣本太薄無法區分『真實變化』與『抽樣雜訊』。"
+        }
+      ],
+      "status": "resolved",
+      "verdict": "inconclusive",
+      "verdict_date": "2026-07-31",
+      "verdict_note": "全窗曝光個位數（impr3 vs 基準7），clicks 全程為 0、CTR 未轉正，但雙邊樣本量過薄（單日尺度個位數曝光），與 gd77（2026-07-19，同判 inconclusive）同一結構性瓶頸：無法排除是抽樣/查詢量本身波動而非『seoDesc 改寫無效』。判 inconclusive 而非 loss。內容為既有史實如實摘要、無杜撰、不觸發回退。經驗教訓延續 gd77：baseline impr個位數的 seoDesc 賭注應提高下注門檻（優先挑 impr≥15-20 者，如 zhengde_lifeng），或改用直接查 GSC page×query API（本次已示範）取代容易漏樣的 top-N 抽樣，往後同類賭注下注前應先用此法核實基準是否穩定可測。"
     },
     {
       "id": "2026-07-21-liuyi-seodesc",
@@ -577,7 +587,16 @@
         "ctr": 0,
         "scope": "page-query"
       },
-      "checks": [],
+      "checks": [
+        {
+          "date": "2026-07-31",
+          "pos": 1,
+          "impr": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "note": "首訊日（7/25）已過，今日補第一筆 check。同 gd_24 手法直接查 GSC page×query API：資料窗 2026-07-20..07-27，impr5/click0/pos1，與基準（impr8/pos1）持平、仍 0 click，樣本同屬個位數曝光。未到全窗日（8/1），不觸發回退（0 clicks 為持平非新退步）。"
+        }
+      ],
       "status": "open",
       "verdict": null,
       "verdict_date": null
