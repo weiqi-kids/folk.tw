@@ -53,6 +53,7 @@ let checked = 0;
 let missingPages = 0;
 let expectedCount = 0;
 let festTemples = 0;
+let titleWithDeity = 0;
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -80,6 +81,34 @@ for (const t of temples) {
   const ogTitle = html.match(/<meta property="og:title" content="([^"]*)"/)?.[1] ?? '';
   if (!ogTitle) violations.push(`${t.id} 缺 og:title`);
   else if (ogTitle.includes('神酷')) violations.push(`${t.id} og:title 仍含「神酷」：${ogTitle}`);
+
+  // 不變量 1d（2026-07-31 加）：title 的長度上限與髒資料清洗。
+  // 背景：title 加上「主祀○○」是為了在 Google 地圖包旁邊給出地圖沒有的資訊。
+  //       但 `main_deity_raw` 是 MOI 原始欄位，有廟登記 7 尊並列、也有超長名稱——
+  //       未清洗就會產生 47 全形字、被 Google 從中間截斷的標題。
+  // 驗三件事（都是**上線後才看得到**的產物層事實，不能只靠 build 期單元測試）：
+  //   ① 帶「主祀」子句者，全形寬（含站名）不得超過 30——超過代表退回分支失效；
+  //   ② 帶「主祀」子句者，神名不得含分隔符（逗號/頓號/分號）——含了代表「取首位」失效；
+  //   ③ 帶「主祀」子句者，神名不得超過 8 全形字。
+  // ⚠️ 上限**只對帶主祀子句者**斷言，因為那正是程式碼保證的事（「加子句不得把標題推過 30」）。
+  //   有 3 間廟光是「登記全名＋鄉鎮」就已超過 30（如「財團法人蚵子寮朝天宮天上聖母船仔媽
+  //   (94年9月變動更名)・高雄市梓官區」），那是**改動前就存在**的既有狀態，且不該為了湊字數去
+  //   截廟方的登記全名——廟名正是使用者搜的字，截掉比顯示被 Google 省略更糟。
+  const pageTitle = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  if (!pageTitle) {
+    violations.push(`${t.id} 缺 <title>`);
+  } else {
+    const m = pageTitle.match(/・主祀([^｜]+)｜/);
+    if (m) {
+      titleWithDeity++;
+      const wide = [...pageTitle].reduce((n, c) => (/[\x00-\xff]/.test(c) ? n + 0.5 : n + 1), 0);
+      if (wide > 30) violations.push(`${t.id} title 帶主祀子句卻超過 30 全形字（${wide}）：${pageTitle}`);
+      if (/[,，、;；]/.test(m[1])) violations.push(`${t.id} title 主祀神未取首位（含分隔符）：${m[1]}`);
+      if ([...m[1]].reduce((n, c) => (/[\x00-\xff]/.test(c) ? n + 0.5 : n + 1), 0) > 8) {
+        violations.push(`${t.id} title 主祀神超過 8 全形字：${m[1]}`);
+      }
+    }
+  }
 
   // 不變量 1c（2026-07-31 加）：年度慶(祭)典區塊。
   // 背景：內政部慶(祭)典資料匯入後 2,500 間廟有了自己登記的祭典（4,108 筆）。
@@ -370,7 +399,7 @@ for (const f of festivals) {
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊。`);
   process.exit(0);
 }
 

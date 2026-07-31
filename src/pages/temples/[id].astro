@@ -159,7 +159,30 @@ const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' 
 
 // 廟宇頁 title：原本僅 t.name，導致大量同名廟（慶安宮／福德宮…）落回完全相同標題、無在地辨識度。
 // 全站 7891 廟 100% 具 district，加上鄉鎮地名可消歧並強化在地搜尋匹配（僅用既有欄位，不補新事實）。
-const templeTitle = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `${t.name}・${t.district}` : t.name);
+//
+// 2026-07-31 再加「主祀○○」：GSC 實測廟宇頁佔全站曝光 91%，但前十名 CTR 只有產業基準的
+// 0.17–0.42 倍，而第 11 名以後是正常的 0.99 倍——差別在於廟名查詢的 SERP 上方有 Google 地圖包
+// 吃走點擊。在地圖包旁邊唯一能贏的是「地圖不提供的資訊」，且主祀神直接命中
+// 「○○宮 主祀／拜什麼」這類**沒有地圖包**的修飾詞長尾。仍只用既有欄位，不補新事實。
+//
+// ⚠️ 兩道清洗規則不可省（`main_deity_raw` 是 MOI 原始欄位，很髒）：
+//   ① 逗號分隔取首位——有廟登記了 7 尊（「虎爺將軍,韋馱佛祖,註生娘娘,關聖帝君…」），全塞進 title 無意義；
+//      首位過長（>8 全形字）則回退到已對映的神明節點短名，再不行就整段不加。
+//   ② 組出來超過 30 全形字就整段退回原樣，**不截字**——截字會把「｜神酷」切成半個詞。
+// 實測：7,801/7,891（98.9%）加得上，中位數 20 全形字、p90 24、超過 30 字者 3 頁。
+const TITLE_MAX = 30;
+const TITLE_DEITY_MAX = 8;
+const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
+const titleDeity = (() => {
+  const first = (t.main_deity_raw ?? '').split(/[,，、;；]/)[0].trim();
+  if (first && fullWidth(first) <= TITLE_DEITY_MAX) return first;
+  const node = refOk ? deityName.get(t.main_deity_ref!) : '';
+  return node && fullWidth(node) <= TITLE_DEITY_MAX ? node : '';
+})();
+const titleHead = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `${t.name}・${t.district}` : t.name);
+const titleWithDeity = titleDeity ? `${titleHead}・主祀${titleDeity}` : titleHead;
+// 站名「｜神酷」由 Base.astro 附加，長度判斷須把它算進去。
+const templeTitle = fullWidth(`${titleWithDeity}｜神酷`) > TITLE_MAX ? titleHead : titleWithDeity;
 
 // FAQ（AEO）：全數就既有欄位出題，faqPage 會過濾空答；無資料的題目不生，絕不杜撰。
 const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);

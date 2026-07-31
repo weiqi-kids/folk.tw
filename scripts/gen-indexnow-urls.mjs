@@ -7,6 +7,10 @@
 //   土地公廟頁（1,384）與未來農民曆日期頁（730）。它們照樣公開、照樣被爬得到，只是我們從沒
 //   主動通知過搜尋引擎，於是 Bing 判定「重要頁未經 IndexNow 提交」。
 //
+// ⚠️ 2026-07-31 更新：`EXCLUDE_TUDIGONG_FROM_SITEMAP` 已設回 false（見 astro.config.mjs），
+//   那 1,384 間土地公廟**已回到 sitemap**，故現在 sitemap 之外只剩未來農民曆日期頁。
+//   本腳本邏輯不受影響（它掃 dist 全部 index.html，不讀 sitemap），只有下面那行輸出訊息要跟著改。
+//
 // 為什麼可以送給 IndexNow，卻仍然不放進 sitemap（這不矛盾）：
 //   排除 sitemap 是為了**節省 Google 的爬取預算**（避免 3,000 篇樣板化未來日期頁淹沒約 370 篇
 //   真正獨特的頁），而 **Google 不參與 IndexNow**——IndexNow 只分發給 Bing／Yandex／Seznam／Naver。
@@ -32,4 +36,4 @@ const urls = [];
 
 const sorted = [...new Set(urls)].sort();
 writeFileSync(OUT, sorted.join('\n') + '\n');
-console.log(`✓ ${OUT}：${sorted.length} 個 URL（sitemap 之外另含刻意排除的土地公廟頁與未來農民曆頁）`);
+console.log(`✓ ${OUT}：${sorted.length} 個 URL（sitemap 之外另含刻意排除的未來農民曆日期頁）`);
