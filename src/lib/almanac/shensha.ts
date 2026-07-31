@@ -116,6 +116,13 @@ export function activeShenSha(ctx: DayContext): ActiveShenSha[] {
         active = t?.[key] === ctx.dayBranch;
         break;
       }
+      // 2026-07-31 新增兩型（為補齊嫁娶宜忌所需）：
+      case 'month->ganzhi': // 五墓：逐月對一組日干支（正二月乙未…）
+        active = t?.[String(mn)] === ctx.dayGanZhi;
+        break;
+      case 'ganzhi_set': // 八專：不分月，日干支落在固定集合內
+        active = ((t?.ganzhi as string[]) ?? []).includes(ctx.dayGanZhi);
+        break;
       default:
         active = false; // 無表／未支援之定位（如月刑 locate_table=null）
     }

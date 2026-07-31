@@ -398,8 +398,81 @@ for (const f of festivals) {
   }
 }
 
+// ── 不變量 5（2026-07-31 加）：擇日「宜○○」清單不得含該事項明文所忌的日相 ──────────
+// 背景：《協紀辨方書》卷十一用事的宜忌清單裡，有「平日 收日 閉日 亥日 丁日」這類**非神煞**條目，
+//       原本的投票表只認神煞 id，這些條目完全落在判定之外——實測 2026-08-17 建除為「平」
+//       （協紀明列嫁娶忌平日），本站卻列為「宜嫁娶」。修法見 src/lib/almanac/daytokens.ts。
+// 這道 gate 守的是**上線後的產物**：把 /almanac/yiji/<事項>/ 列出的每個宜日，
+//       翻到該日的 /almanac/<date>/ 頁去讀它自己印出的建除與日干支，兩邊對照。
+// ⚠️ 禁忌清單**不在本檔硬編**，而是從 votes.json 讀 `jianchu_*`／`daybranch_*`／`daystem_*`
+//    的忌票反推——日後為別的事項（如剃頭）加同類禁忌，這道檢查會自動涵蓋，不必改 gate。
+let yijiPagesChecked = 0;
+let yijiDaysChecked = 0;
+{
+  const votes = require('../src/lib/almanac/rules/votes.json').votes.filter((v) => v.shensha);
+  const JC_NAME = { jian: '建', chu: '除', man: '滿', ping: '平', ding: '定', zhi: '執',
+    po: '破', wei: '危', cheng: '成', shou: '收', kai: '開', bi: '閉' };
+  const BR_NAME = { zi: '子', chou: '丑', yin: '寅', mao: '卯', chen: '辰', si: '巳',
+    wu: '午', wei: '未', shen: '申', you: '酉', xu: '戌', hai: '亥' };
+  const ST_NAME = { jia: '甲', yi: '乙', bing: '丙', ding: '丁', wu: '戊',
+    ji: '己', geng: '庚', xin: '辛', ren: '壬', gui: '癸' };
+  // affair → { jianchu:Set, branch:Set, stem:Set }
+  const banned = new Map();
+  for (const v of votes) {
+    if (v.verdict !== '忌' || v.affair === '*') continue;
+    const b = banned.get(v.affair) ?? { jianchu: new Set(), branch: new Set(), stem: new Set() };
+    let m;
+    if ((m = /^jianchu_(\w+)$/.exec(v.shensha)) && JC_NAME[m[1]]) b.jianchu.add(JC_NAME[m[1]]);
+    else if ((m = /^daybranch_(\w+)$/.exec(v.shensha)) && BR_NAME[m[1]]) b.branch.add(BR_NAME[m[1]]);
+    else if ((m = /^daystem_(\w+)$/.exec(v.shensha)) && ST_NAME[m[1]]) b.stem.add(ST_NAME[m[1]]);
+    else continue;
+    banned.set(v.affair, b);
+  }
+  const dayCache = new Map();
+  const readDay = (iso) => {
+    if (dayCache.has(iso)) return dayCache.get(iso);
+    const f = join(DIST, 'almanac', iso, 'index.html');
+    let r = null;
+    if (existsSync(f)) {
+      const h = readFileSync(f, 'utf8');
+      r = {
+        jianchu: /建除<\/dt><dd[^>]*>([建除滿平定執破危成收開閉])/.exec(h)?.[1] ?? null,
+        // 干支列印為「丙午年 丙申月 癸亥日」，取「…日」那一柱
+        ganzhi: /干支<\/dt><dd[^>]*>[^<]*?([甲乙丙丁戊己庚辛壬癸])([子丑寅卯辰巳午未申酉戌亥])日/.exec(h)?.slice(1) ?? null,
+      };
+    }
+    dayCache.set(iso, r);
+    return r;
+  };
+  for (const [affair, b] of banned) {
+    if (!b.jianchu.size && !b.branch.size && !b.stem.size) continue;
+    const page = join(DIST, 'almanac', 'yiji', affair, 'index.html');
+    if (!existsSync(page)) { violations.push(`擇日檢查：找不到 /almanac/yiji/${affair}/ 產物`); continue; }
+    yijiPagesChecked++;
+    const html = readFileSync(page, 'utf8');
+    const dates = [...new Set([...html.matchAll(/href="\/almanac\/(\d{4}-\d{2}-\d{2})\/"/g)].map((m) => m[1]))];
+    for (const iso of dates) {
+      const day = readDay(iso);
+      if (!day) { violations.push(`擇日檢查：${affair} 列出 ${iso}，但找不到該日產物`); continue; }
+      yijiDaysChecked++;
+      if (day.jianchu && b.jianchu.has(day.jianchu)) {
+        violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日建除為「${day.jianchu}」＝投票表明列所忌`);
+      }
+      if (day.ganzhi) {
+        const [stem, branch] = day.ganzhi;
+        if (b.branch.has(branch)) {
+          violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日日支為「${branch}」＝投票表明列所忌`);
+        }
+        if (b.stem.has(stem)) {
+          violations.push(`擇日：/almanac/yiji/${affair}/ 列出 ${iso} 為宜，但該日日干為「${stem}」＝投票表明列所忌`);
+        }
+      }
+    }
+  }
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌。`);
   process.exit(0);
 }
 
