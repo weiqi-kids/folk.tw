@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 9
+      "last_checked": "2026-07-31",
+      "empty_runs": 10
     },
     "memorial_at": "2026-07-20"
   },
@@ -207,8 +207,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 0
+      "last_checked": "2026-07-31",
+      "empty_runs": 1
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -237,8 +237,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 12
+      "last_checked": "2026-07-31",
+      "empty_runs": 13
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -438,12 +438,36 @@
         ],
         "added": "2026-07-29T12:33:48.631Z",
         "hash": "5424c39f2d9a"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "官方通報，彭水山體崩塌陸上災害現場搜救範圍已全數完成地毯式搜尋，罹難者身分持續以DNA比對確認；烏江水域清淤與搜尋工作仍在同步進行。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/politics/20260730/17b310297a294fd98d1e350468483e71/c.html"
+          }
+        ],
+        "added": "2026-07-31T12:33:44.492Z",
+        "hash": "dca9a955afc0"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "當地指出，救援工作已與災後安置、重建同步有序推進，受影響鄉親的轉移安置與後續協助持續進行中。",
+        "sources": [
+          {
+            "ref": "中華網",
+            "url": "https://3g.china.com/act/news/10000169/20260730/49645188.html"
+          }
+        ],
+        "added": "2026-07-31T12:33:46.899Z",
+        "hash": "9021077c8dfb"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 1
+      "last_checked": "2026-07-31",
+      "empty_runs": 0
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -811,8 +835,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 0
+      "last_checked": "2026-07-31",
+      "empty_runs": 1
     }
   },
   {
@@ -877,8 +901,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 4
+      "last_checked": "2026-07-31",
+      "empty_runs": 5
     }
   },
   {
@@ -1061,8 +1085,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 2
+      "last_checked": "2026-07-31",
+      "empty_runs": 3
     }
   },
   {
@@ -1109,12 +1133,24 @@
         ],
         "added": "2026-07-28T12:38:47.095Z",
         "hash": "870ff224a752"
+      },
+      {
+        "date": "2026-07-28",
+        "text": "傷者已轉送至層級較高的醫療院所接受治療，目前情況已無生命危險；原安置於臨時安置點的災區遊客則多已返家。",
+        "sources": [
+          {
+            "ref": "騰訊新聞",
+            "url": "https://news.qq.com/rain/a/20260728A03R4M00"
+          }
+        ],
+        "added": "2026-07-31T12:37:37.768Z",
+        "hash": "bb079cbae12f"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 2
+      "last_checked": "2026-07-31",
+      "empty_runs": 0
     }
   },
   {
@@ -1204,11 +1240,23 @@
         ],
         "added": "2026-07-30T12:38:24.911Z",
         "hash": "9233b582a480"
+      },
+      {
+        "date": "2026-07-31",
+        "text": "大批警力投入永旺熊本購物中心倒塌現場展開大規模搜救，把握黃金搜救時間持續尋找受困者。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/124969/9662230"
+          }
+        ],
+        "added": "2026-07-31T12:38:00.245Z",
+        "hash": "5ba3f93bc9c3"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
+      "last_checked": "2026-07-31",
       "empty_runs": 0
     }
   },
@@ -1275,8 +1323,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 1
+      "last_checked": "2026-07-31",
+      "empty_runs": 2
     }
   },
   {
@@ -1339,8 +1387,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-30",
-      "empty_runs": 1
+      "last_checked": "2026-07-31",
+      "empty_runs": 2
     }
   }
 ]
