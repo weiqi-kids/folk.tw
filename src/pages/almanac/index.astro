@@ -6,6 +6,7 @@ import { computeDayRecord } from '../../lib/almanac';
 import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
 import { lunarProvider } from '../../lib/almanac/provider';
 import { almanacBreadcrumb, faqPage } from '../../lib/seo';
+import festivalsData from '../../data/festivals.json';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
@@ -14,6 +15,14 @@ const { iso } = todayInTaipei();
 const [y, m, dd] = iso.split('-').map(Number);
 const rec = computeDayRecord(y, m, dd, { astro: lunarProvider });
 const lunar = rec.lunar.value;
+// /festivals/ 節日模組與本日的對映，與 AlmanacDay.astro 同一寫法：有對映時取代泛用節日清單，
+// 讓 FAQPage 的答案與畫面上「節日」那一列一致（同一份 festivals.json，零新增事實）。
+const lunarKeyForFaq = lunar
+  ? `${String(lunar.month).padStart(2, '0')}-${String(lunar.day).padStart(2, '0')}`
+  : '';
+const ownFestivalNames = lunarKeyForFaq
+  ? festivalsData.filter((f) => f.lunar_date === lunarKeyForFaq).map((f) => f.name)
+  : [];
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
   p.value ? `${p.value.stem}${p.value.branch}` : '';
 const lunarText = lunar ? `${lunar.isLeap ? '閏' : ''}農曆 ${lunar.month} 月 ${lunar.day} 日` : '';
@@ -40,8 +49,8 @@ const faq = faqPage([
   },
   {
     q: `${iso} 是什麼節氣、節日？`,
-    a: [rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).length
-      ? `${iso} 為${[rec.solarTerm.value?.name, ...(rec.festivals ?? [])].filter(Boolean).join('、')}。`
+    a: [rec.solarTerm.value?.name, ...(ownFestivalNames.length ? ownFestivalNames : (rec.festivals ?? []))].filter(Boolean).length
+      ? `${iso} 為${[rec.solarTerm.value?.name, ...(ownFestivalNames.length ? ownFestivalNames : (rec.festivals ?? []))].filter(Boolean).join('、')}。`
       : '',
   },
 ]);
