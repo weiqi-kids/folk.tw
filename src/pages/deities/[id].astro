@@ -44,6 +44,9 @@ const { deity, rels, nameById, temples, shengdanPick } = Astro.props;
 const d = deity.data;
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+// 籤系連結走唯一入口（自有樞紐的籤系如藥籤要指 /medicine-slips/，不是 /systems/<id>/）
+const hrefOfSystem = new Map(systems.map((s) => [s.id, s.data.hub ?? `/systems/${s.id}/`]));
+const systemHrefOf = (id: string) => hrefOfSystem.get(id) ?? `/systems/${id}/`;
 
 // 接通「神明↔籤詩」子圖：本神採用之系統的全部籤（直連籤，避免子圖斷開）。
 const poemsBySys = await poemsBySystem();
@@ -215,7 +218,7 @@ const jsonLd = [
       d.divination_systems.length ? (
         <ul>
           {d.divination_systems.map((s) => (
-            <li><a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a></li>
+            <li><a href={systemHrefOf(s.id)}>{systemName.get(s.id) ?? s.id}</a></li>
           ))}
         </ul>
       ) : (

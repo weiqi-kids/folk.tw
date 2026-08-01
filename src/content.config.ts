@@ -117,6 +117,12 @@ const divinationSystems = defineCollection({
     name: z.string(),
     count: z.number(), // 首數（六十甲子＝60）
     summary: z.string().optional(),
+    // hub：該籤系自有樞紐頁時填其網址（如藥籤＝/medicine-slips/）。
+    // 有值代表**籤文不在 poems collection**（另有資料來源與版型），因此：
+    //   ① /systems/[id] 不為它生成頁面（避免與自有樞紐重複內容）
+    //   ② /systems/ 與神明頁的連結一律改指這裡
+    // 取得連結請一律用 queries.ts 的 systemHref()，勿在頁面自己拼 `/systems/${id}/`。
+    hub: z.string().optional(),
     // 採用之神明/廟由 build-time 反向索引從 deities 推導，不在此重複維護（§2.2）
     sources: z.array(source).default([]),
   }),

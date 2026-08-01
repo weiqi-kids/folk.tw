@@ -5,7 +5,9 @@ import { getSystems, getPoems, deitiesBySystem, allusionNameById } from '../../l
 import { breadcrumb } from '../../lib/seo';
 
 export const getStaticPaths = (async () => {
-  const systems = await getSystems();
+  // 有自有樞紐者（hub，如藥籤＝/medicine-slips/）不在此生成：它的籤文不在 poems collection，
+  // 生出來會是一個空殼，且與自有樞紐重複內容。連結一律走 queries.ts 的 systemHref()。
+  const systems = (await getSystems()).filter((s) => !s.data.hub);
   const poems = await getPoems();
   const bySystem = await deitiesBySystem();
   return systems.map((s) => ({

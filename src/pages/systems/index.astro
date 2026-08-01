@@ -17,18 +17,24 @@ const templeCountOf = (systemId: string) => {
   return temples.filter((t) => t.data.main_deity_ref && deityIds.has(t.data.main_deity_ref)).length;
 };
 
+// 首數一律取 divination-systems.json 宣告的 count，**不要改回數 poems collection**：
+// 自有樞紐的籤系（藥籤 330 首在 yaoqian.import.json、不在 poems collection）會被數成 0，
+// 樞紐頁就會像 2026-08-01 那樣對外宣稱「2 套共 160 首」而漏掉整整一套。
 const rows = systems
   .map((s) => ({
     id: s.id,
     data: s.data,
-    poemCount: poems.filter((p) => p.data.system.id === s.id).length,
+    href: s.data.hub ?? `/systems/${s.id}/`,
+    count: s.data.count,
     deities: bySystem.get(s.id) ?? [],
     temples: templeCountOf(s.id),
   }))
-  .sort((a, b) => b.temples - a.temples || b.poemCount - a.poemCount);
+  .sort((a, b) => b.temples - a.temples || b.count - a.count);
 
-const totalPoems = rows.reduce((n, r) => n + r.poemCount, 0);
+const totalPoems = rows.reduce((n, r) => n + r.count, 0);
 const totalTemples = rows.reduce((n, r) => n + r.temples, 0);
+// 籤詩型（在 poems collection 裡）的首數，用於區分「逐首附白話解籤與典故」與藥籤的「藥方＋醫師解說」。
+const lingqianCount = rows.filter((r) => !r.data.hub).reduce((n, r) => n + r.count, 0);
 
 const jsonLd: object[] = [
   breadcrumb([
@@ -44,14 +50,14 @@ const jsonLd: object[] = [
       '@type': 'ListItem',
       position: i + 1,
       name: r.data.name,
-      url: `https://folk.tw/systems/${r.id}/`,
+      url: `https://folk.tw${r.href}`,
     })),
   },
 ];
 const faq = faqPage([
   {
     q: '台灣的廟宇一共有幾套籤詩？',
-    a: '沒有統一的答案。不同廟宇、不同主祀神使用的籤系不同，常見的有六十甲子籤（六十首）、關聖帝君靈籤（一百首，又稱雷雨師籤）、觀音靈籤、二十八星宿籤等。本站目前收錄 ' + rows.length + ' 套，共 ' + totalPoems + ' 首。',
+    a: '沒有統一的答案。不同廟宇、不同主祀神使用的籤系不同，常見的有六十甲子籤（六十首）、關聖帝君靈籤（一百首，又稱雷雨師籤）、觀音靈籤、二十八星宿籤等；另有問病用的藥籤，與求運勢的靈籤是兩回事。本站目前收錄 ' + rows.length + ' 套，共 ' + totalPoems + ' 首。',
   },
   {
     q: '怎麼知道我抽到的是哪一套籤？',
@@ -67,7 +73,7 @@ if (faq) jsonLd.push(faq);
 
 <Base
   title={`台灣籤詩系統：${rows.length} 套共 ${totalPoems} 首`}
-  description={`台灣廟宇常見的籤詩系統整理。本站收錄 ${rows.length} 套共 ${totalPoems} 首籤詩，逐首附白話解籤與典故，並標明各籤系對應的主祀神與廟宇數。`}
+  description={`台灣廟宇常見的籤詩系統整理。本站收錄 ${rows.length} 套共 ${totalPoems} 首，含六十甲子籤、關聖帝君靈籤與保生大帝藥籤，逐首附全文，並標明各籤系對應的主祀神與廟宇數。`}
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
 >
@@ -85,8 +91,8 @@ if (faq) jsonLd.push(faq);
 
   <div class="sys-list">
     {rows.map((r) => (
-      <a class="card sys-item" href={`/systems/${r.id}/`}>
-        <h2>{r.data.name}<span class="sys-count">{r.poemCount} 首</span></h2>
+      <a class="card sys-item" href={r.href}>
+        <h2>{r.data.name}<span class="sys-count">{r.count} 首</span></h2>
         <p class="sys-sum">{r.data.summary}</p>
         <p class="sys-meta">
           {r.deities.length > 0 && <>主祀神：{r.deities.map((d) => d.data.name).join('、')}　</>}
@@ -106,6 +112,20 @@ if (faq) jsonLd.push(faq);
     <p>
       同一間廟不一定只有一套籤——有些廟另設藥籤或月老籤專用籤筒，
       也有廟因歷史沿革換過籤本。本站的對映依主祀神的通行籤系，<strong>實際以廟方現場為準</strong>。
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>靈籤與藥籤不是同一種東西</h2>
+    <p>
+      上面 {lingqianCount} 首屬<strong>靈籤</strong>：問的是運勢、姻緣、事業，籤上是四句詩，
+      本站逐首附白話解籤與典故。
+      <strong>藥籤</strong>問的是病症，籤上寫的是藥方，本站收錄的 330 首附藥方原文與藥材說明。
+    </p>
+    <p>
+      藥籤在民國 88 年已被明令禁止作為醫療使用。本站收錄的是衛生福利部國家中醫藥研究所
+      數位典藏的<strong>文獻本身</strong>——作為醫療手段它已被禁止，作為文獻則由政府自己保存並開放。
+      <a href="/medicine-slips/">保生大帝藥籤 330 首 →</a>
     </p>
   </section>
 

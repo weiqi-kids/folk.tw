@@ -33,6 +33,15 @@ export async function getAllusions() {
 export async function getSystems() {
   return await getCollection('divinationSystems');
 }
+/**
+ * 籤系連結的**唯一入口**。有自有樞紐（hub，如藥籤＝/medicine-slips/）就指那裡，
+ * 否則指 /systems/<id>/。頁面請一律用它，勿自己拼字串——否則新增一套自有樞紐的籤系
+ * 就會在某個沒改到的頁面留下 404。
+ */
+export async function systemHref() {
+  const map = new Map((await getSystems()).map((s) => [s.id, s.data.hub ?? `/systems/${s.id}/`]));
+  return (id: string) => map.get(id) ?? `/systems/${id}/`;
+}
 export async function getRelations() {
   return (await getCollection('deityRelations')).filter((e) => publishable(e));
 }
