@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 10
+      "last_checked": "2026-08-01",
+      "empty_runs": 11
     },
     "memorial_at": "2026-07-20"
   },
@@ -207,8 +207,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 1
+      "last_checked": "2026-08-01",
+      "empty_runs": 2
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -236,9 +236,9 @@
     "status": "active",
     "updates": [],
     "followup": {
-      "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 13
+      "sealed": true,
+      "last_checked": "2026-08-01",
+      "empty_runs": 14
     },
     "lat": 36.3893418,
     "lon": 139.0632826
@@ -462,11 +462,23 @@
         ],
         "added": "2026-07-31T12:33:46.899Z",
         "hash": "9021077c8dfb"
+      },
+      {
+        "date": "2026-07-31",
+        "text": "官方通報，彭水山體崩塌災害處置工作已進入危岩整治與災後重建階段，現場並已布設監測雷達、裂縫計、雷射測距儀及視訊監控等設備，防範二次災害發生。",
+        "sources": [
+          {
+            "ref": "中華網",
+            "url": "https://news.china.com/socialgd/10000169/20260731/49646377.html"
+          }
+        ],
+        "added": "2026-08-01T12:34:06.191Z",
+        "hash": "e759a87ac5e8"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
+      "last_checked": "2026-08-01",
       "empty_runs": 0
     },
     "lat": 29.2962877,
@@ -835,8 +847,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 1
+      "last_checked": "2026-08-01",
+      "empty_runs": 2
     }
   },
   {
@@ -901,8 +913,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 5
+      "last_checked": "2026-08-01",
+      "empty_runs": 6
     }
   },
   {
@@ -1085,8 +1097,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 3
+      "last_checked": "2026-08-01",
+      "empty_runs": 4
     }
   },
   {
@@ -1149,8 +1161,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 0
+      "last_checked": "2026-08-01",
+      "empty_runs": 1
     }
   },
   {
@@ -1252,11 +1264,27 @@
         ],
         "added": "2026-07-31T12:38:00.245Z",
         "hash": "5ba3f93bc9c3"
+      },
+      {
+        "date": "2026-08-01",
+        "text": "永旺熊本購物中心倒塌現場的搜救行動已於當地時間中午結束，警方表示已完成地毯式搜索確認未有其他受困者下落不明。",
+        "sources": [
+          {
+            "ref": "NHK NEWS WEB",
+            "url": "https://news.web.nhk/newsweb/na/na-k10015193651000"
+          },
+          {
+            "ref": "日本經濟新聞",
+            "url": "https://www.nikkei.com/article/DGXZQOUD011BD0R00C26A8000000/"
+          }
+        ],
+        "added": "2026-08-01T12:38:05.137Z",
+        "hash": "c8a43a418437"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
+      "last_checked": "2026-08-01",
       "empty_runs": 0
     }
   },
@@ -1319,12 +1347,28 @@
         ],
         "added": "2026-07-29T12:39:09.110Z",
         "hash": "9c9a91817785"
+      },
+      {
+        "date": "2026-07-30",
+        "text": "重庆彭水山体崩塌災害現場陸上搜救工作已全部完成，相關工作轉入烏江水域清淤搜尋及災後安置重建階段",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/20260730/630ccff5d0df4ababa14814b054b65ab/c.html"
+          },
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-31/10669579.shtml"
+          }
+        ],
+        "added": "2026-08-01T12:39:09.237Z",
+        "hash": "3608a3baee64"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 2
+      "last_checked": "2026-08-01",
+      "empty_runs": 0
     }
   },
   {
@@ -1387,8 +1431,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-07-31",
-      "empty_runs": 2
+      "last_checked": "2026-08-01",
+      "empty_runs": 3
     }
   },
   {
@@ -1412,7 +1456,38 @@
     "lon": 112.5716318,
     "detector": "news",
     "since": "2026-08-01",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-07-31",
+        "text": "事故現場搜救工作已經結束，傷者已送醫且情況穩定。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/politics/20260731/057863baa0ed46fa9e9d4eda01194e9f/c.html"
+          }
+        ],
+        "added": "2026-08-01T12:40:25.548Z",
+        "hash": "a9551aedb5f0"
+      },
+      {
+        "date": "2026-07-31",
+        "text": "事故相關責任人已遭控制，內蒙古自治區政府已成立調查組展開事故調查。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/07-31/10669884.shtml"
+          }
+        ],
+        "added": "2026-08-01T12:40:25.815Z",
+        "hash": "5b238f15f34b"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-01",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-fire-20260801-755724",
@@ -1435,7 +1510,38 @@
     "lon": 121.001902,
     "detector": "news",
     "since": "2026-08-01",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-01",
+        "text": "新竹縣消防局下午已將火勢控制住，現場持續清理善後。",
+        "sources": [
+          {
+            "ref": "鏡新聞（Yahoo新聞）",
+            "url": "https://tw.news.yahoo.com/%E4%BA%92%E5%8A%9B%E7%B2%BE%E5%AF%86%E5%8C%96%E5%AD%B8%E5%85%AC%E5%8F%B83000%E5%9D%AA%E5%BB%A0%E6%88%BF%E8%B5%B7%E7%81%AB-%E7%B6%934%E5%B0%8F%E6%99%82%E6%89%8D%E6%8E%A7%E5%88%B6%E7%81%AB%E5%8B%A2-%E9%8F%A1%E6%96%B0%E8%81%9E-110022536.html"
+          }
+        ],
+        "added": "2026-08-01T12:41:30.681Z",
+        "hash": "3150b8fe9488"
+      },
+      {
+        "date": "2026-08-01",
+        "text": "廠房所屬上市公司下午發布聲明，確認人員平安無傷，已啟動應變機制，後續復原計畫與損失仍在評估中。",
+        "sources": [
+          {
+            "ref": "知新聞",
+            "url": "https://www.knews.com.tw/news/FEA125F80B33853FB5B0E486749EBDF7"
+          }
+        ],
+        "added": "2026-08-01T12:41:31.090Z",
+        "hash": "a9df90242df4"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-01",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-bridge-collapse-20260731-1fdd44",
@@ -1458,6 +1564,25 @@
     "lon": 119.7126369,
     "detector": "news",
     "since": "2026-08-01",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-01",
+        "text": "官方表示後續將對廊橋是否存在品質問題展開調查並跟進善後處置",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-08-01/doc-inikumqp4047045.shtml"
+          }
+        ],
+        "added": "2026-08-01T12:42:16.680Z",
+        "hash": "e0f3489f606a"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-01",
+      "empty_runs": 0
+    }
   }
 ]
