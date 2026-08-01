@@ -13,6 +13,7 @@ interface Props {
   canonical?: string; // canonical override（相對路徑，如 '/almanac/'）；不給則以本頁路徑自我 canonical。用於鏡像頁指回正本。
 }
 import { GA4_ID } from '../consts';
+import goodDaysData from '../data/good-days.json'; // nav「看日子」小段由資料驅動，勿硬編（見下方 nav 註解）
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
 const { title, description, ogTitle, ogImage, ogImageAlt, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable, canonical: canonicalOverride } = Astro.props;
@@ -79,80 +80,125 @@ const speakablePage =
         speakable: { '@type': 'SpeakableSpecification', cssSelector: speakable },
       }
     : null;
-// 排序依 GSC 近 28 天實測需求（2026-07-02 全量 page 維度）：
-// 廟宇 imp 10,343 ≫ 籤詩 658 > 神明 508 > 農民曆 177 > 拜拜習俗 104 > 民俗活動 11。
-// 「關於」移 footer（本有連結）；「行業守護神」為新模組入口（乙案：入口放進強元素）。
-// 排序（2026-07-18 用戶指定「主打順序」）：求籤（成長主軸）、行業守護神、農民曆前置，
-// 廟宇/籤詩/典故次之——用戶產品判斷優先於當期 GSC 量排序（覆蓋先前 d7ef155 的 GSC 數據排序）。
+// ── nav ──
 // href 一律用 canonical 尾斜線（對齊 build format:'directory' 的 canonical/sitemap）：
 // 讓每頁 nav 直接連到 canonical、免經 301，避免內鏈權重卡在非 canonical 形式（/poems 曾因此孤兒化）。
-// 2026-07-31 改版：13 個扁平項目 → 7 組（用戶指定）。行動版佔流量 70%（GA4 實測
-// 2,369/3,389），一長串扁平連結在小螢幕上是一面牆。四點命名修正皆為用戶裁示：
-//   ① 「今日運勢」→「今日宜忌」：首頁實際區塊是熱門神明／近期節日／近期神明聖誕／今日農民曆，
-//      **站上沒有運勢內容**。nav 錨文字是全站 12,000 頁指向首頁的訊號，用「運勢」會把
-//      Google 對首頁的主題認知帶往我們給不出的東西。
-//   ② 「籤詩」→「解籤」：與「我想…」裡的「求籤」區分。求籤＝抽一支（工具），
-//      解籤＝查第 X 籤（查詢）。GSC 實測籤詩頁查詢多為「第X籤」，人是來查的。
-//   ③ 擇日全部收進「我想…」，農民曆退回工具層——避免兩個入口通往同一批資料。
-//   ④ 「近期節日」→「節日」：錨文字要用使用者搜的字，「近期」是介面修飾。
+//
+// 2026-08-01 二次改版：**單一分類軸（主題）**，13 → 7 項。
+// 7/31 首版雖然把 13 個扁平項目收成 7 組，但同時用了三條軸——時間（今日宜忌／節日／農民曆）、
+// 意圖（我想…）、主題（神明・宮廟・解籤／習俗與典故）——使用者無法預測東西在哪一格；
+// 更嚴重的是**同一批內容被切到兩組**：籤（求籤在「我想…」、解籤/籤系/藥籤在另一組）、
+// 神明（拜哪尊/行業守護神/比一比 vs 神明/聖誕曆）。「我想…」因此變成 11 項的雜物櫃，
+// 「搬家入厝看日子」在 min-width 的浮層裡折成兩行——**寬度不一致是結果不是原因**。
+//
+// 分類決策皆為 2026-08-01 用戶逐題裁示：
+//   ① 籤全合一組「籤詩」（抽一支與查第 X 籤不分家）。
+//   ② 拜哪尊／行業守護神／神明比一比 跟神明同一組（資料上就是 deities.json 的切片）。
+//   ③ **日期類全合一組**：今日農民曆／沖煞/宜忌詞義/封存 ＋ 11 種擇日，用 sections 分兩小段。
+//      ⚠️ 這是用戶明示的合併，別再拆回「農民曆」與「看日子」兩個頂層項。
+//   ④ 節日與習俗典故合一組「節慶習俗」。
+//   ⑤ 廟宇升頂層單頁：8,265 頁、佔全站曝光 91%，是唯一被驗證的成長引擎。
+//
+// 沿用 7/31 的命名裁示（勿改）：
+//   - 不可寫「運勢」：首頁實際區塊是熱門神明／近期節日／近期神明聖誕／今日農民曆，
+//     **站上沒有運勢內容**。nav 錨文字是全站 12,000 頁指向首頁的訊號。
+//   - 求籤＝抽一支（工具）、解籤＝查第 X 籤（查詢）要在字面上分得出來；
+//     GSC 實測籤詩頁查詢多為「第X籤」，人是來查的。兩者現在同組但各自標清楚。
+//   - 錨文字用使用者搜的字，不用介面修飾詞（「近期節日」→「節日」）。
+// 「今日宜忌」留頂層：它是全站 12,000 頁指向首頁的錨文字，降進下拉會弱化首頁訊號
+//   （左上「神酷」是品牌字、不是關鍵詞）。
+// 第 2 項頂層叫「農民曆」而非「看日子」：兩者都是有量的搜尋詞，但農民曆 3,264 頁／
+//   GA4 近 7 日 18 次瀏覽 vs 擇日 12 頁，大的那邊當頂層錨文字，「看日子」降為面板內小標。
 //
 // ⚠️ 三條鐵則：
 //   - href 一律帶尾斜線（/poems 曾因 nav 指非 canonical 而內鏈數＝0、從未被爬；
 //     `check:canonical` 會擋）。
-//   - 分組必須是**靜態 HTML**（<details>），不可由 JS 注入——爬蟲看不到，
-//     且會踩 Astro scoped style 套不到 JS 注入 DOM 的坑（見記憶 astro-scoped-style-innerhtml-pitfall）。
-//   - 擇日子項**只放目前真的推得出宜日的**。安床／開市／出行等 10 個用事恆空，
-//     補完前不得放進來——nav 指向空頁面比不放更糟。清單見 src/data/good-days.json。
+//   - 分組必須是**靜態 HTML**（<details>＋靜態小標，不可用巢狀 details、不可由 JS 注入）——
+//     爬蟲看不到 JS 注入的連結，且會踩 Astro scoped style 套不到注入 DOM 的坑
+//     （見記憶 astro-scoped-style-innerhtml-pitfall）。收闔行為是漸進增強，只切換 open 屬性。
+//   - 擇日子項**只放目前真的推得出宜日的**，且**由 good-days.json 驅動、不硬編**——
+//     硬編過一次就漂移成「資料 11 個、nav 只顯示 3 個」。清單與恆空理由見該檔 _policy。
 //
 // ⚠️ /qiugian/ 與 /jiaobei/ 是全站僅有的拼音 slug，其餘皆英文。/qiugian/ 已被 Google 收錄
 //    且在 seo-ops trackUrls 內，改網址會斷收錄，故維持不動。
-const nav = [
+type NavItem = { href: string; label: string };
+// cols＝桌機浮層裡該段排成幾欄（不給＝單欄直排）。行動版一律 2 欄，見 global.css。
+// 用途是壓面板高度：農民曆 4 項排 2 欄、擇日 11 項排 4 欄，整個面板才不會變成一根長條。
+type NavSection = { title?: string; items: NavItem[]; cols?: number; more?: NavItem };
+type NavEntry = { href: string; label: string } | { label: string; sections: NavSection[] };
+
+// 擇日子項用每筆的 name（結婚／搬家入厝／理髮…），不是 nav_label（結婚看日子）：
+// 後者是 /good-days/[slug] 的 H1 與麵包屑用字，放進已叫「看日子」的小段會變成
+// 「看日子 ＞ 結婚看日子」的重複，也正是浮層折行的元凶。
+const goodDayItems: NavItem[] = (goodDaysData as { items: { slug: string; name: string }[] }).items.map((i) => ({
+  href: `/good-days/${i.slug}/`,
+  label: i.name,
+}));
+
+const nav: NavEntry[] = [
   { href: '/', label: '今日宜忌' },
   {
-    label: '我想…',
-    children: [
-      { href: '/qiugian/', label: '求籤' },
-      { href: '/scenarios/', label: '拜哪尊' },
-      { href: '/trades/', label: '行業守護神' },
-      { href: '/compare/', label: '神明比一比' },
-      { href: '/jiaobei/', label: '擲筊怎麼看' },
-      // 擇日：用戶原始 nav 設計指名「求籤、理髮、結婚…等」，故這三類直接露出；
-      // 其餘 8 個（安床／開市／出行／訂婚／上樑／整手足甲／動土／安葬…）收在樞紐後面，
-      // 避免下拉選單變成 16 項的長條。完整清單見 src/data/good-days.json。
-      { href: '/good-days/haircut/', label: '理髮看日子' },
-      { href: '/good-days/wedding/', label: '結婚看日子' },
-      { href: '/good-days/moving/', label: '搬家入厝看日子' },
-      { href: '/good-days/', label: '其他看日子…' },
-    ],
-  },
-  { href: '/festivals/', label: '節日' },
-  {
     label: '農民曆',
-    children: [
-      { href: '/almanac/', label: '今日農民曆' },
-      { href: '/almanac/yiji/', label: '宜忌事項解釋' },
-      { href: '/almanac/chongsha/', label: '今日沖煞' },
-      { href: '/almanac/archive/', label: '過去日期封存' },
+    sections: [
+      {
+        title: '農民曆',
+        cols: 2,
+        items: [
+          { href: '/almanac/', label: '今日農民曆' },
+          { href: '/almanac/chongsha/', label: '今日沖煞' },
+          { href: '/almanac/yiji/', label: '宜忌事項解釋' },
+          { href: '/almanac/archive/', label: '過去日期封存' },
+        ],
+      },
+      {
+        title: '看日子',
+        items: goodDayItems,
+        cols: 4,
+        more: { href: '/good-days/', label: `全部 ${goodDayItems.length} 種看日子` },
+      },
     ],
   },
   {
-    label: '神明・宮廟・解籤',
-    children: [
-      { href: '/deities/', label: '神明' },
-      { href: '/deities/birthdays/', label: '神明聖誕曆' },
-      { href: '/temples/', label: '廟宇' },
-      { href: '/poems/', label: '解籤' },
-      { href: '/systems/', label: '籤系' },
-      { href: '/medicine-slips/', label: '保生大帝藥籤' },
+    label: '籤詩',
+    sections: [
+      {
+        items: [
+          { href: '/qiugian/', label: '線上求籤' },
+          { href: '/poems/', label: '解籤（查第 X 籤）' },
+          { href: '/systems/', label: '籤系' },
+          { href: '/medicine-slips/', label: '保生大帝藥籤' },
+          { href: '/jiaobei/', label: '擲筊怎麼看' },
+        ],
+      },
     ],
   },
   {
-    label: '習俗與典故',
-    children: [
-      { href: '/practices/', label: '拜拜習俗' },
-      { href: '/events/', label: '民俗活動' },
-      { href: '/allusions/', label: '典故' },
-      { href: '/vocabulary/', label: '詞彙' },
+    label: '神明',
+    sections: [
+      {
+        items: [
+          { href: '/deities/', label: '神明' },
+          { href: '/deities/birthdays/', label: '神明聖誕曆' },
+          { href: '/scenarios/', label: '拜哪尊' },
+          { href: '/trades/', label: '行業守護神' },
+          { href: '/compare/', label: '神明比一比' },
+        ],
+      },
+    ],
+  },
+  { href: '/temples/', label: '廟宇' },
+  {
+    label: '節慶習俗',
+    sections: [
+      {
+        items: [
+          { href: '/festivals/', label: '節日' },
+          { href: '/practices/', label: '拜拜習俗' },
+          { href: '/events/', label: '民俗活動' },
+          { href: '/allusions/', label: '典故' },
+          { href: '/vocabulary/', label: '詞彙' },
+        ],
+      },
     ],
   },
   { href: '/search/', label: '搜尋' },
@@ -163,8 +209,12 @@ const trimSlash = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) 
 const normPath = trimSlash(path);
 const isActive = (href: string) =>
   href === '/' ? normPath === '/' : normPath === trimSlash(href) || normPath.startsWith(trimSlash(href) + '/');
-// 群組是否含當前頁 → 該群組預設展開（<details open>），使用者一進站就看得到自己在哪一區。
-const groupActive = (children: { href: string }[]) => children.some((c) => isActive(c.href));
+// 群組是否含當前頁 → 該組 <summary> 標紅（.active）。
+// ⚠️ 刻意**不**用它去設 <details open>：桌機 .nav-sub 是 position:absolute 浮層，
+//    預設展開等於一進站就有白底浮層壓在正文上（例如進 /poems/ 時「籤詩」組自動彈開）。
+//    所在區用紅字表示即可，展開與否交給使用者。
+const groupActive = (sections: NavSection[]) =>
+  sections.some((s) => s.items.some((i) => isActive(i.href)) || (s.more ? isActive(s.more.href) : false));
 ---
 
 <!doctype html>
@@ -238,13 +288,26 @@ const groupActive = (children: { href: string }[]) => children.some((c) => isAct
       <nav>
         {
           nav.map((n) =>
-            n.children ? (
-              // 靜態 <details>：無 JS、爬蟲讀得到全部子連結、鍵盤與螢幕閱讀器原生可用。
-              <details class="nav-group" open={groupActive(n.children)}>
-                <summary class:list={[{ active: groupActive(n.children) }]}>{n.label}</summary>
+            'sections' in n ? (
+              // 靜態 <details>：無 JS 也能展開、爬蟲讀得到全部子連結、鍵盤與螢幕閱讀器原生可用。
+              // 小標題是靜態 markup 而非巢狀 <details>——一次點開就要看到整組，不做二層點擊。
+              <details class="nav-group">
+                <summary class:list={[{ active: groupActive(n.sections) }]}>{n.label}</summary>
                 <div class="nav-sub">
-                  {n.children.map((c) => (
-                    <a href={c.href} class:list={[{ active: isActive(c.href) }]}>{c.label}</a>
+                  {n.sections.map((s) => (
+                    <div class="nav-sub-section">
+                      {s.title && <p class="nav-sub-title">{s.title}</p>}
+                      <div class:list={['nav-sub-links', { grid: !!s.cols }]} style={s.cols ? `--nav-cols:${s.cols}` : undefined}>
+                        {s.items.map((c) => (
+                          <a href={c.href} class:list={[{ active: isActive(c.href) }]}>{c.label}</a>
+                        ))}
+                      </div>
+                      {s.more && (
+                        <a class="nav-sub-more" href={s.more.href} class:list={[{ active: isActive(s.more.href) }]}>
+                          {s.more.label} →
+                        </a>
+                      )}
+                    </div>
                   ))}
                 </div>
               </details>
@@ -254,6 +317,39 @@ const groupActive = (children: { href: string }[]) => children.some((c) => isAct
           )
         }
       </nav>
+      {/* 收闔行為（漸進增強）：只切換既有 <details> 的 open 屬性，**不注入任何 DOM**——
+          所以爬蟲看到的仍是同一份靜態 HTML，也不踩 scoped style 套不到注入 DOM 的坑。
+          沒有 JS 時退回原生行為（能開、但不會自動關）。 */}
+      <script is:inline>
+        (function () {
+          var navEl = document.querySelector('.site-header nav');
+          if (!navEl) return;
+          var groups = Array.prototype.slice.call(navEl.querySelectorAll('details.nav-group'));
+          groups.forEach(function (d) {
+            d.addEventListener('toggle', function () {
+              if (!d.open) return;
+              groups.forEach(function (o) {
+                if (o !== d) o.open = false;
+              });
+            });
+          });
+          document.addEventListener('click', function (e) {
+            if (navEl.contains(e.target)) return;
+            groups.forEach(function (d) {
+              d.open = false;
+            });
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            groups.forEach(function (d) {
+              if (!d.open) return;
+              d.open = false;
+              var s = d.querySelector('summary');
+              if (s && d.contains(document.activeElement)) s.focus();
+            });
+          });
+        })();
+      </script>
     </header>
     <main class="site-main" data-pagefind-body>
       <slot />

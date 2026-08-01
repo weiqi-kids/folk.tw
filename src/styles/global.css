@@ -40,12 +40,16 @@ p { margin: 0.875rem 0; }
 .site-header nav a { color: var(--ink-soft); font-size: var(--text-base); }
 .site-header nav a.active { color: var(--accent); font-weight: 700; }
 
-/* ── nav 分組（2026-07-31）──
+/* ── nav 分組（2026-07-31 建，2026-08-01 改單一主題軸）──
    13 個扁平項目 → 7 組。行動版佔流量 70%，一長串連結在小螢幕上是一面牆。
-   刻意用原生 <details>／<summary>：不需要 JS，爬蟲讀得到全部子連結（JS 注入的 nav
-   Google 未必看得到，且 Astro scoped <style> 也套不到 JS 注入的 DOM）；
-   鍵盤 Enter/Space 展開、螢幕閱讀器有原生語意，不必自己補 aria。
-   桌機上以絕對定位浮出，行動版（≤48rem）改為就地展開的清單，不做浮層。 */
+   刻意用原生 <details>／<summary>：爬蟲讀得到全部子連結（JS 注入的 nav Google 未必看得到，
+   且 Astro scoped <style> 也套不到 JS 注入的 DOM）；鍵盤 Enter/Space 展開、螢幕閱讀器有原生語意。
+   收闔（互斥／點外面關／Esc）是 Base.astro 裡的漸進增強，只切 open 屬性、不動 DOM。
+   桌機上以絕對定位浮出，行動版（≤48rem）改為就地展開的清單，不做浮層。
+
+   ⚠️ 寬度：桌機浮層用 width:max-content ＋ 子項 white-space:nowrap。原本 min-width:11rem
+      會讓「搬家入厝看日子」這種長標籤折成兩行；而各組項數本來就不同（4 vs 11），
+      硬設同一個 min-width 只會讓短的那組留一片空白，並不會讓它們看起來一樣寬。 */
 .nav-group { position: relative; }
 .nav-group > summary {
   list-style: none; cursor: pointer;
@@ -56,15 +60,28 @@ p { margin: 0.875rem 0; }
 .nav-group[open] > summary::after { content: '⌃'; }
 .nav-group > summary.active { color: var(--accent); font-weight: 700; }
 .nav-group > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.nav-sub { display: flex; flex-direction: column; gap: 0.5rem; }
+/* 滑鼠點擊不留外框（:focus-visible 規格上不該觸發，但部分瀏覽器對 summary 會） */
+.nav-group > summary:focus:not(:focus-visible) { outline: none; }
+.nav-sub { display: flex; flex-direction: column; gap: 0.875rem; }
+.nav-sub-section { display: flex; flex-direction: column; gap: 0.5rem; }
+/* 第二段起加一條分隔線（單一 section 的群組不會出現，維持原本外觀） */
+.nav-sub-section + .nav-sub-section { padding-top: 0.875rem; border-top: 1px solid var(--line); }
+.nav-sub-title { margin: 0; color: var(--ink-soft); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.06em; }
+.nav-sub-links { display: flex; flex-direction: column; gap: 0.5rem; }
+/* 分欄可以把面板高度壓下來，一次點開就看得到整組。欄數由 Base.astro 逐段給 --nav-cols
+   （農民曆 2 欄、擇日 11 項 4 欄）；行動版一律 2 欄，見下方 media query。 */
+.nav-sub-links.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 1.25rem; }
+.nav-sub a { white-space: nowrap; }
+.nav-sub-more { font-size: var(--text-sm); }
 
 @media (min-width: 48rem) {
   .nav-sub {
-    position: absolute; z-index: 20; top: 100%; right: 0; min-width: 11rem;
+    position: absolute; z-index: 20; top: 100%; right: 0; width: max-content; max-width: 26rem;
     margin-top: 0.5rem; padding: 0.75rem 1rem;
     background: var(--paper-2); border: 1px solid var(--line);
     border-radius: 0.5rem; box-shadow: 0 0.25rem 1rem oklch(0% 0 0 / 12%);
   }
+  .nav-sub-links.grid { grid-template-columns: repeat(var(--nav-cols, 2), minmax(0, 1fr)); }
 }
 @media (max-width: 47.99rem) {
   /* 行動版：整組佔滿一列、子項就地展開（浮層在小螢幕上會被裁切） */
