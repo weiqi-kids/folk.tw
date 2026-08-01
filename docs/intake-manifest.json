@@ -7,8 +7,8 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 1,
-  "updated": "2026-07-30",
+  "version": 2,
+  "updated": "2026-08-01",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -27,7 +27,9 @@
         "min_bytes": 4000000,
         "contains": "<OpenData_3>",
         "not_smaller_than_current_pct": 90,
-        "min_occurrences": { "<OpenData_3>": 12000 },
+        "min_occurrences": {
+          "<OpenData_3>": 12000
+        },
         "_why": [
           "min_bytes 這種絕對下限擋不住殘檔：2026-07-30 實測投一個 5MB 截斷檔（真檔 6.27MB）",
           "通過了 4MB 下限、也含 <OpenData_3>，直接覆蓋掉完整檔（12,419 筆只剩前 5MB）。",
@@ -43,7 +45,10 @@
       "max_age_days": 90,
       "note": "抓取前的禮貌檢查：確認慶典查詢路徑未被 robots 禁止。",
       "expect": {
-        "http_status_any_of": [200, 404],
+        "http_status_any_of": [
+          200,
+          404
+        ],
         "record_status_only": true,
         "_why": [
           "台灣端 2026-07-30 回報此網址實回 404，而原本寫 http_status:200 會讓這個 job 永遠失敗（我的錯）。",
@@ -51,6 +56,109 @@
           "故本 job 只記錄狀態、不以 HTTP 碼判成敗；404 時把回應內容（可能為空或錯誤頁）照樣送回即可，",
           "由境外端判讀。若哪天變成 200 且含 Disallow，抓取範圍就要跟著改。"
         ]
+      }
+    },
+    {
+      "id": "religion-festival-entry",
+      "url": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
+      "dest": "religion-festival/festival-entry.html",
+      "max_age_days": 30,
+      "note": "慶(祭)典查詢入口頁。空條件單次 GET 即渲染全部資料列，含 ODS 沒有的「電話」「宗教別」。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 5000000,
+        "contains": "<tr",
+        "min_occurrences": {
+          "<tr": 6000
+        }
+      }
+    },
+    {
+      "id": "religion-festival-ods",
+      "url": "https://religion.moi.gov.tw/Festival/FestivalOdsReport.ods",
+      "dest": "religion-festival/festival-export.ods",
+      "max_age_days": 30,
+      "method": "POST",
+      "form": {
+        "FestivalName": "",
+        "ReligionName": "",
+        "ReligionType": "",
+        "Area": "",
+        "Country": "",
+        "FestivalType": "",
+        "Lunar": "",
+        "Month_Start": "",
+        "Day_Start": "",
+        "Month_End": "",
+        "Day_End": "",
+        "FestivalDate_Start": "",
+        "FestivalDate_End": "",
+        "Week": ""
+      },
+      "token": {
+        "field": "__RequestVerificationToken",
+        "from_job": "religion-festival-entry"
+      },
+      "note": "官方 ODS 批次匯出，條件全空＝全量 6,634 筆。必須排在 entry 之後。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 200000,
+        "contains": "mimetype"
+      },
+      "_why": [
+        "ODS 的 sha256 每輪都會變（.ods 是 zip、壓縮時間戳每次不同）——**這不代表資料變了**，要比對內容請解壓後再比。",
+        "曆別（農曆/國曆）只有 HTML 有、ODS 沒有，所以 entry 那份是主來源、本份是對帳用。見 docs/festival-data-import.md。"
+      ]
+    },
+    {
+      "id": "crgis-folk-customs",
+      "url": "https://crgis.rchss.sinica.edu.tw/resources/internet/folk_customs/list",
+      "dest": "crgis/folk-customs-list.html",
+      "max_age_days": 7,
+      "note": "中研院 CRGIS。2026-07-30 起連續不通（TCP 443 逾時，母站亦同）。加成 job 讓它每輪自動重試。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 1000
+      },
+      "_why": [
+        "**預期會一直失敗，這不是設定錯誤**：台灣端 2026-07-30 起連測三天皆 HTTP 000，連母站 rchss.sinica.edu.tw 也不通。",
+        "是連不上、不是沒有資料——**不要據此判定該來源無效並刪掉這個 job**。"
+      ]
+    },
+    {
+      "id": "knowledge-zaoshen",
+      "url": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265",
+      "dest": "misc/knowledge-zaoshen-cid265.html",
+      "max_age_days": 90,
+      "note": "灶神條目頁，iconography 用。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "knowledge-deities-list",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=3",
+      "dest": "misc/knowledge-deities-list-cid3.html",
+      "max_age_days": 90,
+      "note": "神祇分類列表，96 個條目，iconography 可由此擴充。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 50000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "local-celebration",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
+      "dest": "misc/local-celebration-ci96.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典行政成果。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
       }
     }
   ]

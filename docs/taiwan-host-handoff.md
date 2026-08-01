@@ -134,18 +134,44 @@ out/temple-xml/temple.xml.meta.json   # {"url":…,"http_status":200,"fetched_at
 ### 3.4 不要解析（再說一次）
 原始 bytes 原封送回。不要轉 JSON、不要改編碼、不要挑欄位、不要美化、不要去空白。
 
+### 3.5 欄位契約（**改 manifest 前必讀**）
+
+台灣端的 `fetch.mjs` 碰到**不認得的欄位會停下，不抓也不送**，原因寫進 `state.json`。
+所以在 manifest 加新欄位前，請先確認台灣端支援，或同時通知台灣端升級。
+
+目前台灣端支援：
+
+| 層級 | 欄位 |
+|---|---|
+| job | `id` `url` `dest` `max_age_days` `note` `expect` `paginate` `method` `form` `token` |
+| expect | `http_status` `http_status_any_of` `record_status_only` `min_bytes` `contains` `min_occurrences` `not_smaller_than_current_pct` |
+| token | `field` `from` `from_job` |
+| paginate | `method` `page_param` `start` `max_pages` `form` `token` `dest_template` `total_pages_re` `stop_when_missing` `expect_per_page` |
+
+底線開頭的欄位（`_why` 等）一律忽略，可自由當註解用。
+
+🔴 **這一節是拿事故換來的**：2026-08-01 境外端加了 `http_status_any_of` / `record_status_only`，
+台灣端當時不認得，**結果不是報錯而是整段狀態檢查被跳過**——一頁 ASP.NET 錯誤頁被當成合格資料
+收下並推送。那次剛好真的是 404、無害，但**回 500 也會照收**。台灣端已改為遇到不認得的欄位就停擺：
+**默默做錯比停擺危險。**
+
 ---
 
 ## 步驟 4：推送
 
 ```bash
-rsync -az --partial --append-verify \
+rsync -az --partial --ignore-times \
   -e "ssh -i ~/.ssh/folk_tw_intake -o StrictHostKeyChecking=accept-new" \
   ~/folk-tw-intake/out/ root@172.235.205.148:
 ```
 
 - 遠端路徑**留空**（結尾就是 `:`）——forced command 已把目標鎖定在 inbox
-- `--partial --append-verify` 讓大檔斷線後續傳
+- `--partial` 讓大檔斷線後續傳
+- 🔴 **`--append-verify` 不可用**（2026-08-01 台灣端實際中招）：它假設檔案只會變長，
+  遇到「大小相同」的檔案會**跳過內容、只對齊 mtime**，而且對齊之後連普通 rsync 也不再修正。
+  `.sha256` 是固定長度、`state.json` 也常同大小 → **兩者永遠傳不過去**。
+  最壞情況是新的 `temple.xml` 配舊的 `.sha256`，境外端驗不過、整份不採用。
+  `--ignore-times` 強制逐檔比對內容，正是為了擋這個。**別為了省頻寬改回去。**
 - 目錄結構照 `out/` 底下的相對路徑落地（例如 `out/temple-xml/temple.xml` → `inbox/temple-xml/temple.xml`）
 
 境外那台每小時 :07 收件、每日 09:20（台北）檢查新鮮度並在逾期時發 Slack。
