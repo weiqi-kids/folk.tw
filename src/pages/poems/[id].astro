@@ -100,6 +100,8 @@ if (faq) ld.push(faq);
         <a class="tag" href={`/systems/${d.system.id}/`}>{systemName.get(d.system.id)}</a>
         {d.ganzhi && d.title && <span class="tag">{d.title}</span>}
         {d.gua && <span class="tag">{d.gua}卦</span>}
+        {/* 擲筊組合（月老籤專屬）：現場是靠三次杯象找到自己那一首，不是抽籤支 */}
+        {d.jiaobei && <span class="tag jiaobei">擲筊 {d.jiaobei}</span>}
         {d.wuxing && <span class="tag">{d.wuxing.element}·{d.wuxing.season}·{d.wuxing.direction}</span>}
         {/* 吉凶輔標：小、次級；本系統多無原生定級（A.3-1） */}
         {d.fortune && <span class="tag fortune">{d.fortune}</span>}
@@ -114,6 +116,20 @@ if (faq) ld.push(faq);
         {d.lines.map((l) => <p class="line">{l}</p>)}
       </div>
     </section>
+
+    {/* 籤版原印的分項解：**照抄籤版、不改寫**，與本站自撰的九項分項解分開陳列。
+        各籤版項目名稱與數量都不同（月老籤有福祿/生意/風水），硬套本站九項會變成我們的詮釋。 */}
+    {
+      d.official_interpretation.length > 0 && (
+        <section class="official">
+          <h2>籤版所印的分項解</h2>
+          <ul class="oi">
+            {d.official_interpretation.map((t) => <li>{t}</li>)}
+          </ul>
+          <p class="src muted small">照錄自{systemName.get(d.system.id)}籤版，未改寫。{d.version_source}</p>
+        </section>
+      )
+    }
 
     {/* 白話賞析（版面主角，§0.5）：緊扣四句意象與典故，文化呈現非算命 */}
     {
@@ -257,6 +273,9 @@ if (faq) ld.push(faq);
     .allusion .aname { font-weight: 700; margin: 0 0 0.375rem; }
     .small { font-size: var(--text-sm); }
     .src { color: var(--gold); font-size: var(--text-xs); }
+    .jiaobei { letter-spacing: 0.08em; }
+    .oi { list-style: none; padding: 0; margin: 0.625rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.875rem; }
+    .oi li { padding: 0.25rem 0.625rem; border: 1px solid var(--line); border-radius: 0.25rem; font-size: var(--text-sm); }
     .interp { margin: 0.625rem 0; }
     .interp .row { display: grid; grid-template-columns: 5rem 1fr; gap: 0.625rem; padding: 0.4375rem 0; border-bottom: 1px dashed var(--line); }
     .interp dt { font-weight: 700; color: var(--accent); }

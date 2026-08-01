@@ -158,7 +158,16 @@ const poems = defineCollection({
       })
       .optional(),
     gua: z.string().optional(), // 易經卦名（六十甲子籤專屬）
-    fortune: z.string().optional(), // 吉凶（六十甲子籤非原生；關帝籤有原生定級）
+    fortune: z.string().optional(), // 吉凶（六十甲子籤非原生；關帝籤與月老籤有原生定級）
+    // 擲筊組合（月老籤專屬）：大天后宮月老籤不抽籤支，而是連擲三次筊，
+    // 以三次杯象（聖/陽/陰）的排列對應一首，3³＝27 首。這是該籤版取籤的唯一方式，
+    // 不是附註——沒有它使用者無法從現場的筊象找到自己那一首。
+    jiaobei: z.string().optional(),
+    // 籤版本身所印的分項解（如「功名至」「婚姻好」）。**逐條照抄籤版、不改寫、不重新歸類**：
+    // 各籤版的項目名稱與數量都不同（月老籤有福祿/生意/風水，六十甲子籤沒有），
+    // 硬套 interpretations 的九項會變成我們的詮釋而非籤版原文。
+    // 本站自撰的白話賞析與九項分項解仍走 interpretations collection，兩者並存不混。
+    official_interpretation: z.array(z.string()).default([]),
     lines: z.array(z.string()).min(4).max(4), // 四句本文（公有領域）
     // 典故連結可多筆並陳、各掛源（A.0 各廟版本不一）
     allusions: z
