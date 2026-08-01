@@ -1390,5 +1390,28 @@
       "last_checked": "2026-07-31",
       "empty_runs": 2
     }
+  },
+  {
+    "id": "news-other-20260731-08512a",
+    "eventType": "other",
+    "title": "為內蒙古自治區烏蘭察布市卓資縣重大事件平安祈福",
+    "event": "中鐵建於內蒙古自治區烏蘭察布市卓資縣壓縮空氣儲能專案工地，七月三十一日凌晨施工隧道發生坍塌意外，造成人員傷亡。願罹難者安息、傷者早日康復，祈願搜救工作順利平安。",
+    "sources": [
+      {
+        "ref": "中國新聞網",
+        "url": "https://www.chinanews.com.cn/sh/2026/07-31/10669884.shtml"
+      },
+      {
+        "ref": "澎湃新聞",
+        "url": "https://www.thepaper.cn/newsDetail_forward_33688626"
+      }
+    ],
+    "place": "內蒙古自治區烏蘭察布市卓資縣",
+    "time": "2026-07-31",
+    "lat": 40.891897,
+    "lon": 112.5716318,
+    "detector": "news",
+    "since": "2026-08-01",
+    "status": "active"
   }
 ]
