@@ -1413,5 +1413,51 @@
     "detector": "news",
     "since": "2026-08-01",
     "status": "active"
+  },
+  {
+    "id": "news-fire-20260801-755724",
+    "eventType": "fire",
+    "title": "為湖口工業區廠房火災平安祈福",
+    "event": "新竹縣湖口鄉工業區一化學工廠今日發生爆炸並引發大火，濃煙數公里外可見，所幸現場人員已即時撤離、未傳出傷亡，祈願火勢儘速撲滅、地方平安無虞。",
+    "sources": [
+      {
+        "ref": "聯合新聞網",
+        "url": "https://udn.com/news/story/7320/9664505"
+      },
+      {
+        "ref": "自由時報",
+        "url": "https://news.ltn.com.tw/news/HsinchuCounty/breakingnews/5525123"
+      }
+    ],
+    "place": "新竹縣湖口鄉工業區",
+    "time": "2026-08-01",
+    "lat": 24.860932,
+    "lon": 121.001902,
+    "detector": "news",
+    "since": "2026-08-01",
+    "status": "active"
+  },
+  {
+    "id": "news-bridge-collapse-20260731-1fdd44",
+    "eventType": "bridge-collapse",
+    "title": "為浙江溫州泰順橋樑坍塌祈福",
+    "event": "浙江省溫州市泰順縣南浦溪鎮的福慶廊橋，於7月31日下午受10級瞬間雷雨強風影響，部分坍塌，造成傷亡。願當地平安、傷者早日康復，橋樑早日修復。",
+    "sources": [
+      {
+        "ref": "觀察者網",
+        "url": "https://www.guancha.cn/ChengShi/2026_07_31_825767.shtml"
+      },
+      {
+        "ref": "星島日報",
+        "url": "https://www.singtaousa.com/2026/08/01/news/china/former-longest-wooden-bridge-collapse-storm/"
+      }
+    ],
+    "place": "浙江省溫州市泰順縣",
+    "time": "2026-07-31",
+    "lat": 27.5594965,
+    "lon": 119.7126369,
+    "detector": "news",
+    "since": "2026-08-01",
+    "status": "active"
   }
 ]
