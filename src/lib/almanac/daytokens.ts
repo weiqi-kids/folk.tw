@@ -28,6 +28,10 @@ const BRANCH_ID: Record<string, string> = {
   申: 'daybranch_shen', 酉: 'daybranch_you', 戌: 'daybranch_xu', 亥: 'daybranch_hai',
 };
 
+// 農曆日 token（2026-08-01 加）：卷十一有數條忌「每月十二日十五日」這種**農曆日期**規則
+// （剃頭、整手足甲），既非神煞也非建除、日干支，是第四個維度。
+const LUNAR_DAY_ID = (d: number) => `lunarday_${d}`;
+
 const STEM_ID: Record<string, string> = {
   甲: 'daystem_jia', 乙: 'daystem_yi', 丙: 'daystem_bing', 丁: 'daystem_ding', 戊: 'daystem_wu',
   己: 'daystem_ji', 庚: 'daystem_geng', 辛: 'daystem_xin', 壬: 'daystem_ren', 癸: 'daystem_gui',
@@ -40,6 +44,11 @@ const SRC_JIANCHU = [
   '建除十二神：本站 C.2 S5 建除義例（月建×日支），與 lunar-javascript（壽星天文曆）交叉驗證；' +
     '宜忌歸屬另見《欽定協紀辨方書》卷十一用事 https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11',
 ];
+const SRC_LUNAR = [
+  '農曆日：由 provider（lunar-javascript，壽星天文曆算法、對齊香港天文台）推定，' +
+    '發佈前對中央氣象署抽查（C.4-4）；宜忌歸屬另見《欽定協紀辨方書》卷十一用事 ' +
+    'https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11',
+];
 const SRC_GANZHI = [
   '日干支：本站 C.2 確定性公式，scripts/verify-almanac.ts 全掃 1901–2099 與 lunar-javascript、' +
     'solarlunar 三方比對一致；宜忌歸屬另見《欽定協紀辨方書》卷十一用事 ' +
@@ -51,7 +60,12 @@ const SRC_GANZHI = [
  * class 一律標中性意義的 '吉'／'凶' 沒有意義（平日本身不吉不凶，是「對某事項」才有宜忌），
  * 故統一給 '凶' 會誤導——這裡給 '吉' 亦然。改以 class 僅供顯示用途，判定完全交給 votes.json。
  */
-export function dayTokens(jianchuShen: string | null, dayStem: string, dayBranch: string): ActiveShenSha[] {
+export function dayTokens(
+  jianchuShen: string | null,
+  dayStem: string,
+  dayBranch: string,
+  lunarDay?: number | null,
+): ActiveShenSha[] {
   const out: ActiveShenSha[] = [];
   const jcId = jianchuShen ? JIANCHU_ID[jianchuShen] : undefined;
   if (jcId) {
@@ -61,5 +75,14 @@ export function dayTokens(jianchuShen: string | null, dayStem: string, dayBranch
   if (brId) out.push({ id: brId, name: `${dayBranch}日`, class: '吉', sources: SRC_GANZHI, verified: true });
   const stId = STEM_ID[dayStem];
   if (stId) out.push({ id: stId, name: `${dayStem}日`, class: '吉', sources: SRC_GANZHI, verified: true });
+  if (typeof lunarDay === 'number' && lunarDay >= 1 && lunarDay <= 30) {
+    out.push({
+      id: LUNAR_DAY_ID(lunarDay),
+      name: `農曆${lunarDay}日`,
+      class: '吉',
+      sources: SRC_LUNAR,
+      verified: true,
+    });
+  }
   return out;
 }

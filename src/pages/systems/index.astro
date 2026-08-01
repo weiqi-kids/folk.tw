@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getSystems, getPoems, deitiesBySystem, getTemples } from '../../lib/queries';
+import { breadcrumb, faqPage } from '../../lib/seo';
+
+// 籤系樞紐（2026-08-01 建）：原本只有 /systems/<id>/ 各籤系頁，**沒有共同入口**——
+// 各籤系只能從 /poems/ 或神明頁側門進來，彼此不相連。籤系擴充前必須先有這一層，
+// 否則每加一套籤就多一個孤兒頁。
+const systems = await getSystems();
+const poems = await getPoems();
+const bySystem = await deitiesBySystem();
+const temples = await getTemples();
+
+// 每個籤系實際涵蓋多少廟：主祀神掛該籤系者 → 該廟可用此籤。純由既有對映衍生，不補新事實。
+const templeCountOf = (systemId: string) => {
+  const deityIds = new Set((bySystem.get(systemId) ?? []).map((d) => d.id));
+  return temples.filter((t) => t.data.main_deity_ref && deityIds.has(t.data.main_deity_ref)).length;
+};
+
+const rows = systems
+  .map((s) => ({
+    id: s.id,
+    data: s.data,
+    poemCount: poems.filter((p) => p.data.system.id === s.id).length,
+    deities: bySystem.get(s.id) ?? [],
+    temples: templeCountOf(s.id),
+  }))
+  .sort((a, b) => b.temples - a.temples || b.poemCount - a.poemCount);
+
+const totalPoems = rows.reduce((n, r) => n + r.poemCount, 0);
+const totalTemples = rows.reduce((n, r) => n + r.temples, 0);
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '籤詩', path: '/poems/' },
+    { name: '籤系', path: '/systems/' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '台灣籤詩系統',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: r.data.name,
+      url: `https://folk.tw/systems/${r.id}/`,
+    })),
+  },
+];
+const faq = faqPage([
+  {
+    q: '台灣的廟宇一共有幾套籤詩？',
+    a: '沒有統一的答案。不同廟宇、不同主祀神使用的籤系不同，常見的有六十甲子籤（六十首）、關聖帝君靈籤（一百首，又稱雷雨師籤）、觀音靈籤、二十八星宿籤等。本站目前收錄 ' + rows.length + ' 套，共 ' + totalPoems + ' 首。',
+  },
+  {
+    q: '怎麼知道我抽到的是哪一套籤？',
+    a: '看籤上的編號方式最快：六十甲子籤以干支標號（甲子、乙丑…癸亥），關聖帝君靈籤以第一籤到第一百籤標號且每籤配一個歷史人物典故。若籤上有廟名，也可以查該廟主祀哪位神明來推。',
+  },
+  {
+    q: '同一間廟會不會有好幾套籤？',
+    a: '會。有些廟除了主神的籤，還另設藥籤、月老籤等專用籤筒；也有廟因為歷史沿革換過籤本。本站的對映是依主祀神的通行籤系，實際以廟方現場為準。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title={`台灣籤詩系統：${rows.length} 套共 ${totalPoems} 首`}
+  description={`台灣廟宇常見的籤詩系統整理。本站收錄 ${rows.length} 套共 ${totalPoems} 首籤詩，逐首附白話解籤與典故，並標明各籤系對應的主祀神與廟宇數。`}
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/poems/">籤詩</a> ／ 籤系
+  </nav>
+
+  <h1>籤詩系統</h1>
+
+  <p class="lead">
+    台灣廟宇用的籤不是同一套。不同主祀神、不同廟宇沿革，發的籤本就不一樣。
+    本站目前收錄 <strong>{rows.length} 套共 {totalPoems} 首</strong>，
+    對應到 <strong>{totalTemples.toLocaleString()} 間</strong>登記在案的宮廟。
+  </p>
+
+  <div class="sys-list">
+    {rows.map((r) => (
+      <a class="card sys-item" href={`/systems/${r.id}/`}>
+        <h2>{r.data.name}<span class="sys-count">{r.poemCount} 首</span></h2>
+        <p class="sys-sum">{r.data.summary}</p>
+        <p class="sys-meta">
+          {r.deities.length > 0 && <>主祀神：{r.deities.map((d) => d.data.name).join('、')}　</>}
+          {r.temples > 0 && <>可用此籤的宮廟 {r.temples.toLocaleString()} 間</>}
+        </p>
+      </a>
+    ))}
+  </div>
+
+  <section class="card">
+    <h2>怎麼看籤上的編號</h2>
+    <p>
+      最快的辨別方式是看編號：<strong>六十甲子籤</strong>用干支標號（甲子、乙丑一路到癸亥，共六十首）；
+      <strong>關聖帝君靈籤</strong>用第一籤到第一百籤，且每一籤都配一個歷史人物典故當籤題。
+      若籤上印了廟名，也可以查該廟主祀哪位神明來推是哪一套。
+    </p>
+    <p>
+      同一間廟不一定只有一套籤——有些廟另設藥籤或月老籤專用籤筒，
+      也有廟因歷史沿革換過籤本。本站的對映依主祀神的通行籤系，<strong>實際以廟方現場為準</strong>。
+    </p>
+  </section>
+
+  <nav class="sys-more" aria-label="相關">
+    <h2>相關</h2>
+    <ul>
+      <li><a href="/poems/">全部籤詩與白話解籤</a></li>
+      <li><a href="/qiugian/">線上求籤</a></li>
+      <li><a href="/jiaobei/">擲筊怎麼看</a></li>
+      <li><a href="/allusions/">籤詩典故</a></li>
+      <li><a href="/medicine-slips/">保生大帝藥籤</a></li>
+    </ul>
+  </nav>
+</Base>
+
+<style>
+  .lead strong { color: var(--accent); }
+  .sys-list { display: grid; gap: 0.75rem; margin: 1.5rem 0 2rem; }
+  .sys-item { display: block; text-decoration: none; }
+  .sys-item h2 { margin: 0 0 0.375rem; font-size: var(--text-lg); color: var(--accent); }
+  .sys-count { color: var(--ink-soft); font-size: var(--text-sm); font-weight: 400; margin-left: 0.5rem; }
+  .sys-sum { margin: 0 0 0.5rem; color: var(--ink); font-size: var(--text-base); }
+  .sys-meta { margin: 0; color: var(--ink-soft); font-size: var(--text-sm); }
+  .sys-more ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+</style>

@@ -134,7 +134,7 @@ export function computeDayRecord(
     // 神煞 ＋ 日相標記（建除／日支／日干）。後者是 2026-07-31 新增的維度：協紀卷十一的
     // 宜忌清單裡有「平日 收日 閉日 亥日 丁日」這類**非神煞**條目，原本完全落在判定之外。
     // 兩者同形，併成同一集合即可沿用既有投票／制化／verified 傳播鏈（見 daytokens.ts 檔頭）。
-    const active = [...activeShenSha(ctx), ...dayTokens(jianchuVal, day干.stem, day干.branch)];
+    const active = [...activeShenSha(ctx), ...dayTokens(jianchuVal, day干.stem, day干.branch, lunarVal?.day ?? null)];
     const activeSet = new Set(active.map((a) => a.id));
     const verifiedSet = new Set(active.filter((a) => a.verified).map((a) => a.id));
 

@@ -116,11 +116,13 @@ const nav = [
       { href: '/trades/', label: '行業守護神' },
       { href: '/compare/', label: '神明比一比' },
       { href: '/jiaobei/', label: '擲筊怎麼看' },
+      // 擇日：用戶原始 nav 設計指名「求籤、理髮、結婚…等」，故這三類直接露出；
+      // 其餘 8 個（安床／開市／出行／訂婚／上樑／整手足甲／動土／安葬…）收在樞紐後面，
+      // 避免下拉選單變成 16 項的長條。完整清單見 src/data/good-days.json。
+      { href: '/good-days/haircut/', label: '理髮看日子' },
       { href: '/good-days/wedding/', label: '結婚看日子' },
       { href: '/good-days/moving/', label: '搬家入厝看日子' },
-      { href: '/good-days/groundbreaking/', label: '動土看日子' },
-      { href: '/good-days/burial/', label: '安葬看日子' },
-      { href: '/good-days/worship/', label: '拜拜看日子' },
+      { href: '/good-days/', label: '其他看日子…' },
     ],
   },
   { href: '/festivals/', label: '節日' },
@@ -140,6 +142,7 @@ const nav = [
       { href: '/deities/birthdays/', label: '神明聖誕曆' },
       { href: '/temples/', label: '廟宇' },
       { href: '/poems/', label: '解籤' },
+      { href: '/systems/', label: '籤系' },
       { href: '/medicine-slips/', label: '保生大帝藥籤' },
     ],
   },

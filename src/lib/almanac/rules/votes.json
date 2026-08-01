@@ -978,7 +978,1691 @@
    ],
    "verified": true,
    "_verify_note": "已核四庫本卷11原文：嫁娶忌列完整為——「月破平日收日閉日劫煞災煞月煞月刑月害月厭厭對大時天吏四廢四忌四窮五墓往亡八專亥日」，本條吻合。"
+  },
+  {
+   "shensha": "jianchu_chu",
+   "affair": "titou",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條宜列為「除日解神除神」，本條（除日）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（月建）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "daystem_ding",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（丁日）吻合。"
+  },
+  {
+   "shensha": "lunarday_12",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（農曆十二日）吻合。"
+  },
+  {
+   "shensha": "lunarday_15",
+   "affair": "titou",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整容剃頭」條忌列為「月建月破劫煞災煞月煞月刑月厭丁日每月十二日十五日」，本條（農曆十五日）吻合。"
+  },
+  {
+   "shensha": "jianchu_chu",
+   "affair": "zhengshoujia",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條宜列為「除日解神除神」，本條（除日）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（月建）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "lunarday_1",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆一日）吻合。"
+  },
+  {
+   "shensha": "lunarday_6",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆六日）吻合。"
+  },
+  {
+   "shensha": "lunarday_15",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆十五日）吻合。"
+  },
+  {
+   "shensha": "lunarday_19",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆十九日）吻合。"
+  },
+  {
+   "shensha": "lunarday_21",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆廿一日）吻合。"
+  },
+  {
+   "shensha": "lunarday_23",
+   "affair": "zhengshoujia",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「整手足甲」條忌列為「月建月破劫煞災煞月煞月刑月厭每月一日六日十五日十九日二十一日二十三日」，本條（農曆廿三日）吻合。"
+  },
+  {
+   "shensha": "jianchu_wei",
+   "affair": "anchuang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條宜列為「危日」，本條（危日）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "daybranch_shen",
+   "affair": "anchuang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「安牀」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓申日」，本條（申日）吻合。"
+  },
+  {
+   "shensha": "jianchu_man",
+   "affair": "kaishi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條宜列為「天願民日滿日成日開日五富」，本條（滿日）吻合。"
+  },
+  {
+   "shensha": "jianchu_cheng",
+   "affair": "kaishi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條宜列為「天願民日滿日成日開日五富」，本條（成日）吻合。"
+  },
+  {
+   "shensha": "jianchu_kai",
+   "affair": "kaishi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條宜列為「天願民日滿日成日開日五富」，本條（開日）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "yuehai",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（月害）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "siqiong",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（四窮）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "kaishi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「開市」條忌列為「月破大耗平日收日閉日劫煞災煞月煞月刑月害月厭大時天吏小耗四耗四廢四窮五墓九空」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "tiande",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（天德）吻合。"
+  },
+  {
+   "shensha": "yuede",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（月德）吻合。"
+  },
+  {
+   "shensha": "tiandehe",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（天德合）吻合。"
+  },
+  {
+   "shensha": "yuedehe",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（月德合）吻合。"
+  },
+  {
+   "shensha": "sxiang",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（四相）吻合。"
+  },
+  {
+   "shensha": "shide",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（時德）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（建日）吻合。"
+  },
+  {
+   "shensha": "tianxi",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（天喜）吻合。"
+  },
+  {
+   "shensha": "jianchu_kai",
+   "affair": "chuxing",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳王日驛馬天馬建日吉期天喜開日」，本條（開日）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "daybranch_si",
+   "affair": "chuxing",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「行幸遣使（原書小註：出行同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏天賊四廢五墓往亡巳日」，本條（巳日）吻合。"
+  },
+  {
+   "shensha": "tiande",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（天德）吻合。"
+  },
+  {
+   "shensha": "yuede",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（月德）吻合。"
+  },
+  {
+   "shensha": "tiandehe",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（天德合）吻合。"
+  },
+  {
+   "shensha": "yuedehe",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（月德合）吻合。"
+  },
+  {
+   "shensha": "sxiang",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（四相）吻合。"
+  },
+  {
+   "shensha": "shide",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（時德）吻合。"
+  },
+  {
+   "shensha": "jianchu_cheng",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（成日）吻合。"
+  },
+  {
+   "shensha": "jianchu_kai",
+   "affair": "yixi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日驛馬天馬成日開日」，本條（開日）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "wangwang",
+   "affair": "yixi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「般移（原書小註：移徙同）」條忌列為「月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓歸忌往亡」，本條（往亡）吻合。"
+  },
+  {
+   "shensha": "tiande",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（天德）吻合。"
+  },
+  {
+   "shensha": "yuede",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（月德）吻合。"
+  },
+  {
+   "shensha": "tiandehe",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（天德合）吻合。"
+  },
+  {
+   "shensha": "yuedehe",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（月德合）吻合。"
+  },
+  {
+   "shensha": "sxiang",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（四相）吻合。"
+  },
+  {
+   "shensha": "shide",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（時德）吻合。"
+  },
+  {
+   "shensha": "sanhe",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（三合）吻合。"
+  },
+  {
+   "shensha": "tianxi",
+   "affair": "nacai",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳民日三合天喜」，本條（天喜）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月建）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_man",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（滿日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yuehai",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月害）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "siji",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（四忌）吻合。"
+  },
+  {
+   "shensha": "siqiong",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（四窮）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "bazhuan",
+   "affair": "nacai",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「納采問名」條忌列為「月建月破平日收日滿日閉日劫煞災煞月煞月刑月害月厭大時天吏四廢四忌四窮五墓五離八專」，本條（八專）吻合。"
+  },
+  {
+   "shensha": "tiande",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（天德）吻合。"
+  },
+  {
+   "shensha": "yuede",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（月德）吻合。"
+  },
+  {
+   "shensha": "tiandehe",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（天德合）吻合。"
+  },
+  {
+   "shensha": "yuedehe",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（月德合）吻合。"
+  },
+  {
+   "shensha": "sxiang",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（四相）吻合。"
+  },
+  {
+   "shensha": "shide",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（時德）吻合。"
+  },
+  {
+   "shensha": "sanhe",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（三合）吻合。"
+  },
+  {
+   "shensha": "jianchu_kai",
+   "affair": "shangliang",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳三合開日」，本條（開日）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（月建）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jianchu_bi",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（閉日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（四廢）吻合。"
+  },
+  {
+   "shensha": "wumu",
+   "affair": "shangliang",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「豎柱上梁」條忌列為「月建月破平日收日閉日劫煞災煞月煞月刑月厭大時天吏四廢五墓」，本條（五墓）吻合。"
+  },
+  {
+   "shensha": "tiande",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（天德）吻合。"
+  },
+  {
+   "shensha": "yuede",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（月德）吻合。"
+  },
+  {
+   "shensha": "tiandehe",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（天德合）吻合。"
+  },
+  {
+   "shensha": "yuedehe",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（月德合）吻合。"
+  },
+  {
+   "shensha": "sxiang",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（四相）吻合。"
+  },
+  {
+   "shensha": "shide",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（時德）吻合。"
+  },
+  {
+   "shensha": "jianchu_kai",
+   "affair": "qiusi",
+   "verdict": "宜",
+   "weight": "吉",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條宜列為「天徳月徳天徳合月徳合天赦天願月恩四相時徳開日益後續世」，本條（開日）吻合。"
+  },
+  {
+   "shensha": "jianchu_jian",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月建）吻合。"
+  },
+  {
+   "shensha": "yuepo",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月破）吻合。"
+  },
+  {
+   "shensha": "jianchu_ping",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（平日）吻合。"
+  },
+  {
+   "shensha": "jianchu_shou",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（收日）吻合。"
+  },
+  {
+   "shensha": "jiesha",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（劫煞）吻合。"
+  },
+  {
+   "shensha": "zaisha",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（災煞）吻合。"
+  },
+  {
+   "shensha": "yuesha",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月煞）吻合。"
+  },
+  {
+   "shensha": "yuexing",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月刑）吻合。"
+  },
+  {
+   "shensha": "yuehai",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月害）吻合。"
+  },
+  {
+   "shensha": "yueyan",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（月厭）吻合。"
+  },
+  {
+   "shensha": "sifei",
+   "affair": "qiusi",
+   "verdict": "忌",
+   "weight": "凶",
+   "sources": [
+    "欽定協紀辨方書·卷十一·用事（四庫全書本）https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11"
+   ],
+   "verified": true,
+   "_verify_note": "已核四庫本卷11原文：「求嗣」條忌列為「月建月破平日收日劫煞災煞月煞月刑月害月厭大時遊禍天吏四廢」，本條（四廢）吻合。"
   }
  ],
- "_pending_jiaqu": "嫁娶宜忌尚缺 5 條，因其定位義例未於卷04–06 查得，依「無源不發佈」不入表：宜——天赦、天願、不將；忌——大時、天吏（卷06 有其「所値之日忌…」定義，但未取得逐月定位表）。補入前請先取得原文逐月／逐干支定位，並比照本表逐條填 _verify_note。"
+ "_pending_jiaqu": "嫁娶宜忌尚缺 5 條，因其定位義例未於卷04–06 查得，依「無源不發佈」不入表：宜——天赦、天願、不將；忌——大時、天吏（卷06 有其「所値之日忌…」定義，但未取得逐月定位表）。補入前請先取得原文逐月／逐干支定位，並比照本表逐條填 _verify_note。",
+ "_pending_affairs": "尚未能推出宜日者：①破土——卷十一宜列僅「鳴吠鳴吠對」，兩者皆未實作定位，補入後即可解鎖。②開光、入殮——**卷十一「用事」三份總目與逐條宜忌中皆無此二條**（已查卷10/11/12 並以 Wikisource insource 全站檢索確認），依「無源不發佈」永不臆造，除非改採其他經典為據。另各事項宜列中尚缺定位義例者：天赦・天願・月恩・王日・驛馬・天馬・吉期・民日・五富・益後・續世・不將；忌列尚缺：大時・天吏・天賊・大耗・小耗・四耗・九空・五離・遊禍・土府・土符・地囊・復日・重日。"
 }
