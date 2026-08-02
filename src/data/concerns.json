@@ -32,11 +32,11 @@
     "h1": "為感情求一支籤",
     "intent": "曖昧、告白、挽回、走出分手",
     "aspect": "姻緣",
-    "system": "liushi_jiazi",
+    "system": "yuelao_lingqian",
     "deities": [
       "yuelao"
     ],
-    "blurb": "月下老人專司姻緣紅線——不管是曖昧沒進展還是想挽回，台灣人求感情籤多半先拜月老。",
+    "blurb": "月下老人主姻緣。臺南祀典大天后宮的月老籤共二十七首，不抽籤支，是連擲三次筊、以三次杯象對應一首。",
     "outcomes": [
       {
         "value": "在一起",
@@ -50,7 +50,8 @@
         "value": "還沒到",
         "label": "緣分還沒到"
       }
-    ]
+    ],
+    "slip_prefix": "婚"
   },
   {
     "id": "kaoshi",

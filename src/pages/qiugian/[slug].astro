@@ -20,18 +20,28 @@ const deityById = new Map(deities.map((d) => [d.id, d.data]));
 // 抽籤資料集：本情境對映籤系的每一籤 → 四句 + 對映面向（既有籤解，零杜撰）。
 const poems = await getPoems();
 const interps = await interpretationById();
-const qianData = poems
+// slip_prefix＝此情境靠**籤版原印的分項解**作答（月老籤），不是本站自撰的白話解籤。
+// 取法是照抄籤版該項的原文（如「婚姻好」），不改寫、不重新歸類——選哪一項給哪個情境是「挑選」，
+// 把籤版的話改寫成我們的句子才是「詮釋」，後者不做。
+const slipPrefix: string | undefined = (concern as { slip_prefix?: string }).slip_prefix;
+const rows = poems
   .filter((p) => p.data.system.id === concern.system)
   .sort((a, b) => a.data.no - b.data.no)
   .map((p) => ({
     no: p.data.no,
     id: p.id,
     label: p.data.title ?? p.data.ganzhi ?? '',
+    jiaobei: p.data.jiaobei ?? '',
     fortune: p.data.fortune ?? '',
     lines: p.data.lines,
     aspect: ((interps.get(p.id)?.data ?? {}) as Record<string, string | undefined>)[concern.aspect] ?? '',
-  }))
-  .filter((q) => q.aspect);
+    slip: slipPrefix ? (p.data.official_interpretation ?? []).filter((t) => t.startsWith(slipPrefix)).join('、') : '',
+  }));
+// 🔴 籤版作答的籤系**不濾掉沒有該項的籤**：月老籤第九首的籤版原本就沒有「婚姻」項
+//    （已回頭核對掃描件確認，不是謄錄漏抄）。照舊濾掉會讓它永遠抽不到＝1/27 的靜默偏差，
+//    而且抽籤本來就該是每一支都有機會。改成保留，由畫面如實說明該籤版沒列這一項。
+//    其餘籤系維持原本行為（濾掉缺解的籤，防資料缺口）。
+const qianData = slipPrefix ? rows : rows.filter((q) => q.aspect);
 
 type Agg = { week_draws: number; baoxi: number; top: Record<string, number>; joys: { text: string; meta: string }[] };
 const st: Agg = (stats as unknown as Record<string, Agg>)[concern.id] ?? { week_draws: 0, baoxi: 0, top: {}, joys: [] };
@@ -47,7 +57,8 @@ const SCENARIO_BY_CONCERN: Record<string, { id: string; label: string }> = {
 };
 const scenario = SCENARIO_BY_CONCERN[concern.id];
 
-const pageDesc = `為${concern.label}（${concern.intent}）求一支${sysLabel}，看「${concern.aspect}」面向的白話解籤。和同樣在為${concern.label}煩惱的人，一起。`;
+const answerKind = slipPrefix ? '籤版原印分項解' : '白話解籤';
+const pageDesc = `為${concern.label}（${concern.intent}）求一支${sysLabel}，看「${concern.aspect}」面向的${answerKind}。`;
 
 const faq = faqPage([
   { q: `為${concern.label}求籤，該拜哪位神？`, a: patronDeities.length ? `${patronDeities.map((d) => d.name).join('、')}——都是台灣人為${concern.label}求籤時會拜的神。` : '' },
@@ -87,9 +98,10 @@ const jsonLd = [
   </div>
 
   <div class="draw-alt small">
-    <span>在廟裡抽到了？直接查籤號</span>
+    {/* 月老籤不抽籤支、是連擲三次筊定出第幾首，寫「抽到了」對不上現場動作 */}
+    <span>{slipPrefix ? '在廟裡擲筊得到第幾首？' : '在廟裡抽到了？直接查籤號'}</span>
     <span class="draw-alt-field">
-      <input id="noInput" type="number" min="1" inputmode="numeric" placeholder="籤號" aria-label="籤號" />
+      <input id="noInput" type="number" min="1" max={qianData.length} inputmode="numeric" placeholder={slipPrefix ? '第幾首' : '籤號'} aria-label={slipPrefix ? '第幾首' : '籤號'} />
       <button class="btn-num" id="noBtn" type="button">看這支</button>
     </span>
   </div>
@@ -228,6 +240,11 @@ const jsonLd = [
     #result .reading h2 { font-size: var(--text-lg); margin: 0.375rem 0 0.625rem; }
     #result .reading p { font-size: var(--text-base); margin: 0 0 0.75rem; }
     #result .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+    /* 籤版原印的分項解（月老籤）：答案很短（「婚姻好」三個字），放大並標明出處，
+       不要看起來像本站寫的白話解籤。#result 命名空間內，注入 DOM 也套得到。 */
+    #result .reading .slip { font-size: var(--text-lg); color: var(--ink); display: flex; align-items: baseline; gap: 0.625rem; flex-wrap: wrap; }
+    #result .reading .slip .slip-tag { font-size: var(--text-sm); color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.25rem; padding: 0.125rem 0.5rem; }
+    #result .reading .slip-none { color: var(--ink-soft); }
 
     #result .hearth { margin-top: 1.75rem; border-radius: 1.125rem; padding: 1.375rem 1.375rem 0.625rem;
       background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2); border: 1px solid var(--line); }
@@ -270,14 +287,18 @@ const jsonLd = [
         <p class="draw-head small muted">你為 <b>${esc(cfg.label!)} · ${esc(cfg.aspect!)}</b> 求得——</p>
         <div class="rslip-row">
           <div class="rslip card">
-            <div class="rno">${esc(cfg.system!)} · 第 ${item.no} 籤${item.label ? ' · ' + esc(item.label) : ''}</div>
+            <div class="rno">${esc(cfg.system!)} · 第 ${item.no} 籤${item.label ? ' · ' + esc(item.label) : ''}${item.jiaobei ? ' · 擲筊 ' + esc(item.jiaobei) : ''}</div>
             <div class="rpoem">${lines}</div>
             ${item.fortune ? `<div class="rfortune">${esc(item.fortune)}</div>` : ''}
           </div>
           <div class="reading">
             <p class="rtag">就你問的「${esc(cfg.label!)}」而言</p>
             <h2>${esc(cfg.aspect!)}</h2>
-            <p>${esc(item.aspect)}</p>
+            ${item.aspect
+              ? `<p>${esc(item.aspect)}</p>`
+              : item.slip
+                ? `<p class="slip">${esc(item.slip)}<span class="slip-tag">籤版原印</span></p>`
+                : `<p class="slip-none">這張籤版沒有列這一項。四句與其他項目見完整籤解。</p>`}
             <a class="more" href="/poems/${esc(item.id)}/">看完整籤解與其他面向 →</a>
           </div>
         </div>
