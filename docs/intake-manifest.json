@@ -7,8 +7,8 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 2,
-  "updated": "2026-08-01",
+  "version": 3,
+  "updated": "2026-08-02",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -160,6 +160,60 @@
         "min_bytes": 30000,
         "contains": "</html>"
       }
+    },
+    {
+      "id": "culture-collections-guanyin",
+      "url": "https://collections.culture.tw/Search?keyword=%E8%A7%80%E9%9F%B3%E7%B1%A4",
+      "dest": "misc/culture-collections-guanyin.html",
+      "max_age_days": 30,
+      "note": "文化部典藏網搜尋「觀音籤」。找觀音一百籤是否有政府典藏等級的全文（版本錨定用）。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 1000
+      },
+      "_why": [
+        "偵察用的搜尋結果頁，境外 curl 實測 HTTP 000（需台灣 IP）。",
+        "expect 刻意很鬆：我不知道這站的搜尋頁會回幾 KB、也還沒找到穩定的關鍵字可以放 contains。",
+        "⚠️ 這違背台灣端 2026-08-01 的教訓（弱 expect ＝ 錯誤頁會被當合格資料收下），",
+        "所以講明：**這三個 job 的內容由人工判讀，不進任何自動管線**。",
+        "等確認了穩定特徵再把 contains 補上、把 expect 收緊。任務說明見 docs/TODO-FOR-TAIWAN.md。"
+      ]
+    },
+    {
+      "id": "culture-collections-qianshi",
+      "url": "https://collections.culture.tw/Search?keyword=%E7%B1%A4%E8%A9%A9",
+      "dest": "misc/culture-collections-qianshi.html",
+      "max_age_days": 30,
+      "note": "文化部典藏網搜尋「籤詩」。找觀音一百籤是否有政府典藏等級的全文（版本錨定用）。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 1000
+      },
+      "_why": [
+        "偵察用的搜尋結果頁，境外 curl 實測 HTTP 000（需台灣 IP）。",
+        "expect 刻意很鬆：我不知道這站的搜尋頁會回幾 KB、也還沒找到穩定的關鍵字可以放 contains。",
+        "⚠️ 這違背台灣端 2026-08-01 的教訓（弱 expect ＝ 錯誤頁會被當合格資料收下），",
+        "所以講明：**這三個 job 的內容由人工判讀，不進任何自動管線**。",
+        "等確認了穩定特徵再把 contains 補上、把 expect 收緊。任務說明見 docs/TODO-FOR-TAIWAN.md。"
+      ]
+    },
+    {
+      "id": "culture-collections-qianbu",
+      "url": "https://collections.culture.tw/Search?keyword=%E7%B1%A4%E7%B0%BF",
+      "dest": "misc/culture-collections-qianbu.html",
+      "max_age_days": 30,
+      "note": "文化部典藏網搜尋「籤簿」。找觀音一百籤是否有政府典藏等級的全文（版本錨定用）。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 1000
+      },
+      "_why": [
+        "偵察用的搜尋結果頁，境外 curl 實測 HTTP 000（需台灣 IP）。",
+        "expect 刻意很鬆：我不知道這站的搜尋頁會回幾 KB、也還沒找到穩定的關鍵字可以放 contains。",
+        "⚠️ 這違背台灣端 2026-08-01 的教訓（弱 expect ＝ 錯誤頁會被當合格資料收下），",
+        "所以講明：**這三個 job 的內容由人工判讀，不進任何自動管線**。",
+        "等確認了穩定特徵再把 contains 補上、把 expect 收緊。任務說明見 docs/TODO-FOR-TAIWAN.md。"
+      ]
     }
   ]
 }
