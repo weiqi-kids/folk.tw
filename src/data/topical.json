@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 11
+      "last_checked": "2026-08-02",
+      "empty_runs": 12
     },
     "memorial_at": "2026-07-20"
   },
@@ -207,8 +207,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 2
+      "last_checked": "2026-08-02",
+      "empty_runs": 3
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -478,8 +478,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 0
+      "last_checked": "2026-08-02",
+      "empty_runs": 1
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -847,8 +847,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 2
+      "last_checked": "2026-08-02",
+      "empty_runs": 3
     }
   },
   {
@@ -913,8 +913,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 6
+      "last_checked": "2026-08-02",
+      "empty_runs": 7
     }
   },
   {
@@ -1093,12 +1093,28 @@
         ],
         "added": "2026-07-28T12:37:06.874Z",
         "hash": "250a48412d37"
+      },
+      {
+        "date": "2026-08-02",
+        "text": "國家防災減災救災委員會就渭源雙石門沟山洪災害啟動調查評估掛牌督辦，要求甘肃省政府依法組織展開災害調查評估、檢討防災救災機制。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/politics/20260802/a2309192365045f9be11ed041c228771/c.html"
+          },
+          {
+            "ref": "應急管理部",
+            "url": "https://www.mem.gov.cn/xw/yjglbgzdt/202608/t20260802_679063.shtml"
+          }
+        ],
+        "added": "2026-08-02T12:34:44.478Z",
+        "hash": "45746d683aec"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 4
+      "last_checked": "2026-08-02",
+      "empty_runs": 0
     }
   },
   {
@@ -1157,12 +1173,28 @@
         ],
         "added": "2026-07-31T12:37:37.768Z",
         "hash": "bb079cbae12f"
+      },
+      {
+        "date": "2026-08-02",
+        "text": "中國國家防災減災救災委員會就渭源縣雙石門沟山洪災害啟動調查評估掛牌督辦，要求甘肅省政府依法組織展開災害調查評估，並推動強化當地防災減災能量。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/20260802/594884018dbb41c49e248a622dc352be/c.html"
+          },
+          {
+            "ref": "中國應急管理部",
+            "url": "https://www.mem.gov.cn/xw/yjglbgzdt/202608/t20260802_679063.shtml"
+          }
+        ],
+        "added": "2026-08-02T12:35:19.911Z",
+        "hash": "236558e37c6f"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 1
+      "last_checked": "2026-08-02",
+      "empty_runs": 0
     }
   },
   {
@@ -1280,11 +1312,23 @@
         ],
         "added": "2026-08-01T12:38:05.137Z",
         "hash": "c8a43a418437"
+      },
+      {
+        "date": "2026-08-02",
+        "text": "熊本縣宣布將自翌日起受理災民入住飯店等住宿設施安置，同時組合屋（臨時住宅）也將動工興建，盼儘速讓災民脫離避難所生活",
+        "sources": [
+          {
+            "ref": "日本經濟新聞",
+            "url": "https://www.nikkei.com/article/DGXZQOJC021AY0S6A800C2000000/"
+          }
+        ],
+        "added": "2026-08-02T12:35:49.567Z",
+        "hash": "9df128ef863f"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
+      "last_checked": "2026-08-02",
       "empty_runs": 0
     }
   },
@@ -1367,8 +1411,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 0
+      "last_checked": "2026-08-02",
+      "empty_runs": 1
     }
   },
   {
@@ -1431,8 +1475,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 3
+      "last_checked": "2026-08-02",
+      "empty_runs": 4
     }
   },
   {
@@ -1485,8 +1529,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 0
+      "last_checked": "2026-08-02",
+      "empty_runs": 1
     }
   },
   {
@@ -1539,8 +1583,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
-      "empty_runs": 0
+      "last_checked": "2026-08-02",
+      "empty_runs": 1
     }
   },
   {
@@ -1577,11 +1621,23 @@
         ],
         "added": "2026-08-01T12:42:16.680Z",
         "hash": "e0f3489f606a"
+      },
+      {
+        "date": "2026-08-01",
+        "text": "泰順福慶橋坍塌事故中原通報的失聯者已尋獲，送醫搶救後仍不幸罹難。",
+        "sources": [
+          {
+            "ref": "星島日報",
+            "url": "https://www.singtaousa.com/2026/08/01/news/china/former-longest-wooden-bridge-collapse-storm/"
+          }
+        ],
+        "added": "2026-08-02T12:39:42.710Z",
+        "hash": "a1eacd1ba88f"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-01",
+      "last_checked": "2026-08-02",
       "empty_runs": 0
     }
   }
