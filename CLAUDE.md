@@ -6,14 +6,10 @@
 >    `temples.json` 的 `festivals[]`（原本只有 21 間有 `main_festival`）。
 >    細節、裁示與清洗規則見 [`docs/festival-data-import.md`](docs/festival-data-import.md)、
 >    本檔下方「年度慶(祭)典」條目。
-> 2. **處理 appi.news 撞題**：appi.news 有四篇 2026 中元/鬼月/七夕文章連過來（5 條 followed 連結，
->    錨文字是實質內容）。推薦流量會計入 8/31 目標＝好事；但其中三篇（中元普渡指南／鬼月禁忌／
->    七夕指南）打的正是 `/festivals/zhongyuan/`、`/festivals/qixi/` 的目標查詢。
->    **目標量在 folk.tw 的 GA4（542419964），appi 贏走點擊 folk 的數字就不動。**
->    方向：folk 強化「資料庫／逐條掛源／農曆換算」這個 appi 給不了的角度；
->    appi 打 folk 不做的長尾（`company-pudu-2026-guide` 公司普渡就是正確的互補範例）。
->    ⚠️ appi.news 是**不同業主**的站、掛 `/root/.claude-appi` 帳號、有自己的產線——
->    要改它的 playbook 前先問用戶。
+> 2. ~~**處理 appi.news 撞題**~~ 🅤 **2026-08-02 用戶裁示「不用理他」，結案不做。**
+>    （原內容：appi.news 有四篇 2026 中元/鬼月/七夕文章連過來，其中三篇打的正是
+>    `/festivals/zhongyuan/`、`/festivals/qixi/` 的目標查詢。）
+>    **不要再把它列進待辦或建議**，除非用戶自己重開。
 > 3. **降 GSC 權限**（資安衛生，不緊急，排在 8/31 後亦可）：共用服務帳號在 9 個網域是「擁有者」，
 >    只有用 Google Indexing API 的站才需要。降成「完整使用者」是十分鐘、風險降最多的一步。
 >    背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`
