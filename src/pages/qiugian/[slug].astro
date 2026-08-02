@@ -102,12 +102,12 @@ const jsonLd = [
     {st.joys.length ? st.joys.map((j) => (
       <div class="joy card"><span class="k">{j.text}</span><span class="m">{j.meta}</span></div>
     )) : (
-      <p class="muted small" id="joysEmpty">還沒有人回來報喜。你有結果了，回來說一聲，後面還在找的人會看到。</p>
+      <p class="muted small" id="joysEmpty">這個情境還沒有人回報結果。</p>
     )}
   </div>
 
   <div class="baoxi">
-    <p class="small">你也曾在這裡為{concern.label}求籤嗎？有結果了回來說一聲——後面還在找的人會看到。</p>
+    <p class="small">在這裡為{concern.label}求過籤、事情有結果了嗎？點一下回報，會計入下面的統計。</p>
     <button class="btn btn-ghost bx-open" id="bxOpen" type="button">🎋 我也回來報喜</button>
     <div id="bxChips" hidden>
       <p class="q small">後來怎麼了？</p>
@@ -264,7 +264,7 @@ const jsonLd = [
         : `<span>你是最近少數為「${esc(cfg.label!)}」求籤的人之一。</span>`;
       const e2 = per > 0 ? `<div class="estat"><b class="big">${per}</b><span>人，和你抽到同一支</span></div>` : '';
       const e3 = baoxi > 0 ? `<div class="estat j"><b class="big">${baoxi}</b><span>人，求了籤後回來報喜 ✨</span></div>`
-        : `<div class="estat j"><span>還沒有人回來報喜——你有結果了，回來說一聲。</span></div>`;
+        : `<div class="estat j"><span>還沒有人回報結果。</span></div>`;
       const lines = item.lines.map((l: string) => `<span class="pl">${esc(l)}</span>`).join('');
       document.getElementById('result')!.innerHTML = `
         <p class="draw-head small muted">你為 <b>${esc(cfg.label!)} · ${esc(cfg.aspect!)}</b> 求得——</p>
@@ -288,7 +288,7 @@ const jsonLd = [
           ${e3}
           <button class="qi" id="qiInline" type="button">🙏 為自己的${esc(cfg.label!)}集氣</button>
         </div>
-        <p class="note small caption-time">為明天的事求的？收藏這頁，之後有結果回來說一聲。</p>`;
+        <p class="note small caption-time">為明天的事求的？把這頁存起來，有結果再回來回報。</p>`;
       document.getElementById('result')!.hidden = false;
       document.getElementById('qiInline')!.addEventListener('click', qifuInline);
       // 不自動捲動：求籤/輸入籤號後就地展開結果，強制捲動反而打斷使用者視線（2026-07-17 用戶回報）。
@@ -368,7 +368,7 @@ const jsonLd = [
         const outcome = (chip as HTMLElement).dataset.outcome!;
         g('baoxi', { concern: cfg.concern, outcome });
         document.getElementById('bxChips')!.hidden = true;
-        document.getElementById('bxDone')!.textContent = '謝了，加上去了——後面還在找的人會看到。🕯';
+        document.getElementById('bxDone')!.textContent = '收到，已經加進統計了。🕯';
         const joys = document.getElementById('joys')!;
         const empty = document.getElementById('joysEmpty'); if (empty) empty.remove();
         const el = document.createElement('div'); el.className = 'joy card';

@@ -84,8 +84,14 @@ p { margin: 0.875rem 0; }
   .nav-sub-links.grid { grid-template-columns: repeat(var(--nav-cols, 2), minmax(0, 1fr)); }
 }
 @media (max-width: 47.99rem) {
-  /* 行動版：整組佔滿一列、子項就地展開（浮層在小螢幕上會被裁切） */
-  .site-header nav { width: 100%; margin-left: 0; flex-direction: column; gap: 0.5rem; }
+  /* 行動版（佔流量 70%）：**橫向換行**，不是每項各佔一行。
+     2026-08-02 用戶回報實機截圖：7 項直排每項約 53px，加站名與留白吃掉約 500px，
+     整個第一屏都是選單、要捲過去才看得到內容。桌機修好了、行動版反而更糟。
+     改成 wrap 之後 7 個 2–4 字項目約排 2 行（~110px），第一屏還給內容。
+     ⚠️ 別改回 flex-direction: column。 */
+  .site-header nav { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0.625rem 1.125rem; }
+  /* 展開的那一組獨佔一行，子項才有地方就地展開（浮層在小螢幕會被裁切，故不用浮層） */
+  .nav-group[open] { flex-basis: 100%; }
   .nav-sub { padding: 0.5rem 0 0.25rem 1rem; border-left: 2px solid var(--line); }
 }
 .site-main { max-width: var(--max); margin: 0 auto; padding: 2rem 1.5625rem 3.75rem; }
