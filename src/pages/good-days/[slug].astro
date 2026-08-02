@@ -9,6 +9,7 @@ import { breadcrumb, faqPage } from '../../lib/seo';
 interface Item {
   slug: string; name: string; affairs: string[];
   nav_label: string; intent: string; lead_verb: string; note: string;
+  next_step?: { kind: 'map' | 'site'; query?: string; href?: string; label: string };
 }
 
 // slug＝永久承諾（見 src/data/good-days.json）。getStaticPaths 隔離執行，需自 import 取資料。
@@ -159,6 +160,34 @@ if (faq) jsonLd.push(faq);
     </p>
   </section>
 
+  {/* 挑好日子之後那一步。🔴 本站**不存任何店家資料**——kind=map 只組地圖搜尋深連結、
+      交給使用者的裝置定位；kind=site 連站內既有的廟宇資料。理由見 good-days.json 的 _next_step。 */}
+  {
+    item.next_step && (
+      <section class="gd-next">
+        <h2>日子挑好之後</h2>
+        {item.next_step.kind === 'site' ? (
+          <p>
+            本站收錄全台登記在案的宮廟，可以直接查你要去的那一間。
+            <a href={item.next_step.href}>{item.next_step.label} →</a>
+          </p>
+        ) : (
+          <p>
+            本站只算日子，不收店家資料。這個連結是把搜尋交給地圖，由你的裝置定位，
+            我們不經手也不記錄。
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.next_step.query ?? '')}`}
+              rel="nofollow noopener"
+              target="_blank"
+            >
+              {item.next_step.label} →
+            </a>
+          </p>
+        )}
+      </section>
+    )
+  }
+
   <nav class="gd-siblings" aria-label="其他事項">
     <h2>其他要看日子的事</h2>
     <ul>
@@ -171,6 +200,8 @@ if (faq) jsonLd.push(faq);
 
 <style>
   .lead strong { color: var(--accent); }
+  .gd-next { margin-top: 2.25rem; }
+  .gd-next p { margin: 0.5rem 0 0; }
   .gd-caveat {
     background: var(--paper-2); border-left: 3px solid var(--gold);
     padding: 0.75rem 1rem; margin: 1.25rem 0; font-size: var(--text-sm); color: var(--ink-soft);
