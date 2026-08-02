@@ -6,6 +6,7 @@ import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queri
 import { breadcrumb, eventThing, faqPage } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { templeCounty } from '../../lib/temple-region';
+import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
@@ -40,11 +41,9 @@ export const getStaticPaths = (async () => {
   //    歸屬規則＝`festivals.json` 中**先出現者**（現行順序下為鬼門開、中元節，
   //    正是該日期的主查詢頁；搶孤／雞籠中元祭是同日的特定儀式，不重複列全台名單）。
   //    調整 festivals.json 的排序會改變歸屬——要改順序時記得回頭看這裡。
-  const listOwner = new Map<string, string>(); // lunar_date → 擁有名單的 slug
-  for (const f of festivals) {
-    const lunar = (f as { lunar_date?: string }).lunar_date;
-    if (lunar && !listOwner.has(lunar)) listOwner.set(lunar, f.slug);
-  }
+  //    2026-08-02：此分派規則抽到 `temple-festival.ts` 的 `festivalOwnerByLunarDate()`，
+  //    因為廟宇頁新增的正向連結（該廟登記祭典→本節日頁）必須用同一份歸屬，否則兩邊會矛盾。
+  const listOwner = festivalOwnerByLunarDate(festivals); // lunar_date → 擁有名單的 slug
 
   const templesOnDate = new Map<string, { id: string; name: string; county: string; festival: string }[]>();
   for (const f of festivals) {

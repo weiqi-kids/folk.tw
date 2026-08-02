@@ -31,6 +31,23 @@ export type TempleFestival = {
 const GENERIC_NAMES = new Set(['祭典', '祀慶', '例祭', '主神聖誕', '主神佛誕', '慶典', '祭祀']);
 export const isGenericFestivalName = (n: string): boolean => GENERIC_NAMES.has(n.trim());
 
+/**
+ * 農曆日期 → 由哪一個 `/festivals/[slug]/` 節日頁「代表」該日期。
+ * 同一天可能有多筆節日（如 07-15 同時是中元節與搶孤、07-01 同時是鬼門開與雞籠中元祭），
+ * 規則＝festivals.json 中先出現者代表——**與 `festivals/[slug].astro` 的
+ * `templesOnDate` 反向名單分派邏輯同一份規則**（原本兩處各寫一份，2026-08-02 合併成單一入口）。
+ * 廟宇頁的正向連結、節日頁的反向名單，兩邊必須指向同一個 slug，否則會互相矛盾。
+ */
+export function festivalOwnerByLunarDate(
+  festivals: readonly { slug: string; lunar_date?: string }[],
+): Map<string, string> {
+  const owner = new Map<string, string>();
+  for (const f of festivals) {
+    if (f.lunar_date && !owner.has(f.lunar_date)) owner.set(f.lunar_date, f.slug);
+  }
+  return owner;
+}
+
 /** 固定排序：農曆在前 → 日期 → 名稱。純函式、不依賴儲存順序，故頁面與 gate 必然一致。 */
 export function sortFestivals(list: readonly TempleFestival[]): TempleFestival[] {
   return [...list].sort(

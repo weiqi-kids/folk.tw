@@ -13,7 +13,9 @@ import {
   festivalDateLabel,
   festivalSentence,
   isGenericFestivalName,
+  festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
+import festivalsData from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -101,6 +103,11 @@ const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
 const todayIso = new Date().toISOString().slice(0, 10);
 const festivalList = sortFestivals(t.festivals ?? []);
 const mainFestival = pickMainFestival(t.festivals);
+// 該廟登記祭典 → 全站 /festivals/ 節日頁的正向連結（2026-08-02）：純日期比對，不做語意判斷
+// （同「AlmanacDay.astro」7/1 起的既有寫法），歸屬規則與節日頁的反向名單共用同一支
+// festivalOwnerByLunarDate，兩邊必然一致，不會互相矛盾。
+const festivalOwner = festivalOwnerByLunarDate(festivalsData);
+const festivalName = new Map(festivalsData.map((f) => [f.slug, f.name]));
 // 已查證的敘述句（21 間）優先於 MOI 短語；兩者皆無則空字串。
 const festivalLine = t.main_festival
   ? `${t.name}的主要祭典為${t.main_festival}。`
@@ -316,13 +323,21 @@ const jsonLd = [
           以下為{t.name}向內政部登記的年度慶(祭)典。農曆日期為廟方登記值，括號內國曆為下一次對應日期。
         </p>
         <ul class="festival-list">
-          {festivalList.map((f) => (
-            <li>
-              <span class="fdate">{festivalDateLabel(f, todayIso)}</span>
-              <span class="fname">{f.name}</span>
-              {f.desc && <span class="fdesc">{f.desc}</span>}
-            </li>
-          ))}
+          {festivalList.map((f) => {
+            const ownerSlug = f.calendar === 'lunar' ? festivalOwner.get(f.date) : undefined;
+            return (
+              <li>
+                <span class="fdate">{festivalDateLabel(f, todayIso)}</span>
+                <span class="fname">{f.name}</span>
+                {f.desc && <span class="fdesc">{f.desc}</span>}
+                {ownerSlug && (
+                  <a class="fsame" href={`/festivals/${ownerSlug}/`}>
+                    同天：{festivalName.get(ownerSlug)}
+                  </a>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </section>
     )
@@ -391,9 +406,11 @@ const jsonLd = [
     .festival-list .fdate { color: var(--accent); font-weight: 600; font-size: var(--text-sm); }
     .festival-list .fname { font-weight: 600; }
     .festival-list .fdesc { grid-column: 2; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.7; }
+    .festival-list .fsame { grid-column: 2; font-size: var(--text-sm); }
     @media (max-width: 32rem) {
       .festival-list li { grid-template-columns: 1fr; }
       .festival-list .fdesc { grid-column: 1; }
+      .festival-list .fsame { grid-column: 1; }
     }
     .nearby { margin-top: 1.875rem; }
     .nearby-list { list-style: none; padding: 0; margin: 0.625rem 0 0;
