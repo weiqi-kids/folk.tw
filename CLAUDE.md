@@ -220,6 +220,20 @@
       - ⚠️ **跨多日用明確的 `multi_day` 欄位，不可用 `Boolean(date_note)` 推斷**：date_note 也用來寫
         純說明（地藏王的短月順延、搶孤的頭城/恆春異地異日），初版誤推斷而產生
         「地藏王菩薩聖誕｜農曆七月三十起・儀式順序」這種與事實不符的標題。目前僅雞籠中元祭為 true。
+      - **2026-08-03 補內鏈（commit `a030482`）**：GSC 實查 10 頁 **28 天曝光合計 = 0**，內容完整、
+        多數也已收錄（8/1–8/3 才第一次被爬），缺的純粹是內鏈——`qianggu` 甚至是
+        「URL is unknown to Google」＝孤兒。補了兩層：
+        ① **廟宇頁 →節日頁 238 → 678 間**：原本只有 `festivalOwnerByLunarDate`（該廟登記祭典與節日**同天**）
+        命中 238 間；改用 `festivals.json` 既有 `deity_refs` 反查**主祀神**再涵蓋 440 間
+        （中元 219／拜天公 137／地藏 93／七夕 37／義民 36／清明 10／鬼門開 6，實測期望 440＝實得 440）。
+        🔴 **措辭界線同 7/31 那條**：講的是「**神明**與節日的關係」（節日資料自己的 deity_refs、逐條掛源），
+        **不是「這間廟在辦這個節日」**，頁面明寫「不是本廟的活動公告」；class 與 `fsame` 分開，
+        `check:rendered` 既有不變量不受影響。
+        ② **節日頁互連**：原本 10 頁彼此**完全不相連**、只各自連回樞紐＝十個並排的葉子。
+        依既有 `season` 欄位分組互連，農曆七月那 7 頁成一叢集（`qianggu` 因此被 8 頁連到）。
+        ⚠️ 起算日用**今天（台北）**而非本頁的 `iso`（`iso` 是本節日的下一次國曆日，拿它當起算點會把
+        同月份、日期比它早的節日推到明年）；排序用 `lunar_date` 字串，**不可用農曆中文標籤 localeCompare**
+        （「初一」「十五」「廿」排不出正確順序）。
 
 - [x] **廟宇頁 meta description 去樣板（2026-07-30 同批，影響 7,891 頁）**：原尾句
       「神酷（folk.tw）廟宇資料庫收錄，資料源自內政部全國宗教資訊網。」在 **~7,869 頁一字不差**
@@ -405,6 +419,16 @@
   （硬 gate `scripts/lib/topical-guard.mjs`，非靠 LLM prompt 自律；改管線前先讀 SOP）。
 - 部署：**直接 `git push origin main`** 自動部署（~75s，無 PR）。⚠️push main 即上線、無 staging。
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+  - 🔴 **`pnpm check`（astro check）是 CI 擋門、但不在 `pnpm build` 裡**（2026-08-03 立）：
+    deploy.yml 的 build job 有獨立的「型別檢查」step 跑它，型別錯誤會讓 **build failure、deploy skipped**。
+    而 `pnpm build` ＝ `check-design && check-content && check-outbound-urls && astro build`，**不含型別檢查**；
+    大腦／反思層的 gate 是 `check:integrity + build`，**同樣不含**。
+    後果實例：今早 `[auto-claude-reflect] 194e665` 加了 `/events/[id] → /festivals/[slug]` 反向連結，
+    `festivals.json` 部分條目的 `event_refs` 是空陣列字面量 → TS 推成 `never[]`、`.includes(string)` 報
+    `ts(2345)`，**從 08:24 起兩次部署全部卡住、線上內容停在 `63c20e2`，且無任何告警**
+    （自動化層自己不跑型別檢查，所以它不知道自己推壞了）。修法＝顯式標型別（commit `cbff645`）。
+    ⚠️ **從 JSON 衍生欄位時一律顯式標型別**（`(f as { xxx?: string[] }).xxx ?? []`），別靠 TS 推斷。
+    ⚠️ 手動 push 前 `pnpm check` 要跑；**自動化層目前沒有這道 gate，是已知缺口**。
   - **尾斜線兩道 gate，守的是兩個不同表面，別搞混**（2026-07-28 立；此根因已復發三次）：
     `check:canonical`（build 後）掃 **dist 產物**的內部網址（nav/canonical/og:url/JSON-LD/sitemap）；
     `check:outbound-urls`（已內建進 `pnpm build` 最前段）掃 **`scripts/` 裡會被主動送出去的網址**
@@ -462,6 +486,12 @@
     轉給兩支，但 `indexnow-ping.mjs` 原本沒實作 `--from` → 會把「--from」本身當路徑組成網址送出
     （實測送出 `https://folk.tw/--from`），**真正的 30 筆清單完全沒送到 Bing/Yandex/Seznam/Naver**，
     而畫面只顯示「完成 2/2」看起來像成功。加子腳本參數時**兩支要對齊**。
+  - ⚠️ **`index-ping.mjs` 曾靜默吞掉第一個網址**（2026-08-03 修，commit `a030482`）：
+    `resolveUrls()` 用 `args[fromIdx + 1]` 排除 `--from` 的值，但**沒帶 `--from` 時 `fromIdx = -1`**，
+    `args[fromIdx + 1]` 就是 `args[0]`＝第一個網址 → 每次 `pnpm notify <url...>` 都少送一筆給 Google，
+    畫面仍顯示「送 N 筆」像成功（IndexNow 那支沒這問題，所以兩邊筆數會差 1，但沒人會去對）。
+    實測代價：送節日頁那次被吞的正是 `/festivals/qianggu/`——GSC 實查唯一「URL is unknown to Google」的頁。
+    **與上一條同一類：參數解析出錯，而輸出看起來完全正常。** 改參數解析後請實際比對兩支的送出筆數。
   - 內部分別呼叫：`pnpm index:ping`（Google Indexing API，每日配額 200，SA 須為 GSC 擁有者）
     與 `pnpm indexnow:ping`（IndexNow → Bing/Yandex/Seznam/Naver；金鑰檔 `public/<key>.txt`，
     內容＝檔名 stem，須先部署上線供驗證；回 HTTP 202＝已受理待驗證屬正常）。
