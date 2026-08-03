@@ -18,11 +18,18 @@ const activeTopical = topical.filter(
 const drawCount = (id: string) =>
   (stats as Record<string, { week_draws?: number }>)[id]?.week_draws ?? 0;
 const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.id)).slice(0, 4);
+
+// 抽籤卡片的順序＝GA 實際流量（近 60 天瀏覽：工作 21／考試 11／感情 8／運勢 8／
+// 財運 6／健康 5／求子 0），與 nav「線上求籤」小段同一份順序，兩處不要各排各的。
+// 未列在此的情境排在後面，維持 concerns.json 原序。
+const CONCERN_ORDER = ['qiuzhi', 'kaoshi', 'ganqing', 'yunshi', 'caiyun', 'jiankang', 'qiuzi'];
+const rank = (id: string) => { const i = CONCERN_ORDER.indexOf(id); return i < 0 ? 999 : i; };
+const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
 ---
 
 <Base
   title="求籤 · 為心裡的那件事"
-  description="在為工作、感情、考試這些事煩惱嗎？選一件，求一支籤，看白話解籤——也看看有多少人跟你一樣。"
+  description="在為工作、感情、考試這些事煩惱嗎？選一件煩惱，求一支籤，看白話解籤。另可為此刻的平安集氣。"
   ogType="article"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
@@ -31,6 +38,19 @@ const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.i
   <p class="eyebrow">求籤</p>
   <h1>你在為什麼煩惱？</h1>
   <p class="lead">選一件煩惱，求一支籤，看白話解籤。下面會顯示最近有多少人為同一件事求過。</p>
+
+  <div class="qcols">
+  <section class="qsec" aria-labelledby="sec-choutian">
+    <h2 id="sec-choutian" class="sec-h">抽籤 · 為心裡的那件事</h2>
+    <div class="grid cols concern-grid">
+      {orderedConcerns.map((c) => (
+        <a class="card concern" href={`/qiugian/${c.id}/`}>
+          <div class="n">為{c.label}</div>
+          <div class="muted small">{c.intent}</div>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <section class="qsec" aria-labelledby="sec-jiqi">
     <h2 id="sec-jiqi" class="sec-h">集氣 · 為此刻的平安</h2>
@@ -51,22 +71,16 @@ const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.i
       </div>
     )}
   </section>
-
-  <section class="qsec" aria-labelledby="sec-choutian">
-    <h2 id="sec-choutian" class="sec-h">抽籤 · 為心裡的那件事</h2>
-    <div class="grid cols concern-grid">
-      {concerns.map((c) => (
-        <a class="card concern" href={`/qiugian/${c.id}/`}>
-          <div class="n">為{c.label}</div>
-          <div class="muted small">{c.intent}</div>
-        </a>
-      ))}
-    </div>
-  </section>
+  </div>
 
   <p class="muted small more-soon">想知道每件事「拜哪尊神、怎麼拜」？看 <a href="/scenarios/">拜哪尊</a>。</p>
 
   <style>
+    /* 左右兩欄（2026-08-03 用戶指定）：左＝抽籤（主動作、七張卡，給較寬），右＝集氣。
+       行動版（≤48rem）疊成一欄，抽籤仍在上——小螢幕上主動作不該被次要區塊擋在前面。 */
+    .qcols { display: grid; gap: 1.75rem; margin-top: 1.5rem; }
+    @media (min-width: 48rem) { .qcols { grid-template-columns: 1.45fr 1fr; gap: 2.25rem; align-items: start; } }
+    .qcols .qsec { margin-top: 0; }
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .lead { font-size: var(--text-base); margin: 0 0 1.75rem; }

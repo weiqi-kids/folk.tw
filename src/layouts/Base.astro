@@ -14,6 +14,8 @@ interface Props {
 }
 import { GA4_ID } from '../consts';
 import goodDaysData from '../data/good-days.json'; // nav「看日子」小段由資料驅動，勿硬編（見下方 nav 註解）
+import concernsData from '../data/concerns.json'; // nav「線上求籤」小段（依 GA 流量排序，見下方 nav 註解）
+import systemsData from '../data/divination-systems.json'; // nav「解籤」小段
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
 const { title, description, ogTitle, ogImage, ogImageAlt, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable, canonical: canonicalOverride } = Astro.props;
@@ -135,6 +137,19 @@ const goodDayItems: NavItem[] = (goodDaysData as { items: { slug: string; name: 
   label: i.name,
 }));
 
+// 「線上求籤」子項＝七個情境。**順序依 GA 實際流量**（近 60 天瀏覽：工作 21／考試 11／
+// 感情 8／運勢 8／財運 6／健康 5／求子 0），不是照資料檔的建置順序——
+// 使用者打開選單要先看到最多人在問的那件事。日後流量變了就改這個陣列。
+const CONCERN_ORDER = ['qiuzhi', 'kaoshi', 'ganqing', 'yunshi', 'caiyun', 'jiankang', 'qiuzi'];
+const concernItems: NavItem[] = CONCERN_ORDER
+  .map((id) => (concernsData as { id: string; label: string }[]).find((c) => c.id === id))
+  .filter((c): c is { id: string; label: string } => !!c)
+  .map((c) => ({ href: `/qiugian/${c.id}/`, label: `為${c.label}` }));
+
+// 「解籤」子項＝五套籤系。href 走 hub（藥籤自有樞紐 /medicine-slips/），與 /systems/ 同一套規則。
+const systemItems: NavItem[] = (systemsData as { id: string; name: string; count: number; hub?: string }[])
+  .map((sy) => ({ href: sy.hub ?? `/systems/${sy.id}/`, label: sy.name }));
+
 const nav: NavEntry[] = [
   { href: '/', label: '今日宜忌' },
   {
@@ -159,16 +174,17 @@ const nav: NavEntry[] = [
     ],
   },
   {
+    // 比照「農民曆」分兩小段（2026-08-03 用戶指定）：原本五個子項混在一起沒有階層——
+    // 「線上求籤」是抽一支（工具、依煩惱選），「解籤」是查第 X 籤（查詢、依籤系選），
+    // 兩者是不同動作，混排使用者分不出該點哪個。
     label: '籤詩',
     sections: [
+      { title: '線上求籤', cols: 2, items: concernItems, more: { href: '/qiugian/', label: '求籤首頁' } },
       {
-        items: [
-          { href: '/qiugian/', label: '線上求籤' },
-          { href: '/poems/', label: '解籤（查第 X 籤）' },
-          { href: '/systems/', label: '籤系' },
-          { href: '/medicine-slips/', label: '保生大帝藥籤' },
-          { href: '/jiaobei/', label: '擲筊怎麼看' },
-        ],
+        title: '解籤',
+        cols: 2,
+        items: [{ href: '/poems/', label: '查第 X 籤' }, ...systemItems, { href: '/jiaobei/', label: '擲筊怎麼看' }],
+        more: { href: '/systems/', label: `全部 ${systemItems.length} 套籤系` },
       },
     ],
   },
