@@ -25,6 +25,9 @@ const PROSE_JSON = [
   // 重述 deities.json 已掛源的 office/category），屬「由 AI 產製、存在資料 JSON 裡」那一類，
   // 與藥籤醫師解說同型 → 一併納入白名單掃描。`a_focus`/`b_focus` 是短標籤不是散文，不掃。
   { file: 'src/data/comparisons.json', fields: ['contrast'] },
+  // 同上：/scenarios/ 的 description 與 patrons[].why 也是手寫散文（內容只准重述
+  // deities.json 已掛源的 office）。patrons 是巢狀陣列，掃描器需支援。
+  { file: 'src/data/scenarios.json', fields: ['description', 'patrons.why'] },
 ];
 // 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
 const AI_TELLS = [
@@ -59,6 +62,18 @@ const BANNED = [
 ];
 
 
+// 解析欄位路徑：'why' → 該筆的 why；'patrons.why' → 每個 patrons[i].why。
+// 回傳 {path, value}，path 帶陣列索引，命中時報得出是哪一筆。
+function resolveField(obj, spec) {
+  const [head, ...rest] = spec.split('.');
+  const v = obj?.[head];
+  if (!rest.length) return [{ path: head, value: v }];
+  const sub = rest.join('.');
+  if (Array.isArray(v)) return v.flatMap((item, i) =>
+    resolveField(item, sub).map((r) => ({ path: `${head}[${i}].${r.path}`, value: r.value })));
+  return resolveField(v, sub).map((r) => ({ path: `${head}.${r.path}`, value: r.value }));
+}
+
 // 掃白名單資料 JSON 的散文欄位（AI 產製，非公有領域古文）。
 function scanProseJson(hits) {
   for (const { file, fields } of PROSE_JSON) {
@@ -68,11 +83,15 @@ function scanProseJson(hits) {
     if (!Array.isArray(rows)) continue;
     for (const row of rows) {
       for (const k of fields) {
-        const v = row?.[k];
-        if (typeof v !== 'string') continue;
-        for (const b of AI_TELLS) {
-          const m = v.match(b.re);
-          if (m) hits.push({ f: `${file} → ${row.id ?? '?'}.${k}`, line: 0, phrase: m[0], why: b.why });
+        // 支援 `a.b` 路徑穿進物件陣列（如 scenarios 的 patrons[].why）。
+        // ⚠️ 原本只取 row[k]，巢狀欄位會取到 undefined 而**靜默跳過**——
+        // 加了白名單卻什麼都沒掃，比沒加更糟（誤以為有守）。
+        for (const { path, value } of resolveField(row, k)) {
+          if (typeof value !== 'string') continue;
+          for (const b of AI_TELLS) {
+            const m = value.match(b.re);
+            if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0], why: b.why });
+          }
         }
       }
     }

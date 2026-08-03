@@ -9,8 +9,15 @@
         "role": "姻緣主神",
         "why": "月下老人執掌姻緣簿、以紅線繫定有緣男女，為專司婚配的姻緣之神，求良緣者所奉主神。",
         "sources": [
-          { "type": "gov", "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148" },
-          { "type": "book", "ref": "李復言《續玄怪錄·定婚店》 https://zh.wikisource.org/zh-hant/續玄怪錄", "note": "月老紅線繫足、掌天下婚牘之典源" }
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148"
+          },
+          {
+            "type": "book",
+            "ref": "李復言《續玄怪錄·定婚店》 https://zh.wikisource.org/zh-hant/續玄怪錄",
+            "note": "月老紅線繫足、掌天下婚牘之典源"
+          }
         ]
       },
       {
@@ -18,15 +25,28 @@
         "role": "配祀月老",
         "why": "台北大稻埕霞海城隍廟以配祀月老、牽成姻緣聞名，為北台灣求姻緣香火最盛之處。",
         "sources": [
-          { "type": "gov", "ref": "內政部臺灣宗教文化地圖〈大稻埕霞海城隍廟〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58" },
-          { "type": "web", "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/大稻埕霞海城隍廟", "note": "配祀月老、以求姻緣聞名" }
+          {
+            "type": "gov",
+            "ref": "內政部臺灣宗教文化地圖〈大稻埕霞海城隍廟〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58"
+          },
+          {
+            "type": "web",
+            "ref": "大稻埕霞海城隍廟—維基百科 https://zh.wikipedia.org/zh-tw/大稻埕霞海城隍廟",
+            "note": "配祀月老、以求姻緣聞名"
+          }
         ]
       }
     ],
-    "affairs_yi": ["qifu", "jiaqu"],
+    "affairs_yi": [
+      "qifu",
+      "jiaqu"
+    ],
     "affairs_ji": [],
     "sources": [
-      { "type": "gov", "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148" }
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈月下老人〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148"
+      }
     ],
     "draft": false
   },
@@ -40,8 +60,14 @@
         "role": "文運科考主神",
         "why": "文昌帝君掌管文運與科舉考試，為士人學子敬奉的主神、五文昌之首。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
-          { "type": "gov", "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151"
+          }
         ]
       },
       {
@@ -49,7 +75,10 @@
         "role": "點魁奪元",
         "why": "魁星（魁斗星君）司科考點魁、奪元及第，士子求金榜題名所奉。",
         "sources": [
-          { "type": "temple", "ref": "臺中市元保宮〈魁斗星君〉 https://www.yuanbao.org.tw/?act=menuinfo&ml_id=20200617001&cmd=detail&mi_id=2" }
+          {
+            "type": "temple",
+            "ref": "臺中市元保宮〈魁斗星君〉 https://www.yuanbao.org.tw/?act=menuinfo&ml_id=20200617001&cmd=detail&mi_id=2"
+          }
         ]
       },
       {
@@ -57,8 +86,14 @@
         "role": "五文昌之一",
         "why": "朱衣神君掌文運科舉、細辨文章優劣，名列五文昌。",
         "sources": [
-          { "type": "temple", "ref": "台北市文昌宮〈神明列傳·朱衣神君〉 https://www.wenchang.org.tw/zhuyihe.html" },
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+          {
+            "type": "temple",
+            "ref": "台北市文昌宮〈神明列傳·朱衣神君〉 https://www.wenchang.org.tw/zhuyihe.html"
+          },
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+          }
         ]
       },
       {
@@ -66,8 +101,14 @@
         "role": "五文昌之一",
         "why": "孚佑帝君（呂洞賓）名列五文昌，相傳時常護佑應考士子。",
         "sources": [
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" },
-          { "type": "temple", "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382" }
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+          },
+          {
+            "type": "temple",
+            "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382"
+          }
         ]
       },
       {
@@ -75,14 +116,23 @@
         "role": "五文昌之一（文衡聖帝）",
         "why": "關聖帝君以文衡聖帝之名列五文昌，喜讀《左氏春秋》，受儒家學子信奉。",
         "sources": [
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+          }
         ]
       }
     ],
-    "affairs_yi": ["qifu", "jisi"],
+    "affairs_yi": [
+      "qifu",
+      "jisi"
+    ],
     "affairs_ji": [],
     "sources": [
-      { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+      {
+        "type": "web",
+        "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+      }
     ],
     "draft": false
   },
@@ -96,8 +146,14 @@
         "role": "商業守護神（武財神）",
         "why": "民間以關公重信義、守然諾，奉為商業守護神，亦尊為武財神。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286" },
-          { "type": "temple", "ref": "臺灣祀典武廟官網·祭祀神祇—關聖帝君 https://www.twsdwumiao.org.tw/" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286"
+          },
+          {
+            "type": "temple",
+            "ref": "臺灣祀典武廟官網·祭祀神祇—關聖帝君 https://www.twsdwumiao.org.tw/"
+          }
         ]
       },
       {
@@ -105,8 +161,14 @@
         "role": "武財神（中路財神）",
         "why": "趙公明為五路財神中路主帥，掌財源、錢銀交易，清代並為銀錢業守護神。",
         "sources": [
-          { "type": "temple", "ref": "北港武德宮官網 https://www.wude.org.tw" },
-          { "type": "web", "ref": "道教文化中心資料庫〈趙公明〉 https://zh.daoinfo.org" }
+          {
+            "type": "temple",
+            "ref": "北港武德宮官網 https://www.wude.org.tw"
+          },
+          {
+            "type": "web",
+            "ref": "道教文化中心資料庫〈趙公明〉 https://zh.daoinfo.org"
+          }
         ]
       },
       {
@@ -114,15 +176,27 @@
         "role": "守土司財",
         "why": "福德正神為一方地土的守護神，兼司田土與財，民間商家普遍奉祀祈求生意興隆。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" },
-          { "type": "gov", "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133"
+          }
         ]
       }
     ],
-    "affairs_yi": ["lijuan", "nacai_cai"],
+    "affairs_yi": [
+      "lijuan",
+      "nacai_cai"
+    ],
     "affairs_ji": [],
     "sources": [
-      { "type": "web", "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神" }
+      {
+        "type": "web",
+        "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神"
+      }
     ],
     "draft": false
   },
@@ -136,8 +210,14 @@
         "role": "地方與家宅守護",
         "why": "福德正神為一方地基與村里的守護神，入厝安居者祈其護佑宅第平安。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" },
-          { "type": "gov", "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈福德正神／土地公〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247133"
+          }
         ]
       },
       {
@@ -145,15 +225,311 @@
         "role": "家宅司命",
         "why": "灶神司一家飲食與家宅、錄善惡上達天庭，為周代七祀之一，家宅所繫。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·灶神(Zao shen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265" },
-          { "type": "book", "ref": "《禮記·祭法》周代七祀（司命、灶） https://zh.wikisource.org/zh-hant/禮記/祭法" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·灶神(Zao shen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=265"
+          },
+          {
+            "type": "book",
+            "ref": "《禮記·祭法》周代七祀（司命、灶） https://zh.wikisource.org/zh-hant/禮記/祭法"
+          }
         ]
       }
     ],
-    "affairs_yi": ["ruzhai", "qifu"],
+    "affairs_yi": [
+      "ruzhai",
+      "qifu"
+    ],
     "affairs_ji": [],
     "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" }
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "qiu-zi",
+    "name": "求子",
+    "description": "求子嗣、祈懷孕生產平安該拜的神明與擇日視角：專司求子與安胎護產的神明、聖誕日與適合求嗣、祈福的日子。",
+    "patrons": [
+      {
+        "deity_ref": "zhusheng",
+        "role": "求子主神",
+        "why": "註生娘娘職司求子、生育、登記子嗣，是求子嗣者所奉主神。",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
+            "note": "seed 事實基準，待逐條校"
+          },
+          {
+            "type": "temple",
+            "ref": "高雄三鳳宮〈註生娘娘〉 https://www.sunfong.org.tw/?act=menuinfo&ml_id=20220720003&cmd=detail&mi_id=20220721006",
+            "note": "聖誕三月二十、掌授子懷孕生育護產、左手生育簿右手執筆、身世碧霞元君/臨水夫人說"
+          }
+        ]
+      },
+      {
+        "deity_ref": "linshui",
+        "role": "安胎護產",
+        "why": "臨水夫人職司安胎、護產、保嬰，為已懷孕、求生產平安者所拜。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·順天聖母(Shuntian shengmu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=267",
+            "note": "來歷（唐767年生，福州陳氏，懷孕施法救旱而亡）、職司（安胎護產保嬰）、別名（臨水夫人、大奶夫人）、三奶夫人之首"
+          },
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·三奶夫人(Sannai Furen) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=232",
+            "note": "三奶夫人組成（陳靖姑、李三娘、林紗娘）、信仰分布"
+          }
+        ]
+      },
+      {
+        "deity_ref": "guanyin",
+        "role": "送子賜福",
+        "why": "觀世音菩薩職司救苦救難、慈悲濟世、送子賜福，民間以「送子觀音」之名求子。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·觀世音菩薩(Guanyin) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=276",
+            "note": "來歷（佛教大悲菩薩，由男性菩薩逐漸轉化為女神）、職司（救苦救難）、台灣各種造型（送子觀音、魚籃觀音、千手觀音）、重要廟宇（萬華龍山寺等）"
+          },
+          {
+            "type": "book",
+            "ref": "鳩摩羅什譯《妙法蓮華經·觀世音菩薩普門品第二十五》 https://ctext.org/wiki.pl?chapter=100485",
+            "note": "觀音名號由來與救苦救難神格之古籍根本：聞聲救苦、即時觀其音聲皆得解脫"
+          }
+        ]
+      }
+    ],
+    "affairs_yi": [
+      "qiusi",
+      "qifu"
+    ],
+    "affairs_ji": [],
+    "sources": [
+      {
+        "type": "book",
+        "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
+        "note": "seed 事實基準，待逐條校"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "qiu-jiankang",
+    "name": "求健康",
+    "description": "求病癒、身體平安該拜的神明與擇日視角：專司醫藥與驅疫治病的神明、聖誕日與適合祈福、祭祀的日子。",
+    "patrons": [
+      {
+        "deity_ref": "baosheng",
+        "role": "醫藥主神",
+        "why": "保生大帝職司醫藥、消災、驅疫治病，是台灣醫藥信仰的主神。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+            "note": "來歷（宋太宗太平興國四年979年生，同安縣白礁鄉人，吳夲/吳真人，北宋景祐三年1036年卒）、職司（醫藥）、別名（大道公、花橋公）"
+          },
+          {
+            "type": "temple",
+            "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/history.php?lang=tw",
+            "note": "廟宇沿革、保生大帝聖誕農曆三月十五祭典說明（三月十四遶境、三月十五正日三獻禮）"
+          }
+        ]
+      },
+      {
+        "deity_ref": "shennong",
+        "role": "藥草",
+        "why": "神農大帝職司農業、醫藥、嘗百草教民，以嘗百草辨藥性著稱。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260",
+            "note": "來歷（炎帝、三皇五帝之一，嘗百草、教農耕）、職司（農業、醫藥）、別名（五穀先帝）"
+          },
+          {
+            "type": "temple",
+            "ref": "內政部臺灣宗教文化地圖〈三重先嗇宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=181",
+            "note": "五穀先帝廟、八蜡之首「先嗇」即神農、聖誕農曆四月廿六、乾隆20年(1755)創建"
+          }
+        ]
+      },
+      {
+        "deity_ref": "jigong",
+        "role": "醫病救貧",
+        "why": "濟公職司濟世、度人、醫病救貧。",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
+            "note": "seed 事實基準，待逐條校"
+          },
+          {
+            "type": "book",
+            "ref": "（明）田汝成《西湖遊覽志餘》下卷 https://zh.wikisource.org/wiki/西湖遊覽志餘/下",
+            "note": "道濟（濟顛）史傳：本名道濟、靈隱/淨慈、佯狂酒肉、年七十三端坐而逝"
+          }
+        ]
+      }
+    ],
+    "affairs_yi": [
+      "qifu",
+      "jisi"
+    ],
+    "affairs_ji": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "note": "來歷（宋太宗太平興國四年979年生，同安縣白礁鄉人，吳夲/吳真人，北宋景祐三年1036年卒）、職司（醫藥）、別名（大道公、花橋公）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "qiu-pingan",
+    "name": "求平安",
+    "description": "求闔家平安、驅邪保安該拜的神明與擇日視角：專司鎮邪驅魔的神明、聖誕日與適合祈福、祭祀的日子。",
+    "patrons": [
+      {
+        "deity_ref": "xuantian",
+        "role": "鎮邪主神",
+        "why": "玄天上帝職司鎮邪驅魔、北方水神、統御玄武（龜蛇），是鎮境驅邪的主神。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·玄天上帝(Xuantian shandi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=280",
+            "note": "來歷（北極星人格化、1018年宋封真武靈應真君）、別名（真武大帝、北極大帝、帝爺公）、職司（鎮邪驅魔、北方水神）"
+          },
+          {
+            "type": "gov",
+            "ref": "臺灣宗教文化地圖·北極殿（台南）https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=11",
+            "note": "明永曆15年鄭成功改建為奉祀明朝守護神玄天上帝之廟，為台灣最重要的玄天上帝廟之一"
+          }
+        ]
+      },
+      {
+        "deity_ref": "nazha",
+        "role": "驅邪護童",
+        "why": "中壇元帥職司先鋒、驅邪、護佑兒童，並為廟會陣頭的先鋒神。",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
+            "note": "seed 事實基準，待逐條校"
+          },
+          {
+            "type": "temple",
+            "ref": "新營太子宮〈中壇元帥〉 https://www.taizih.org.tw/?act=menuinfo&ml_id=20240807013",
+            "note": "別名太子爺/三太子、聖誕九月初九、造型火尖槍/乾坤圈/混天綾/風火輪、李靖三子靈珠子化身"
+          }
+        ]
+      },
+      {
+        "deity_ref": "dasheng",
+        "role": "制伏妖魔",
+        "why": "齊天大聖職司驅邪、護童、制伏妖魔。",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "《台灣的神明》／神明聖誕千秋日一覽表（彙整）",
+            "note": "seed 事實基準，待逐條校"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈齊天大聖〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=508491",
+            "note": "源自吳承恩《西遊記》孫悟空、神通廣大掃蕩群魔；台灣兼奉為兒童守護神"
+          }
+        ]
+      }
+    ],
+    "affairs_yi": [
+      "qifu",
+      "jisi"
+    ],
+    "affairs_ji": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·玄天上帝(Xuantian shandi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=280",
+        "note": "來歷（北極星人格化、1018年宋封真武靈應真君）、別名（真武大帝、北極大帝、帝爺公）、職司（鎮邪驅魔、北方水神）"
+      }
+    ],
+    "draft": false
+  },
+  {
+    "id": "dasi-gongdao",
+    "name": "打官司求公道",
+    "description": "訴訟纏身、求公道該拜的神明與擇日視角：專司司法與監察善惡的神明、聖誕日與適合祈福、祭祀的日子。",
+    "patrons": [
+      {
+        "deity_ref": "chenghuang",
+        "role": "司法主神",
+        "why": "城隍爺職司陰司、城域司法、監察善惡，民間以其為陰間的司法之神。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·城隍爺(Cheng huang ye) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=259",
+            "note": "城隍系統說明（省、府、縣、鄉鎮分級）、職司（城域陰司司法、監察善惡）、七爺八爺（范謝將軍）部將說明"
+          },
+          {
+            "type": "gov",
+            "ref": "臺灣宗教文化地圖（內政部）·台北霞海城隍廟．五月十三迎城隍 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=13",
+            "note": "霞海城隍主祀、五月十三迎城隍祭典、七爺八爺等神將出巡、廟史（道光元年泉州同安人渡台、咸豐6年建廟）"
+          }
+        ]
+      },
+      {
+        "deity_ref": "qingshan",
+        "role": "司法、夜巡",
+        "why": "青山王職司司法、驅疫、夜巡遶境。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "艋舺青山宮官網 https://www.mjcsg.org.tw/",
+            "note": "靈安尊王（青山王）聖誕農曆十月廿二日正日遶境（艋舺大拜拜）、清咸豐六年（1856年）創建"
+          },
+          {
+            "type": "web",
+            "ref": "臺灣宗教文化地圖·台北霞海城隍廟五月十三迎城隍 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+            "note": "霞海城隍廟暗訪與艋舺青山宮暗訪並列北台灣三大暗訪"
+          }
+        ]
+      },
+      {
+        "deity_ref": "zhao_gongming",
+        "role": "主持公道",
+        "why": "趙公明職司掌管財源、錢銀交易、主持公道、除瘟禳災、五路財神之中路主帥、銀錢業守護神（清代）。",
+        "sources": [
+          {
+            "type": "book",
+            "ref": "干寶《搜神記》卷五（東晉）",
+            "note": "最早文獻記趙公明，屬瘟鬼形象"
+          },
+          {
+            "type": "book",
+            "ref": "《三教源流搜神大全》（元末明初）卷三、卷四",
+            "note": "記趙公明封玄壇元帥、為五瘟之一，並記「買賣求財…無不如意」奠財神神格"
+          }
+        ]
+      }
+    ],
+    "affairs_yi": [
+      "qifu",
+      "jisi"
+    ],
+    "affairs_ji": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·城隍爺(Cheng huang ye) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=259",
+        "note": "城隍系統說明（省、府、縣、鄉鎮分級）、職司（城域陰司司法、監察善惡）、七爺八爺（范謝將軍）部將說明"
+      }
     ],
     "draft": false
   }
