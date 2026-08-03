@@ -7,8 +7,8 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 4,
-  "updated": "2026-08-02",
+  "version": 5,
+  "updated": "2026-08-03",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -115,6 +115,8 @@
       "url": "https://crgis.rchss.sinica.edu.tw/resources/internet/folk_customs/list",
       "dest": "crgis/folk-customs-list.html",
       "max_age_days": 7,
+      "_alert": false,
+      "_alert_note": "已知來源停擺（中研院站台自 2026-07-30 起 HTTP 000）；2026-08-03 起靜音，復站收到檔後把此欄拿掉。",
       "note": "中研院 CRGIS。2026-07-30 起連續不通（TCP 443 逾時，母站亦同）。加成 job 讓它每輪自動重試。",
       "expect": {
         "http_status": 200,
@@ -122,7 +124,10 @@
       },
       "_why": [
         "**預期會一直失敗，這不是設定錯誤**：台灣端 2026-07-30 起連測三天皆 HTTP 000，連母站 rchss.sinica.edu.tw 也不通。",
-        "是連不上、不是沒有資料——**不要據此判定該來源無效並刪掉這個 job**。"
+        "是連不上、不是沒有資料——**不要據此判定該來源無效並刪掉這個 job**。",
+        "`_alert: false`＝新鮮度提醒對這個 job 靜音（台灣端仍每輪重試，收到就會上位）。2026-08-03 加：",
+        "刻意用底線開頭——這是**境外端專用**欄位，台灣端遇到不認得的欄位會停擺，而底線欄位一律忽略。",
+        "它每天都在發 Slack「台灣主機的抓取腳本可能沒在跑」，而 state.json 同時證明台灣端有在跑＝指控錯的一方。"
       ]
     },
     {

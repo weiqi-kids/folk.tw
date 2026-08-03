@@ -174,7 +174,14 @@ rsync -az --partial --ignore-times \
   `--ignore-times` 強制逐檔比對內容，正是為了擋這個。**別為了省頻寬改回去。**
 - 目錄結構照 `out/` 底下的相對路徑落地（例如 `out/temple-xml/temple.xml` → `inbox/temple-xml/temple.xml`）
 
-境外那台每小時 :07 收件、每日 09:20（台北）檢查新鮮度並在逾期時發 Slack。
+境外那台每小時 :07 收件、每日 09:20（台北）檢查新鮮度。
+
+**新鮮度提醒只在「境外端能動手」的兩種情況發 Slack**（2026-08-03 改）：
+① `state.json` 超過 36 小時沒更新＝台灣端沒在跑；
+② 台灣端記錄抓取成功、sha 也與境外現有檔不同，卻沒有新檔進 inbox＝rsync 那段斷了。
+**來源掛掉或來源沒更新一律不發**——那不是我們能處理的事，只留在 log。
+因此 `state.json` 的 `updated`、以及每個 job 的 `last_ok` / `sha256` / `last_error` / `attempts`
+**是境外端的判準，不只是給人看的**：漏傳 `state.json` 會被判成「台灣端沒在跑」而誤報。
 
 ---
 

@@ -47,6 +47,23 @@ const PROMOTE_TO = {
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 const todayIso = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
 const ageDays = (p) => (existsSync(p) ? (Date.now() - statSync(p).mtimeMs) / 864e5 : Infinity);
+const hoursSince = (iso) => (iso ? (Date.now() - Date.parse(iso)) / 36e5 : Infinity);
+const tpe = (iso) =>
+  iso
+    ? new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', dateStyle: 'short', timeStyle: 'short' }).format(new Date(iso))
+    : '從未';
+const fileSha = (p) => (existsSync(p) ? sha256(readFileSync(p)) : null);
+
+/** 台灣端每輪回傳的進度檔。判「誰壞了」全靠它，不能只看本地檔案 mtime。 */
+function loadRemoteState() {
+  const p = join(INBOX, 'state.json');
+  if (!existsSync(p)) return null;
+  try {
+    return JSON.parse(readFileSync(p, 'utf8'));
+  } catch {
+    return null;
+  }
+}
 
 function loadManifest() {
   try {
@@ -113,25 +130,69 @@ function checkExpect(buf, expect, currentPath) {
 const manifest = loadManifest();
 const jobs = manifest.jobs ?? [];
 
-// ── --status：只報新鮮度（供 cron 的過期提醒使用）────────────────────────────
+// ── --status：新鮮度診斷（供 cron 的過期提醒使用）────────────────────────────
+//
+// ⚠️ 2026-08-03 改寫，起因是一則假警報：crgis 從未收到 → Slack 發「台灣主機的抓取腳本
+// 可能沒在跑」，但同一時間 state.json 寫著台灣端**前一晚才剛跑過**、crgis 重試 6 次
+// 皆 `fetch failed`，且台灣端自己註明母站 rchss.sinica.edu.tw 一併 HTTP 000＝中研院站掛了。
+// 舊版只做 `ageDays(檔案)`，完全沒讀台灣端回傳的 state.json，所以分不出三件事——
+// 而其中只有兩件該叫人：
+//   ① pipeline：台灣端沒在跑（state.json 本身老了或不存在）        → 要人管，發 Slack
+//   ② transport：台灣端抓成功、內容也與我們手上的不同，但檔沒進來  → 要人管，發 Slack
+//   ③ source：來源掛了／來源沒更新（sha 與我們手上這份相同）       → 不是我們的事，只記錄
+// 另有 `_alert: false` 的 job（已知來源停擺，如 crgis）一律靜音，只印一行。
+// ⚠️ 欄位名**必須底線開頭**：台灣端遇到不認得的 manifest 欄位會整個停擺（docs/taiwan-host-handoff.md
+// 步驟 3 的紅字），而底線欄位是約定的「境外端專用、台灣端忽略」。
+//
+// 「來源沒更新」是常態，不是故障——用戶原話：「台灣端資料不一定會有更新，主要還是看資料來源」。
+const PIPELINE_MAX_HOURS = 36; // 台灣端每日跑；連兩輪沒動靜才算沒在跑
+
 if (STATUS_ONLY) {
-  const stale = [];
+  const st = loadRemoteState();
+  const remoteAgeH = hoursSince(st?.updated);
+  const pipelineDown = !st || !(remoteAgeH < PIPELINE_MAX_HOURS);
+
+  const transport = [];
   for (const j of jobs) {
-    const promoted = PROMOTE_TO[j.dest];
-    const watch = promoted ?? join(INBOX, j.dest);
+    const watch = PROMOTE_TO[j.dest] ?? join(INBOX, j.dest);
     const age = ageDays(watch);
     const limit = j.max_age_days ?? Infinity;
-    const over = age > limit;
-    if (over) stale.push({ id: j.id, age, limit, path: watch });
     const ageTxt = age === Infinity ? '不存在' : `${age.toFixed(1)} 天`;
-    console.log(`${over ? '⚠️' : '  '} ${j.id.padEnd(20)} 資料齡 ${ageTxt.padStart(9)}（上限 ${limit} 天）  ${watch}`);
+    const head = `${j.id.padEnd(23)} 資料齡 ${ageTxt.padStart(9)}（上限 ${limit} 天）`;
+
+    if (!(age > limit)) {
+      console.log(`   ${head}  ${watch}`);
+      continue;
+    }
+
+    const js = st?.jobs?.[j.id];
+    if (j._alert === false) {
+      console.log(`🔇 ${head}  已靜音：${j._alert_note ?? 'manifest 設 _alert:false'}`);
+    } else if (pipelineDown) {
+      console.log(`⚠️ ${head}  （台灣端沒在跑，不逐項判讀）`);
+    } else if (!js) {
+      console.log(`🛈 ${head}  台灣端 state.json 沒有這個 job（清單版本可能還沒同步過去）`);
+    } else if (!js.last_ok) {
+      console.log(`🛈 ${head}  來源問題：台灣端從未抓成功（重試 ${js.attempts ?? '?'} 次｜${js.last_error ?? '無錯誤訊息'}）`);
+    } else if (js.sha256 && js.sha256 === fileSha(watch)) {
+      console.log(`🛈 ${head}  來源沒更新：台灣端 ${tpe(js.last_ok)} 抓到的內容與我們手上這份相同`);
+    } else if (hoursSince(js.last_ok) < PIPELINE_MAX_HOURS) {
+      transport.push(`${j.id}（台灣端 ${tpe(js.last_ok)} 抓取成功，但檔案沒進來／資料齡 ${ageTxt}）`);
+      console.log(`⚠️ ${head}  傳輸斷線：台灣端 ${tpe(js.last_ok)} 抓成功但我們沒收到`);
+    } else {
+      console.log(`🛈 ${head}  來源問題：台灣端最後成功 ${tpe(js.last_ok)}，之後沒有新的成功（${js.last_error ?? '無錯誤訊息'}）`);
+    }
   }
-  if (stale.length) {
+
+  // 機器可讀的通報行。只有 ① ② 會出現——「來源沒更新／來源掛了」永遠不發 Slack。
+  if (pipelineDown) {
     console.log(
-      `\nSTALE\t${stale
-        .map((s) => `${s.id}（${s.age === Infinity ? '從未收到' : s.age.toFixed(0) + ' 天'}／上限 ${s.limit}）`)
-        .join('、')}`,
+      `\nALERT_PIPELINE\t台灣端進度檔${
+        !st ? '不存在或解析失敗' : `最後更新 ${tpe(st.updated)}，已 ${remoteAgeH.toFixed(0)} 小時沒動靜`
+      }`,
     );
+  } else if (transport.length) {
+    console.log(`\nALERT_TRANSPORT\t${transport.join('、')}`);
   }
   process.exit(0);
 }

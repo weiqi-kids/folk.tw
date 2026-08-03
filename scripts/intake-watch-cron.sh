@@ -33,16 +33,27 @@ notify() {
 }
 
 if [ "${1:-}" = "--stale" ]; then
+  # 只在「我們這邊能動手」的兩種情況發 Slack（判讀邏輯與理由見 intake-ingest.mjs 的 --status 段）：
+  #   ALERT_PIPELINE ＝台灣端沒在跑；ALERT_TRANSPORT ＝台灣端抓到了但檔沒進來。
+  # 「來源掛了／來源沒更新」不發——那不是我們能處理的事，只留在 log。
   out="$(node scripts/intake-ingest.mjs --status 2>&1)" || true
   echo "$out"
-  if stale_line="$(printf '%s' "$out" | grep '^STALE' || true)"; [ -n "$stale_line" ]; then
-    detail="${stale_line#STALE$'\t'}"
-    notify ":hourglass: *台灣端投遞資料過期*
-${detail}
 
-台灣主機的抓取腳本可能沒在跑（那台不一定常開）。
+  if line="$(printf '%s' "$out" | grep '^ALERT_PIPELINE' || true)"; [ -n "$line" ]; then
+    notify ":hourglass: *台灣端投遞管線沒在跑*
+${line#ALERT_PIPELINE$'\t'}
+
+台灣主機的抓取腳本可能停了（那台不一定常開）。**這與各來源站是否有新資料無關**——
+是連進度回報都沒收到。
 ・清單：\`docs/intake-manifest.json\`
 ・交接說明：\`docs/taiwan-host-handoff.md\`"
+  elif line="$(printf '%s' "$out" | grep '^ALERT_TRANSPORT' || true)"; [ -n "$line" ]; then
+    notify ":electric_plug: *台灣端抓到了資料，但檔案沒送達*
+${line#ALERT_TRANSPORT$'\t'}
+
+台灣端 state.json 顯示抓取成功且內容與我們手上這份不同，卻沒有新檔進 inbox
+＝rsync／金鑰／磁碟這一段有問題，不是來源的事。
+・交接說明：\`docs/taiwan-host-handoff.md\` 步驟 4（rsync 參數）"
   fi
   exit 0
 fi
