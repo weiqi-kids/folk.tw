@@ -98,10 +98,18 @@ export default defineConfig({
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。
         const m = page.match(/\/almanac\/(\d{4}-\d{2}-\d{2})\/?$/);
         if (!m) return true; // 非日期頁（首頁、模組頁、month 樞紐、archive…）一律保留
-        // 過去日期頁保留；未來（嚴格大於今日）排除；今日的 dated 頁為「可分享鏡像」
-        // （canonical 指回 /almanac/，見 src/lib/almanac/dates.ts），一併排除避免 sitemap
-        // 與 canonical 不一致（正本 /almanac/ 另已在 sitemap）。故用嚴格小於。
-        return m[1] < TODAY;
+        // 🔴 2026-08-03 用戶裁示：**農民曆封存頁（過去日期）一律不進 sitemap，未來也不要進。**
+        // 原本保留過去日期頁、僅以 priority 0.3 降權，但實測顯示那不夠：
+        //   · sitemap 共 11,693 個網址，其中 2,536 個是農民曆日期頁（22%）
+        //   · 而它們近 29 天只帶來 1,258 曝光（全站 175,735 的 0.7%），過去日期頁每頁僅 1.5 次
+        //   · 同時鬼門開 8/13／七夕 8/19／中元 8/27 三頁是「Discovered — 從未被爬取」，
+        //     卡的正是抓取預算，且尖峰在窗口內、過了沒有第二次
+        // 頁面**不會消失**，仍可從 /almanac/month/ 月份樞紐與 /almanac/archive/ 被爬到，
+        // 只是不再主動提交、不再跟重要頁搶預算。
+        // ⚠️ 別再「順手」把它們加回來——這是有數據依據的裁示，不是疏漏。
+        //    （對照：2026-07-02 曾以「稀釋收錄」為由評估過並判定不做；這次的理由是
+        //      「稀釋抓取預算」，證據與情境都不同。）
+        return false;
       },
       // 優先級分層（降稀釋的正解：不砍過去封存頁，改以 priority 標示價值高低，
       // 引導爬取預算流向獨特內容）；changefreq 標示更新頻率。
