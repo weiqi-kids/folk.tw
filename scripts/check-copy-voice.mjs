@@ -21,6 +21,10 @@ import { join } from 'node:path';
 // 只列**確定全部是現代散文**的檔與欄位，不整批放行 JSON。
 const PROSE_JSON = [
   { file: 'src/data/yaoqian-notes.json', fields: ['safety_flags', 'why_not_self_medicate', 'modern_care_pathway', 'physician_note'] },
+  // 2026-08-03：/compare/ 從 3 頁擴到 13 頁，`contrast` 是逐頁手寫的散文（雖然內容只准
+  // 重述 deities.json 已掛源的 office/category），屬「由 AI 產製、存在資料 JSON 裡」那一類，
+  // 與藥籤醫師解說同型 → 一併納入白名單掃描。`a_focus`/`b_focus` 是短標籤不是散文，不掃。
+  { file: 'src/data/comparisons.json', fields: ['contrast'] },
 ];
 // 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
 const AI_TELLS = [

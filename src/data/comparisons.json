@@ -7,7 +7,9 @@
     "a_focus": "姻緣、婚配",
     "b_focus": "求子、生育",
     "contrast": "兩者同屬愛情婦幼守護神，但職司分工明確：月下老人主「姻緣婚配」，是求良緣、祈感情順遂者所拜；註生娘娘主「求子生育」，是求子嗣、護佑孕產者所拜。",
-    "related_scenarios": ["qiu-yinyuan"]
+    "related_scenarios": [
+      "qiu-yinyuan"
+    ]
   },
   {
     "slug": "chenghuang-vs-tudigong",
@@ -27,6 +29,112 @@
     "a_focus": "文運、學業",
     "b_focus": "科考點魁、奪元",
     "contrast": "兩者同護文運、並列五文昌，但職司側重有別：文昌帝君總司文運學業，為文昌信仰主神；魁星專司科考「點魁奪元」，象徵金榜首名，士子求及第者所拜。",
-    "related_scenarios": ["kaoshi-gongming"]
+    "related_scenarios": [
+      "kaoshi-gongming"
+    ]
+  },
+  {
+    "slug": "mazu-vs-guanyin",
+    "question": "媽祖和觀音差在哪？",
+    "a": "mazu",
+    "b": "guanyin",
+    "a_focus": "航海、漁民",
+    "b_focus": "慈悲濟世、送子",
+    "contrast": "兩者都以「救苦救難」為職司，台灣民間也都以「媽」相稱（媽祖、觀音媽），因此常被混同。差別在信仰類別與主管範圍：媽祖屬海神信仰，職司航海、漁民與救苦救難，是討海人與渡海移民所拜；觀世音菩薩職司救苦救難、慈悲濟世與送子賜福，求子與消災者所拜。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "xuantian-vs-guangong",
+    "question": "玄天上帝和關聖帝君差在哪？",
+    "a": "xuantian",
+    "b": "guangong",
+    "a_focus": "鎮邪驅魔、北方水神",
+    "b_focus": "忠義、商業",
+    "contrast": "兩者都被視為武神，但信仰類別與職司方向不同：玄天上帝屬海神信仰，職司鎮邪驅魔、北方水神與統御玄武（龜蛇），以鎮境驅邪為主；關聖帝君屬行業神信仰，職司忠義、商業與武，在台灣以「恩主公」為商界所拜。",
+    "related_scenarios": [
+      "kaidian-qiucai"
+    ]
+  },
+  {
+    "slug": "guanyin-vs-dizang",
+    "question": "觀音和地藏王差在哪？",
+    "a": "guanyin",
+    "b": "dizang",
+    "a_focus": "陽世救苦、送子",
+    "b_focus": "冥界救度",
+    "contrast": "兩者同為佛教菩薩，差別在救度的場域：觀世音菩薩職司救苦救難、慈悲濟世與送子賜福，面向的是陽世的苦難；地藏王菩薩職司冥界救度，以「地獄不空，誓不成佛」為願，於無佛之世教化六道眾生，民間信仰並視其為地府主宰。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "baosheng-vs-shennong",
+    "question": "保生大帝和神農大帝差在哪？",
+    "a": "baosheng",
+    "b": "shennong",
+    "a_focus": "醫藥、驅疫治病",
+    "b_focus": "農業、嘗百草",
+    "contrast": "兩者職司都含「醫藥」，因此常被一起問。差別在信仰類別與其餘職司：保生大帝屬族群神信仰，職司醫藥、消災與驅疫治病；神農大帝屬行業神信仰，職司農業、醫藥與嘗百草教民。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "yuhuang-vs-sanguan",
+    "question": "天公和三界公差在哪？",
+    "a": "yuhuang",
+    "b": "sanguan",
+    "a_focus": "三界十方共主",
+    "b_focus": "賜福、赦罪、解厄",
+    "contrast": "兩者同屬自然神信仰，民間分別俗稱「天公」與「三界公」，字面相近而常被混為一談。差別在職司：玉皇大帝為三界十方共主，統御諸神、主宰天庭政令；三官大帝職司賜福、赦罪與解厄。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "yuhuang-vs-sanqing",
+    "question": "玉皇大帝和三清道祖誰比較大？",
+    "a": "sanqing",
+    "b": "yuhuang",
+    "a_focus": "道教最高、化生萬物",
+    "b_focus": "統御諸神、天庭政令",
+    "contrast": "兩者常被問「誰比較大」，實則職司性質不同：三清道祖為道教最高，職司化生萬物與傳授道法；玉皇大帝為三界十方共主，職司統御諸神與主宰天庭政令。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "nazha-vs-dasheng",
+    "question": "三太子和齊天大聖差在哪？",
+    "a": "nazha",
+    "b": "dasheng",
+    "a_focus": "先鋒、護佑兒童",
+    "b_focus": "制伏妖魔、護童",
+    "contrast": "兩者職司高度重疊，都主驅邪與護童，差別在信仰類別：中壇元帥屬行業神信仰，職司先鋒、驅邪與護佑兒童；齊天大聖屬動物神崇拜，職司驅邪、護童與制伏妖魔。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "zhusheng-vs-linshui",
+    "question": "註生娘娘和臨水夫人差在哪？",
+    "a": "zhusheng",
+    "b": "linshui",
+    "a_focus": "求子、登記子嗣",
+    "b_focus": "安胎、護產、保嬰",
+    "contrast": "兩者同屬愛情婦幼守護神，常一起奉祀而被混同，但職司分工不同：註生娘娘職司求子、生育與登記子嗣，是求子嗣者所拜；臨水夫人職司安胎、護產與保嬰，是已懷孕、求生產平安者所拜。",
+    "related_scenarios": []
+  },
+  {
+    "slug": "tudigong-vs-caishen",
+    "question": "土地公和財神差在哪？",
+    "a": "tudigong",
+    "b": "zhao_gongming",
+    "a_focus": "村落、田土、財",
+    "b_focus": "財源、錢銀交易",
+    "contrast": "兩者職司都含「財」，開店求財時常被一起問。差別在信仰類別與範圍：福德正神屬開拓神信仰，職司村落、田土與財，是廟宇密度最高的基層地方守護神；趙公明屬行業神信仰，為五路財神之中路主帥，職司掌管財源與錢銀交易、主持公道、除瘟禳災。",
+    "related_scenarios": [
+      "kaidian-qiucai"
+    ]
+  },
+  {
+    "slug": "chenghuang-vs-dongyue",
+    "question": "城隍爺和東嶽大帝差在哪？",
+    "a": "chenghuang",
+    "b": "dongyue",
+    "a_focus": "城域司法、監察善惡",
+    "b_focus": "掌幽冥、壽算登記",
+    "contrast": "兩者職司都在幽冥系統，差別在管轄範圍：城隍爺職司陰司、城域司法與監察善惡，以「城域」為範圍；東嶽大帝職司掌幽冥、壽算登記與主宰泰山諸司。",
+    "related_scenarios": []
   }
 ]
