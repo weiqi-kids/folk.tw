@@ -54,6 +54,24 @@ const tpe = (iso) =>
     : '從未';
 const fileSha = (p) => (existsSync(p) ? sha256(readFileSync(p)) : null);
 
+/**
+ * 收下的檔（含 .sha256／.meta.json 側檔）清出 inbox，避免下輪重複處理。
+ * `archiveDir` 有給＝這一版有上位，meta.json 跟著進 archive 供日後對帳；
+ * 沒給＝內容與現有上位檔相同、根本沒歸檔，meta 一併刪掉（不留空殼目錄）。
+ */
+function clearInbox(src, archiveDir = null) {
+  rmSync(src, { force: true });
+  rmSync(`${src}.sha256`, { force: true });
+  const metaPath = `${src}.meta.json`;
+  if (!existsSync(metaPath)) return;
+  if (archiveDir) {
+    mkdirSync(archiveDir, { recursive: true });
+    renameSync(metaPath, join(archiveDir, basename(metaPath)));
+  } else {
+    rmSync(metaPath, { force: true });
+  }
+}
+
 /** 台灣端每輪回傳的進度檔。判「誰壞了」全靠它，不能只看本地檔案 mtime。 */
 function loadRemoteState() {
   const p = join(INBOX, 'state.json');
@@ -249,8 +267,29 @@ for (const j of jobs) {
     continue;
   }
 
+  // 內容與現有上位檔完全相同 → 不重寫、不歸檔，只把 inbox 清乾淨。
+  //
+  // 2026-08-03 加。台灣端每輪都重送同一份 temple.xml（`fetched_at` 五天來都停在 07-30），
+  // 而舊版無條件「歸檔＋重寫」→ archive 每天多一份 6.27 MB 的**完全相同**副本
+  // （實測 5 個日期目錄只有 2 種內容、30 MB 裡 18 MB 是重複），而且會一直長下去。
+  // 同時也省掉對 temple.xml 的無謂重寫——那個檔被 folk-outreach 每日讀。
+  // ⚠️ 配套：略過上位後檔案 mtime 就不再更新，新鮮度提醒**必須**靠 state.json 的 sha 判讀，
+  //    否則會誤報「資料過期」。那正是 --status 的「來源沒更新」分支（見本檔上方）。
+  const unchanged = existsSync(dest) && fileSha(dest) === got;
+
   if (DRY) {
-    console.log(`（乾跑）${j.id} 驗證通過 ${buf.length}B → 會上位到 ${dest}`);
+    console.log(
+      unchanged
+        ? `（乾跑）${j.id} 內容與現有上位檔相同 → 會略過上位、只清 inbox`
+        : `（乾跑）${j.id} 驗證通過 ${buf.length}B → 會上位到 ${dest}`,
+    );
+    continue;
+  }
+
+  if (unchanged) {
+    console.log(`＝ ${j.id} 內容與現有上位檔相同（sha ${got.slice(0, 12)}…）→ 略過上位，不歸檔`);
+    clearInbox(src);
+    skipped++;
     continue;
   }
 
@@ -269,15 +308,8 @@ for (const j of jobs) {
   promoted++;
   console.log(`✓ ${j.id} 已上位 → ${dest}（${(buf.length / 1048576).toFixed(2)} MB，sha ${got.slice(0, 12)}…）`);
 
-  // 5) 收下的檔清出 inbox，避免下輪重複處理
-  rmSync(src, { force: true });
-  rmSync(shaPath, { force: true });
-  const metaPath = `${src}.meta.json`;
-  if (existsSync(metaPath)) {
-    const dir = join(ARCHIVE, j.id, todayIso());
-    mkdirSync(dir, { recursive: true });
-    renameSync(metaPath, join(dir, basename(metaPath)));
-  }
+  // 5) 收下的檔清出 inbox，避免下輪重複處理（meta.json 跟著這一版進 archive）
+  clearInbox(src, join(ARCHIVE, j.id, todayIso()));
 }
 
 // ── 偵察類檔案（不在 manifest 的 job，如慶典查詢頁）：只點名，不動它們 ──────

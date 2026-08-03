@@ -148,12 +148,45 @@ out/temple-xml/temple.xml.meta.json   # {"url":…,"http_status":200,"fetched_at
 | token | `field` `from` `from_job` |
 | paginate | `method` `page_param` `start` `max_pages` `form` `token` `dest_template` `total_pages_re` `stop_when_missing` `expect_per_page` |
 
-底線開頭的欄位（`_why` 等）一律忽略，可自由當註解用。
+底線開頭的欄位（`_why` 等）一律忽略，可自由當註解用——**境外端專用的開關就走這條路**
+（例如 `_alert: false` ＝新鮮度提醒對該 job 靜音，台灣端完全不必認得）。
 
 🔴 **這一節是拿事故換來的**：2026-08-01 境外端加了 `http_status_any_of` / `record_status_only`，
 台灣端當時不認得，**結果不是報錯而是整段狀態檢查被跳過**——一頁 ASP.NET 錯誤頁被當成合格資料
 收下並推送。那次剛好真的是 404、無害，但**回 500 也會照收**。台灣端已改為遇到不認得的欄位就停擺：
 **默默做錯比停擺危險。**
+
+### 3.6 分頁 job（`paginate`）——已實作、目前無人使用
+
+台灣端 2026-07-31 實作並自測（29/29）。**manifest 加上 `paginate` 區塊才走分頁路徑，
+不加就跟以前一樣是單檔 job**，向後相容。目前**沒有任何 job 需要它**——留著是為了將來真的
+遇到逐頁來源。
+
+```jsonc
+"paginate": {
+  "method": "POST",                 // GET｜POST，預設 GET
+  "page_param": "Page",             // GET＝query 參數名；POST＝表單欄位名
+  "start": 1,
+  "max_pages": 664,                 // 硬上限防呆；未給則 10000
+  "form": { "…": "" },              // POST 的靜態欄位（全空＝全量查詢）
+  "token": { "field": "__RequestVerificationToken", "from": "…" },  // 只有 POST 需要
+  "dest_template": "a/b/page-{page}.html",  // 未給則由 dest 自動插 -p{page}
+  "total_pages_re": "共 (\\d+) 頁",          // 選填：省下探尾頁的請求
+  "stop_when_missing": "<tr",               // 選填：頁面缺此字串＝翻過尾頁
+  "expect_per_page": { "http_status": 200, "min_bytes": 10000, "contains": "<tr" }
+}
+```
+
+進度記在 `state.json` 該 job 的 `pages`：`{ total, done_ranges: [[1,120],[122,200]], done, next, bytes }`
+（區間表，664 頁也只佔一行）。**境外端看 `next` 就知道卡在哪一頁**；`last_ok` 要全部頁抓完才填。
+
+台灣端保證：已完成的頁一個請求都不再發／抓完一頁就寫 state（不是跑完才寫）／`SIGINT`·`SIGTERM`·`SIGHUP`
+先存檔再退／達請求上限＝記斷點收工、不累加 `attempts`／`out/` 的檔被清掉會踢回待抓（只信 state 會漏）／
+連續 5 頁失敗指數退避收工／每頁三件套 `.html`＋`.sha256`＋`.meta.json`（含 `page` 欄位）。
+
+⚠️ **慶典查詢不要用分頁抓**（2026-07-31 實測 4 個請求）：那個來源**每一頁都把全部 6,644 列
+渲染出來**（所以每頁都是 7.5 MB），分頁只是顯示層的假象。一個 GET 就拿到全部
+＝現行的 `religion-festival-entry` job。
 
 ---
 
