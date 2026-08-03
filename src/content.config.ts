@@ -395,6 +395,11 @@ const trades = defineCollection({
   schema: z.object({
     id: z.string(), // = URL slug（/trades/[id]，發佈後永不改）
     name: z.string(),
+    // 使用者實際會打的職業詞（如「護士」「木工」），供 title/description 命中查詢用。
+    // ⚠️ 這是**搜尋詞變體，不是新增事實**——守護神對映（patrons）與其來源一字未動。
+    // 依據：GSC 實測 29 天內命中的查詢全部是「○○拜什麼神」句型，且排第 9–11 名卡在第一頁邊緣，
+    // 而 title 寫的是行業統稱（「醫療與護理」對不上「護士」、「營造與工匠」對不上「木工」）。
+    occupations: z.array(z.string()).default([]),
     modern: z.boolean().default(false), // 現代延伸行業（頁面明確標示）
     description: z.string(),
     patrons: z

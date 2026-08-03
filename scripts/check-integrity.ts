@@ -148,6 +148,32 @@ for (const id of Object.keys(yijiTerms)) {
     }
   }
 }
+
+// ── 宣告文字不得塞進會被渲染的資料欄位（2026-08-03 立，用戶第二次抓到）──
+// 病灶：把「本站僅掛源、不轉載…」這種整段聲明塞進 poems.json 的 version_source，
+// 於是每一個籤頁的畫面上都印出一大段勘誤/授權文字。
+// 房規：**這類宣告一律集中在 /about/（關於與勘誤）**，頁面上只留一行短標示。
+// 判準用兩道：長度上限 ＋ 宣告用語黑名單（兩者都命中才是誤判，分開看都很準）。
+const DECLARE_PHRASES = ['僅掛源', '不轉載', '逐首自', '屬廟方著作', '本站不抄', '免責', '依政府資料開放授權'];
+const RENDERED_TEXT_FIELDS: { file: string; rows: any[]; fields: string[]; max: number }[] = [
+  // 長度上限只套 version_source（站級宣告的慣犯）。
+  // notes 是**逐籤的校訂註記**（如「本籤第三句各版本有異文」），屬該籤自身的事實、可以長，
+  // 只套宣告用語黑名單。2026-08-03 首版誤把 notes 一起限長，兩筆正當註記被擋，已修。
+  { file: 'poems.json', rows: poems, fields: ['version_source'], max: 40 },
+  { file: 'poems.json', rows: poems, fields: ['notes'], max: Infinity },
+];
+for (const { file, rows, fields, max } of RENDERED_TEXT_FIELDS) {
+  for (const r of rows) {
+    for (const f of fields) {
+      const v = r?.[f];
+      if (typeof v !== 'string' || !v) continue;
+      if (v.length > max) hard(`${file} ${r.id}.${f} 長度 ${v.length} 字 > 上限 ${max}（宣告文字請放 /about/，頁面只留一行短標示）`);
+      const hit = DECLARE_PHRASES.find((x) => v.includes(x));
+      if (hit) hard(`${file} ${r.id}.${f} 含宣告用語「${hit}」——這類文字集中放 /about/，不要印在每一頁`);
+    }
+  }
+}
+
 if (hardErrors === 0) console.log('  ✓ 全數通過');
 
 // 行業宜側事項 → 宜側 verified 資料覆蓋（M3 只顯示 verified；宜票缺 verified 者頁面恆空 → 軟警告）

@@ -10,8 +10,15 @@
         "role": "文運科考主神",
         "why": "文昌帝君掌管文運與科舉考試，為士人學子敬奉的主神，五文昌之首。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌", "note": "五文昌皆有護持文運之職能，為士人學子敬奉" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244"
+          },
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌",
+            "note": "五文昌皆有護持文運之職能，為士人學子敬奉"
+          }
         ]
       },
       {
@@ -19,8 +26,14 @@
         "role": "五文昌之一",
         "why": "孚佑帝君（呂洞賓）名列五文昌，相傳時常護佑應考士子。",
         "sources": [
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" },
-          { "type": "temple", "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382" }
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+          },
+          {
+            "type": "temple",
+            "ref": "拱北殿〈孚佑帝君呂仙祖生平〉 https://www.gbt.tw/h/about?key=013215999296&cont=276382"
+          }
         ]
       },
       {
@@ -28,16 +41,32 @@
         "role": "五文昌之一（文衡聖帝）",
         "why": "關聖帝君以文衡聖帝之名列五文昌，喜讀《左氏春秋》，受儒家學子信奉。",
         "sources": [
-          { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+          {
+            "type": "web",
+            "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+          }
         ]
       }
     ],
-    "affairs_yi": ["qifu", "jisi"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "web", "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌" }
+    "affairs_yi": [
+      "qifu",
+      "jisi"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈五文昌〉 https://zh.wikipedia.org/wiki/五文昌"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "考生",
+      "學生",
+      "重考"
+    ]
   },
   {
     "id": "business",
@@ -50,8 +79,14 @@
         "role": "商業守護神",
         "why": "民間以關公重信義守然諾，奉為商業守護神，亦尊為武財神。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286" },
-          { "type": "web", "ref": "維基百科〈關羽〉民間信仰節 https://zh.wikipedia.org/wiki/關羽" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·關聖帝君(Holy Emperor Guan) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286"
+          },
+          {
+            "type": "web",
+            "ref": "維基百科〈關羽〉民間信仰節 https://zh.wikipedia.org/wiki/關羽"
+          }
         ]
       },
       {
@@ -59,17 +94,38 @@
         "role": "求財（武財神）",
         "why": "趙公明為五路財神中路主帥，清代並為銀錢業守護神。",
         "sources": [
-          { "type": "temple", "ref": "北港武德宮官網 https://www.wude.org.tw" },
-          { "type": "web", "ref": "維基百科〈趙公明〉 https://zh.wikipedia.org/wiki/趙公明" }
+          {
+            "type": "temple",
+            "ref": "北港武德宮官網 https://www.wude.org.tw"
+          },
+          {
+            "type": "web",
+            "ref": "維基百科〈趙公明〉 https://zh.wikipedia.org/wiki/趙公明"
+          }
         ]
       }
     ],
-    "affairs_yi": ["lijuan", "nacai_cai"],
-    "affairs_ji": ["kaishi", "lijuan", "nacai_cai"],
-    "sources": [
-      { "type": "web", "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神" }
+    "affairs_yi": [
+      "lijuan",
+      "nacai_cai"
     ],
-    "draft": false
+    "affairs_ji": [
+      "kaishi",
+      "lijuan",
+      "nacai_cai"
+    ],
+    "sources": [
+      {
+        "type": "web",
+        "ref": "維基百科〈財神〉 https://zh.wikipedia.org/wiki/財神"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "做生意的",
+      "開店",
+      "業務"
+    ]
   },
   {
     "id": "healthcare",
@@ -82,8 +138,14 @@
         "role": "醫神",
         "why": "保生大帝（大道公）生前為名醫吳夲，歿後奉為醫藥之神，醫界敬奉。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258" },
-          { "type": "temple", "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/history.php?lang=tw" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"
+          },
+          {
+            "type": "temple",
+            "ref": "大龍峒保安宮官網 https://www.baoan.org.tw/history.php?lang=tw"
+          }
         ]
       },
       {
@@ -91,16 +153,32 @@
         "role": "醫藥祖神",
         "why": "神農大帝嘗百草教民辨藥性，為醫藥之祖神，中醫藥業敬奉。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260"
+          }
         ]
       }
     ],
-    "affairs_yi": ["liaobing", "qifu"],
-    "affairs_ji": ["liaobing"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258" }
+    "affairs_yi": [
+      "liaobing",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "liaobing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·保生大帝(Baosheng Emperor) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "醫生",
+      "護士",
+      "醫護"
+    ]
   },
   {
     "id": "maritime",
@@ -113,17 +191,36 @@
         "role": "航海守護神",
         "why": "天上聖母（媽祖）為航海與漁民的守護神，沿海行船討海者敬奉最篤。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241" },
-          { "type": "temple", "ref": "北港朝天宮官網 https://www.matsu.org.tw/" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241"
+          },
+          {
+            "type": "temple",
+            "ref": "北港朝天宮官網 https://www.matsu.org.tw/"
+          }
         ]
       }
     ],
-    "affairs_yi": ["jisi", "qifu"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241" }
+    "affairs_yi": [
+      "jisi",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·天上聖母(Mazu) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "漁民",
+      "船員",
+      "討海人"
+    ]
   },
   {
     "id": "construction",
@@ -136,17 +233,38 @@
         "role": "百工祖師",
         "why": "巧聖先師（魯班）為木匠、營造、建築業之祖師爺，全台工匠業奉祀，聖誕日各地匠師返東勢祖廟謁祖。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
-          { "type": "gov", "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245"
+          },
+          {
+            "type": "gov",
+            "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232"
+          }
         ]
       }
     ],
-    "affairs_yi": ["dongtu", "ruzhai"],
-    "affairs_ji": ["dongtu", "shangliang", "anchuang"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" }
+    "affairs_yi": [
+      "dongtu",
+      "ruzhai"
     ],
-    "draft": false
+    "affairs_ji": [
+      "dongtu",
+      "shangliang",
+      "anchuang"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "木工",
+      "水電",
+      "土水"
+    ]
   },
   {
     "id": "agriculture",
@@ -159,8 +277,14 @@
         "role": "農業祖神",
         "why": "神農大帝教民耕稼，為農業之祖神，農民奉為五穀先帝。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" },
-          { "type": "temple", "ref": "內政部臺灣宗教文化地圖〈三重先嗇宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=181" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260"
+          },
+          {
+            "type": "temple",
+            "ref": "內政部臺灣宗教文化地圖〈三重先嗇宮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=181"
+          }
         ]
       },
       {
@@ -168,16 +292,32 @@
         "role": "田土之神",
         "why": "福德正神掌田土與農作收成，農家於田頭田尾奉祀。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·土地公(Tudi gong) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278"
+          }
         ]
       }
     ],
-    "affairs_yi": ["zaizhong", "jisi"],
-    "affairs_ji": ["zaizhong"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260" }
+    "affairs_yi": [
+      "zaizhong",
+      "jisi"
     ],
-    "draft": false
+    "affairs_ji": [
+      "zaizhong"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·神農大帝(Shen Nong dadi) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "農民",
+      "農夫",
+      "種田"
+    ]
   },
   {
     "id": "engineers",
@@ -190,8 +330,14 @@
         "role": "工程祖師（傳統之現代延續）",
         "why": "巧聖先師為百工祖師，台灣土木、建築工程界奉為祖師爺，工程業界於聖誕日祭祀至今。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
-          { "type": "gov", "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245"
+          },
+          {
+            "type": "gov",
+            "ref": "文化部臺灣大百科全書〈巧聖先師〉 https://nrch.culture.tw/twpedia.aspx?id=6232"
+          }
         ]
       },
       {
@@ -199,18 +345,39 @@
         "role": "科技園區從業者參拜",
         "why": "新竹科學園區內集福宮土地公為園區信仰指標，科技業者於新廠動工、產線啟用時參拜，農曆初二、十六祭拜已成園區文化。",
         "sources": [
-          { "type": "web", "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924" },
-          { "type": "web", "ref": "自由財經〈竹科土地公廟 生產線財源滾滾〉 https://ec.ltn.com.tw/article/paper/1176519" }
+          {
+            "type": "web",
+            "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924"
+          },
+          {
+            "type": "web",
+            "ref": "自由財經〈竹科土地公廟 生產線財源滾滾〉 https://ec.ltn.com.tw/article/paper/1176519"
+          }
         ]
       }
     ],
-    "affairs_yi": ["dongtu", "qifu"],
-    "affairs_ji": ["dongtu"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245" },
-      { "type": "web", "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924" }
+    "affairs_yi": [
+      "dongtu",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "dongtu"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·巧聖仙師 https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=245"
+      },
+      {
+        "type": "web",
+        "ref": "聯合新聞網〈守護台灣護國神山的土地公—竹科集福宮〉 https://udn.com/news/story/120910/9509924"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "工程師",
+      "科技業"
+    ]
   },
   {
     "id": "performers",
@@ -223,8 +390,14 @@
         "role": "戲曲樂師祖師（北管／亂彈）",
         "why": "西秦王爺相傳為唐玄宗李隆基，首創梨園教習樂工，為亂彈戲班與北管樂師的守護神。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272" },
-          { "type": "gov", "ref": "教育部《臺灣台語常用詞辭典》〈西秦王爺〉 https://sutian.moe.edu.tw/zh-hant/su/2844/" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272"
+          },
+          {
+            "type": "gov",
+            "ref": "教育部《臺灣台語常用詞辭典》〈西秦王爺〉 https://sutian.moe.edu.tw/zh-hant/su/2844/"
+          }
         ]
       },
       {
@@ -232,17 +405,37 @@
         "role": "戲曲樂師祖師（南管／梨園）",
         "why": "田都元帥相傳為唐代宮廷樂師雷海青，與西秦王爺同為戲曲音樂之神，梨園子弟與南管樂人奉祀。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·田都元帥(Tiandou yuanshuai) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=256" },
-          { "type": "gov", "ref": "國家文化記憶庫〈蘆洲神將—田都元帥〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=253000", "note": "與西秦王爺同為戲曲音樂神" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·田都元帥(Tiandou yuanshuai) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=256"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈蘆洲神將—田都元帥〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=253000",
+            "note": "與西秦王爺同為戲曲音樂神"
+          }
         ]
       }
     ],
-    "affairs_yi": ["jisi", "qifu"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "gov", "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272" }
+    "affairs_yi": [
+      "jisi",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "內政部全國宗教資訊網·西秦王爺(Xiqin wangye) https://religion.moi.gov.tw/knowledge/content?ci=2&cid=272"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "演員",
+      "樂手",
+      "戲曲"
+    ]
   },
   {
     "id": "educators",
@@ -255,9 +448,21 @@
         "role": "萬世師表",
         "why": "孔子尊稱「大成至聖先師」，台灣教師節即定於孔子誕辰九月二十八日，各地孔廟年年舉行釋奠典禮。",
         "sources": [
-          { "type": "gov", "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095", "note": "第3條孔子誕辰紀念日與第5條教師節同為九月二十八日" },
-          { "type": "temple", "ref": "臺北市孔廟管理委員會〈祭孔典禮的名稱〉 https://tct.gov.taipei/cp.aspx?n=1673A2A58ACE9A56", "note": "釋奠禮由來、祭祀對象正式稱號「大成至聖先師孔子」" },
-          { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·臺北孔子廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=109", "note": "戰後改於陽曆9月28日恢復釋奠禮" }
+          {
+            "type": "gov",
+            "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095",
+            "note": "第3條孔子誕辰紀念日與第5條教師節同為九月二十八日"
+          },
+          {
+            "type": "temple",
+            "ref": "臺北市孔廟管理委員會〈祭孔典禮的名稱〉 https://tct.gov.taipei/cp.aspx?n=1673A2A58ACE9A56",
+            "note": "釋奠禮由來、祭祀對象正式稱號「大成至聖先師孔子」"
+          },
+          {
+            "type": "gov",
+            "ref": "臺灣宗教文化地圖（內政部）·臺北孔子廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=109",
+            "note": "戰後改於陽曆9月28日恢復釋奠禮"
+          }
         ]
       },
       {
@@ -265,17 +470,35 @@
         "role": "文運主神",
         "why": "文昌帝君掌文運與科考，與至聖先師同為文教信仰核心，士人學子與教育工作者敬奉。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244" },
-          { "type": "gov", "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈文昌帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247151"
+          }
         ]
       }
     ],
-    "affairs_yi": ["qifu", "jisi"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "gov", "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095" }
+    "affairs_yi": [
+      "qifu",
+      "jisi"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "全國法規資料庫《紀念日及節日實施條例》 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "老師",
+      "教師"
+    ]
   },
   {
     "id": "uniformed-services",
@@ -288,18 +511,43 @@
         "role": "武聖（軍警守護神）",
         "why": "關聖帝君以忠義英武尊為武聖，清代以武神入祀武廟；軍人奉為武神，台灣警察單位亦常見奉祀關公神像，視為守護神。",
         "sources": [
-          { "type": "gov", "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620", "note": "武神戰神、警察軍人所信奉的保護神、清代以武神入祀武廟" },
-          { "type": "gov", "ref": "國家文化記憶庫〈關聖帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139858", "note": "軍人將之奉為武神" },
-          { "type": "web", "ref": "自由時報〈警界8大傳說 辦案如神助〉 https://news.ltn.com.tw/news/society/paper/1505755", "note": "警察單位辦公室供奉關公神像之民俗慣行專題" }
+          {
+            "type": "gov",
+            "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620",
+            "note": "武神戰神、警察軍人所信奉的保護神、清代以武神入祀武廟"
+          },
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈關聖帝君〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139858",
+            "note": "軍人將之奉為武神"
+          },
+          {
+            "type": "web",
+            "ref": "自由時報〈警界8大傳說 辦案如神助〉 https://news.ltn.com.tw/news/society/paper/1505755",
+            "note": "警察單位辦公室供奉關公神像之民俗慣行專題"
+          }
         ]
       }
     ],
-    "affairs_yi": ["jisi", "qifu"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "gov", "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620" }
+    "affairs_yi": [
+      "jisi",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "新北市客家文化典藏〈關聖帝君〉 https://www.hakka-portal.ntpc.gov.tw/article/關聖帝君150955511295318620"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "軍人",
+      "警察",
+      "消防員"
+    ]
   },
   {
     "id": "beauty",
@@ -312,18 +560,41 @@
         "role": "理髮業祖師",
         "why": "民間相傳呂洞賓化身理髮師治癒明太祖頭瘡（一說教導理髮師為明太祖理髮），理髮業奉為祖師爺，現代美髮業承此脈絡。",
         "sources": [
-          { "type": "gov", "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105", "note": "民間盛傳呂洞賓教導明太祖時期的理髮師理髮，成為理髮業祖師爺" },
-          { "type": "web", "ref": "聯合報系橘世代〈呂洞賓與理髮業〉 https://orange.udn.com/orange/story/121415/7975272", "note": "化身理髮師治癒明太祖頭瘡傳說、理髮業守護神" },
-          { "type": "web", "ref": "維基百科〈呂洞賓〉 https://zh.wikipedia.org/wiki/呂洞賓" }
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105",
+            "note": "民間盛傳呂洞賓教導明太祖時期的理髮師理髮，成為理髮業祖師爺"
+          },
+          {
+            "type": "web",
+            "ref": "聯合報系橘世代〈呂洞賓與理髮業〉 https://orange.udn.com/orange/story/121415/7975272",
+            "note": "化身理髮師治癒明太祖頭瘡傳說、理髮業守護神"
+          },
+          {
+            "type": "web",
+            "ref": "維基百科〈呂洞賓〉 https://zh.wikipedia.org/wiki/呂洞賓"
+          }
         ]
       }
     ],
-    "affairs_yi": ["nacai_cai", "qifu"],
-    "affairs_ji": ["kaishi"],
-    "sources": [
-      { "type": "gov", "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105" }
+    "affairs_yi": [
+      "nacai_cai",
+      "qifu"
     ],
-    "draft": false
+    "affairs_ji": [
+      "kaishi"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國家文化記憶庫〈孚佑帝君(呂仙祖)〉 https://tcmb.culture.tw/zh-tw/detail?indexCode=MOCCOLLECTIONS&id=107000026105"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "美髮師",
+      "理髮師"
+    ]
   },
   {
     "id": "civil-servants",
@@ -336,9 +607,21 @@
         "role": "祿位之神（司祿）",
         "why": "文昌帝君元代封號「輔元開化文昌司祿宏仁帝君」，職司功名祿位，今高普考等公職考生仍於考前參拜，民間視為文職與公務人員相關職業的守護神。",
         "sources": [
-          { "type": "gov", "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244", "note": "封號「輔元開化文昌司祿宏仁帝君」、職司科考功名" },
-          { "type": "web", "ref": "TVBS〈文昌帝君掌管功名祿位〉 https://news.tvbs.com.tw/life/2371078", "note": "文職、公務員相關職業的守護神" },
-          { "type": "web", "ref": "104職場力〈考前拜文昌帝君〉 https://blog.104.com.tw/wenchang-dijun/", "note": "高普考等考生考前參拜慣例" }
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網·文昌帝君(Wenchang dijun) https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244",
+            "note": "封號「輔元開化文昌司祿宏仁帝君」、職司科考功名"
+          },
+          {
+            "type": "web",
+            "ref": "TVBS〈文昌帝君掌管功名祿位〉 https://news.tvbs.com.tw/life/2371078",
+            "note": "文職、公務員相關職業的守護神"
+          },
+          {
+            "type": "web",
+            "ref": "104職場力〈考前拜文昌帝君〉 https://blog.104.com.tw/wenchang-dijun/",
+            "note": "高普考等考生考前參拜慣例"
+          }
         ]
       },
       {
@@ -346,16 +629,37 @@
         "role": "官署祀典之神（歷史淵源）",
         "why": "清領時期祭城隍列入祀典，新任地方官到任前須至城隍廟齋宿、上任日在城隍爺前完成祭禮方能就任；城隍職司監察善惡，與官箴文化淵源深厚。",
         "sources": [
-          { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58", "note": "清領祭城隍列入祀典、新地方官到任前齋宿城隍廟、上任日完成祭禮" },
-          { "type": "gov", "ref": "台南市政府觀光旅遊局〈臺灣府城隍廟〉 https://www.twtainan.net/zh-tw/attractions/detail/682/", "note": "台灣最古老城隍廟、新官上任前必定走訪祭拜" }
+          {
+            "type": "gov",
+            "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58",
+            "note": "清領祭城隍列入祀典、新地方官到任前齋宿城隍廟、上任日完成祭禮"
+          },
+          {
+            "type": "gov",
+            "ref": "台南市政府觀光旅遊局〈臺灣府城隍廟〉 https://www.twtainan.net/zh-tw/attractions/detail/682/",
+            "note": "台灣最古老城隍廟、新官上任前必定走訪祭拜"
+          }
         ]
       }
     ],
-    "affairs_yi": ["qifu", "jisi"],
-    "affairs_ji": ["chuxing"],
-    "sources": [
-      { "type": "gov", "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58" }
+    "affairs_yi": [
+      "qifu",
+      "jisi"
     ],
-    "draft": false
+    "affairs_ji": [
+      "chuxing"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "臺灣宗教文化地圖（內政部）·大稻埕霞海城隍廟 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=58"
+      }
+    ],
+    "draft": false,
+    "occupations": [
+      "公務員",
+      "公職",
+      "國考"
+    ]
   }
 ]

@@ -126,7 +126,7 @@ if (faq) ld.push(faq);
           <ul class="oi">
             {d.official_interpretation.map((t) => <li>{t}</li>)}
           </ul>
-          <p class="src muted small">照錄自{systemName.get(d.system.id)}籤版，未改寫。{d.version_source}</p>
+          <p class="src muted small">照錄自籤版，未改寫。<a href="/about/">版本依據與授權說明</a></p>
         </section>
       )
     }
@@ -190,16 +190,10 @@ if (faq) ld.push(faq);
                 </div>
               ))}
             </dl>
-            <p class="src interp-src">
-              分項解與白話賞析為<strong>本站原創撰寫</strong>，依公有領域題材、本籤四句與卦頭典故而作；
-              非引現代解籤本。
-            </p>
+            <p class="src interp-src">本站原創撰寫，<a href="/about/">撰寫原則與授權說明</a></p>
           </>
         ) : (
-          <p class="pending">
-            八項分項解（運勢／求財／姻緣／功名／訴訟／疾病／行人／失物）為本站原創撰寫，
-            撰寫並標源後上架。現代解籤文字有著作權，本站不抄錄。
-          </p>
+          <p class="pending">八項分項解待撰。</p>
         )
       }
     </section>

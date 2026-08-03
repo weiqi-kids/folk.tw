@@ -70,11 +70,23 @@ const jsonLd = [
   ]),
   ...(faq ? [faq] : []),
 ];
+
+// title/description 用**使用者實際會打的職業詞**（occupations），不是行業統稱。
+// GSC 實測（29 天）命中的查詢全部是「○○拜什麼神」句型：護士拜什麼神 25 曝光第 9.4 名、
+// 醫生拜什麼神 12 曝光第 11.3 名、木工拜什麼神第 9.5 名——都卡在第一頁邊緣，
+// 而 title 寫的是「醫療與護理」「營造與工匠」，那個詞根本不在標題裡。
+// ⚠️ 只換說法、不換事實：守護神與其來源完全沒動。
+const occ = t.occupations.length ? t.occupations : [t.name];
+const patronNames = patrons.map((p) => p.deity!.data.name);
+const pageTitle = `${occ.slice(0, 2).join('、')}拜什麼神？${patronNames.slice(0, 2).join('・')}`;
+const pageDesc =
+  `${occ.join('、')}拜什麼神？守護神為${patronNames.join('、')}，逐位掛出處。` +
+  `另列近期宜祭祀祈福的日子。${t.description}`;
 ---
 
 <Base
-  title={`${t.name}拜什麼神？守護神與吉日`}
-  description={`${t.description}守護神：${patrons.map((p) => p.deity!.data.name).join('、')}。`}
+  title={pageTitle}
+  description={pageDesc}
   ogType="article"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
