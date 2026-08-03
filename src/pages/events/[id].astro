@@ -22,7 +22,13 @@ const hostIsTemple = e.host_temple ? templeName.has(e.host_temple) : false;
 const destIsTemple = e.destination_temple ? templeName.has(e.destination_temple) : false;
 // 節日頁 festivals.json 的 event_refs 早已單向連到本頁（/festivals/[slug] → /events/[id]），
 // 這裡補反向連結（/events/[id] → /festivals/[slug]），零新增事實，純衍生自既有欄位。
-const linkedFestivals = festivalsData.filter((f) => (f.event_refs ?? []).includes(event.id));
+// ⚠️ 型別標註不可省：festivals.json 有些條目的 event_refs 是空陣列字面量，TS 推成 never[]，
+// union 後 .includes(string) 會報 ts(2345)。deploy.yml 的「型別檢查」step 會跑 astro check，
+// 但 `pnpm build` 不含它——2026-08-03 的 reflect commit 194e665 因此推上一個 CI 擋門的錯，
+// 從 08:24 起所有部署失敗。改動 JSON 衍生欄位時一律顯式標型別（同 temples/[id].astro 的 deity_refs）。
+const linkedFestivals = festivalsData.filter((f) =>
+  ((f as { event_refs?: string[] }).event_refs ?? []).includes(event.id),
+);
 
 const HERITAGE: Record<string, string> = {
   national_important: '國家重要民俗',
