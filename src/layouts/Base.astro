@@ -181,10 +181,13 @@ const nav: NavEntry[] = [
     sections: [
       { title: '線上求籤', cols: 2, items: concernItems, more: { href: '/qiugian/', label: '求籤首頁' } },
       {
+        // ⚠️ /poems/ 是**所有籤系的總表**，不是與五套籤系並列的第六個選項——
+        // 2026-08-03 用戶指出把它列在同一排等於把父層當兄弟，而且「查第 X 籤」這個標籤
+        // 看不出是什麼。改放 more（總表入口），items 只留「你實際要挑的那一套」。
         title: '解籤',
         cols: 2,
-        items: [{ href: '/poems/', label: '查第 X 籤' }, ...systemItems, { href: '/jiaobei/', label: '擲筊怎麼看' }],
-        more: { href: '/systems/', label: `全部 ${systemItems.length} 套籤系` },
+        items: [...systemItems, { href: '/jiaobei/', label: '擲筊怎麼看' }],
+        more: { href: '/poems/', label: `全部籤詩總表（${systemItems.length} 套）` },
       },
     ],
   },

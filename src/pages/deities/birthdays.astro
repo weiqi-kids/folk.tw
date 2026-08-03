@@ -11,9 +11,11 @@ const all = await upcomingDeityBirthdays(iso, 400, { uniqueDeity: true });
 const totalDeities = new Set(all.flatMap((e) => e.deities.map((d) => d.deityId))).size;
 
 // FAQ（AEO）：僅就既有掛源資料生成，日期為本站農民曆引擎推算之國曆（無源不杜撰）。
-const soon = all.slice(0, 3).flatMap((e) =>
-  e.deities.map((d) => ({ name: d.name, lunar: e.lunarLabel, iso: e.iso })),
-);
+// ⚠️ 取前 3 **尊**，不是前 3 個**日期**——同一天常有多尊聖誕（農曆六月廿四就有三尊），
+// 用日期切會讓答案句爆成六七個名字，answer-first 就失去「一句話回答」的作用。
+const soon = all
+  .flatMap((e) => e.deities.map((d) => ({ name: d.name, lunar: e.lunarLabel, iso: e.iso })))
+  .slice(0, 3);
 const faqItems = [
   {
     q: '神明聖誕（神明生日）怎麼看？',
@@ -37,11 +39,11 @@ const jsonLd = [
 ---
 
 <Base
-  title="神明聖誕曆—台灣神明生日一覽（國曆對照）"
+  title="神明生日一覽—台灣神明聖誕曆（農曆對國曆）"
   description={`台灣 ${totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依日期排序、逐尊掛來源。媽祖、關聖帝君、月老、土地公等聖誕是哪一天，一頁查。`}
   ogType="article"
   jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  speakable={['h1', '.bd-answer']}
 >
   <nav class="crumb"><a href="/deities/">神明</a> ／ 神明聖誕曆</nav>
 
@@ -49,6 +51,15 @@ const jsonLd = [
     <h1>神明聖誕曆</h1>
   </header>
 
+  {/* answer-first（2026-08-03）：GSC 實測「神明生日」排第 83 名、「農曆8月神明生日」第 69 名——
+      頁面原本開頭是「這一頁是什麼」的描述，不是那個問題的答案。改成先把最近三尊講出來。
+      ⚠️ 日期由 build 算，但「最近」會過期；`.bd-answer` 的內容由 UpcomingBirthdays 的
+      client script 依台灣時區即時重算（同 FestivalCountdown 機制），所以沒重新部署也不會過期。 */}
+  <p class="lead bd-answer">
+    最近的神明聖誕是{soon.length ? soon.map((s, i) => (
+      <>{i > 0 ? '、' : ''}<strong>{s.name}</strong>（{s.lunar}，國曆 {Number(s.iso.slice(5, 7))}/{Number(s.iso.slice(8, 10))}）</>
+    )) : '—'}。
+  </p>
   <p class="lead">
     台灣 {totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依即將到來的日期排序。
     聖誕以農曆為準、每年國曆不同，本頁日期由農民曆引擎推算；各神明資料逐條掛來源。
