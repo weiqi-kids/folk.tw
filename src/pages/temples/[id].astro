@@ -136,8 +136,12 @@ const deityFestivals = (refOk && t.main_deity_ref ? (festivalsByDeity.get(t.main
   .sort((a, b) => a.iso.localeCompare(b.iso))
   .slice(0, 2);
 // 已查證的敘述句（21 間）優先於 MOI 短語；兩者皆無則空字串。
+// ⚠️ 結尾標點守衛不可省（同 historyFirstSentence 的寫法）：已查證的 21 筆 `main_festival`
+// 是完整敘述句、**全部自帶句號**，無條件再補一個「。」會產生「…國家重要民俗。。」——
+// 2026-07-31 起 21 間名廟（大甲鎮瀾宮／北港朝天宮／艋舺龍山寺…）的 meta description
+// 一直是這樣送進 SERP 的，2026-08-03 才由線上 curl 抓到。
 const festivalLine = t.main_festival
-  ? `${t.name}的主要祭典為${t.main_festival}。`
+  ? `${t.name}的主要祭典為${t.main_festival}${/[。！？]$/.test(t.main_festival) ? '' : '。'}`
   : mainFestival
     ? festivalSentence(t.name, mainFestival, todayIso)
     : '';

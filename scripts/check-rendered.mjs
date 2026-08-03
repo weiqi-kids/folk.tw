@@ -67,6 +67,25 @@ for (const t of temples) {
   if (!html.includes(SUMMARY_MARK)) violations.push(`${t.id} 缺少 answer-first 摘要元素（${SUMMARY_MARK}）`);
   if (!html.includes(FAQ_MARK)) violations.push(`${t.id} 缺少 FAQPage 結構化資料（${FAQ_MARK}）`);
 
+  // 不變量 1e（2026-08-03 加）：meta description 不得出現連續標點。
+  // 背景：description 由多個「可有可無」的句子串接（沿革首句／祭典句／聖誕句／求籤句／鄉鎮脈絡），
+  //       每一段自己負責結尾標點。`historyFirstSentence` 有「已自帶標點就不補」的守衛，
+  //       但 2026-07-31 加的 `main_festival` 分支漏了 → 那 21 筆已查證敘述句**全部自帶句號**，
+  //       再補一個就變成「…獲指定為國家重要民俗。。可線上求籤」。受影響的正是最重要的一批名廟
+  //       （大甲鎮瀾宮／北港朝天宮／東港東隆宮／艋舺龍山寺／南鯤鯓代天府…），
+  //       而且**從 7/31 起就這樣送進 SERP，直到 8/3 才由線上 curl 抓到**。
+  // ⚠️ 這類拼接瑕疵既有的檢查一律抓不到：不變量 1c 只驗「代表祭典句與資料相符」，
+  //    而那 21 間走 main_festival 分支、被 `if (!t.main_festival)` 明確排除；
+  //    不變量 2b 只驗「不得落回通用樣板」。故獨立成一條，涵蓋全 7,891 頁（不設任何前置條件）。
+  const descForPunct = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+  const dupPunct = descForPunct.match(/[。，、；：！？]{2,}/);
+  if (dupPunct) {
+    const at = descForPunct.indexOf(dupPunct[0]);
+    violations.push(
+      `${t.id} description 出現連續標點「${dupPunct[0]}」（第 ${at} 字）：…${descForPunct.slice(Math.max(0, at - 18), at + 12)}…`,
+    );
+  }
+
   // 不變量 1b（2026-07-30 加）：分享卡必須是「這間廟自己那張」，且分享標題不得出現站名。
   // 背景：外撥把廟宇連結傳給廟方時，原本 12,018 頁共用同一張神酷品牌卡，
   //       主委看到的是別人的招牌（用戶截圖實例）。這裡逐廟驗三件事：
