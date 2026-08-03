@@ -62,7 +62,12 @@ async function resolveUrls(args) {
     const lines = readFileSync(args[fromIdx + 1], 'utf8').split('\n').map((l) => l.trim()).filter(Boolean);
     return [...new Set(lines)];
   }
-  const explicit = args.filter((a) => !a.startsWith('--') && a !== args[fromIdx + 1]);
+  // ⚠️ fromIdx 為 -1（沒帶 --from）時，args[fromIdx + 1] 就是 args[0]＝第一個網址。
+  // 舊寫法直接拿它比對，於是「pnpm notify <url...>」每次都**靜默吞掉第一個網址**，
+  // 而畫面只顯示「送 N 筆」看起來像成功（2026-08-03 送節日頁時實測抓到：qianggu 沒送出）。
+  // 同 5ea5dcc 的 indexnow --from 事故是同一類：參數解析出錯，輸出看起來仍正常。
+  const fromValue = fromIdx >= 0 ? args[fromIdx + 1] : undefined;
+  const explicit = args.filter((a) => !a.startsWith('--') && a !== fromValue);
   if (explicit.length) return [...new Set(explicit)];
   return defaultUrls();
 }

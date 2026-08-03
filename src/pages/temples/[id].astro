@@ -7,6 +7,7 @@ import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { lunarDateLabel } from '../../lib/birthdays';
+import { festivalNextSolar } from '../../lib/lunar-date';
 import {
   pickMainFestival,
   sortFestivals,
@@ -108,6 +109,32 @@ const mainFestival = pickMainFestival(t.festivals);
 // festivalOwnerByLunarDate，兩邊必然一致，不會互相矛盾。
 const festivalOwner = festivalOwnerByLunarDate(festivalsData);
 const festivalName = new Map(festivalsData.map((f) => [f.slug, f.name]));
+
+// 主祀神 → /festivals/ 節日頁的內鏈（2026-08-03）。
+// 為什麼要有這一段：`festivalOwnerByLunarDate` 只在「該廟登記的祭典**日期**與節日同天」時才連，
+// 全站僅 238/7,891 間命中，而 /festivals/ 十頁 28 天曝光合計是 0——內容完整、也已收錄，
+// 缺的是從「佔全站 92% 曝光」的廟宇頁流過去的內鏈。這裡用 festivals.json 既有的 `deity_refs`
+// 反查主祀神，可再涵蓋約 440 間（玉皇 136／三官 123／地藏 93／義民 36／臨水 31…）。
+//
+// 🔴 措辭界線（延續 2026-07-31 立的那條）：陳述的是**神明**與節日的關係（節日資料自己的
+// deity_refs，逐條掛源），**不是**「這間廟在辦這個節日」。故標題掛神明名、並明寫非本廟活動公告。
+// 與 `fsame`（同天祭典）是兩件事，class 分開，check:rendered 的既有不變量不受影響。
+const festivalsByDeity = new Map<string, { slug: string; name: string }[]>();
+for (const f of festivalsData) {
+  for (const d of (f as { deity_refs?: string[] }).deity_refs ?? []) {
+    (festivalsByDeity.get(d) ?? festivalsByDeity.set(d, []).get(d)!).push({ slug: f.slug, name: f.name });
+  }
+}
+// 上限 2 條：避免主祀神掛多個節日時，長尾廟頁被一串連結蓋過本來就不多的自有內容。
+const deityFestivals = (refOk && t.main_deity_ref ? (festivalsByDeity.get(t.main_deity_ref) ?? []) : [])
+  .map((x) => {
+    const src = festivalsData.find((f) => f.slug === x.slug)!;
+    const { iso: solarIso, label } = festivalNextSolar(src, todayIso);
+    return solarIso ? { ...x, iso: solarIso, lunarLabel: label } : null;
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null)
+  .sort((a, b) => a.iso.localeCompare(b.iso))
+  .slice(0, 2);
 // 已查證的敘述句（21 間）優先於 MOI 短語；兩者皆無則空字串。
 const festivalLine = t.main_festival
   ? `${t.name}的主要祭典為${t.main_festival}。`
@@ -352,6 +379,25 @@ const jsonLd = [
   }
 
   {
+    deityFestivals.length > 0 && (
+      <section class="temple-deity-festivals">
+        <h2>{deityName.get(t.main_deity_ref!)}的相關節日</h2>
+        <p class="muted small">
+          以下節日與本廟主祀神有關，日期為神明或節日本身的日期，不是本廟的活動公告。
+        </p>
+        <ul class="deity-festival-list">
+          {deityFestivals.map((f) => (
+            <li>
+              <a href={`/festivals/${f.slug}/`}>{f.name}</a>
+              <span class="dfdate">{f.lunarLabel}（國曆 {Number(f.iso.slice(5, 7))}/{Number(f.iso.slice(8, 10))}）</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
     hostedEvents.length > 0 && (
       <section>
         <h2>主辦民俗活動</h2>
@@ -407,6 +453,11 @@ const jsonLd = [
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }
     .temple-history strong { color: var(--accent); margin-right: 0.375rem; }
     .temple-festivals { margin-top: 1.5rem; }
+    .temple-deity-festivals { margin-top: 1.5rem; }
+    .deity-festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: flex; flex-direction: column; gap: 0.5rem; }
+    .deity-festival-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+    .deity-festival-list .dfdate { color: var(--muted); font-size: var(--text-sm); }
     .festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.625rem; }
     .festival-list li { display: grid; grid-template-columns: 11rem 1fr; gap: 0.25rem 0.75rem;

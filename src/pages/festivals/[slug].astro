@@ -105,6 +105,27 @@ const linkedDeities = (f.deity_refs ?? []).map((id) => deityById.get(id)).filter
 const linkedTemples = (f.temple_refs ?? []).map((id) => templeById.get(id)).filter(Boolean);
 const linkedVocab = (f.vocab_refs ?? []).map((t) => vocabByTerm.get(t)).filter(Boolean);
 
+// 同季節的其他節日（2026-08-03）：原本節日詳情頁彼此**完全不相連**，只各自連回 /festivals/ 樞紐，
+// 十頁等於十個並排的葉子。農曆七月那批（鬼門開／雞籠中元祭／七夕／放水燈／中元／搶孤／義民／地藏）
+// 在使用者眼中本來就是同一件事的不同天，互連才成一個叢集。
+// 直接效果：`qianggu` 原本零廟頁內鏈、GSC 實查「URL is unknown to Google」＝形同孤兒，
+// 這一段讓它從同月份的其他 7 頁被連到。純用既有 `season` 欄位分組，不新增事實。
+// ⚠️ 起算日用「今天（台北）」而非本頁的 `iso`——`iso` 是本節日的下一次國曆日，
+// 拿它當起算點會把同月份、日期比它早的節日推到明年。排序用 `lunar_date` 字串（"07-01" < "07-15"），
+// 不可用農曆中文標籤 localeCompare（「初一」「十五」「廿」排不出正確順序）。
+const nowIso = todayInTaipei().iso;
+const siblingFestivals = f.season
+  ? festivals
+      .filter((x) => x.slug !== f.slug && x.season === f.season)
+      .slice()
+      .sort((a, b) => (a.lunar_date ?? '').localeCompare(b.lunar_date ?? ''))
+      .map((x) => {
+        const { iso: solarIso, label } = festivalNextSolar(x, nowIso);
+        return solarIso ? { slug: x.slug, name: x.name, iso: solarIso, lunarLabel: label } : null;
+      })
+      .filter((x): x is NonNullable<typeof x> => x !== null)
+  : [];
+
 // 主要儀式（取第一個 practice）的步驟／供品／金紙／禁忌——全部既有掛源欄位，不新增事實。
 // 在 frontmatter 先收斂成明確的陣列，模板才不必到處 `mp?.x?.length > 0`（該寫法在 ts 下為 possibly undefined）。
 const mainPractice = linkedPractices[0];
@@ -355,6 +376,22 @@ const pageDesc = covers.length
     )
   }
 
+  {
+    siblingFestivals.length > 0 && (
+      <section class="sibling-festivals">
+        <h2>{f.season}的其他節日</h2>
+        <ul class="sibling-list">
+          {siblingFestivals.map((s) => (
+            <li>
+              <a href={`/festivals/${s.slug}/`}>{s.name}</a>
+              <span class="sfdate">{s.lunarLabel}（國曆 {Number(s.iso.slice(5, 7))}/{Number(s.iso.slice(8, 10))}）</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <p class="muted small extend">
     延伸：<a href="/festivals/">其他節日</a>｜<a href="/deities/birthdays/">神明聖誕曆</a>｜<a href="/practices/"
       >拜拜習俗</a
@@ -395,6 +432,11 @@ const pageDesc = covers.length
     .on-date-list li { padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
     .on-date-list .fname { color: var(--ink-soft); }
     .extend { margin-top: 1.875rem; }
+    .sibling-festivals { margin-top: 1.5rem; }
+    .sibling-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: flex; flex-direction: column; gap: 0.5rem; }
+    .sibling-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+    .sibling-list .sfdate { color: var(--muted); font-size: var(--text-sm); }
     .footer-src { margin-top: 2.5rem; }
   </style>
 </Base>
