@@ -166,11 +166,28 @@ const jsonLd = [
   }),
   ...(faq ? [faq] : []),
 ].filter(Boolean);
+// meta description（2026-08-03）：原本是「日期句 ＋ lead 前 90 字」，
+// 但日期已經在 title 裡（「中元節2026是哪一天？」），description 再講一次等於浪費半句。
+// GSC 實測農曆七月的釘選字裡，「中元普渡」「普渡 供品」「七夕 拜什麼」「農曆七月 禁忌」全是 0 曝光——
+// 而這些內容**頁面上本來就有**（普渡怎麼拜／供品與金紙／禁忌／地區差異四個區塊），
+// 只是 title 與 description 都沒把它們露出來。
+// 這裡只列**該頁真的渲染得出來**的區塊（依 steps/offerings/taboos/regionals 是否有資料），
+// 零新增事實；沒有那些區塊的節日就退回原本的 lead。
+const covers = [
+  steps.length > 0 ? `${mainPractice?.data.title ?? f.name}怎麼拜` : '',
+  offerings.length > 0 || jossPaper.length > 0 ? '供品與金紙' : '',
+  taboos.length > 0 ? '禁忌' : '',
+  regionals.length > 0 ? '地區差異' : '',
+].filter(Boolean);
+const pageDesc = covers.length
+  ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${f.lead.slice(0, 40)}`
+  : `${dateSentence}${f.lead.slice(0, 90)}`;
+
 ---
 
 <Base
   title={pageTitle}
-  description={`${dateSentence}${f.lead.slice(0, 90)}`}
+  description={pageDesc}
   ogType="article"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
