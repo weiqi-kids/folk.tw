@@ -78,8 +78,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 12
+      "last_checked": "2026-08-03",
+      "empty_runs": 13
     },
     "memorial_at": "2026-07-20"
   },
@@ -207,8 +207,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 3
+      "last_checked": "2026-08-03",
+      "empty_runs": 4
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -478,8 +478,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 1
+      "last_checked": "2026-08-03",
+      "empty_runs": 2
     },
     "lat": 29.2962877,
     "lon": 108.1610845
@@ -847,8 +847,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 3
+      "last_checked": "2026-08-03",
+      "empty_runs": 4
     }
   },
   {
@@ -913,8 +913,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 7
+      "last_checked": "2026-08-03",
+      "empty_runs": 8
     }
   },
   {
@@ -1113,8 +1113,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 0
+      "last_checked": "2026-08-03",
+      "empty_runs": 1
     }
   },
   {
@@ -1193,8 +1193,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 0
+      "last_checked": "2026-08-03",
+      "empty_runs": 1
     }
   },
   {
@@ -1324,11 +1324,51 @@
         ],
         "added": "2026-08-02T12:35:49.567Z",
         "hash": "9df128ef863f"
+      },
+      {
+        "date": "2026-08-03",
+        "text": "熊本縣於宇城市與氷川町動工興建組合屋（臨時住宅），為歷來熊本震災中最快開工的一次，預計九月起陸續讓災民入住。",
+        "sources": [
+          {
+            "ref": "NHKニュース",
+            "url": "https://news.web.nhk/newsweb/na/na-k10015195121000"
+          },
+          {
+            "ref": "Yahoo!ニュース（産経新聞）",
+            "url": "https://news.yahoo.co.jp/articles/ee119b19baa8f217bdaa5c35c7bc88081b422be7"
+          }
+        ],
+        "added": "2026-08-03T12:39:21.909Z",
+        "hash": "d67bccd9d397"
+      },
+      {
+        "date": "2026-08-03",
+        "text": "八代市都市瓦斯供應搶修工程於今日完成復原。",
+        "sources": [
+          {
+            "ref": "日本経済新聞",
+            "url": "https://www.nikkei.com/article/DGXZQOJC291I20Z20C26A7000000/"
+          }
+        ],
+        "added": "2026-08-03T12:39:22.709Z",
+        "hash": "5f31c1d05d21"
+      },
+      {
+        "date": "2026-08-03",
+        "text": "因地震一度停工的東京威力科創（東京エレクトロン）九州廠區（合志市、大津町）於今日恢復生產，安全點檢確認廠房與設備未見重大損害。",
+        "sources": [
+          {
+            "ref": "熊本日日新聞（Yahoo!ニュース）",
+            "url": "https://news.yahoo.co.jp/articles/4b0337052cdcc9235310ef93808c546e2127d33d"
+          }
+        ],
+        "added": "2026-08-03T12:39:22.860Z",
+        "hash": "eafb23167126"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
+      "last_checked": "2026-08-03",
       "empty_runs": 0
     }
   },
@@ -1411,8 +1451,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 1
+      "last_checked": "2026-08-03",
+      "empty_runs": 2
     }
   },
   {
@@ -1475,8 +1515,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 4
+      "last_checked": "2026-08-03",
+      "empty_runs": 5
     }
   },
   {
@@ -1529,8 +1569,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 1
+      "last_checked": "2026-08-03",
+      "empty_runs": 2
     }
   },
   {
@@ -1579,12 +1619,28 @@
         ],
         "added": "2026-08-01T12:41:31.090Z",
         "hash": "a9df90242df4"
+      },
+      {
+        "date": "2026-08-03",
+        "text": "新竹縣消防局表示，湖口工廠火警現場殘火清理作業仍在進行，今日上午於光復北路一帶實施短時交通管制，僅工業區員工與相關車輛可通行，其餘車輛請改道通行。",
+        "sources": [
+          {
+            "ref": "三立新聞網 SETN.COM",
+            "url": "https://www.setn.com/news/1882785"
+          },
+          {
+            "ref": "壹蘋新聞網",
+            "url": "https://news.nextapple.com/local/20260803/55A25CA9B47F77BCFE25405BF4F6E7D5"
+          }
+        ],
+        "added": "2026-08-03T12:43:07.591Z",
+        "hash": "284e282a2e41"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 1
+      "last_checked": "2026-08-03",
+      "empty_runs": 0
     }
   },
   {
@@ -1637,8 +1693,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-02",
-      "empty_runs": 0
+      "last_checked": "2026-08-03",
+      "empty_runs": 1
     }
   }
 ]
