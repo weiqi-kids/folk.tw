@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
+import festivalsData from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
   const events = await getEvents();
@@ -19,6 +20,9 @@ const isNode = (id: string) => deityName.has(id);
 const templeName = await templeNameById();
 const hostIsTemple = e.host_temple ? templeName.has(e.host_temple) : false;
 const destIsTemple = e.destination_temple ? templeName.has(e.destination_temple) : false;
+// 節日頁 festivals.json 的 event_refs 早已單向連到本頁（/festivals/[slug] → /events/[id]），
+// 這裡補反向連結（/events/[id] → /festivals/[slug]），零新增事實，純衍生自既有欄位。
+const linkedFestivals = festivalsData.filter((f) => (f.event_refs ?? []).includes(event.id));
 
 const HERITAGE: Record<string, string> = {
   national_important: '國家重要民俗',
@@ -181,6 +185,19 @@ const jsonLd: object[] = [
     )
   }
 
+  {
+    linkedFestivals.length > 0 && (
+      <section>
+        <h2>相關節日</h2>
+        <ul class="festival-links">
+          {linkedFestivals.map((f) => (
+            <li><a href={`/festivals/${f.slug}/`}>{f.name}</a></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   {e.sources.length > 0 && <p class="src"><Sources sources={e.sources} /></p>}
 
   <style>
@@ -197,5 +214,7 @@ const jsonLd: object[] = [
     .stops { margin: 0.75rem 0; padding-left: 1.75rem; }
     .stops li { padding: 0.375rem 0; }
     .map { margin-left: 0.625rem; font-size: var(--text-xs); }
+    .festival-links { list-style: none; padding: 0; margin: 0.75rem 0; display: flex; flex-wrap: wrap; gap: 0.625rem; }
+    .festival-links li { padding: 0; }
   </style>
 </Base>
