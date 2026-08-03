@@ -7,6 +7,7 @@ import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
 import { lunarProvider } from '../../lib/almanac/provider';
 import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 import festivalsData from '../../data/festivals.json';
+import { festivalNextSolar } from '../../lib/lunar-date';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
@@ -34,6 +35,15 @@ const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof B
 
 // FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
 const jsonLd: object[] = [almanacBreadcrumb(iso)];
+// 近期節日：與首頁、/festivals/ 共用同一份資料與同一個換算函式，本頁不自行換算農曆。
+const upcomingFestivals = festivalsData
+  .map((f) => {
+    const { iso: solarIso, label } = festivalNextSolar(f, iso);
+    return solarIso ? { slug: f.slug, name: f.name, iso: solarIso, lunarLabel: label } : null;
+  })
+  .filter((x) => x !== null)
+  .sort((a, b) => a.iso.localeCompare(b.iso));
+
 const faq = faqPage([
   {
     q: `${iso} 是農曆幾月幾日？`,
@@ -67,6 +77,19 @@ if (faq) jsonLd.push(faq);
   <!-- 分享用固定連結：/almanac 網址不帶日期，社群卡片的 og 無法免重部署保持當日；
        故導向今日的 dated 鏡像頁（網址帶日期→卡片帶當日宜忌且永不過期）。 -->
   <p class="almanac-share"><a href={`/almanac/${iso}/`}>分享今日黃道吉日（固定連結）→</a></p>
+
+  {/* 2026-08-03：農曆七月四頁（鬼門開 8/13、七夕 8/19、放水燈 8/26、中元 8/27）在 GSC
+      仍是「已發現／已檢索－未建立索引」、曝光 0，而搜尋尖峰就在那幾天。
+      /almanac/ 是本站 priority 僅次於首頁的樞紐（0.8）且主題相鄰，從這裡再給一條高權重內鏈。
+      ⚠️ 日期一律由 festivalNextSolar() 於 build 時算，**勿在本頁自行換算農曆**。 */}
+  {upcomingFestivals.length > 0 && (
+    <nav class="almanac-more" aria-label="近期節日">
+      {upcomingFestivals.slice(0, 4).map((f) => (
+        <a href={`/festivals/${f.slug}/`}>{f.name}（{Number(f.iso.slice(5, 7))}/{Number(f.iso.slice(8, 10))}，{f.lunarLabel}）→</a>
+      ))}
+      <a href="/festivals/">完整節日曆 →</a>
+    </nav>
+  )}
 
   <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存＋長尾樞紐（宜忌詞義／沖煞），提升可發現性。 -->
   <nav class="almanac-more" aria-label="更多農民曆">

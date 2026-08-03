@@ -149,9 +149,15 @@ export default defineConfig({
           '/festivals', '/qiugian', '/scenarios', '/compare',
           '/almanac/archive', '/jiaobei', '/vocabulary', '/about', '/search'];
         if (hubs.includes(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
-        // 節日詳情頁：日期錨定且逐年變動（渲染的國曆日期每年不同、倒數每日不同），
-        // 且農曆七月的節日必須在 8/13 鬼門開前被抓取，故比一般詳情頁高一階。
-        if (/^\/festivals\/[^/]+$/.test(path)) return { ...item, priority: 0.8, changefreq: ChangeFreqEnum.WEEKLY };
+        // 節日詳情頁：日期錨定且逐年變動（渲染的國曆日期每年不同、倒數每日不同）。
+        // 2026-08-03 從 0.8/WEEKLY 提到 **0.9/DAILY**：實測農曆七月四頁（鬼門開 8/13、
+        // 七夕 8/19、放水燈 8/26、中元 8/27）在 GSC 仍是「已發現／已檢索－未建立索引」、曝光 0，
+        // 而它們的搜尋尖峰就在那幾天，過了就沒有第二次。
+        // DAILY 對全部 10 頁都是**真的**（倒數由前端每日重算、國曆日期逐年變動），不是為了灌水；
+        // 只有 10 頁，全給 0.9 也不會稀釋掉別的東西。
+        // ⚠️ 刻意**不**在這裡依日期動態計算「近期節日」——農曆換算只能有一個入口
+        //    （src/lib/lunar-date.ts），在 config 裡自己算一份就是新的漂移源。
+        if (/^\/festivals\/[^/]+$/.test(path)) return { ...item, priority: 0.9, changefreq: ChangeFreqEnum.DAILY };
         // 其餘為獨特內容詳情頁（神明／籤詩／典故／活動／習俗／籤系）。
         return { ...item, priority: 0.7, changefreq: ChangeFreqEnum.MONTHLY };
       },
