@@ -2,7 +2,7 @@
 // 求籤共情層每晚聚合：GA4 Data API（近 7 天）→ 各情境本週求籤人數／同籤分布／報喜數
 // → 寫回 src/data/qiugian-stats.json（供靜態 build 渲染）。數字為真、少算不灌水。
 //
-// 相依：scripts/.google-sa-key.json（SA 須有 GA4 讀權，本站已具）＋ GA4 自訂維度 concern/poem_no/outcome
+// 相依：/root/.config/folk-tw/ga4-sa.json（SA 須有 GA4 讀權，本站已具）＋ GA4 自訂維度 concern/poem_no/outcome
 //       （已於 2026-07-14 註冊；自訂維度非追溯，資料自註冊後起算、有 24–48h 處理延遲，故初期可能為 0＝正常）。
 // 排程：每日 UTC 15:00（台北 23:00）跑並 commit [skip ci]；deploy.yml 的每日 16:00 UTC 重建套用。
 // 手動：node scripts/qiugian-aggregate.mjs

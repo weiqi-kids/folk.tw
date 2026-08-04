@@ -5,7 +5,7 @@
 //   2. striking-distance（排名 5–15 且有曝光的字＝最值得推一把）
 //   3. 高曝光零點擊（meta/標題優化目標）
 // 用法：node scripts/seo-daily.mjs   （或 pnpm data:seo-daily）
-// 需求：GOOGLE_SA_KEY（或 scripts/.google-sa-key.json）、GA4_PROPERTY_ID、GSC 已加服務帳號。
+// 需求：GOOGLE_SA_KEY（或 /root/.config/folk-tw/ga4-sa.json）、GA4_PROPERTY_ID、GSC 已加服務帳號。
 // 輸出：data/seo-daily/<台灣日期>.json
 
 import { mkdirSync, writeFileSync } from 'node:fs';

@@ -4,7 +4,7 @@
 // 憑證（私鑰，務必勿進 repo）讀取優先序：
 //   1. 環境變數 GOOGLE_SA_KEY        — 服務帳號 JSON 金鑰之「字串內容」
 //   2. 環境變數 GOOGLE_APPLICATION_CREDENTIALS — JSON 金鑰之「檔案路徑」
-//   3. scripts/.google-sa-key.json   — 本機金鑰檔（已 gitignore）
+//   3. /root/.config/folk-tw/ga4-sa.json — 本機金鑰檔（repo 外；2026-08-04 自 scripts/.google-sa-key.json 遷出）
 //
 // 設定（非機密）讀取優先序：env GA4_PROPERTY_ID / GSC_SITE_URL，
 //   否則 scripts/.google-config.json（已 gitignore），GSC 預設 sc-domain:folk.tw。
@@ -24,7 +24,7 @@ export function loadCredentials() {
   let raw;
   if (process.env.GOOGLE_SA_KEY) raw = process.env.GOOGLE_SA_KEY;
   else {
-    const path = process.env.GOOGLE_APPLICATION_CREDENTIALS || join(scriptsDir, '.google-sa-key.json');
+    const path = process.env.GOOGLE_APPLICATION_CREDENTIALS || '/root/.config/folk-tw/ga4-sa.json';
     if (!existsSync(path)) {
       throw new Error(
         `找不到服務帳號金鑰。請設 GOOGLE_SA_KEY 環境變數，或把 JSON 金鑰存到 ${path}（已 gitignore）。`,

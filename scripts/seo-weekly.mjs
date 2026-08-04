@@ -4,7 +4,7 @@
 // 用法：
 //   node scripts/seo-weekly.mjs           # 抓資料→開 Issue→發 Slack
 //   node scripts/seo-weekly.mjs --dry      # 只抓資料+印報告與 Slack 預覽，不開 Issue、不發 Slack
-// 需求：scripts/.google-sa-key.json、GA4_PROPERTY_ID/GSC_SITE_URL、gh 已登入、folk Slack token。
+// 需求：/root/.config/folk-tw/ga4-sa.json、GA4_PROPERTY_ID/GSC_SITE_URL、gh 已登入、folk Slack token。
 
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';

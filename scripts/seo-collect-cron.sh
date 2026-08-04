@@ -4,7 +4,7 @@
 #   → Google index:ping（高槓桿集）。下游（心跳 05:00、大腦 05:55）讀此 JSON。
 #
 # 為何搬本機：配合大腦/心跳一起落到自有主機，整條 SEO 自動化不再依賴任何雲端。
-# 金鑰：scripts/.google-sa-key.json（已 gitignore，本機既有）。
+# 金鑰：/root/.config/folk-tw/ga4-sa.json（repo 外，2026-08-04 自 scripts/.google-sa-key.json 遷出）。
 #
 # 用法：scripts/seo-collect-cron.sh
 # crontab：見 /etc/cron.d/folk-tw-seo-collect（每日 04:30 台 = 20:30 UTC，排在心跳/大腦之前）

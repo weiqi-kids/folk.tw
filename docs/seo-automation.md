@@ -25,7 +25,7 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 - `scripts/index-ping.mjs`（Google Indexing API，配額 200/日；`indexPing.command` 與 `pnpm notify` 都用）
 - `scripts/indexnow-ping.mjs`（IndexNow → Bing/Yandex/Seznam/Naver）
 - `scripts/notify.mjs`（`pnpm notify` 一鍵雙推）
-- `scripts/.google-sa-key.json`（收集/週報用；SA 須為 GSC 擁有者）
+- `/root/.config/folk-tw/ga4-sa.json`（收集/週報用；SA 須為 GSC 擁有者；2026-08-04 自 scripts/.google-sa-key.json 遷出 repo 樹）
 
 ## 部署紅線（保留）
 
