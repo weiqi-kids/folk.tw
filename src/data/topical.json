@@ -77,9 +77,9 @@
       }
     ],
     "followup": {
-      "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 13
+      "sealed": true,
+      "last_checked": "2026-08-04",
+      "empty_runs": 14
     },
     "memorial_at": "2026-07-20"
   },
@@ -102,7 +102,7 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "archived",
+    "status": "memorial",
     "updates": [
       {
         "date": "2026-07-19",
@@ -203,17 +203,30 @@
         ],
         "added": "2026-07-30T12:32:41.341Z",
         "hash": "ca879387b922"
+      },
+      {
+        "date": "2026-08-02",
+        "text": "群馬縣館林市與綠市宣布派遣職員支援足利市，協助辦理災害廢棄物受理作業，盼加速當地復原進度。",
+        "sources": [
+          {
+            "ref": "上毛新聞",
+            "url": "https://www.jomo-news.co.jp/articles/-/993314"
+          }
+        ],
+        "added": "2026-08-04T12:33:34.523Z",
+        "hash": "f52ad83a8922"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 4
+      "last_checked": "2026-08-04",
+      "empty_runs": 0
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
     "lon": 139.4488397,
-    "archived_at": "2026-08-04"
+    "archived_at": "2026-08-04",
+    "memorial_at": "2026-08-04"
   },
   {
     "id": "news-bridge-collapse-20260718-2575e5",
@@ -272,7 +285,7 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "archived",
+    "status": "memorial",
     "updates": [
       {
         "date": "2026-07-18",
@@ -476,16 +489,33 @@
         ],
         "added": "2026-08-01T12:34:06.191Z",
         "hash": "e759a87ac5e8"
+      },
+      {
+        "date": "2026-08-04",
+        "text": "國務院成立重慶彭水漢葭街道「7·17」特別重大山體崩塌災害調查評估組，並在當地召開首次全體會議，將全面複盤災害發生經過、查清致災原因與應變處置情形，同時開通舉報管道供外界反映線索。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.xinhuanet.com/20260804/70a4f3fa6cd5499bb021efbdd585a43a/c.html"
+          },
+          {
+            "ref": "人民網",
+            "url": "http://society.people.com.cn/n1/2026/0804/c1008-40773852.html"
+          }
+        ],
+        "added": "2026-08-04T12:34:41.213Z",
+        "hash": "26881f7f2182"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 2
+      "last_checked": "2026-08-04",
+      "empty_runs": 0
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
-    "archived_at": "2026-08-04"
+    "archived_at": "2026-08-04",
+    "memorial_at": "2026-08-04"
   },
   {
     "id": "news-landslide-20260717-660351",
@@ -850,8 +880,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 4
+      "last_checked": "2026-08-04",
+      "empty_runs": 5
     }
   },
   {
@@ -916,8 +946,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 8
+      "last_checked": "2026-08-04",
+      "empty_runs": 9
     }
   },
   {
@@ -1116,8 +1146,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 1
+      "last_checked": "2026-08-04",
+      "empty_runs": 2
     }
   },
   {
@@ -1196,8 +1226,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 1
+      "last_checked": "2026-08-04",
+      "empty_runs": 2
     }
   },
   {
@@ -1367,11 +1397,47 @@
         ],
         "added": "2026-08-03T12:39:22.860Z",
         "hash": "eafb23167126"
+      },
+      {
+        "date": "2026-08-03",
+        "text": "日本首相高市早苗親赴熊本地震災區視察，慰問投入救援的自衛隊員與受災居民，並聽取地方政府對重建的需求。",
+        "sources": [
+          {
+            "ref": "首相官邸",
+            "url": "https://www.kantei.go.jp/jp/105/statement/2026/0803kaiken.html"
+          }
+        ],
+        "added": "2026-08-04T12:39:54.422Z",
+        "hash": "6b97f162118b"
+      },
+      {
+        "date": "2026-08-04",
+        "text": "日本政府召開內閣會議，決定動支預備金支援熊本震災地區，並研議將此次地震指定為激甚災害，以加速公共工程與農地的復原。",
+        "sources": [
+          {
+            "ref": "日本経済新聞",
+            "url": "https://www.nikkei.com/article/DGXZQOUA040C10U6A800C2000000/"
+          }
+        ],
+        "added": "2026-08-04T12:39:54.468Z",
+        "hash": "ae9d4a83ab75"
+      },
+      {
+        "date": "2026-08-04",
+        "text": "熊本縣受災各市鎮已陸續公布自來水停水搶修的預估完成時程，較輕微的地區有望於8月上旬恢復供水，其餘則預計8月底前全面修復。",
+        "sources": [
+          {
+            "ref": "テレビ朝日（ANN）",
+            "url": "https://news.yahoo.co.jp/articles/6ff9989a5ebe75be92f796f6ff9f2749da962ecb"
+          }
+        ],
+        "added": "2026-08-04T12:39:54.730Z",
+        "hash": "48e2f201a97c"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
+      "last_checked": "2026-08-04",
       "empty_runs": 0
     }
   },
@@ -1450,12 +1516,28 @@
         ],
         "added": "2026-08-01T12:39:09.237Z",
         "hash": "3608a3baee64"
+      },
+      {
+        "date": "2026-08-04",
+        "text": "國務院成立重慶彭水漢葭街道山體崩塌災害調查評估組，並於彭水召開第一次全體會議，通報調查工作安排，將全面複盤災害發生過程並查明原因。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/politics/20260804/35f7a0e7218d4cb9b3b09e2e87d109c9/c.html"
+          },
+          {
+            "ref": "人民網",
+            "url": "http://society.people.com.cn/n1/2026/0804/c1008-40773852.html"
+          }
+        ],
+        "added": "2026-08-04T12:40:45.689Z",
+        "hash": "2cec2667994a"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 2
+      "last_checked": "2026-08-04",
+      "empty_runs": 0
     }
   },
   {
@@ -1518,8 +1600,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 5
+      "last_checked": "2026-08-04",
+      "empty_runs": 6
     }
   },
   {
@@ -1572,8 +1654,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 2
+      "last_checked": "2026-08-04",
+      "empty_runs": 3
     }
   },
   {
@@ -1642,8 +1724,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 0
+      "last_checked": "2026-08-04",
+      "empty_runs": 1
     }
   },
   {
@@ -1696,8 +1778,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-03",
-      "empty_runs": 1
+      "last_checked": "2026-08-04",
+      "empty_runs": 2
     }
   },
   {
@@ -1719,7 +1801,26 @@
     "time": "2026-08-03",
     "detector": "news",
     "since": "2026-08-04",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-04",
+        "text": "彰化縣消防局獲報後前往搶救，火勢已獲控制並撲滅，現場未傳出人員傷亡。",
+        "sources": [
+          {
+            "ref": "自由時報",
+            "url": "https://news.ltn.com.tw/news/Changhua/breakingnews/5527493"
+          }
+        ],
+        "added": "2026-08-04T12:43:44.307Z",
+        "hash": "3c69a9293110"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-04",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-landslide-20260802-97d780",
@@ -1740,6 +1841,25 @@
     "time": "2026-08-02",
     "detector": "news",
     "since": "2026-08-04",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-03",
+        "text": "太洋公路太白縣城至黃柏塬段搶通作業持續進行，惟因降雨未歇、地質災害風險仍高，當地交通部門已對該路段實施全封閉管制，禁止車輛通行，何時解除另行通知。",
+        "sources": [
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/jjxw/2026-08-03/doc-inikzzhc6130404.shtml"
+          }
+        ],
+        "added": "2026-08-04T12:44:37.772Z",
+        "hash": "fd537acaea7d"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-04",
+      "empty_runs": 0
+    }
   }
 ]
