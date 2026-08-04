@@ -34,6 +34,9 @@ const TRAIL_PUNCT = /[)\]）」』】。，、；,.;]+$/;
 /** 前後成對的全形／半形括號當標籤時是雜訊（「（說明）」→「說明」）。 */
 const WRAP_PARENS = /^[（(]([\s\S]*)[）)]$/;
 
+/** 條目／篇名標記：標籤已帶這些就代表已有具體篇名，不需再從網址補。 */
+const TITLE_MARK = /[〈《「『【]/;
+
 /** 錨文字長度上限（全形字）。超過就退到「：」前的機構／條目名，再不行才截字。 */
 const LABEL_MAX = 40;
 const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
@@ -49,6 +52,23 @@ function clamp(s: string, max: number): string {
 }
 
 /**
+ * 括號平衡：把第一個沒有配對的開括號**之後**全部切掉。
+ * 起因（2026-08-04）：labelFromNote 的「冒號後取標題」規則以字數截斷，
+ * 截點落在括號中間就產生「…恆春搶孤及爬孤棚（屏東縣定民俗」（check:anchor-text 抓到）。
+ * 只清尾端落單的開括號不夠——不成對的開括號可能在字串中間。
+ */
+function balanceParens(s: string): string {
+  const stack: number[] = [];
+  const chars = [...s];
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] === '（' || chars[i] === '(') stack.push(i);
+    else if (chars[i] === '）' || chars[i] === ')') stack.pop();
+  }
+  if (stack.length === 0) return s;
+  return chars.slice(0, stack[0]).join('').replace(/[\s。，、；,.;]+$/, '').trim();
+}
+
+/**
  * 由 note 產生錨文字。
  * - 整段夠短就直接用（「拜出好運來：安太歲完整流程」＝12 全形字，切掉冒號後半反而丟失條目名）。
  * - 太長才取「：」前那段（慣例寫法「機構〈條目〉：內容…」），仍太長才截字。
@@ -59,8 +79,17 @@ function labelFromNote(note?: string): string | null {
   if (!n || /^(同上|同前|見上|同前註)$/.test(n)) return null;
   if (fullWidth(n) <= LABEL_MAX) return n;
   const head = n.split(/[：:]/)[0].trim();
-  if (head && fullWidth(head) <= LABEL_MAX) return head;
-  return clamp(n, LABEL_MAX);
+  // 標題在冒號**前**（「國史館臺灣文獻館〈七月半之緣起…〉：內容…」）→ head 已是完整標籤。
+  if (head && TITLE_MARK.test(head) && fullWidth(head) <= LABEL_MAX) return balanceParens(head);
+  // 標題在冒號**後**（「維基百科：農曆七月——閩南、台灣稱…」）→ 只取 head 會只剩機構名，
+  // 要多帶一段到第一個破折號／逗號／分號／句號為止。
+  // ⚠️ 這一段的存在是為了**不要**去解碼維基網址取標題：那個 zh-tw 網址的路徑是
+  //    簡體正規化標題（%E5%86%9C%E5%8E%86… = 「农历七月」），解出來會把簡體帶進繁體站
+  //    （2026-08-04 實測產生「维基百科〈农历七月〉」）。我們自己的 note 本來就是繁體。
+  const withTitle = n.match(/^([^：:]{1,20}[：:][^———，、；。]{1,24})/);
+  if (withTitle && fullWidth(withTitle[1]) <= LABEL_MAX) return balanceParens(withTitle[1].trim()) || null;
+  if (head && fullWidth(head) <= LABEL_MAX) return balanceParens(head);
+  return balanceParens(clamp(n, LABEL_MAX));
 }
 
 /** 最後手段：拿網域當標籤（去掉 www.）。永遠不含 "http"，故不會再退回裸網址。 */
@@ -93,22 +122,50 @@ function cleanLabel(s: string): string {
   // 用在 label 上會把「台灣民間信仰（行業神）」削成「台灣民間信仰（行業神」，
   // 全站數十筆合法的括號註記都會變成沒配對（2026-08-04 我自己引入過這個回歸，實測抓到）。
   out = out.replace(/[。，、；,.;]+$/g, '').trim();
-  // 只有在括號真的不成對、且落單的開括號剛好在尾端時才拿掉它。
-  const opens = (out.match(/[（(]/g) ?? []).length;
-  const closes = (out.match(/[）)]/g) ?? []).length;
-  if (opens > closes && /[（(]$/.test(out)) out = out.replace(/[（(]$/, '').trim();
+  out = balanceParens(out);
   return out.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * 維基系網址的條目名就編碼在路徑最後一段，可**確定性**還原，不必外部查證。
+ * 用途：label 只剩機構名時（如 note 寫「維基百科：農曆七月——…」，過長而被取到「：」前那段）
+ * 補成「維基百科〈農曆七月〉」，與資料裡既有的寫法一致。
+ * 只對維基系生效——其他站的網址路徑不保證是標題（如 nchdb 是流水號）。
+ */
+const WIKI_HOST = /(^|\.)(wikipedia|wikisource|wikiquote|wiktionary)\.org$/;
+function wikiArticleTitle(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (!WIKI_HOST.test(u.hostname)) return null;
+    const seg = u.pathname.split('/').filter(Boolean).pop();
+    if (!seg) return null;
+    const title = decodeURIComponent(seg).replace(/_/g, ' ').trim();
+    // 語言/命名空間前綴（zh-tw、wiki…）不是條目名。
+    if (!title || /^(wiki|zh|zh-tw|zh-hant|zh-hans|zh-cn|zh-hk)$/i.test(title)) return null;
+    return title;
+  } catch {
+    return null;
+  }
+}
+
+/** label 只剩機構名時，用網址裡的維基條目名補成「維基百科〈條目〉」。 */
+function withWikiTitle(label: string, url: string): string {
+  // 已有篇名標記，或已是「機構：篇名」形式 → 不再從網址補（也避免補進簡體標題）。
+  if (TITLE_MARK.test(label) || /[：:]/.test(label)) return label;
+  const t = wikiArticleTitle(url);
+  if (!t || label.includes(t)) return label;
+  return `${label}〈${t}〉`;
 }
 
 export function parseSourceRef(s: SourceRef): ParsedSource {
   // 資料若已有獨立 url 欄位（如 topical 祈福來源），直接用它、ref 當文字。
   if (s.url) {
     const label = s.ref.replace(URL_RE, '').replace(/\s+/g, ' ').trim();
-    return { label: label || labelFromNote(s.note) || labelFromUrl(s.url), url: s.url };
+    return { label: withWikiTitle(label || labelFromNote(s.note) || labelFromUrl(s.url), s.url), url: s.url };
   }
   const m = s.ref.match(URL_RE);
   if (!m) return { label: cleanLabel(s.ref), url: null };
   const url = m[0].replace(TRAIL_PUNCT, '');
   const label = cleanLabel(s.ref.slice(0, m.index) + s.ref.slice(m.index! + m[0].length));
-  return { label: label || labelFromNote(s.note) || labelFromUrl(url), url };
+  return { label: withWikiTitle(label || labelFromNote(s.note) || labelFromUrl(url), url), url };
 }
