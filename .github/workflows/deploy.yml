@@ -53,6 +53,11 @@ jobs:
         run: pnpm check:canonical
       # 送出網址檢查（腳本主動送給 Google/IndexNow 的網址非斜線→301）另由 pnpm build 內建先跑
       # （scripts/check-outbound-urls.mjs，2026-07-28 補上 check:canonical 的盲區）
+      # 錨文字：<a> 的**可見文字**不得是裸露網址、括號須成對（2026-08-04 用戶指出）。
+      # 起因：來源標註整段呈現為「來源：https://www.th.gov.tw/…；https://zh.wikipedia.org/…」
+      # 而非來源單位名稱，實測影響 131 頁；同批還挖出 3 個活動頁的即時軌跡 href 含中文說明＝連結是死的。
+      - name: 錨文字檢查（<a> 可見文字不得含網址，阻擋部署）
+        run: pnpm check:anchor-text
       - name: render 不變量檢查（廟頁求籤區塊＋鄉鎮頁摘要，全量比對資料，阻擋部署）
         run: pnpm check:rendered
       - uses: actions/configure-pages@v6

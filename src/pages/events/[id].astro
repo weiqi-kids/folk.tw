@@ -181,7 +181,10 @@ const jsonLd: object[] = [
         {
           e.route.polyline_source && (
             <p class="muted small">
-              即時軌跡（進香期間）：<a href={e.route.polyline_source} target="_blank" rel="noopener">{e.route.polyline_source}</a>
+              {/* ⚠️ 原本 href 與錨文字都直接吃整個 polyline_source 欄位，而該欄位是
+                  「網址（中文說明）」——href 因此含中文說明＝**連結點不開**（2026-08-04 線上實測
+                  三個活動頁皆然），錨文字也是裸網址。一律走 parseSourceRef 拆成 href + 名稱。 */}
+              即時軌跡（進香期間）：<Sources sources={[{ ref: e.route.polyline_source }]} prefix="" />
               　·　第三方來源、非官方，僅供參考。
             </p>
           )

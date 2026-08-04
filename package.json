@@ -32,7 +32,8 @@
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "notify": "node scripts/notify.mjs",
     "data:temple-coords": "node --experimental-strip-types scripts/refresh-temple-coords.ts",
-    "check:outbound-urls": "node scripts/check-outbound-urls.mjs"
+    "check:outbound-urls": "node scripts/check-outbound-urls.mjs",
+    "check:anchor-text": "node scripts/check-anchor-text.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
