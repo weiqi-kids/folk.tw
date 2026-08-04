@@ -1699,5 +1699,47 @@
       "last_checked": "2026-08-03",
       "empty_runs": 1
     }
+  },
+  {
+    "id": "news-gas-explosion-20260803-06b770",
+    "eventType": "gas-explosion",
+    "title": "為彰化市旭光路氣爆平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "自由時報",
+        "url": "https://news.ltn.com.tw/news/Changhua/breakingnews/5527767"
+      },
+      {
+        "ref": "聯合新聞網",
+        "url": "https://udn.com/news/story/7320/9669524"
+      }
+    ],
+    "place": "彰化市旭光路（彰化基督教醫院對面）",
+    "time": "2026-08-03",
+    "detector": "news",
+    "since": "2026-08-04",
+    "status": "active"
+  },
+  {
+    "id": "news-landslide-20260802-97d780",
+    "eventType": "landslide",
+    "title": "為陝西太白縣山崩平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "新浪财经",
+        "url": "https://finance.sina.com.cn/jjxw/2026-08-03/doc-inikzzhc6130404.shtml"
+      },
+      {
+        "ref": "搜狐网",
+        "url": "https://m.sohu.com/a/1058336735_121443915"
+      }
+    ],
+    "place": "陕西省宝鸡市太白县（太洋公路S218太镇线）",
+    "time": "2026-08-02",
+    "detector": "news",
+    "since": "2026-08-04",
+    "status": "active"
   }
 ]
