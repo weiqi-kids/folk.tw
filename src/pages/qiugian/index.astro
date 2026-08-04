@@ -1,11 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { breadcrumb } from '../../lib/seo';
+import { breadcrumb, faqPage } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
 import topical from '../../data/topical.json';
 import stats from '../../data/qiugian-stats.json';
 
-const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }])];
+// FAQPage（2026-08-04）：/qiugian/ 在 GSC 已連續 2 週以上維持「已發現但未建立索引」／
+// 「尚未被發現」，從未翻過「已收錄」——同為情境/比較/節日類的樞紐頁（/scenarios/、/compare/、
+// /festivals/）皆已收錄，只有這頁卡住超過 7 天觀察門檻，今天判定直接動手而非續觀察。
+// 內鏈已足（nav 每頁常駐、首頁有磚），可疑點是頁面本身可讀文字量偏薄——4 題 FAQ 純講「這個功能怎麼用」，
+// 不涉外部事實，不需查證來源；語氣沿用全站白話規範，不誇口「準」。
+const faq = faqPage([
+  { q: '線上求籤要怎麼求？', a: '先選一件煩惱的事（工作、感情、考試等），系統依對應的籤詩系統隨機抽出一支籤，附白話解籤說明這支籤在講什麼。' },
+  { q: '求出來的籤準嗎？', a: '籤詩是傳統文化內容，白話解籤是幫忙讀懂籤詩原文的意思，不是命運預測，重要的事還是要自己判斷。' },
+  { q: '求籤要收費或註冊嗎？', a: '不用，選好煩惱直接求籤看結果，不用註冊也不用付費。' },
+  { q: '已經在廟裡抽到籤或擲筊擲到第幾首，可以直接查嗎？', a: '可以，每個煩惱頁面都有「查籤號」欄位，輸入籤號或首數就能直接看解籤內容，不用重新抽。' },
+]);
+
+const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }]), ...(faq ? [faq] : [])];
 // 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
 // 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
 // `mergedInto`＝同事件重複開頁併頁後的舊網址（僅保留 redirect），不可出現在清單裡（否則同一事件列多次）。
@@ -37,7 +49,10 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
   <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤</p>
   <h1>你在為什麼煩惱？</h1>
-  <p class="lead">選一件煩惱，求一支籤，看白話解籤。下面會顯示最近有多少人為同一件事求過。</p>
+  <p class="lead">
+    選一件煩惱，求一支籤，看白話解籤——不用註冊、不用付費。下面會顯示最近有多少人為同一件事求過。
+    在廟裡已經抽到籤或擲筊擲到第幾首，也可以在各煩惱頁面直接輸入籤號查解籤，不用重新抽。
+  </p>
 
   <div class="qcols">
   <section class="qsec" aria-labelledby="sec-choutian">
