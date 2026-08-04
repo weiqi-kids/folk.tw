@@ -102,7 +102,7 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-07-19",
@@ -212,7 +212,8 @@
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
-    "lon": 139.4488397
+    "lon": 139.4488397,
+    "archived_at": "2026-08-04"
   },
   {
     "id": "news-bridge-collapse-20260718-2575e5",
@@ -233,7 +234,7 @@
     "time": "2026-07-18",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active",
+    "status": "archived",
     "updates": [],
     "followup": {
       "sealed": true,
@@ -241,7 +242,8 @@
       "empty_runs": 14
     },
     "lat": 36.3893418,
-    "lon": 139.0632826
+    "lon": 139.0632826,
+    "archived_at": "2026-08-04"
   },
   {
     "id": "news-landslide-20260717-470423",
@@ -270,7 +272,7 @@
     "time": "2026-07-17",
     "detector": "news",
     "since": "2026-07-20",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-07-18",
@@ -482,7 +484,8 @@
       "empty_runs": 2
     },
     "lat": 29.2962877,
-    "lon": 108.1610845
+    "lon": 108.1610845,
+    "archived_at": "2026-08-04"
   },
   {
     "id": "news-landslide-20260717-660351",
