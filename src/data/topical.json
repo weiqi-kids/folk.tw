@@ -1861,5 +1861,28 @@
       "last_checked": "2026-08-04",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-fire-20260802-98b968",
+    "eventType": "fire",
+    "title": "為青島市黃島區倉庫大火平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "大紀元",
+        "url": "https://www.epochtimes.com/b5/26/8/2/n14821968.htm/amp"
+      },
+      {
+        "ref": "新浪新聞",
+        "url": "https://www.sina.cn/news/detail/5327558254271053.html"
+      }
+    ],
+    "place": "山東省青島市黃島區",
+    "time": "2026-08-02",
+    "lat": 35.9589567,
+    "lon": 120.1930928,
+    "detector": "news",
+    "since": "2026-08-05",
+    "status": "active"
   }
 ]
