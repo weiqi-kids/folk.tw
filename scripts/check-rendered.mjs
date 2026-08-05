@@ -39,7 +39,15 @@ const deityById = new Map(deities.map((d) => [d.id, d]));
 // ── 不變量 1f 的資料（2026-08-05）：廟宇頁祈福區塊的反查表 ──────────────────────
 // 與 src/pages/temples/[id].astro 同一套反查（scenarios 的 patrons[].deity_ref、
 // concerns 的 deities[]），本檔不自行重寫對映規則。
-const scenariosData = normalize(require('../src/data/scenarios.json'));
+// 🔴 必須比照頁面的 publishable() 過濾，否則 gate 與頁面看到的資料集不同＝誤報。
+// 頁面走 getDeities()/getScenarios()＝`publishable(e, true)`：draft 排除，
+// **且 prod 下無 sources 者也排除**（見 src/lib/queries.ts:13-20）。本檔讀的是原始 JSON，
+// 不套這層就會對「頁面根本拿不到的神明」要求渲染。
+// 現況只有 `sheshen`（draft、0 間廟主祀）會被濾掉，所以今天不套也不會爆——
+// 但哪天有人把一尊有廟的神明標成 draft，就會冒出一整批看不懂的違規。這是預防那件事。
+// ⚠️ 既有的 expectedSystems()（不變量 1）有同樣的潛在假設，本次刻意不動它（不在計畫範圍）。
+const publishableEntry = (e) => !e.draft && (e.sources ?? []).length > 0;
+const scenariosData = normalize(require('../src/data/scenarios.json')).filter(publishableEntry);
 const concernsData = normalize(require('../src/data/concerns.json'));
 const scenariosByDeity = new Map();
 for (const s of scenariosData) {
@@ -209,7 +217,8 @@ for (const t of temples) {
       violations.push(`${t.id} 祈福區塊缺少 /qiugian/ 集氣入口連結`);
     }
     // (2) 職司句須與 deities.json 的 office 逐項相符（有 office 才驗；無則須不出現該句）。
-    const node = t.main_deity_ref ? deityById.get(t.main_deity_ref) : null;
+    const rawNode = t.main_deity_ref ? deityById.get(t.main_deity_ref) : null;
+    const node = rawNode && publishableEntry(rawNode) ? rawNode : null; // 同頁面的 refOk
     const office = node?.office ?? [];
     if (office.length > 0 && node?.name) {
       qifuWithOffice++;
@@ -221,7 +230,7 @@ for (const t of temples) {
       violations.push(`${t.id}（主祀神無 office 資料）不應顯示職司句，實際卻有`);
     }
     // (3)(4) 情境／煩惱籤**雙向**：該有的每一條都在、不該有的一條都不能在。
-    const expectScenarios = t.main_deity_ref ? (scenariosByDeity.get(t.main_deity_ref) ?? []) : [];
+    const expectScenarios = node ? (scenariosByDeity.get(t.main_deity_ref) ?? []) : [];
     for (const sid of allScenarioIds) {
       const present = qifuBlock.includes(`/scenarios/${sid}/`);
       if (expectScenarios.includes(sid) && !present) {
@@ -231,7 +240,7 @@ for (const t of temples) {
       }
     }
     if (expectScenarios.length > 0) qifuWithScenario++;
-    const expectConcerns = t.main_deity_ref ? (concernsByDeity.get(t.main_deity_ref) ?? []) : [];
+    const expectConcerns = node ? (concernsByDeity.get(t.main_deity_ref) ?? []) : [];
     for (const cid of allConcernIds) {
       const present = qifuBlock.includes(`/qiugian/${cid}/`);
       if (expectConcerns.includes(cid) && !present) {
