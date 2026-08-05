@@ -28,6 +28,12 @@ const PROSE_JSON = [
   // 同上：/scenarios/ 的 description 與 patrons[].why 也是手寫散文（內容只准重述
   // deities.json 已掛源的 office）。patrons 是巢狀陣列，掃描器需支援。
   { file: 'src/data/scenarios.json', fields: ['description', 'patrons.why'] },
+  // 2026-08-05：廟宇 `intro`（115 間）＝交通部觀光署景點資料庫的官方介紹文字，逐筆引用不改寫。
+  // 它**不是 AI 產製**，但同樣是「存在資料 JSON 裡、會渲染到使用者眼前的散文」——
+  // 若哪天有人手改或用 LLM 補寫，這裡是唯一會攔到的地方（.astro gate 掃不到 JSON、
+  // check:content 只掃 .md）。觀光行銷／旅遊指南腔另由 check:integrity 以
+  // scripts/lib/tourism-intro.mjs 的同一份規則硬驗，兩道互補。
+  { file: 'src/data/temples.json', fields: ['intro'] },
 ];
 // 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
 const AI_TELLS = [

@@ -366,6 +366,9 @@ const jsonLd = [
         )}
       </dd>
     </div>
+    {/* 開放時間（觀光署景點資料庫，54 間）。純事實短句，來源標註走頁尾 Sources。
+        GSC 實測「○○宮 開放時間」這類修飾詞查詢沒有 Google 地圖包壟斷答案框，是能贏的位置。 */}
+    {t.open_time && <div><dt>開放時間</dt><dd>{t.open_time}</dd></div>}
     {
       t.lng != null && t.lat != null && (
         <div>
@@ -418,6 +421,26 @@ const jsonLd = [
     )}
     <p class="qifu-more"><a href="/qiugian/">也可以為此刻的平安集氣 →</a></p>
   </section>
+
+  {/* 簡介（觀光署景點資料庫，115 間）。
+      🔴 與「沿革」是兩種東西，**互斥顯示**：`history` 是逐間查證的敘述句（22 間，品質較高），
+      匯入器對有 history 者根本不寫 intro，所以這裡不會同時出現。
+      明寫「引自」有兩個理由：①OGDL 1.0 要求標示出處（頁尾 Sources 也有，這裡再標一次給讀者看）
+      ②這段文字的語氣與站上其他文案不同，告訴讀者那是政府原文、不是我們寫的。
+      ⚠️ **不改寫原文**——改寫就是杜撰風險；不合用的整筆不採用（規則見 scripts/lib/tourism-intro.mjs）。 */}
+  {/* ⚠️ 條件是 `!t.history` 而**不是** `!hasHistory`：後者的定義是
+      `founded || history || main_festival`，用它會讓「有 main_festival 但無 history」的廟
+      連 intro 一起消失。今天這種廟是 0 間，但日後有人替某間有 intro 的廟補上 main_festival，
+      intro 就會**靜默不見**。intro 只該讓位給真正的沿革文字，不該讓位給祭典欄位。 */}
+  {
+    !t.history && t.intro && (
+      <section class="temple-intro">
+        <h2>簡介</h2>
+        <p class="intro-body">{t.intro}</p>
+        <p class="intro-src">引自交通部觀光署觀光資訊資料庫</p>
+      </section>
+    )
+  }
 
   {
     hasHistory && (
@@ -528,6 +551,9 @@ const jsonLd = [
     .map { margin-left: 0.75rem; font-size: var(--text-sm); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
     .small { font-size: var(--text-sm); }
+    .temple-intro { margin-top: 1.5rem; }
+    .temple-intro .intro-body { line-height: 1.8; }
+    .temple-intro .intro-src { color: var(--gold); font-size: var(--text-xs); margin-top: 0.5rem; }
     .temple-history { margin-top: 1.5rem; }
     .temple-history .history-body { line-height: 1.8; }
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }

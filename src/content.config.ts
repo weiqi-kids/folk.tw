@@ -221,6 +221,13 @@ const temples = defineCollection({
     // 名廟內容豐化（僅可查證者填，無源留空，§5）：創建年代、沿革、主要祭典
     founded: z.string().optional(), // 創建年代（史料原話，含「相傳/約」如實標註）
     history: z.string().optional(), // 沿革 2–4 句（客觀事實）
+    // 觀光署景點介紹與開放時間（政府資料開放平臺 7777，OGDL 1.0，2026-08-05 匯入）。
+    // ⚠️ `intro` 與 `history` 是**兩種東西**：history 是逐間查證的敘述句（22 間），
+    //    intro 是官方觀光文字（115 間，已過濾行銷／旅遊指南腔）。
+    //    **顯示層永遠讓 history 優先**，匯入器對有 history 者不寫 intro。
+    //    採用規則的唯一入口＝scripts/lib/tourism-intro.mjs（匯入器與 check:integrity 共用）。
+    intro: z.string().optional(),
+    open_time: z.string().optional(), // 開放時間原文（如「每日開放」「08:00-17:00」）
     main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句（21 間逐間查證的敘述句）
     // 年度慶(祭)典（內政部全國宗教資訊網「慶(祭)典查詢」，2,500 間）。
     // ⚠️ 曆別必須逐筆帶：來源 6,644 筆中農曆 6,365、國曆 279，官方 ODS 匯出**沒有這個標記**，

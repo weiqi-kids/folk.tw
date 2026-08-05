@@ -86,6 +86,8 @@ let qifuChecked = 0;
 let qifuWithOffice = 0;
 let qifuWithScenario = 0;
 let qifuWithConcern = 0;
+let qifuIntro = 0;
+let qifuOpen = 0;
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -250,6 +252,35 @@ for (const t of temples) {
       }
     }
     if (expectConcerns.length > 0) qifuWithConcern++;
+  }
+
+  // 不變量 1g（2026-08-05 加）：觀光署簡介與開放時間。
+  // 背景：intro（115 間）與 history（22 間，逐間查證）是兩種東西且**互斥顯示**。
+  // 🔴 條件是 `!t.history` 而非 `!hasHistory`（founded||history||main_festival）——
+  //    用後者會讓「有 main_festival 但無 history」的廟連 intro 一起靜默消失。
+  //    頁面已改成 `!t.history`，這裡照同一條斷言，兩邊必然一致。
+  const introBlock = html.match(/<section class="temple-intro"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+  const wantIntro = !t.history && !!t.intro;
+  if (wantIntro) {
+    qifuIntro++;
+    if (!introBlock) {
+      violations.push(`${t.id}（有 intro 且無 history）應顯示簡介區塊，實際缺少`);
+    } else {
+      if (!introBlock.includes(escText(t.intro))) violations.push(`${t.id} 簡介區塊文字與 temples.json 的 intro 不符`);
+      // OGDL 1.0 要求標示出處：頁面須明寫引自何處（頁尾 Sources 之外再標一次給讀者看）。
+      if (!introBlock.includes('觀光資訊資料庫')) violations.push(`${t.id} 簡介區塊未標示來源（應含「觀光資訊資料庫」）`);
+    }
+  } else if (introBlock) {
+    violations.push(`${t.id}（${t.history ? '已有 history' : '無 intro'}）不應顯示簡介區塊，實際卻有`);
+  }
+  // 開放時間：雙向。有資料必須出現在基本資料表且值相符；無資料不得出現該列。
+  const hasOpenRow = html.includes('>開放時間</dt>');
+  if (t.open_time) {
+    qifuOpen++;
+    if (!hasOpenRow) violations.push(`${t.id}（open_time=${t.open_time}）應顯示開放時間，實際缺少`);
+    else if (!html.includes(escText(t.open_time))) violations.push(`${t.id} 開放時間值與資料不符（應為 ${t.open_time}）`);
+  } else if (hasOpenRow) {
+    violations.push(`${t.id}（無 open_time 資料）不應顯示開放時間列，實際卻有`);
   }
 
   if (systems.length > 0) {
@@ -588,7 +619,7 @@ let yijiDaysChecked = 0;
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對。`);
   process.exit(0);
 }
 

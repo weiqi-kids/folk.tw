@@ -242,6 +242,32 @@ for (const t of temples) {
 }
 softReport.push(`廟宇年度慶(祭)典：${tfTemples}/${temples.length} 間、共 ${tf} 筆（內政部全國宗教資訊網）`);
 
+// 廟宇 intro／open_time（交通部觀光署觀光資訊資料庫，OGDL 1.0，2026-08-05 匯入）硬驗三件事：
+//   ・有 intro／open_time 必須有對應來源標註（OGDL 1.0 要求標示出處，且 §5 無源不發佈）。
+//   ・intro 不得同時與 history 並存——那 22 間 history 是逐間查證的敘述句，品質高於觀光文案，
+//     匯入器對有 history 者不寫 intro；並存代表有人繞過匯入器手改。
+//   ・intro 不得命中行銷／旅遊指南腔詞表。**規則與匯入器共用同一支 lib**，
+//     否則 gate 擋不住日後手改（這正是把規則抽成 lib 的理由）。
+const { TOURISM_SOURCE, acceptIntro } = await import('./lib/tourism-intro.mjs');
+let tIntro = 0;
+let tOpen = 0;
+for (const t of temples) {
+  const hasIntro = !!(t as { intro?: string }).intro;
+  const hasOpen = !!(t as { open_time?: string }).open_time;
+  if (!hasIntro && !hasOpen) continue;
+  if (hasIntro) tIntro++;
+  if (hasOpen) tOpen++;
+  if (!(t.sources ?? []).some((s: { ref?: string }) => (s.ref ?? '').includes(TOURISM_SOURCE)))
+    hard(`temple ${t.id}：有 intro／open_time 卻無「${TOURISM_SOURCE}」來源標註`);
+  if (hasIntro && t.history)
+    hard(`temple ${t.id}：intro 與 history 並存（history 為已查證敘述句，應優先且不共存）`);
+  if (hasIntro) {
+    const v = acceptIntro((t as { intro?: string }).intro);
+    if (!v.ok) hard(`temple ${t.id}：intro 不符採用規則（${v.why}）——見 scripts/lib/tourism-intro.mjs`);
+  }
+}
+softReport.push(`廟宇簡介／開放時間：intro ${tIntro} 間、open_time ${tOpen} 間（交通部觀光署，OGDL 1.0）`);
+
 // 待查 / draft 統計（§5 無源不發佈）
 const draftDe = deities.filter((d) => d.draft).map((d) => d.id);
 const draftPr = practices.filter((p) => p.draft).length;
