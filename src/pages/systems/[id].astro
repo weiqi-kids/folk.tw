@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { getSystems, getPoems, deitiesBySystem, allusionNameById } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
+import concernsData from '../../data/concerns.json';
 
 export const getStaticPaths = (async () => {
   // 有自有樞紐者（hub，如藥籤＝/medicine-slips/）不在此生成：它的籤文不在 poems collection，
@@ -26,6 +27,21 @@ const s = system.data;
 // 籤系樞紐頁原本只連向籤詩、不連典故（放大籤詩/典故雙資產曝光的既定策略主軸缺一角）：
 // 每張籤卡若該籤有掛典故，補一條連往典故頁的次要連結；純沿用既有 poem.allusions 欄位，不補新事實。
 const allusionName = await allusionNameById();
+
+// ── 接回線上求籤（2026-08-05）─────────────────────────────────────────────────
+// 3,454 間廟頁的「到○○求籤」區塊把人送到這裡（連 /systems/<籤系>/），而本頁原本
+// **沒有任何連往 /qiugian/ 的連結**——動線走到籤系頁就斷了。實測後果：/qiugian/ 家族
+// 近 30 天 GSC 曝光 15、點擊 0，GA4 只拿到全站 1.4% 的瀏覽。
+// 對映走既有資料反查（該籤系的神明 → concerns.json 的 deities[]），對不到就連樞紐，
+// 不硬指定煩惱。寫法沿用 scenarios/[slug].astro 既有的那一行。
+const concernByDeity = new Map<string, { id: string; label: string }>();
+for (const c of concernsData as { id: string; label: string; deities?: string[] }[]) {
+  for (const d of c.deities ?? []) if (!concernByDeity.has(d)) concernByDeity.set(d, { id: c.id, label: c.label });
+}
+const qiugianTargets = [...new Map(
+  deities.map((dd) => concernByDeity.get(dd.id)).filter((x): x is { id: string; label: string } => !!x)
+    .map((c) => [c.id, c] as const),
+).values()];
 
 // 籤系樞紐頁原本無 description / jsonLd / speakable（全站最弱模板）：補上結構型 SEO/AEO 元件，
 // 資料全取自 divination-systems.json 既有欄位（免查證），並讓 breadcrumb 指入 /poems 樞紐。
@@ -51,6 +67,17 @@ const jsonLd = [
   <nav class="crumb"><a href="/poems/">籤詩</a> ／ <a href="/systems/">籤系</a> ／ {s.name}</nav>
   <h1>{s.name}</h1>
   {s.summary && <p class="summary">{s.summary}</p>}
+
+  {/* 接回線上求籤——見 frontmatter 註解。有對映的煩惱就直接指過去，否則連樞紐。 */}
+  <p class="qiugian-cta">
+    想直接抽一支？
+    {qiugianTargets.length > 0
+      ? qiugianTargets.map((c, i) => (
+          <>{i > 0 && '、'}<a href={`/qiugian/${c.id}/`}>為{c.label}求一支籤</a></>
+        ))
+      : <a href="/qiugian/">線上求籤</a>}
+    <span> →</span>
+  </p>
 
   <section>
     <h2>採用此系統之神明 · 籤系反查</h2>
@@ -93,6 +120,8 @@ const jsonLd = [
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
+    .qiugian-cta { font-size: var(--text-sm); margin-top: 0.75rem; }
+    .qiugian-cta a { font-weight: 600; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
     .deity-list { list-style: none; padding: 0; }
     .deity-list li { padding: 0.375rem 0; }

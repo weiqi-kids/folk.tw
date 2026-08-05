@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# 求籤共情層每晚聚合 cron 包裝：同步 → 跑 GA4 聚合 → 有變更才 commit [skip ci] + push。
-# 由 /etc/cron.d/folk-qiugian 每日 UTC 15:07 呼叫；deploy.yml 每日 16:00 UTC 重建套用新數字。
+# 求籤共情層聚合 cron 包裝：同步 → 跑 GA4 聚合 → 有變更才 commit [skip ci] + push。
+# 由 /etc/cron.d/folk-qiugian **每 3 小時**（UTC 00/03/06/09/12/15/18/21 的 :07）呼叫
+# （2026-08-05 從每日一次改；理由見該 cron 檔註解）；deploy.yml 每日 16:00 UTC 重建套用到站上。
+# ⚠️ 頻率提高後本支一天跑 8 次，但「數字無變化就不 commit」的既有判斷仍在，不會多產生空 commit。
 #
 # 🔴 2026-08-03 修：本支從 2026-07-29 起每天都失敗（`fatal: Cannot rebase onto multiple
 # branches.`），src/data/qiugian-stats.json 因此停在 7/29，站上「本週 N 人求籤」是舊數字。
@@ -34,7 +36,7 @@ git rebase --autostash origin/main || {
 
 if ! git diff --quiet src/data/qiugian-stats.json; then
   git add src/data/qiugian-stats.json
-  git commit -q -m "chore(qiugian): 每晚共情數字聚合 $(date -u +%F) [skip ci]"
+  git commit -q -m "chore(qiugian): 共情數字聚合 $(date -u +%F' '%H:%M)Z [skip ci]"
   git push origin main
   echo "[qiugian-cron] 已更新並推送"
 else

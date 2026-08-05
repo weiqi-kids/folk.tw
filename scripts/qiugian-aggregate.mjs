@@ -1,10 +1,15 @@
 #!/usr/bin/env node
-// 求籤共情層每晚聚合：GA4 Data API（近 7 天）→ 各情境本週求籤人數／同籤分布／報喜數
+// 求籤共情層聚合：GA4 Data API（近 7 天）→ 各情境本週求籤人數／同籤分布／報喜數
 // → 寫回 src/data/qiugian-stats.json（供靜態 build 渲染）。數字為真、少算不灌水。
 //
 // 相依：/root/.config/folk-tw/ga4-sa.json（SA 須有 GA4 讀權，本站已具）＋ GA4 自訂維度 concern/poem_no/outcome
-//       （已於 2026-07-14 註冊；自訂維度非追溯，資料自註冊後起算、有 24–48h 處理延遲，故初期可能為 0＝正常）。
-// 排程：每日 UTC 15:00（台北 23:00）跑並 commit [skip ci]；deploy.yml 的每日 16:00 UTC 重建套用。
+//       （已於 2026-07-14 註冊；**自訂維度非追溯**，資料自註冊後起算，故初期可能為 0＝正常）。
+// ⚠️ 2026-08-05 更正：此處原寫「有 24–48h 處理延遲」，容易被讀成「查不到今天的資料」。
+//    實測（2026-08-05）GA4 標準維度（page_view）與自訂維度（customEvent:concern）
+//    **今天的資料都查得到**。那句講的是自訂維度註冊後才開始收集，不是查詢延遲。
+// 排程：每 3 小時（UTC 00/03/06/09/12/15/18/21 時的 :07）跑，有變更才 commit [skip ci]；
+//       deploy.yml 的每日 16:00 UTC 重建套用到站上（故站上數字仍是一天一換，
+//       但 repo 內的數字每 3 小時更新——時事集氣「依真實集氣數決定去留」要讀的是後者）。
 // 手動：node scripts/qiugian-aggregate.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 import { ga4RunReport, loadConfig } from './lib/google-data.mjs';

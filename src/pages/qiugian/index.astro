@@ -21,9 +21,17 @@ const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }]), ...(faq ? [
 // 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
 // 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
 // `mergedInto`＝同事件重複開頁併頁後的舊網址（僅保留 redirect），不可出現在清單裡（否則同一事件列多次）。
-const activeTopical = topical.filter(
-  (t) => t.status === 'active' && !(t as { mergedInto?: string }).mergedInto,
-);
+// 2026-08-05：改為**依真實集氣數由多到少**排序（用戶指定的機制：「依照點的人排序」）。
+// 集氣數來自 qiugian-stats.json 的 topical（GA4 qifu 事件，concern=topical:<id>），
+// 由 scripts/qiugian-aggregate.mjs 聚合；冷啟動全 0 → 穩定退回原本的 topical.json 順序。
+// ⚠️ 這裡只做排序，**不做下架**。下架門檻要等導流上線、量到真實數字後才由用戶定
+// （現況：祈福頁 13 頁近 30 天合計 7 次瀏覽，任何「N 小時沒人點就下架」都等於全刪）。
+const blessOf = (id: string) => (stats as { topical?: Record<string, number> }).topical?.[id] ?? 0;
+const activeTopical = topical
+  .filter((t) => t.status === 'active' && !(t as { mergedInto?: string }).mergedInto)
+  .map((t, i) => ({ t, i }))
+  .sort((a, b) => blessOf(b.t.id) - blessOf(a.t.id) || a.i - b.i)
+  .map((x) => x.t);
 
 // 集氣無 active 事件時的替代內容：帶入「大家最近在求」的熱門煩惱（依 GA 聚合 week_draws 排序）。
 // 冷啟動全 0 → 穩定排序退回 concerns.json 原序；取前 4。
@@ -53,6 +61,15 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     選一件煩惱，求一支籤，看白話解籤——不用註冊、不用付費。下面會顯示最近有多少人為同一件事求過。
     在廟裡已經抽到籤或擲筊擲到第幾首，也可以在各煩惱頁面直接輸入籤號查解籤，不用重新抽。
   </p>
+
+  {/* 集氣區的錨點指標（2026-08-05）。🔴 **不動「抽籤在上」的版位**——那是用戶 2026-08-03
+      明示的裁示（見下方 .qcols 的註解）。但行動版佔流量 70%，集氣區疊在 7 張抽籤卡下面，
+      要滑很久才看得到；補這一行讓它在第一屏就被知道存在。無 active 事件時不渲染。 */}
+  {activeTopical.length > 0 && (
+    <p class="jiqi-jump">
+      <a href="#sec-jiqi">此刻有 {activeTopical.length} 件事正在集氣 →</a>
+    </p>
+  )}
 
   <div class="qcols">
   <section class="qsec" aria-labelledby="sec-choutian">
@@ -104,6 +121,8 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .lead { font-size: var(--text-base); margin: 0 0 1.75rem; }
+    .jiqi-jump { font-size: var(--text-sm); margin: -1rem 0 1.5rem; }
+    .jiqi-jump a { font-weight: 700; color: var(--accent); }
     .qsec { margin: 2rem 0; }
     .sec-h { font-size: var(--text-lg); margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
     .topical-box { padding: 1.125rem 1.25rem; border-radius: 0.875rem;

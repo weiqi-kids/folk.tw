@@ -36,6 +36,26 @@ function normalize(j) {
 
 const deityById = new Map(deities.map((d) => [d.id, d]));
 
+// ── 不變量 1f 的資料（2026-08-05）：廟宇頁祈福區塊的反查表 ──────────────────────
+// 與 src/pages/temples/[id].astro 同一套反查（scenarios 的 patrons[].deity_ref、
+// concerns 的 deities[]），本檔不自行重寫對映規則。
+const scenariosData = normalize(require('../src/data/scenarios.json'));
+const concernsData = normalize(require('../src/data/concerns.json'));
+const scenariosByDeity = new Map();
+for (const s of scenariosData) {
+  for (const p of s.patrons ?? []) {
+    (scenariosByDeity.get(p.deity_ref) ?? scenariosByDeity.set(p.deity_ref, []).get(p.deity_ref)).push(s.id);
+  }
+}
+const concernsByDeity = new Map();
+for (const c of concernsData) {
+  for (const d of c.deities ?? []) {
+    (concernsByDeity.get(d) ?? concernsByDeity.set(d, []).get(d)).push(c.id);
+  }
+}
+const allScenarioIds = scenariosData.map((s) => s.id);
+const allConcernIds = concernsData.map((c) => c.id);
+
 // 與 src/pages/temples/[id].astro 同一套判定：main_deity_ref 需對映到真實神明節點、
 // 該神明有 divination_systems 才顯示求籤區塊，連向其每個籤系。
 function expectedSystems(t) {
@@ -54,6 +74,10 @@ let missingPages = 0;
 let expectedCount = 0;
 let festTemples = 0;
 let titleWithDeity = 0;
+let qifuChecked = 0;
+let qifuWithOffice = 0;
+let qifuWithScenario = 0;
+let qifuWithConcern = 0;
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -167,6 +191,56 @@ for (const t of temples) {
     }
   } else if (hasFestSection) {
     violations.push(`${t.id}（無年度祭典資料）不應顯示年度祭典區塊，實際卻有`);
+  }
+
+  // 不變量 1f（2026-08-05 加）：祈福動線區塊 `temple-qifu`。
+  // 背景：廟宇頁佔全站曝光 91% 卻對 /qiugian/ 零導流（正文 0 條內鏈，8 條全在折疊 nav 裡），
+  //       導致時事集氣頁近 30 天合計只有 7 次瀏覽，「依真實集氣數決定去留」無數據可用。
+  //       這個區塊是全 7,891 頁的常設入口，故逐頁全驗。
+  // 🔴 **一律只在區塊內比對，不用全頁 includes**：nav 每頁都渲染全部 7 個 /qiugian/<concern>/
+  //    連結，全頁比對會讓「不應出現」那半邊恆為真＝gate 靜默失效（同 1c 的 fdate 教訓）。
+  const qifuBlock = html.match(/<section class="temple-qifu"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+  if (!qifuBlock) {
+    violations.push(`${t.id} 缺少祈福區塊（class="temple-qifu"），該區塊應為全體廟頁常設`);
+  } else {
+    qifuChecked++;
+    // (1) 收尾的集氣入口無條件存在——這是本區塊的存在理由。
+    if (!qifuBlock.includes('href="/qiugian/"')) {
+      violations.push(`${t.id} 祈福區塊缺少 /qiugian/ 集氣入口連結`);
+    }
+    // (2) 職司句須與 deities.json 的 office 逐項相符（有 office 才驗；無則須不出現該句）。
+    const node = t.main_deity_ref ? deityById.get(t.main_deity_ref) : null;
+    const office = node?.office ?? [];
+    if (office.length > 0 && node?.name) {
+      qifuWithOffice++;
+      const sentence = `${node.name}的職司是${office.join('、')}。`;
+      if (!qifuBlock.includes(escText(sentence))) {
+        violations.push(`${t.id} 祈福區塊職司句與 deities.json 不符，應為：${sentence}`);
+      }
+    } else if (qifuBlock.includes('class="qifu-office"')) {
+      violations.push(`${t.id}（主祀神無 office 資料）不應顯示職司句，實際卻有`);
+    }
+    // (3)(4) 情境／煩惱籤**雙向**：該有的每一條都在、不該有的一條都不能在。
+    const expectScenarios = t.main_deity_ref ? (scenariosByDeity.get(t.main_deity_ref) ?? []) : [];
+    for (const sid of allScenarioIds) {
+      const present = qifuBlock.includes(`/scenarios/${sid}/`);
+      if (expectScenarios.includes(sid) && !present) {
+        violations.push(`${t.id} 祈福區塊缺少情境連結 /scenarios/${sid}/`);
+      } else if (!expectScenarios.includes(sid) && present) {
+        violations.push(`${t.id} 祈福區塊多出情境連結 /scenarios/${sid}/（主祀神非該情境的 patron）`);
+      }
+    }
+    if (expectScenarios.length > 0) qifuWithScenario++;
+    const expectConcerns = t.main_deity_ref ? (concernsByDeity.get(t.main_deity_ref) ?? []) : [];
+    for (const cid of allConcernIds) {
+      const present = qifuBlock.includes(`/qiugian/${cid}/`);
+      if (expectConcerns.includes(cid) && !present) {
+        violations.push(`${t.id} 祈福區塊缺少煩惱籤連結 /qiugian/${cid}/`);
+      } else if (!expectConcerns.includes(cid) && present) {
+        violations.push(`${t.id} 祈福區塊多出煩惱籤連結 /qiugian/${cid}/（concerns.json 未把該神明列入）`);
+      }
+    }
+    if (expectConcerns.length > 0) qifuWithConcern++;
   }
 
   if (systems.length > 0) {
@@ -505,7 +579,7 @@ let yijiDaysChecked = 0;
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）。`);
   process.exit(0);
 }
 

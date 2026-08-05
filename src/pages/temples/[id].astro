@@ -3,7 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import TempleMap from '../../components/TempleMap.astro';
-import { getTemples, getDeities, getEvents, getSystems } from '../../lib/queries';
+import { getTemples, getDeities, getEvents, getSystems, getScenarios } from '../../lib/queries';
+import concernsData from '../../data/concerns.json';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { lunarDateLabel } from '../../lib/birthdays';
@@ -91,6 +92,48 @@ const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) 
 // 求籤入口（主題集群邊）：把廟宇頁流量（全站曝光大宗）以 1 跳導入高 CTR 的籤詩集群。
 // 僅取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
 const lingqianSystems = refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
+
+// ── 祈福動線（2026-08-05）：把廟宇頁做成祈福入口，不只是一頁資料 ────────────────────
+// 為什麼要有這一段（GA4／GSC 近 30 天實測，數字是決策依據不是佐證）：
+//   全站 5,831 sessions ／ 9,041 views → /qiugian/ 只拿到 125 views（1.4%）
+//   → 時事集氣頁 13 頁合計 7 views → 集氣點擊 5 次。
+// 而集氣鈕的轉化率是 **71%**（7 次瀏覽產生 5 次點擊）＝功能是有效的，缺的純粹是到達率。
+// 同時實查廟宇頁的 HTML：`</nav>` 之後 `/qiugian/` 出現 **0 次**——8 次全在折疊的 nav 面板裡。
+// 廟宇頁佔全站曝光 91%（185,140 曝光／3,484 點擊）卻對祈福動線零導流，這就是那 1.4% 的來源。
+//
+// 🔴 措辭界線（延續 2026-07-31 與 2026-08-03 立的那兩條）：**主詞是神明，不是廟**。
+// 講的是「這位神明的職司包含什麼，因此可以為哪些事祈求」，逐項走既有掛源資料
+// （deities.json 的 office／scenarios 的 patrons／concerns 的 deities），
+// **不宣稱這間廟在辦任何活動**，也**不出現任何具體時事事件名稱**——那是 /qiugian/ 那一層的事。
+// 兩段漏斗（廟宇頁 → /qiugian/ → 集氣頁）是刻意的：廟宇頁不提事件，就不可能被讀成「本廟在辦」。
+//
+// ⚠️ 已知的重複內容風險：職司句依主祀神而異，最多 76 種變體，土地公 1,384 間、媽祖 1,051 間
+// 會共用同一句。站上明文避開過「引用神明 summary 讓數百間同主祀的廟出現一模一樣段落」
+// （見本檔 getStaticPaths 的註解）。判斷差異：那次避開的是**整段 summary**，這裡是**一個短句
+// ＋連結列**，且既有 temple-lingqian 已是同型態並重複 3,454 次、通過所有 gate。
+// 若日後實測有害，退路是拿掉職司句只留連結列——導流效果不受影響。
+const scenarios = await getScenarios();
+// 反查：主祀神 → 該神明是哪些情境的 patron。zero-新增事實，patrons 逐筆自帶 sources。
+const scenariosByDeity = new Map<string, { id: string; name: string; role?: string }[]>();
+for (const s of scenarios) {
+  for (const p of s.data.patrons ?? []) {
+    const list = scenariosByDeity.get(p.deity_ref) ?? scenariosByDeity.set(p.deity_ref, []).get(p.deity_ref)!;
+    list.push({ id: s.id, name: s.data.name, role: p.role });
+  }
+}
+// 反查：主祀神 → 該神明對應的求籤煩惱（concerns.json 的 deities[]）。
+const concernsByDeity = new Map<string, { id: string; label: string }[]>();
+// ⚠️ 顯式標型別，不靠 TS 推斷（根 CLAUDE.md 2026-08-03 立：空陣列字面量會被推成 never[]，
+// 之後的 .includes(string)／for-of 就報 ts(2345)，而型別檢查不在 pnpm build 裡＝自動化層看不到）。
+for (const c of concernsData as { id: string; label: string; deities?: string[] }[]) {
+  for (const d of c.deities ?? []) {
+    (concernsByDeity.get(d) ?? concernsByDeity.set(d, []).get(d)!).push({ id: c.id, label: c.label });
+  }
+}
+const deityOffice = refOk ? (deityData.get(t.main_deity_ref!)?.office ?? []) : [];
+const deityNodeName = refOk ? (deityName.get(t.main_deity_ref!) ?? '') : '';
+const qifuScenarios = refOk ? (scenariosByDeity.get(t.main_deity_ref!) ?? []) : [];
+const qifuConcerns = refOk ? (concernsByDeity.get(t.main_deity_ref!) ?? []) : [];
 
 // 主祀神聖誕（農曆）：僅取 deity 節點既有 birthday_lunar 中 kind==='聖誕' 者，轉中文標籤；無源不補。
 const birthdayLunar = refOk
@@ -352,6 +395,30 @@ const jsonLd = [
     )
   }
 
+  {/* 祈福動線（全 7,891 頁皆有）。主詞是神明不是廟——見上方 frontmatter 的措辭界線註解。
+      收尾那行連 /qiugian/ 是**無條件**的，因此本區塊不設任何顯示條件；
+      職司句／情境／煩惱籤三個子項各自「查無對映就不渲染」，不硬湊。 */}
+  <section class="temple-qifu">
+    <h2>到{t.name}祈求</h2>
+    {deityOffice.length > 0 && deityNodeName && (
+      <p class="qifu-office">{deityNodeName}的職司是{deityOffice.join('、')}。</p>
+    )}
+    {(qifuScenarios.length > 0 || qifuConcerns.length > 0) && (
+      <ul class="qifu-list">
+        {qifuScenarios.map((s) => (
+          <li>
+            <a href={`/scenarios/${s.id}/`}>{s.name}</a>
+            {s.role && <span class="qifu-role">{s.role}</span>}
+          </li>
+        ))}
+        {qifuConcerns.map((c) => (
+          <li><a href={`/qiugian/${c.id}/`}>為{c.label}求一支籤</a></li>
+        ))}
+      </ul>
+    )}
+    <p class="qifu-more"><a href="/qiugian/">也可以為此刻的平安集氣 →</a></p>
+  </section>
+
   {
     hasHistory && (
       <section class="temple-history">
@@ -466,6 +533,15 @@ const jsonLd = [
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }
     .temple-history strong { color: var(--accent); margin-right: 0.375rem; }
     .temple-festivals { margin-top: 1.5rem; }
+    .temple-qifu { margin-top: 1.5rem; }
+    .temple-qifu .qifu-office { color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.7; margin: 0.5rem 0 0; }
+    .qifu-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: flex; flex-direction: column; gap: 0.4375rem; }
+    .qifu-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+    .qifu-list a { font-weight: 600; }
+    .qifu-role { color: var(--muted); font-size: var(--text-sm); }
+    .qifu-more { margin-top: 0.75rem; font-size: var(--text-sm); }
+    .qifu-more a { font-weight: 600; }
     .temple-deity-festivals { margin-top: 1.5rem; }
     .deity-festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.5rem; }
