@@ -1913,5 +1913,28 @@
     "followup": {
       "sealed": true
     }
+  },
+  {
+    "id": "news-flood-20260804-1203ca",
+    "eventType": "flood",
+    "title": "為黑龍江省佳木斯市水災平安祈福",
+    "event": "松花江二○二六年第一號洪水洪峰於八月四日抵達佳木斯水文站，水位超越警戒線零點八八公尺，壩外及行洪區受威脅居民已提前轉移安置。祈願當地鄉親平安無虞，洪水早日退去。",
+    "sources": [
+      {
+        "ref": "新華網",
+        "url": "https://www.news.cn/local/20260804/79c1e97d4e3f4c178044a3a40e9fab51/c.html"
+      },
+      {
+        "ref": "中新網",
+        "url": "https://www.chinanews.com.cn/sh/2026/08-05/10672363.shtml"
+      }
+    ],
+    "place": "黑龍江省佳木斯市",
+    "time": "2026-08-04",
+    "lat": 47.02157,
+    "lon": 132.044137,
+    "detector": "news",
+    "since": "2026-08-05",
+    "status": "active"
   }
 ]
