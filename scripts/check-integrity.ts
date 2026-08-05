@@ -219,6 +219,22 @@ rate('廟宇主祀 → 神明節點', temples.length, tWithRef.length - tUnm.len
 //   ・名稱必須有漢字：來源含 `.`／`33333` 這類鍵入殘留，有合法日期、會通過其他檢查。
 //   ・有 festivals 必須有對應來源標註（§5 無源不發佈）。
 const FESTIVAL_SOURCE = '內政部全國宗教資訊網・慶(祭)典查詢';
+
+/** 見下方使用處的註解。與 scripts/import-festivals.mjs 的 contradictsDate() 同一套判準。 */
+function descContradictsDate(desc: string, date: string): boolean {
+  const s = String(desc ?? '').trim();
+  if (!s || s.length > 16) return false;
+  if (/^[及或另暨、，,]/.test(s)) return false; // 補充的第二個日期，不是衝突
+  const [fm, fd] = String(date).split('-').map(Number);
+  const rng = s.match(/^(?:農曆|國曆)?\s*(\d{1,2})\s*月\s*(\d{1,2})\s*[-–~至]\s*(\d{1,2})\s*日?/);
+  if (rng) {
+    const [m, a, b] = rng.slice(1).map(Number);
+    if (m === fm && a <= fd && fd <= b) return false; // 區間涵蓋日期欄
+  }
+  const ms = [...s.matchAll(/(?:農曆|國曆)?\s*(\d{1,2})\s*[月/\-]\s*(\d{1,2})\s*日?/g)];
+  if (ms.length !== 1) return false;
+  return Number(ms[0][1]) !== fm || Number(ms[0][2]) !== fd;
+}
 let tf = 0;
 let tfTemples = 0;
 for (const t of temples) {
@@ -236,6 +252,16 @@ for (const t of temples) {
       if (mm < 1 || mm > 12 || dd < 1 || dd > max) hard(`${at}：日期 ${f.date} 不存在（${f.calendar}）`);
     }
     if (!/[一-鿿]/.test(f.name ?? '')) hard(`${at}：祭典名稱須含漢字（來源有 .／33333 這類殘留）`);
+    // 2026-08-05：說明欄不得與日期欄互相矛盾。**來源自身就有這種資料**——修悟堂「五府千歲聖誕」
+    // 日期欄 農曆01-03、說明欄「農曆6月18日」（後者正是池府千歲聖誕，站上 deities.json 有三個掛源）。
+    // 我們無從判定哪個對、也不該替來源判斷，而要去拜拜的人拿到錯日期比沒有更糟 → 整筆不得存在。
+    // ⚠️ 判準與 scripts/import-festivals.mjs 的 contradictsDate() 相同（改一邊要改兩邊；
+    //    該檔是 .mjs、本檔是 .ts，故刻意各留一份純函式而非 import）。
+    //    只擋「說明整段就是一個日期且與日期欄不同」；「及8月23日」（第二個日期）與
+    //    「3月21-23日…」（區間涵蓋）不算矛盾，那是補充。實測全量僅 2 筆命中，已於同日移除。
+    if (f.desc && descContradictsDate(f.desc, f.date)) {
+      hard(`${at}：說明「${f.desc}」與日期 ${f.date} 矛盾，無從判定何者為真 → 不得發佈`);
+    }
   }
   if (!(t.sources ?? []).some((s: { ref?: string }) => (s.ref ?? '').includes(FESTIVAL_SOURCE)))
     hard(`temple ${t.id}：有 festivals 卻無「${FESTIVAL_SOURCE}」來源標註`);

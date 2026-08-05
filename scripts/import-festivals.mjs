@@ -60,6 +60,29 @@ const unescapeHtml = (s) =>
 
 const COLS = ['name', 'org', 'religion', 'area', 'date', 'phone', 'desc'];
 
+/**
+ * 說明欄是否與日期欄互相矛盾。**與 check-integrity.ts 同一套判準**（改一邊要改兩邊；
+ * 這裡刻意用純函式、不 import，因為 check-integrity 是 .ts、本檔是 .mjs）。
+ * 只有「說明整段短、且恰好解出一個日期、且與日期欄不同」才算矛盾——
+ * 說明裡提到別的相關日期（進香日、法會範圍）是補充資訊，不是衝突。
+ */
+export function contradictsDate(desc, date) {
+  const s = String(desc ?? '').trim();
+  if (!s || s.length > 16) return false;
+  // 「及／或／另／暨」開頭＝補充的第二個日期（武孚廟「及8月23日」），不是衝突。
+  if (/^[及或另暨、，,]/.test(s)) return false;
+  const [fm, fd] = String(date).split('-').map(Number);
+  // 區間「N月A-B日」：日期欄落在區間內就不是衝突（台北湄聖宮「3月21-23日舉辦祝壽大法會」）。
+  const rng = s.match(/^(?:農曆|國曆)?\s*(\d{1,2})\s*月\s*(\d{1,2})\s*[-–~至]\s*(\d{1,2})\s*日?/);
+  if (rng) {
+    const [m, a, b] = rng.slice(1).map(Number);
+    if (m === fm && a <= fd && fd <= b) return false;
+  }
+  const ms = [...s.matchAll(/(?:農曆|國曆)?\s*(\d{1,2})\s*[月/\-]\s*(\d{1,2})\s*日?/g)];
+  if (ms.length !== 1) return false;
+  return Number(ms[0][1]) !== fm || Number(ms[0][2]) !== fd;
+}
+
 function parseFestivalHtml(html) {
   const body = html.slice(html.indexOf('<tbody'));
   const rows = body.match(/<tr>[\s\S]*?<\/tr>/g) ?? [];
@@ -217,6 +240,17 @@ for (const r of recs) {
     continue;
   }
   const desc = squash(r.desc);
+  // 🔴 來源自身矛盾（2026-08-05 發現）：說明欄整段就只是一個日期、且與日期欄不同。
+  // 實例：修悟堂「五府千歲聖誕」日期欄 農曆01-03、說明欄「農曆6月18日」——後者正是
+  // 池府千歲聖誕（站上 deities.json 有三個掛源），前者不對應任何一府。
+  // 我們**無從判定哪個對，也不該替來源判斷**，而要去拜拜的人拿到錯日期比沒有更糟
+  // （同站上「無源不發佈／寧漏不錯」）→ 整筆捨棄。
+  // ⚠️ 只擋「說明整段就是一個日期」這種純矛盾；「及8月23日」（第二個日期）、
+  // 「3月21-23日舉辦…」（涵蓋日期欄）不算，那是補充不是衝突。實測全量僅 2 筆命中。
+  if (desc && contradictsDate(desc, d.date)) {
+    stat.dropped_desc_conflict = (stat.dropped_desc_conflict ?? 0) + 1;
+    continue;
+  }
   list.push({ name, ...d, ...(desc ? { desc } : {}) });
 }
 
