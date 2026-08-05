@@ -503,6 +503,19 @@
     **補觸發一次**（此時該 SHA 的 run 數為 0，不存在同 SHA 雙 run 毒化風險），build/deploy/indexnow 三 job 全綠。
     **緊接的下一次 push（`5ea5dcc`）就正常自動觸發**＝屬偶發，不是設定問題。判斷準則不變：
     先等約 2 分鐘、確認「本 SHA 的 run 數為 0」才補觸發；**若已有本 SHA 的 run，絕不再開第二個**。
+  - 🔴 **2026-08-05 新病灶：cron 的 `[skip ci]` commit 會把「人剛 commit 但還沒 push」的改動一起吞掉不部署。**
+    經過：手動 commit `121970d`＋`ee3053b`（撤 13 頁祈福頁）後**還沒 push**，就先跑 build 驗證；
+    這期間 seo cron 在主工作樹 `git rebase --autostash origin/main` → 自己 commit
+    `4acd1b7 chore(seo): … [skip ci]` → `git push origin main`，**連我那兩個一起推上去**。
+    GitHub 只看 **head commit** 的訊息 → 見到 `[skip ci]` → **整個 push 不觸發 workflow**。
+    結果：改動在 repo 裡、`git push` 回「Everything up-to-date」看起來一切正常，
+    但**線上內容仍是舊版，且沒有任何告警**（與 2026-08-03 型別檢查那次同一類：靜默停在舊版）。
+    - **判準**：`git push` 回 up-to-date **不等於已部署**。一律再查一次
+      `gh run list --workflow deploy.yml --json headSha` 有沒有「本 SHA」的 run。
+    - **修法**：本 SHA run 數為 0 → `gh workflow run deploy.yml --ref main` 補觸發（同上例外條款，無毒化風險）。
+    - **預防**：**手動 commit 後立刻自己 `git push`**，不要留在本地等 build 或等驗證跑完。
+      本 repo 有多支會 push 的 cron（seo-ops 三層／qiugian-aggregate／topical P1·P2·P4），
+      留在本地的 commit 隨時會被別人的 `[skip ci]` head 帶上去。
 - 🔴 **農民曆封存頁（過去日期）永久不進 sitemap**（2026-08-03 用戶裁示，**未來也不要加回來**）：
   原本保留、僅以 priority 0.3 降權，實測不夠——sitemap 11,693 個網址裡有 **2,536 個是農民曆日期頁（22%）**，
   但它們近 29 天只帶 1,258 曝光（全站 175,735 的 **0.7%**，過去日期頁每頁僅 1.5 次）；
