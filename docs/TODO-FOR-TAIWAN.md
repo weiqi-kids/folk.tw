@@ -85,21 +85,8 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 
 ## 台灣端目前的待辦
 
-### 2026-08-06 發出：`local-celebration` 補抓第 2–6 頁
-
-- **為什麼要人做、不能加 manifest job**：`LocalCelebration/Index?ci=96` 的分頁是
-  **POST**（頁面 JS：`SubmitForm.action = "Index?ci=96&page=" + p; method = "post"`），
-  固定 URL 的機械 job 只抓得到第一頁（2026-08-06 實測手上那份就是第一頁）。
-- **要他們先回答的問題**：`GET Index?ci=96&page=2` 到底行不行。
-  - **行** → 我把剩下幾頁各加一個一般 job（2026-08-06 實測共 6 頁，故為第 2–6 頁），
-    之後全自動，這件事永久結案。
-  - **不行** → 這次請他們手動 POST 抓一次，並回報要怎麼做才會成功。
-- **順便偵察（只看不抓，不匯入）**：任一筆的詳情頁 `/LocalCelebration/Content?ci=96&cid=1`
-  **有哪些欄位**。若含主辦單位／地點／廟名這類事實欄位，頁型方案會不一樣；
-  若只有簡介與照片，那是語文／攝影著作，本案就只用列表層的四個欄位。
-- **驗收**：`out/misc/local-celebration-ci96-p2..p6.html`（各附 `.sha256`／`.meta.json`）。
-  2026-08-06 實測頁面自稱「共 6 頁，65 筆」、第一頁 12 筆 → 補齊後總筆數應為 65。
-  對不上就是漏頁，回報，不要自己補。
+**無。** 上一輪（2026-08-06 `local-celebration` 補頁）已收尾並結案，結論見下一節與
+`scripts/intake-status.mjs` 的 `LEDGER`。
 
 要新增待辦時：寫在這一節，**同時**在給用戶的回覆裡附上完整 prompt。
 
@@ -116,6 +103,16 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 - 寺廟**沿革全文** → 授權未定前不抓（語文著作，等內政部回覆）
 - 寺廟 **`FoundationOdsReport`（ODS）** → 理由**不是授權，是資料重複**：比 `temple.xml` 多出的部分多是法人教會／基金會／宗祠，各自都有開放資料集（8204/8205/8206/8208）
 - CRGIS → 站台停擺，**不是沒有資料**，不得刪 job
+- **`LocalCelebration` 怎麼翻頁** → 2026-08-06 台灣端實測：**GET `&page=N` 就能翻**，
+  不必 POST（頁面 JS 雖寫 `method = "post"`，伺服器同時吃 query string）。
+  已改成一般 job，這條線全自動，不要再開工單問
+- **`LocalCelebration` 詳情頁有沒有可用欄位** → 2026-08-06 實看兩筆：
+  **沒有**主辦單位／舉辦地點／相關廟宇／聯絡方式這四種欄位，只有簡介與照片
+  （語文／攝影著作，不取）。廟名只出現在簡介的敘述文字裡，不是欄位。
+  另有一個 `div.divTaiwanGodsLC` 兩筆都是空的，用途不明——**不要為它再跑一趟**
+- **`religion.moi.gov.tw` 的 robots.txt** → 該站**沒有** robots.txt，`/robots.txt` 回的是
+  ASP.NET 錯誤頁。⚠️ `out/misc/religion-robots.txt` 存的就是那張錯誤頁、不是規則檔，
+  **job 名稱會誤導人**。禮貌規則照舊自己守（帶 UA、間隔 ≥1 秒）
 
 🔑 **通則（台灣端自己也能用來先擋掉）**：政府典藏 ≠ 可自由使用。
 PDM／CC0／OGDL 可用；「僅限本平台瀏覽」「保留所有權利」不可轉載，抓了也是白抓。

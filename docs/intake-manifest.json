@@ -7,8 +7,8 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 5,
-  "updated": "2026-08-03",
+  "version": 6,
+  "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -159,10 +159,76 @@
       "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
       "dest": "misc/local-celebration-ci96.html",
       "max_age_days": 90,
-      "note": "地方宗教慶典行政成果。",
+      "note": "地方宗教慶典（第 1 頁）。列表共 6 頁，其餘見下方 -p2..-p6。",
       "expect": {
         "http_status": 200,
         "min_bytes": 30000,
+        "contains": "</html>"
+      },
+      "_why": [
+        "2026-08-06 台灣端實測：分頁**用 GET 就能翻**（`&page=N`），不必 POST——",
+        "頁面 JS 雖然寫 `SubmitForm.method = \"post\"`，但伺服器同時吃 query string。",
+        "驗證方式：第 1 頁必含「神明淨港」，page=2 起不含；六頁 cid 去重後為 65，與頁面自報一致。",
+        "所以第 2–6 頁改成一般 job，這條線不再需要人工開工單。"
+      ]
+    },
+    {
+      "id": "local-celebration-p2",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96&page=2",
+      "dest": "misc/local-celebration-ci96-p2.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典 第 2 頁。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "local-celebration-p3",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96&page=3",
+      "dest": "misc/local-celebration-ci96-p3.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典 第 3 頁。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "local-celebration-p4",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96&page=4",
+      "dest": "misc/local-celebration-ci96-p4.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典 第 4 頁。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "local-celebration-p5",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96&page=5",
+      "dest": "misc/local-celebration-ci96-p5.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典 第 5 頁。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      }
+    },
+    {
+      "id": "local-celebration-p6",
+      "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96&page=6",
+      "dest": "misc/local-celebration-ci96-p6.html",
+      "max_age_days": 90,
+      "note": "地方宗教慶典 最後一頁（筆數本來就比前幾頁少，min_bytes 故意設低）。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 25000,
         "contains": "</html>"
       }
     }
