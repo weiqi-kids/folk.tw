@@ -97,18 +97,28 @@ const LEDGER = [
     stage: 'pending', id: 'knowledge-zaoshen',
     goal: '補灶神的 iconography（CLAUDE.md 長期欠帳之一）',
     blocker:
-      '✅ 授權已解（2026-08-06 用戶回報內政部同意使用）。⛔ 現在卡的是**來源標註怎麼寫**：' +
-      '總紅線第 1 條要求「逐筆掛源、來源要能被機器複驗」，而一紙私下的同意函不是公開網址，' +
-      '得有公文文號／日期才寫得出可複驗的 ref。拿到就能做——檔案 2026-08-01 就躺在 inbox 了。',
+      '✅ 授權已解（2026-08-06：內政部承辦表示資料本就公開供人使用，條件＝**標示資料來源連結**）。' +
+      '⛔ 等匯入器。灶神條目（cid=265）2026-08-01 就在 inbox，但它也在 knowledge-deity-entries 的 96 筆裡——' +
+      '🔴 **iconography 是把敘述文字讀成短語（如「腳踏龜蛇」），不是取欄位**，' +
+      '拿一篇樣本去設計抽取規則、再套到 96 篇上，正是會量產假資料的做法。' +
+      '等 96 篇到齊再對著真語料設計，一支匯入器一次處理完。',
     metric: () => `灶神 iconography：${M.zaojunIcon ? '✅ 已有' : '❌ 仍空白'}`,
     upstream: join(INBOX, 'misc/knowledge-zaoshen-cid265.html'),
   },
   {
     stage: 'pending', id: 'knowledge-deities-list',
     goal: '用 96 個神祇條目擴充 iconography',
-    blocker: '✅ 授權已解、⛔ 卡來源標註：同上',
-    metric: () => `全 ${M.deities} 尊中有 iconography 者 ${M.iconography}`,
+    blocker:
+      '✅ 授權已解（條件＝標示來源連結）。⛔ 等條目全文：列表頁只有**截斷摘要**，' +
+      'iconography 的敘述在條目內頁，已用 `knowledge-deity-entries`（第一個 url_list 型 job）逐條抓，' +
+      '清單 docs/intake-urls-knowledge.json 由 scripts/gen-intake-urls-knowledge.mjs 產生。',
+    metric: () => {
+      const dir = join(INBOX, 'knowledge-deities');
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.html')).length : 0;
+      return `全 ${M.deities} 尊中有 iconography 者 ${M.iconography}｜條目已收 ${got}/96`;
+    },
     upstream: join(INBOX, 'misc/knowledge-deities-list-cid3.html'),
+    covers: ['knowledge-deity-entries'],
   },
   {
     stage: 'pending', id: 'religion-foundation-list',

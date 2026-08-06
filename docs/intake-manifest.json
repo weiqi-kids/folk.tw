@@ -7,7 +7,7 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 7,
+  "version": 8,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
@@ -190,6 +190,28 @@
         "min_bytes": 30000,
         "contains": "</html>"
       }
+    },
+    {
+      "id": "knowledge-deity-entries",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-knowledge.json",
+      "dest_dir": "knowledge-deities/",
+      "dest_template": "{key}.html",
+      "max_age_days": 180,
+      "note": "宗教知識+／宗教神祇 96 個條目全文（iconography 來源）。清單由 scripts/gen-intake-urls-knowledge.mjs 產生。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      },
+      "_why": [
+        "🔴 **這是第一個用 `url_list` 的 job**。台灣端 2026-08-05 已實作並自測 67/67，",
+        "依 handoff §3.5 的欄位契約，收到「已實作並自測」後境外端才可以放進 manifest——條件已滿足。",
+        "為什麼不用列表頁就好：`Knowledge/List?ci=2&cid=3` 只有**截斷摘要**（每則結尾是「…」），",
+        "iconography 要的敘述在條目全文裡，只能逐條抓。",
+        "授權：2026-08-06 內政部同意使用，條件為**標示資料來源連結**——",
+        "所以每一筆匯入都必須掛回它自己的 `Knowledge/Content?ci=2&cid=<N>` 網址。",
+        "⚠️ `url_list` 不可與 `url`／`dest`／`paginate` 併用，併用會被擋下不抓（URLLIST-SPEC）。"
+      ]
     },
     {
       "id": "knowledge-deities-list",
