@@ -229,7 +229,7 @@ const temples = defineCollection({
     intro: z.string().optional(),
     open_time: z.string().optional(), // 開放時間原文（如「每日開放」「08:00-17:00」）
     main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句（21 間逐間查證的敘述句）
-    // 年度慶(祭)典（內政部全國宗教資訊網「慶(祭)典查詢」，2,500 間）。
+    // 年度慶(祭)典（內政部全國宗教資訊網「慶(祭)典查詢」，2,498 間）。
     // ⚠️ 曆別必須逐筆帶：來源 6,644 筆中農曆 6,365、國曆 279，官方 ODS 匯出**沒有這個標記**，
     //    只用 ODS 會把農曆當國曆（媽祖聖誕農曆三月廿三 → 錯成國曆 3/23）。見 docs/festival-data-import.md。
     // 顯示一律走 src/lib/temple-festival.ts，**勿在頁面自行挑代表筆或自行換算農曆**。

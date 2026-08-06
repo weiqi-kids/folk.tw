@@ -36,7 +36,7 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 | **內政部沿革授權** | 2026-08-05 已寄洽詢函等回覆。獲准後沿革 4,325＋參拜流程 828＋`Knowledge/*` 的 iconography **一批處理**（同一份授權、同一支匯入器）；不准就一起結案 | 等回覆 |
 | **祈福頁「依真實集氣數決定去留」** | 導流已上線，**門檻數字未定**——現況量級下任何「N 小時沒人點就下架」都等於全刪。觀測一週後定 | **2026-08-12** |
 | **降 GSC 權限** | 資安衛生、不緊急。共用服務帳號在 9 個網域是「擁有者」，只有用 Indexing API 的站才需要；降成「完整使用者」是十分鐘的事。背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`（⚠️ 該檔開頭有 2026-07-31 的前提更正，**先讀那段**） | 無期限 |
-| **節日頁收錄與曝光追蹤** | 2026-07-30 上線的 10 個節日頁，兩個檢查點：**8/8 看收錄**、**8/16 看節日類查詢曝光**。每日心跳（05:00 台 Slack）自動出數，**不需人盯**，到日子看 Slack 或 `data/seo-daily/<date>.json` 即可 | **8/8**、**8/16** |
+| **節日頁收錄與曝光追蹤** | 2026-07-30 上線的 10 個節日頁，兩個檢查點：**8/8 看收錄**、**8/16 看節日類查詢曝光**。每日 collect（**台北 15:30**）自動出數並直接發 Slack，**不需人盯**——⚠️ 這裡原本寫「05:00」是 2026-08-01 改排程前的舊時刻，且 cron 裡**沒有獨立的 heartbeat 層**（已併進 collect）。到日子看 Slack 或 `data/seo-daily/<date>.json` | **8/8**、**8/16** |
 | **`local-celebration` 用途未定** | 台灣端已投遞，但我們還沒決定要拿它做什麼。決定前不要動手 | — |
 | **觀音「一百籤」尚未收錄** | ⚠️ 這**不是**「籤系只有 2 套」——站上實際有 5 套（六十甲子 60／關帝 100／月老 27／內門紫竹寺觀音 28／保生大帝藥籤 330）。缺的是坊間常說的**觀音一百籤**，卡在版本錨定：線上無權威全文，唯一線索是臺文館藏「觀音籤譜」`NMTL20060200544`（完整 100 首且錨定龍山寺，**但未數位化**，已送件申請閱覽） | 等館方回覆 |
 
@@ -112,7 +112,7 @@ pnpm data:weekly                                 # 週報乾跑預覽
 | **部署流程／驗證套件／任何一道 gate／`pnpm notify`** | [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) |
 | **SEO 的「做／不做」裁示**（sitemap／稀釋／索引長尾） | [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md) |
 | **慶(祭)典資料**（曆別陷阱／對映規則／來源矛盾） | [`docs/festival-data-import.md`](docs/festival-data-import.md) |
-| **時事集氣祈福管線**（P1–P4） | [`docs/topical-blessing.md`](docs/topical-blessing.md) 🔴 |
+| **時事集氣祈福管線**（P1／P2／P4（無 P3）） | [`docs/topical-blessing.md`](docs/topical-blessing.md) 🔴 |
 | **台灣端投遞管道**（現況／授權／每份資料去向） | [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) 🔴 |
 | **台灣端怎麼運作**（金鑰／manifest 欄位契約／rsync） | [`docs/taiwan-host-handoff.md`](docs/taiwan-host-handoff.md) |
 | **要台灣端做事**（prompt 骨架／追蹤清單／不要再問的事） | [`docs/TODO-FOR-TAIWAN.md`](docs/TODO-FOR-TAIWAN.md) |

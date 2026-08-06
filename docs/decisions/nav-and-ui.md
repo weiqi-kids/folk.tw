@@ -34,7 +34,7 @@
       - ⚠️ **「看日子」子項由 `good-days.json` 驅動、不硬編**，且用每筆的 `name`（結婚／搬家入厝）
         而非 `nav_label`（結婚看日子）——後者是 `[slug].astro` 的 H1 用字，放進已叫「看日子」的小段會重複，
         也正是折行元凶。硬編過一次就漂移成「資料 11 個、nav 只顯示 3 個」。
-      - 順帶接回三個**原本完全不在 nav 的孤兒樞紐**：`/compare/`、`/jiaobei/`、`/vocabulary/`（＋8/1 的 `/systems/`）。
+      - 順帶接回三個**原本完全不在 nav 的孤兒樞紐**：`/compare/`、`/jiaobei/`、`/vocabulary/`（⚠️ **2026-08-06 實查：`/systems/` 樞紐本身仍不在 nav**，只有 4 個籤系子頁在。而 `/systems/` 存在的理由正是「避免每加一套籤就多一個孤兒頁」——這條沒做到）。
       - ⚠️ `/qiugian/`、`/jiaobei/` 是全站僅有的拼音 slug（其餘皆英文）。`/qiugian/` 已被 Google 收錄
         且在 seo-ops `trackUrls` 內，**改網址會斷收錄，維持不動**。
       - ⚠️ **擇日子項只放真的推得出宜日的**。清單見 `src/data/good-days.json` 的 `_policy`。

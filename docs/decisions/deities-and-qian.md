@@ -98,4 +98,5 @@
 - [x] speakable schema（2026-06-23 commit `365b78f`＋`b1aff85` 上線）：Base 加 `speakable` prop →
       輸出 WebPage SpeakableSpecification；神明/籤詩/典故/習俗/農民曆日期五類常青詳情頁宣告
       answer-first 區塊（`h1`＋`.summary`/`.lead`/`.story`/`.yiji-section`）。僅內容詳情頁、未外溢首頁/列表頁。
-      （events 為結構化欄位無整句摘要、已有 FAQPage 覆蓋，故不加。）首頁「熱門神明」同批補上月老（yuelao）。
+      （events 為結構化欄位無整句摘要、已有 FAQPage 覆蓋，故不加。）
+      ⚠️ **2026-08-06 實查：這段已完全過期**——`speakable` 現在出現在 **26 個** template，含文中說「不加」的 `events/[id].astro` 與六個列表頁。要改 speakable 前以 `grep -rl speakable src/pages/` 為準。首頁「熱門神明」同批補上月老（yuelao）。

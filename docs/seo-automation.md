@@ -16,7 +16,7 @@
 
 | 層 | 時間（台 / UTC） | 進入點 | 產出 |
 |----|----------------|--------|------|
-| 收集＋心跳 | **15:30 / 07:30** | `bin/seo-collect.mjs --site folk.tw` | GA4+GSC+索引覆蓋 → `data/seo-daily/<日期>.json`、commit/push、index:ping |　**heartbeat 已併入本層、直接發 📊 Slack，無獨立排程**
+| 收集＋心跳 | **15:30 / 07:30** | `bin/seo-collect.mjs --site folk.tw` | GA4+GSC+索引覆蓋 → `data/seo-daily/<日期>.json`、commit/push、index:ping；**heartbeat 已併入本層、直接發 📊 Slack，無獨立排程**|
 | 反思 | **16:00 / 08:00** | `bin/seo-reflect.sh --site folk.tw` | **大腦前半段**：跨源對比 → 只改 playbook 標記區策略段 → 🧭 Slack（僅有改動時）＋留痕 `reflections/folk.tw/<日期>.md` |
 | 大腦 | **16:40 / 08:40** | `bin/seo-brain.sh --site folk.tw` | headless `claude -p`（Sonnet）：自動優化→push→deploy→notify→🤖 Slack |
 | 週報 | 週一 09:30 / 01:30 | `bin/seo-weekly.mjs --site folk.tw` | 開 GitHub Issue + 📈 Slack |

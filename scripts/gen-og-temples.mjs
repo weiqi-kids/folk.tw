@@ -111,7 +111,7 @@ export function recentActivity(t, todayIso) {
     const first = String(t.main_festival).split(/(?<=[。！？])/)[0].trim();
     if (first) return { label: '主要祭典', text: first };
   }
-  // 2026-07-31：內政部慶(祭)典資料匯入後，2,500 間廟有了**自己登記的**年度祭典。
+  // 2026-07-31：內政部慶(祭)典資料匯入後，2,498 間廟有了**自己登記的**年度祭典。
   // 它排在主祀神聖誕之前——外撥時主委看到的是自家廟的祭典，而不是全台同主祀神共用的神明生日。
   // 挑代表筆與措辭一律走 lib（頁面、gate 同一支），本檔不自行判斷。
   const own = pickMainFestival(t.festivals);

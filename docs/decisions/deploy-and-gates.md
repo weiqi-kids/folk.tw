@@ -60,7 +60,7 @@ scripts/indexnow-ping.mjs:33  const CORE = ['/', '/almanac/', …]   ← byte-id
 
 ## 驗證套件與各 gate
 
-- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
+- 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / **`pnpm check:anchor-text`** / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
   - 🔴 **`pnpm check`（astro check）是 CI 擋門、但不在 `pnpm build` 裡**（2026-08-03 立）：
     deploy.yml 的 build job 有獨立的「型別檢查」step 跑它，型別錯誤會讓 **build failure、deploy skipped**。
     而 `pnpm build` ＝ `check-design && check-content && check-outbound-urls && astro build`，**不含型別檢查**；

@@ -47,17 +47,34 @@ git rebase --autostash origin/main || {
 #   「把人改到一半的 WIP 一起 commit」那次事故。
 #   故比照 topical cron 的既有作法加**硬檢查**：異動的每一行都必須是 bless_snapshot，
 #   只要出現任何其他欄位的變動就整個放棄本次快照（下輪再來，只增不減故不會漏）。
+# 🔴 判定改用 node，**不用 grep**（2026-08-06 二次修正）：
+#   初版寫 `git diff -U0 … | grep -E '^[+-]' | grep -qv 'bless_snapshot'`，我在互動 shell 測過就上了。
+#   但這台的互動 `grep` 是包了 ugrep 的 shim function，`-qv` 語意與 GNU grep **相反**：
+#   同一份輸入（一行含 pattern、一行不含），shim 回 1、/usr/bin/grep 回 0。
+#   cron 沒有 shim，拿到的是 GNU grep → 守門把 24/25 個項目判成「有其他欄位異動」而擋掉。
+#   更糟的是它失敗的方式跟原本的 bug 一樣**靜默**，log 還誤報成「可能是人手 WIP」。
+#   ⚠️ 為什麼首次新增會被擋：物件沒有 bless_snapshot 時，新增的 key 會排在尾端，
+#   diff 因此連帶前一行的加逗號改動（`-  "status": "active"` / `+  "status": "active",`），
+#   那兩行不含 bless_snapshot。**判定必須看「欄位語意」而不是「diff 文字行」。**
+#
+# 現在的作法：用 node 直接比對 HEAD 版與工作區版的 JSON，逐項確認**除了 bless_snapshot
+# 以外沒有任何差異**（含新增/刪除項目）。這與 grep 實作無關，也不受 key 排序影響。
 STAGE="src/data/qiugian-stats.json"
 if ! git diff --quiet src/data/topical.json; then
-  if git diff -U0 src/data/topical.json | grep -E '^[+-]' | grep -v '^[+-][+-][+-]' \
-       | grep -qv 'bless_snapshot'; then
-    # 🔴 只是「不 stage」，**絕不 checkout/reset**——那會把人手改到一半的 WIP 直接丟掉，
-    #    比原本的 bug 更糟。留在工作樹讓人自己處理，我們這輪放棄快照即可（只增不減，下輪補得回來）。
-    echo "[qiugian-cron] ⚠️ topical.json 有 bless_snapshot 以外的異動（可能是人手 WIP 或 topical cron 尚未推送），"
-    echo "[qiugian-cron]    本輪不 stage 它、也不動它。快照下輪再補（bless_snapshot 只增不減）。"
-  else
+  if /usr/bin/node -e '
+    const {execSync}=require("child_process"), fs=require("fs");
+    const head=JSON.parse(execSync("git show HEAD:src/data/topical.json",{encoding:"utf8"}));
+    const work=JSON.parse(fs.readFileSync("src/data/topical.json","utf8"));
+    const strip=(a)=>a.map(o=>{const c={...o}; delete c.bless_snapshot; return c;});
+    const same=JSON.stringify(strip(head))===JSON.stringify(strip(work));
+    process.exit(same?0:1);
+  '; then
     STAGE="$STAGE src/data/topical.json"
     echo "[qiugian-cron] topical.json 僅 bless_snapshot 異動，一併提交"
+  else
+    # 🔴 只是「不 stage」，**絕不 checkout/reset**——那會把人手改到一半的 WIP 直接丟掉。
+    echo "[qiugian-cron] ⚠️ topical.json 有 bless_snapshot 以外的異動（人手 WIP 或 topical cron 尚未推送），"
+    echo "[qiugian-cron]    本輪不 stage 它、也不動它。快照下輪再補（bless_snapshot 只增不減）。"
   fi
 fi
 
