@@ -10,9 +10,10 @@
     "  沿革＋參拜流程共 5,153 項，維持 200／輪、一天一輪要跑 26 天才收得完。",
     "  提高的是**單輪總量**，**每次請求間隔仍是 1 秒不變**——那才是對方伺服器真正感受到的壓力。",
     "  1500 項在 1 req/s 下約 25 分鐘，全批約 4 輪收完。",
-    "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。"
+    "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
+    "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。"
   ],
-  "version": 9,
+  "version": 10,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
@@ -21,62 +22,6 @@
     "backoff": "指數退避：失敗第 n 次等 2^n 秒（上限 300 秒）；連續 5 次失敗就記 state.json 收工，下輪再來"
   },
   "jobs": [
-    {
-      "id": "religion-foundation-list",
-      "url": "https://religion.moi.gov.tw/Religion/FoundationTemple?ci=1",
-      "dest": "recon-service/foundation-list.html",
-      "max_age_days": 90,
-      "note": "宗教團體查詢結果全量（PageSize=100）。目的只有一個：收 UploadFileID。",
-      "paginate": {
-        "method": "POST",
-        "page_param": "Page",
-        "start": 1,
-        "max_pages": 200,
-        "form": {
-          "Name": "", "NameAdv": "", "UniformNum": "",
-          "ReligionType": "", "Country": "", "Area": "", "God": "",
-          "RegisterType": "", "IsProperty": "",
-          "RT": "true", "RL": "true", "RLT": "true", "RLC": "true", "RLF": "true",
-          "RN": "true", "RNT": "true", "RNC": "true", "RNF": "true", "RG": "true",
-          "Property_1": "false", "Property_2": "false", "Property_3": "false",
-          "Page": "1", "Searched": "yes", "PageSize": "100"
-        },
-        "dest_template": "recon-service/foundation-list/page-{page}.html",
-        "total_pages_re": "共\\s*(\\d+)\\s*頁",
-        "expect_per_page": {
-          "http_status": 200,
-          "min_bytes": 150000,
-          "contains": "<tr"
-        }
-      },
-      "expect": {
-        "http_status": 200,
-        "min_bytes": 150000,
-        "contains": "<tr"
-      },
-      "_why": [
-        "**這個 job 的產物不會直接上站**，它只是為了取得 `UploadFileID`——",
-        "沿革／建築特色／參拜流程的內容都在 `GetUploadFile?UploadFileID=N&IndexID=2|3|4`，",
-        "而那些 id **不在 temple.xml（8203）裡**（2026-08-06 實查，該檔只有編號/名稱/地址/主祀/教別/",
-        "登記別/電話/負責人/座標），唯一列出它們的地方就是這個查詢結果頁的",
-        "`<a class='other' main='<UploadFileID>' idx='<IndexID>'>`。",
-        "收完之後由境外端產出 url_list 清單檔，才輪到真正的內容 job。",
-        "🔴 2026-08-06 實測踩到的兩件事，別再改回去：",
-        "① `total_pages_re` 原本寫成 `共 (\\\\d+) 頁`（帶空格），而來源實際是 `共137頁`**沒有空格** →",
-        "   總頁數偵測失效，一路抓到請求上限（199 頁），其中 138–199 是空結果頁＝**白白浪費 62 個請求**。",
-        "   改成 `共\\\\s*(\\\\d+)\\\\s*頁`。對政府網站的禮貌不是只有間隔，也包括不抓不存在的頁。",
-        "② `stop_when_missing: \"<tr\"` **拿掉了**：空結果頁仍有 4 個 `<tr>`（版面用），它從未生效；",
-        "   而且找不到「有結果的頁必有、沒結果的頁必無」的可靠字串——",
-        "   猜錯的後果是**在中間某頁提早停止**＝靜默漏廟，比多抓幾頁嚴重得多。",
-        "   總頁數才是可靠機制，max_pages 200 只當防呆上限。",
-        "2026-08-06 實測 PageSize=100 的單頁約 600 KB、PageSize=20 約 300 KB",
-        "（頁面固定開銷就 ~230 KB），故 min_bytes 設 150000＝連末頁也過得了、又擋得住錯誤頁。",
-        "🔴 form 用的是**單值版**：checkbox 的 true/false 重複鍵 JSON 表達不出來，",
-        "台灣端 2026-08-05 已實測兩版等價（見 inbox/recon-service/FOUNDATION-FORM-PAYLOAD.md）。",
-        "🔴 抓回來的列含**電話與負責人＝個資**，只留在 inbox（repo 外）；",
-        "境外端產出的清單檔只准有 key 與 url 兩欄，不得帶任何個資進 public repo。"
-      ]
-    },
     {
       "id": "temple-xml",
       "url": "https://religion.moi.gov.tw/Report/temple.xml",
@@ -204,52 +149,6 @@
       }
     },
     {
-      "id": "religion-yange",
-      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-yange.json",
-      "dest_dir": "religion-yange/",
-      "dest_template": "{key}.json",
-      "max_age_days": 180,
-      "note": "寺廟歷史沿革（IndexID=2）與參拜流程（IndexID=4）內容。清單由 scripts/gen-intake-urls-yange.mjs 產生。",
-      "expect_per_item": {
-        "http_status": 200,
-        "min_bytes": 100,
-        "contains": "Comment"
-      },
-      "_why": [
-        "2026-08-06 上線。授權：同日經內政部同意使用，條件為標示資料來源連結——",
-        "匯入時每一筆都掛回自己的 GetUploadFile 網址（scripts/import-temple-history.mjs）。",
-        "🔴 **刻意不收 IndexID=3（建築特色）**：清單產出時實測有 3,623 項，",
-        "但 2026-08-05 的取樣顯示它**佔位值很多**（取樣那筆的內容就是廟名本身）。",
-        "照原定計畫先抽樣評估佔位比例再決定，不要為了數字好看整批收下來——",
-        "收了也會被匯入器與 check:integrity 的 isPlaceholder 擋掉，等於白抓 3,623 個請求。",
-        "要收的時候：`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 另出一份清單。",
-        "⚠️ 這批 5,153 項 × 3 個檔 ＝ 15,459 個檔擠在一層（URLLIST-SPEC 已提醒）。",
-        "key 不可含斜線，故無法分片；ext4 撐得住，但每輪 rsync 要掃這一萬五千個檔。"
-      ]
-    },
-    {
-      "id": "knowledge-deity-entries",
-      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-knowledge.json",
-      "dest_dir": "knowledge-deities/",
-      "dest_template": "{key}.html",
-      "max_age_days": 180,
-      "note": "宗教知識+／宗教神祇 96 個條目全文（iconography 來源）。清單由 scripts/gen-intake-urls-knowledge.mjs 產生。",
-      "expect_per_item": {
-        "http_status": 200,
-        "min_bytes": 30000,
-        "contains": "</html>"
-      },
-      "_why": [
-        "🔴 **這是第一個用 `url_list` 的 job**。台灣端 2026-08-05 已實作並自測 67/67，",
-        "依 handoff §3.5 的欄位契約，收到「已實作並自測」後境外端才可以放進 manifest——條件已滿足。",
-        "為什麼不用列表頁就好：`Knowledge/List?ci=2&cid=3` 只有**截斷摘要**（每則結尾是「…」），",
-        "iconography 要的敘述在條目全文裡，只能逐條抓。",
-        "授權：2026-08-06 內政部同意使用，條件為**標示資料來源連結**——",
-        "所以每一筆匯入都必須掛回它自己的 `Knowledge/Content?ci=2&cid=<N>` 網址。",
-        "⚠️ `url_list` 不可與 `url`／`dest`／`paginate` 併用，併用會被擋下不抓（URLLIST-SPEC）。"
-      ]
-    },
-    {
       "id": "knowledge-deities-list",
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=3",
       "dest": "misc/knowledge-deities-list-cid3.html",
@@ -338,6 +237,125 @@
         "min_bytes": 25000,
         "contains": "</html>"
       }
+    },
+    {
+      "id": "knowledge-deity-entries",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-knowledge.json",
+      "dest_dir": "knowledge-deities/",
+      "dest_template": "{key}.html",
+      "max_age_days": 180,
+      "note": "宗教知識+／宗教神祇 96 個條目全文（iconography 來源）。清單由 scripts/gen-intake-urls-knowledge.mjs 產生。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 30000,
+        "contains": "</html>"
+      },
+      "_why": [
+        "🔴 **這是第一個用 `url_list` 的 job**。台灣端 2026-08-05 已實作並自測 67/67，",
+        "依 handoff §3.5 的欄位契約，收到「已實作並自測」後境外端才可以放進 manifest——條件已滿足。",
+        "為什麼不用列表頁就好：`Knowledge/List?ci=2&cid=3` 只有**截斷摘要**（每則結尾是「…」），",
+        "iconography 要的敘述在條目全文裡，只能逐條抓。",
+        "授權：2026-08-06 內政部同意使用，條件為**標示資料來源連結**——",
+        "所以每一筆匯入都必須掛回它自己的 `Knowledge/Content?ci=2&cid=<N>` 網址。",
+        "⚠️ `url_list` 不可與 `url`／`dest`／`paginate` 併用，併用會被擋下不抓（URLLIST-SPEC）。"
+      ]
+    },
+    {
+      "id": "religion-foundation-list",
+      "url": "https://religion.moi.gov.tw/Religion/FoundationTemple?ci=1",
+      "dest": "recon-service/foundation-list.html",
+      "max_age_days": 90,
+      "note": "宗教團體查詢結果全量（PageSize=100）。目的只有一個：收 UploadFileID。",
+      "paginate": {
+        "method": "POST",
+        "page_param": "Page",
+        "start": 1,
+        "max_pages": 200,
+        "form": {
+          "Name": "",
+          "NameAdv": "",
+          "UniformNum": "",
+          "ReligionType": "",
+          "Country": "",
+          "Area": "",
+          "God": "",
+          "RegisterType": "",
+          "IsProperty": "",
+          "RT": "true",
+          "RL": "true",
+          "RLT": "true",
+          "RLC": "true",
+          "RLF": "true",
+          "RN": "true",
+          "RNT": "true",
+          "RNC": "true",
+          "RNF": "true",
+          "RG": "true",
+          "Property_1": "false",
+          "Property_2": "false",
+          "Property_3": "false",
+          "Page": "1",
+          "Searched": "yes",
+          "PageSize": "100"
+        },
+        "dest_template": "recon-service/foundation-list/page-{page}.html",
+        "total_pages_re": "共\\s*(\\d+)\\s*頁",
+        "expect_per_page": {
+          "http_status": 200,
+          "min_bytes": 150000,
+          "contains": "<tr"
+        }
+      },
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 150000,
+        "contains": "<tr"
+      },
+      "_why": [
+        "🔴 2026-08-06 台灣端建議把 `stop_when_missing` 換成 `main=`。**不採納，理由在他們自己的報告裡**：",
+        "  p137 有 20 個 `<tr>`（真實廟宇資料）但 `main=` **一個都沒有**（那頁的廟剛好都沒有附件）。",
+        "  用 `main=` 當停止條件會在 p137 就停掉＝**靜默漏掉最後一頁的廟**。",
+        "  少抓一頁沒人會發現，但下游會誤以為「那些廟沒有沿革」——跟 2026-08-01 收下錯誤頁同一類事故。",
+        "  **總頁數（total_pages_re）才是可靠機制**，本 job 已無 stop_when_missing，max_pages 200 只當防呆。",
+        "🔴 2026-08-06 的兩個護欄失效（v9 已修，記在這裡免得改回去）：",
+        "① `total_pages_re` 原本寫成 `共 (\\d+) 頁`（帶空格），來源實際輸出 `共137頁`**沒有空格** →",
+        "   總頁數一路是未知，一路抓到請求上限 199 頁，其中 p138–p199 是空結果頁＝**浪費 62 個請求**。",
+        "② `stop_when_missing: \"<tr\"` 從未生效：空結果頁的版面本身就有 4 個 `<tr>`（表頭）。",
+        "   `min_bytes: 150000` 也擋不住——空頁 206,808 B 照樣過驗證。",
+        "⚠️ **inbox 裡的 page-138..200 是那次的殘骸，永遠刪不掉**（inbox 是 write-only）。",
+        "   它們 0 個 `main=`，所以 gen-intake-urls-yange.mjs 與 import-temple-history.mjs 讀到也只會得到空集合，",
+        "   不影響結果——但看到 `已收 N 頁` 的 N 大於 137 時別以為資料變多了。",
+        "**這個 job 的產物不會直接上站**，它只是為了取得 `UploadFileID`——",
+        "沿革／建築特色／參拜流程的內容都在 `GetUploadFile?UploadFileID=N&IndexID=2|3|4`，",
+        "而那些 id **不在 temple.xml（8203）裡**（2026-08-06 實查），唯一列出它們的地方就是這個查詢結果頁的",
+        "`<a class='other' main='<UploadFileID>' idx='<IndexID>'>`。",
+        "🔴 抓回來的列含**電話與負責人＝個資**，只留在 inbox（repo 外）；",
+        "境外端產出的清單檔只准有 key 與 url 兩欄，不得帶任何個資進 public repo。"
+      ]
+    },
+    {
+      "id": "religion-yange",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-yange.json",
+      "dest_dir": "religion-yange/",
+      "dest_template": "{key}.json",
+      "max_age_days": 180,
+      "note": "寺廟歷史沿革（IndexID=2）與參拜流程（IndexID=4）內容。清單由 scripts/gen-intake-urls-yange.mjs 產生。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 100,
+        "contains": "Comment"
+      },
+      "_why": [
+        "2026-08-06 上線。授權：同日經內政部同意使用，條件為標示資料來源連結——",
+        "匯入時每一筆都掛回自己的 GetUploadFile 網址（scripts/import-temple-history.mjs）。",
+        "🔴 **刻意不收 IndexID=3（建築特色）**：清單產出時實測有 3,623 項，",
+        "但 2026-08-05 的取樣顯示它**佔位值很多**（取樣那筆的內容就是廟名本身）。",
+        "照原定計畫先抽樣評估佔位比例再決定，不要為了數字好看整批收下來——",
+        "收了也會被匯入器與 check:integrity 的 isPlaceholder 擋掉，等於白抓 3,623 個請求。",
+        "要收的時候：`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 另出一份清單。",
+        "⚠️ 這批 5,153 項 × 3 個檔 ＝ 15,459 個檔擠在一層（URLLIST-SPEC 已提醒）。",
+        "key 不可含斜線，故無法分片；ext4 撐得住，但每輪 rsync 要掃這一萬五千個檔。"
+      ]
     }
   ]
 }

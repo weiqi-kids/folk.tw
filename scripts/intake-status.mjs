@@ -124,15 +124,21 @@ const LEDGER = [
     stage: 'pending', id: 'religion-foundation-list',
     goal: '收 UploadFileID（沿革 idx=2／建築特色 idx=3／參拜流程 idx=4 的內容都靠它定位）→ 產 url_list 清單 → 才輪到內容 job',
     blocker:
-      '⏳ 等台灣端跑（2026-08-06 加進 manifest v7，每日 04:17 台北自動取，約 125 頁、' +
-      '每頁 ≥1 秒，估一兩輪跑完）。**這一層不是授權問題**——授權 2026-08-06 已獲內政部同意；' +
-      '這純粹是「那些 id 不在任何開放資料集裡，只列在查詢結果頁上」的技術前置。' +
+      '✅ **收齊了**：來源自報共 137 頁，1..137 全部到齊（2026-08-06 台灣端一輪交付）。' +
+      '清單 docs/intake-urls-yange.json 已產出並 push，沿革 4,325／參拜流程 828 與台灣端偵察數字完全吻合。' +
+      '⚠️ 下一輪還會多抓 1 頁（p200）撞 max_pages 停住，那是護欄失效的殘尾，無害。' +
       '🔴 抓回來的列含電話與負責人＝個資，只留 inbox；產出的清單檔只准有 key 與 url 兩欄。',
+    // ⚠️ 只數**有資料**的頁。2026-08-06 因 total_pages_re 沒對上，多抓了 62 頁空結果頁，
+    // 而 inbox 是 write-only 刪不掉——照檔案數報會說「已收 199 頁」，但來源只有 137 頁，
+    // 讀的人會以為資料變多了。有資料的判準＝頁面含 `main=`（UploadFileID 連結）。
     metric: () => {
       const dir = join(INBOX, 'recon-service/foundation-list');
       if (!existsSync(dir)) return '尚未收到任何頁';
-      const n = readdirSync(dir).filter((f) => f.endsWith('.html')).length;
-      return `已收 ${n} 頁`;
+      const all = readdirSync(dir).filter((f) => f.endsWith('.html'));
+      const withData = all.filter((f) => readFileSync(join(dir, f), 'utf8').includes('main='));
+      const empty = all.length - withData.length;
+      return `已收 ${all.length} 頁，其中 ${withData.length} 頁有附件連結` +
+        (empty ? `（${empty} 頁是 2026-08-06 護欄失效時多抓的空頁，刪不掉，忽略即可）` : '');
     },
     upstream: join(INBOX, 'recon-service/FOUNDATION-FORM-PAYLOAD.md'),
     coversDir: ['recon-service/foundation-list'],
