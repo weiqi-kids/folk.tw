@@ -4,7 +4,7 @@
 >
 > ```bash
 > node scripts/intake-status.mjs           # 四段完整報告
-> node scripts/intake-status.mjs --brief   # 只看「待處理」與「抓取失敗」
+> node scripts/intake-status.mjs --brief   # 略過「已發揮作用」與「偵察/放棄」兩段；對帳與站上統計仍會印
 > ```
 >
 > 那支腳本即時讀 `docs/intake-manifest.json`、台灣端的 `state.json`、
@@ -29,7 +29,9 @@ parser 只能寫在境外這台的理由見 [`taiwan-host-handoff.md`](taiwan-ho
 ## 為什麼需要這份文件
 
 inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync -wo -no-del`），
-而 `scripts/intake-ingest.mjs` 驗過就把檔案「原子上位」並清空 inbox。
+而 `scripts/intake-ingest.mjs` 會把有上位目標的檔「原子上位」並清空。
+⚠️ **但 `PROMOTE_TO` 目前只有 `temple-xml/temple.xml` 一筆**——其餘 job 印的是「無上位目標，留在 inbox」，
+所以 inbox 會持續累積（現有 29 個檔，含 8/1 就到的 `knowledge-*`）。
 所以**光看目錄看不出哪些處理過了**——得同時對照 manifest（我們要什麼）、
 `state.json`（他們抓到什麼）、站上資料（實際用了什麼）三邊。
 

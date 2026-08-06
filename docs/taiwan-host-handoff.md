@@ -147,6 +147,9 @@ out/temple-xml/temple.xml.meta.json   # {"url":…,"http_status":200,"fetched_at
 | expect | `http_status` `http_status_any_of` `record_status_only` `min_bytes` `contains` `min_occurrences` `not_smaller_than_current_pct` |
 | token | `field` `from` `from_job` |
 | paginate | `method` `page_param` `start` `max_pages` `form` `token` `dest_template` `total_pages_re` `stop_when_missing` `expect_per_page` |
+| **url_list**（2026-08-05 台灣端實作、自測 67/67） | `url_list` `dest_dir` `dest_template` `expect_per_item` |
+
+⚠️ **2026-08-06 補**：上表原本漏列 `url_list` 那一列，而本節自稱「改 manifest 前必讀」——照舊表辦事會得出「不得用 url_list」的錯誤結論。目前**無 job 使用**它（沿革收割因授權暫停）。
 
 底線開頭的欄位（`_why` 等）一律忽略，可自由當註解用——**境外端專用的開關就走這條路**
 （例如 `_alert: false` ＝新鮮度提醒對該 job 靜音，台灣端完全不必認得）。
@@ -221,11 +224,11 @@ rsync -az --partial --ignore-times \
 ## 步驟 5：第一波要做什麼
 
 ### 5.1 `temple-xml`（機械，照 manifest 跑）
-順便解掉兩件早就卡住的事：資料集月更、以及 **229 間廟缺座標**
+順便解掉兩件早就卡住的事：資料集月更、以及 **219 間廟缺座標**（2026-08-06 實查；原文 229）
 （Nominatim 對台灣門牌只成功約一成，只能靠這份 XML 的 `WGS84X`／`WGS84Y`）。
 
 ### 5.2 慶(祭)典查詢（**偵察，需要你動腦**）
-這是最高價值的一項：目前 7,891 間廟只有 **21 間**有已查證祭典，其餘只能顯示「主祀神聖誕」。
+這是最高價值的一項：⚠️ **這句已過期**（寫於 2026-07-30）：慶典資料已於 7/31 匯入，現為 **2,498 間廟／4,106 筆**（見本檔狀態表）。
 
 **依序做**：
 
@@ -286,10 +289,10 @@ rsync -az --partial --ignore-times \
 | CRGIS 連通性回報 | ⚠️ **站台層級不通**（台灣端亦然：TCP 443 逾時、母站同樣不通）＝非境內外差異。**未確認無資料**，待重試 | 2026-07-31 |
 | `religion-robots` job | ✅ 已修（該站 robots.txt 回 404＝無限制）；expect 改為接受 404、只記錄狀態 | 2026-07-30 |
 | 慶典資料匯入站台 | ✅ **2,498 間廟／4,106 筆已進 `temples.json` 的 `festivals[]`**（見 `docs/festival-data-import.md`） | 2026-07-31 |
-| 慶典升為正式 manifest job | ⏳ 待境外端寫。**台灣端可出草案**；境外端已驗完欄位與對映率，且首批已匯入 | — |
+| 慶典升為正式 manifest job | ✅ **已完成**：manifest v5 已有 `religion-festival-entry` 與 `religion-festival-ods` 兩個 job，皆抓取成功 | 2026-08-06 補記 |
 | 「寺廟服務資訊」偵察 | ✅ **確認無此來源，本線結案**：服務項目／開放時間／創建年代／安太歲／光明燈／問事／收驚／籤詩籤系，在查詢表頭、ODS 23 欄、`GetUploadFile` 三處皆不存在（台灣端 2026-08-05 回報，境外端另已排除觀光署景點庫、新北市寺廟資料、文化部 nchdb、臺灣宗教文化地圖）。**不要再找替代來源。** | 2026-08-05 |
 | 寺廟 ODS 全量（`FoundationOdsReport.ods`） | ✅ 已收 `recon-service/temple-export.ods`；境外端實解＝**13,608 筆 23 欄**，與台灣端回報一字不差。⏳ 待台灣端回 form payload 才能升為 manifest job | 2026-08-05 |
-| 沿革／參拜流程收割 | ⏳ **兩階段，未開工**。階段一（137 頁 POST 取 UploadFileID／IndexID）需台灣端回 form payload；階段二需台灣端先實作 `url_list` 型 job（🔴 依 §3.5，境外端在收到「已實作並自測」前不得把該欄位放進 manifest）。範圍＝沿革 idx=2（4,325 筆）＋參拜流程 idx=4（828 筆）；建築特色 idx=3 先抓 30 筆樣本評估佔位值比例 | 2026-08-05 |
+| 沿革／參拜流程收割 | ⛔ **暫停，卡在授權（不是卡在技術）**。兩個前置條件都已滿足：form payload 已於 2026-08-05 送達（`inbox/recon-service/FOUNDATION-FORM-PAYLOAD.md`）、`url_list` 台灣端已實作自測 67/67（🔴 依 §3.5，境外端在收到「已實作並自測」前不得把該欄位放進 manifest）。範圍＝沿革 idx=2（4,325 筆）＋參拜流程 idx=4（828 筆）；建築特色 idx=3 先抓 30 筆樣本評估佔位值比例 | 2026-08-05 |
 | 授權聲明頁 | ✅ 已收 `misc/religion-copyright.html`。**結論見下方「授權盤點」** | 2026-08-05 |
 | `url_list` 型 job（階段二用） | ✅ 台灣端已實作並自測（67/67，paginate 29/29 無回歸）。**目前無 job 使用**（沿革收割因授權暫緩） | 2026-08-05 |
 

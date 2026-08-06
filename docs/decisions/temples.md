@@ -177,7 +177,7 @@
 ## 資料維護：座標與外撥
 
 - **缺座標廟宇地理編碼回填（不需 MOI XML）**：`node scripts/geocode-missing-temples.mjs [--write] [--max N]`。
-  全站 229 間缺座標者用**既有完整地址**做地理編碼。五道安全閘：只補空值不覆寫既有座標／用地址不用廟名
+  全站缺座標者（2026-08-06 實查 **219** 間；原文寫 229，已回填部分）者用**既有完整地址**做地理編碼。五道安全閘：只補空值不覆寫既有座標／用地址不用廟名
   （全台數十間同名「福德宮」，用廟名查等於賭運氣）／命中須落在該縣市經驗 bbox 內／乾跑為預設／
   **地址只有行政區時一律跳過**——Nominatim 會回該行政區的中心點，台南開基天后宮實測就拿到與實際
   位置差約 1 公里的假座標，**那比留空更糟**（地圖會把人導到錯的地方）。Nominatim 對台灣門牌覆蓋差，
@@ -201,4 +201,4 @@
   腳本 `/root/folk-outreach/outreach-daily.mjs`、說明 `/root/folk-outreach/README.md`、
   帳本 `/root/.config/folk-tw/outreach-sent.json`、MOI 來源 `/root/.config/folk-tw/temple.xml`、
   排程 `/etc/cron.d/folk-outreach`。乾跑 `node /root/folk-outreach/outreach-daily.mjs --dry`、
-  查帳本 `--stats`。候選池目前 501 間（每天 5 間約 100 天輪完一圈）。
+  查帳本 `--stats`。候選池（2026-08-06 實查 **998** 間，約 200 天輪完；原文寫 501）。

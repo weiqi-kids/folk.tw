@@ -85,7 +85,7 @@ pnpm notify [url...|--all]      # 部署後推 Google Indexing API ＋ IndexNow
 # 驗證套件（push 前跑；🔴 pnpm check 是 CI 擋門但不在 pnpm build 裡）
 pnpm check:integrity && pnpm check && pnpm check:scoped-styles && pnpm check:design \
   && pnpm check:design-tokens && pnpm check:copy-voice && pnpm check:content \
-  && pnpm check:outbound-urls && pnpm verify:almanac && pnpm build
+  && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build
 pnpm check:canonical && pnpm check:rendered      # build 後另跑
 
 # 資料

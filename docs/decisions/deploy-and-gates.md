@@ -19,6 +19,13 @@
 
 ---
 
+## 🔴 `check:anchor-text` 是部署擋門，但長期不在任何驗證清單裡
+
+`.github/workflows/deploy.yml:60` 有獨立的 `run: pnpm check:anchor-text` step——**它會擋部署**。
+但 2026-08-06 稽核前，`CLAUDE.md` 的驗證套件與本檔的 gate 清單**都沒列它**：
+照文件跑完整套仍可能被 CI 擋下，而且看不出為什麼。已補進 CLAUDE.md §3。
+⚠️ **日後在 deploy.yml 新增任何 gate step，同一回合要補進 CLAUDE.md §3 與本檔。**
+
 ## 🔴 `pnpm notify` 的高槓桿清單 CORE **有兩份，改一份等於沒改**
 
 ```
@@ -72,9 +79,9 @@ scripts/indexnow-ping.mjs:33  const CORE = ['/', '/almanac/', …]   ← byte-id
     IndexNow 送 301 網址，GSC 因此累積「頁面會重新導向」且來源標成**網站**（＝我們自己提交的）。
     另有第三層 runtime 保底：`index-ping.mjs`／`indexnow-ping.mjs` 送出前 `normalizeUrl()` 補斜線並印警告
     （gate 擋靜態寫死的、normalize 擋命令列參數這類動態來的）。
-  - `check:design`（2026-07-20 新增，**團隊統一設計規範守門 v2**，已內建進 `pnpm build` 最前段＝本機/CI/seo-ops gate 全繼承）：掃 `src/**/*.{css,astro,svelte}` 五條規則——①font-size 禁 px（一律 `var(--text-*)`）②顏色（hex/rgb/hsl）只准 `src/styles/variables.css`（token 唯一來源；oklch/color-mix/var 合規）③禁 `!important` ④禁外部 CDN（fonts.googleapis/cdnjs/unpkg/jsdelivr）⑤src/ 下 .css 白名單只准 `src/styles/{variables,global}.css`（元件樣式寫 scoped `<style>`）。本站唯一例外＝`<meta name="theme-color">`（HTML 規格只能字面色，腳本內註明）。token 已於 2026-07-20 自 global.css 拆出 `variables.css`（global.css 首行 `@import` 保持載入順序）。見 `scripts/check-design.mjs` 檔頭。
+  - `check:design`（2026-07-20 新增，**團隊統一設計規範守門 v2**，已內建進 `pnpm build` 最前段＝本機/CI/seo-ops gate 全繼承）：掃 `src/**/*.{css,astro,svelte}` **六條**規則（原文寫五條，漏了第 6 條「`--text-*` 階梯下限 ≥18px／1.125rem，clamp() 以最小值計」；以 `scripts/check-design.mjs` 檔頭為準）——①font-size 禁 px（一律 `var(--text-*)`）②顏色（hex/rgb/hsl）只准 `src/styles/variables.css`（token 唯一來源；oklch/color-mix/var 合規）③禁 `!important` ④禁外部 CDN（fonts.googleapis/cdnjs/unpkg/jsdelivr）⑤src/ 下 .css 白名單只准 `src/styles/{variables,global}.css`（元件樣式寫 scoped `<style>`）。本站唯一例外＝`<meta name="theme-color">`（HTML 規格只能字面色，腳本內註明）。token 已於 2026-07-20 自 global.css 拆出 `variables.css`（global.css 首行 `@import` 保持載入順序）。見 `scripts/check-design.mjs` 檔頭。
   - `check:copy-voice`（2026-07-18 新增，deploy.yml build gate＋大腦 headless 自驗）：攔「面向使用者的產品文案出現 AI 療癒腔／假掰詩意」（源自用戶反覆要求去 AI 味、人眼仍漏，如 /qiugian「…回來說一聲——你可能是第一個」）。只掃 `src/**/*.astro`（資料 json 含公有領域古文不掃），禁語清單**逐次養、只收嚴不放寬**（種子＝記憶 copy-voice-no-ai-speak 的地雷＋歷來被抓到的句子）。命中即擋部署。新增禁語直接在 `scripts/check-copy-voice.mjs` 的 `BANNED` 加一列。
-  - `check:content`（2026-07-21 新增，跨站統一去 AI 味引擎，已內建進 `pnpm build`：`check:design && check:content && astro build`）：掃**文章正文** `src/**/*.md(x)`（典故 137＋籤解 160），與 `check:copy-voice` 掃 UI `.astro` 是**不同表面、互補不替換**。引擎＝`/root/.claude/skills/new-astro-site/templates/check-content.mjs` 統一版（強指紋單命中即 ERROR＋詞彙/句式/結構/語氣四層軟訊號跨 ≥3 層升 ERROR），另把 folk 療癒腔黑名單 port 進 `SITE_ERROR_TELLS`（`放下了`/`釋懷了`/`(添|多)了一分暖`/`不是一個人走過`/`照亮彼此`/`你的消息會陪`/`你(可能|可以…)是第一個`），與 UI gate 規則同源。**grandfather**：預設只掃相對 origin/main 變動的 md（既有 297 篇存量不回溯擋，全站盤點 `pnpm check:content:all` 永遠 exit 0）；CI 淺 checkout 抓不到 base 時掃 0 檔安全放行。新增禁語時 UI 補 `check-copy-voice.mjs`、文章補 `check-content.mjs`，兩處同步。首次全站盤點：298 檔 0 ERROR、178 WARN（172 為破折號單層軟訊號，未達門檻不擋）。
+  - `check:content`（2026-07-21 新增，跨站統一去 AI 味引擎，已內建進 `pnpm build`：`check:design && check:content && astro build`）：掃**文章正文** `src/**/*.md(x)`（典故 137＋籤解 215（2026-08-06 實查；原寫 160，是籤系仍 2 套時的數字）），與 `check:copy-voice` 掃 UI `.astro` 是**不同表面、互補不替換**。引擎＝`/root/.claude/skills/new-astro-site/templates/check-content.mjs` 統一版（強指紋單命中即 ERROR＋詞彙/句式/結構/語氣四層軟訊號跨 ≥3 層升 ERROR），另把 folk 療癒腔黑名單 port 進 `SITE_ERROR_TELLS`（`放下了`/`釋懷了`/`(添|多)了一分暖`/`不是一個人走過`/`照亮彼此`/`你的消息會陪`/`你(可能|可以…)是第一個`），與 UI gate 規則同源。**grandfather**：預設只掃相對 origin/main 變動的 md（既有 297 篇存量不回溯擋，全站盤點 `pnpm check:content:all` 永遠 exit 0）；CI 淺 checkout 抓不到 base 時掃 0 檔安全放行。新增禁語時 UI 補 `check-copy-voice.mjs`、文章補 `check-content.mjs`，兩處同步。首次全站盤點：298 檔 0 ERROR、178 WARN（172 為破折號單層軟訊號，未達門檻不擋）。
   - `check:scoped-styles`（2026-07-17 新增，deploy.yml build gate）：全站攔「Astro scoped `<style>` 套不到 client JS 注入 DOM」的 bug 類別（源自 /qiugian 抽籤結果卡四句擠一行事故）。命中即擋部署；修法＝該規則移 `<style is:global>`＋容器 id 命名空間。見 `scripts/check-scoped-styles.mjs` 檔頭。
   - `check:design-tokens`（2026-07-17 新增、2026-07-18 收嚴，deploy.yml build gate；**2026-07-20 起與 v2 `check:design` 並存保留**——它的 font-size 規則比 v2 嚴：`<style>` 內任何硬編數值（含 rem/em）皆擋，v2 只擋 px，移除即放水故不撤）：守設計系統房規（見 memory design-system-tokens）。兩層皆**硬 gate 零容忍**：**顏色**＝`<style>` 內禁 hex/rgb/hsl（改 `var(--…)`／`oklch`／`color-mix`；`<meta theme-color>` 屬 HTML 合法例外不掃）；**font-size**＝必須 `var(--text-*)`，任何硬編數值皆擋。（原 69 處非階梯值已於 7/18 全數語意對映到 token、基線機制已移除，不再有「暫時放行」。）見 `scripts/check-design-tokens.mjs` 檔頭。
 

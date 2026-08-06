@@ -61,9 +61,9 @@
       - **2026-08-03 補內鏈（commit `a030482`）**：GSC 實查 10 頁 **28 天曝光合計 = 0**，內容完整、
         多數也已收錄（8/1–8/3 才第一次被爬），缺的純粹是內鏈——`qianggu` 甚至是
         「URL is unknown to Google」＝孤兒。補了兩層：
-        ① **廟宇頁 →節日頁 238 → 678 間**：原本只有 `festivalOwnerByLunarDate`（該廟登記祭典與節日**同天**）
+        ① **廟宇頁 →節日頁 238 → **606** 間（原文寫 678＝238＋440 直接相加，**重複計了 72 間**同時命中兩條規則的廟；2026-08-06 實查聯集為 606）**：原本只有 `festivalOwnerByLunarDate`（該廟登記祭典與節日**同天**）
         命中 238 間；改用 `festivals.json` 既有 `deity_refs` 反查**主祀神**再涵蓋 440 間
-        （中元 219／拜天公 137／地藏 93／七夕 37／義民 36／清明 10／鬼門開 6，實測期望 440＝實得 440）。
+        （中元 221／拜天公 136／地藏 98／七夕 37／義民 36／清明 10／鬼門開 5（2026-08-06 實查；原文四個數字略有出入），實測期望 440＝實得 440）。
         🔴 **措辭界線同 7/31 那條**：講的是「**神明**與節日的關係」（節日資料自己的 deity_refs、逐條掛源），
         **不是「這間廟在辦這個節日」**，頁面明寫「不是本廟的活動公告」；class 與 `fsame` 分開，
         `check:rendered` 既有不變量不受影響。
@@ -83,10 +83,10 @@
 ## 意圖頁：情境・比較・行業
 
 - [x] 情境頁＋比較頁（2026-07-07 commit `5d1c65a` 上線；AEO/GEO 高意圖突圍試點）：
-      **情境頁** `/scenarios`（4：求姻緣/考試求功名/開店求財/搬家入厝，slug 永久承諾）＝新增 `scenarios`
+      **情境頁** `/scenarios`（原文寫 4，**現為 8**：求姻緣/考試求功名/開店求財/搬家入厝，slug 永久承諾）＝新增 `scenarios`
       content collection（schema 同 trades），沿用「訴求→神明＋逐筆掛源」模式；情境→神明對應皆為該神
       **已掛源之職司本身**、來源沿用 repo 內既有權威源（**絕不杜撰**，未派網路研究）。affairs_yi 只挑有
-      verified 宜票者（避恆空）。**比較頁** `/compare`（3：月老vs註生娘娘/城隍vs土地公/文昌vs魁星）＝
+      verified 宜票者（避恆空）。**比較頁** `/compare`（原文寫 3，**2026-08-03 已擴到 13**：月老vs註生娘娘/城隍vs土地公/文昌vs魁星）＝
       全衍生自 `src/data/comparisons.json`＋`deities.json` 已掛源欄位、零新增事實。兩類皆 answer-first
       H1＋speakable＋FAQPage。nav 加「怎麼拜」入口；check-integrity 硬驗 scenarios/comparisons 之
       deity_ref/affairs/related_scenario。一次性 notify（Google 9＋IndexNow 9 皆成功），**不**進每日 cron
@@ -102,7 +102,7 @@
       月份樞紐加「本月各行業吉日」（零新頁）。守護神對映在 `src/data/trades.json` 逐筆掛源（第二批全部經
       agent 直抓查證；已排除命理香業[用戶指示]/餐飲[易牙無台灣信仰現場]/花卉/特種行業）；
       **M3 verified 篩選唯一入口＝`src/lib/almanac/select.ts`**（勿另建判定）；
-      宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）。兩批各一次性 notify，
+      宜側僅 10 事項有 verified 資料（開市/出行恆空，check-integrity 有軟警告擋）　⚠️ **2026-08-06 更正：這句已過期**——2026-08-01 解掉 7 個（含開市與出行），現在恆空的只剩破土／開光／入殮 3 項，見 [`almanac.md`](almanac.md)。兩批各一次性 notify，
       **不**進每日 cron 高槓桿集，四週後看 GSC 再議。
 
 ## 名廟內容

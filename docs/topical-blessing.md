@@ -24,10 +24,10 @@
 | （集氣聚合） | `qiugian-aggregate.mjs` | `7 */3`（每 3 小時） | GA4 → 集氣人數；峰值凍結回寫 `bless_snapshot` |
 
 每支都有 `*-cron.sh` 包裝：`備妥隔離 worktree → 跑 → topical.json 有變才 commit/push（觸發部署）→ Slack 通知`。
-腳本自身**不碰 git**；支援 `--dry`（只印不寫）。**push main 即自動部署，勿手動補跑 workflow**（見根 CLAUDE.md）。
+腳本自身**不碰 git**；P1／P2／P4 三支支援 `--dry`（只印不寫）——⚠️ **`qiugian-aggregate.mjs` 沒有 `--dry`**（2026-08-06 實查）。**push main 即自動部署，勿手動補跑 workflow**（見根 CLAUDE.md）。
 
 > 🔒 **三支 cron 一律在隔離 worktree 執行**（`scripts/lib/cron-worktree.sh`，2026-07-25 起）：
-> `/opt/folk-tw-cron/topical`，detached＋sparse（只取 `scripts`、`src/data`，約 5 MB），每輪先 reset 到 `origin/main`。
+> `/opt/folk-tw-cron/topical`，detached＋sparse（只取 `scripts`、`src/data`，約 7.2 MB（2026-08-06 實測；原文 5 MB）），每輪先 reset 到 `origin/main`。
 > 起因：原本直接在 `/root/folk.tw` 跑，`git diff --quiet src/data/topical.json` 分不出「腳本寫的」與「人正在改的」，
 > 2026-07-25 P1 就把人手改到一半的併頁 WIP 連同工作樹 commit＋push（`a4e52da`，訊息卻寫「自動編排」）。
 > 現在 cron 看不到主工作樹，**只可能 commit 自己寫出來的內容**；另有硬檢查：異動範圍不是只有 `topical.json`
@@ -285,7 +285,10 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 
 ### 目前狀態（2026-08-05）
 
-**線上 active 祈福頁＝0**：13 頁已依用戶裁示全數撤下（commit `121970d`，status→archived
+**13 頁已依用戶裁示全數撤下**（2026-08-05 08:28，commit `121970d`）。
+⚠️ **但同日 19:15 P2 又自動開了一頁**（`news-flood-20260804-1203ca` 佳木斯水災，commit `2b3a252`）——
+這正是下一段講的：**撤頁 ≠ 之後不會再開**。要看現在幾頁 active 跑
+`node -e "const t=require('./src/data/topical.json');console.log(t.filter(x=>x.status==='active'&&!x.mergedInto&&!x.example).map(x=>x.id))"`（commit `121970d`，status→archived
 ＋`sealed`，網址不 404）。撤下原因是**選題層面**（P2 的閘沒有規模概念），非內容杜撰，
 故 `event` 文字一字未改、未套 SAFE_EVENT。
 ⚠️ **P1／P2 的選題閘本身沒有改動**——cron 仍每 20 分／每 8 小時在跑，
