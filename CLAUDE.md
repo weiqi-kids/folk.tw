@@ -36,6 +36,7 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 | **內政部沿革授權** | 2026-08-05 已寄洽詢函等回覆。獲准後沿革 4,325＋參拜流程 828＋`Knowledge/*` 的 iconography **一批處理**（同一份授權、同一支匯入器）；不准就一起結案 | 等回覆 |
 | **祈福頁「依真實集氣數決定去留」** | 導流已上線，**門檻數字未定**——現況量級下任何「N 小時沒人點就下架」都等於全刪。觀測一週後定 | **2026-08-12** |
 | **降 GSC 權限** | 資安衛生、不緊急。共用服務帳號在 9 個網域是「擁有者」，只有用 Indexing API 的站才需要；降成「完整使用者」是十分鐘的事。背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`（⚠️ 該檔開頭有 2026-07-31 的前提更正，**先讀那段**） | 無期限 |
+| **節日頁收錄與曝光追蹤** | 2026-07-30 上線的 10 個節日頁，兩個檢查點：**8/8 看收錄**、**8/16 看節日類查詢曝光**。每日心跳（05:00 台 Slack）自動出數，**不需人盯**，到日子看 Slack 或 `data/seo-daily/<date>.json` 即可 | **8/8**、**8/16** |
 | **`local-celebration` 用途未定** | 台灣端已投遞，但我們還沒決定要拿它做什麼。決定前不要動手 | — |
 | **觀音「一百籤」尚未收錄** | ⚠️ 這**不是**「籤系只有 2 套」——站上實際有 5 套（六十甲子 60／關帝 100／月老 27／內門紫竹寺觀音 28／保生大帝藥籤 330）。缺的是坊間常說的**觀音一百籤**，卡在版本錨定：線上無權威全文，唯一線索是臺文館藏「觀音籤譜」`NMTL20060200544`（完整 100 首且錨定龍山寺，**但未數位化**，已送件申請閱覽） | 等館方回覆 |
 
@@ -56,7 +57,8 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 1. **絕不杜撰。** 查無權威源就留空。所有事實逐筆掛源，來源要能被機器複驗。
 2. **push main 即上線，無 staging。** 且 **push 後絕不可手動補跑 `deploy.yml`**——
    同 SHA 兩個 run 搶 Pages 佇列會毒化該 SHA，之後同 SHA 部署全部秒失敗。
-   唯一例外：確認「本 SHA 的 run 數為 0」才補觸發一次。**完整事故經過→[`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md)。**
+   ⚠️ 例外有**兩個**（本 SHA 0 run 才補觸發／deploy job 因 Pages 暫時性錯誤才 `rerun --failed`），
+   條件不同且各只准做一次——**動手前必讀 [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) 的「🔴 部署觸發規則」。**
 3. **`git push` 回「Everything up-to-date」不等於已部署。** 本 repo 有多支會 push 的 cron，
    你留在本地的 commit 會被別人的 CI 略過標記 head 帶上去 → 整個 push 不觸發 workflow、
    線上停在舊版且無告警。**手動 commit 後立刻自己 push，並查本 SHA 有沒有 run。**

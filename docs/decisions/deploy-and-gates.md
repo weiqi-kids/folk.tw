@@ -17,6 +17,25 @@
 
 ---
 
+## 🔴 部署觸發規則：**兩個**例外，不是一個
+
+`git push origin main` 會自動觸發 `deploy.yml`（`on: push`，2026-07-02 實測確認）。
+**push 後絕不可手動補跑**——⚠️ 但「絕不可」有**兩個**明確例外，兩者條件不同，別搞混。
+（2026-08-06 稽核發現：原本這兩個例外分散在 `CLAUDE.md` 與 `docs/seo-automation.md`，
+**各自被稱為「唯一例外」**，互相打臉。故統一收在這裡，其他檔一律指向本節。）
+
+**為什麼預設不可補跑**：同 SHA 兩個 run 搶 Pages 佇列 → 先到者逾時取消部署時，
+會把該 SHA 的 build version 標成 `cancelled` → **後續同 SHA 部署全部秒失敗**，
+只能推新 commit 換 SHA 解。（2026-07-02 實例：`d7ef155` 三連敗。）
+
+| 例外 | 條件 | 動作 | 為什麼安全 |
+|---|---|---|---|
+| **A. 補觸發** | 等約 2 分鐘後，**本 SHA 的 run 數為 0** | `gh workflow run deploy.yml --ref main` | 沒有既有 run，不存在同 SHA 雙 run |
+| **B. 重跑** | 本 SHA **有** run，但 `deploy` job 因 Pages 服務端暫時性錯誤失敗（**`build` job 成功**） | `gh run rerun <run-id> --failed` 重跑**同一個 run** 一次 | 不另開 run，無毒化風險（2026-07-04 實證）。再失敗交人工 |
+
+🔴 **兩個例外都只准做一次。** 若已有本 SHA 的 run 而你想「再開一個」，一律不可以。
+
+
 ## 驗證套件與各 gate
 
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）

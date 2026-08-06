@@ -32,7 +32,7 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 - `git push origin main` 即自動觸發 `deploy.yml on:push`；**絕不再 `gh workflow run deploy.yml` 補跑**
   （同 SHA 兩 run 搶 Pages 佇列 → build version 標 cancelled → 同 SHA 後續部署秒失敗，只能換 SHA 解）。
 - 驗證：`gh run list --workflow=deploy.yml --limit 1` 比對 `headSha` 為本次 commit。
-- 唯一例外：本 SHA 的 run 存在但 `deploy` job 因 Pages 服務端暫時性錯誤失敗（`build` job 成功）時，
+- ⚠️ 例外有**兩個**（補觸發／重跑），條件不同，**權威在 [`decisions/deploy-and-gates.md`](decisions/deploy-and-gates.md) 的「🔴 部署觸發規則」一節**；本檔不重寫。原文保留供對照：本 SHA 的 run 存在但 `deploy` job 因 Pages 服務端暫時性錯誤失敗（`build` job 成功）時，
   `gh run rerun <run-id> --failed` 重跑**同一 run** 一次（不另開 run）；再失敗交人工。
 
 ## Sitemap `lastmod` ／內容更新時間機制（updatetime）
@@ -101,7 +101,7 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 - ⚠️ **push main 會自動觸發 deploy（deploy.yml on:push 實測 2026-07-02 確認）**，**絕不可再手動補 `gh workflow run deploy.yml`**：
   同 SHA 兩個 run 搶 Pages 佇列 → 先到者逾時取消部署時會把該 SHA 的 build version 標成 cancelled →
   後續同 SHA 部署全部秒失敗，只能推新 commit 換 SHA 解。（大腦 playbook 已於 7/2 禁止補跑、7/4 移除
-  playbook 殘留的「本機 push 不觸發部署」過時句。）**唯一允許的介入**：deploy job 因 Pages 服務端暫時性
+  playbook 殘留的「本機 push 不觸發部署」過時句。）**例外 B（見 decisions/deploy-and-gates.md）**：deploy job 因 Pages 服務端暫時性
   錯誤失敗（build job 成功）時，`gh run rerun <run-id> --failed` 重跑同一 run 一次（不另開 run、無毒化
   風險，2026-07-04 實證）；再失敗交人工。
 
