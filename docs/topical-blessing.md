@@ -27,7 +27,7 @@
 腳本自身**不碰 git**；P1／P2／P4 三支支援 `--dry`（只印不寫）——⚠️ **`qiugian-aggregate.mjs` 沒有 `--dry`**（2026-08-06 實查）。**push main 即自動部署，勿手動補跑 workflow**（見根 CLAUDE.md）。
 
 > 🔒 **三支 cron 一律在隔離 worktree 執行**（`scripts/lib/cron-worktree.sh`，2026-07-25 起）：
-> `/opt/folk-tw-cron/topical`，detached＋sparse（只取 `scripts`、`src/data`，約 7.2 MB（2026-08-06 實測；原文 5 MB）），每輪先 reset 到 `origin/main`。
+> `/opt/folk-tw-cron/topical`，detached＋sparse（只取 `scripts`、`src/data`）約 7.2 MB —— 2026-08-06 實測，原文寫 5 MB，每輪先 reset 到 `origin/main`。
 > 起因：原本直接在 `/root/folk.tw` 跑，`git diff --quiet src/data/topical.json` 分不出「腳本寫的」與「人正在改的」，
 > 2026-07-25 P1 就把人手改到一半的併頁 WIP 連同工作樹 commit＋push（`a4e52da`，訊息卻寫「自動編排」）。
 > 現在 cron 看不到主工作樹，**只可能 commit 自己寫出來的內容**；另有硬檢查：異動範圍不是只有 `topical.json`
