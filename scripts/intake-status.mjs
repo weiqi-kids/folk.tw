@@ -18,13 +18,16 @@ const ARCHIVE = '/root/.config/folk-tw/intake/archive';
 const BRIEF = process.argv.includes('--brief');
 
 const j = (p) => JSON.parse(readFileSync(p, 'utf8'));
-const days = (t) => (t ? Math.floor((Date.now() - new Date(t).getTime()) / 86400000) : null);
+const hours = (t) => (t ? Math.floor((Date.now() - new Date(t).getTime()) / 3600000) : null);
+const days = (t) => { const h = hours(t); return h == null ? null : Math.floor(h / 24); };
 const fileAge = (p) => (existsSync(p) ? days(statSync(p).mtime) : null);
 const size = (p) => (existsSync(p) ? statSync(p).size : 0);
 const mb = (n) => `${(n / 1048576).toFixed(2)} MB`;
 /** 空陣列／空字串／null 一律算「沒有」。見下方 iconography 的註解。 */
 const nonEmpty = (v) => (Array.isArray(v) ? v.length > 0 : v != null && v !== '');
-const ago = (d) => (d == null ? '—' : d === 0 ? '今天' : `${d} 天前`);
+/** 不足一天就報小時——「今天」會讓昨晚 20:22 的更新在今早看起來像剛剛發生。 */
+const agoT = (t) => { const h = hours(t); return h == null ? '—' : h < 24 ? `${h} 小時前` : `${Math.floor(h / 24)} 天前`; };
+const ago = (d) => (d == null ? '—' : d === 0 ? '不到 1 天' : `${d} 天前`);
 
 // ── 讀三個來源 ──────────────────────────────────────────────────────────────
 const manifest = j('docs/intake-manifest.json');
@@ -146,14 +149,14 @@ const LEDGER = [
 const jobState = (id) => state.jobs?.[id] ?? {};
 function jobLine(id) {
   const s = jobState(id);
-  if (s.last_ok) return `台灣端最後成功 ${ago(days(s.last_ok))}`;
+  if (s.last_ok) return `台灣端最後成功 ${agoT(s.last_ok)}`;
   if (s.attempts) return `⚠️ 連續失敗 ${s.attempts} 次：${String(s.last_error ?? '').slice(0, 40)}`;
   return '—';
 }
 
 const line = (n = 74) => console.log('─'.repeat(n));
 console.log(`\n台灣端投遞管道現況　（manifest v${manifest.version}／${manifest.updated}）`);
-console.log(`state.json 更新於 ${ago(days(state.updated))}（${String(state.updated).slice(0, 19)}）`);
+console.log(`state.json 更新於 ${agoT(state.updated)}（${String(state.updated).slice(0, 19)}）`);
 console.log(`inbox 現有 ${inboxFiles.length} 個檔（不計側檔）`);
 
 if (!BRIEF) {
@@ -171,11 +174,11 @@ line();
 console.log('■ 二、還沒處理好（待處理清單）');
 for (const e of LEDGER.filter((x) => x.stage === 'pending')) {
   const age = fileAge(e.upstream);
-  console.log(`\n  ● ${e.id}`);
+  const arrived = existsSync(e.upstream) ? statSync(e.upstream).mtime.toISOString().slice(0, 10) : '—';
+  console.log(`\n  ● ${e.id}　（投遞 ${arrived}，已擱置 ${age == null ? '—' : `${age} 天`}${age != null && age > 3 ? ' ⚠️' : ''}）`);
   console.log(`    目標：${e.goal}`);
   console.log(`    卡點：${e.blocker}`);
   console.log(`    現況：${e.metric()}`);
-  console.log(`    檔案已躺 ${ago(age)}${age != null && age > 3 ? '（超過 3 天未處理）' : ''}`);
 }
 
 const stuck = Object.entries(state.jobs ?? {}).filter(([, s]) => !s.last_ok && s.attempts > 0);
