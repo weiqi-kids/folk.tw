@@ -1,7 +1,8 @@
 # folk.tw（神酷）— 路由與紅線
 
-> 台灣民俗資料站，已上線 <https://folk.tw>（GitHub Pages）。全站約 12,000 頁，
-> 其中廟宇頁 7,891 間佔 GSC 曝光 **91%**，是唯一被驗證的流量引擎。
+> 台灣民俗資料站，已上線 <https://folk.tw>（GitHub Pages）。
+> **廟宇頁是唯一被驗證的流量引擎**（2026-08-06 基準：全站 12,451 頁、廟宇 7,891 間、
+> 佔 GSC 曝光 91%）。⚠️ 這些會變動，**要現況跑 §1 的指令**，別引用這行的數字。
 >
 > **本檔是路由層，只放「進來 30 秒要知道的」。** 每個主題的決策脈絡與陷阱在
 > [`docs/`](docs/README.md)，動手前照下方 §4 文件地圖對號入座。
@@ -23,6 +24,9 @@
 node scripts/intake-status.mjs --brief   # 台灣端管道：待處理與抓取失敗
 gh issue list --label weekly-report      # SEO 週報（每週一 09:30 台自動開）
 node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
+node -e "const t=require('./src/data/temples.json'),d=require('./src/data/divination-systems.json');\
+console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',t.filter(x=>x.history).length,\
+'｜簡介',t.filter(x=>x.intro).length,'｜籤系',d.length)"   # 站台總覽
 ```
 
 ### 待辦（真的還沒做的）
@@ -33,7 +37,7 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
 | **祈福頁「依真實集氣數決定去留」** | 導流已上線，**門檻數字未定**——現況量級下任何「N 小時沒人點就下架」都等於全刪。觀測一週後定 | **2026-08-12** |
 | **降 GSC 權限** | 資安衛生、不緊急。共用服務帳號在 9 個網域是「擁有者」，只有用 Indexing API 的站才需要；降成「完整使用者」是十分鐘的事。背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`（⚠️ 該檔開頭有 2026-07-31 的前提更正，**先讀那段**） | 無期限 |
 | **`local-celebration` 用途未定** | 台灣端已投遞，但我們還沒決定要拿它做什麼。決定前不要動手 | — |
-| **籤系只有 2 套** | 觀音靈籤卡在**版本錨定**——唯一線索是臺文館藏「觀音籤譜」`NMTL20060200544`（完整且錨定龍山寺，**但未數位化**）；月老靈籤連來源都還沒查 | — |
+| **觀音「一百籤」尚未收錄** | ⚠️ 這**不是**「籤系只有 2 套」——站上實際有 5 套（六十甲子 60／關帝 100／月老 27／內門紫竹寺觀音 28／保生大帝藥籤 330）。缺的是坊間常說的**觀音一百籤**，卡在版本錨定：線上無權威全文，唯一線索是臺文館藏「觀音籤譜」`NMTL20060200544`（完整 100 首且錨定龍山寺，**但未數位化**，已送件申請閱覽） | 等館方回覆 |
 
 🅤 **已裁示不做的，別再列進待辦**：appi.news 撞題（2026-08-02「不用理他」）、店家名錄、
 索引長尾那三類（見 [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md)）。
