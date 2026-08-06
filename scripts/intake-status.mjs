@@ -25,6 +25,10 @@ const size = (p) => (existsSync(p) ? statSync(p).size : 0);
 const mb = (n) => `${(n / 1048576).toFixed(2)} MB`;
 /** 空陣列／空字串／null 一律算「沒有」。見下方 iconography 的註解。 */
 const nonEmpty = (v) => (Array.isArray(v) ? v.length > 0 : v != null && v !== '');
+// 🔴 只數主檔，不數側檔。台灣端每個檔都附 `<主檔>.sha256` 與 `<主檔>.meta.json`，
+// 而 `f.endsWith('.json')` 會把 `12345-2.json.meta.json` 也算進去 → **筆數剛好變兩倍**。
+// 2026-08-06 實測：yange 收了 1,362 項卻報「已收 2724」。狀態報告寧可少報也不能虛報。
+const MAIN_JSON = /^\d+-\d+\.json$/;
 /** 不足一天就報小時——「今天」會讓昨晚 20:22 的更新在今早看起來像剛剛發生。 */
 const agoT = (t) => { const h = hours(t); return h == null ? '—' : h < 24 ? `${h} 小時前` : `${Math.floor(h / 24)} 天前`; };
 const ago = (d) => (d == null ? '—' : d === 0 ? '不到 1 天' : `${d} 天前`);
@@ -94,15 +98,15 @@ const LEDGER = [
     upstream: join(INBOX, 'religion-festival/festival-export.ods'),
   },
   {
-    stage: 'pending', id: 'knowledge-zaoshen',
-    goal: '補灶神的 iconography（CLAUDE.md 長期欠帳之一）',
-    blocker:
-      '✅ 授權已解（2026-08-06：內政部承辦表示資料本就公開供人使用，條件＝**標示資料來源連結**）。' +
-      '⛔ 等匯入器。灶神條目（cid=265）2026-08-01 就在 inbox，但它也在 knowledge-deity-entries 的 96 筆裡——' +
-      '🔴 **iconography 是把敘述文字讀成短語（如「腳踏龜蛇」），不是取欄位**，' +
-      '拿一篇樣本去設計抽取規則、再套到 96 篇上，正是會量產假資料的做法。' +
-      '等 96 篇到齊再對著真語料設計，一支匯入器一次處理完。',
-    metric: () => `灶神 iconography：${M.zaojunIcon ? '✅ 已有' : '❌ 仍空白'}`,
+    stage: 'recon', id: 'knowledge-zaoshen',
+    verdict:
+      '**灶神 iconography 這條結案了，結論是「來源裡沒有」**（2026-08-06，96 篇全跑過）。' +
+      '內政部條目寫的是源流敘事，不是造型描述——對得上站上節點的 34 尊裡，' +
+      '**一尊都切不出乾淨的造型短語**（規則：≤16 字、無書名號／引號／冒號／逗號、括號成對）。' +
+      '⚠️ 那些漂亮的短語（「手持三叉戟」「手持豎琴」）全在**我們沒有節點的 62 篇**裡（希臘羅馬神祇那批）。' +
+      '🔴 **不要為了讓數字好看去放寬規則**：放寬到能收「手持權杖」的同時，' +
+      '也會收進「後面則能帶來健康」（那個「面」是方位不是臉）。' +
+      '改走的是逐字引文 `moi_knowledge`——34 尊全部有，那才是這批語料真正有的東西。',
     upstream: join(INBOX, 'misc/knowledge-zaoshen-cid265.html'),
   },
   {
@@ -119,6 +123,7 @@ const LEDGER = [
     },
     upstream: join(INBOX, 'misc/knowledge-deities-list-cid3.html'),
     covers: ['knowledge-deity-entries'],
+    coversDir: ['knowledge-deities'],
   },
   {
     stage: 'pending', id: 'religion-foundation-list',
@@ -144,19 +149,28 @@ const LEDGER = [
     coversDir: ['recon-service/foundation-list'],
   },
   {
-    stage: 'pending', id: 'religion-jianzhu-sample',
-    goal: '建築特色（IndexID=3）抽樣 30 項 → 算出佔位值比例 → 才決定要不要整批收那 3,623 項',
-    blocker:
-      '⏳ 等台灣端抓（2026-08-06 加進 manifest v11，排在 religion-yange 前面所以會先跑完）。' +
-      '🔴 這是**評估用的抽樣，不是資料收集**：全量整批收會被 isPlaceholder 擋掉＝白抓幾千個請求。' +
-      '收到後跑 `node scripts/import-temple-history.mjs --verbose` 看「佔位值略過」佔幾成，再定去留。',
-    metric: () => {
-      const dir = join(INBOX, 'religion-jianzhu-sample');
-      const got = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).length : 0;
-      return `已收 ${got}/30 項`;
-    },
+    stage: 'recon', id: 'religion-jianzhu-sample',
+    verdict:
+      '建築特色（IndexID=3）抽樣 30 筆的評估**已完成，結論是「收」**（2026-08-06）。' +
+      '分布：「略」等敷衍 3 筆／極短無資訊（4–17 字，如「一般建築」「寺廟前景照片」）11 筆／' +
+      '**有實質內容（≥20 字）16 筆＝53%**，最長 485 字。全量 3,623 項照此比例約一半可用，' +
+      '已開 `religion-jianzhu` 全量 job（排在 yange 之後）。沒用的那半由 isPlaceholder 與 check:integrity 各擋一次。',
     upstream: join(INBOX, 'recon-service/getuploadfile-74678-idx3-jianzhu.json'),
     coversDir: ['religion-jianzhu-sample'],
+  },
+  {
+    stage: 'pending', id: 'religion-jianzhu',
+    goal: '建築特色（IndexID=3）全量 → 廟宇頁「建築特色」區塊',
+    blocker:
+      '⏳ 等台灣端抓（2026-08-06 加進 manifest v12，排在 yange 之後）。抽樣評估結論見上方 recon 段。',
+    metric: () => {
+      const dir = join(INBOX, 'religion-jianzhu');
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => MAIN_JSON.test(f)).length : 0;
+      const want = existsSync('docs/intake-urls-jianzhu.json') ? j('docs/intake-urls-jianzhu.json').length : 0;
+      return `已收 ${got}/${want} 項`;
+    },
+    upstream: join(INBOX, 'recon-service/getuploadfile-74678-idx3-jianzhu.json'),
+    coversDir: ['religion-jianzhu'],
   },
   {
     stage: 'pending', id: 'religion-yange',
@@ -168,7 +182,7 @@ const LEDGER = [
       '⚠️ 同輪把 max_requests_per_run 由 200 提到 1500（間隔仍 1 秒不變），否則一天 200 項要跑 26 天。',
     metric: () => {
       const dir = join(INBOX, 'religion-yange');
-      const got = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).length : 0;
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => MAIN_JSON.test(f)).length : 0;
       const want = existsSync('docs/intake-urls-yange.json') ? j('docs/intake-urls-yange.json').length : 0;
       return `已收 ${got}/${want} 項`;
     },

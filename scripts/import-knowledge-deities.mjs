@@ -84,7 +84,13 @@ function pickIconography(body) {
 // 所以敘述性內容一律 **verbatim 引用 + 掛源連結**，不摘要、不合併、不補主詞。
 // 只取條目開頭連續的中文段落（英譯段與參考書目排除），並在段落邊界截斷——
 // ⚠️ **不可在字數上限處硬切**：切一半的句子會產生沒配對的引號，正是上面那個病灶。
-const EXCERPT_MAX = 260;
+// 🔴 2026-08-06 實測踩到的 bug，別改回去：
+//    初版寫 `if (used + len > EXCERPT_MAX) break;`——**第一段就超出預算時，迴圈第一輪就 break，
+//    回傳空陣列**。而內政部條目的第一段動輒 300–400 字，於是文昌帝君、保生大帝、神農大帝
+//    這種大神全部「無合用段落」。灶神那篇剛好 229 字所以測不出來，96 篇跑下去才露餡。
+//    正解：**至少取一段**（段落是引用的最小單位，不能切），之後才看預算。
+const EXCERPT_TARGET = 260; // 想要的總長；只在「已經有一段」之後才拿來擋
+const EXCERPT_HARD_MAX = 700; // 單段超過這個長度就跳過改看下一段——不截斷，寧可不引
 const EXCERPT_DROP = /^(首頁|跳到|您的瀏覽器|字體大小|請輸入關鍵字|參考資料|Keywords|關鍵字|臺灣宗教|世界宗教|宗教)/;
 
 function pickExcerpt(body) {
@@ -93,12 +99,14 @@ function pickExcerpt(body) {
   for (const p of body.split('\n')) {
     const s = p.trim();
     if (!s || EXCERPT_DROP.test(s)) continue;
-    if ([...s].length < 20) continue;
-    if (used + [...s].length > EXCERPT_MAX) break; // 段落邊界截斷，不切句
-    if (!bracketsBalanced(s)) continue;
+    const len = [...s].length;
+    if (len < 20) continue;
+    if (!bracketsBalanced(s)) continue; // 括號不成對＝來源本身就被截斷過，不引
+    if (len > EXCERPT_HARD_MAX) continue; // 單段太長，換下一段（不截斷）
+    if (out.length > 0 && used + len > EXCERPT_TARGET) break; // 已有內容才受預算限制
     out.push(s);
-    used += [...s].length;
-    if (used >= EXCERPT_MAX * 0.6) break;
+    used += len;
+    if (used >= EXCERPT_TARGET) break;
   }
   return out;
 }

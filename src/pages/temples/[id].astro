@@ -202,7 +202,12 @@ const festivalLine = t.main_festival
 
 // answer-first 摘要（全體廟頁皆有）：純用既有欄位重組，緊扣「XX宮是什麼廟／在哪／拜誰」搜尋意圖，絕不補新事實。
 const regionLabelForSummary = county ? `${county.name}${township?.name ?? ''}` : (t.district ?? '');
-const historyFirstSentence = t.history ? (t.history.split(/(?<=[。！？])/)[0] ?? '').trim() : '';
+// ⚠️ 一定要把空白壓平（2026-08-06 加）：內政部的沿革有 413 筆含 CR/LF，
+// 其中 88 筆的**第一句裡面就有換行**（例：「高埔法龍寺創建緣起\r\n遠在九十年前…」）。
+// 這個字串會進 meta description，換行留著就是把 literal newline 送進 SERP。
+const historyFirstSentence = t.history
+  ? (t.history.split(/(?<=[。！？])/)[0] ?? '').replace(/\s+/g, ' ').trim()
+  : '';
 const summaryText = [
   `${t.name}`,
   regionLabelForSummary ? `位於${regionLabelForSummary}` : '',
@@ -644,7 +649,9 @@ const jsonLd = [
     .temple-intro .intro-body { line-height: 1.8; }
     .temple-intro .intro-src { color: var(--gold); font-size: var(--text-xs); margin-top: 0.5rem; }
     .temple-history { margin-top: 1.5rem; }
-    .temple-history .history-body { line-height: 1.8; }
+    /* pre-line：內政部沿革有 413 筆帶換行（分段敘事），壓成一行會很難讀。
+       已查證的那 22 筆是單句，不受影響。 */
+    .temple-history .history-body { line-height: 1.8; white-space: pre-line; }
     .temple-history .founded, .temple-history .festival { margin: 0.5rem 0; }
     .temple-history strong { color: var(--accent); margin-right: 0.375rem; }
     .temple-festivals { margin-top: 1.5rem; }

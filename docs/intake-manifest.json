@@ -13,7 +13,7 @@
     "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
     "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。"
   ],
-  "version": 11,
+  "version": 12,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
@@ -377,6 +377,28 @@
         "要收的時候：`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 另出一份清單。",
         "⚠️ 這批 5,153 項 × 3 個檔 ＝ 15,459 個檔擠在一層（URLLIST-SPEC 已提醒）。",
         "key 不可含斜線，故無法分片；ext4 撐得住，但每輪 rsync 要掃這一萬五千個檔。"
+      ]
+    },
+    {
+      "id": "religion-jianzhu",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-jianzhu.json",
+      "dest_dir": "religion-jianzhu/",
+      "dest_template": "{key}.json",
+      "max_age_days": 180,
+      "note": "建築特色（IndexID=3）全量。抽樣評估後決定收——見 _why。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 100,
+        "contains": "Comment"
+      },
+      "_why": [
+        "2026-08-06 抽樣 30 筆的實測結論：**收**。分布是——",
+        "  「略」等敷衍 3 筆／極短無資訊（4–17 字，如「一般建築」「寺廟前景照片」）11 筆／",
+        "  **有實質內容（≥20 字）16 筆＝53%**，最長 485 字（保安宮的假四垂、燕尾脊、八卦藻井）。",
+        "照這比例，全量約有一半的廟拿得到真正的建築描述，值得抓。",
+        "沒用的那半由 import-temple-history.mjs 的 isPlaceholder（<20 字／等於標題）擋掉，",
+        "check:integrity 再擋一次，不會有「一般建築」這種內容上站。",
+        "⚠️ 排在 religion-yange **後面**：yange（沿革＋參拜流程）是主菜，先讓它跑完。"
       ]
     }
   ]
