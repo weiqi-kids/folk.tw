@@ -30,7 +30,7 @@
 | [`taiwan-host-handoff.md`](taiwan-host-handoff.md) | 管道怎麼運作：金鑰、manifest 欄位契約、rsync、新鮮度提醒 | **活的**。改 manifest 前必讀 §3.5 |
 | [`intake-manifest.json`](intake-manifest.json) | 抓取清單（台灣端每輪取最新版） | **活的**。境外端維護 |
 | [`festival-data-import.md`](festival-data-import.md) | 慶(祭)典匯入：三個陷阱（ODS 無曆別／id 是陣列索引／來源自身矛盾）、對映方法、gate | **活的**。改慶典相關必讀 |
-| [`TODO-FOR-TAIWAN.md`](TODO-FOR-TAIWAN.md) | 給台灣端的待辦與可貼的啟動指令 | ⚠️ **待裁示**：內容與 `taiwan-host-handoff.md` 有重疊，且多數待辦已完成。建議精簡成「目前待辦」一頁或併入 handoff |
+| [`TODO-FOR-TAIWAN.md`](TODO-FOR-TAIWAN.md) | **與台灣端互動的流程**：prompt 固定骨架、追蹤清單、目前待辦、不要再問的事 | **活的**。2026-08-06 已清掉全部已完成待辦（338→約 110 行）。🔴 每則要台灣端做事的回覆都必須附可貼的完整 prompt |
 
 ---
 
@@ -41,7 +41,7 @@
 | [`topical-blessing.md`](topical-blessing.md) | 時事集氣祈福 P1–P4 全自動管線的 SOP：四道硬 gate、去重規則、生命週期 | **活的**。改管線前必讀 |
 | [`seo-automation.md`](seo-automation.md) | SEO 自動化閉環（收集／反思／大腦／週報）＋ 2026-07-02 起飛基準（歷史存查） | **活的**。操作用 `/seo` skill |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
-| [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ⚠️ **待裁示**：醫師審過了嗎？未審則頁面不得掛醫師姓名 |
+| [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ✅ 用戶 2026-08-06 確認**330 首全部審過**。⚠️ 但資料層無 `reviewed_by`、程式碼註解與 spec 仍寫「尚未審閱」＝**三處敘述待更正**（等審閱者資訊） |
 
 ---
 
@@ -49,7 +49,7 @@
 
 | 檔 | 用途 | 現況 |
 |---|---|---|
-| [`nmtl-guanyin-qianpu-request.md`](nmtl-guanyin-qianpu-request.md) | 向國立臺灣文學館申請閱覽「觀音籤譜」`NMTL20060200544` 的送件備忘 | ⚠️ **待裁示**：送件了嗎？這是觀音靈籤唯一的解 |
+| [`nmtl-guanyin-qianpu-request.md`](nmtl-guanyin-qianpu-request.md) | 向國立臺灣文學館申請閱覽「觀音籤譜」`NMTL20060200544` 的送件備忘 | ✅ **已送件**（2026-08-06 用戶確認）。等館方回覆，追蹤在 `TODO-FOR-TAIWAN.md` |
 | [`festival-social-drafts.md`](festival-social-drafts.md) | 農曆七月節日的社群貼文備稿 | ⚠️ **待裁示**：本機無社群憑證故只備不發；農曆七月已過，這批稿子是否作廢 |
 | [`building-a-folk-divination-site.md`](building-a-folk-divination-site.md) | 把 folk.tw 前 43 天的經驗整理成可搬到其他傳統的通則（對外分享用） | ⚠️ **待裁示**：對外文章還是內部參考？若對外，內容已過期（那時還沒有廟宇頁與慶典資料） |
 

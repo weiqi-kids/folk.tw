@@ -61,6 +61,9 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
    `religion.moi.gov.tw` 同時供應 OGDL 開放資料與受版權宣告保護的網站內容。
 9. **自己起的背景 server 一定要收**（`pnpm preview` 等），收尾必須 kill。
 10. **改變系統狀態的操作（cron／設定／排程），同一回合必須更新對應文件。**
+11. **要台灣端做事，同一則回覆必須附上可直接複製貼上的完整 prompt。** 那台是單向的
+    （只能 rsync 寫進我們的 inbox、讀不到我們），用戶是唯一傳話人；
+    「我寫進 docs 了」不會送達。骨架見 [`docs/TODO-FOR-TAIWAN.md`](docs/TODO-FOR-TAIWAN.md)。
 
 ---
 
@@ -102,6 +105,7 @@ pnpm data:weekly                                 # 週報乾跑預覽
 | **時事集氣祈福管線**（P1–P4） | [`docs/topical-blessing.md`](docs/topical-blessing.md) |
 | **台灣端投遞管道**（現況／授權／每份資料去向） | [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) |
 | **台灣端怎麼運作**（金鑰／manifest 欄位契約／rsync） | [`docs/taiwan-host-handoff.md`](docs/taiwan-host-handoff.md) |
+| **要台灣端做事**（prompt 骨架／追蹤清單／不要再問的事） | [`docs/TODO-FOR-TAIWAN.md`](docs/TODO-FOR-TAIWAN.md) |
 | **SEO 自動化閉環**（收集／反思／大腦／週報） | [`docs/seo-automation.md`](docs/seo-automation.md)、`/seo` skill |
 | **藥籤產製規格** | [`docs/yaoqian-physician-spec.md`](docs/yaoqian-physician-spec.md) |
 | 全部文件一覽 | [`docs/README.md`](docs/README.md) |
