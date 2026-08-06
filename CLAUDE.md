@@ -108,7 +108,7 @@ pnpm data:weekly                                 # 週報乾跑預覽
 | **神明／籤詩／籤系／藥籤** | [`docs/decisions/deities-and-qian.md`](docs/decisions/deities-and-qian.md) |
 | **農民曆／宜忌／擇日** | [`docs/decisions/almanac.md`](docs/decisions/almanac.md) 🔴 |
 | **節日／民俗活動／情境・比較・行業** | [`docs/decisions/festivals-and-intent.md`](docs/decisions/festivals-and-intent.md) 🔴 |
-| **nav／版位／卡片規範** | [`docs/decisions/nav-and-ui.md`](docs/decisions/nav-and-ui.md) |
+| **nav／版位** | [`docs/decisions/nav-and-ui.md`](docs/decisions/nav-and-ui.md) |
 | **部署流程／驗證套件／任何一道 gate／`pnpm notify`** | [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) |
 | **SEO 的「做／不做」裁示**（sitemap／稀釋／索引長尾） | [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md) |
 | **慶(祭)典資料**（曆別陷阱／對映規則／來源矛盾） | [`docs/festival-data-import.md`](docs/festival-data-import.md) |
@@ -120,7 +120,15 @@ pnpm data:weekly                                 # 週報乾跑預覽
 | **藥籤產製規格** | [`docs/yaoqian-physician-spec.md`](docs/yaoqian-physician-spec.md) |
 | 全部文件一覽 | [`docs/README.md`](docs/README.md) |
 
-🔴 ＝**該檔內含場景限定的紅線**，動那塊之前必須讀。它們刻意不放在上面的總紅線區——
+🔴 ＝**該檔內含場景限定的紅線**，動那塊之前必須讀。
+
+> 🔴 **最新的決策常常在程式碼註解裡，不在 `docs/`。**
+> `docs/decisions/` 是**決策的歷史脈絡**（原文一字未改，刻意保留當時的判斷）；
+> 而 `src/pages/temples/[id].astro`、`scripts/check-rendered.mjs` 這類檔案的檔頭與行內註解
+> 記的是**現況**，且往往比 docs 新。**兩者不一致時信程式碼**，並回頭在 docs 標上更正
+> （2026-08-06 稽核實例：`temples.md` 的 meta description 排序停在 7/30，
+> 而 8/3 有一次量測過的對調只寫在程式碼註解裡——照 docs 動手會把修正改回去）。
+> ⚠️ **改任何 `src/` 檔案前，先讀那個檔自己的檔頭註解。**它們刻意不放在上面的總紅線區——
 本檔每次都自動載入，把場景警語全塞進來會稀釋掉真正該一直記著的那八條。
 
 **專案脈絡與用戶偏好** → 自動記憶 `/root/.claude/projects/-root-folk-tw/memory/`（`MEMORY.md` 為索引）。

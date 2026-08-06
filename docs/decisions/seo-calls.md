@@ -3,20 +3,22 @@
 > 這些是查證後的結論，不是忘了做。要重開必須有新證據，並在此註記。
 
 > 2026-08-06 自 `CLAUDE.md` 抽出並依主題重新分組，**原文一字未改**。
+> ⚠️ **本檔是決策的歷史脈絡，不是現況規格。** 實作以程式碼與 gate 為準——
+> 兩者不一致時**信程式碼**，並回頭在這裡標上更正。數字同理，一律跑指令查。
 > 回索引：[`../README.md`](../README.md)｜總路由：[`../../CLAUDE.md`](../../CLAUDE.md)
 
 ## 目次
 
 - **sitemap 與索引稀釋**
-  - 翻土地公退場開關（2026-06-23 commit `49b7b58` 設 `true` 
-  - 是否需更激進降稀釋 → 決策：不做（2026-07-02 關閉）：廟宇頁已佔曝光 52%、獨
-  -   原本保留、僅以 priority 0.3 降權，實測不夠——sitemap 11,693
+  - 翻土地公退場開關
+  - 是否需更激進降稀釋 → 決策
+  - 🔴 農民曆封存頁
 - **明確不做的**
-  - 索引長尾決策（2026-07-28 定，用戶裁示「依建議進行」，勿再重開）：GSC「已檢索－
+  - 索引長尾決策
 - **已完成的一次性動作**
-  - 首頁直連旗艦神明頁（同上 commit）：首頁新增「熱門神明」區塊，直連
-  - 送 Indexing API（2026-06-23）：對 11 個未索引但有需求的頁（首頁、
-  - 稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM
+  - 首頁直連旗艦神明頁
+  - 送 Indexing API
+  - 稀釋開關
 
 ---
 
@@ -83,4 +85,4 @@
 - [x] **送 Indexing API**（2026-06-23）：對 11 個未索引但有需求的頁（首頁、/deities 樞紐、
       6 尊旗艦神明、liushi_jiazi-1/45、suitang_qinshubao）送出，成功 11/失敗 0。
 
-- 稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。
+- ⚙️ **（活的設定入口，不是已完成動作）**稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。

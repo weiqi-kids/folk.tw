@@ -10,12 +10,15 @@
 排程檔：`/etc/cron.d/seo-ops`（源 `/root/seo-ops/cron/seo-ops.cron`）。設定 `seo-ops/sites/folk.tw.json`、
 大腦站規 `seo-ops/playbooks/folk.tw.md`、log `seo-ops/logs/folk.tw-*.log`。
 
+> 🔴 **2026-08-06 更正**：下表原本寫 04:30／05:00／05:20／05:55，**那是 2026-08-01 之前的舊時刻**，
+> 且把「心跳」列成獨立一層——實際 `/etc/cron.d/seo-ops` 裡**沒有 heartbeat 行**（已併進 collect）。
+> 現行時刻以該 cron 檔為準。⚠️ 改時刻要同步改這裡與 cron 註解（根 CLAUDE.md 紅線）。
+
 | 層 | 時間（台 / UTC） | 進入點 | 產出 |
 |----|----------------|--------|------|
-| 收集 | 04:30 / 20:30 | `bin/seo-collect.mjs --site folk.tw` | GA4+GSC+索引覆蓋 → `data/seo-daily/<日期>.json`、commit/push、index:ping |
-| 心跳 | 05:00 / 21:00 | `bin/seo-heartbeat.mjs --site folk.tw` | 📊 Slack 純數據 |
-| 反思 | 05:20 / 21:20 | `bin/seo-reflect.sh --site folk.tw` | **大腦前半段**：跨源對比 → 只改 playbook 標記區策略段 → 🧭 Slack（僅有改動時）＋留痕 `reflections/folk.tw/<日期>.md` |
-| 大腦 | 05:55 / 21:55 | `bin/seo-brain.sh --site folk.tw` | headless `claude -p`（Sonnet）：自動優化→push→deploy→notify→🤖 Slack |
+| 收集＋心跳 | **15:30 / 07:30** | `bin/seo-collect.mjs --site folk.tw` | GA4+GSC+索引覆蓋 → `data/seo-daily/<日期>.json`、commit/push、index:ping |　**heartbeat 已併入本層、直接發 📊 Slack，無獨立排程**
+| 反思 | **16:00 / 08:00** | `bin/seo-reflect.sh --site folk.tw` | **大腦前半段**：跨源對比 → 只改 playbook 標記區策略段 → 🧭 Slack（僅有改動時）＋留痕 `reflections/folk.tw/<日期>.md` |
+| 大腦 | **16:40 / 08:40** | `bin/seo-brain.sh --site folk.tw` | headless `claude -p`（Sonnet）：自動優化→push→deploy→notify→🤖 Slack |
 | 週報 | 週一 09:30 / 01:30 | `bin/seo-weekly.mjs --site folk.tw` | 開 GitHub Issue + 📈 Slack |
 
 folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工廠的站）。
@@ -85,7 +88,12 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 > ⚠️ **要排進配額日前段就必然落在台北下午，無法兩全。** 完整緣由寫在 `/etc/cron.d/seo-ops` 的
 > folk.tw 段註解。雲端三個 routine 與
 `seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
-**維運操作用 `/seo` skill；完整 runbook 見 本檔。** 共五段（另有反思層 05:20 台排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
+**維運操作用 `/seo` skill。**
+
+🔴 **以下五段是 2026-07-02 遷移前的舊描述，時刻與腳本名皆已過期**（本檔開頭已註明 `scripts/seo-*` 皆退役、
+時刻於 2026-08-01 改為下午）。**保留僅供追溯，勿照此操作**——現況看上方表格與 `/etc/cron.d/seo-ops`。
+
+共五段（另有反思層排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
 1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
    產 `data/seo-daily/<台灣日期>.json`（**page×query／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
    → commit `[skip ci]` push → `index:ping`。手動：`pnpm data:seo-daily`。

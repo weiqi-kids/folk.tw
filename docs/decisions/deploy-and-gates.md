@@ -3,19 +3,34 @@
 > push main 即上線、無 staging。每一道 gate 都是拿事故換來的，移除前先讀它為什麼存在。
 
 > 2026-08-06 自 `CLAUDE.md` 抽出並依主題重新分組，**原文一字未改**。
+> ⚠️ **本檔是決策的歷史脈絡，不是現況規格。** 實作以程式碼與 gate 為準——
+> 兩者不一致時**信程式碼**，並回頭在這裡標上更正。數字同理，一律跑指令查。
 > 回索引：[`../README.md`](../README.md)｜總路由：[`../../CLAUDE.md`](../../CLAUDE.md)
 
 ## 目次
 
 - **驗證套件與各 gate**
-  - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm c
-  - `check:copy-voice` 補掃資料 JSON 的散文欄位（2026-07-31）
+  - 驗證套件
+  - `check
 - **部署後通知搜尋引擎**
-  - 主動通知搜尋引擎（部署後跑這支）：`pnpm notify [url...|--all]`＝
+  - 主動通知搜尋引擎
 - **部署驗證的陷阱**
-  - 
+  - 部署驗證坑
 
 ---
+
+## 🔴 `pnpm notify` 的高槓桿清單 CORE **有兩份，改一份等於沒改**
+
+```
+scripts/index-ping.mjs:33     const CORE = ['/', '/almanac/', …]
+scripts/indexnow-ping.mjs:33  const CORE = ['/', '/almanac/', …]   ← byte-identical 的第二份
+```
+
+只改一支 → Google 送新清單、IndexNow 送舊清單，而 `pnpm notify` 畫面照樣顯示「完成 2/2」。
+**這正是本檔已記錄過兩次的同一種失敗模式**（`--from` 只實作在一支、`index-ping` 靜默吞第一個網址）：
+**參數／清單解析出錯，而輸出看起來完全正常。**
+🔴 **改 CORE 一律兩支一起改，改完實際比對兩支的送出筆數。**
+（`check:outbound-urls` 會掃兩支的網址尾斜線，但**不會**檢查兩份清單內容一致。）
 
 ## 🔴 部署觸發規則：**兩個**例外，不是一個
 
