@@ -34,11 +34,38 @@ git rebase --autostash origin/main || {
 
 /usr/bin/node scripts/qiugian-aggregate.mjs
 
-if ! git diff --quiet src/data/qiugian-stats.json; then
-  git add src/data/qiugian-stats.json
+# 🔴 2026-08-06 修：本支同時會寫兩個檔，但原本只 stage 一個。
+#   qiugian-aggregate.mjs 除了 qiugian-stats.json，還會把「集氣峰值」回寫
+#   src/data/topical.json 的 bless_snapshot（供 archived／memorial 頁顯示「當時共有 N 人集氣」）。
+#   原本的 `git add src/data/qiugian-stats.json` **沒有帶到 topical.json** →
+#   那個回寫永遠不會進 repo，只在主工作樹留成 WIP，接著被 seo-ops cron 的 stash/reset 掃掉。
+#   ＝這個功能從頭到尾沒生效過，而且是靜默的。
+#
+# ⚠️ 為什麼不能無腦 `git add src/data/topical.json`：
+#   本支跑在**主工作樹**（它需要 node_modules 的 GA4 依賴，未納管進隔離 worktree），
+#   topical.json 同時也是人手改與 P1/P2/P4 會動的檔。無條件 add 等於重演 2026-07-25
+#   「把人改到一半的 WIP 一起 commit」那次事故。
+#   故比照 topical cron 的既有作法加**硬檢查**：異動的每一行都必須是 bless_snapshot，
+#   只要出現任何其他欄位的變動就整個放棄本次快照（下輪再來，只增不減故不會漏）。
+STAGE="src/data/qiugian-stats.json"
+if ! git diff --quiet src/data/topical.json; then
+  if git diff -U0 src/data/topical.json | grep -E '^[+-]' | grep -v '^[+-][+-][+-]' \
+       | grep -qv 'bless_snapshot'; then
+    # 🔴 只是「不 stage」，**絕不 checkout/reset**——那會把人手改到一半的 WIP 直接丟掉，
+    #    比原本的 bug 更糟。留在工作樹讓人自己處理，我們這輪放棄快照即可（只增不減，下輪補得回來）。
+    echo "[qiugian-cron] ⚠️ topical.json 有 bless_snapshot 以外的異動（可能是人手 WIP 或 topical cron 尚未推送），"
+    echo "[qiugian-cron]    本輪不 stage 它、也不動它。快照下輪再補（bless_snapshot 只增不減）。"
+  else
+    STAGE="$STAGE src/data/topical.json"
+    echo "[qiugian-cron] topical.json 僅 bless_snapshot 異動，一併提交"
+  fi
+fi
+
+if ! git diff --quiet $STAGE; then
+  git add $STAGE
   git commit -q -m "chore(qiugian): 共情數字聚合 $(date -u +%F' '%H:%M)Z [skip ci]"
   git push origin main
-  echo "[qiugian-cron] 已更新並推送"
+  echo "[qiugian-cron] 已更新並推送（$STAGE）"
 else
   echo "[qiugian-cron] 數字無變化，不 commit"
 fi
