@@ -30,8 +30,15 @@ const DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
 const OUT = 'docs/intake-urls-yange.json';
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write');
-const IDX = (args[args.indexOf('--idx') + 1] ?? '2,3,4')
+// ⚠️ 必須先 includes 再取值：`indexOf` 找不到回 **-1**，而 `args[-1 + 1]` ＝ `args[0]`——
+// 沒帶 --idx 卻帶了 --write 時，IDX 會變成 ['--write'] → 過濾後為空 → 一項都解不出來。
+// 2026-08-06 實測踩到：乾跑（無參數）正常、加 --write 就「解析結果為空」。
+const IDX = (args.includes('--idx') ? args[args.indexOf('--idx') + 1] : '2,3,4')
   .split(',').map((x) => x.trim()).filter((x) => /^\d+$/.test(x));
+if (!IDX.length) {
+  console.error('✗ --idx 參數無效（要像 --idx 2,4）。');
+  process.exit(1);
+}
 
 const IDX_NAME = { 2: '歷史沿革', 3: '建築特色', 4: '參拜流程' };
 

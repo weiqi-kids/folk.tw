@@ -135,6 +135,24 @@ const LEDGER = [
       return `已收 ${n} 頁`;
     },
     upstream: join(INBOX, 'recon-service/FOUNDATION-FORM-PAYLOAD.md'),
+    coversDir: ['recon-service/foundation-list'],
+  },
+  {
+    stage: 'pending', id: 'religion-yange',
+    goal: '寺廟歷史沿革（IndexID=2）＋參拜流程（IndexID=4）→ 廟宇頁內容。受益面是站上絕大多數只有名稱/地址/主祀神的廟頁',
+    blocker:
+      '⏳ 等台灣端抓（2026-08-06 加進 manifest v9）。清單 docs/intake-urls-yange.json 已產出並 push。' +
+      '🔴 **刻意不收 IndexID=3 建築特色**：實測清單有 3,623 項，但取樣顯示佔位值很多' +
+      '（內容就是廟名本身），照原定計畫先抽樣評估再決定；收了也會被 isPlaceholder 擋掉＝白抓。' +
+      '⚠️ 同輪把 max_requests_per_run 由 200 提到 1500（間隔仍 1 秒不變），否則一天 200 項要跑 26 天。',
+    metric: () => {
+      const dir = join(INBOX, 'religion-yange');
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).length : 0;
+      const want = existsSync('docs/intake-urls-yange.json') ? j('docs/intake-urls-yange.json').length : 0;
+      return `已收 ${got}/${want} 項`;
+    },
+    upstream: join(INBOX, 'recon-service/getuploadfile-63443-idx2-yange.json'),
+    coversDir: ['religion-yange'],
   },
   {
     stage: 'live', id: 'local-celebration',
@@ -324,7 +342,17 @@ const orphanJobs = manifest.jobs.map((x) => x.id).filter((id) => !ledgerIds.has(
 const orphanState = Object.keys(state.jobs ?? {}).filter((id) => !ledgerIds.has(id) && !orphanJobs.includes(id));
 // inbox 檔：LEDGER 的 upstream 已指到的、以及純文件（.md）之外的
 const covered = new Set(LEDGER.flatMap((e) => [e.upstream, ...(e.covers ?? [])]).filter(Boolean).map((p2) => String(p2).replace(`${INBOX}/`, '')));
-const orphanFiles = inboxFiles.filter((f) => !covered.has(f) && !f.endsWith('.md') && f !== 'state.json');
+// `coversDir`：整個目錄都歸這筆 LEDGER 管。批次型 job（沿革 5,153 項、查詢結果 137 頁）
+// 沒辦法逐檔列進 covers——2026-08-06 第一次收到 199 頁時，對帳把 199 個檔名逐一印出來，
+// 那份報告就沒人看得下去了。目錄前綴一條頂一批。
+const coveredDirs = LEDGER.flatMap((e) => e.coversDir ?? []);
+const orphanFiles = inboxFiles.filter(
+  (f) =>
+    !covered.has(f) &&
+    !coveredDirs.some((d) => f.startsWith(d.endsWith('/') ? d : `${d}/`)) &&
+    !f.endsWith('.md') &&
+    f !== 'state.json',
+);
 console.log(`  manifest 有但 LEDGER 無：${orphanJobs.length ? orphanJobs.join('、') : '無'}`);
 console.log(`  state.json 有但兩邊都無：${orphanState.length ? orphanState.join('、') : '無'}`);
 console.log(`  inbox 檔未被 LEDGER 指到：${orphanFiles.length ? `${orphanFiles.length} 個` : '無'}`);

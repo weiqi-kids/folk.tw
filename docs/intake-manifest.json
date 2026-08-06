@@ -5,14 +5,19 @@
     "本檔刻意放 public repo：內容只有政府公開資料的網址，無任何機密。",
     "取得方式：curl -fsSL https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-manifest.json",
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
-    "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
+    "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。",
+    "🔴 2026-08-06：max_requests_per_run 由 200 提高到 1500。理由與界線寫在這裡，改動前先讀——",
+    "  沿革＋參拜流程共 5,153 項，維持 200／輪、一天一輪要跑 26 天才收得完。",
+    "  提高的是**單輪總量**，**每次請求間隔仍是 1 秒不變**——那才是對方伺服器真正感受到的壓力。",
+    "  1500 項在 1 req/s 下約 25 分鐘，全批約 4 輪收完。",
+    "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。"
   ],
-  "version": 8,
+  "version": 9,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
-    "max_requests_per_run": 200,
+    "max_requests_per_run": 1500,
     "backoff": "指數退避：失敗第 n 次等 2^n 秒（上限 300 秒）；連續 5 次失敗就記 state.json 收工，下輪再來"
   },
   "jobs": [
@@ -37,8 +42,7 @@
           "Page": "1", "Searched": "yes", "PageSize": "100"
         },
         "dest_template": "recon-service/foundation-list/page-{page}.html",
-        "total_pages_re": "共 (\\d+) 頁",
-        "stop_when_missing": "<tr",
+        "total_pages_re": "共\\s*(\\d+)\\s*頁",
         "expect_per_page": {
           "http_status": 200,
           "min_bytes": 150000,
@@ -57,6 +61,14 @@
         "登記別/電話/負責人/座標），唯一列出它們的地方就是這個查詢結果頁的",
         "`<a class='other' main='<UploadFileID>' idx='<IndexID>'>`。",
         "收完之後由境外端產出 url_list 清單檔，才輪到真正的內容 job。",
+        "🔴 2026-08-06 實測踩到的兩件事，別再改回去：",
+        "① `total_pages_re` 原本寫成 `共 (\\\\d+) 頁`（帶空格），而來源實際是 `共137頁`**沒有空格** →",
+        "   總頁數偵測失效，一路抓到請求上限（199 頁），其中 138–199 是空結果頁＝**白白浪費 62 個請求**。",
+        "   改成 `共\\\\s*(\\\\d+)\\\\s*頁`。對政府網站的禮貌不是只有間隔，也包括不抓不存在的頁。",
+        "② `stop_when_missing: \"<tr\"` **拿掉了**：空結果頁仍有 4 個 `<tr>`（版面用），它從未生效；",
+        "   而且找不到「有結果的頁必有、沒結果的頁必無」的可靠字串——",
+        "   猜錯的後果是**在中間某頁提早停止**＝靜默漏廟，比多抓幾頁嚴重得多。",
+        "   總頁數才是可靠機制，max_pages 200 只當防呆上限。",
         "2026-08-06 實測 PageSize=100 的單頁約 600 KB、PageSize=20 約 300 KB",
         "（頁面固定開銷就 ~230 KB），故 min_bytes 設 150000＝連末頁也過得了、又擋得住錯誤頁。",
         "🔴 form 用的是**單值版**：checkbox 的 true/false 重複鍵 JSON 表達不出來，",
@@ -190,6 +202,30 @@
         "min_bytes": 30000,
         "contains": "</html>"
       }
+    },
+    {
+      "id": "religion-yange",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-yange.json",
+      "dest_dir": "religion-yange/",
+      "dest_template": "{key}.json",
+      "max_age_days": 180,
+      "note": "寺廟歷史沿革（IndexID=2）與參拜流程（IndexID=4）內容。清單由 scripts/gen-intake-urls-yange.mjs 產生。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 100,
+        "contains": "Comment"
+      },
+      "_why": [
+        "2026-08-06 上線。授權：同日經內政部同意使用，條件為標示資料來源連結——",
+        "匯入時每一筆都掛回自己的 GetUploadFile 網址（scripts/import-temple-history.mjs）。",
+        "🔴 **刻意不收 IndexID=3（建築特色）**：清單產出時實測有 3,623 項，",
+        "但 2026-08-05 的取樣顯示它**佔位值很多**（取樣那筆的內容就是廟名本身）。",
+        "照原定計畫先抽樣評估佔位比例再決定，不要為了數字好看整批收下來——",
+        "收了也會被匯入器與 check:integrity 的 isPlaceholder 擋掉，等於白抓 3,623 個請求。",
+        "要收的時候：`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 另出一份清單。",
+        "⚠️ 這批 5,153 項 × 3 個檔 ＝ 15,459 個檔擠在一層（URLLIST-SPEC 已提醒）。",
+        "key 不可含斜線，故無法分片；ext4 撐得住，但每輪 rsync 要掃這一萬五千個檔。"
+      ]
     },
     {
       "id": "knowledge-deity-entries",
