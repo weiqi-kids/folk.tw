@@ -85,7 +85,7 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 > ⚠️ **要排進配額日前段就必然落在台北下午，無法兩全。** 完整緣由寫在 `/etc/cron.d/seo-ops` 的
 > folk.tw 段註解。雲端三個 routine 與
 `seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
-**維運操作用 `/seo` skill；完整 runbook 見 [`docs/seo-automation.md`](docs/seo-automation.md)。** 共五段（另有反思層 05:20 台排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
+**維運操作用 `/seo` skill；完整 runbook 見 本檔。** 共五段（另有反思層 05:20 台排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
 1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
    產 `data/seo-daily/<台灣日期>.json`（**page×query／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
    → commit `[skip ci]` push → `index:ping`。手動：`pnpm data:seo-daily`。

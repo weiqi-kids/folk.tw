@@ -2,10 +2,22 @@
 
 > push main 即上線、無 staging。每一道 gate 都是拿事故換來的，移除前先讀它為什麼存在。
 
-> 本檔由 `CLAUDE.md` 於 2026-08-06 重整時抽出，**原文一字未改**。
-> 回索引：[`docs/README.md`](README.md)｜總路由：[`../CLAUDE.md`](../CLAUDE.md)
+> 2026-08-06 自 `CLAUDE.md` 抽出並依主題重新分組，**原文一字未改**。
+> 回索引：[`../README.md`](../README.md)｜總路由：[`../../CLAUDE.md`](../../CLAUDE.md)
+
+## 目次
+
+- **驗證套件與各 gate**
+  - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm c
+  - `check:copy-voice` 補掃資料 JSON 的散文欄位（2026-07-31）
+- **部署後通知搜尋引擎**
+  - 主動通知搜尋引擎（部署後跑這支）：`pnpm notify [url...|--all]`＝
+- **部署驗證的陷阱**
+  - 
 
 ---
+
+## 驗證套件與各 gate
 
 - 驗證套件（push 前跑）：`pnpm check:integrity` / `pnpm check`(astro) / `pnpm check:scoped-styles` / `pnpm check:design` / `pnpm check:design-tokens` / `pnpm check:copy-voice` / `pnpm check:content` / `pnpm check:outbound-urls` / `pnpm verify:almanac` / `pnpm build`（build 後另有 `check:canonical`／`check:rendered`）
   - 🔴 **`pnpm check`（astro check）是 CI 擋門、但不在 `pnpm build` 裡**（2026-08-03 立）：
@@ -38,6 +50,7 @@
       故改為**白名單**（`PROSE_JSON`）：只列確定全部是現代散文的檔與欄位，不整批放行 JSON。
       新增 `AI_TELLS` 通用套語表（總的來說／值得注意的是／讓我們／首先…其次…）。反例已實測會擋。
 
+## 部署後通知搜尋引擎
 
 - **主動通知搜尋引擎（部署後跑這支）**：`pnpm notify [url...|--all]`＝一鍵雙推，
   同一組網址同時送 Google＋IndexNow，涵蓋互補（Google 不參與 IndexNow）。
@@ -61,6 +74,9 @@
     與 `pnpm indexnow:ping`（IndexNow → Bing/Yandex/Seznam/Naver；金鑰檔 `public/<key>.txt`，
     內容＝檔名 stem，須先部署上線供驗證；回 HTTP 202＝已受理待驗證屬正常）。
   - 慣用流程：**改內容 → `git push origin main` 部署 → `pnpm notify`（或帶改動頁 url）**。
+
+## 部署驗證的陷阱
+
 
 - 部署驗證坑：`gh run list` 要**比對 headSha 是否為本次 commit**，否則會抓到上一次 run 誤判成功。
   - **2026-07-30 實遇「push 沒觸發 run」**：commit `279c351` push 成功（`git ls-remote` 確認遠端 main

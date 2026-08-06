@@ -178,6 +178,27 @@ const LEDGER = [
   },
 ];
 
+// ── LEDGER 結構自驗（2026-08-06 加）────────────────────────────────────────
+// 對帳段只擋「忘了把某個 job 加進 LEDGER」，擋不掉「加了但寫壞」。這一段補結構層：
+// stage 值合法、id 不重複、各 stage 必要欄位齊全、upstream 指到的檔真的存在。
+// 內容正不正確（描述有沒有寫錯）機器驗不了，那只能靠 review——但至少不該有壞掉的條目。
+const STAGES = { live: ['what', 'how', 'metric'], pending: ['goal', 'blocker', 'metric'],
+                 recon: ['verdict'], dropped: ['verdict'], infra: ['verdict'] };
+const ledgerErrors = [];
+const seenIds = new Set();
+for (const e of LEDGER) {
+  const at = `LEDGER「${e.id ?? '(無 id)'}」`;
+  if (!e.id) ledgerErrors.push(`${at}：缺 id`);
+  else if (seenIds.has(e.id)) ledgerErrors.push(`${at}：id 重複`);
+  else seenIds.add(e.id);
+  if (!STAGES[e.stage]) { ledgerErrors.push(`${at}：stage「${e.stage}」不合法（可用：${Object.keys(STAGES).join('／')}）`); continue; }
+  for (const f of STAGES[e.stage]) if (!e[f]) ledgerErrors.push(`${at}（stage=${e.stage}）：缺必要欄位 ${f}`);
+  if (e.upstream && !existsSync(e.upstream)) {
+    // 檔案可能已被 ingest 上位並清空 inbox，那是正常的——只在「該檔從未出現過」時才提醒。
+    ledgerErrors.push(`${at}：upstream 不存在（${e.upstream}）——若已被 ingest 上位屬正常，可把該欄拿掉或改指上位路徑`);
+  }
+}
+
 // ── 輸出 ────────────────────────────────────────────────────────────────────
 const jobState = (id) => state.jobs?.[id] ?? {};
 function jobLine(id) {
@@ -235,6 +256,12 @@ if (!BRIEF) {
 // religion-robots 與 crgis-folk-customs 兩個 manifest job，以及 26 個 inbox 檔。
 line();
 console.log('■ 對帳（LEDGER 未涵蓋者，看到就該補進 LEDGER 或確認可忽略）');
+if (ledgerErrors.length) {
+  console.log(`  ⚠️ LEDGER 結構問題 ${ledgerErrors.length} 處：`);
+  for (const e of ledgerErrors) console.log(`    · ${e}`);
+} else {
+  console.log('  LEDGER 結構自驗：✅ stage 合法、id 不重複、必要欄位齊全、upstream 檔案存在');
+}
 const ledgerIds = new Set(LEDGER.flatMap((e) => [e.id, ...(e.covers ?? [])]));
 const orphanJobs = manifest.jobs.map((x) => x.id).filter((id) => !ledgerIds.has(id));
 const orphanState = Object.keys(state.jobs ?? {}).filter((id) => !ledgerIds.has(id) && !orphanJobs.includes(id));

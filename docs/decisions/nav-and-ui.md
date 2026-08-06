@@ -3,7 +3,7 @@
 > 行動版佔流量 70%。nav 是全站 12,000 頁指向各樞紐的錨文字，改動影響面極大。
 
 > 本檔由 `CLAUDE.md` 於 2026-08-06 重整時抽出，**原文一字未改**。
-> 回索引：[`docs/README.md`](README.md)｜總路由：[`../CLAUDE.md`](../CLAUDE.md)
+> 回索引：[`../README.md`](../README.md)｜總路由：[`../../CLAUDE.md`](../../CLAUDE.md)
 
 ---
 

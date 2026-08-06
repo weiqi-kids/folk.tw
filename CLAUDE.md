@@ -97,7 +97,9 @@ pnpm data:weekly                                 # 週報乾跑預覽
 | 你要動的東西 | 先讀 |
 |---|---|
 | **廟宇頁**（meta／title／區塊／OG 卡／座標／外撥名單） | [`docs/decisions/temples.md`](docs/decisions/temples.md) |
-| **內容模組**（神明／籤詩／節日／情境／比較／行業／擇日／藥籤） | [`docs/decisions/content-modules.md`](docs/decisions/content-modules.md) |
+| **神明／籤詩／籤系／藥籤** | [`docs/decisions/deities-and-qian.md`](docs/decisions/deities-and-qian.md) |
+| **農民曆／宜忌／擇日** | [`docs/decisions/almanac.md`](docs/decisions/almanac.md) |
+| **節日／民俗活動／情境・比較・行業** | [`docs/decisions/festivals-and-intent.md`](docs/decisions/festivals-and-intent.md) |
 | **nav／版位／卡片規範** | [`docs/decisions/nav-and-ui.md`](docs/decisions/nav-and-ui.md) |
 | **部署流程／驗證套件／任何一道 gate／`pnpm notify`** | [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) |
 | **SEO 的「做／不做」裁示**（sitemap／稀釋／索引長尾） | [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md) |
