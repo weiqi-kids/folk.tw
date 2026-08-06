@@ -42,6 +42,13 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
 
 ## 2. 🔴 紅線（不可破壞）
 
+> **這裡只放「不知道自己碰到它時也可能違反」的規則**——因為本檔每次都自動載入，
+> 放太多會稀釋掉真正該一直記著的那幾條。
+> **場景限定的紅線**（措辭界線／祈福禁傷亡數字／授權判準／宜忌無源不發佈…）
+> 寫在對應的 `docs/` 檔裡，**進那個場景時才載入**，由下方 §4 文件地圖負責把你導過去。
+> ⚠️ 所以 §4 不是「參考資料」，是**動手前的強制步驟**。
+
+
 1. **絕不杜撰。** 查無權威源就留空。所有事實逐筆掛源，來源要能被機器複驗。
 2. **push main 即上線，無 staging。** 且 **push 後絕不可手動補跑 `deploy.yml`**——
    同 SHA 兩個 run 搶 Pages 佇列會毒化該 SHA，之後同 SHA 部署全部秒失敗。
@@ -52,18 +59,11 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
    （含「commit 訊息提到那個標記也會觸發它」的連帶陷阱，同上檔。）
 4. **slug 是永久承諾。** `/festivals/`、`/good-days/`、`/trades/`、`/scenarios/`、`/compare/`、
    `/qiugian/blessing/<id>/` 一旦上線就不可改、不可 404。
-5. **措辭界線：陳述「神明的」事實，不替廟方宣稱活動。** 可以說「該廟登記了這個祭典」「這位神明的
-   聖誕是某日」；不可說「這些廟在過中元節」「本廟那天有辦活動」。
-6. **時事祈福只做正向集氣**，面向使用者文案**絕不出現具體傷亡／災損數字**
-   （硬 gate `scripts/lib/topical-guard.mjs`，非靠 LLM 自律）。
-7. **個資不進 repo。** 本 repo 為 public：廟方電話與負責人只存 `/root/.config/folk-tw/`，
+5. **個資不進 repo。** 本 repo 為 public：廟方電話與負責人只存 `/root/.config/folk-tw/`，
    比對時只在記憶體中用。
-8. **授權判準是「這份資料在不在 data.gov.tw 上」，不是「從哪個網址抓的」**——
-   `religion.moi.gov.tw` 同時供應 OGDL 開放資料與受版權宣告保護的網站內容。
-   **完整對照表（唯一權威處）→[`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) 的「🔴 判準」一節。**
-9. **自己起的背景 server 一定要收**（`pnpm preview` 等），收尾必須 kill。
-10. **改變系統狀態的操作（cron／設定／排程），同一回合必須更新對應文件。**
-11. **要台灣端做事，同一則回覆必須附上可直接複製貼上的完整 prompt。** 那台是單向的
+6. **自己起的背景 server 一定要收**（`pnpm preview` 等），收尾必須 kill。
+7. **改變系統狀態的操作（cron／設定／排程），同一回合必須更新對應文件。**
+8. **要台灣端做事，同一則回覆必須附上可直接複製貼上的完整 prompt。** 那台是單向的
     （只能 rsync 寫進我們的 inbox、讀不到我們），用戶是唯一傳話人；
     「我寫進 docs 了」不會送達。骨架見 [`docs/TODO-FOR-TAIWAN.md`](docs/TODO-FOR-TAIWAN.md)。
 
@@ -98,21 +98,24 @@ pnpm data:weekly                                 # 週報乾跑預覽
 
 | 你要動的東西 | 先讀 |
 |---|---|
-| **廟宇頁**（meta／title／區塊／OG 卡／座標／外撥名單） | [`docs/decisions/temples.md`](docs/decisions/temples.md) |
+| **廟宇頁**（meta／title／區塊／OG 卡／座標／外撥名單） | [`docs/decisions/temples.md`](docs/decisions/temples.md) 🔴 |
 | **神明／籤詩／籤系／藥籤** | [`docs/decisions/deities-and-qian.md`](docs/decisions/deities-and-qian.md) |
-| **農民曆／宜忌／擇日** | [`docs/decisions/almanac.md`](docs/decisions/almanac.md) |
-| **節日／民俗活動／情境・比較・行業** | [`docs/decisions/festivals-and-intent.md`](docs/decisions/festivals-and-intent.md) |
+| **農民曆／宜忌／擇日** | [`docs/decisions/almanac.md`](docs/decisions/almanac.md) 🔴 |
+| **節日／民俗活動／情境・比較・行業** | [`docs/decisions/festivals-and-intent.md`](docs/decisions/festivals-and-intent.md) 🔴 |
 | **nav／版位／卡片規範** | [`docs/decisions/nav-and-ui.md`](docs/decisions/nav-and-ui.md) |
 | **部署流程／驗證套件／任何一道 gate／`pnpm notify`** | [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) |
 | **SEO 的「做／不做」裁示**（sitemap／稀釋／索引長尾） | [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md) |
 | **慶(祭)典資料**（曆別陷阱／對映規則／來源矛盾） | [`docs/festival-data-import.md`](docs/festival-data-import.md) |
-| **時事集氣祈福管線**（P1–P4） | [`docs/topical-blessing.md`](docs/topical-blessing.md) |
-| **台灣端投遞管道**（現況／授權／每份資料去向） | [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) |
+| **時事集氣祈福管線**（P1–P4） | [`docs/topical-blessing.md`](docs/topical-blessing.md) 🔴 |
+| **台灣端投遞管道**（現況／授權／每份資料去向） | [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) 🔴 |
 | **台灣端怎麼運作**（金鑰／manifest 欄位契約／rsync） | [`docs/taiwan-host-handoff.md`](docs/taiwan-host-handoff.md) |
 | **要台灣端做事**（prompt 骨架／追蹤清單／不要再問的事） | [`docs/TODO-FOR-TAIWAN.md`](docs/TODO-FOR-TAIWAN.md) |
 | **SEO 自動化閉環**（收集／反思／大腦／週報） | [`docs/seo-automation.md`](docs/seo-automation.md)、`/seo` skill |
 | **藥籤產製規格** | [`docs/yaoqian-physician-spec.md`](docs/yaoqian-physician-spec.md) |
 | 全部文件一覽 | [`docs/README.md`](docs/README.md) |
+
+🔴 ＝**該檔內含場景限定的紅線**，動那塊之前必須讀。它們刻意不放在上面的總紅線區——
+本檔每次都自動載入，把場景警語全塞進來會稀釋掉真正該一直記著的那八條。
 
 **專案脈絡與用戶偏好** → 自動記憶 `/root/.claude/projects/-root-folk-tw/memory/`（`MEMORY.md` 為索引）。
 **主機維運與工作方法** → `/root/CLAUDE.md` 與 `/root/.claude/doctrine/`。
