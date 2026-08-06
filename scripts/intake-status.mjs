@@ -130,6 +130,27 @@ const LEDGER = [
   {
     stage: 'recon', id: 'FOUNDATION-FORM-PAYLOAD / URLLIST-SPEC',
     verdict: '寺廟查詢表單 payload（兩版實測 byte-identical）與 url_list 型 job 規格（台灣端已實作自測 67/67）。**目前無 job 使用**，將來要開直接拿。',
+    covers: ['recon-service/temple-export.ods', 'recon-service/foundation-temple-entry.html',
+      'recon-service/search-country-C-pagesize20-p1.html', 'recon-service/search-country-C-pagesize100-p1.html',
+      'recon-service/search-name-zhenlangong.html', 'recon-service/getuploadfile-63443-idx2-yange.json',
+      'recon-service/getuploadfile-70281-idx4-canbai.json', 'recon-service/getuploadfile-74678-idx3-jianzhu.json',
+      'misc/religion-copyright.html'],
+  },
+  {
+    stage: 'infra', id: 'religion-robots',
+    verdict: '抓取前的禮貌檢查（該站 robots.txt 回 404＝未宣告任何限制）。不是資料，不進站。',
+    upstream: join(INBOX, 'misc/religion-robots.txt'),
+  },
+  {
+    stage: 'dropped', id: 'crgis-folk-customs',
+    verdict: '中研院文化資源地理資訊系統。自 2026-07-30 起站台本身停擺（台灣端亦不通＝非境內外差異）。已設 `_alert: false` 靜音，每輪仍重試。🔴 **是連不上，不是沒有資料——不得據此判定該來源無效或刪掉 job。**',
+  },
+  {
+    stage: 'dropped', id: 'culture-collections-guanyin / qianshi / qianbu',
+    verdict: '觀音籤第一輪偵察抓回的三個檔**都是網站外殼**（各 99,414 bytes，「觀音」「籤詩」在內容出現 0 次）——collections.culture.tw 不吃 `?keyword=` GET 參數，真正的搜尋是 ASP.NET POST 表單。三個檔無用，已由 RECON-guanyin-qian.md 取代。',
+    upstream: join(INBOX, 'misc/culture-collections-guanyin.html'),
+    covers: ['culture-collections-guanyin', 'culture-collections-qianshi', 'culture-collections-qianbu',
+      'misc/culture-collections-qianshi.html', 'misc/culture-collections-qianbu.html'],
   },
   {
     stage: 'dropped', id: 'collections.culture.tw',
@@ -195,6 +216,24 @@ if (!BRIEF) {
   console.log('■ 四、放棄／暫停');
   for (const e of LEDGER.filter((x) => x.stage === 'dropped')) console.log(`\n  ● ${e.id}\n    ${e.verdict}`);
 }
+
+// ── 對帳：LEDGER 沒涵蓋到的東西一律列出來 ────────────────────────────────────
+// 🔴 這一段是必要的，不是裝飾。LEDGER 是**手維護**的表，新增 job 或新收到檔案時若忘了補，
+// 報告會「看起來完整其實漏掉」——那比沒有報告更危險。實例：初版 LEDGER 漏了
+// religion-robots 與 crgis-folk-customs 兩個 manifest job，以及 26 個 inbox 檔。
+line();
+console.log('■ 對帳（LEDGER 未涵蓋者，看到就該補進 LEDGER 或確認可忽略）');
+const ledgerIds = new Set(LEDGER.flatMap((e) => [e.id, ...(e.covers ?? [])]));
+const orphanJobs = manifest.jobs.map((x) => x.id).filter((id) => !ledgerIds.has(id));
+const orphanState = Object.keys(state.jobs ?? {}).filter((id) => !ledgerIds.has(id) && !orphanJobs.includes(id));
+// inbox 檔：LEDGER 的 upstream 已指到的、以及純文件（.md）之外的
+const covered = new Set(LEDGER.flatMap((e) => [e.upstream, ...(e.covers ?? [])]).filter(Boolean).map((p2) => String(p2).replace(`${INBOX}/`, '')));
+const orphanFiles = inboxFiles.filter((f) => !covered.has(f) && !f.endsWith('.md') && f !== 'state.json');
+console.log(`  manifest 有但 LEDGER 無：${orphanJobs.length ? orphanJobs.join('、') : '無'}`);
+console.log(`  state.json 有但兩邊都無：${orphanState.length ? orphanState.join('、') : '無'}`);
+console.log(`  inbox 檔未被 LEDGER 指到：${orphanFiles.length ? `${orphanFiles.length} 個` : '無'}`);
+if (orphanFiles.length && !BRIEF) for (const f of orphanFiles) console.log(`    · ${f}`);
+console.log(`  inbox 內的說明文件（.md，不需 LEDGER）：${inboxFiles.filter((f) => f.endsWith('.md')).length} 份`);
 
 line();
 console.log(`站上相關資料：沿革 ${M.history}／簡介 ${M.intro}／開放時間 ${M.openTime}　（共 ${M.temples} 間廟）`);

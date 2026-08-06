@@ -119,3 +119,29 @@ inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync
    台灣端遇到不認得的欄位會**整個停擺**（2026-08-01 事故換來的）。
    境外端專用的開關一律用底線開頭（`_alert` 等），台灣端會忽略。
 4. **給台灣端的工單寫進 repo ≠ 送達**：用戶是唯一傳話人，同一則回覆就要附上可貼的指令。
+
+---
+
+## 附錄：管道建置的原始記錄（2026-08-06 自 CLAUDE.md 抽出，原文未改）
+
+> - 收件：`/root/.config/folk-tw/intake/inbox/`（**repo 外**，因 temple.xml 含 12,419 間廟的
+>   電話與負責人＝個資，而本 repo 為 public 且每日 seo cron 會 commit 整個工作區）
+> - 處理：`scripts/intake-ingest.mjs`（驗 sha256＋expect → 原子 rename 上位 → 舊版進 archive；
+>   **內容與現有上位檔相同就略過上位、不歸檔**）；`scripts/intake-watch-cron.sh`
+>   （每小時 :07 收件、每日 01:20 UTC 查新鮮度）；排程 `/etc/cron.d/folk-intake`
+> - 🔴 **新鮮度提醒的判準是台灣端回傳的 `state.json`，不是本地檔案 mtime**（2026-08-03 改，
+>   commit `8e595aa`＋`d0ea634`）。只有**境外端能動手**的兩種情況發 Slack：①`state.json` 逾 36h
+>   沒更新＝台灣端沒在跑 ②台灣端記錄抓取成功、sha 也與現有檔不同，檔卻沒進來＝rsync 那段斷了。
+>   **來源掛了／來源沒更新一律不發**（用戶：「台灣端資料不一定會有更新，主要還是看資料來源」）。
+>   病灶＝舊版只做 `ageDays(檔案)`，於是每天對著掛掉的中研院 CRGIS 發「台灣主機的抓取腳本可能
+>   沒在跑」，而同一份 state.json 正寫著台灣端前一晚才跑過＝**指控錯的一方**。
+>   已知停擺的來源在 manifest 加 `_alert: false` 靜音（目前只有 crgis）。
+>   ⚠️ **境外端專用欄位一律底線開頭**——台灣端遇到不認得的 manifest 欄位會**整個停擺**
+>   （handoff 3.5，2026-08-01 事故換來的）。
+>   ⚠️ 「略過上位」與「靠 sha 判新鮮度」是**配套**：略過後 mtime 就凍住，只看 mtime 必然誤報。
+> - ⚠️ **`expect` 的絕對下限擋不住殘檔**：2026-07-30 實測 5 MB 截斷檔（真檔 6.27 MB）通過
+>   `min_bytes: 4000000` 並**覆蓋掉完整檔**（12,419 筆只剩前 5 MB），靠 archive 救回。
+>   故必須有 `not_smaller_than_current_pct`（不得比現有檔小 10% 以上）與 `min_occurrences`
+>   （整檔記錄筆數下限）兩道**相對**檢查。改 manifest 時別把這兩道拿掉。
+> - ⚠️ 上位必須原子（寫暫存再 `rename`）：`/root/.config/folk-tw/temple.xml` 被
+>   `/root/folk-outreach/outreach-daily.mjs` 每日 04:30 台北讀取，讀到半個檔會產生錯誤的外撥名單。

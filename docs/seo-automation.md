@@ -57,3 +57,73 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 
 見 `/root/seo-ops/README.md`（§ 驗證、§ 回滾、§ 反思）。大腦回退：`git log --oneline | grep auto-claude-seo`
 → `git revert <sha> && git push origin main`。反思回退：`git -C /root/seo-ops revert <commit>`（前綴 `[auto-claude-reflect]`）。
+
+---
+
+## 附錄：閉環總覽（2026-08-06 自 CLAUDE.md 抽出，原文未改）
+
+## 🔁 每日自動優化閉環（2026-07-02 起由統一框架 `/root/seo-ops` 接手）
+
+> ⚠️ **2026-07-02 遷移**：六層（收集/心跳/反思/大腦/週報/內容；folk 無內容層）改由 `/root/seo-ops` 統一框架執行，
+> 排程在 `/etc/cron.d/seo-ops`（時刻沿用原值）、站台參數在 `seo-ops/sites/folk.tw.json`、
+> 大腦站規在 `seo-ops/playbooks/folk.tw.md`、log 在 `seo-ops/logs/folk.tw-*.log`。
+> 本節下方描述的 `scripts/seo-*` 舊腳本與 `/etc/cron.d/folk-tw-seo*` 已退役（腳本檔保留供查考；
+> cron 備份在 `/root/.claude/backups/seo-cutover-20260702-023954/`）。維運指南見 `seo-ops/README.md`。
+
+全部跑在**這台 server 的 cron**（排程 `/etc/cron.d/seo-ops`，log 在 `/root/seo-ops/logs/`）。
+
+> 🔴 **2026-08-01 排程改點（勿順手改回清晨）**：folk.tw 三層從台北清晨移到下午——
+> **collect 15:30、反思 16:00、大腦 16:40**（UTC 07:30／08:00／08:40）。
+> 原因：**Google Indexing API 的每日 200 配額是 per GCP 專案**，不是 per 站
+> （API 實測回 `project_number:970644545797`、`quota_unit "1/d/{project}"`），
+> 而 seo-ops 有 **5 站共用同一把 `ga4-insights@yaocare`**（arthurs.tw／folk.tw／sutta.io／
+> twdro.net／vuko.life；12 個站台設定檔 sha256 比對，11 個完全相同），等於共搶同一份 200。
+> 配額以**太平洋時間**換日 ≈ 07:00 UTC ≈ **台北 15:00**。原本 folk.tw collect 排 20:30 UTC＝
+> 配額日 +13.5h，前面三站先吃光 → **實測待送佇列（含農曆七月節日頁）連兩天一筆都沒送出**，
+> 兩次手動執行都是第一筆就 429。移到 +0.5h 成為第一順位。
+> **代價**：每日 Slack 心跳（`seo-collect.mjs` 直接 import slack）從早上變下午，用戶已同意。
+> ⚠️ **要排進配額日前段就必然落在台北下午，無法兩全。** 完整緣由寫在 `/etc/cron.d/seo-ops` 的
+> folk.tw 段註解。雲端三個 routine 與
+`seo-daily.yml`／`weekly-report.yml`／`seo-notify.yml` 三個 Action 已退役刪除。
+**維運操作用 `/seo` skill；完整 runbook 見 [`docs/seo-automation.md`](docs/seo-automation.md)。** 共五段（另有反思層 05:20 台排在大腦前，自動改寫 playbook 策略段，見 `/root/seo-ops/README.md` § 反思）：
+1. **收集 04:30 台**＝`scripts/seo-collect-cron.sh`（純 node）：`seo-daily.mjs` 拉 GA4+GSC →
+   產 `data/seo-daily/<台灣日期>.json`（**page×query／strikingDistance 排名5-15／highImpZeroClick／index 覆蓋**）
+   → commit `[skip ci]` push → `index:ping`。手動：`pnpm data:seo-daily`。
+2. **心跳 05:00 台**＝`scripts/seo-report-slack.mjs`（純 node）：讀當日 JSON → 發 Slack `神酷-folk-tw`（C0BCPHBF1ML）純數據。
+3. **大腦 05:55 台**＝`scripts/seo-brain-cron.sh`（headless `claude -p`，Sonnet）：讀當日 JSON → 驗昨日 `-actions.md` 勝負 →
+   **守三護欄優化**（事實必查權威源否則只動內鏈/meta＝**絕不杜撰**；≤5 檔；check:integrity+build 不過不 push）→
+   commit **`[auto-claude-seo]`** → push（`git pull --rebase` 防搶先；push 即自動觸發 deploy，比對 headSha 確認）→
+   `pnpm notify` 雙推 Google+IndexNow → 寫 `-actions.md` → 發 Slack（首行 **🚦 行動標籤**）。失敗發 **🔴 保底 Slack**。
+4. **週報 週一 09:30 台**＝`scripts/seo-weekly.mjs`（純 node）：抓一次 → 開週報 Issue → Slack 發重點＋**索引稀釋判讀**＋Issue 連結。
+- **授權**：大腦 headless **不用** `--dangerously-skip-permissions`，改靠專案層 `.claude/settings.json` 指令白名單；`IS_SANDBOX=1` 僅供 root 執行。
+  Slack 用 folk 專屬 bot（App「好棋寶寶 Claude 助手」，token `/root/.config/folk-tw/slack-bot-token`）。
+- **回退**：`git log --oneline | grep auto-claude-seo` → `git revert <sha>`。**檢視**：Slack 每日/週摘要，或 `data/seo-daily/<date>-actions.md`。
+- ⚠️ **push main 會自動觸發 deploy（deploy.yml on:push 實測 2026-07-02 確認）**，**絕不可再手動補 `gh workflow run deploy.yml`**：
+  同 SHA 兩個 run 搶 Pages 佇列 → 先到者逾時取消部署時會把該 SHA 的 build version 標成 cancelled →
+  後續同 SHA 部署全部秒失敗，只能推新 commit 換 SHA 解。（大腦 playbook 已於 7/2 禁止補跑、7/4 移除
+  playbook 殘留的「本機 push 不觸發部署」過時句。）**唯一允許的介入**：deploy job 因 Pages 服務端暫時性
+  錯誤失敗（build job 成功）時，`gh run rerun <run-id> --failed` 重跑同一 run 一次（不另開 run、無毒化
+  風險，2026-07-04 實證）；再失敗交人工。
+
+---
+
+## 附錄：2026-07-02 的起飛基準（歷史存查，數字已過期，現況看週報）
+
+## 🔴 第一優先：已進入搜尋，觀察 CTR 與收錄轉化（2026-07-02 更新）
+
+每週一 09:30(台) cron（`/root/seo-ops` 框架週報層）：抓一次資料 → 開週報 Issue（含索引稀釋判讀）→ Slack `神酷-folk-tw` 發重點＋Issue 連結。
+**人要看的數據（gh issue list --label weekly-report 讀最新週報，或看 Slack）：**
+
+1. **起飛已確認（2026-07-02 查證）**：週報 6/30（Issue #4）：台灣自然搜尋訪客 **137/週**（前週 5）、
+   GSC 曝光 5,572、點擊 111；日收集（資料窗至 6/29）：7 天點擊 172（週增 24%）、曝光 9,845（週增 26%）、平均排名 10.8。
+   （舊基準留檔供對照：2026-06-21 前 90 天僅 47 曝光/3 點擊、GA4 27 sessions 幾乎全 Direct＝形同不存在。）
+2. **索引收錄轉化（續觀察）**：旗艦獨特頁 **3/5 已收錄**（`/deities/mazu` 從 unknown 轉 ✅、
+   `/poems/liushi_jiazi-1` ✅、`/allusions/suitang_qinshubao` ✅）；`/deities/guangong` 仍 Discovered-not-indexed
+   （URL Inspection 偶回 unknown＝API 既有雜訊，8 天內交替出現，勿當退化）；`/poems` 仍 Crawled-not-indexed。
+3. **廟宇頁 CTR（新焦點）**：廟宇頁已佔曝光 **52%**（基準時「廟宇頁 0 搜尋貢獻」的前提已被推翻）。
+   CTR≈0 的結構性根因（全站 ~6500 廟宇頁無 meta description、落回首頁通用文案）已由大腦 7/2
+   commit `a231e2d` 修復；**7/4 起看廟宇頁整體 CTR 是否回升**（結構性改動，看群體趨勢非單頁）。
+4. **Sitemap 提交數疑點（2026-07-16 已修正結案）**：根因＝**週報腳本計數 bug**，非 GSC 後台有問題。
+   線上結構正確（robots.txt 只宣告 `sitemap-index.xml` 包裹層→指向 `sitemap-0.xml`），但 GSC API 會同時
+   列出 index 與其子檔（各報 submitted 9,825），`seo-weekly.mjs` 原本一併相加＝雙倍虛胖（9,825×2≈19,570）。
+   commit `fa480f6` 改為**只計葉子 sitemap、跳過 `isSitemapsIndex` 包裹層**，乾跑回正 9,825。無需進 GSC 刪 sitemap。
