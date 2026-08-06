@@ -85,7 +85,21 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 
 ## 台灣端目前的待辦
 
-**無。** 上一輪（2026-08-05 `Festival.xml` 核對）已收尾，結論是不換來源。
+### 2026-08-06 發出：`local-celebration` 補抓第 2–6 頁
+
+- **為什麼要人做、不能加 manifest job**：`LocalCelebration/Index?ci=96` 的分頁是
+  **POST**（頁面 JS：`SubmitForm.action = "Index?ci=96&page=" + p; method = "post"`），
+  固定 URL 的機械 job 只抓得到第一頁（2026-08-06 實測手上那份就是第一頁）。
+- **要他們先回答的問題**：`GET Index?ci=96&page=2` 到底行不行。
+  - **行** → 我把剩下幾頁各加一個一般 job（2026-08-06 實測共 6 頁，故為第 2–6 頁），
+    之後全自動，這件事永久結案。
+  - **不行** → 這次請他們手動 POST 抓一次，並回報要怎麼做才會成功。
+- **順便偵察（只看不抓，不匯入）**：任一筆的詳情頁 `/LocalCelebration/Content?ci=96&cid=1`
+  **有哪些欄位**。若含主辦單位／地點／廟名這類事實欄位，頁型方案會不一樣；
+  若只有簡介與照片，那是語文／攝影著作，本案就只用列表層的四個欄位。
+- **驗收**：`out/misc/local-celebration-ci96-p2..p6.html`（各附 `.sha256`／`.meta.json`）。
+  2026-08-06 實測頁面自稱「共 6 頁，65 筆」、第一頁 12 筆 → 補齊後總筆數應為 65。
+  對不上就是漏頁，回報，不要自己補。
 
 要新增待辦時：寫在這一節，**同時**在給用戶的回覆裡附上完整 prompt。
 

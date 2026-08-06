@@ -185,7 +185,9 @@ HTML 每列 7 欄：`慶、祭典名稱｜宗教團體名稱｜宗教別｜行�
 `/root/.config/folk-tw/intake/inbox/misc/`：
 - `knowledge-zaoshen-cid265.html` — 灶神條目，用來補 `deities.json` 灶神的 `iconography`
 - `knowledge-deities-list-cid3.html` — 宗教神祇分類列表（96 條）
-- `local-celebration-ci96.html` — 地方宗教慶典行政成果
+- `local-celebration-ci96.html` — 地方宗教慶典行政成果。2026-08-06 用戶裁示有用，
+  但這**只是第 1 頁**（分頁走 POST，機械 job 抓不到），已發工單補抓其餘。
+  卡點與授權脈絡見 [`taiwan-intake-status.md`](taiwan-intake-status.md) §二
 
 ## CRGIS 現況
 

@@ -109,9 +109,12 @@ const LEDGER = [
   },
   {
     stage: 'pending', id: 'local-celebration',
-    goal: '（用途未定）地方宗教慶典行政成果',
-    blocker: '⚠️ 尚未定義要拿它做什麼——決定用途前不要動手',
-    metric: () => '未使用',
+    goal: '地方宗教慶典 65 筆（縣市＋曆別＋月日＋活動名稱）→ 節日／活動頁素材。2026-08-06 用戶裁示「有用」',
+    blocker:
+      '⛔ 資料只有 1/6：列表分 6 頁共 65 筆，手上只有第 1 頁的 12 筆（分頁是 POST `Index?ci=96&page=N`，不是 GET，' +
+      '所以加 URL job 抓不到）。2026-08-06 已發工單請台灣端先測 GET 分頁、不行則手動補抓 2–6 頁。' +
+      '⚠️ 頁型方案要等 65 筆到齊才定——覆蓋率決定可行方案（12 筆樣本：1 筆對得上既有節日頁、2 筆連得到廟、其餘 9 筆無對應）',
+    metric: () => '未使用（等第 2–6 頁）',
     upstream: join(INBOX, 'misc/local-celebration-ci96.html'),
   },
   {
@@ -235,10 +238,25 @@ for (const e of LEDGER.filter((x) => x.stage === 'pending')) {
   console.log(`    現況：${e.metric()}`);
 }
 
-const stuck = Object.entries(state.jobs ?? {}).filter(([, s]) => !s.last_ok && s.attempts > 0);
+// 🔴 已靜音（manifest `_alert: false`）的 job 不能跟真正卡住的並列。
+// 2026-08-06：我把 crgis 當成「唯一還在壞、該去修的東西」推薦給用戶，
+// 但 manifest 早就寫明那是上游站台停擺、失敗屬預期、且不得刪 job——
+// 把它印在「抓取一直失敗」底下，等於每次都邀請下一個人重犯同一個誤判。
+const silenced = new Set(manifest.jobs.filter((x) => x._alert === false).map((x) => x.id));
+const failed = Object.entries(state.jobs ?? {}).filter(([, s]) => !s.last_ok && s.attempts > 0);
+const stuck = failed.filter(([id]) => !silenced.has(id));
+const watching = failed.filter(([id]) => silenced.has(id));
 if (stuck.length) {
   console.log('\n  ● 抓取一直失敗的 job');
   for (const [id, s] of stuck) console.log(`    ${id}：連續 ${s.attempts} 次｜${String(s.last_error ?? '').slice(0, 50)}`);
+}
+if (watching.length) {
+  console.log('\n  ● 上游停擺，監看中（失敗屬預期，沒有事情要做）');
+  for (const [id, s] of watching) {
+    const note = manifest.jobs.find((x) => x.id === id)?._alert_note ?? '';
+    console.log(`    ${id}：連續 ${s.attempts} 次｜${String(s.last_error ?? '').slice(0, 40)}`);
+    if (note) console.log(`      ↳ ${note}`);
+  }
 }
 
 if (!BRIEF) {
