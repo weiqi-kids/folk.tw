@@ -85,8 +85,18 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 
 ## 台灣端目前的待辦
 
-**無。** 上一輪（2026-08-06 `local-celebration` 補頁）已收尾並結案，結論見下一節與
-`scripts/intake-status.mjs` 的 `LEDGER`。
+### 2026-08-06 發出：立刻跑一輪（不要等 04:17）
+
+授權關卡已解（見 [`taiwan-intake-status.md`](taiwan-intake-status.md) §2026-08-06），
+manifest 同日更新到 v8 並新增兩個 job。**它們是機械 job，不需要判斷**——
+唯一的要求是「現在就跑一輪」，而不是等隔天 04:17，因為境外端整條下游
+（清單產出 → 內容抓取 → 匯入）都在等這批。
+
+- `knowledge-deity-entries`（**第一個 `url_list` 型 job**）：宗教知識+ 神祇條目全文
+- `religion-foundation-list`（`paginate` POST）：宗教團體查詢結果全量，PageSize=100
+
+⚠️ 這兩個都會用掉不少請求，`max_requests_per_run` 用完就記斷點收工是正常的，
+下一輪自動續傳，**不要為了跑完而調高上限或縮短間隔**。
 
 要新增待辦時：寫在這一節，**同時**在給用戶的回覆裡附上完整 prompt。
 

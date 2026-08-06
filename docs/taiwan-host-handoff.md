@@ -292,7 +292,8 @@ rsync -az --partial --ignore-times \
 | 慶典升為正式 manifest job | ✅ **已完成**：manifest v5 已有 `religion-festival-entry` 與 `religion-festival-ods` 兩個 job，皆抓取成功 | 2026-08-06 補記 |
 | 「寺廟服務資訊」偵察 | ✅ **確認無此來源，本線結案**：服務項目／開放時間／創建年代／安太歲／光明燈／問事／收驚／籤詩籤系，在查詢表頭、ODS 23 欄、`GetUploadFile` 三處皆不存在（台灣端 2026-08-05 回報，境外端另已排除觀光署景點庫、新北市寺廟資料、文化部 nchdb、臺灣宗教文化地圖）。**不要再找替代來源。** | 2026-08-05 |
 | 寺廟 ODS 全量（`FoundationOdsReport.ods`） | ✅ 已收 `recon-service/temple-export.ods`；境外端實解＝**13,608 筆 23 欄**，與台灣端回報一字不差。⏳ 待台灣端回 form payload 才能升為 manifest job | 2026-08-05 |
-| 沿革／參拜流程收割 | ⛔ **暫停，卡在授權（不是卡在技術）**。兩個前置條件都已滿足：form payload 已於 2026-08-05 送達（`inbox/recon-service/FOUNDATION-FORM-PAYLOAD.md`）、`url_list` 台灣端已實作自測 67/67（🔴 依 §3.5，境外端在收到「已實作並自測」前不得把該欄位放進 manifest）。範圍＝沿革 idx=2（4,325 筆）＋參拜流程 idx=4（828 筆）；建築特色 idx=3 先抓 30 筆樣本評估佔位值比例 | 2026-08-05 |
+| 沿革／參拜流程收割 | ✅ **2026-08-06 授權已解**（內政部同意，條件＝標示資料來源連結）。現在卡的是**技術前置**：`UploadFileID` 不在任何開放資料集，要先由 `religion-foundation-list`（manifest v8）收查詢結果頁，才產得出 `url_list` 清單。四段流程與各自的匯入器見 `scripts/gen-intake-urls-yange.mjs` 檔頭。⚠️ `religion-yange` job **等清單檔產出後才可加進 manifest**——清單不存在時加上去，台灣端抓清單會 404 而整個 job 停擺。以下為授權解除前的紀錄： |
+| ~~沿革／參拜流程收割（舊）~~ | ⛔ **暫停，卡在授權（不是卡在技術）**。兩個前置條件都已滿足：form payload 已於 2026-08-05 送達（`inbox/recon-service/FOUNDATION-FORM-PAYLOAD.md`）、`url_list` 台灣端已實作自測 67/67（🔴 依 §3.5，境外端在收到「已實作並自測」前不得把該欄位放進 manifest）。範圍＝沿革 idx=2（4,325 筆）＋參拜流程 idx=4（828 筆）；建築特色 idx=3 先抓 30 筆樣本評估佔位值比例 | 2026-08-05 |
 | 授權聲明頁 | ✅ 已收 `misc/religion-copyright.html`。**結論見下方「授權盤點」** | 2026-08-05 |
 | `url_list` 型 job（階段二用） | ✅ 台灣端已實作並自測（67/67，paginate 29/29 無回歸）。**目前無 job 使用**（沿革收割因授權暫緩） | 2026-08-05 |
 
