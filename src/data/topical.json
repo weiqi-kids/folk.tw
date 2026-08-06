@@ -219,8 +219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-05",
-      "empty_runs": 1
+      "last_checked": "2026-08-06",
+      "empty_runs": 2
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -509,8 +509,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-05",
-      "empty_runs": 1
+      "last_checked": "2026-08-06",
+      "empty_runs": 2
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1935,6 +1935,12 @@
     "lon": 132.044137,
     "detector": "news",
     "since": "2026-08-05",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-06",
+      "empty_runs": 1
+    }
   }
 ]
