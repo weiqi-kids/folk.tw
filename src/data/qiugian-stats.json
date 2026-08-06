@@ -1,11 +1,12 @@
 {
   "_note": "求籤共情層聚合資料。冷啟動為 0；日後由 GA Data API 每晚聚合更新（每日排程重建套用）。數字為真、少算不灌水。",
   "qiuzhi": {
-    "week_draws": 13,
+    "week_draws": 14,
     "baoxi": 0,
     "top": {
       "9": 3,
       "10": 1,
+      "12": 1,
       "14": 1,
       "15": 1,
       "22": 1,
@@ -44,10 +45,11 @@
     "joys": []
   },
   "caiyun": {
-    "week_draws": 8,
+    "week_draws": 10,
     "baoxi": 0,
     "top": {
-      "12": 2,
+      "12": 3,
+      "16": 1,
       "22": 1,
       "35": 1,
       "49": 1,
@@ -58,31 +60,35 @@
     "joys": []
   },
   "jiankang": {
-    "week_draws": 3,
+    "week_draws": 4,
     "baoxi": 0,
     "top": {
       "4": 1,
       "41": 1,
+      "48": 1,
       "56": 1
     },
     "joys": []
   },
   "yunshi": {
-    "week_draws": 5,
+    "week_draws": 6,
     "baoxi": 0,
     "top": {
       "4": 1,
       "10": 1,
       "11": 1,
+      "22": 1,
       "24": 1,
       "29": 1
     },
     "joys": []
   },
   "qiuzi": {
-    "week_draws": 0,
+    "week_draws": 1,
     "baoxi": 0,
-    "top": {},
+    "top": {
+      "38": 1
+    },
     "joys": []
   },
   "topical": {
