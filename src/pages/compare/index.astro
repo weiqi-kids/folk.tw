@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getDeities } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import comparisons from '../../data/comparisons.json';
+import { imageCreditTitle } from '../../lib/image-credit';
 
 const deities = await getDeities();
 const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
@@ -34,7 +35,7 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
                 class="card-photo-img"
                 src={img.src}
                 alt={img.alt}
-                title={`圖：${img.author}　·　${img.license}（Wikimedia Commons，詳見關於頁）`}
+                title={imageCreditTitle(img)}
                 width="72"
                 height="72"
                 loading="lazy"

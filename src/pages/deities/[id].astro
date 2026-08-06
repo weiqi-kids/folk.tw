@@ -7,6 +7,7 @@ import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
+import { imageCredit } from '../../lib/image-credit';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -204,6 +205,23 @@ const jsonLd = [
     )
   }
 
+  {/* 代表圖（2026-08-06 起在詳情頁也顯示；原本只有 /deities/ 索引頁的卡片用得到）。
+      出處標示走 `imageCredit()` 唯一入口——內政部的照片**必須給可點的來源連結**（授權條件）。 */}
+  {
+    d.image && (
+      <figure class="deity-photo">
+        <img src={d.image.src} alt={d.image.alt} loading="lazy" decoding="async" />
+        <figcaption class="muted small">
+          {imageCredit(d.image).href ? (
+            <a href={imageCredit(d.image).href!} rel="noopener">{imageCredit(d.image).text}</a>
+          ) : (
+            imageCredit(d.image).text
+          )}
+        </figcaption>
+      </figure>
+    )
+  }
+
   {/* 內政部「宗教知識+」條目引文（2026-08-06）：**逐字引用**，一個字都不改寫。
       授權條件就是「標示資料來源連結」，所以來源連結是這一段的必要組成，不是後設警語——
       拿掉它就違反授權（別把它當成 no-meta-disclaimers 那類可省的句子）。
@@ -396,6 +414,9 @@ const jsonLd = [
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .summary { font-size: var(--text-base); }
+    .deity-photo { margin: 1rem 0 1.5rem; }
+    .deity-photo img { width: 100%; height: auto; border-radius: 0.25rem; display: block; }
+    .deity-photo figcaption { margin-top: 0.375rem; }
     .moi-quote { margin: 0.75rem 0 0.5rem; padding: 0 0 0 1rem;
       border-left: 3px solid var(--line); color: var(--ink); }
     .moi-quote p { margin: 0 0 0.75rem; }

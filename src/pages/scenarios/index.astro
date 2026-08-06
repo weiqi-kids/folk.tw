@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getScenarios, getDeities } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import { affairNameOf } from '../../lib/almanac/select';
+import { imageCreditTitle } from '../../lib/image-credit';
 
 const scenarios = await getScenarios();
 const deities = await getDeities();
@@ -41,7 +42,7 @@ const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]
                 class="card-photo-img"
                 src={img.src}
                 alt={img.alt}
-                title={`圖：${img.author}　·　${img.license}（Wikimedia Commons，詳見關於頁）`}
+                title={imageCreditTitle(img)}
                 width="72"
                 height="72"
                 loading="lazy"

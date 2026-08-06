@@ -89,6 +89,8 @@ let qifuWithConcern = 0;
 let qifuIntro = 0;
 let qifuOpen = 0;
 let moiDetailTemples = 0;
+let templePhotos = 0;
+let deityPhotos = 0;
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -284,6 +286,25 @@ for (const t of temples) {
     violations.push(`${t.id}（無 open_time 資料）不應顯示開放時間列，實際卻有`);
   }
 
+  // 不變量 1i（2026-08-06 加）：代表圖與**出處標示**。
+  // 🔴 內政部的照片有兩項義務，缺一即違規，故兩項都硬擋：
+  //    ① 攝影者姓名（著作人格權的姓名表示）必須印在頁面上
+  //    ② 可點的來源連結（授權條件）必須在頁面上
+  //    Commons 那批沿用既有作法（出處彙整在 /about），只驗圖與檔案在。
+  if (t.image?.src) {
+    templePhotos++;
+    if (!html.includes(escAttr(t.image.src))) violations.push(`${t.id} 有代表圖卻沒渲染（${t.image.src}）`);
+    if (!existsSync(`${DIST}${t.image.src}`)) violations.push(`${t.id} 代表圖檔不存在：dist${t.image.src}`);
+    if (/religion\.moi\.gov\.tw/.test(t.image.source ?? '')) {
+      if (!html.includes(escText(t.image.author))) {
+        violations.push(`${t.id} 內政部照片未標示攝影者「${t.image.author}」（著作人格權）`);
+      }
+      if (!html.includes(escAttr(t.image.source))) {
+        violations.push(`${t.id} 內政部照片缺可點的來源連結（授權條件）：${t.image.source}`);
+      }
+    }
+  }
+
   // 不變量 1h（2026-08-06 加）：內政部條目內容（建築特色／參拜流程）雙向。
   // 🔴 授權條件是「標示資料來源連結」，所以除了文字要逐字相符，
   //    **該筆的 GetUploadFile 網址必須真的出現在頁面上**（頁尾 Sources 會輸出）。
@@ -459,6 +480,21 @@ let deityWithMoi = 0;
         deityWithIcon++;
         for (const x of want) {
           if (!html.includes(escText(x))) violations.push(`神明頁 ${d.id} 造型・法器未列出「${x}」`);
+        }
+      }
+    }
+
+    // 不變量 4d（2026-08-06 加）：神明代表圖與出處標示（規則同廟頁的 1i）。
+    if (d.image?.src) {
+      deityPhotos++;
+      if (!html.includes(escAttr(d.image.src))) violations.push(`神明頁 ${d.id} 有代表圖卻沒渲染（${d.image.src}）`);
+      if (!existsSync(`${DIST}${d.image.src}`)) violations.push(`神明頁 ${d.id} 代表圖檔不存在：dist${d.image.src}`);
+      if (/religion\.moi\.gov\.tw/.test(d.image.source ?? '')) {
+        if (!html.includes(escText(d.image.author))) {
+          violations.push(`神明頁 ${d.id} 內政部照片未標示攝影者「${d.image.author}」（著作人格權）`);
+        }
+        if (!html.includes(escAttr(d.image.source))) {
+          violations.push(`神明頁 ${d.id} 內政部照片缺可點的來源連結（授權條件）：${d.image.source}`);
         }
       }
     }
@@ -787,7 +823,7 @@ let lcTempleSections = 0;
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）。`);
   process.exit(0);
 }
 

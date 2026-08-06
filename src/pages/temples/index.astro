@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getTemples } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import { ALL_COUNTIES, templeCounty } from '../../lib/temple-region';
+import { imageCreditTitle } from '../../lib/image-credit';
 
 const temples = await getTemples();
 // 依縣市計數（取代原本 2.1MB 全廟平面清單，改為分層瀏覽，利使用者與爬蟲）。
@@ -60,7 +61,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
                   class="card-photo-img"
                   src={t.data.image.src}
                   alt={t.data.image.alt}
-                  title={`圖：${t.data.image.author}　·　${t.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                  title={imageCreditTitle(t.data.image)}
                   width="72"
                   height="72"
                   loading="lazy"

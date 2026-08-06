@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { deitiesByCategory, deitiesByGroup } from '../../lib/queries';
 import { DEITY_CATEGORIES } from '../../content.config';
 import { breadcrumb } from '../../lib/seo';
+import { imageCreditTitle } from '../../lib/image-credit';
 
 const byCat = await deitiesByCategory();
 const byGroup = await deitiesByGroup();
@@ -46,7 +47,7 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
                     class="card-photo-img"
                     src={dd.data.image.src}
                     alt={dd.data.image.alt}
-                    title={`圖：${dd.data.image.author}　·　${dd.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                    title={imageCreditTitle(dd.data.image)}
                     width="72"
                     height="72"
                     loading="lazy"

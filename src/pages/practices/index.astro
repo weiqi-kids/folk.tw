@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getPractices } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
+import { imageCreditTitle } from '../../lib/image-credit';
 
 const practices = await getPractices();
 const byCat = new Map<string, typeof practices>();
@@ -40,7 +41,7 @@ for (const p of practices) {
                   class="card-photo-img"
                   src={p.data.image.src}
                   alt={p.data.image.alt}
-                  title={`圖：${p.data.image.author}　·　${p.data.image.license}（Wikimedia Commons，詳見關於頁）`}
+                  title={imageCreditTitle(p.data.image)}
                   width="72"
                   height="72"
                   loading="lazy"
