@@ -13,7 +13,7 @@
     "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
     "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。"
   ],
-  "version": 10,
+  "version": 11,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
@@ -331,6 +331,28 @@
         "`<a class='other' main='<UploadFileID>' idx='<IndexID>'>`。",
         "🔴 抓回來的列含**電話與負責人＝個資**，只留在 inbox（repo 外）；",
         "境外端產出的清單檔只准有 key 與 url 兩欄，不得帶任何個資進 public repo。"
+      ]
+    },
+    {
+      "id": "religion-jianzhu-sample",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-jianzhu-sample.json",
+      "dest_dir": "religion-jianzhu-sample/",
+      "dest_template": "{key}.json",
+      "max_age_days": 365,
+      "note": "建築特色（IndexID=3）均勻抽樣 30 項，用來評估佔位值比例後再決定要不要整批收。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 100,
+        "contains": "Comment"
+      },
+      "_why": [
+        "🔴 **這是評估用的抽樣，不是資料收集**。建築特色全量 3,623 項，",
+        "但 2026-08-05 的取樣顯示佔位值很多（那筆的 Comment 就是廟名本身「紫雲觀」）。",
+        "整批收下來會被 import-temple-history.mjs 的 isPlaceholder 與 check:integrity 擋掉＝白抓 3,623 個請求。",
+        "先抓 30 筆算出佔位比例，再決定：比例低就補一份全量清單，比例高就整條結案。",
+        "⚠️ 抽樣是**均勻散佈**（每隔 n 取一項）不是取前 30——清單照 UploadFileID 排序，",
+        "取前 30 會集中在同一批建檔時期／同一批廟，佔位比例會失真。",
+        "排在 religion-yange 前面：它只有 30 項，先跑完才不會被 5,153 項的大批次卡住。"
       ]
     },
     {

@@ -27,9 +27,16 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 
 const DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
-const OUT = 'docs/intake-urls-yange.json';
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write');
+// --out：另存一份清單（抽樣用），不覆蓋主清單。
+const OUT = args.includes('--out') ? args[args.indexOf('--out') + 1] : 'docs/intake-urls-yange.json';
+// --sample N：只取前 N 項。用途是**先評估再決定要不要整批收**——
+// 建築特色（idx=3）實測有 3,623 項，但取樣顯示佔位值很多（內容就是廟名本身），
+// 整批收下來會被 isPlaceholder 擋掉＝白抓 3,623 個請求。
+// ⚠️ 取樣要**均勻散佈**，不能取前 N 項：清單是照 UploadFileID 排序的，
+// 前 N 項會集中在同一批建檔時期／同一批廟，佔位比例會失真。
+const SAMPLE = args.includes('--sample') ? Number(args[args.indexOf('--sample') + 1]) : 0;
 // ⚠️ 必須先 includes 再取值：`indexOf` 找不到回 **-1**，而 `args[-1 + 1]` ＝ `args[0]`——
 // 沒帶 --idx 卻帶了 --write 時，IDX 會變成 ['--write'] → 過濾後為空 → 一項都解不出來。
 // 2026-08-06 實測踩到：乾跑（無參數）正常、加 --write 就「解析結果為空」。
@@ -73,7 +80,12 @@ for (const f of files.sort()) {
   }
 }
 
-const items = [...pairs.keys()].sort().map((k) => {
+const allKeys = [...pairs.keys()].sort();
+// 均勻抽樣：每隔 step 取一項，涵蓋整個 id 值域。
+const sampled = SAMPLE > 0 && SAMPLE < allKeys.length
+  ? Array.from({ length: SAMPLE }, (_, i) => allKeys[Math.floor((i * allKeys.length) / SAMPLE)])
+  : allKeys;
+const items = sampled.map((k) => {
   const [id, idx] = k.split('-');
   return {
     key: k,
@@ -100,7 +112,7 @@ if (bad.length) {
 
 console.log(`\n查詢結果頁 ${pagesRead} 頁 → 附件連結：`);
 for (const idx of IDX) console.log(`  IndexID=${idx}（${IDX_NAME[idx] ?? '?'}）　${perIdx[idx] ?? 0} 筆`);
-console.log(`  去重後合計 ${items.length} 項`);
+console.log(`  去重後合計 ${allKeys.length} 項` + (SAMPLE ? ` → 均勻抽樣 ${items.length} 項` : ''));
 console.log(`  樣本：${items.slice(0, 3).map((x) => `${x.key}(${x._kind})`).join('、')}`);
 
 if (!WRITE) {

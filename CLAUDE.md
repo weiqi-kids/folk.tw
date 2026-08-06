@@ -36,7 +36,7 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 
 | 項目 | 卡點／下一步 | 檢查點 |
 |---|---|---|
-| **內政部資料匯入** | ✅ **2026-08-06 已獲同意**（範圍全開、**含照片**，唯一條件＝標示資料來源連結；⚠️ 別再去要公文文號，見 [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) §2026-08-06）。現在卡的是**技術前置**：那批內容的 `UploadFileID` 不在任何開放資料集裡，`religion-foundation-list` 收完才產得出 url_list 清單。`Knowledge/*` 的 96 條目已在抓 | 等台灣端 |
+| **內政部資料匯入** | ✅ 授權已獲同意（範圍全開、**含照片**，條件＝標示資料來源連結；⚠️ 別再去要公文文號，見 [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) §2026-08-06）。清單已產出、匯入器與 gate 都已就位，**純粹在等台灣端把檔案抓回來**。跑 `node scripts/intake-status.mjs --brief` 看各批進度；資料到了就跑 `import-knowledge-deities.mjs` / `import-temple-history.mjs` / `import-photos.mjs`（皆乾跑為預設） | 等台灣端 |
 | **祈福頁「依真實集氣數決定去留」** | 導流已上線，**門檻數字未定**——現況量級下任何「N 小時沒人點就下架」都等於全刪。觀測一週後定 | **2026-08-12** |
 | **降 GSC 權限** | 資安衛生、不緊急。共用服務帳號在 9 個網域是「擁有者」，只有用 Indexing API 的站才需要；降成「完整使用者」是十分鐘的事。背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`（⚠️ 該檔開頭有 2026-07-31 的前提更正，**先讀那段**） | 無期限 |
 | **節日頁收錄與曝光追蹤** | 2026-07-30 上線的 10 個節日頁，兩個檢查點：**8/8 看收錄**、**8/16 看節日類查詢曝光**。每日 collect（**台北 15:30**）自動出數並直接發 Slack，**不需人盯**——⚠️ 這裡原本寫「05:00」是 2026-08-01 改排程前的舊時刻，且 cron 裡**沒有獨立的 heartbeat 層**（已併進 collect）。到日子看 Slack 或 `data/seo-daily/<date>.json` | **8/8**、**8/16** |

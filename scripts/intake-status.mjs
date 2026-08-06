@@ -144,6 +144,21 @@ const LEDGER = [
     coversDir: ['recon-service/foundation-list'],
   },
   {
+    stage: 'pending', id: 'religion-jianzhu-sample',
+    goal: '建築特色（IndexID=3）抽樣 30 項 → 算出佔位值比例 → 才決定要不要整批收那 3,623 項',
+    blocker:
+      '⏳ 等台灣端抓（2026-08-06 加進 manifest v11，排在 religion-yange 前面所以會先跑完）。' +
+      '🔴 這是**評估用的抽樣，不是資料收集**：全量整批收會被 isPlaceholder 擋掉＝白抓幾千個請求。' +
+      '收到後跑 `node scripts/import-temple-history.mjs --verbose` 看「佔位值略過」佔幾成，再定去留。',
+    metric: () => {
+      const dir = join(INBOX, 'religion-jianzhu-sample');
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).length : 0;
+      return `已收 ${got}/30 項`;
+    },
+    upstream: join(INBOX, 'recon-service/getuploadfile-74678-idx3-jianzhu.json'),
+    coversDir: ['religion-jianzhu-sample'],
+  },
+  {
     stage: 'pending', id: 'religion-yange',
     goal: '寺廟歷史沿革（IndexID=2）＋參拜流程（IndexID=4）→ 廟宇頁內容。受益面是站上絕大多數只有名稱/地址/主祀神的廟頁',
     blocker:
