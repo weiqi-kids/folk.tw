@@ -45,10 +45,11 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
 1. **絕不杜撰。** 查無權威源就留空。所有事實逐筆掛源，來源要能被機器複驗。
 2. **push main 即上線，無 staging。** 且 **push 後絕不可手動補跑 `deploy.yml`**——
    同 SHA 兩個 run 搶 Pages 佇列會毒化該 SHA，之後同 SHA 部署全部秒失敗。
-   唯一例外：確認「本 SHA 的 run 數為 0」才補觸發一次。
+   唯一例外：確認「本 SHA 的 run 數為 0」才補觸發一次。**完整事故經過→[`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md)。**
 3. **`git push` 回「Everything up-to-date」不等於已部署。** 本 repo 有多支會 push 的 cron，
    你留在本地的 commit 會被別人的 CI 略過標記 head 帶上去 → 整個 push 不觸發 workflow、
    線上停在舊版且無告警。**手動 commit 後立刻自己 push，並查本 SHA 有沒有 run。**
+   （含「commit 訊息提到那個標記也會觸發它」的連帶陷阱，同上檔。）
 4. **slug 是永久承諾。** `/festivals/`、`/good-days/`、`/trades/`、`/scenarios/`、`/compare/`、
    `/qiugian/blessing/<id>/` 一旦上線就不可改、不可 404。
 5. **措辭界線：陳述「神明的」事實，不替廟方宣稱活動。** 可以說「該廟登記了這個祭典」「這位神明的
@@ -59,6 +60,7 @@ node scripts/import-tourism.mjs          # 觀光署資料乾跑（不寫檔）
    比對時只在記憶體中用。
 8. **授權判準是「這份資料在不在 data.gov.tw 上」，不是「從哪個網址抓的」**——
    `religion.moi.gov.tw` 同時供應 OGDL 開放資料與受版權宣告保護的網站內容。
+   **完整對照表（唯一權威處）→[`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) 的「🔴 判準」一節。**
 9. **自己起的背景 server 一定要收**（`pnpm preview` 等），收尾必須 kill。
 10. **改變系統狀態的操作（cron／設定／排程），同一回合必須更新對應文件。**
 11. **要台灣端做事，同一則回覆必須附上可直接複製貼上的完整 prompt。** 那台是單向的
