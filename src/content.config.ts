@@ -90,6 +90,19 @@ const deities = defineCollection({
         source: z.string(),
       })
       .optional(),
+    // 內政部「宗教知識+」條目引文（2026-08-06 起）。
+    // 🔴 與上面的 `summary` 是**相反的規則**：summary 必須自行改寫不得逐字抄（§6），
+    //    而本欄位是**逐字引用**——因為 2026-08-06 已取得內政部同意使用，
+    //    條件是「標示資料來源連結」，而**逐字引用 + 掛源**才是最誠實的做法：
+    //    我們沒有立場替官方的敘述做摘要，改寫反而引入杜撰風險。
+    //    由 scripts/import-knowledge-deities.mjs 產生，**不要手改**。
+    moi_knowledge: z
+      .object({
+        url: z.string(), // 條目公開網址＝授權條件要求標示的那個連結
+        title: z.string(),
+        excerpt: z.array(z.string()).min(1), // 逐字段落，段落邊界截斷（不切句）
+      })
+      .optional(),
     draft: z.boolean().default(false), // 無源不發佈 gate（§5）
   }),
 });
@@ -228,6 +241,13 @@ const temples = defineCollection({
     //    採用規則的唯一入口＝scripts/lib/tourism-intro.mjs（匯入器與 check:integrity 共用）。
     intro: z.string().optional(),
     open_time: z.string().optional(), // 開放時間原文（如「每日開放」「08:00-17:00」）
+    // 內政部 GetUploadFile 的另外兩種內容（2026-08-06 取得同意後開放匯入）。
+    // 🔴 與 `history` 一樣是**逐字**內容，一個字都不改寫；授權條件＝每筆掛回自己的
+    //    `GetUploadFile?UploadFileID=…&IndexID=…` 連結（見 docs/taiwan-intake-status.md §2026-08-06）。
+    // ⚠️ `architecture`（IndexID=3）**佔位值很多**——來源有不少筆的內容就是廟名本身，
+    //    匯入器 scripts/import-temple-history.mjs 會擋掉，別繞過它手動塞。
+    architecture: z.string().optional(), // 建築特色
+    worship_flow: z.string().optional(), // 參拜流程
     main_festival: z.string().optional(), // 主要祭典／聖誕慶典一句（21 間逐間查證的敘述句）
     // 年度慶(祭)典（內政部全國宗教資訊網「慶(祭)典查詢」，2,498 間）。
     // ⚠️ 曆別必須逐筆帶：來源 6,644 筆中農曆 6,365、國曆 279，官方 ODS 匯出**沒有這個標記**，

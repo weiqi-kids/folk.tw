@@ -491,6 +491,29 @@ const jsonLd = [
     )
   }
 
+  {/* 建築特色／參拜流程（2026-08-06 起，內政部 GetUploadFile）。
+      🔴 逐字內容，授權條件是**標示資料來源連結**——來源標註由頁尾 <Sources> 統一輸出
+      （每筆匯入時已把該筆的 GetUploadFile 網址寫進 t.sources），所以這裡不再各掛一次，
+      但**別把頁尾那段拿掉**，拿掉就違反授權。 */}
+  {
+    (t.architecture || t.worship_flow) && (
+      <section class="temple-moi-detail">
+        {t.architecture && (
+          <>
+            <h2>建築特色</h2>
+            <p class="moi-body">{t.architecture}</p>
+          </>
+        )}
+        {t.worship_flow && (
+          <>
+            <h2>參拜流程</h2>
+            <p class="moi-body">{t.worship_flow}</p>
+          </>
+        )}
+      </section>
+    )
+  }
+
   {
     templeLocalCelebrations.length > 0 && (
       <section class="temple-local-celebrations">
@@ -613,6 +636,8 @@ const jsonLd = [
     .qifu-role { color: var(--muted); font-size: var(--text-sm); }
     .qifu-more { margin-top: 0.75rem; font-size: var(--text-sm); }
     .qifu-more a { font-weight: 600; }
+    .temple-moi-detail { margin-top: 1.5rem; }
+    .moi-body { white-space: pre-line; }
     .temple-local-celebrations { margin-top: 1.5rem; }
     .local-celebration-list { list-style: none; padding: 0; margin: 0.75rem 0;
       display: flex; flex-direction: column; gap: 0.5rem; }

@@ -336,6 +336,62 @@ for (const t of temples) {
 }
 softReport.push(`廟宇簡介／開放時間：intro ${tIntro} 間、open_time ${tOpen} 間（交通部觀光署，OGDL 1.0）`);
 
+// ── 內政部 GetUploadFile 內容（2026-08-06 取得同意後開放匯入）────────────────────
+// 🔴 授權的唯一條件是**標示資料來源連結**——所以「有內容卻沒有對應的 GetUploadFile 來源」
+//    不是排版瑕疵，是**違反授權**，必須硬擋。
+//    ⚠️ `history` 有兩種來源：22 間是逐間查證的（來源各異），其餘來自內政部。
+//    故只對「來源裡有 GetUploadFile 的那些」與「有 architecture/worship_flow 的」驗，
+//    不能一律要求 history 都掛 MOI 源，否則會誤殺那 22 間。
+const MOI_UPLOAD = 'GetUploadFile';
+let tArch = 0;
+let tFlow = 0;
+let tMoiHistory = 0;
+for (const t of temples) {
+  const arch = (t as { architecture?: string }).architecture;
+  const flow = (t as { worship_flow?: string }).worship_flow;
+  const refs = (t.sources ?? []).map((s: { ref?: string }) => s.ref ?? '');
+  const moiRefs = refs.filter((r: string) => r.includes(MOI_UPLOAD));
+  if (arch) {
+    tArch++;
+    if (!moiRefs.some((r: string) => r.includes('IndexID=3')))
+      hard(`temple ${t.id}：有 architecture 卻無對應的 GetUploadFile(IndexID=3) 來源連結＝違反授權條件`);
+  }
+  if (flow) {
+    tFlow++;
+    if (!moiRefs.some((r: string) => r.includes('IndexID=4')))
+      hard(`temple ${t.id}：有 worship_flow 卻無對應的 GetUploadFile(IndexID=4) 來源連結＝違反授權條件`);
+  }
+  if (moiRefs.some((r: string) => r.includes('IndexID=2'))) {
+    tMoiHistory++;
+    if (!t.history) hard(`temple ${t.id}：掛了沿革來源卻沒有 history（來源與內容不一致）`);
+  }
+  // 佔位值防線：匯入器擋過一次，這裡再擋一次——手改繞過匯入器時才擋得住。
+  for (const [k, v] of [['architecture', arch], ['worship_flow', flow]] as const) {
+    if (v && (v.trim().length < 20 || v.trim() === t.name))
+      hard(`temple ${t.id}：${k} 疑為佔位值（「${v.trim().slice(0, 12)}」）——見 scripts/import-temple-history.mjs 的 isPlaceholder`);
+  }
+}
+softReport.push(`內政部條目內容：architecture ${tArch} 間、worship_flow ${tFlow} 間、沿革(MOI 來源) ${tMoiHistory} 間`);
+
+// 神明的宗教知識+ 引文：逐字引用，來源連結同樣是授權條件。
+let dMoi = 0;
+for (const d of deities) {
+  const mk = (d as { moi_knowledge?: { url?: string; excerpt?: string[] } }).moi_knowledge;
+  if (!mk) continue;
+  dMoi++;
+  if (!mk.url || !mk.url.includes('Knowledge/Content'))
+    hard(`deity ${d.id}：moi_knowledge 缺條目網址＝違反授權條件（條件為標示資料來源連結）`);
+  if (!mk.excerpt?.length) hard(`deity ${d.id}：moi_knowledge 無引文段落`);
+  for (const p of mk.excerpt ?? []) {
+    // 逐字引用最容易壞在「切一半」——括號不成對就是切壞了。
+    for (const [a, b] of [['（', '）'], ['「', '」'], ['《', '》']]) {
+      if (p.split(a).length !== p.split(b).length)
+        hard(`deity ${d.id}：引文括號不成對（${a}${b}），疑為截斷：…${p.slice(0, 24)}…`);
+    }
+  }
+}
+softReport.push(`神明宗教知識+ 引文：${dMoi} 尊（逐字引用，各掛條目網址）`);
+
 // 待查 / draft 統計（§5 無源不發佈）
 const draftDe = deities.filter((d) => d.draft).map((d) => d.id);
 const draftPr = practices.filter((p) => p.draft).length;

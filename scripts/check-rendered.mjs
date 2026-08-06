@@ -398,6 +398,8 @@ for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
 //    （短月順延：卅日聖誕落在僅廿九日之農曆月底亦算相符）。年份未印在 title，故容許今年或明年。
 let deityChecked = 0;
 let deityWithShengdan = 0;
+let deityWithIcon = 0;
+let deityWithMoi = 0;
 {
   const nowYear = new Date().getUTCFullYear();
   for (const d of deities) {
@@ -408,6 +410,47 @@ let deityWithShengdan = 0;
     const html = readFileSync(file, 'utf8');
     const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
     deityChecked++;
+
+    // 不變量 4b（2026-08-06 加）：造型・法器區塊**雙向**。
+    // 這條守的是一個具體病灶：`iconography` 在 schema 裡躺著、16 尊有值，
+    // 卻**沒有任何一頁渲染它**＝死資料，而且沒有任何檢查會發現。
+    // 有值必須渲染且逐項出現；無值必須不渲染（防模板寫死或印「待補」）。
+    {
+      const want = d.iconography ?? [];
+      const has = html.includes('class="iconography"');
+      if (want.length === 0) {
+        if (has) violations.push(`神明頁 ${d.id} 不該有造型・法器區塊（資料為空）`);
+      } else if (!has) {
+        violations.push(`神明頁 ${d.id} 缺造型・法器區塊（資料有 ${want.length} 項）`);
+      } else {
+        deityWithIcon++;
+        for (const x of want) {
+          if (!html.includes(escText(x))) violations.push(`神明頁 ${d.id} 造型・法器未列出「${x}」`);
+        }
+      }
+    }
+
+    // 不變量 4c（2026-08-06 加）：內政部「宗教知識+」條目引文。
+    // 🔴 授權條件是「標示資料來源連結」——**沒有那個連結就等於違反授權**，
+    //    所以這裡不只驗引文在不在，更要驗連結在不在。這條是法律義務，不是排版偏好。
+    // 引文必須**逐字**出現（我們的規則是一個字都不改寫），故逐段比對。
+    {
+      const mk = d.moi_knowledge;
+      const has = html.includes('class="moi-knowledge"');
+      if (!mk) {
+        if (has) violations.push(`神明頁 ${d.id} 不該有宗教知識+ 引文區塊（資料為空）`);
+      } else if (!has) {
+        violations.push(`神明頁 ${d.id} 缺宗教知識+ 引文區塊（資料有 ${mk.excerpt.length} 段）`);
+      } else {
+        deityWithMoi++;
+        for (const p of mk.excerpt) {
+          if (!html.includes(escText(p))) violations.push(`神明頁 ${d.id} 引文未逐字出現（段落開頭：${p.slice(0, 20)}…）`);
+        }
+        if (!html.includes(escAttr(mk.url))) {
+          violations.push(`神明頁 ${d.id} 引文缺來源連結 ${mk.url}（授權條件，缺了就是違反授權）`);
+        }
+      }
+    }
 
     const real = (d.birthday_lunar ?? []).filter(
       (b) => b.date && !['無定', '待查', '未定'].includes(b.date),
@@ -711,7 +754,7 @@ let lcTempleSections = 0;
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）。`);
   process.exit(0);
 }
 

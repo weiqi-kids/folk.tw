@@ -1,0 +1,239 @@
+#!/usr/bin/env node
+// 內政部「宗教知識+／宗教神祇」條目 → `deities.json` 的 `iconography` 與 `image`。
+//
+// 授權（2026-08-06 用戶取得內政部同意）：範圍全開、**含照片**，唯一條件是**標示資料來源連結**。
+// 落實方式＝每一筆掛回它自己的 `Knowledge/Content?ci=2&cid=<N>`；照片另存攝影者姓名。
+// 🔴 **別再去要公文文號**（見 docs/taiwan-intake-status.md §2026-08-06）。
+//
+// 🔴 這支跟「取欄位」的匯入器不是同一回事，動它之前先懂這件事：
+//    `iconography` 是**造型短語**（既有值長這樣：「腳踏龜蛇」「黑臉」「爾來了匾、大算盤」），
+//    而來源是一整篇學術體例的敘述文。把敘述「讀成」短語＝改寫＝有杜撰風險。
+//    因此本檔的規則是 **只取原文片段，一個字都不改寫**：
+//      · 從條目內文切出句子，只留同時滿足「含造型詞」與「夠短」的整句
+//      · 存進 iconography 的是**原句 verbatim**，不做摘要、不合併、不補主詞
+//      · 一句都沒中就留空（`--verbose` 會印出為什麼），**絕不硬湊**
+//    寧可 96 尊裡只補到十幾尊，也不要 96 尊都有一句我編的話。
+//
+// 🔴 不覆寫既有值（同 import-festivals 對 main_festival 的作法）：
+//    `iconography` 已有內容者不動（那 16 尊是逐尊查證的）；
+//    `image` 已有者不動（67 尊已有 Commons 授權圖，品質與授權都更明確）。
+//    故本檔可重複執行（idempotent），資料分批到齊也能一直重跑。
+//
+// 用法：
+//   node scripts/import-knowledge-deities.mjs             # 乾跑（預設）
+//   node scripts/import-knowledge-deities.mjs --verbose   # 逐尊印出判定過程與落選原因
+//   node scripts/import-knowledge-deities.mjs --write     # 實際寫回 src/data/deities.json
+//   node scripts/import-knowledge-deities.mjs --photos    # 另外印出待抓照片清單（給 gen-intake-urls-photos）
+
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+
+const DIR = '/root/.config/folk-tw/intake/inbox/knowledge-deities';
+const DEITIES = 'src/data/deities.json';
+const args = process.argv.slice(2);
+const WRITE = args.includes('--write');
+const VERBOSE = args.includes('--verbose');
+const PHOTOS = args.includes('--photos');
+
+const unescapeHtml = (s) =>
+  s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+const stripTags = (s) => s.replace(/<[^>]+>/g, '');
+const norm = (s) => String(s ?? '').replace(/台/g, '臺').replace(/\s+/g, '').trim();
+
+// ── 造型短語 ────────────────────────────────────────────────────────────────
+// 🔴 2026-08-06 實測（灶神那篇）換來的規則。初版只要求「含造型詞且 ≤40 字」，跑出來是：
+//      「」灶神的造形雖然始終以人格神為主，似乎是男身但貌似女子」  ← 開頭一個沒配對的 」
+//      「《莊子》：「竈有髻」成玄英作疏：「灶神，其狀如美女，著赤衣，名髻也」 ← 引文被切斷
+//    那種東西擺在「腳踏龜蛇」「黑臉」旁邊就是垃圾。所以規則改成**寧可零筆**：
+//      · 上限壓到 16 全形字（既有值最長的一筆是 27 字，但那是逐尊查證寫的，不是機器切的）
+//      · 出現書名號／引號／冒號／逗號一律排除——那代表它是引文或敘述，不是屬性短語
+//      · 括號必須成對
+//    切不出乾淨短語的，敘述會走下面的 `excerpt`（逐字引文），那才是它該去的地方。
+const ICON_WORDS = [
+  '面', '臉', '鬚', '髯', '冠', '帽', '巾', '袍', '甲',
+  '手持', '手執', '執', '持', '捧', '佩',
+  '腳踏', '足踏', '踩', '坐騎', '騎', '乘',
+  '身著', '身穿',
+];
+const ICON_STOP = ['年', '朝', '記載', '文獻', '傳說', '故事', '曰', '云', '參考資料', '關鍵字'];
+const ICON_PROSE = /[《》「」『』：；，、（）()？！]/; // 有這些就是敘述／引文，不是短語
+const ICON_MAX = 16;
+
+const bracketsBalanced = (s) => {
+  const pairs = [['（', '）'], ['(', ')'], ['「', '」'], ['《', '》']];
+  return pairs.every(([a, b]) => s.split(a).length === s.split(b).length);
+};
+
+/** 條目內文 → verbatim 造型短語（切不出乾淨的就回空陣列，**絕不硬湊**）。 */
+function pickIconography(body) {
+  const out = [];
+  for (const raw of body.split(/[。！？；\n]/)) {
+    const s = raw.trim();
+    if (!s || [...s].length > ICON_MAX || [...s].length < 3) continue;
+    if (ICON_PROSE.test(s)) continue;
+    if (!bracketsBalanced(s)) continue;
+    if (!ICON_WORDS.some((w) => s.includes(w))) continue;
+    if (ICON_STOP.some((w) => s.includes(w))) continue;
+    if (!out.includes(s)) out.push(s);
+  }
+  return out;
+}
+
+// ── 逐字引文 ────────────────────────────────────────────────────────────────
+// 授權條件是「標示資料來源連結」，**沒有要求改寫、也不允許我們改寫**（改寫＝杜撰風險）。
+// 所以敘述性內容一律 **verbatim 引用 + 掛源連結**，不摘要、不合併、不補主詞。
+// 只取條目開頭連續的中文段落（英譯段與參考書目排除），並在段落邊界截斷——
+// ⚠️ **不可在字數上限處硬切**：切一半的句子會產生沒配對的引號，正是上面那個病灶。
+const EXCERPT_MAX = 260;
+const EXCERPT_DROP = /^(首頁|跳到|您的瀏覽器|字體大小|請輸入關鍵字|參考資料|Keywords|關鍵字|臺灣宗教|世界宗教|宗教)/;
+
+function pickExcerpt(body) {
+  const out = [];
+  let used = 0;
+  for (const p of body.split('\n')) {
+    const s = p.trim();
+    if (!s || EXCERPT_DROP.test(s)) continue;
+    if ([...s].length < 20) continue;
+    if (used + [...s].length > EXCERPT_MAX) break; // 段落邊界截斷，不切句
+    if (!bracketsBalanced(s)) continue;
+    out.push(s);
+    used += [...s].length;
+    if (used >= EXCERPT_MAX * 0.6) break;
+  }
+  return out;
+}
+
+/** 一個條目頁 → 結構化欄位（照抄，不解讀）。 */
+function parseEntry(file, html) {
+  const cid = file.match(/cid-(\d+)\.html$/)?.[1] ?? null;
+  const rawTitle = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+  // title 形如「首頁 > 宗教知識+ > 宗教神祇 > 灶神 (Zao shen)」
+  const titleTail = unescapeHtml(rawTitle).split('>').pop().trim();
+  const name = titleTail.replace(/\s*[(（][^)）]*[)）]\s*$/, '').trim();
+
+  // 照片：條目頁的 CKUpload 圖。圖說（含攝影者）就在 img 前面的可見文字裡。
+  let photo = null;
+  const img = html.match(/<img[^>]*src="([^"]*(?:FileStore|CKUpload)[^"]*)"[^>]*>/);
+  if (img) {
+    const alt = unescapeHtml(img[0].match(/alt="([^"]*)"/)?.[1] ?? '').trim();
+    const before = unescapeHtml(stripTags(html.slice(Math.max(0, img.index - 600), img.index)))
+      .replace(/\s+/g, ' ').trim();
+    // 圖說＝最後一段含「（○○攝）」的文字
+    const cap = before.match(/([^ |]{4,60}（[^）]{2,10}攝）)\s*$/);
+    const caption = cap ? cap[1].trim() : '';
+    const photographer = caption.match(/（([^）]{2,10})攝）/)?.[1] ?? '';
+    photo = { src: img[1], alt, caption, photographer };
+  }
+
+  // 內文：去掉 script/style 與導覽，取夠長的段落；英譯段（開頭是 ASCII）排除。
+  const text = unescapeHtml(stripTags(html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')));
+  const body = text
+    .split('\n')
+    .map((x) => x.trim())
+    .filter((x) => x.length > 30 && !/^[\x00-\x7f]/.test(x))
+    .join('\n');
+
+  return { cid, name, photo, body, url: `https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=${cid}` };
+}
+
+// ── 主流程 ──────────────────────────────────────────────────────────────────
+const files = existsSync(DIR) ? readdirSync(DIR).filter((f) => /^cid-\d+\.html$/.test(f)) : [];
+if (!files.length) {
+  console.log('尚未收到任何條目頁。');
+  console.log(`  預期落點：${DIR}/cid-<N>.html`);
+  console.log('  由 manifest 的 knowledge-deity-entries（url_list 型）抓取，台灣端每日 04:17 台北自動跑。');
+  console.log('  跑 `node scripts/intake-status.mjs` 看進度。');
+  process.exit(0);
+}
+
+const deities = JSON.parse(readFileSync(DEITIES, 'utf8'));
+// 對映：條目名稱 → 神明節點。用「名稱或別稱完全相同」，**不做模糊比對**。
+const byName = new Map();
+for (const d of deities) {
+  byName.set(norm(d.name), d);
+  for (const a of d.aliases ?? []) if (!byName.has(norm(a))) byName.set(norm(a), d);
+}
+
+const stat = { parsed: 0, matched: 0, unmatched: [], iconAdded: 0, iconSkipped: 0, iconEmpty: 0,
+  excerptAdded: 0, excerptSkipped: 0, excerptEmpty: 0, photoCand: 0 };
+const photoList = [];
+
+for (const f of files.sort()) {
+  const e = parseEntry(f, readFileSync(`${DIR}/${f}`, 'utf8'));
+  stat.parsed++;
+  const d = byName.get(norm(e.name));
+  if (!d) {
+    stat.unmatched.push(`${e.cid} ${e.name}`);
+    if (VERBOSE) console.log(`  cid-${e.cid} ${e.name}\n      → 站上無此神明節點，略過（不新增節點）`);
+    continue;
+  }
+  stat.matched++;
+
+  const picked = pickIconography(e.body);
+  if ((d.iconography ?? []).length > 0) {
+    stat.iconSkipped++;
+    if (VERBOSE) console.log(`  cid-${e.cid} ${e.name} → ${d.id}：已有 iconography，不覆寫`);
+  } else if (picked.length === 0) {
+    stat.iconEmpty++;
+    if (VERBOSE) console.log(`  cid-${e.cid} ${e.name} → ${d.id}：切不出乾淨造型短語 → 留空（敘述改走 excerpt）`);
+  } else {
+    d.iconography = picked;
+    stat.iconAdded++;
+    if (VERBOSE) console.log(`  cid-${e.cid} ${e.name} → ${d.id}：iconography +${picked.length} ${JSON.stringify(picked)}`);
+  }
+
+  // 逐字引文：不覆寫既有（可重複執行）。
+  const excerpt = pickExcerpt(e.body);
+  if (!d.moi_knowledge && excerpt.length) {
+    d.moi_knowledge = { url: e.url, title: e.name, excerpt };
+    stat.excerptAdded++;
+    if (VERBOSE) console.log(`      excerpt +${excerpt.length} 段（${excerpt.reduce((n, s) => n + [...s].length, 0)} 字）`);
+  } else if (d.moi_knowledge) {
+    stat.excerptSkipped++;
+  } else {
+    stat.excerptEmpty++;
+    if (VERBOSE) console.log(`      excerpt：無合用段落 → 留空`);
+  }
+
+  // 掛源：授權條件就是「標示資料來源連結」，故 ref 直接放那個公開網址。
+  if (picked.length || excerpt.length) {
+    d.sources = d.sources ?? [];
+    if (!d.sources.some((s) => String(s.ref ?? '').includes(`cid=${e.cid}`))) {
+      d.sources.push({
+        type: 'gov',
+        ref: `內政部全國宗教資訊網·宗教知識+·${e.name} ${e.url}`,
+        note: '造型・法器與條目引文（逐字擷取，未改寫）；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
+      });
+    }
+  }
+
+  // 照片：只在該尊「還沒有圖」時列為候選。已有 Commons 圖者不動。
+  if (e.photo?.src && !(d.image && d.image.src)) {
+    stat.photoCand++;
+    photoList.push({
+      deity_id: d.id, cid: e.cid, name: e.name,
+      src: e.photo.src, alt: e.photo.alt,
+      caption: e.photo.caption, photographer: e.photo.photographer,
+      page: e.url,
+    });
+  }
+}
+
+console.log(`\n宗教知識+ 條目：解析 ${stat.parsed} 篇`);
+console.log(`  對映到站上神明　　${stat.matched}｜站上無節點 ${stat.unmatched.length}`);
+console.log(`  iconography 新增　${stat.iconAdded}｜已有不覆寫 ${stat.iconSkipped}｜切不出短語留空 ${stat.iconEmpty}`);
+console.log(`  條目引文 新增　　${stat.excerptAdded}｜已有不覆寫 ${stat.excerptSkipped}｜無合用段落 ${stat.excerptEmpty}`);
+console.log(`  照片候選（該尊尚無圖）${stat.photoCand}`);
+if (stat.unmatched.length && VERBOSE) console.log(`  站上無節點者：${stat.unmatched.join('、')}`);
+
+if (PHOTOS) {
+  writeFileSync('docs/knowledge-photo-candidates.json', JSON.stringify(photoList, null, 1) + '\n');
+  console.log(`  ✓ 照片候選已寫入 docs/knowledge-photo-candidates.json（${photoList.length} 筆）`);
+}
+
+if (!WRITE) {
+  console.log('\n（乾跑，未寫檔。加 --write 才寫回 deities.json；--photos 另寫照片候選清單。）');
+  process.exit(0);
+}
+writeFileSync(DEITIES, JSON.stringify(deities, null, 2) + '\n');
+console.log(`\n✓ 已寫回 ${DEITIES}`);

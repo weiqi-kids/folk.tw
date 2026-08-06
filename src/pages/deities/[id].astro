@@ -190,6 +190,39 @@ const jsonLd = [
     </section>
   </div>
 
+  {/* 造型・法器（2026-08-06 開始渲染）：`iconography` 早就在 schema 裡（content.config.ts:72）、
+      也有資料，但**全站沒有任何一處顯示它**＝死資料。這裡把它接出來。
+      ⚠️ 沒有資料的神明**不渲染這個區塊**（不是印「待補」）——造型是「有就是有」的事實，
+      留個空欄位只會讓幾十頁各多一句沒有資訊量的話（同 no-meta-disclaimers 的道理）。
+      刻意放在 .cols2 外：它是不定長的標籤列，塞進兩欄格線會變成半寬的孤兒塊。 */}
+  {
+    d.iconography.length > 0 && (
+      <section class="iconography">
+        <h2>造型・法器</h2>
+        <p>{d.iconography.map((x) => <span class="tag">{x}</span>)}</p>
+      </section>
+    )
+  }
+
+  {/* 內政部「宗教知識+」條目引文（2026-08-06）：**逐字引用**，一個字都不改寫。
+      授權條件就是「標示資料來源連結」，所以來源連結是這一段的必要組成，不是後設警語——
+      拿掉它就違反授權（別把它當成 no-meta-disclaimers 那類可省的句子）。
+      🔴 不要把這段改寫成自己的話塞進 `summary`：summary 的規則是「自行改寫不得逐字抄」，
+      這一段的規則正好相反，兩者是不同東西，不可互相搬。 */}
+  {
+    d.moi_knowledge && (
+      <section class="moi-knowledge">
+        <h2>{d.name}是什麼神？</h2>
+        <blockquote class="moi-quote">
+          {d.moi_knowledge.excerpt.map((p) => <p>{p}</p>)}
+        </blockquote>
+        <p class="muted small moi-src">
+          引自內政部全國宗教資訊網「宗教知識+」<a href={d.moi_knowledge.url} rel="noopener">{d.moi_knowledge.title}</a>
+        </p>
+      </section>
+    )
+  }
+
   {
     d.is_category && (
       <section>
@@ -363,6 +396,11 @@ const jsonLd = [
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .summary { font-size: var(--text-base); }
+    .moi-quote { margin: 0.75rem 0 0.5rem; padding: 0 0 0 1rem;
+      border-left: 3px solid var(--line); color: var(--ink); }
+    .moi-quote p { margin: 0 0 0.75rem; }
+    .moi-quote p:last-child { margin-bottom: 0; }
+    .moi-src { margin: 0; }
     .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
     @media (max-width: 50rem) { .cols2 { grid-template-columns: 1fr; } }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
