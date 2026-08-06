@@ -619,8 +619,99 @@ let yijiDaysChecked = 0;
   }
 }
 
+// ── 不變量 7：地方宗教慶典（2026-08-06 加）─────────────────────────────────────
+// 三層雙向比對，防的是「頁面漏列」與「憑空多出」兩種相反的錯：
+//   ①《/festivals/local/》必須列出**每一項**的名稱，且項數敘述與資料相符
+//   ② 廟宇頁：有 temple_ref 指向者必須渲染該區塊、沒有的必須不渲染（防模板寫死）
+//   ③ 節日頁：農曆日期歸屬於本頁者必須列出同日的地方慶典、非擁有者必須沒有
+//      （歸屬規則與頁面同源＝festivals.json 中同一 lunar_date 先出現者）
+// ⚠️ 不驗「該有幾筆 temple_ref」——消歧是寧缺勿假，留空是正確行為（見匯入器）。
+const localCel = require('../src/data/local-celebrations.json');
+let lcChecked = 0;
+let lcTempleSections = 0;
+{
+  const file = `${DIST}/festivals/local/index.html`;
+  if (!existsSync(file)) {
+    violations.push('地方宗教慶典頁未建置：/festivals/local/');
+  } else {
+    const html = readFileSync(file, 'utf8');
+    if (!html.includes('class="lead"')) violations.push('/festivals/local/ 缺 answer-first 摘要');
+    if (!html.includes(FAQ_MARK)) violations.push('/festivals/local/ 缺 FAQPage 結構化資料');
+    for (const x of localCel.items) {
+      // 依縣市與依月份兩份清單都渲染，故名稱至少出現一次即可（這裡驗的是「有沒有漏」）。
+      if (!html.includes(escText(x.name))) violations.push(`/festivals/local/ 未列出「${x.name}」（${x.county}）`);
+      else lcChecked++;
+    }
+    if (!new RegExp(`共\\s*${localCel.items.length}\\s*項`).test(html)) {
+      violations.push(`/festivals/local/ 項數敘述與資料不符（資料 ${localCel.items.length} 項）`);
+    }
+    // 回曆筆刻意不換算：頁面不得替它印出任何國曆日期，否則就是杜撰。
+    for (const x of localCel.items.filter((i) => i.calendar === 'hijri')) {
+      if (!html.includes('國曆日期逐年不同，本站不換算')) {
+        violations.push(`/festivals/local/ 回曆項「${x.name}」缺「不換算」說明（不得替它算國曆）`);
+      }
+    }
+  }
+
+  // ② 廟宇頁雙向
+  const wantByTemple = new Map();
+  for (const x of localCel.items) {
+    if (!x.temple_ref) continue;
+    if (!wantByTemple.has(x.temple_ref)) wantByTemple.set(x.temple_ref, []);
+    wantByTemple.get(x.temple_ref).push(x);
+  }
+  for (const t of temples) {
+    const f = `${DIST}/temples/${t.id}/index.html`;
+    if (!existsSync(f)) continue;
+    const html = readFileSync(f, 'utf8');
+    const has = html.includes('class="local-celebration-list"');
+    const want = wantByTemple.get(t.id) ?? [];
+    if (want.length === 0) {
+      if (has) violations.push(`廟頁 ${t.id} 不該有地方宗教慶典區塊（無資料指向它）`);
+      continue;
+    }
+    if (!has) { violations.push(`廟頁 ${t.id} 缺地方宗教慶典區塊（資料有 ${want.length} 項）`); continue; }
+    lcTempleSections++;
+    for (const x of want) {
+      if (!html.includes(escText(x.name))) violations.push(`廟頁 ${t.id} 地方宗教慶典未列出「${x.name}」`);
+      const label = x.calendar === 'lunar' ? lunarDateLabel(x.date) : '';
+      if (label && !html.includes(label)) violations.push(`廟頁 ${t.id} 地方宗教慶典「${x.name}」缺日期標籤「${label}」`);
+    }
+  }
+
+  // ③ 節日頁雙向（歸屬＝同一 lunar_date 在 festivals.json 先出現者，與頁面同源）
+  const owner = new Map();
+  for (const f of festivals) if (f.lunar_date && !owner.has(f.lunar_date)) owner.set(f.lunar_date, f.slug);
+  const wantByFest = new Map();
+  for (const x of localCel.items) {
+    if (x.calendar !== 'lunar') continue;
+    const slug = owner.get(x.date);
+    if (!slug) continue;
+    if (!wantByFest.has(slug)) wantByFest.set(slug, []);
+    wantByFest.get(slug).push(x);
+  }
+  for (const f of festivals) {
+    const file2 = `${DIST}/festivals/${f.slug}/index.html`;
+    if (!existsSync(file2)) continue;
+    const html = readFileSync(file2, 'utf8');
+    const has = html.includes('class="local-list"');
+    const want = wantByFest.get(f.slug) ?? [];
+    if (want.length === 0) {
+      if (has) violations.push(`節日頁 ${f.slug} 不該有地方宗教慶典名單（同日名單歸屬於別頁或無資料）`);
+      continue;
+    }
+    if (!has) { violations.push(`節日頁 ${f.slug} 缺地方宗教慶典名單（資料有 ${want.length} 項）`); continue; }
+    for (const x of want) {
+      if (!html.includes(escText(x.name))) violations.push(`節日頁 ${f.slug} 地方宗教慶典未列出「${x.name}」`);
+    }
+    if (!new RegExp(`共\\s*${want.length}\\s*項`).test(html)) {
+      violations.push(`節日頁 ${f.slug} 地方宗教慶典項數敘述與資料不符（資料 ${want.length} 項）`);
+    }
+  }
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）。`);
   process.exit(0);
 }
 

@@ -77,6 +77,26 @@ export function lunarToNextSolar(mmdd: string, fromIso: string, days = 400): str
 export const solarMd = (iso: string): string => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
 
 /**
+ * 國曆「MM-DD」→ 自 fromIso 起的下一次國曆日期（YYYY-MM-DD），找不到回 null。
+ * 為何需要這支：地方宗教慶典有 6 筆是**國曆**日期（新北平安夜 12/24 等），
+ * 它們不必換算農曆，但仍要算「下一次是哪一年的那天」才能與農曆筆一起排序。
+ * ⚠️ 2/29 只在閏年存在，故往後找兩年；找不到回 null（頁面因此不列，不會印出假日期）。
+ */
+export function solarMdToNext(mmdd: string, fromIso: string): string | null {
+  if (!/^\d{2}-\d{2}$/.test(mmdd)) return null;
+  const y0 = Number(fromIso.slice(0, 4));
+  for (let i = 0; i <= 2; i++) {
+    const iso = `${y0 + i}-${mmdd}`;
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    // 日期不存在時 Date 會進位（2026-02-29 → 3/1），比對回去即可判斷。
+    if (dt.getUTCMonth() + 1 !== m || dt.getUTCDate() !== d) continue;
+    if (iso >= fromIso) return iso;
+  }
+  return null;
+}
+
+/**
  * 節氣名（如「清明」「冬至」）→ 自 fromIso 起的下一次國曆日期，找不到回 null。
  * 為何需要這支：**清明、冬至等節日是節氣、不是農曆月日**（清明約落在國曆 4/4–4/6，由太陽黃經定，
  * 農曆日期每年不同），故不能用 lunarToNextSolar 表達。節氣表由 lunar-javascript 提供（與農民曆同源）。

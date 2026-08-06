@@ -18,6 +18,7 @@ import {
   festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
 import festivalsData from '../../data/festivals.json';
+import localCelebrations from '../../data/local-celebrations.json';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -92,6 +93,15 @@ const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) 
 // 求籤入口（主題集群邊）：把廟宇頁流量（全站曝光大宗）以 1 跳導入高 CTR 的籤詩集群。
 // 僅取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
 const lingqianSystems = refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
+
+// ── 地方宗教慶典（2026-08-06）───────────────────────────────────────────────
+// 內政部「地方宗教慶典」＝**縣市層級**登錄的慶典清單，其中少數幾項的名稱裡有本站廟名
+// 且在所在縣市可唯一辨識（消歧規則見 scripts/import-local-celebrations.mjs，對不上一律留空）。
+// 🔴 措辭界線（同本檔上方年度祭典那條，也同 docs/decisions/temples.md）：
+//    可以說「這份清單收錄了以本廟為名的項目」＝陳述那份官方清單的內容；
+//    **不可以**說「本廟舉辦這個慶典」——我們手上沒有任何一年的實際舉辦紀錄，
+//    而且這份清單的登錄者是縣市政府，不是廟方（與 `festivals[]` 那批的主體不同）。
+const templeLocalCelebrations = localCelebrations.items.filter((x) => x.temple_ref === temple.id);
 
 // ── 祈福動線（2026-08-05）：把廟宇頁做成祈福入口，不只是一頁資料 ────────────────────
 // 為什麼要有這一段（GA4／GSC 近 30 天實測，數字是決策依據不是佐證）：
@@ -482,6 +492,41 @@ const jsonLd = [
   }
 
   {
+    templeLocalCelebrations.length > 0 && (
+      <section class="temple-local-celebrations">
+        <h2>地方宗教慶典登錄</h2>
+        <p class="muted small">
+          {/* 這句只說「那份清單裡有以本廟為名的項目」＝陳述清單內容，不宣稱本廟辦了什麼。
+              ⚠️ 別再往後補「不是本廟的活動公告」——同一頁下方的「相關節日」已經有那句，
+              兩個區塊各掛一句就成了警語牆（見記憶 no-meta-disclaimers-on-pages）。 */}
+          內政部全國宗教資訊網的「地方宗教慶典」是由縣市登錄的慶典清單，其中有以下項目以本廟為名。
+        </p>
+        <ul class="local-celebration-list">
+          {templeLocalCelebrations.map((x) => (
+            <li>
+              <span class="lcdate">
+                {/* date 是 "MM-DD"：月取 slice(0,2)、日取 slice(3)。
+                    ⚠️ 別寫成 slice(0,3)——那會取到 "01-" → Number() 得 NaN，
+                    而目前這幾筆全是農曆、走不到後兩支，錯了也不會有人發現。 */}
+                {x.calendar === 'lunar'
+                  ? lunarDateLabel(x.date)
+                  : x.calendar === 'solar'
+                    ? `國曆 ${Number(x.date.slice(0, 2))}/${Number(x.date.slice(3))}`
+                    : `回曆 ${Number(x.date.slice(0, 2))} 月 ${Number(x.date.slice(3))} 日`}
+              </span>
+              <span class="lcname">{x.name}</span>
+              <span class="muted small">{x.county}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="muted small">
+          全台登錄的地方宗教慶典見 <a href="/festivals/local/">地方宗教慶典一覽</a>。
+        </p>
+      </section>
+    )
+  }
+
+  {
     deityFestivals.length > 0 && (
       <section class="temple-deity-festivals">
         <h2>{deityName.get(t.main_deity_ref!)}的相關節日</h2>
@@ -568,6 +613,12 @@ const jsonLd = [
     .qifu-role { color: var(--muted); font-size: var(--text-sm); }
     .qifu-more { margin-top: 0.75rem; font-size: var(--text-sm); }
     .qifu-more a { font-weight: 600; }
+    .temple-local-celebrations { margin-top: 1.5rem; }
+    .local-celebration-list { list-style: none; padding: 0; margin: 0.75rem 0;
+      display: flex; flex-direction: column; gap: 0.5rem; }
+    .local-celebration-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+    .local-celebration-list .lcdate { color: var(--accent); font-size: var(--text-sm); }
+    .local-celebration-list .lcname { color: var(--ink); }
     .temple-deity-festivals { margin-top: 1.5rem; }
     .deity-festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.5rem; }

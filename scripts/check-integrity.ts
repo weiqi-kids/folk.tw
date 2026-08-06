@@ -268,6 +268,48 @@ for (const t of temples) {
 }
 softReport.push(`廟宇年度慶(祭)典：${tfTemples}/${temples.length} 間、共 ${tf} 筆（內政部全國宗教資訊網）`);
 
+// ── 地方宗教慶典（2026-08-06；內政部「地方宗教慶典」，縣市層級登錄）────────────────
+// 硬驗四件事，全部是「錯了就會印出假事實」的欄位：
+//   ・曆別必須是 lunar／solar／hijri 三者之一，且日期在該曆別下真的存在
+//   ・名稱必須含漢字（同慶(祭)典那批的殘留值防線）
+//   ・temple_ref 若有值，必須指得到真的廟（dangling ref 會讓頁面連到 404）
+//   ・整份必須有來源標註（§5 無源不發佈）
+// ⚠️ 刻意**不驗**「temple_ref 應該有幾筆」——消歧規則是寧缺勿假，
+//    留空是正確行為，把它變成數量門檻只會逼未來的人放寬規則去湊數。
+const localCelebrations: { source?: { ref?: string }; items?: any[] } = JSON.parse(
+  readFileSync(join(root, 'src/data/local-celebrations.json'), 'utf8'),
+);
+const lcItems = localCelebrations.items ?? [];
+const templeIds = new Set(temples.map((t) => t.id));
+const LC_CAL_MAX: Record<string, number[]> = {
+  lunar: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+  solar: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+  // 伊斯蘭曆各月 29 或 30 日，取寬鬆上限（我們不換算，只擋明顯不存在的日期）
+  hijri: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+};
+const lcIds = new Set<string>();
+for (const x of lcItems) {
+  const at = `地方宗教慶典 ${x.id}「${x.name}」`;
+  if (lcIds.has(x.id)) hard(`${at}：id 重複`);
+  lcIds.add(x.id);
+  if (!LC_CAL_MAX[x.calendar]) hard(`${at}：calendar 必須是 lunar／solar／hijri（實為 ${x.calendar}）`);
+  else if (!/^\d{2}-\d{2}$/.test(x.date ?? '')) hard(`${at}：date 必須為 MM-DD（實為 ${x.date}）`);
+  else {
+    const [mm, dd] = x.date.split('-').map(Number);
+    if (mm < 1 || mm > 12 || dd < 1 || dd > LC_CAL_MAX[x.calendar][mm - 1])
+      hard(`${at}：日期 ${x.date} 不存在（${x.calendar}）`);
+  }
+  if (!/[一-鿿]/.test(x.name ?? '')) hard(`${at}：名稱須含漢字`);
+  if (!x.county) hard(`${at}：缺縣市`);
+  if (x.temple_ref && !templeIds.has(x.temple_ref)) hard(`${at}：temple_ref「${x.temple_ref}」指不到任何廟`);
+}
+if (!(localCelebrations.source?.ref ?? '').includes('地方宗教慶典'))
+  hard('local-celebrations.json：缺來源標註（§5 無源不發佈）');
+softReport.push(
+  `地方宗教慶典：${lcItems.length} 項、${new Set(lcItems.map((x) => x.county)).size} 縣市、` +
+    `其中 ${lcItems.filter((x) => x.temple_ref).length} 項可唯一對映到廟（其餘留空＝寧缺勿假）`,
+);
+
 // 廟宇 intro／open_time（交通部觀光署觀光資訊資料庫，OGDL 1.0，2026-08-05 匯入）硬驗三件事：
 //   ・有 intro／open_time 必須有對應來源標註（OGDL 1.0 要求標示出處，且 §5 無源不發佈）。
 //   ・intro 不得同時與 history 並存——那 22 間 history 是逐間查證的敘述句，品質高於觀光文案，

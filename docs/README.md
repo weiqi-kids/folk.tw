@@ -17,7 +17,7 @@
 | [`decisions/temples.md`](decisions/temples.md) | 廟宇頁的一切：meta description 去樣板、title 加主祀、鄉鎮二級瀏覽、在地脈絡、專屬 OG 分享卡、慶典與觀光署匯入、座標回填、外撥名單 | 動 `src/pages/temples/` 或 `temples.json` 之前 |
 | [`decisions/deities-and-qian.md`](decisions/deities-and-qian.md) | 神明頁（聖誕曆／title 國曆／sameAs）、籤詩尾斜線、籤系樞紐、藥籤 330 首、speakable | 動神明或籤詩相關之前 |
 | [`decisions/almanac.md`](decisions/almanac.md) | `/good-days/` 擇日專區、嫁娶宜忌與四個判定維度、剃頭／農曆日 token、擇日後續動線 | 動農民曆或宜忌判定之前 |
-| [`decisions/festivals-and-intent.md`](decisions/festivals-and-intent.md) | `/festivals/` 節日模組、民俗活動、情境／比較／行業守護神、名廟內容 | 動節日或意圖頁之前 |
+| [`decisions/festivals-and-intent.md`](decisions/festivals-and-intent.md) | `/festivals/` 節日模組、`/festivals/local/` 地方宗教慶典（含「三種慶典事實不可互推」與兩個配廟假陽性）、民俗活動、情境／比較／行業守護神、名廟內容 | 動節日或意圖頁之前 |
 | [`decisions/nav-and-ui.md`](decisions/nav-and-ui.md) | nav 從 13 項扁平 → 7 組 → 單一主題軸的兩次重整，含用戶逐題裁示。⚠️ **不含卡片代表圖規範**（那條只在自動記憶 `card-photo-pattern.md`） | 動 `Base.astro` 的 nav 之前 |
 | [`decisions/deploy-and-gates.md`](decisions/deploy-and-gates.md) | 驗證套件每一道 gate 為何存在、擋什麼、反例；`pnpm notify` 的兩個參數解析坑；部署驗證的三個陷阱 | 動部署流程或任何 `check:*` 之前 |
 | [`decisions/seo-calls.md`](decisions/seo-calls.md) | 「做／不做」的裁示：土地公 sitemap 開關、索引稀釋、農民曆封存頁、索引長尾三類不做 | 想重開任何一個已裁示的題目之前 |

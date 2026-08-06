@@ -1,0 +1,277 @@
+---
+// 全台地方宗教慶典年曆（2026-08-06 上線；slug `/festivals/local/` ＝永久承諾勿改）。
+//
+// 資料是內政部「地方宗教慶典」＝**縣市層級**政府登錄的慶典，與站上另外兩種慶典事實不同：
+//   · `temples.json` 的 `festivals[]`＝廟方自己登記的年度祭典（主體是廟）
+//   · `festivals.json` 的節日頁＝全台性節俗（主體是節日）
+//   · 本頁＝縣市登錄的地方慶典（主體是縣市）
+// 三者不可互相推論。本頁只陳述「這份官方清單裡有這一項」，不說「某廟在辦」。
+//
+// 🔴 每筆能用的只有四個欄位（縣市／曆別／月日／名稱）——詳情頁的簡介與照片是
+//    語文／攝影著作，授權不允許取用，所以本頁不會有任何介紹文字。**別替它們補寫簡介**，
+//    那就是杜撰（總紅線第 1 條）。授權脈絡見 docs/taiwan-intake-status.md §二。
+//
+// 日期換算：農曆走 lunarToNextSolar、國曆走 solarMdToNext，兩者都在 build 時算；
+// 倒數由頁尾同一套前端腳本依台灣時區即時算，故 [skip ci] 的日子也不會過期。
+// ⚠️ **回曆 2 筆（開齋節）刻意不換算**：伊斯蘭曆與國曆的對應每年前移約 11 天，
+//    我們沒有可信的換算來源，硬算就是杜撰。這兩筆只照抄來源寫法並明說不換算。
+//
+// 兩種分組（依縣市／依月份）**都在 build 時渲染好**，切換只切 CSS class。
+// 刻意不用 JS 注入 DOM——那會踩到 scoped <style> 套不到注入節點的坑（見 check:scoped-styles）。
+import Base from '../../../layouts/Base.astro';
+import Sources from '../../../components/Sources.astro';
+import { breadcrumb, faqPage } from '../../../lib/seo';
+import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
+import { todayInTaipei } from '../../../lib/daily';
+import { getTemples } from '../../../lib/queries';
+import lc from '../../../data/local-celebrations.json';
+
+const { iso: today } = todayInTaipei();
+const temples = await getTemples();
+const templeById = new Map(temples.map((t) => [t.id, t.data]));
+
+// 每筆算「下一次國曆日期」。回曆無法換算 → iso 為 null，仍然要列出（資料本身是事實），
+// 只是不進「近期」排序、也不顯示國曆。
+const items = lc.items.map((x) => {
+  const iso =
+    x.calendar === 'lunar'
+      ? lunarToNextSolar(x.date, today)
+      : x.calendar === 'solar'
+        ? solarMdToNext(x.date, today)
+        : null;
+  const m = Number(x.date.slice(0, 2));
+  const d = Number(x.date.slice(3));
+  const dateLabel =
+    x.calendar === 'lunar'
+      ? lunarDateLabel(x.date)
+      : x.calendar === 'solar'
+        ? `國曆 ${m}/${d}`
+        : `回曆 ${m} 月 ${d} 日`;
+  const temple = x.temple_ref ? templeById.get(x.temple_ref) : undefined;
+  return { ...x, iso, dateLabel, month: m, temple };
+});
+
+// 依縣市分組：縣市內用「曆別→月日」排，與資料檔的排序一致。
+const counties = [...new Set(items.map((i) => i.county))].sort((a, b) => a.localeCompare(b, 'zh-Hant'));
+const byCounty = counties.map((c) => ({ county: c, list: items.filter((i) => i.county === c) }));
+
+// 依月份分組：只分農曆月（多數），國曆與回曆各自成組——把三種曆別混在同一個「一月」底下
+// 會讓讀者以為它們是同一天，那是我們自己製造的誤導。
+const lunarMonths = [...new Set(items.filter((i) => i.calendar === 'lunar').map((i) => i.month))].sort(
+  (a, b) => a - b,
+);
+const byMonth = [
+  ...lunarMonths.map((m) => ({
+    label: `農曆${['', '正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'][m]}月`,
+    list: items.filter((i) => i.calendar === 'lunar' && i.month === m),
+  })),
+  { label: '國曆日期', list: items.filter((i) => i.calendar === 'solar') },
+  { label: '回曆日期', list: items.filter((i) => i.calendar === 'hijri') },
+].filter((g) => g.list.length > 0);
+
+// 近期：只有算得出國曆日的（農曆＋國曆）進榜，取最近 8 筆。
+const upcoming = items
+  .filter((i): i is typeof i & { iso: string } => i.iso !== null)
+  .sort((a, b) => a.iso.localeCompare(b.iso))
+  .slice(0, 8);
+
+const linked = items.filter((i) => i.temple);
+
+const faq = faqPage([
+  {
+    q: '全台有哪些地方宗教慶典？',
+    a: `內政部全國宗教資訊網登錄的地方宗教慶典共 ${items.length} 項，分布於 ${counties.length} 個縣市，其中 ${
+      items.filter((i) => i.calendar === 'lunar').length
+    } 項採農曆日期。`,
+  },
+  ...(upcoming[0]
+    ? [
+        {
+          q: '下一個地方宗教慶典是什麼時候？',
+          a: `${upcoming[0].county}的${upcoming[0].name}，${upcoming[0].dateLabel}，${upcoming[0].iso.slice(0, 4)} 年為國曆 ${solarMd(upcoming[0].iso)}。`,
+        },
+      ]
+    : []),
+  {
+    q: '地方宗教慶典和廟方登記的年度祭典有什麼不同？',
+    a: '地方宗教慶典是縣市政府層級登錄的慶典活動，主體是縣市；廟方登記的年度慶(祭)典則是各宮廟自己向內政部登記的，主體是宮廟。兩者資料來源不同，不能互相推論。',
+  },
+]);
+
+const jsonLd = [
+  breadcrumb([
+    { name: '節日', path: '/festivals' },
+    { name: '地方宗教慶典', path: '/festivals/local' },
+  ]),
+  ...(faq ? [faq] : []),
+];
+---
+
+<Base
+  title={`全台地方宗教慶典一覽｜${counties.length} 縣市的登錄慶典與日期`}
+  description={`內政部登錄的地方宗教慶典完整清單：鹽水蜂炮、大甲媽祖遶境進香、頭城搶孤、東港迎王、鷄籠中元祭等 ${items.length} 項，含所在縣市與農曆／國曆日期，農曆日期已換算成下一次的國曆日。`}
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
+  <nav class="crumb"><a href="/festivals/">節日</a> ／ 地方宗教慶典</nav>
+
+  <h1>全台地方宗教慶典</h1>
+  <p class="lead">
+    內政部全國宗教資訊網登錄的地方宗教慶典共 {items.length} 項，分布在 {counties.length} 個縣市。
+    農曆日期已換算成下一次的國曆日期，可依縣市或依月份查看。
+    這份清單記的是<strong>縣市登錄了哪些慶典</strong>，與各宮廟自己登記的<a href="/festivals/">年度祭典</a>是兩份不同的資料。
+  </p>
+
+  <section>
+    <h2>近期</h2>
+    <ul class="upcoming">
+      {
+        upcoming.map((i) => (
+          <li>
+            <span class="u-date">{solarMd(i.iso)}</span>
+            <span class="u-name">{i.name}</span>
+            <span class="muted small">{i.county}　·　{i.dateLabel}</span>
+            <span class="cd" data-fest-date={i.iso}></span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section>
+    <div class="tabs" role="group" aria-label="分組方式">
+      <button type="button" class="tab on" data-view="county" aria-pressed="true">依縣市</button>
+      <button type="button" class="tab" data-view="month" aria-pressed="false">依月份</button>
+    </div>
+
+    <div id="lc-county" class="view on">
+      {
+        byCounty.map((g) => (
+          <section class="grp">
+            <h2>{g.county}<span class="cnt">{g.list.length}</span></h2>
+            <ul class="lc-list">
+              {g.list.map((i) => (
+                <li>
+                  <span class="ldate">{i.dateLabel}</span>
+                  <span class="lname">{i.name}</span>
+                  {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
+                  {i.calendar === 'hijri' && <span class="lsolar">國曆日期逐年不同，本站不換算</span>}
+                  {i.temple && (
+                    <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple.name}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+
+    <div id="lc-month" class="view">
+      {
+        byMonth.map((g) => (
+          <section class="grp">
+            <h2>{g.label}<span class="cnt">{g.list.length}</span></h2>
+            <ul class="lc-list">
+              {g.list.map((i) => (
+                <li>
+                  <span class="ldate">{i.dateLabel}</span>
+                  <span class="lname">{i.name}</span>
+                  <span class="muted small">{i.county}</span>
+                  {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    linked.length > 0 && (
+      <section>
+        <h2>清單中以宮廟為名的項目</h2>
+        <p class="muted small">
+          以下 {linked.length} 項的慶典名稱裡有本站收錄的宮廟名，且該廟名在所在縣市可唯一辨識，
+          因此連得到廟宇頁。同名而無法唯一辨識者不連。
+        </p>
+        <ul class="lc-list">
+          {linked.map((i) => (
+            <li>
+              <span class="ldate">{i.dateLabel}</span>
+              <span class="lname">{i.name}</span>
+              <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple!.name}</a>
+              <span class="muted small">{i.temple!.district}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <p class="muted small extend">
+    延伸：<a href="/festivals/">民俗節日曆</a>｜<a href="/events/">民俗活動</a>｜<a href="/temples/">宮廟</a>｜<a
+      href="/almanac/">農民曆</a
+    >｜<a href="/qiugian/">線上求籤</a>
+  </p>
+
+  <p class="src footer-src"><Sources sources={[lc.source]} /></p>
+
+  <script is:inline>
+    (function () {
+      const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+      const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+      document.querySelectorAll('[data-fest-date]').forEach((el) => {
+        const days = Math.round((toUTC(el.getAttribute('data-fest-date')) - toUTC(today)) / 86400000);
+        if (days < 0) return;
+        el.textContent = days === 0 ? '就是今天' : days === 1 ? '明天' : days + ' 天後';
+      });
+      // 兩份清單都是 build 時就渲染好的，這裡只切 class，不動 DOM 結構。
+      document.querySelectorAll('.tab').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const view = btn.getAttribute('data-view');
+          document.querySelectorAll('.tab').forEach((b) => {
+            const on = b === btn;
+            b.classList.toggle('on', on);
+            b.setAttribute('aria-pressed', String(on));
+          });
+          document.getElementById('lc-county').classList.toggle('on', view === 'county');
+          document.getElementById('lc-month').classList.toggle('on', view === 'month');
+        });
+      });
+    })();
+  </script>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .lead { font-size: var(--text-base); }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
+    .cnt { color: var(--muted); font-size: var(--text-sm); margin-left: 0.5rem; font-weight: 400; }
+    .small { font-size: var(--text-sm); }
+    .cd { color: var(--gold); font-size: var(--text-sm); }
+    .upcoming { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .upcoming li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem;
+      padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
+    .u-date { color: var(--accent); font-weight: 700; }
+    .u-name { color: var(--ink); }
+    .tabs { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+    .tab { font: inherit; font-size: var(--text-sm); padding: 0.375rem 0.875rem; cursor: pointer;
+      color: var(--ink-soft); background: transparent; border: 1px solid var(--line); border-radius: 999px; }
+    .tab.on { color: var(--ink); border-color: var(--accent); }
+    .view { display: none; }
+    .view.on { display: block; }
+    .grp h2 { margin-top: 1.75rem; }
+    .lc-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 0.5rem 1.5rem; }
+    .lc-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.625rem;
+      padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
+    .ldate { color: var(--accent); font-size: var(--text-sm); }
+    .lname { color: var(--ink); }
+    .lsolar { color: var(--muted); font-size: var(--text-sm); }
+    .ltemple { font-size: var(--text-sm); }
+    .extend { margin-top: 1.875rem; }
+    .src { color: var(--gold); font-size: var(--text-xs); }
+    .footer-src { margin-top: 2.5rem; }
+  </style>
+</Base>

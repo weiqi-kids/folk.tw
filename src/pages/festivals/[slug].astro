@@ -10,6 +10,7 @@ import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
+import localCelebrations from '../../data/local-celebrations.json';
 
 export const getStaticPaths = (async () => {
   const [deities, practices, events, temples] = await Promise.all([
@@ -61,6 +62,25 @@ export const getStaticPaths = (async () => {
     templesOnDate.set(f.slug, hits);
   }
 
+  // 同一天的地方宗教慶典（2026-08-06）：內政部「地方宗教慶典」是**縣市層級**登錄的活動，
+  // 與上面那份「廟方自己登記的祭典」是兩份不同的資料，故獨立成一段、措辭也不同。
+  // 🔴 只陳述「這份清單裡有一項登錄在同一天」，不說「這個節日當天各地在辦這些活動」——
+  //    我們沒有任何一年的實際舉辦紀錄，後者是替縣市政府宣稱（同 temples.md 的措辭界線）。
+  // 歸屬沿用同一支 festivalOwnerByLunarDate：同一農曆日期只有一個節日頁掛名單，
+  // 否則 07-15 的中元節與搶孤會各帶一份一模一樣的清單＝自製重複內容。
+  const localByFestival = new Map<string, { name: string; county: string }[]>();
+  for (const x of localCelebrations.items) {
+    if (x.calendar !== 'lunar') continue;
+    const slug = listOwner.get(x.date);
+    if (!slug) continue;
+    if (!localByFestival.has(slug)) localByFestival.set(slug, []);
+    localByFestival.get(slug)!.push({ name: x.name, county: x.county });
+  }
+  // 固定排序（縣市→名稱）＝每次 build 結果一致。
+  for (const list of localByFestival.values()) {
+    list.sort((a, b) => a.county.localeCompare(b.county, 'zh-Hant') || a.name.localeCompare(b.name, 'zh-Hant'));
+  }
+
   return festivals
     .map((f) => ({ f, ...festivalNextSolar(f, today) }))
     .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
@@ -76,12 +96,14 @@ export const getStaticPaths = (async () => {
         templeById,
         vocabByTerm,
         templesOnDate: templesOnDate.get(f.slug) ?? [],
+        localOnDate: localByFestival.get(f.slug) ?? [],
       },
     }));
 }) satisfies GetStaticPaths;
 
-const { f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm, templesOnDate } =
-  Astro.props;
+const {
+  f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm, templesOnDate, localOnDate,
+} = Astro.props;
 
 const year = iso.slice(0, 4);
 // 農曆節日＝「農曆七月十五」；節氣節日＝「節氣清明」。由 lib 統一產出，頁面不自行判斷型別。
@@ -377,6 +399,29 @@ const pageDesc = covers.length
   }
 
   {
+    localOnDate.length > 0 && (
+      <section class="local-on-date">
+        <h2>{lunarLabel}登錄的地方宗教慶典</h2>
+        <p class="muted small">
+          內政部全國宗教資訊網「地方宗教慶典」中，登錄日期為{lunarLabel}的共 {localOnDate.length} 項。
+          這是縣市層級登錄的慶典清單，與上面各宮廟自己登記的祭典是兩份不同的資料。
+        </p>
+        <ul class="local-list">
+          {localOnDate.map((x) => (
+            <li>
+              <span class="lname">{x.name}</span>
+              <span class="muted small">{x.county}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="muted small">
+          全部 {localCelebrations.items.length} 項見 <a href="/festivals/local/">全台地方宗教慶典</a>。
+        </p>
+      </section>
+    )
+  }
+
+  {
     siblingFestivals.length > 0 && (
       <section class="sibling-festivals">
         <h2>{f.season}的其他節日</h2>
@@ -431,6 +476,12 @@ const pageDesc = covers.length
       display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
     .on-date-list li { padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
     .on-date-list .fname { color: var(--ink-soft); }
+    .local-on-date { margin-top: 1.5rem; }
+    .local-list { list-style: none; padding: 0; margin: 0.75rem 0;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
+    .local-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.625rem;
+      padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
+    .local-list .lname { color: var(--ink); }
     .extend { margin-top: 1.875rem; }
     .sibling-festivals { margin-top: 1.5rem; }
     .sibling-list { list-style: none; padding: 0; margin: 0.75rem 0 0;

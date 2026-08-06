@@ -1,0 +1,536 @@
+{
+  "_readme": [
+    "內政部全國宗教資訊網「地方宗教慶典」＝**縣市層級**政府登錄的宗教慶典，",
+    "與 temples.json 的 festivals[]（廟方自己登記的年度祭典）、",
+    "festivals.json（全台性節俗）是三種不同的東西，勿混用。",
+    "本檔由 scripts/import-local-celebrations.mjs 產生，**不要手改**；",
+    "temple_ref 為 null 者是規則消歧失敗（寧缺勿假），不是漏填。"
+  ],
+  "source": {
+    "ref": "內政部全國宗教資訊網・地方宗教慶典 https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
+    "note": "縣市、曆別與月日、活動名稱；抓取日 2026-08-06"
+  },
+  "fetched_on": "2026-08-06",
+  "items": [
+    {
+      "id": "lc_28",
+      "name": "「利澤簡走尪」活動—扛神轎巡八大庄",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_5",
+      "name": "鞭春牛",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_29",
+      "name": "福神弄龜",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "02-02",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_30",
+      "name": "土地公春遊",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "02-02",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_31",
+      "name": "三月初三帝爺生迎鬧熱呷拜拜",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "03-03",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_6",
+      "name": "礁溪二龍競渡",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "05-05",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_52",
+      "name": "冬山八寶綰絭",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "07-07",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_49",
+      "name": "宜蘭放水燈節",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "07-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_51",
+      "name": "頭城搶孤",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "07-30",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_50",
+      "name": "二結王公過火",
+      "county": "宜蘭縣",
+      "calendar": "lunar",
+      "date": "11-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_40",
+      "name": "天上聖母聖誕系列活動",
+      "county": "花蓮縣",
+      "calendar": "lunar",
+      "date": "03-23",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_39",
+      "name": "釋迦佛祖聖誕暨建寺週年系列活動",
+      "county": "花蓮縣",
+      "calendar": "lunar",
+      "date": "04-08",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_55",
+      "name": "南投縣名間鄉受天宮—元宵節米糕桃祈福活動及玄天上帝聖誕活動",
+      "county": "南投縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": "moi_11568_受天宮"
+    },
+    {
+      "id": "lc_54",
+      "name": "南投縣竹山鎮紫南宮「土地公吃丁酒」活動",
+      "county": "南投縣",
+      "calendar": "lunar",
+      "date": "01-16",
+      "temple_ref": "moi_5552_紫南宮"
+    },
+    {
+      "id": "lc_36",
+      "name": "南投縣草屯鎮敦和宮—財神祭活動",
+      "county": "南投縣",
+      "calendar": "lunar",
+      "date": "03-15",
+      "temple_ref": "moi_9088_敦和宮"
+    },
+    {
+      "id": "lc_56",
+      "name": "東隆宮迎王平安祭典",
+      "county": "屏東縣",
+      "calendar": "lunar",
+      "date": "09-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_57",
+      "name": "萬金聖母遊行",
+      "county": "屏東縣",
+      "calendar": "solar",
+      "date": "12-12",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_24",
+      "name": "桃園燈節",
+      "county": "桃園市",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_58",
+      "name": "鷄籠中元祭",
+      "county": "基隆市",
+      "calendar": "lunar",
+      "date": "07-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_74",
+      "name": "雞籠城隍文化祭",
+      "county": "基隆市",
+      "calendar": "lunar",
+      "date": "08-14",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_41",
+      "name": "「天降神子．真愛基隆」歡慶聖誕活動",
+      "county": "基隆市",
+      "calendar": "solar",
+      "date": "12-24",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_43",
+      "name": "連江縣元宵節擺暝文化季",
+      "county": "連江縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_44",
+      "name": "連江縣媽祖聖誕慶典活動",
+      "county": "連江縣",
+      "calendar": "lunar",
+      "date": "03-23",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_37",
+      "name": "聖誕踩街報佳音活動",
+      "county": "雲林縣",
+      "calendar": "solar",
+      "date": "12-24",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_1",
+      "name": "神明淨港",
+      "county": "新北市",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_2",
+      "name": "新北國際佛誕文化節",
+      "county": "新北市",
+      "calendar": "lunar",
+      "date": "04-08",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_11",
+      "name": "北海岸傳奇媽祖文化祭",
+      "county": "新北市",
+      "calendar": "lunar",
+      "date": "04-16",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_12",
+      "name": "新北市玄天上帝文化祭",
+      "county": "新北市",
+      "calendar": "lunar",
+      "date": "09-09",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_10",
+      "name": "新北平安夜",
+      "county": "新北市",
+      "calendar": "solar",
+      "date": "12-24",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_53",
+      "name": "義民節慶祝大典",
+      "county": "新竹縣",
+      "calendar": "lunar",
+      "date": "07-20",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_59",
+      "name": "「嘉義市鞦韆節」活動",
+      "county": "嘉義市",
+      "calendar": "lunar",
+      "date": "03-06",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_42",
+      "name": "「城隍夜巡諸羅城」活動",
+      "county": "嘉義市",
+      "calendar": "lunar",
+      "date": "08-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_38",
+      "name": "民雄大士爺祭",
+      "county": "嘉義縣",
+      "calendar": "lunar",
+      "date": "07-21",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_34",
+      "name": "花壇文德宮白沙坑迎燈排",
+      "county": "彰化縣",
+      "calendar": "lunar",
+      "date": "01-14",
+      "temple_ref": "moi_837_文德宮"
+    },
+    {
+      "id": "lc_35",
+      "name": "南瑤宮笨港進香",
+      "county": "彰化縣",
+      "calendar": "lunar",
+      "date": "03-22",
+      "temple_ref": "moi_5961_南瑤宮"
+    },
+    {
+      "id": "lc_33",
+      "name": "鹿港慶端陽系列活動",
+      "county": "彰化縣",
+      "calendar": "lunar",
+      "date": "05-05",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_32",
+      "name": "彰化縣媽祖祈福文化節",
+      "county": "彰化縣",
+      "calendar": "lunar",
+      "date": "09-09",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_16",
+      "name": "三山國王客家文化節活動",
+      "county": "彰化縣",
+      "calendar": "solar",
+      "date": "10-25",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_25",
+      "name": "臺中媽祖國際觀光文化節",
+      "county": "臺中市",
+      "calendar": "lunar",
+      "date": "03-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_3",
+      "name": "大甲媽祖遶境進香",
+      "county": "臺中市",
+      "calendar": "lunar",
+      "date": "03-22",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_48",
+      "name": "端午節「穿木屐躦鯪鯉」活動",
+      "county": "臺中市",
+      "calendar": "lunar",
+      "date": "05-05",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_27",
+      "name": "巧聖仙師文化祭",
+      "county": "臺中市",
+      "calendar": "lunar",
+      "date": "05-07",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_26",
+      "name": "開齋節",
+      "county": "臺中市",
+      "calendar": "hijri",
+      "date": "01-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_21",
+      "name": "夜弄土地公活動",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_23",
+      "name": "傳統過炭火儀式",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "02-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_20",
+      "name": "迎尪公巡田園活動",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "03-10",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_46",
+      "name": "臺北保安宮—保生文化祭",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "03-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_22",
+      "name": "天上聖母聖誕遶境",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "03-22",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_13",
+      "name": "恭祝天上聖母聖誕活動",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "03-25",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_14",
+      "name": "臺北母娘文化季—保民遶境嘉年華活動",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "05-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_47",
+      "name": "五月十三迎城隍",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "05-13",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_19",
+      "name": "中元盂蘭盆勝會",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "07-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_18",
+      "name": "北臺灣媽祖文化節",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "09-09",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_15",
+      "name": "青山靈安尊王暗訪暨遶境活動",
+      "county": "臺北市",
+      "calendar": "lunar",
+      "date": "10-20",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_17",
+      "name": "臺北開齋節暨穆斯林嘉年華",
+      "county": "臺北市",
+      "calendar": "hijri",
+      "date": "01-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_66",
+      "name": "蕭壟香",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_73",
+      "name": "鹽水蜂炮",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_61",
+      "name": "學甲香",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "03-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_64",
+      "name": "土城香",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "03-19",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_65",
+      "name": "西港香",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "04-01",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_68",
+      "name": "做十六歲",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "07-07",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_67",
+      "name": "東山迎佛祖",
+      "county": "臺南市",
+      "calendar": "lunar",
+      "date": "12-23",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_60",
+      "name": "麻豆香",
+      "county": "臺南市",
+      "calendar": "solar",
+      "date": "04-25",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_7",
+      "name": "武轎踩街",
+      "county": "澎湖縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    },
+    {
+      "id": "lc_8",
+      "name": "乞龜與元宵",
+      "county": "澎湖縣",
+      "calendar": "lunar",
+      "date": "01-15",
+      "temple_ref": null
+    }
+  ]
+}

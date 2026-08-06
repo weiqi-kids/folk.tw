@@ -7,8 +7,11 @@ import { breadcrumb, faqPage } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
+import localCelebrations from '../../data/local-celebrations.json';
 
 const { iso: today } = todayInTaipei();
+// 地方宗教慶典（縣市層級登錄）的入口。數量與縣市數一律由資料算，不寫死。
+const localCounties = new Set(localCelebrations.items.map((x) => x.county)).size;
 
 // 每個節日算「自今日起的下一次國曆日期」，依日期排序。
 // festivalNextSolar 同時處理農曆月日與節氣（清明）兩種，頁面不自行判斷型別。
@@ -93,6 +96,15 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
       </section>
     ))
   }
+
+  <section>
+    <h2>各地的地方宗教慶典</h2>
+    <p>
+      上面是全台性的節俗。內政部另有一份由縣市登錄的<a href="/festivals/local/">地方宗教慶典</a>清單，
+      共 {localCelebrations.items.length} 項、涵蓋 {localCounties} 個縣市——鹽水蜂炮、大甲媽祖遶境進香、
+      頭城搶孤、鷄籠中元祭都在裡面，農曆日期同樣換算成下一次的國曆日。
+    </p>
+  </section>
 
   <p class="muted small">
     相關：<a href="/deities/birthdays/">神明聖誕曆</a>｜<a href="/practices/">拜拜習俗</a>｜<a href="/events/"
