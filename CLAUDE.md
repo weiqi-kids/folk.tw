@@ -13,6 +13,9 @@
 > 1. **報現況／缺口／數量前一律用指令查證，不臆測。**
 > 2. **部署後以 `curl` 線上實證**，不能只看 build 綠了。
 > 3. **資料整合性欄位查無權威源就留空，絕不杜撰**（聖誕／宜忌／來源／官網／沿革）。
+> 4. 🔴 **現況型文件不寫死會過期的數量**——留指令讓人自己查。
+>    本檔、`docs/README.md`、`docs/taiwan-intake-status.md`、`docs/TODO-FOR-TAIWAN.md` 由
+>    `pnpm check:doc-numbers` 硬擋。歷史量測要寫數字**必須帶日期**（gate 據此放行）。
 
 ---
 
@@ -83,7 +86,7 @@ git push origin main            # 之後查：gh run list --workflow deploy.yml 
 pnpm notify [url...|--all]      # 部署後推 Google Indexing API ＋ IndexNow
 
 # 驗證套件（push 前跑；🔴 pnpm check 是 CI 擋門但不在 pnpm build 裡）
-pnpm check:integrity && pnpm check && pnpm check:scoped-styles && pnpm check:design \
+pnpm check:integrity && pnpm check && pnpm check:doc-numbers && pnpm check:scoped-styles && pnpm check:design \
   && pnpm check:design-tokens && pnpm check:copy-voice && pnpm check:content \
   && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build
 pnpm check:canonical && pnpm check:rendered      # build 後另跑
@@ -96,7 +99,7 @@ pnpm data:temple-coords <temple.xml>             # 座標回填（乾跑預設�
 pnpm data:weekly                                 # 週報乾跑預覽
 ```
 
-⚠️ **完整 build ≈ 20 分鐘**（含 7,891 張 OG 卡）。先定版再開 build，`astro build` 會清空 dist。
+⚠️ **完整 build ≈ 20 分鐘**（每間廟一張 OG 卡，數量隨廟數變）。先定版再開 build，`astro build` 會清空 dist。
 
 ---
 

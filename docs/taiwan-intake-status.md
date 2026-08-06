@@ -31,7 +31,7 @@ parser 只能寫在境外這台的理由見 [`taiwan-host-handoff.md`](taiwan-ho
 inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync -wo -no-del`），
 而 `scripts/intake-ingest.mjs` 會把有上位目標的檔「原子上位」並清空。
 ⚠️ **但 `PROMOTE_TO` 目前只有 `temple-xml/temple.xml` 一筆**——其餘 job 印的是「無上位目標，留在 inbox」，
-所以 inbox 會持續累積（現有 29 個檔，含 8/1 就到的 `knowledge-*`）。
+所以 inbox 會持續累積——**現有幾個檔跑 `node scripts/intake-status.mjs` 看**（對帳段會列出未被 LEDGER 涵蓋者）。
 所以**光看目錄看不出哪些處理過了**——得同時對照 manifest（我們要什麼）、
 `state.json`（他們抓到什麼）、站上資料（實際用了什麼）三邊。
 
@@ -77,7 +77,7 @@ inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync
 - 🔴 措辭界線：只能說「該廟登記了這個祭典」，**不可推論成「這些廟在過中元節」**。
 
 ### `religion-festival-ods` — 只當對帳用
-- 官方 ODS 匯出。**刻意不進站**：日期欄沒有農曆／國曆標記，只用它會把 96% 的農曆當國曆。
+- 官方 ODS 匯出。**刻意不進站**：日期欄沒有農曆／國曆標記，只用它會把絕大多數的農曆當國曆（2026-07-31 實測：全量 6,644 筆中農曆 6,365）。
 
 ---
 

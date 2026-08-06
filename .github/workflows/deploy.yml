@@ -58,6 +58,9 @@ jobs:
       # 而非來源單位名稱，實測影響 131 頁；同批還挖出 3 個活動頁的即時軌跡 href 含中文說明＝連結是死的。
       - name: 錨文字檢查（<a> 可見文字不得含網址，阻擋部署）
         run: pnpm check:anchor-text
+
+      - name: 文件數字守門（現況型文件不得寫死會過期的數量）
+        run: pnpm check:doc-numbers
       - name: render 不變量檢查（廟頁求籤區塊＋鄉鎮頁摘要，全量比對資料，阻擋部署）
         run: pnpm check:rendered
       - uses: actions/configure-pages@v6

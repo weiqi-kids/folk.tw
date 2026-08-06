@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && astro build",
+    "build": "node scripts/check-doc-numbers.mjs && node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && astro build",
     "postbuild": "pagefind --site dist && node scripts/gen-indexnow-urls.mjs && node --experimental-strip-types scripts/gen-og-temples.mjs",
     "og:temples": "node --experimental-strip-types scripts/gen-og-temples.mjs",
     "preview": "astro preview",
@@ -33,7 +33,8 @@
     "notify": "node scripts/notify.mjs",
     "data:temple-coords": "node --experimental-strip-types scripts/refresh-temple-coords.ts",
     "check:outbound-urls": "node scripts/check-outbound-urls.mjs",
-    "check:anchor-text": "node scripts/check-anchor-text.mjs"
+    "check:anchor-text": "node scripts/check-anchor-text.mjs",
+    "check:doc-numbers": "node scripts/check-doc-numbers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
