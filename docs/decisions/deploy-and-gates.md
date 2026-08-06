@@ -57,6 +57,20 @@ scripts/indexnow-ping.mjs:33  const CORE = ['/', '/almanac/', …]   ← byte-id
 
 🔴 **兩個例外都只准做一次。** 若已有本 SHA 的 run 而你想「再開一個」，一律不可以。
 
+### ⚠️ `deploy` 報 failure ≠ 沒有部署（2026-08-06 實證，同日連三次）
+
+`actions/deploy-pages` 會在等待 Pages 確認時逾時（log 是 `error_count: 10` → `Timeout reached, aborting!`），
+**但站上內容其實已經更新**。同日三個 run（`30a74c7`／`016d41c`／`7765bda`）都是這個形態：
+`build` job 全綠、`deploy` job 逾時失敗，而 curl 線上實測**新內容都在**。
+
+所以看到 deploy 失敗時，**先 curl 線上確認，不要反射性套用例外 B 去重跑**——
+重跑一個其實已經成功的部署，就是自己製造「同 SHA 兩個 run」的毒化風險（本節開頭那條）。
+
+**但它有一個真實副作用**：`indexnow` job 的條件是 `needs: [deploy]`，deploy 記為 failure 時
+**它會被 skip**＝那次部署沒有送出索引通知。確認內容已上線後，手動補一次：
+`pnpm notify <改動的網址…>`（別用 `--all`，那會把上萬個網址丟給 Indexing API）。
+`notify-failure` 那則 Slack 告警同理，是「假警報但有用的提醒」，不要拿掉。
+
 
 ## 驗證套件與各 gate
 
