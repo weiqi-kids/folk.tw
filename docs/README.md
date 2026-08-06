@@ -41,17 +41,15 @@
 | [`topical-blessing.md`](topical-blessing.md) | 時事集氣祈福 P1–P4 全自動管線的 SOP：四道硬 gate、去重規則、生命週期 | **活的**。改管線前必讀 |
 | [`seo-automation.md`](seo-automation.md) | SEO 自動化閉環（收集／反思／大腦／週報）＋ 2026-07-02 起飛基準（歷史存查） | **活的**。操作用 `/seo` skill |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
-| [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ✅ 用戶 2026-08-06 確認**330 首全部審過**。⚠️ 但資料層無 `reviewed_by`、程式碼註解與 spec 仍寫「尚未審閱」＝**三處敘述待更正**（等審閱者資訊） |
+| [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ✅ **330 首全部審過**（2026-08-06）。🔴 **頁面上不寫審閱狀態、不掛醫師姓名**——授權/來源/典藏警語已由樞紐頁與 `/about/` 統一處理，逐首頁再加就是多餘警語 |
 
 ---
 
-## 一次性文件（可能已完成任務）
+## 一次性文件
 
 | 檔 | 用途 | 現況 |
 |---|---|---|
 | [`nmtl-guanyin-qianpu-request.md`](nmtl-guanyin-qianpu-request.md) | 向國立臺灣文學館申請閱覽「觀音籤譜」`NMTL20060200544` 的送件備忘 | ✅ **已送件**（2026-08-06 用戶確認）。等館方回覆，追蹤在 `TODO-FOR-TAIWAN.md` |
-| [`festival-social-drafts.md`](festival-social-drafts.md) | 農曆七月節日的社群貼文備稿 | ⚠️ **待裁示**：本機無社群憑證故只備不發；農曆七月已過，這批稿子是否作廢 |
-| [`building-a-folk-divination-site.md`](building-a-folk-divination-site.md) | 把 folk.tw 前 43 天的經驗整理成可搬到其他傳統的通則（對外分享用） | ⚠️ **待裁示**：對外文章還是內部參考？若對外，內容已過期（那時還沒有廟宇頁與慶典資料） |
 
 ---
 
@@ -63,3 +61,7 @@
 3. **`decisions/` 是唯讀的歷史**：新的決策繼續往對應檔追加，不要回頭改寫舊條目的結論；
    結論變了就在原條目下方註明「YYYY-MM-DD 改為…，理由…」。
 4. 標 ⚠️ **待裁示** 的檔案需要用戶決定去留，**不要自行刪除**。
+5. **不要主動寫「對外分享文」這類沒人要求的文件。** 2026-08-06 刪掉
+   `building-a-folk-divination-site.md`（406 行，2026-08-02 某個 session 自作主張寫的，
+   零引用、用戶不知情）與 `festival-social-drafts.md`（社群備稿，本機無憑證故從未發出，
+   農曆七月已過）。要寫這類東西之前先問。

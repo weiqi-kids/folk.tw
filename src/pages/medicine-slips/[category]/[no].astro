@@ -6,8 +6,11 @@ import { breadcrumb, faqPage } from '../../../lib/seo';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
 // 醫師層四段（依藥方組成推估科別後，以「該科＋中醫科雙主修醫師」人格撰寫）。
-// ⚠️ 尚未經執業醫師逐首審閱，故頁面上**不得掛任何醫師姓名、不得宣稱由醫師撰寫**；
-//    審閱完成後才在 yaoqian-notes.json 補 reviewed_by 並改標示。措辭界線見 docs/yaoqian-physician-spec.md。
+// ✅ 330 首已由醫師逐首審閱完畢（用戶 2026-08-06 確認）。
+// 🔴 但**頁面上仍不掛醫師姓名、不宣稱由醫師撰寫、也不寫「已審閱」之類的狀態字**——
+//    授權、來源與原始典藏警語已由 /medicine-slips/ 樞紐頁與 /about/ 統一處理，
+//    逐首頁再加一句就是多餘的警語。**用戶已多次否決在頁面上加這類後設說明，不要再加回去。**
+//    措辭界線見 docs/yaoqian-physician-spec.md。
 interface Note {
   id: string; specialty: string;
   safety_flags: string; why_not_self_medicate: string; modern_care_pathway: string; physician_note: string;
