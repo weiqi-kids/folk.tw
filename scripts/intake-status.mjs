@@ -108,15 +108,19 @@ const LEDGER = [
     upstream: join(INBOX, 'misc/knowledge-deities-list-cid3.html'),
   },
   {
-    stage: 'pending', id: 'local-celebration',
-    goal: '地方宗教慶典 65 筆（縣市＋曆別＋月日＋活動名稱）→ 節日／活動頁素材。2026-08-06 用戶裁示「有用」',
-    blocker:
-      '⛔ 等用戶選頁型。資料已到齊（2026-08-06 台灣端補完 6 頁，cid 去重 65 筆，sha256 逐檔複驗相符），' +
-      '分頁確認可用 GET，已改成 6 個一般 job → 這條線之後全自動。' +
-      '⚠️ 別用「標題含廟名」做樸素字串比對配廟：2026-08-06 實測 7 筆含廟名者，' +
-      '樸素比對只中 4 筆且**會配錯**（「東隆宮迎王」會被配到潮州鎮東隆宮，正主是東港東隆宮）——' +
-      '要走既有的「廟名＋地址」消歧，同 festivals 匯入那套。',
-    metric: () => '未使用（頁型未定，不得先開 slug）',
+    stage: 'live', id: 'local-celebration',
+    what: '內政部「地方宗教慶典」＝**縣市層級**登錄的慶典清單（縣市＋曆別＋月日＋活動名稱四欄）',
+    how:
+        '2026-08-06 上線 /festivals/local/，並回灌節日頁（同一天登錄者）與廟宇頁（名稱以該廟為名者）。' +
+        '匯入器 scripts/import-local-celebrations.mjs；6 頁皆為一般 job → 這條線全自動。' +
+        '⚠️ 配廟**不可用樸素字串比對**：實測「東隆宮迎王」會被配到潮州鎮東隆宮（正主是東港東隆宮），' +
+        '「臺北保安宮」會被配到臺中市北區。規則＝廟名唯一→縣市→鄉鎮（詞幹≥2字），' +
+        '不唯一就留空。授權只涵蓋這四欄，詳情頁的簡介與照片不取。',
+    metric: () => {
+      const lc = j('src/data/local-celebrations.json');
+      return `${lc.items.length} 項｜${new Set(lc.items.map((x) => x.county)).size} 縣市｜` +
+        `可唯一對映到廟 ${lc.items.filter((x) => x.temple_ref).length} 項（其餘留空＝寧缺勿假）`;
+    },
     upstream: join(INBOX, 'misc/local-celebration-ci96.html'),
     covers: [
       ...[2, 3, 4, 5, 6].map((p) => `local-celebration-p${p}`),
