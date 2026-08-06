@@ -96,16 +96,35 @@ const LEDGER = [
   {
     stage: 'pending', id: 'knowledge-zaoshen',
     goal: '補灶神的 iconography（CLAUDE.md 長期欠帳之一）',
-    blocker: '⛔ 授權：knowledge-* 屬「網站內容」不是開放資料，與沿革同一封洽詢函，未獲同意前不處理',
+    blocker:
+      '✅ 授權已解（2026-08-06 用戶回報內政部同意使用）。⛔ 現在卡的是**來源標註怎麼寫**：' +
+      '總紅線第 1 條要求「逐筆掛源、來源要能被機器複驗」，而一紙私下的同意函不是公開網址，' +
+      '得有公文文號／日期才寫得出可複驗的 ref。拿到就能做——檔案 2026-08-01 就躺在 inbox 了。',
     metric: () => `灶神 iconography：${M.zaojunIcon ? '✅ 已有' : '❌ 仍空白'}`,
     upstream: join(INBOX, 'misc/knowledge-zaoshen-cid265.html'),
   },
   {
     stage: 'pending', id: 'knowledge-deities-list',
     goal: '用 96 個神祇條目擴充 iconography',
-    blocker: '⛔ 授權：同上',
+    blocker: '✅ 授權已解、⛔ 卡來源標註：同上',
     metric: () => `全 ${M.deities} 尊中有 iconography 者 ${M.iconography}`,
     upstream: join(INBOX, 'misc/knowledge-deities-list-cid3.html'),
+  },
+  {
+    stage: 'pending', id: 'religion-foundation-list',
+    goal: '收 UploadFileID（沿革 idx=2／建築特色 idx=3／參拜流程 idx=4 的內容都靠它定位）→ 產 url_list 清單 → 才輪到內容 job',
+    blocker:
+      '⏳ 等台灣端跑（2026-08-06 加進 manifest v7，每日 04:17 台北自動取，約 125 頁、' +
+      '每頁 ≥1 秒，估一兩輪跑完）。**這一層不是授權問題**——授權 2026-08-06 已獲內政部同意；' +
+      '這純粹是「那些 id 不在任何開放資料集裡，只列在查詢結果頁上」的技術前置。' +
+      '🔴 抓回來的列含電話與負責人＝個資，只留 inbox；產出的清單檔只准有 key 與 url 兩欄。',
+    metric: () => {
+      const dir = join(INBOX, 'recon-service/foundation-list');
+      if (!existsSync(dir)) return '尚未收到任何頁';
+      const n = readdirSync(dir).filter((f) => f.endsWith('.html')).length;
+      return `已收 ${n} 頁`;
+    },
+    upstream: join(INBOX, 'recon-service/FOUNDATION-FORM-PAYLOAD.md'),
   },
   {
     stage: 'live', id: 'local-celebration',

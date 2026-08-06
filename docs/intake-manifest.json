@@ -7,7 +7,7 @@
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",
     "偵察類任務（慶典查詢等尚不知網址者）不在此清單，寫在 taiwan-host-handoff.md 的散文指示裡。"
   ],
-  "version": 6,
+  "version": 7,
   "updated": "2026-08-06",
   "politeness": {
     "min_interval_ms": 1000,
@@ -16,6 +16,55 @@
     "backoff": "指數退避：失敗第 n 次等 2^n 秒（上限 300 秒）；連續 5 次失敗就記 state.json 收工，下輪再來"
   },
   "jobs": [
+    {
+      "id": "religion-foundation-list",
+      "url": "https://religion.moi.gov.tw/Religion/FoundationTemple?ci=1",
+      "dest": "recon-service/foundation-list.html",
+      "max_age_days": 90,
+      "note": "宗教團體查詢結果全量（PageSize=100）。目的只有一個：收 UploadFileID。",
+      "paginate": {
+        "method": "POST",
+        "page_param": "Page",
+        "start": 1,
+        "max_pages": 200,
+        "form": {
+          "Name": "", "NameAdv": "", "UniformNum": "",
+          "ReligionType": "", "Country": "", "Area": "", "God": "",
+          "RegisterType": "", "IsProperty": "",
+          "RT": "true", "RL": "true", "RLT": "true", "RLC": "true", "RLF": "true",
+          "RN": "true", "RNT": "true", "RNC": "true", "RNF": "true", "RG": "true",
+          "Property_1": "false", "Property_2": "false", "Property_3": "false",
+          "Page": "1", "Searched": "yes", "PageSize": "100"
+        },
+        "dest_template": "recon-service/foundation-list/page-{page}.html",
+        "total_pages_re": "共 (\\d+) 頁",
+        "stop_when_missing": "<tr",
+        "expect_per_page": {
+          "http_status": 200,
+          "min_bytes": 150000,
+          "contains": "<tr"
+        }
+      },
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 150000,
+        "contains": "<tr"
+      },
+      "_why": [
+        "**這個 job 的產物不會直接上站**，它只是為了取得 `UploadFileID`——",
+        "沿革／建築特色／參拜流程的內容都在 `GetUploadFile?UploadFileID=N&IndexID=2|3|4`，",
+        "而那些 id **不在 temple.xml（8203）裡**（2026-08-06 實查，該檔只有編號/名稱/地址/主祀/教別/",
+        "登記別/電話/負責人/座標），唯一列出它們的地方就是這個查詢結果頁的",
+        "`<a class='other' main='<UploadFileID>' idx='<IndexID>'>`。",
+        "收完之後由境外端產出 url_list 清單檔，才輪到真正的內容 job。",
+        "2026-08-06 實測 PageSize=100 的單頁約 600 KB、PageSize=20 約 300 KB",
+        "（頁面固定開銷就 ~230 KB），故 min_bytes 設 150000＝連末頁也過得了、又擋得住錯誤頁。",
+        "🔴 form 用的是**單值版**：checkbox 的 true/false 重複鍵 JSON 表達不出來，",
+        "台灣端 2026-08-05 已實測兩版等價（見 inbox/recon-service/FOUNDATION-FORM-PAYLOAD.md）。",
+        "🔴 抓回來的列含**電話與負責人＝個資**，只留在 inbox（repo 外）；",
+        "境外端產出的清單檔只准有 key 與 url 兩欄，不得帶任何個資進 public repo。"
+      ]
+    },
     {
       "id": "temple-xml",
       "url": "https://religion.moi.gov.tw/Report/temple.xml",
