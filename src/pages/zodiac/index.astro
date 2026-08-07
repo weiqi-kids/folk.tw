@@ -1,0 +1,115 @@
+---
+// 生肖樞紐：今年值太歲／沖太歲是誰，12 生肖入口。
+// 🔴 判定一律走 src/lib/zodiac.ts，本檔不重算；只陳述地支關係，不做吉凶預測。
+import Base from '../../layouts/Base.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import {
+  ZODIAC_LIST, yearPillarOf, taisuiRelation, taisuiZodiacs, RELATION_LABEL, chongDays,
+} from '../../lib/zodiac';
+
+const { iso: todayIso } = todayInTaipei();
+const yp = yearPillarOf(todayIso);
+const yearGanzhi = `${yp.stem}${yp.branch}`;
+const solarYear = Number(todayIso.slice(0, 4));
+const { zhi: zhiZodiac, chong: chongZodiacName } = taisuiZodiacs(yp.branch);
+const today = chongDays(todayIso, 1)[0];
+
+const items = ZODIAC_LIST.map((z) => ({ ...z, rel: taisuiRelation(z.branch, yp.branch) }));
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '農民曆', path: '/almanac' },
+    { name: '生肖', path: '/zodiac' },
+  ]),
+];
+const faq = faqPage([
+  {
+    q: `${solarYear}年犯太歲的生肖有哪些？`,
+    a: `${solarYear}年為${yearGanzhi}年，年支「${yp.branch}」。地支與年支相同者為值太歲（本命年），即屬${zhiZodiac}；與年支對沖者為沖太歲，即屬${chongZodiacName}。這是地支關係推算，不是吉凶預測。`,
+  },
+  {
+    q: '生肖從哪一天開始換？',
+    a: '本站以立春分年（與年柱一致），不是元旦、也不是農曆正月初一。立春之前出生者，生肖算前一年。',
+  },
+]);
+if (faq) jsonLd.push(faq);
+---
+
+<Base
+  title={`十二生肖｜${solarYear}年太歲關係與今日沖煞`}
+  description={`${solarYear}年（${yearGanzhi}年）值太歲屬${zhiZodiac}、沖太歲屬${chongZodiacName}。十二生肖各自的年支關係與每日沖煞，純干支曆算。`}
+  jsonLd={jsonLd}
+  speakable={['h1', '.hero-answer']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/almanac/">農民曆</a> ／ 生肖
+  </nav>
+
+  <h1>十二生肖：{solarYear}年太歲關係與今日沖煞</h1>
+
+  <section class="hero">
+    <p class="hero-answer">
+      {solarYear}年是<strong>{yearGanzhi}年</strong>。
+      值太歲（本命年）是屬<strong>{zhiZodiac}</strong>，沖太歲是屬<strong>{chongZodiacName}</strong>。
+      今日（<span data-role="date">{todayIso}</span>）沖<strong>{today.zodiac}</strong>。
+    </p>
+    <p class="muted small">年支關係與沖煞皆為干支曆算，非吉凶預測。年柱以立春分年。</p>
+  </section>
+
+  <ul class="grid">
+    {
+      items.map((z) => (
+        <li class={z.rel !== 'none' ? 'is-flagged' : undefined}>
+          <a href={`/zodiac/${z.slug}/`}>
+            <span class="name">屬{z.name}</span>
+            <span class="branch">{z.branch}</span>
+            <span class="rel">{RELATION_LABEL[z.rel]}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <section>
+    <h2>值太歲、沖太歲是什麼意思</h2>
+    <p>
+      每一年都有自己的干支，年支對應一個生肖。地支與當年年支<strong>相同</strong>的生肖，叫「值太歲」，
+      也就是一般說的本命年；與年支<strong>對沖</strong>的生肖，叫「沖太歲」。
+    </p>
+    <p>
+      民間對這兩種情形的做法是「安太歲」，農曆正月初一至元宵之間到廟裡辦理，年底再回廟謝太歲。
+      <a href="/practices/antaisui/">安太歲的完整流程 →</a>
+    </p>
+    <p class="muted small">
+      坊間另有刑、害、破等說法，各家寫法不一，本站查證前不列。
+    </p>
+  </section>
+
+  <nav class="more" aria-label="更多">
+    <a href="/almanac/chongsha/">今日沖煞查詢 →</a>
+    <a href="/deities/taisui/">太歲星君 →</a>
+    <a href="/almanac/">今日農民曆 →</a>
+  </nav>
+</Base>
+
+<style>
+  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
+  .crumbs a { color: var(--accent); }
+  .hero { margin: 1.5rem 0 2rem; }
+  .hero-answer { font-size: var(--text-lg); line-height: 1.7; }
+  .muted { color: var(--ink-soft); }
+  .small { font-size: var(--text-sm); }
+  section { margin-block: 2rem; }
+  .grid { list-style: none; padding: 0; display: grid; gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+  .grid a { display: flex; flex-direction: column; gap: 0.15rem;
+    padding: 0.75rem 0.9rem; border: 1px solid var(--rule); border-radius: 0.5rem; color: inherit; }
+  .grid .name { font-size: var(--text-lg); }
+  .grid .branch { font-size: var(--text-sm); color: var(--ink-soft); }
+  .grid .rel { font-size: var(--text-sm); color: var(--ink-soft); }
+  .grid li.is-flagged a { border-color: var(--accent); }
+  .grid li.is-flagged .rel { color: var(--accent); }
+  .more { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+  .more a { color: var(--accent); }
+</style>

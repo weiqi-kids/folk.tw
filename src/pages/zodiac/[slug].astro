@@ -1,0 +1,209 @@
+---
+// 生肖頁：某生肖「今年與太歲的地支關係」＋「今日／近 30 天沖不沖你」。
+//
+// 🔴 這頁只陳述曆法關係與有源的習俗，**不做吉凶預測**。
+//    「屬鼠今年沖太歲」＝子午相沖（C.2 S10 同一套地支關係，verified）；
+//    「所以今年會不順」查無權威源，一個字都不寫。措辭界線見 src/lib/zodiac.ts 檔頭。
+// 🔴 判定不在本檔做，一律走 src/lib/zodiac.ts（唯一入口），與 /almanac/chongsha/ 共用同一個引擎。
+// ⚠️ 出生年份用**立春**分年，不是元旦也不是農曆初一。年初出生者可能屬前一個生肖，
+//    這句 caveat 必須留在頁面上——拿掉就等於給了會出錯的答案。
+import Base from '../../layouts/Base.astro';
+import { todayInTaipei } from '../../lib/daily';
+import { breadcrumb, faqPage } from '../../lib/seo';
+import {
+  ZODIAC_LIST, bySlug, yearPillarOf, taisuiRelation, taisuiZodiacs,
+  RELATION_LABEL, birthYears, chongDays,
+} from '../../lib/zodiac';
+
+export function getStaticPaths() {
+  return ZODIAC_LIST.map((z) => ({ params: { slug: z.slug } }));
+}
+
+const { slug } = Astro.params;
+const z = bySlug.get(slug as never)!;
+
+const { iso: todayIso } = todayInTaipei();
+const yp = yearPillarOf(todayIso);
+const yearGanzhi = `${yp.stem}${yp.branch}`;
+const solarYear = Number(todayIso.slice(0, 4));
+const rel = taisuiRelation(z.branch, yp.branch);
+const { zhi: zhiZodiac, chong: chongZodiacName } = taisuiZodiacs(yp.branch);
+
+const rows = chongDays(todayIso, 30);
+const mine = rows.filter((r) => r.zodiac === z.name);
+const heroDay = rows[0];
+
+const years = birthYears(z.branch).filter((y) => y <= solarYear + 6);
+
+const jsonLd: object[] = [
+  breadcrumb([
+    { name: '農民曆', path: '/almanac' },
+    { name: '生肖', path: '/zodiac' },
+    { name: `屬${z.name}`, path: `/zodiac/${z.slug}` },
+  ]),
+];
+const faq = faqPage([
+  {
+    q: `屬${z.name}的人${solarYear}年犯太歲嗎？`,
+    a: rel === 'none'
+      ? `${solarYear}年為${yearGanzhi}年，年支「${yp.branch}」。屬${z.name}者地支為「${z.branch}」，與年支既不相同也不對沖，沒有值太歲或沖太歲的關係。今年值太歲者屬${zhiZodiac}、沖太歲者屬${chongZodiacName}。`
+      : `${solarYear}年為${yearGanzhi}年，年支「${yp.branch}」。屬${z.name}者地支為「${z.branch}」，${rel === 'zhi' ? '與年支相同，即「值太歲」，也就是俗稱的本命年' : `與年支相沖（${z.branch}${yp.branch}相沖），即「沖太歲」`}。這是地支關係的推算，不是吉凶預測。`,
+  },
+  {
+    q: `今天沖不沖屬${z.name}的人？`,
+    a: `農民曆每日有一相沖生肖，由當日地支對沖推得。${todayIso}（台灣）沖${heroDay.zodiac}。本頁列出近 30 天沖${z.name}的日期。`,
+  },
+]);
+if (faq) jsonLd.push(faq);
+
+const relSentence =
+  rel === 'zhi'
+    ? `與年支相同，是「值太歲」，也就是一般說的本命年。`
+    : rel === 'chong'
+      ? `與年支相沖（${z.branch}${yp.branch}相沖），是「沖太歲」。`
+      : `與年支既不相同、也不對沖。`;
+---
+
+<Base
+  title={`屬${z.name}｜${solarYear}年太歲關係與今日沖煞`}
+  description={`屬${z.name}（${z.branch}）在${solarYear}年（${yearGanzhi}年）是否值太歲、沖太歲，以及近 30 天哪幾天沖${z.name}。純干支曆算，非吉凶預測。`}
+  jsonLd={jsonLd}
+  ogType="article"
+  speakable={['h1', '.hero-answer']}
+>
+  <nav class="crumbs" aria-label="麵包屑">
+    <a href="/almanac/">農民曆</a> ／ <a href="/zodiac/">生肖</a> ／ 屬{z.name}
+  </nav>
+
+  <h1>屬{z.name}（{z.branch}）：{solarYear}年太歲關係與今日沖煞</h1>
+
+  <section class="hero">
+    <p class="hero-answer">
+      {solarYear}年是<strong>{yearGanzhi}年</strong>，屬{z.name}者<strong>{RELATION_LABEL[rel]}</strong>。
+      今日（<span data-role="date">{todayIso}</span>）沖<strong data-role="zodiac">{heroDay.zodiac}</strong>。
+    </p>
+    <p class="muted small">
+      沖煞與年支關係皆為干支曆算，逐日／逐年推定，非吉凶預測。年柱以立春分年。
+    </p>
+  </section>
+
+  <section>
+    <h2>{solarYear}年與屬{z.name}的關係</h2>
+    <p>
+      {solarYear}年年柱為「{yearGanzhi}」，年支是「{yp.branch}」。屬{z.name}者地支為「{z.branch}」，{relSentence}
+    </p>
+    <p>
+      今年<strong>值太歲</strong>的是屬{zhiZodiac}者（地支與年支相同），<strong>沖太歲</strong>的是屬{chongZodiacName}者（地支與年支對沖）。
+    </p>
+    <p class="muted small">
+      年柱依立春分年，資料來自站上農民曆引擎（{yp.sources.join('；')}）。
+      這裡只列地支關係；坊間另有刑、害、破等說法，各家寫法不一，本站查證前不列。
+    </p>
+  </section>
+
+  <section>
+    <h2>哪些年次屬{z.name}</h2>
+    <p class="years">{years.join('、')}</p>
+    <p class="muted small">
+      ⚠️ 生肖以<strong>立春</strong>分年，不是元旦、也不是農曆正月初一。
+      在立春之前出生的人，生肖算前一年——年初出生者請以實際立春時刻為準。
+    </p>
+  </section>
+
+  <section class="table-wrap">
+    <h2>近 30 天，哪幾天沖{z.name}</h2>
+    {
+      mine.length === 0 ? (
+        <p>未來 30 天沒有沖{z.name}的日子。</p>
+      ) : (
+        <p>未來 30 天有 {mine.length} 天沖{z.name}：{mine.map((r) => r.md).join('、')}。</p>
+      )
+    }
+    <table class="chong" data-chong>
+      <thead>
+        <tr><th>日期</th><th>沖生肖</th><th>煞方</th></tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr data-date={r.iso} data-zodiac={r.zodiac} class={r.zodiac === z.name ? 'is-mine' : undefined}>
+              <td><a href={`/almanac/${r.iso}/`}>{r.md}</a></td>
+              <td>{r.zodiac}{r.zodiac === z.name ? '（就是你）' : ''}</td>
+              <td>{r.dir}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p class="muted small">
+      被沖到生肖的人，遇嫁娶、出殯等場合習俗上會暫避。點日期看該日完整農民曆。
+    </p>
+  </section>
+
+  {
+    rel !== 'none' && (
+      <section>
+        <h2>值太歲、沖太歲的人做什麼</h2>
+        <p>
+          民間的做法是「安太歲」：到廟裡登記姓名、農曆生日與住址，由廟方點太歲燈、掛牌入太歲殿；
+          年底農曆十二月廿四日前回廟「謝太歲」、換新符牌。
+        </p>
+        <p>
+          時間上，全台通例是農曆正月初一至元宵之間辦理，最遲到二月，立春後最宜。
+        </p>
+        <p>
+          <a href="/practices/antaisui/">安太歲的完整流程、供品與禁忌 →</a>
+        </p>
+      </section>
+    )
+  }
+
+  <nav class="more" aria-label="更多">
+    <a href="/zodiac/">十二生肖一覽 →</a>
+    <a href="/almanac/chongsha/">今日沖煞查詢 →</a>
+    <a href="/deities/taisui/">太歲星君 →</a>
+    <a href="/almanac/">今日農民曆 →</a>
+  </nav>
+</Base>
+
+<!-- 依台灣當下日期改寫「今日」、標今日列、隱藏已過日期，故 build 不新鮮時也永遠準（同 /almanac/chongsha/）。 -->
+<script is:inline>
+  (function () {
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+    const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+    const t0 = toUTC(today);
+    const table = document.querySelector('[data-chong]');
+    let hit = null;
+    if (table) {
+      table.querySelectorAll('tr[data-date]').forEach((tr) => {
+        const days = Math.round((toUTC(tr.getAttribute('data-date')) - t0) / 86400000);
+        if (days < 0) { tr.style.display = 'none'; return; }
+        if (days === 0) { tr.classList.add('is-today'); hit = tr; }
+      });
+    }
+    if (hit) {
+      const d = document.querySelector('[data-role=date]');
+      const zdc = document.querySelector('[data-role=zodiac]');
+      if (d) d.textContent = today;
+      if (zdc) zdc.textContent = hit.getAttribute('data-zodiac');
+    }
+  })();
+</script>
+
+<style>
+  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
+  .crumbs a { color: var(--accent); }
+  .hero { margin: 1.5rem 0 2rem; }
+  .hero-answer { font-size: var(--text-lg); line-height: 1.7; }
+  .muted { color: var(--ink-soft); }
+  .small { font-size: var(--text-sm); }
+  .years { font-size: var(--text-lg); line-height: 1.9; }
+  section { margin-block: 2rem; }
+  .table-wrap { overflow-x: auto; }
+  table.chong { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  table.chong th, table.chong td { padding: 0.4rem 0.6rem; text-align: left; border-bottom: 1px solid var(--rule); }
+  table.chong tr.is-mine td { background: var(--surface-soft); font-weight: 600; }
+  table.chong tr.is-today td { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .more { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+  .more a { color: var(--accent); }
+</style>
