@@ -53,6 +53,22 @@ const VERBOSE = args.includes('--verbose');
 const PHOTOS = args.includes('--photos');
 const REPLACE_INTRO = args.includes('--replace-intro');
 
+
+/** HTML entity 解碼（具名＋十進位＋十六進位）。
+ * 🔴 2026-08-07 實測必要性：內政部的 `Comment` 直接帶 `&#63886;`（CJK 相容字）這類**數值型** entity，
+ *    本檔原本一個都沒解就存進 history，**308 間廟中招**。而 entity 結尾的分號會與後面的標點
+ *    連成「;、」「;，」，最終被 check:rendered 的連續標點不變量擋下（CI 紅燈，commit 210049e）。
+ *    解碼是**還原來源本字**，不是改寫——「逐字引用」的前提就是先正確解碼。
+ * ⚠️ `&amp;` 必須放最後，否則 `&amp;#39;` 會被兩段式誤解。
+ */
+const decodeEntities = (s) => String(s ?? '')
+  .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+  .replace(/&nbsp;/g, ' ')
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+  .replace(/&amp;/g, '&');
+
 const FIELD = { 2: 'history', 3: 'architecture', 4: 'worship_flow' };
 const KIND = { 2: '歷史沿革', 3: '建築特色', 4: '參拜流程' };
 
@@ -84,7 +100,7 @@ const { resolve: resolveTemple, stat: mstat } = makeResolver(owner, temples);
 
 const stat = {
   json: 0,
-  written: {}, skippedExisting: 0, skippedPlaceholder: 0, skippedIntro: 0, photos: 0,
+  written: {}, decoded: 0, skippedExisting: 0, skippedPlaceholder: 0, skippedIntro: 0, photos: 0,
 };
 const photoList = [];
 
@@ -107,7 +123,7 @@ for (const f of jsonFiles.sort()) {
   const t = resolveTemple(key);
   if (!t) { if (VERBOSE) console.log(`  ${key} → 對不上任何廟，略過`); continue; }
 
-  const comment = String(j.Comment ?? '').trim();
+  const comment = decodeEntities(j.Comment ?? '').trim();
   if (isPlaceholder(comment, j.FileTitle, t.name)) {
     stat.skippedPlaceholder++;
     if (VERBOSE) console.log(`  ${key} ${KIND[idx]} → ${t.id}：佔位值（「${comment.slice(0, 12)}」），略過`);
@@ -146,13 +162,26 @@ for (const f of jsonFiles.sort()) {
   }
 }
 
+// ── entity 解碼修正：掃**全部**廟的三個內政部欄位 ─────────────────────────────
+// 🔴 不可只在上面的迴圈裡順手修：那只會修到「這輪來源檔剛好在硬碟上」的廟。
+//    2026-08-07 實測，先寫成迴圈內修正時漏了 moi_557_開元宮——它的 history 是前幾輪寫進去的，
+//    而該 key 的 JSON 這輪不在 inbox，於是永遠輪不到。改成全站掃描才是真的修完。
+//    這是**解碼修正不是內容覆寫**（同一段字還原成正確字元），故不受「已有不覆寫」限制。
+for (const t of temples) {
+  for (const f of Object.values(FIELD)) {
+    if (typeof t[f] !== 'string') continue;
+    const fixed = decodeEntities(t[f]);
+    if (fixed !== t[f]) { t[f] = fixed; stat.decoded++; }
+  }
+}
+
 console.log(`\nGetUploadFile 匯入：讀 ${stat.json} 個 JSON（結果頁 ${listFiles.length} 頁建了 ${owner.size} 筆對映）`);
 console.log('  ── 對映 ──');
 console.log(`  廟名唯一命中　　${mstat.byUnique}｜行政區消歧 ${mstat.byRegion}｜完整地址消歧 ${mstat.byAddr}`);
 console.log(`  同名無法消歧　　${mstat.unresolved}｜站上無此廟 ${mstat.notInDb}｜結果頁查無此 id ${mstat.noOwner}`);
 console.log('  ── 寫入 ──');
 for (const [k, v] of Object.entries(stat.written)) console.log(`  ${k}　${v} 筆`);
-console.log(`  已有不覆寫 ${stat.skippedExisting}｜佔位值略過 ${stat.skippedPlaceholder}｜有 intro 不動 ${stat.skippedIntro}`);
+console.log(`  entity 解碼修正 ${stat.decoded}｜已有不覆寫 ${stat.skippedExisting}｜佔位值略過 ${stat.skippedPlaceholder}｜有 intro 不動 ${stat.skippedIntro}`);
 console.log(`  照片候選 ${stat.photos}`);
 
 if (PHOTOS) {

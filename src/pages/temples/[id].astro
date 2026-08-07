@@ -220,8 +220,17 @@ function historySnippet(raw: string | undefined): string {
   if (!raw) return '';
   const first = (String(raw).split(/(?<=[。！？．.])/)[0] ?? '').replace(/\s+/g, ' ').trim();
   if (!first) return '';
+  // ⑤ 連續標點壓成一個（2026-08-07 加）。原本只正規化**句尾**，中間的連續標點會原樣進 SERP——
+  //    `moi_3524_順天宮` 的來源寫著「…以衛國安民，，宋建隆元年…」，被 check:rendered 擋下（CI 紅燈）。
+  //    🔴 這裡刻意擋的是**整個類別**而不是「，，」那一種：解碼修正前實測有 7 種樣態
+  //    （;、 ;， ;： ;。 、、 ，， ，,），修單一種下次換一種還是會紅。
+  //    序列裡若含句末類就取「。」（「，。」→「。」），否則取第一個（「，，」→「，」）。
+  const collapsed = first.replace(
+    /[、，；：,;:。！？．.]{2,}/g,
+    (m) => ([...m].some((c) => '。！？．.'.includes(c)) ? '。' : m[0]),
+  );
   // 句尾正規化：逗號類 → 句號；「．」「.」→ 句號；已是句號類就不動。
-  let s = first.replace(/[、，；：,;:]+$/, '。').replace(/[．.]+$/, '。');
+  let s = collapsed.replace(/[、，；：,;:]+$/, '。').replace(/[．.]+$/, '。');
   if (!/[。！？]$/.test(s)) s += '。';
   if ([...s].length <= HISTORY_SNIPPET_MAX) return s;
   // 超長：在最後一個標點邊界切，切完再補句號；找不到邊界就不用這句（回空字串）。
