@@ -1942,5 +1942,52 @@
       "last_checked": "2026-08-06",
       "empty_runs": 1
     }
+  },
+  {
+    "id": "news-landslide-20260805-183ff4",
+    "eventType": "landslide",
+    "title": "為菲律賓黎剎省羅德里格斯山崩平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "Philstar",
+        "url": "https://www.philstar.com/headlines/2026/08/06/2547287/2-siblings-dead-rizal-landslide-classes-suspended"
+      },
+      {
+        "ref": "Daily Tribune",
+        "url": "https://tribune.net.ph/2026/08/06/death-toll-rises-as-rockslide-kills-2-siblings-in-rizal"
+      }
+    ],
+    "place": "Rodriguez, Rizal",
+    "time": "2026-08-05",
+    "lat": 14.7324642,
+    "lon": 121.1453418,
+    "detector": "news",
+    "since": "2026-08-07",
+    "status": "active"
+  },
+  {
+    "id": "news-cyclone-20260807-451a68",
+    "eventType": "cyclone",
+    "title": "為沖繩颱風白海豚平安祈福",
+    "event": "強烈颱風「白海豚」侵襲日本沖繩本島，造成多人受傷、多處停電，公車與單軌電車全日停駛，祈願當地平安、早日恢復如常。",
+    "sources": [
+      {
+        "ref": "琉球新報",
+        "url": "https://ryukyushimpo.jp/news/entry-5441026.html"
+      },
+      {
+        "ref": "沖縄タイムス",
+        "url": "https://www.okinawatimes.co.jp/articles/-/1896614"
+      }
+    ],
+    "place": "沖縄",
+    "time": "2026-08-07",
+    "cycloneNameZh": "白海豚",
+    "lat": 26.5707754,
+    "lon": 128.0255901,
+    "detector": "news",
+    "since": "2026-08-07",
+    "status": "active"
   }
 ]
