@@ -3,7 +3,9 @@ import Base from '../layouts/Base.astro';
 import { breadcrumb } from '../lib/seo';
 import { getEvents, getDeities, getTemples, getPractices } from '../lib/queries';
 
-// 圖片來源彙整：代表圖皆取自 Wikimedia Commons（CC／公有領域），逐張標作者·授權·出處。
+// 圖片來源彙整：逐張標作者·授權·出處。
+// ⚠️ 來源是**複合的**（Wikimedia Commons ＋ 內政部全國宗教資訊網），不要再寫成單一來源——
+//    下方那段引言是清單的全稱斷言，清單多一種授權它就得多提一種（check-rendered 不變量 5 硬擋）。
 const creditOf = (items: { data: Record<string, any> }[], nameKey = 'name') =>
   items
     .filter((e) => e.data.image)
@@ -163,9 +165,14 @@ const faqLd = {
 
   <section>
     <h2>圖片來源</h2>
+    {/* 🔴 這段話是**清單的全稱斷言**，不是裝飾——下方逐張列出的每一種授權都必須在這裡被提到。
+        2026-08-07 踩過：原句寫「代表圖皆取自 Wikimedia Commons」，但當天匯入 19 張內政部照片後，
+        清單裡就有兩種授權，那句「皆取自」變成錯的陳述（單張的標示各自都對，錯的是這句總結）。
+        已做成 gate（check-rendered 不變量 5：清單出現幾種授權，這段就必須提到幾種）。 */}
     <p class="muted small">
-      民俗活動頁的代表圖皆取自 <strong>Wikimedia Commons</strong>，採 CC 授權或公有領域，
-      並依授權標示原作者與條款；找不到合授權圖片的活動一律留空、不使用未授權圖。
+      代表圖有兩個來源：<strong>Wikimedia Commons</strong>（CC 授權或公有領域），
+      以及<strong>內政部</strong>全國宗教資訊網（2026-08-06 經同意使用，條件為標示資料來源連結）。
+      兩者都依授權標示原作者與條款；找不到合授權圖片者一律留空、不使用未授權圖。
       圖片經縮圖處理、自存於本站（非熱連）。以下為逐張出處：
     </p>
     {

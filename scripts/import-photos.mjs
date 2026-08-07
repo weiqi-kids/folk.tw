@@ -50,6 +50,11 @@ if (!files.length) {
 }
 
 // 候選檔提供 alt／攝影者／來源頁，抓回來的檔只有 bytes。兩邊靠 key 對起來。
+// ⚠️ 候選檔是**會自己清空的工作佇列**（它的定義是「該尊尚無圖」），所以匯入成功後重跑
+//    產生器，候選就會變 0 筆——那是對的，但也代表**本檔的 meta 配對只在佇列還滿的時候成立**。
+//    匯入後的權威記錄是 deities.json／temples.json 的 `image`（author／author_role／
+//    license／source 都在那裡），不是候選檔。要重建候選，重跑 import-knowledge-deities.mjs
+//    --photos（它讀的是 inbox 的原始 HTML，那份還在）。
 const meta = new Map();
 for (const c of CAND) {
   if (!existsSync(c.file)) continue;

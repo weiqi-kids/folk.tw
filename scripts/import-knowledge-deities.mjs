@@ -133,10 +133,12 @@ function parseEntry(file, html) {
     // 圖說＝圖後第一段以「（○○攝）」或「（○○繪製）」收尾的文字。
     // 🔴 只收「攝／繪製」＝著作人本人的署名。「（○○提供）」是提供者不是著作人，
     //    問不出誰拍的就不算有署名，寧可不採用（見本檔頭與 import-photos.mjs 的紅線）。
-    const cap = after.match(/^([^|]{4,80}?（[^）]{2,12}(?:攝|繪製)）)/);
+    const cap = after.match(/^([^|]{4,80}?（[^）]{2,24}(?:攝|繪製)）)/);
     const caption = cap ? cap[1].trim() : '';
-    const m = caption.match(/（([^）]{2,12})(攝|繪製)）$/);
-    const photographer = m ? m[1] : '';
+    const m = caption.match(/（([^）]{2,24})(攝|繪製)）$/);
+    // 複合圖說：「（禪機山仙佛寺提供／曾文豐攝）」＝提供者／著作人並列。
+    // 著作人是分隔符**後面**那個，整串拿去當姓名會把提供者也算進姓名表示。
+    const photographer = m ? m[1].split(/[／\/、,，_]/).pop().trim() : '';
     const credit_role = m ? m[2] : '';
     photo = { src: img[1], alt, caption, photographer, credit_role };
   }
