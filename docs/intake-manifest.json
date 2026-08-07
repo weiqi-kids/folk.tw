@@ -13,9 +13,10 @@
     "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
     "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。",
     "2026-08-07：v13 **只改註解，不改行為**——religion-yange 的 _why 原本寫「刻意不收 IndexID=3」，那是 2026-08-05 的舊裁定，2026-08-06 抽樣後已改為收（全量在 religion-jianzhu job）。jobs 的數量、順序、url、expect、politeness 全部與 v12 相同。",
-    "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。"
+    "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。",
+    "2026-08-07：v15 修正 religion-photos 的 dest_dir（religion-photos/ → photos/）。理由見該 job 的 _why 第一條。除此之外與 v14 相同。"
   ],
-  "version": 14,
+  "version": 15,
   "updated": "2026-08-07",
   "politeness": {
     "min_interval_ms": 1000,
@@ -243,7 +244,7 @@
     {
       "id": "religion-photos",
       "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-photos.json",
-      "dest_dir": "religion-photos/",
+      "dest_dir": "photos/",
       "dest_template": "{key}",
       "max_age_days": 180,
       "note": "宗教知識+ 神明照與 GetUploadFile 廟宇照（二進位）。清單由 scripts/gen-intake-urls-photos.mjs 產生。",
@@ -252,6 +253,7 @@
         "min_bytes": 4096
       },
       "_why": [
+        "🔴 dest_dir 必須是 `photos/` 不是 `religion-photos/`：匯入器 scripts/import-photos.mjs 讀的是 inbox/photos/（它比本 job 早存在，契約以它為準）。2026-08-07 初版寫成 religion-photos/，照片會落到匯入器永遠看不到的地方——加 job 的當天就抓到，未進到台灣端。",
         "2026-08-07 上線。授權：2026-08-06 經內政部同意使用，**明確含照片**，條件為標示資料來源連結。",
         "🔴 內政部的照片多一層：圖說寫了**攝影者姓名**（如「（楊仁澂攝）」），那是著作人格權的姓名表示，",
         "   每一張都必須把攝影者印在頁面上，不是可選的。攝影者存在候選檔與匯入後的資料裡，",

@@ -170,13 +170,13 @@ const LEDGER = [
       '📌 卡點解除的經過：原本卡在「候選量太少（神明 1＋廟 3）」，2026-08-07 新增 18 尊有內政部條目的神明節點後，' +
       '神明候選跳到 20，加上廟 3 共 23（去重後 22 項），量的問題消失，故開 job。',
     metric: () => {
-      const dir = join(INBOX, 'religion-photos');
+      const dir = join(INBOX, 'photos');
       const got = existsSync(dir) ? readdirSync(dir).filter((f) => !/\.(sha256|meta\.json)$/.test(f)).length : 0;
       const want = existsSync('docs/intake-urls-photos.json') ? j('docs/intake-urls-photos.json').length : 0;
       return `已收 ${got}/${want} 項`;
     },
     upstream: 'docs/intake-urls-photos.json',
-    coversDir: ['religion-photos'],
+    coversDir: ['photos'],
   },
   {
     stage: 'pending', id: 'religion-jianzhu',
