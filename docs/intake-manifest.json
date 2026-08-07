@@ -11,10 +11,11 @@
     "  提高的是**單輪總量**，**每次請求間隔仍是 1 秒不變**——那才是對方伺服器真正感受到的壓力。",
     "  1500 項在 1 req/s 下約 25 分鐘，全批約 4 輪收完。",
     "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
-    "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。"
+    "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。",
+    "2026-08-07：v13 **只改註解，不改行為**——religion-yange 的 _why 原本寫「刻意不收 IndexID=3」，那是 2026-08-05 的舊裁定，2026-08-06 抽樣後已改為收（全量在 religion-jianzhu job）。jobs 的數量、順序、url、expect、politeness 全部與 v12 相同。"
   ],
-  "version": 12,
-  "updated": "2026-08-06",
+  "version": 13,
+  "updated": "2026-08-07",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -370,11 +371,12 @@
       "_why": [
         "2026-08-06 上線。授權：同日經內政部同意使用，條件為標示資料來源連結——",
         "匯入時每一筆都掛回自己的 GetUploadFile 網址（scripts/import-temple-history.mjs）。",
-        "🔴 **刻意不收 IndexID=3（建築特色）**：清單產出時實測有 3,623 項，",
-        "但 2026-08-05 的取樣顯示它**佔位值很多**（取樣那筆的內容就是廟名本身）。",
-        "照原定計畫先抽樣評估佔位比例再決定，不要為了數字好看整批收下來——",
-        "收了也會被匯入器與 check:integrity 的 isPlaceholder 擋掉，等於白抓 3,623 個請求。",
-        "要收的時候：`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 另出一份清單。",
+        "✅ **IndexID=3（建築特色）已改為收**（2026-08-06 定案；此前這裡寫的是「刻意不收」）。",
+        "沿革：2026-08-05 只取樣一筆、內容就是廟名本身，故先擱置整批；",
+        "2026-08-06 補抽 30 筆評估，有實質內容（≥20 字）者過半，結論改為收。",
+        "全量走獨立 job `religion-jianzhu`（排在本 job 之後），清單由",
+        "`node scripts/gen-intake-urls-yange.mjs --idx 3 --write` 產出並已 push。",
+        "沒用的那些仍由匯入器與 check:integrity 的 isPlaceholder 各擋一次。",
         "⚠️ 這批 5,153 項 × 3 個檔 ＝ 15,459 個檔擠在一層（URLLIST-SPEC 已提醒）。",
         "key 不可含斜線，故無法分片；ext4 撐得住，但每輪 rsync 要掃這一萬五千個檔。"
       ]

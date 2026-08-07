@@ -177,8 +177,10 @@ const LEDGER = [
     goal: '寺廟歷史沿革（IndexID=2）＋參拜流程（IndexID=4）→ 廟宇頁內容。受益面是站上絕大多數只有名稱/地址/主祀神的廟頁',
     blocker:
       '⏳ 等台灣端抓（2026-08-06 加進 manifest v9）。清單 docs/intake-urls-yange.json 已產出並 push。' +
-      '🔴 **刻意不收 IndexID=3 建築特色**：實測清單有 3,623 項，但取樣顯示佔位值很多' +
-      '（內容就是廟名本身），照原定計畫先抽樣評估再決定；收了也會被 isPlaceholder 擋掉＝白抓。' +
+      '✅ **IndexID=3 建築特色已改為收**（2026-08-06 定案；此前這裡寫的是「刻意不收」，' +
+      '依據是 2026-08-05 只取樣一筆、內容就是廟名本身）。2026-08-06 補抽 30 筆評估，' +
+      '有實質內容者過半 → 改為收，全量走獨立 job `religion-jianzhu`（排在本 job 之後），' +
+      '結論全文見下方 recon 段的 religion-jianzhu-sample。沒用的那些仍由 isPlaceholder 擋一次。' +
       '⚠️ 同輪把 max_requests_per_run 由 200 提到 1500（間隔仍 1 秒不變），否則一天 200 項要跑 26 天。',
     metric: () => {
       const dir = join(INBOX, 'religion-yange');
