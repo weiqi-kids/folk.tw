@@ -219,8 +219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-06",
-      "empty_runs": 2
+      "last_checked": "2026-08-07",
+      "empty_runs": 3
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -505,12 +505,24 @@
         ],
         "added": "2026-08-04T12:34:41.213Z",
         "hash": "26881f7f2182"
+      },
+      {
+        "date": "2026-08-05",
+        "text": "官方將漢葭街道沙沱社區沿山區域正式劃定為地質災害危險區，區內住戶不得再居住，當地提出短期及長期安置方案，協助受影響鄉親搬遷及後續補償。",
+        "sources": [
+          {
+            "ref": "網易新聞",
+            "url": "https://www.163.com/dy/article/L3I748RD05564S43.html"
+          }
+        ],
+        "added": "2026-08-07T12:33:56.466Z",
+        "hash": "49aacf09ab17"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-06",
-      "empty_runs": 2
+      "last_checked": "2026-08-07",
+      "empty_runs": 0
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1936,11 +1948,36 @@
     "detector": "news",
     "since": "2026-08-05",
     "status": "active",
-    "updates": [],
+    "updates": [
+      {
+        "date": "2026-08-06",
+        "text": "佳木斯官方表示洪峰雖已過境市區，但江段水位仍持續超過警戒線，籲請民眾勿鬆懈防範，研判水位將於近日回落至警戒線以下。",
+        "sources": [
+          {
+            "ref": "新浪新聞",
+            "url": "https://k.sina.com.cn/article_7880068208_1d5b04c7006801vvle.html?from=news"
+          }
+        ],
+        "added": "2026-08-07T12:34:45.566Z",
+        "hash": "f364def72c64"
+      },
+      {
+        "date": "2026-08-07",
+        "text": "松花江此波洪峰持續往下游推進，已過境黑龍江省同江市，當地持續加固堤壩、清查險情，防汛工作重心轉向下游河段。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/photo/20260807/6bbce8ac7f874f07ab746bd1e6257fa7/c.html"
+          }
+        ],
+        "added": "2026-08-07T12:34:46.643Z",
+        "hash": "56311fc1f481"
+      }
+    ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-06",
-      "empty_runs": 1
+      "last_checked": "2026-08-07",
+      "empty_runs": 0
     }
   },
   {
@@ -1964,7 +2001,26 @@
     "lon": 121.1453418,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-06",
+        "text": "菲律賓社會福利發展部（DSWD）已對羅德里格斯山崩罹難者家屬及受影響民眾啟動救助金發放。",
+        "sources": [
+          {
+            "ref": "Journal Online",
+            "url": "https://journal.com.ph/dswd-extends-immediate-aid-to-families-affected-by-benguet-landslide-rizal-rockslide/"
+          }
+        ],
+        "added": "2026-08-07T12:35:40.312Z",
+        "hash": "26128bdeb753"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-07",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-cyclone-20260807-451a68",
@@ -1988,7 +2044,42 @@
     "lon": 128.0255901,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-07",
+        "text": "沖縄本島公車與單軌電車ゆいレール業者宣布，因暴風雨持續，翌日仍將全日停駛，復駛時間視風雨狀況與安全確認結果再行公布。",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5442290.html"
+          },
+          {
+            "ref": "Yahoo!ニュース（RBC琉球放送）",
+            "url": "https://news.yahoo.co.jp/articles/0a89150b6fff4865b1326e9ed386160015fba474"
+          }
+        ],
+        "added": "2026-08-07T12:36:33.242Z",
+        "hash": "b2a88ffcc07f"
+      },
+      {
+        "date": "2026-08-07",
+        "text": "沖縄電力表示，因風雨過強暫以遠端方式進行停電搶修，待風雨稍歇後將立即展開戶外全面復電作業。",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5440678.html"
+          }
+        ],
+        "added": "2026-08-07T12:36:33.405Z",
+        "hash": "39e8e399b48d"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-07",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-flood-20260805-4d7efa",
@@ -2011,6 +2102,29 @@
     "lon": 110.9702926,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-06",
+        "text": "茅坪鎮災後展開清淤與搶修工作，當地生產生活秩序已恢復正常",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/tp/2026/08-06/10673082.shtml"
+          },
+          {
+            "ref": "新浪財經",
+            "url": "https://finance.sina.com.cn/roll/2026-08-06/doc-inimknaz3036445.shtml"
+          }
+        ],
+        "added": "2026-08-07T12:37:02.348Z",
+        "hash": "8d9d679fe06e"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-07",
+      "empty_runs": 0
+    }
   }
 ]
