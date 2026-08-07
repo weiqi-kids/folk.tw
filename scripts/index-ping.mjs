@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { getAccessToken, loadConfig } from './lib/google-data.mjs';
+import { corePaths } from './lib/core-urls.mjs';
 
 const PUBLISH = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 const MAX_PER_RUN = 190; // 留餘裕，避免觸頂每日 200 配額
@@ -30,7 +31,10 @@ const SITE = gscSiteUrl.startsWith('sc-domain:')
 
 // ⚠️ 一律帶尾斜線：本站是 GitHub Pages，`/poems` 會 301 到 `/poems/`。少一個斜線＝主動請 Google
 // 收錄一個會重新導向的網址（2026-07-28 查 GSC「頁面會重新導向 2,304」時發現這 9 個裡有 8 個是 301）。
-const CORE = ['/', '/almanac/', '/almanac/archive/', '/poems/', '/deities/', '/events/', '/practices/', '/temples/', '/about/'];
+// 🔴 CORE 從檔案系統推導，唯一來源在 scripts/lib/core-urls.mjs——
+//    以前這裡是寫死陣列，兩支腳本各一份，且新增模組後沒人記得回來加。
+//    2026-08-07 實查：16 個模組樞紐只有 6 個在清單裡。別再改回寫死。
+const CORE = corePaths();
 
 /**
  * 送出前的機械保底：補上遺漏的尾斜線（帶副檔名的檔案路徑不動）。
