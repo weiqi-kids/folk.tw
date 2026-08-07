@@ -1989,5 +1989,28 @@
     "detector": "news",
     "since": "2026-08-07",
     "status": "active"
+  },
+  {
+    "id": "news-flood-20260805-4d7efa",
+    "eventType": "flood",
+    "title": "為湖北秭歸茅坪鎮水災平安祈福",
+    "event": "湖北宜昌秭歸茅坪鎮遭短時強降雨引發山洪，多處積水、廠房民房受淹、路面塌陷，祈願當地平安、早日恢復。",
+    "sources": [
+      {
+        "ref": "新唐人電視台",
+        "url": "https://www.ntdtv.com/b5/2026/08/05/a104121587.html"
+      },
+      {
+        "ref": "新浪財經",
+        "url": "https://finance.sina.com.cn/roll/2026-08-06/doc-inimknaz3036445.shtml"
+      }
+    ],
+    "place": "湖北省宜昌市秭歸縣茅坪鎮",
+    "time": "2026-08-05",
+    "lat": 30.8125851,
+    "lon": 110.9702926,
+    "detector": "news",
+    "since": "2026-08-07",
+    "status": "active"
   }
 ]
