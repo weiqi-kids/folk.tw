@@ -36,7 +36,8 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 
 | 項目 | 卡點／下一步 | 檢查點 |
 |---|---|---|
-| **內政部資料匯入** | ✅ 授權已獲同意（範圍全開、**含照片**，條件＝標示資料來源連結；⚠️ 別再去要公文文號，見 [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) §2026-08-06）。清單已產出、匯入器與 gate 都已就位，**純粹在等台灣端把檔案抓回來**。跑 `node scripts/intake-status.mjs --brief` 看各批進度；資料到了就跑 `import-knowledge-deities.mjs` / `import-temple-history.mjs` / `import-photos.mjs`（皆乾跑為預設） | 等台灣端 |
+| **內政部資料匯入（進行中，分批到貨）** | ✅ 授權已獲同意（範圍全開、**含照片**，條件＝標示資料來源連結；⚠️ 別再去要公文文號，見 [`docs/taiwan-intake-status.md`](docs/taiwan-intake-status.md) §2026-08-06）。**匯入器、渲染、gate 全部已就位，剩下純粹是等台灣端分批送檔**。<br>👉 **接手時照這個流程做**：① `node scripts/intake-status.mjs --brief` 看各批收到多少 ② 有新檔就重跑對應匯入器（**都是乾跑預設、idempotent，可以一直重跑**）：`import-knowledge-deities.mjs --write --photos`／`import-temple-history.mjs --write --photos`／`import-photos.mjs --write` ③ 跑驗證套件 ④ push ⑤ **確認該 SHA 的 build job conclusion 再回報** | 等台灣端 |
+| **照片 job 還沒進 manifest** | ⛔ 卡在候選量太少（目前神明 1＋廟 3）。等 `religion-yange` 跑完再一次跑 `gen-intake-urls-photos.mjs --write`、加 job。🔴 **清單不存在時不可提前加 job**——台灣端抓清單會 404 而整個 job 停擺 | 等 yange 收完 |
 | **祈福頁「依真實集氣數決定去留」** | 導流已上線，**門檻數字未定**——現況量級下任何「N 小時沒人點就下架」都等於全刪。觀測一週後定 | **2026-08-12** |
 | **降 GSC 權限** | 資安衛生、不緊急。共用服務帳號在 9 個網域是「擁有者」，只有用 Indexing API 的站才需要；降成「完整使用者」是十分鐘的事。背景見 `/root/CLAUDE.md` 紅線與 `/root/seo-ops/notes/identity-migration.md`（⚠️ 該檔開頭有 2026-07-31 的前提更正，**先讀那段**） | 無期限 |
 | **節日頁收錄與曝光追蹤** | 2026-07-30 上線的 10 個節日頁，兩個檢查點：**8/8 看收錄**、**8/16 看節日類查詢曝光**。每日 collect（**台北 15:30**）自動出數並直接發 Slack，**不需人盯**——⚠️ 這裡原本寫「05:00」是 2026-08-01 改排程前的舊時刻，且 cron 裡**沒有獨立的 heartbeat 層**（已併進 collect）。到日子看 Slack 或 `data/seo-daily/<date>.json` | **8/8**、**8/16** |
