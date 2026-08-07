@@ -202,12 +202,38 @@ const festivalLine = t.main_festival
 
 // answer-first 摘要（全體廟頁皆有）：純用既有欄位重組，緊扣「XX宮是什麼廟／在哪／拜誰」搜尋意圖，絕不補新事實。
 const regionLabelForSummary = county ? `${county.name}${township?.name ?? ''}` : (t.district ?? '');
-// ⚠️ 一定要把空白壓平（2026-08-06 加）：內政部的沿革有 413 筆含 CR/LF，
-// 其中 88 筆的**第一句裡面就有換行**（例：「高埔法龍寺創建緣起\r\n遠在九十年前…」）。
-// 這個字串會進 meta description，換行留著就是把 literal newline 送進 SERP。
-const historyFirstSentence = t.history
-  ? (t.history.split(/(?<=[。！？])/)[0] ?? '').replace(/\s+/g, ' ').trim()
-  : '';
+// ── 沿革首句 → meta description／摘要用的短句（2026-08-06 重寫）──────────────────
+// 🔴 這支是**唯一入口**。同一段邏輯原本在本檔重複三次（summaryText／descTail／FAQ），
+//    而 2026-07-31 那次「補句號」的修正只加在其中一支——重複就是漂移的來源。
+//
+// 三件事，每一件都是 2026-08-06 匯入 749 筆內政部沿革後**實測**出來的：
+//  ① 空白壓平：413 筆含 CR/LF，其中 88 筆第一句裡就有換行 → 不壓平就是把 literal newline 送進 SERP。
+//  ② 句末標點正規化：原本的守衛只擋「。。」，擋不住「，。」——
+//     `moi_1154_永安寺` 的整段沿革**一個句號都沒有**、結尾是「，」，補上「。」就成了「，。」，
+//     被 check:rendered 不變量 1e 擋下（CI 紅燈）。正解是**先把句尾的逗號類換成句號**，再判斷要不要補。
+//  ③ 切句要認「．」與「.」：41 筆用它們當句號，原正則只認「。！？」→ 整段被當成「第一句」，
+//     最長 599 字全部塞進 description。
+//  ④ 長度上限：修完①②③之後仍有長句，故在**標點邊界**截斷並加「…」——
+//     🔴 **絕不中途硬切**（那正是本檔其他地方反覆記著的病灶）；找不到邊界就整句不用。
+const HISTORY_SNIPPET_MAX = 60; // 全形字。Google 中文摘要約 78 字截斷，留位置給祭典／聖誕／求籤句
+function historySnippet(raw: string | undefined): string {
+  if (!raw) return '';
+  const first = (String(raw).split(/(?<=[。！？．.])/)[0] ?? '').replace(/\s+/g, ' ').trim();
+  if (!first) return '';
+  // 句尾正規化：逗號類 → 句號；「．」「.」→ 句號；已是句號類就不動。
+  let s = first.replace(/[、，；：,;:]+$/, '。').replace(/[．.]+$/, '。');
+  if (!/[。！？]$/.test(s)) s += '。';
+  if ([...s].length <= HISTORY_SNIPPET_MAX) return s;
+  // 超長：在最後一個標點邊界切，切完再補句號；找不到邊界就不用這句（回空字串）。
+  // ⚠️ 邊界要含**半形逗號與空白**：內政部的沿革有不少筆整段用 `,` 或空白斷句
+  //    （2026-08-06 實測：只找全形標點時有 22 筆找不到邊界而整句被丟掉）。
+  const head = [...s].slice(0, HISTORY_SNIPPET_MAX).join('');
+  const cut = Math.max(
+    ...['，', '、', '；', '。', ',', ';', ' '].map((c) => head.lastIndexOf(c)),
+  );
+  return cut > 10 ? `${head.slice(0, cut)}…` : '';
+}
+const historyFirstSentence = historySnippet(t.history);
 const summaryText = [
   `${t.name}`,
   regionLabelForSummary ? `位於${regionLabelForSummary}` : '',
@@ -215,7 +241,7 @@ const summaryText = [
   birthdayLabel ? `（聖誕${birthdayLabel}）` : '',
   lingqianSystems.length > 0 ? '，可線上求籤解籤' : '',
   '。',
-  historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
+  historyFirstSentence ? historyFirstSentence : '',
 ].join('');
 
 // 在地脈絡句：每個「鄉鎮×主祀神」組合都不同，是這頁真正獨有的一句話（純由既有資料算出）。
@@ -251,7 +277,7 @@ const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${
 // 只是降到最後——被截掉也不痛。
 // 措辭同時由「本站提供主祀神靈籤的白話解籤」改為行動優先、且短 3 個全形字。
 const descTail = [
-  historyFirstSentence ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}` : '',
+  historyFirstSentence ? historyFirstSentence : '',
   festivalLine,
   !festivalLine && birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '',
   lingqianSystems.length > 0 ? '可線上求籤，附白話解籤。' : '',
@@ -295,7 +321,7 @@ const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);
 const festivalOrHistory = festivalLine
   ? festivalLine
   : historyFirstSentence
-    ? `${historyFirstSentence}${/[。！？]$/.test(historyFirstSentence) ? '' : '。'}`
+    ? historyFirstSentence
     : '';
 const faq = faqPage([
   {
