@@ -23,8 +23,19 @@
 //   node scripts/gen-intake-urls-yange.mjs                 # 乾跑（預設）
 //   node scripts/gen-intake-urls-yange.mjs --idx 2,4       # 只收沿革與參拜流程（預設 2,3,4）
 //   node scripts/gen-intake-urls-yange.mjs --write
+//   node scripts/gen-intake-urls-yange.mjs --include-offsite   # 連站上沒有的廟也收（見下）
+//
+// 🔴 **預設只收站上有頁面的廟**（2026-08-07 起）。理由是實測：已到貨的 1,362 項裡有 462 項
+//    （34%）的廟站上根本沒有頁面，抓回來只能丟掉。照這比例，沿革＋參拜流程 5,153 項與
+//    建築特色 3,623 項合計會有近三千個請求是白打在政府站台上。濾掉不只是省時間，
+//    是不該為了不會發佈的內容去敲人家的站。
+//    ⚠️ 濾網用的是 import-temple-history.mjs 那套三段消歧（廟名唯一→行政區→完整地址），
+//    共用 scripts/lib/temple-owner.mjs。兩邊必須是同一套判斷，否則會濾掉匯入器其實對得上的項目。
+//    要收全量（例如剛擴完母體、想重新評估）才加 --include-offsite。
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+// 對映與消歧的唯一實作（與 import-temple-history.mjs 共用，別在這裡重寫一套）。
+import { buildOwnerMap, makeResolver } from './lib/temple-owner.mjs';
 
 const DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
 const args = process.argv.slice(2);
@@ -48,6 +59,7 @@ if (!IDX.length) {
 }
 
 const IDX_NAME = { 2: '歷史沿革', 3: '建築特色', 4: '參拜流程' };
+const ONLY_ONSITE = !args.includes('--include-offsite');
 
 const files = existsSync(DIR) ? readdirSync(DIR).filter((f) => /^page-\d+\.html$/.test(f)) : [];
 if (!files.length) {
@@ -80,7 +92,18 @@ for (const f of files.sort()) {
   }
 }
 
-const allKeys = [...pairs.keys()].sort();
+let allKeys = [...pairs.keys()].sort();
+
+// ── 濾網：只留站上有頁面的廟（預設開，見檔頭 🔴）──────────────────────────
+let filtered = 0;
+if (ONLY_ONSITE) {
+  const { owner } = buildOwnerMap(DIR, (idx) => IDX.includes(idx));
+  const temples = JSON.parse(readFileSync('src/data/temples.json', 'utf8'));
+  const { resolve } = makeResolver(owner, temples);
+  const before = allKeys.length;
+  allKeys = allKeys.filter((k) => resolve(k) !== null);
+  filtered = before - allKeys.length;
+}
 // 均勻抽樣：每隔 step 取一項，涵蓋整個 id 值域。
 const sampled = SAMPLE > 0 && SAMPLE < allKeys.length
   ? Array.from({ length: SAMPLE }, (_, i) => allKeys[Math.floor((i * allKeys.length) / SAMPLE)])
@@ -112,6 +135,7 @@ if (bad.length) {
 
 console.log(`\n查詢結果頁 ${pagesRead} 頁 → 附件連結：`);
 for (const idx of IDX) console.log(`  IndexID=${idx}（${IDX_NAME[idx] ?? '?'}）　${perIdx[idx] ?? 0} 筆`);
+if (ONLY_ONSITE) console.log(`  濾掉站上無頁面的廟 ${filtered} 項（要全量加 --include-offsite）`);
 console.log(`  去重後合計 ${allKeys.length} 項` + (SAMPLE ? ` → 均勻抽樣 ${items.length} 項` : ''));
 console.log(`  樣本：${items.slice(0, 3).map((x) => `${x.key}(${x._kind})`).join('、')}`);
 

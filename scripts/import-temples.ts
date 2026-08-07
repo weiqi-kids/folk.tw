@@ -40,6 +40,18 @@ function mapDeity(raw: string, idx: Map<string, string>): string | null {
   for (const [k, v] of idx) {
     if (s.includes(k) || (stripped && k.includes(stripped) && stripped.length >= 2)) return v;
   }
+  // 王爺／千歲的**最後手段**：站上有 wangye（王爺（千歲））總論節點，但它的別名寫的是
+  // 「某府千歲」這種佔位字串，字串比對永遠對不上 →「蘇府千歲」「三府王爺」「金府千歲」
+  // 這類全部掉出母體（2026-08-07 實測 610 間）。
+  // 🔴 這條**必須留在最後**。曾經放在 idx.has(s) 後面（即模糊比對之前），結果把
+  //    池府王爺→wangye_chi、溫府王爺→wenwang_qiansui、十二瘟王千歲→shier_wenwang
+  //    這些本來就正確的專屬節點壓成總論，一口氣改動 139 間既有廟。李／池／吳／朱／范／溫
+  //    六尊有專屬節點，要讓它們先贏；掉到這裡的才是沒有專屬節點的府姓王爺。
+  // 複合主祀（頓號／逗號／「與」並列多尊）不歸類，留空進未匹配報表——理由同「絕不杜撰」。
+  if (!/[、,，]|與/.test(s) && (/(府)?(千歲|王爺)$/.test(s) || s.includes('代天巡狩'))) {
+    const generic = idx.get('王爺（千歲）');
+    if (generic) return generic;
+  }
   return null;
 }
 
