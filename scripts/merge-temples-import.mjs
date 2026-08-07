@@ -3,7 +3,8 @@
 //
 // 用途：import-temples.ts 會把整份 MOI 開放資料轉成 temples.import.json，但 temples.json
 // 早已被其他匯入器加過 history／intro／open_time／festivals／座標／image，**絕不可整份覆蓋**。
-// 這支只做一件事：把「站上還沒有、且主祀對得上神明節點」的廟**附加**進去。
+// 這支只做一件事：把「站上還沒有、且在收錄範圍內」的廟**附加**進去
+// （範圍＝漢人民間信仰；主祀對得上神明節點就掛 ref，對不上就留空，見不變量 3）。
 //
 // 用法：
 //   node scripts/merge-temples-import.mjs            # 乾跑，只印報表
@@ -22,8 +23,13 @@
 //    比對用「正規化後完全同名」，**不可用子字串**——保安宮／龍山寺／代天府這類通名
 //    會把幾十間不相干的廟誤判成重複。
 //
-// 3. **只收 main_deity_ref 有值者**：主祀對不上站上神明節點的（釋迦牟尼佛、明明上帝、
-//    慚愧祖師…）不收，那是母體定位決策，不是這支的事。
+// 3. **收錄範圍＝漢人民間信仰**（2026-08-07 用戶裁示改為「站上沒這尊神明的廟也要收」）：
+//    不再要求 main_deity_ref 有值——那 1,597 間廟的主祀神散在 1,028 種，其中 813 種全台
+//    只有一間廟，替它們各開一個神明節點既無來源可掛、也只會生出 813 個空殼頁。
+//    改成：**神明對得上就掛 ref，對不上就 ref 留空、只留 main_deity_raw（政府原始欄位，有源）**。
+//    🔴 但**佛教本尊與一貫道仍排除**（釋迦牟尼佛 976 間、阿彌陀佛、三寶佛、明明上帝…）：
+//    那不是「還沒建節點」，是 /about/ 與 README 公開宣稱的收錄範圍——
+//    「以漢人民間信仰為主（七大類），非窮盡台灣所有宗教信仰」。要收得先改那個宣稱。
 //
 // 4. **idempotent**：以 id 為準跳過既有者，重跑不會產生第二份。
 //
@@ -49,23 +55,29 @@ const norm = (s) => (s ?? '').replace(/臺/g, '台').replace(/財團法人|社�
 const curIds = new Set(cur.map((t) => t.id));
 const handmadeNames = new Set(cur.filter((t) => !/^moi_/.test(t.id)).map((t) => norm(t.name)));
 
-const stat = { total: imp.length, noDeity: 0, already: 0, handmadeDup: 0, added: 0 };
+// 定位外：佛教本尊與一貫道／新興教派。判斷用主祀神祇字樣，寧可漏收不可誤收。
+const OUT_OF_SCOPE = /釋迦|阿彌陀|彌勒|藥師|三寶佛|西方三聖|華嚴三聖|如來|三聖佛|準提|達摩|普庵|毘盧|文殊|普賢|燃燈|明明上帝|無極老母|一貫|梵天|四面佛|伽藍|韋馱|一氣宗主|天德教/;
+
+const stat = { total: imp.length, outOfScope: 0, noRaw: 0, already: 0, handmadeDup: 0, added: 0, withRef: 0 };
 const dupped = [];
 const add = [];
 
 for (const t of imp) {
-  if (!t.main_deity_ref) { stat.noDeity++; continue; }
   if (curIds.has(t.id)) { stat.already++; continue; }
+  if (!t.main_deity_raw) { stat.noRaw++; continue; }              // 主祀欄空白：無從判斷範圍，不收
+  if (!t.main_deity_ref && OUT_OF_SCOPE.test(t.main_deity_raw)) { stat.outOfScope++; continue; }
   if (handmadeNames.has(norm(t.name))) { stat.handmadeDup++; dupped.push(t.name); continue; }
   add.push(t);
   stat.added++;
+  if (t.main_deity_ref) stat.withRef++;
 }
 
 console.log('=== temples.import.json → temples.json（append-only）===');
 console.log(`  來源 ${stat.total} 筆`);
-console.log(`  跳過：主祀無對映 ${stat.noDeity}｜站上已有 ${stat.already}｜與手工廟同名 ${stat.handmadeDup}`);
+console.log(`  跳過：站上已有 ${stat.already}｜主祀欄空白 ${stat.noRaw}｜收錄範圍外（佛教本尊／一貫道）${stat.outOfScope}｜與手工廟同名 ${stat.handmadeDup}`);
 if (dupped.length) console.log(`    └ ${dupped.join('、')}`);
 console.log(`  可新增 ${stat.added} 間　（站上 ${cur.length} → ${cur.length + stat.added}）`);
+console.log(`    └ 其中有神明節點可掛 ${stat.withRef} 間｜主祀留 raw、ref 空 ${stat.added - stat.withRef} 間`);
 
 const byDeity = {};
 for (const t of add) byDeity[t.main_deity_ref] = (byDeity[t.main_deity_ref] ?? 0) + 1;
