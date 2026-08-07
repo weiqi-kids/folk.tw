@@ -66,6 +66,16 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 應為 200。若不是，**不要往下做、也不要下結論說「資料不存在」**——
 境外端就是因為連不到才需要你，把「連不到」誤判成「沒有資料」會讓整件事白做。
 
+══ 步驟 0.5：自己查現況，不要照抄我貼的數字 ══
+B=https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs
+curl -fsSL $B/intake-manifest.json | jq -c '{version, updated, jobs:(.jobs|length)}'
+for f in yange jianzhu knowledge photos; do
+  printf "%-10s " $f
+  curl -fsSL $B/intake-urls-$f.json 2>/dev/null | jq 'length' || echo "(尚未產出)"
+done
+拿這些去對你自己的 assertJobSupported 數與 state.json 進度。
+「(尚未產出)」是預期狀態，代表我端還沒開那個 job，**不要先加**。
+
 ══ 一、這次要做什麼 ══
 <具體到可執行。機械抓取就給網址；偵察就給「要回答的問題清單」>
 
@@ -85,6 +95,13 @@ curl -s -o /dev/null -w "religion → HTTP %{http_code}\n" --max-time 25 \
 
 **為什麼每一段都不能省**：
 - **步驟 0** — 沒有它，境外連不到的東西會被誤報成「不存在」，整條線白做。
+- **步驟 0.5（查法而非數字）** — 🔴 **對帳段一律給指令，不要貼我算好的數字**。
+  互相驗證的價值就在雙方各自獨立算出同一個數；我先把答案貼過去，對方只能照抄，
+  等於把互相驗證降級成單方宣告。而且數字會過期——2026-08-07 那則稿子裡的
+  `version=12／18 個 job` 在發出前就已經因為 v13 而錯了。
+  ⚠️ 分清楚它查得到什麼：manifest 與四份清單都在 public repo 的 raw 上，一行 curl 就有；
+  **我端站上的資料（廟幾間、沿革幾間）它讀不到**，那種只能當「帶日期的我方快照」給，
+  並註明不必複驗，不要要求它確認。
 - **要回報什麼** — 台灣端是笨水管，不解析。你不問，它就只給你一堆 bytes。
 - **state.json** — 漏傳會讓新鮮度提醒誤判成「台灣端沒在跑」而發假警報。
 - **紅線** — 尤其「不確定就貼原文」：2026-08-05 那次它照做，我們才發現 `Festival.xml` 沒有曆別。

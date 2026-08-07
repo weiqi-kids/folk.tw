@@ -48,6 +48,22 @@ const TOPICAL_MERGED_REDIRECTS = Object.fromEntries(
     .map((/** @type {{ id: string, mergedInto: string }} */ t) =>
       [`/qiugian/blessing/${t.id}`, `/qiugian/blessing/${t.mergedInto}/`]),
 );
+// ── 同一間廟被開兩頁的併頁（2026-08-07）──────────────────────────────────
+// 站上有 28 間手工策展廟，其中 3 間在 MOI 開放資料裡以法人全名又出現一次
+// （「財團法人北港朝天宮」「臺灣府城隍廟」「財團法人南鯤鯓代天府」），變成同廟兩頁。
+// 保留手工版（有沿革／官網／代表圖），MOI 版轉址過去。
+// 🔴 舊網址不可 404（slug 永久承諾），所以是 redirect 不是刪頁；併掉那筆已從 temples.json
+//    移除（連同其獨有的 festivals 與 8203 來源標註先搬進正本），理由見 temple-redirects.json。
+const TEMPLE_REDIRECTS = JSON.parse(readFileSync('./src/data/temple-redirects.json', 'utf8')).redirects;
+const TEMPLE_MERGED_REDIRECTS = Object.fromEntries(
+  TEMPLE_REDIRECTS.map((/** @type {{ from: string, to: string }} */ r) =>
+    [`/temples/${r.from}`, `/temples/${r.to}/`]),
+);
+// 轉址頁不得留在 sitemap（否則等於主動提交一個只會把爬蟲送走的網址）。
+const TEMPLE_REDIRECT_PATHS = new Set(
+  TEMPLE_REDIRECTS.map((/** @type {{ from: string }} */ r) => `/temples/${r.from}`),
+);
+
 // serialize 只會看到「留在 sitemap」的祈福頁（不可 index 者已被 filter 排除）：
 // active 給較高權重（時效性、weekly）、有 updates 的 memorial 給穩定封存權重（monthly）。
 const TOPICAL_ACTIVE_PATHS = new Set(
@@ -62,7 +78,7 @@ export default defineConfig({
   site: 'https://folk.tw',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
-  redirects: TOPICAL_MERGED_REDIRECTS,
+  redirects: { ...TOPICAL_MERGED_REDIRECTS, ...TEMPLE_MERGED_REDIRECTS },
   // 農民曆日期頁為「固定過去錨點＋向前展望」之穩定封存（見 src/lib/almanac/dates.ts）：
   // 集合單調成長、永不移除，故任何網址永不 404。
   //
@@ -88,6 +104,12 @@ export default defineConfig({
           let p = page.replace('https://folk.tw', '').replace(/\/$/, '');
           try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
           if (TOPICAL_NOINDEX_PATHS.has(p)) return false;
+        }
+        // 併頁後的舊廟宇網址：只剩 redirect，不進 sitemap。
+        if (TEMPLE_REDIRECT_PATHS.size) {
+          let p = page.replace('https://folk.tw', '').replace(/\/$/, '');
+          try { p = decodeURIComponent(p); } catch { /* 維持原值 */ }
+          if (TEMPLE_REDIRECT_PATHS.has(p)) return false;
         }
         // 站內搜尋結果頁移出 sitemap（2026-07-28，與頁內 noindex 一致）：它沒有自己的內容，
         // 且 Google 會把首頁 SearchAction 的 urlTemplate 當真網址去抓——實測 `/search?q={search_term_string}`
