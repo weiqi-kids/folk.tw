@@ -295,7 +295,7 @@ const descTail = [
   .filter(Boolean)
   .join('');
 const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${
-  descTail || '資料源自內政部全國宗教資訊網。'
+  descTail
 }`;
 
 // 廟宇頁 title：原本僅 t.name，導致大量同名廟（慶安宮／福德宮…）落回完全相同標題、無在地辨識度。

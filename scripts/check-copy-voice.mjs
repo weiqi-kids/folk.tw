@@ -47,6 +47,36 @@ const AI_TELLS = [
   { re: /不僅[^，。]{0,12}而且/, why: 'AI 排比腔' },
 ];
 
+
+// ── 全站級的單一資料來源宣告（2026-08-07 立，用戶第三次抓到）──────────────────────
+// 病灶：在樞紐頁／內容頁寫「（內政部開放資料）」「資料來源：內政部全國宗教資訊網開放資料。」
+// 這種**全站級**的來源宣告。兩個問題疊在一起：
+//   ① 它是後設警語，屬 /about/ 的事（記憶 no-meta-disclaimers-on-pages：樞紐頁與 /about/
+//      已統一處理，內容頁再加就是警語牆）。2026-08-06 才被抓過一次，8/7 又在 /temples/ 重犯。
+//   ② **它是假的**。站上的廟宇資料是複合來源——內政部 8203 ＋ 交通部觀光署 ＋ 廟方官網
+//      ＋ 維基 ＋ 逐間查證的沿革，宣稱單一來源不只是多餘，是錯的陳述（違反總紅線 1）。
+//
+// 🔴 這條擋的是**全站級宣稱**，不是逐筆掛源。兩者的界線：
+//    · 逐筆事實掛源（<Sources> 元件、moi_knowledge 的條目連結、座標來源、
+//      《欽定協紀辨方書》這類單筆引用）＝**必要**，內政部授權條件就是標示來源連結。
+//    · 針對某一個區塊的來源（那天的曆算依據、那份登記祭典清單）＝可以，見下方 ALLOW。
+//    · 「本頁／本站的資料來自 X」＝**不可以**，那是 /about/ 的事，而且我們不是單一來源。
+const SOURCE_CLAIM = [
+  { re: /[（(]內政部[^）)]{0,12}開放資料[）)]/, why: '全站級單一來源宣告（屬 /about/；且資料為複合來源）' },
+  { re: /資料來源[：:]\s*內政部/, why: '同上' },
+  { re: /資料源自內政部/, why: '同上' },
+  { re: /本站(的)?資料(來源|源自)/, why: '全站級來源宣告，屬 /about/' },
+];
+// 例外：**針對單一區塊**的來源說明，不是全站級宣稱。加新例外前先確認它真的只描述該區塊。
+const SOURCE_CLAIM_ALLOW = new Set([
+  // 那一天的曆算依據，寫在 <details> 的「曆算基準」dl 裡，與時區／日界／時柱並列。
+  'src/components/AlmanacDay.astro',
+  // 只描述「當天有登記祭典的宮廟」那一份清單的出處，不是在講全站資料。
+  'src/pages/festivals/[slug].astro',
+  // /about/ 就是放這件事的地方。
+  'src/pages/about.astro',
+]);
+
 const BANNED = [
   { re: /放下了/, why: '假釋懷腔（用戶原話：這種講法「太 AI」）' },
   { re: /釋懷了/, why: '假釋懷腔' },
@@ -121,6 +151,15 @@ for (const f of files) {
     for (const b of BANNED) {
       const m = line.match(b.re);
       if (m) hits.push({ f, line: i + 1, phrase: m[0], why: b.why });
+    }
+    // 只掃會渲染出去的行：**註解不擋**。否則沒人敢在註解裡記下病灶原文
+    // （本檔自身與 temples/[id].astro:271 的沿革註解就是靠原文才看得懂當初改了什麼）。
+    const isComment = /^\s*(\/\/|\/\*|\*)/.test(line);
+    if (!isComment && !SOURCE_CLAIM_ALLOW.has(f)) {
+      for (const b of SOURCE_CLAIM) {
+        const m = line.match(b.re);
+        if (m) hits.push({ f, line: i + 1, phrase: m[0], why: b.why });
+      }
     }
   });
 }

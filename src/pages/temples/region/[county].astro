@@ -34,7 +34,7 @@ const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.lengt
 
 <Base
   title={`${name}廟宇`}
-  description={`${name}的廟宇與主祀神祇（內政部開放資料），共 ${temples.length} 間，可依鄉鎮市區瀏覽。`}
+  description={`${name}的廟宇與主祀神祇，共 ${temples.length} 間，可依鄉鎮市區瀏覽。`}
   jsonLd={breadcrumb([
     { name: '廟宇', path: '/temples/' },
     { name, path: `/temples/region/${slug}/` },
@@ -76,7 +76,6 @@ const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.lengt
     )
   }
 
-  <p class="muted small src">資料來源：內政部全國宗教資訊網開放資料。</p>
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .town-wall {
