@@ -16,7 +16,7 @@
     "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。",
     "2026-08-07：v15 修正 religion-photos 的 dest_dir（religion-photos/ → photos/）。理由見該 job 的 _why 第一條。除此之外與 v14 相同。"
   ],
-  "version": 15,
+  "version": 16,
   "updated": "2026-08-07",
   "politeness": {
     "min_interval_ms": 1000,
@@ -247,7 +247,7 @@
       "dest_dir": "photos/",
       "dest_template": "{key}",
       "max_age_days": 180,
-      "note": "宗教知識+ 神明照與 GetUploadFile 廟宇照（二進位）。清單由 scripts/gen-intake-urls-photos.mjs 產生。",
+      "note": "宗教知識+ 神明照（二進位）。清單由 scripts/gen-intake-urls-photos.mjs 產生。",
       "expect_per_item": {
         "http_status": 200,
         "min_bytes": 4096
@@ -262,7 +262,13 @@
         "   用 http_status 200 ＋ min_bytes 4096（小於這個大小的多半是錯誤頁或破圖）。",
         "⚠️ 只收站上還沒有圖的對象（候選檔產生時就已過濾）：已有 Commons 授權圖者不覆蓋，",
         "   那些授權更明確且已在 /about 標示。",
-        "排序：22 項，屬小批次，故排在 96 項的 knowledge-deity-entries 之前（見 _readme 的 job 順序規則）。"
+        "排序：小批次，故排在 96 項的 knowledge-deity-entries 之前（見 _readme 的 job 順序規則）。項數看清單檔，別在這裡寫死。",
+   "🔴 v16（2026-08-07）：清單移除 /ReligionSys/FileStore/ 一族＝GetUploadFile 的**廟宇照片**。",
+   "   來源本身 404（646 B 的 IIS 錯誤頁，台灣端 22:05／22:12 兩次複驗，非暫時性），",
+   "   而那個網址是 GetUploadFile 回傳的 JSON 自己的 `URL` 欄位給的絕對路徑——**沒有別的網址可以產**，",
+   "   所以是在 gen-intake-urls-photos.mjs 濾掉整族，不是改抓法。台灣端請**停止重試那 3 項**。",
+   "   沿革／參拜流程／建築特色全量到齊後這族候選會長到數百筆，濾在產生器才擋得住整批。",
+   "   本 job 因此變成純神明照；要廟宇照片得另找來源。"
       ]
     },
     {

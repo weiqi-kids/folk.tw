@@ -159,21 +159,30 @@ const LEDGER = [
     coversDir: ['religion-jianzhu-sample'],
   },
   {
-    stage: 'pending', id: 'religion-photos',
-    goal: '神明代表圖與廟宇照片（內政部宗教知識+ 條目照＋GetUploadFile 的 pic 附件）→ 神明頁／廟宇頁代表圖',
-    blocker:
-      '⏳ 等台灣端抓（2026-08-07 加進 manifest v14，22 項）。清單 docs/intake-urls-photos.json 已產出並與 manifest 同一個 commit push，' +
-      '不會出現「job 有、清單 404」。🔴 **每一張都必須在頁面上印攝影者姓名**——內政部圖說寫了攝影者（如「（楊仁澂攝）」），' +
-      '那是著作人格權的姓名表示，不是可選的。攝影者存在候選檔與匯入後的資料，**不寫進清單檔**（清單是抓取設定，寫兩份必漂）。' +
-      '⚠️ 這批是二進位檔，expect_per_item 不可用 contains（文字比對必失敗），用 http_status ＋ min_bytes。' +
+    stage: 'live', id: 'religion-photos',
+    what: '神明代表圖（內政部宗教知識+ 條目照，manifest v14／2026-08-07 開 job）',
+    how:
+      '神明頁代表圖＋卡片底圖。🔴 **每一張都必須在頁面上印署名**——內政部圖說寫了著作人（如「（楊仁澂攝）」），' +
+      '那是著作人格權的姓名表示，不是可選的；渲染走 src/lib/image-credit.ts，check:rendered 驗。' +
+      '署名存在候選檔與匯入後的資料，**不寫進清單檔**（清單是抓取設定，寫兩份必漂）。' +
       '⚠️ 只收站上還沒有圖的對象；已有 Commons 授權圖者不覆蓋，那些授權更明確且已在 /about 標示。' +
-      '📌 卡點解除的經過：原本卡在「候選量太少（神明 1＋廟 3）」，2026-08-07 新增 18 尊有內政部條目的神明節點後，' +
-      '神明候選跳到 20，加上廟 3 共 23（去重後 22 項），量的問題消失，故開 job。',
+      '⚠️ 這批是二進位檔，expect_per_item 不可用 contains（文字比對必失敗），用 http_status ＋ min_bytes。' +
+      '🔴 **廟宇照片這半邊是死的**：GetUploadFile 的 pic 附件，其 JSON 自報的 `URL` 是 ' +
+      '`/ReligionSys/FileStore/<GUID>.<EXT>`，該路徑一族**來源本身 404**（646 B 的 IIS 錯誤頁；' +
+      '2026-08-07 台灣端 22:05／22:12 兩次複驗，非暫時性）。那網址不是我們拼的，' +
+      '**沒有別的網址可以產**，所以 gen-intake-urls-photos.mjs 直接濾掉這一族——' +
+      '沿革／參拜流程／建築特色全量到齊後這族候選會長到數百筆，濾在產生器才擋得住整批。' +
+      '之後若確認來源修好，把 DEAD_PATH 那段拿掉即可（候選檔本身完整保留，沒有資料被丟棄）。' +
+      '📌 2026-08-07 踩到的坑：圖說在條目頁是 `<img/><br/><span>…（○○攝）</span>`＝**在 img 之後**，' +
+      '原本擷取只掃 img 前 600 字 → 署名全空 → 19 張抓回來的圖被「無署名不採用」全數安靜略過。' +
+      '實測 96 個有圖條目：署名在圖後 83 筆、在圖前 0 筆。',
     metric: () => {
       const dir = join(INBOX, 'photos');
       const got = existsSync(dir) ? readdirSync(dir).filter((f) => !/\.(sha256|meta\.json)$/.test(f)).length : 0;
       const want = existsSync('docs/intake-urls-photos.json') ? j('docs/intake-urls-photos.json').length : 0;
-      return `已收 ${got}/${want} 項`;
+      const onsite = existsSync('src/data/deities.json')
+        ? j('src/data/deities.json').filter((d) => /^\/moi\//.test(d.image?.src ?? '')).length : 0;
+      return `已收 ${got}/${want} 項｜已掛上神明頁 ${onsite} 尊`;
     },
     upstream: 'docs/intake-urls-photos.json',
     coversDir: ['photos'],
