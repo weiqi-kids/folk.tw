@@ -119,18 +119,26 @@ function parseEntry(file, html) {
   const titleTail = unescapeHtml(rawTitle).split('>').pop().trim();
   const name = titleTail.replace(/\s*[(（][^)）]*[)）]\s*$/, '').trim();
 
-  // 照片：條目頁的 CKUpload 圖。圖說（含攝影者）就在 img 前面的可見文字裡。
+  // 照片：條目頁的 CKUpload 圖。
+  // 🔴 圖說（含著作人署名）在 **img 之後**（`<img/><br/><span>…（楊仁澂攝）</span>`），
+  //    不是之前。2026-08-07 實測 96 個有圖條目：署名在圖後 83 筆、在圖前 0 筆——
+  //    原本只掃 img 前 600 字，所以 photographer 全空，19 張抓回來的圖會被
+  //    import-photos.mjs 的「無署名不採用」全數擋掉（安靜略過、不報錯）。
   let photo = null;
   const img = html.match(/<img[^>]*src="([^"]*(?:FileStore|CKUpload)[^"]*)"[^>]*>/);
   if (img) {
     const alt = unescapeHtml(img[0].match(/alt="([^"]*)"/)?.[1] ?? '').trim();
-    const before = unescapeHtml(stripTags(html.slice(Math.max(0, img.index - 600), img.index)))
+    const after = unescapeHtml(stripTags(html.slice(img.index + img[0].length, img.index + img[0].length + 600)))
       .replace(/\s+/g, ' ').trim();
-    // 圖說＝最後一段含「（○○攝）」的文字
-    const cap = before.match(/([^ |]{4,60}（[^）]{2,10}攝）)\s*$/);
+    // 圖說＝圖後第一段以「（○○攝）」或「（○○繪製）」收尾的文字。
+    // 🔴 只收「攝／繪製」＝著作人本人的署名。「（○○提供）」是提供者不是著作人，
+    //    問不出誰拍的就不算有署名，寧可不採用（見本檔頭與 import-photos.mjs 的紅線）。
+    const cap = after.match(/^([^|]{4,80}?（[^）]{2,12}(?:攝|繪製)）)/);
     const caption = cap ? cap[1].trim() : '';
-    const photographer = caption.match(/（([^）]{2,10})攝）/)?.[1] ?? '';
-    photo = { src: img[1], alt, caption, photographer };
+    const m = caption.match(/（([^）]{2,12})(攝|繪製)）$/);
+    const photographer = m ? m[1] : '';
+    const credit_role = m ? m[2] : '';
+    photo = { src: img[1], alt, caption, photographer, credit_role };
   }
 
   // 內文：去掉 script/style 與導覽，取夠長的段落；英譯段（開頭是 ASCII）排除。
@@ -222,6 +230,7 @@ for (const f of files.sort()) {
       deity_id: d.id, cid: e.cid, name: e.name,
       src: e.photo.src, alt: e.photo.alt,
       caption: e.photo.caption, photographer: e.photo.photographer,
+      credit_role: e.photo.credit_role,
       page: e.url,
     });
   }

@@ -37,9 +37,19 @@ const BASE = 'https://religion.moi.gov.tw';
 // key 只准 [A-Za-z0-9._-]，所以不能拿廟名／神名（中文）當 key；用來源自己的識別碼。
 const safe = (s) => String(s).replace(/[^A-Za-z0-9._-]/g, '_');
 
+// 🔴 `/ReligionSys/FileStore/<GUID>.<EXT>` 這一族**來源本身就 404**（646 B 的 IIS 錯誤頁）。
+// 那個 URL 不是我們拼的，是 GetUploadFile 回的 JSON 自己的 `URL` 欄位給的絕對網址——
+// 也就是說**沒有「正確網址」可以改**，重產也產不出別的。2026-08-07 台灣端兩次複驗（22:05／22:12）
+// 都是 404，非暫時性；同輪 `/FileStore/CKUpload/` 一族 19/19 全部成功。
+// 放進清單只會讓台灣端每輪各重試一次、job 永遠不標完成，所以在這裡就濾掉。
+// ⚠️ 沿革／參拜流程全量到齊後，這一族的候選會從 3 筆長到數百筆——濾在這裡才擋得住整批。
+// 之後若確認來源修好，把這段拿掉即可（候選檔本身仍完整保留這些筆，沒有資料被丟棄）。
+const DEAD_PATH = /\/ReligionSys\/FileStore\//i;
+
 const items = [];
 const seen = new Set();
 let read = 0;
+let dead = 0;
 for (const s of SRC) {
   if (!existsSync(s.file)) continue;
   const rows = JSON.parse(readFileSync(s.file, 'utf8'));
@@ -48,6 +58,7 @@ for (const s of SRC) {
     if (!r.src) continue;
     // src 形如 `/WebCtrl/FileStore/CKUpload/xxx.JPG` 或 `/FileStore/...`，一律補站台前綴。
     const url = /^https?:\/\//.test(r.src) ? r.src : `${BASE}${r.src.startsWith('/') ? '' : '/'}${r.src}`;
+    if (DEAD_PATH.test(url)) { dead++; continue; }
     const ext = (url.match(/\.([A-Za-z0-9]{2,5})(?:\?|$)/)?.[1] ?? 'jpg').toLowerCase();
     const key = `${s.prefix}-${safe(r[s.idField] ?? r.key)}.${ext}`;
     if (seen.has(key)) continue;
@@ -76,6 +87,7 @@ if (bad.length) {
 }
 
 console.log(`\n照片清單：候選 ${read} 筆 → 去重後 ${items.length} 項`);
+if (dead) console.log(`  濾掉 ${dead} 筆：來源 /ReligionSys/FileStore/ 一族 404（見檔頭，不是我們拼錯網址）`);
 console.log(`  樣本：${items.slice(0, 3).map((x) => x.key).join('、')}`);
 if (!WRITE) {
   console.log('\n（乾跑，未寫檔。加 --write 才寫入。）');

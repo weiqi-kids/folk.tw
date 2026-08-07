@@ -16,6 +16,12 @@ export type ImageMeta = {
   src: string;
   alt: string;
   author: string;
+  /**
+   * 署名的角色動詞：`攝`／`繪製`。內政部圖說寫的是「（○○攝）」或「（○○繪製）」，
+   * 🔴 兩者不可互換——把繪師標成「攝」是把姓名表示標錯人的身分。
+   * 缺值時退回 `攝`（既有內政部照片全是攝影，2026-08-07 實測 19/19）。
+   */
+  author_role?: string;
   license: string;
   license_url?: string;
   source: string;
@@ -41,7 +47,7 @@ export const imageCreditTitle = (img: ImageMeta): string =>
 export function imageCredit(img: ImageMeta): { text: string; href: string | null } {
   if (isMoiImage(img)) {
     return {
-      text: `圖：${img.author}攝／內政部全國宗教資訊網`,
+      text: `圖：${img.author}${img.author_role || '攝'}／內政部全國宗教資訊網`,
       href: img.source,
     };
   }

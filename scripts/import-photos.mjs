@@ -71,12 +71,33 @@ const temples = JSON.parse(readFileSync(TEMPLES, 'utf8'));
 const deityById = new Map(deities.map((d) => [d.id, d]));
 const templeById = new Map(temples.map((t) => [t.id, t]));
 
-const stat = { seen: 0, noMeta: 0, noPhotographer: 0, hasImage: 0, noTarget: 0, written: 0 };
+// 抓回來的檔**不保證是圖**：來源若用 302 導到一個 200 的 HTML 錯誤頁，
+// 那個頁面會超過 min_bytes 而被當成合格檔存進 inbox（台灣端 2026-08-07 指出的縫）。
+// inbox 是 write-only、**存進去就刪不掉**，所以這裡自己認 magic bytes，
+// 不是圖就跳過並報數——不能讓 sharp 在中途丟例外，那會讓整批匯入停在一半。
+const MAGIC = [
+  { name: 'jpeg', b: [0xff, 0xd8, 0xff] },
+  { name: 'png', b: [0x89, 0x50, 0x4e, 0x47] },
+  { name: 'gif', b: [0x47, 0x49, 0x46, 0x38] },
+  { name: 'webp', b: [0x52, 0x49, 0x46, 0x46] }, // RIFF；第 8..11 是 WEBP，下面再驗
+  { name: 'bmp', b: [0x42, 0x4d] },
+];
+const sniff = (buf) => {
+  const hit = MAGIC.find((m) => m.b.every((x, i) => buf[i] === x));
+  if (!hit) return null;
+  if (hit.name === 'webp' && buf.subarray(8, 12).toString('latin1') !== 'WEBP') return null;
+  return hit.name;
+};
+
+const stat = { seen: 0, noMeta: 0, noPhotographer: 0, hasImage: 0, noTarget: 0, notImage: 0, written: 0 };
+const notImageKeys = [];
 if (WRITE) mkdirSync(join(OUT_DIR, 'deities'), { recursive: true });
 if (WRITE) mkdirSync(join(OUT_DIR, 'temples'), { recursive: true });
 
 for (const f of files.sort()) {
   stat.seen++;
+  const buf = readFileSync(join(IN, f));
+  if (!sniff(buf)) { stat.notImage++; notImageKeys.push(f); continue; }
   const key = f.replace(/\.[A-Za-z0-9]+$/, '');
   const m = meta.get(key) ?? meta.get(f);
   if (!m) { stat.noMeta++; continue; }
@@ -91,7 +112,6 @@ for (const f of files.sort()) {
 
   const rel = `/moi/${m.kind === 'deity' ? 'deities' : 'temples'}/${m.id}.webp`;
   if (WRITE) {
-    const buf = readFileSync(join(IN, f));
     await sharp(buf).rotate().resize({ width: 1200, withoutEnlargement: true })
       .webp({ quality: 82 }).toFile(`public${rel}`);
   }
@@ -99,6 +119,7 @@ for (const f of files.sort()) {
     src: rel,
     alt: String(m.alt ?? '').trim() || `${target.name}`,
     author,
+    author_role: String(m.credit_role ?? '').trim() || '攝',
     license: LICENSE,
     source: m.page,
   };
@@ -107,7 +128,7 @@ for (const f of files.sort()) {
   if (!target.sources.some((s) => String(s.ref ?? '').includes(m.page))) {
     target.sources.push({
       type: 'gov',
-      ref: `內政部全國宗教資訊網·照片（${author}攝） ${m.page}`,
+      ref: `內政部全國宗教資訊網·照片（${author}${String(m.credit_role ?? '').trim() || '攝'}） ${m.page}`,
       note: '照片；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
     });
   }
@@ -116,7 +137,11 @@ for (const f of files.sort()) {
 
 console.log(`\n照片匯入：inbox 有 ${stat.seen} 個檔`);
 console.log(`  寫入 ${stat.written}｜已有圖不覆寫 ${stat.hasImage}`);
-console.log(`  略過：候選檔查無此 key ${stat.noMeta}｜**無攝影者姓名** ${stat.noPhotographer}｜對象不存在 ${stat.noTarget}`);
+console.log(`  略過：候選檔查無此 key ${stat.noMeta}｜**無攝影者姓名** ${stat.noPhotographer}｜對象不存在 ${stat.noTarget}｜非圖檔 ${stat.notImage}`);
+if (stat.notImage) {
+  console.log(`  ⚠️ 這些檔的 magic bytes 不是圖（多半是被 302 導去的 HTML 頁），已跳過：`);
+  for (const k of notImageKeys.slice(0, 8)) console.log(`     ${k}`);
+}
 if (stat.noPhotographer) console.log('  ⚠️ 無攝影者者一律不採用（姓名表示是著作人格權）。');
 
 if (!WRITE) {
