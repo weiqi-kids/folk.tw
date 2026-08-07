@@ -2126,5 +2126,28 @@
       "last_checked": "2026-08-07",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-flood-20260804-d83e56",
+    "eventType": "flood",
+    "title": "為哈爾濱水災平安祈福",
+    "event": "黑龍江省哈爾濱市於8月4日遭強降雨襲擊，發布暴雨紅色預警，中央大街等市區多處嚴重積水、交通受阻，願當地早日恢復平靜、居民平安。",
+    "sources": [
+      {
+        "ref": "新華網",
+        "url": "https://www.news.cn/local/20260804/82124ba4a30346e89b6da452b4ebb679/c.html"
+      },
+      {
+        "ref": "騰訊新聞",
+        "url": "https://news.qq.com/rain/a/20260806A03FBO00?id=20260806A03FBO00&path=a&app=news&suid=&redirect_pc=1"
+      }
+    ],
+    "place": "黑龙江省哈尔滨市",
+    "time": "2026-08-04",
+    "lat": 45.7593633,
+    "lon": 126.6276177,
+    "detector": "news",
+    "since": "2026-08-07",
+    "status": "active"
   }
 ]
