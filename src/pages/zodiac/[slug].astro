@@ -10,9 +10,10 @@
 import Base from '../../layouts/Base.astro';
 import { todayInTaipei } from '../../lib/daily';
 import { breadcrumb, faqPage } from '../../lib/seo';
+import { getTemples } from '../../lib/queries';
 import {
   ZODIAC_LIST, bySlug, yearPillarOf, taisuiRelation, taisuiZodiacs,
-  RELATION_LABEL, birthYears, chongDays,
+  RELATION_LABEL, birthYears, chongDays, antaisuiTemples,
 } from '../../lib/zodiac';
 
 export function getStaticPaths() {
@@ -34,6 +35,11 @@ const mine = rows.filter((r) => r.zodiac === z.name);
 const heroDay = rows[0];
 
 const years = birthYears(z.branch).filter((y) => y <= solarYear + 6);
+
+// 有登記安太歲的宮廟。判定在 lib（唯一入口），本檔不自行比對字串。
+// 🔴 措辭：這是**廟方向內政部登記的年度祭典**裡列有安太歲，不是「本廟提供安太歲服務」。
+//    無值沖關係的生肖不顯示這一段——沒有這個需求就不該推服務。
+const antaisui = rel === 'none' ? [] : antaisuiTemples(await getTemples());
 
 const jsonLd: object[] = [
   breadcrumb([
@@ -154,6 +160,24 @@ const relSentence =
         <p>
           <a href="/practices/antaisui/">安太歲的完整流程、供品與禁忌 →</a>
         </p>
+
+        {antaisui.length > 0 && (
+          <>
+            <h3>登記的年度祭典中列有安太歲的宮廟</h3>
+            <p class="muted small">
+              以下 {antaisui.length} 間宮廟向內政部登記的年度慶(祭)典中列有安太歲。
+              這是登記內容，實際辦理時間與方式以廟方公告為準。
+            </p>
+            <ul class="temple-list">
+              {antaisui.map((x) => (
+                <li>
+                  <a href={`/temples/${x.id}/`}>{x.name}</a>
+                  <span class="muted small">{x.district.replace(/^(..[縣市].{1,4}?[鄉鎮市區]).*$/, '$1')}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </section>
     )
   }
@@ -204,6 +228,10 @@ const relSentence =
   table.chong th, table.chong td { padding: 0.4rem 0.6rem; text-align: left; border-bottom: 1px solid var(--rule); }
   table.chong tr.is-mine td { background: var(--surface-soft); font-weight: 600; }
   table.chong tr.is-today td { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .temple-list { list-style: none; padding: 0; display: grid; gap: 0.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
+  .temple-list li { display: flex; gap: 0.5rem; align-items: baseline; }
+  .temple-list a { color: var(--accent); }
   .more { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
   .more a { color: var(--accent); }
 </style>

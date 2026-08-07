@@ -79,7 +79,7 @@ const LEDGER = [
   {
     stage: 'live', id: 'temple-xml',
     what: '內政部寺廟開放資料（data.gov.tw 8203，OGDL 1.0）',
-    how: '站上 7,891 間廟頁的底層（名稱/地址/主祀神/教別）＋座標回填＋每日五間外撥名單（電話與負責人僅存 repo 外）',
+    how: '站上所有廟頁的底層（名稱/地址/主祀神/教別）＋座標回填＋每日五間外撥名單（電話與負責人僅存 repo 外）',
     metric: () => `站上 ${M.temples} 間廟｜有座標 ${M.withCoords}（缺 ${M.noCoords}）｜外撥已推播 ${M.outreach} 間`,
     upstream: '/root/.config/folk-tw/temple.xml',
   },
@@ -157,6 +157,26 @@ const LEDGER = [
       '已開 `religion-jianzhu` 全量 job（排在 yange 之後）。沒用的那半由 isPlaceholder 與 check:integrity 各擋一次。',
     upstream: join(INBOX, 'recon-service/getuploadfile-74678-idx3-jianzhu.json'),
     coversDir: ['religion-jianzhu-sample'],
+  },
+  {
+    stage: 'pending', id: 'religion-photos',
+    goal: '神明代表圖與廟宇照片（內政部宗教知識+ 條目照＋GetUploadFile 的 pic 附件）→ 神明頁／廟宇頁代表圖',
+    blocker:
+      '⏳ 等台灣端抓（2026-08-07 加進 manifest v14，22 項）。清單 docs/intake-urls-photos.json 已產出並與 manifest 同一個 commit push，' +
+      '不會出現「job 有、清單 404」。🔴 **每一張都必須在頁面上印攝影者姓名**——內政部圖說寫了攝影者（如「（楊仁澂攝）」），' +
+      '那是著作人格權的姓名表示，不是可選的。攝影者存在候選檔與匯入後的資料，**不寫進清單檔**（清單是抓取設定，寫兩份必漂）。' +
+      '⚠️ 這批是二進位檔，expect_per_item 不可用 contains（文字比對必失敗），用 http_status ＋ min_bytes。' +
+      '⚠️ 只收站上還沒有圖的對象；已有 Commons 授權圖者不覆蓋，那些授權更明確且已在 /about 標示。' +
+      '📌 卡點解除的經過：原本卡在「候選量太少（神明 1＋廟 3）」，2026-08-07 新增 18 尊有內政部條目的神明節點後，' +
+      '神明候選跳到 20，加上廟 3 共 23（去重後 22 項），量的問題消失，故開 job。',
+    metric: () => {
+      const dir = join(INBOX, 'religion-photos');
+      const got = existsSync(dir) ? readdirSync(dir).filter((f) => !/\.(sha256|meta\.json)$/.test(f)).length : 0;
+      const want = existsSync('docs/intake-urls-photos.json') ? j('docs/intake-urls-photos.json').length : 0;
+      return `已收 ${got}/${want} 項`;
+    },
+    upstream: 'docs/intake-urls-photos.json',
+    coversDir: ['religion-photos'],
   },
   {
     stage: 'pending', id: 'religion-jianzhu',

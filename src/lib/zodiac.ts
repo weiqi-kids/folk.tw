@@ -101,3 +101,25 @@ export function chongDays(startIso: string, n: number) {
 }
 
 export { chongZodiac };
+
+// ── 安太歲：哪些廟登記了 ────────────────────────────────────────────────────
+// 🔴 措辭界線（同 src/pages/temples/[id].astro 那條）：`festivals[]` 是**廟方自己向內政部
+//    登記的年度慶(祭)典**，所以可以說「登記的祭典中列有安太歲」，
+//    **不可以**說「本廟提供安太歲服務」——我們沒有任何一年的實際辦理紀錄。
+// ⚠️ 認 `festivals[]` 的 **name 與 desc 兩欄**：實測 14 筆裡有 8 筆寫在 desc
+//    （祭典名是「玉皇大帝聖壽」，描述才寫「同時安斗.安光明燈.安太歲」）。只看 name 會漏一半。
+// ⚠️ 同時認「安奉太歲」寫法（如「安奉太歲星君上燈大典」），那是同一件事的不同措辭。
+//    但**不認單獨的「太歲」**——「太歲殿」是建築、「太歲星君聖誕」是神明生日，都不是辦安太歲。
+// ⚠️ `history` 裡也有幾筆提到安太歲，但那是沿革敘事（「某年增建太歲殿」這類），
+//    不等於現在有辦，故不收。參拜流程（IndexID=4）到齊後可再加一條來源，那批才是「現在怎麼參拜」。
+const ANTAISUI_RE = /安太歲|安奉[^，。、]{0,6}太歲/;
+export function antaisuiTemples(
+  temples: { id: string; data: { name: string; district?: string; festivals?: { name?: string; desc?: string }[] } }[],
+) {
+  return temples
+    .filter((t) => (t.data.festivals ?? []).some(
+      (f) => ANTAISUI_RE.test(String(f?.name ?? '')) || ANTAISUI_RE.test(String(f?.desc ?? '')),
+    ))
+    .map((t) => ({ id: t.id, name: t.data.name, district: t.data.district ?? '' }))
+    .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name));
+}

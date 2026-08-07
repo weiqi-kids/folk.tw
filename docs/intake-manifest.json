@@ -12,9 +12,10 @@
     "  1500 項在 1 req/s 下約 25 分鐘，全批約 4 輪收完。",
     "  ⚠️ **不要再往上加**，也不要縮短 min_interval_ms。真的需要更快，先去問內政部，別自己決定。",
     "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。",
-    "2026-08-07：v13 **只改註解，不改行為**——religion-yange 的 _why 原本寫「刻意不收 IndexID=3」，那是 2026-08-05 的舊裁定，2026-08-06 抽樣後已改為收（全量在 religion-jianzhu job）。jobs 的數量、順序、url、expect、politeness 全部與 v12 相同。"
+    "2026-08-07：v13 **只改註解，不改行為**——religion-yange 的 _why 原本寫「刻意不收 IndexID=3」，那是 2026-08-05 的舊裁定，2026-08-06 抽樣後已改為收（全量在 religion-jianzhu job）。jobs 的數量、順序、url、expect、politeness 全部與 v12 相同。",
+    "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。"
   ],
-  "version": 13,
+  "version": 14,
   "updated": "2026-08-07",
   "politeness": {
     "min_interval_ms": 1000,
@@ -238,6 +239,29 @@
         "min_bytes": 25000,
         "contains": "</html>"
       }
+    },
+    {
+      "id": "religion-photos",
+      "url_list": "https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-urls-photos.json",
+      "dest_dir": "religion-photos/",
+      "dest_template": "{key}",
+      "max_age_days": 180,
+      "note": "宗教知識+ 神明照與 GetUploadFile 廟宇照（二進位）。清單由 scripts/gen-intake-urls-photos.mjs 產生。",
+      "expect_per_item": {
+        "http_status": 200,
+        "min_bytes": 4096
+      },
+      "_why": [
+        "2026-08-07 上線。授權：2026-08-06 經內政部同意使用，**明確含照片**，條件為標示資料來源連結。",
+        "🔴 內政部的照片多一層：圖說寫了**攝影者姓名**（如「（楊仁澂攝）」），那是著作人格權的姓名表示，",
+        "   每一張都必須把攝影者印在頁面上，不是可選的。攝影者存在候選檔與匯入後的資料裡，",
+        "   **不寫進本清單**——清單是抓取設定，寫兩份必然漂移。",
+        "🔴 expect_per_item **不可用 contains**：這批是二進位檔，contains 是文字比對，一定失敗。",
+        "   用 http_status 200 ＋ min_bytes 4096（小於這個大小的多半是錯誤頁或破圖）。",
+        "⚠️ 只收站上還沒有圖的對象（候選檔產生時就已過濾）：已有 Commons 授權圖者不覆蓋，",
+        "   那些授權更明確且已在 /about 標示。",
+        "排序：22 項，屬小批次，故排在 96 項的 knowledge-deity-entries 之前（見 _readme 的 job 順序規則）。"
+      ]
     },
     {
       "id": "knowledge-deity-entries",
