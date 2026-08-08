@@ -171,18 +171,17 @@ done
 ⚠️ 我端 `scripts/import-photos.mjs` 也自己認一次 magic bytes（縱深防禦），
 **但那不是台灣端那層可以省的理由**——我端這層只能「不用」，不能「不收」。
 
-### 2026-08-06 發出：立刻跑一輪（不要等 04:17）
+### ✅ 2026-08-06 發出的那則（立刻跑一輪）已結案
 
-授權關卡已解（見 [`taiwan-intake-status.md`](taiwan-intake-status.md) §2026-08-06），
-manifest 同日更新到 v8 並新增兩個 job。**它們是機械 job，不需要判斷**——
-唯一的要求是「現在就跑一輪」，而不是等隔天 04:17，因為境外端整條下游
-（清單產出 → 內容抓取 → 匯入）都在等這批。
+`knowledge-deity-entries` 96/96、`religion-foundation-list` 全部頁完成，`last_ok` 皆為 2026-08-06。
+2026-08-08 台灣端主動提醒「那節現在會讓人以為還有待辦」——**他是對的**，
+這正是 inbox 那份 `TODO-FOR-REMOTE.md` 的同一個病：**做完的東西留在待辦區會誤導下一個人**。
 
-- `knowledge-deity-entries`（**第一個 `url_list` 型 job**）：宗教知識+ 神祇條目全文
-- `religion-foundation-list`（`paginate` POST）：宗教團體查詢結果全量，PageSize=100
+### 目前：台灣端沒有待辦
 
-⚠️ 這兩個都會用掉不少請求，`max_requests_per_run` 用完就記斷點收工是正常的，
-下一輪自動續傳，**不要為了跑完而調高上限或縮短間隔**。
+2026-08-08 積壓全清（`religion-yange` 4,351/4,351、`religion-jianzhu` 3,123/3,123、
+`religion-photos` 19/19，皆 0 失敗且逐檔 sha256 驗過），已回到 cron 04:17。
+所有 job 都在 `max_age_days` 內，**預期每輪不會產生請求**（停擺的 crgis 每輪重試一次除外）——那是對的不是壞了。
 
 要新增待辦時：寫在這一節，**同時**在給用戶的回覆裡附上完整 prompt。
 

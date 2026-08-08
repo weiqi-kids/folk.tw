@@ -44,7 +44,17 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { buildOwnerMap, makeResolver, norm } from './lib/temple-owner.mjs';
 
 const LIST_DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
-const JSON_DIR = '/root/.config/folk-tw/intake/inbox/religion-yange';
+// 🔴 內容 JSON **分散在多個 inbox 目錄**，因為 manifest 把它們拆成不同 job：
+//    religion-yange（IndexID=2 沿革＋4 參拜流程）與 religion-jianzhu（IndexID=3 建築特色），
+//    各自的 dest_dir 就是 job id。本檔原本只讀 religion-yange，
+//    於是 2026-08-08 台灣端交付的 3,123 筆建築特色**完全看不到**——
+//    而且不會有任何錯誤：匯入器正常跑完、架構欄位就是 0 筆，
+//    連 intake-status 的「待匯入」段也照樣報「無待匯入」（它是去問這支匯入器的）。
+//    ⚠️ **日後 manifest 再拆新的內容 job，這個陣列要一起加**，否則同樣安靜漏掉。
+const JSON_DIRS = [
+  '/root/.config/folk-tw/intake/inbox/religion-yange',
+  '/root/.config/folk-tw/intake/inbox/religion-jianzhu',
+];
 const TEMPLES = 'src/data/temples.json';
 
 const args = process.argv.slice(2);
@@ -74,12 +84,18 @@ const KIND = { 2: '歷史沿革', 3: '建築特色', 4: '參拜流程' };
 
 
 const listFiles = existsSync(LIST_DIR) ? readdirSync(LIST_DIR).filter((f) => /^page-\d+\.html$/.test(f)) : [];
-const jsonFiles = existsSync(JSON_DIR) ? readdirSync(JSON_DIR).filter((f) => /^\d+-\d+\.json$/.test(f)) : [];
+// 逐目錄收集，保留各檔所屬目錄（同一個 key 只可能出現在一個 job 的目錄裡）。
+const jsonFiles = JSON_DIRS.flatMap((dir) =>
+  (existsSync(dir) ? readdirSync(dir).filter((f) => /^\d+-\d+\.json$/.test(f)) : []).map((f) => ({ dir, f })),
+);
 
 if (!listFiles.length || !jsonFiles.length) {
   console.log('資料還沒到齊，無法匯入：');
   console.log(`  查詢結果頁 ${listFiles.length} 個（${LIST_DIR}）　← religion-foundation-list job`);
-  console.log(`  內容 JSON  ${jsonFiles.length} 個（${JSON_DIR}）　← religion-yange job`);
+  for (const dir of JSON_DIRS) {
+    const n = existsSync(dir) ? readdirSync(dir).filter((f) => /^\d+-\d+\.json$/.test(f)).length : 0;
+    console.log(`  內容 JSON  ${n} 個（${dir}）`);
+  }
   console.log('  兩者都要有才對得起來（結果頁給廟名/地址，JSON 給內容）。');
   console.log('  跑 `node scripts/intake-status.mjs` 看進度。');
   process.exit(0);
@@ -112,9 +128,9 @@ const isPlaceholder = (comment, fileTitle, templeName) => {
 
 const SOURCE_PREFIX = '內政部全國宗教資訊網';
 
-for (const f of jsonFiles.sort()) {
+for (const { dir, f } of jsonFiles.sort((a, b) => (a.f < b.f ? -1 : a.f > b.f ? 1 : 0))) {
   let j;
-  try { j = JSON.parse(readFileSync(`${JSON_DIR}/${f}`, 'utf8')); } catch { continue; }
+  try { j = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')); } catch { continue; }
   stat.json++;
   const key = f.replace(/\.json$/, '');
   const idx = key.split('-')[1];
