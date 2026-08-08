@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="找不到頁面" description="404 — 此頁不存在。">
+{/* share={false}：404 沒有可分享的內容，掛分享列只是噪音 */}
+<Base title="找不到頁面" description="404 — 此頁不存在。" share={false}>
   <section class="nf">
     <h1>籤落空處</h1>
     <p class="muted">您要找的頁面不存在，或內容尚在撰寫、標源中。</p>

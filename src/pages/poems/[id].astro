@@ -89,6 +89,8 @@ if (faq) ld.push(faq);
   description={pageDesc}
   jsonLd={ld}
   ogType="article"
+  ogImage={`/og/poems/${poem.id}.png`}
+  ogImageAlt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`}
   speakable={['h1', '.lead']}
 >
   <nav class="crumb"><a href="/poems/">籤詩</a> ／ 第 {d.no} 籤</nav>

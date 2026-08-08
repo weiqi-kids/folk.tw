@@ -11,14 +11,16 @@ interface Props {
   ogType?: string; // Open Graph 類型；列表／首頁用 'website'，內容／詳情頁傳 'article'
   speakable?: string[]; // AEO：可朗讀／可被語音助理與 AI 答案引擎擷取為直接答案的元素 CSS 選擇器（如 ['h1', '.summary']）
   canonical?: string; // canonical override（相對路徑，如 '/almanac/'）；不給則以本頁路徑自我 canonical。用於鏡像頁指回正本。
+  share?: boolean; // 頁尾分享列（預設開，全站鋪滿）；404 這類沒有分享意義的頁傳 false
 }
 import { GA4_ID } from '../consts';
 import goodDaysData from '../data/good-days.json'; // nav「看日子」小段由資料驅動，勿硬編（見下方 nav 註解）
 import concernsData from '../data/concerns.json'; // nav「線上求籤」小段（依 GA 流量排序，見下方 nav 註解）
 import systemsData from '../data/divination-systems.json'; // nav「解籤」小段
+import ShareRow from '../components/ShareRow.astro'; // 全站分享列（版位理由見下方 main 之後的註解）
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
-const { title, description, ogTitle, ogImage, ogImageAlt, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable, canonical: canonicalOverride } = Astro.props;
+const { title, description, ogTitle, ogImage, ogImageAlt, jsonLd: pageJsonLd, noindex, ogType = 'website', speakable, canonical: canonicalOverride, share = true } = Astro.props;
 const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
@@ -373,6 +375,14 @@ const groupActive = (sections: NavSection[]) =>
     <main class="site-main" data-pagefind-body>
       <slot />
     </main>
+    {/* 🔴 分享列刻意放在 <main data-pagefind-body> **外面**＋data-pagefind-ignore：
+        放進去的話「分享／Facebook／Threads／複製連結」會被 Pagefind 索引進全站每一頁，
+        站內搜尋打「分享」就會命中 15,000 頁。版位在 main 之後、footer 之前。 */}
+    {share && (
+      <div data-pagefind-ignore>
+        <ShareRow title={ogFullTitle} url={canonical} />
+      </div>
+    )}
     <footer class="site-footer">
       <p class="meta">
         免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>

@@ -1,0 +1,106 @@
+---
+// 全站分享列（Base.astro 於每頁 main 結尾渲染；404 等頁可用 share={false} 關掉）。
+//
+// 🔴 為什麼是「一顆系統分享鈕＋兩個 intent」而不是三顆平行按鈕：
+//    **Instagram 沒有網頁分享 API**——不像 Facebook 的 sharer.php 或 Threads 的 intent/post，
+//    IG 無法用「開一個網址」把內容貼進動態。唯一能到 IG 的路徑是行動裝置的系統分享匣
+//    （navigator.share），由使用者自己在匣裡選 Instagram。
+//    所以版面是：能叫出系統分享匣就讓它當主鈕（IG／Threads／LINE 全在裡面），
+//    叫不出來（多數桌機瀏覽器）就只留 Facebook／Threads／複製連結。
+//
+// 🔴 markup 全部靜態、JS 只切 `hidden` 屬性與按鈕文字，**不注入任何 DOM**：
+//    Astro 的 scoped `<style>` 套不到 JS 注入的節點（記憶 astro-scoped-style-innerhtml-pitfall），
+//    注入式寫法會靜默失樣。同理，分享鈕在沒有 JS 的環境也要是可用的連結（FB／Threads 是 <a>）。
+//
+// ⚠️ 分享出去長什麼樣由 og:image 決定，不由本元件決定。廟宇／籤詩／神明頁各有專屬卡，
+//    其餘頁面仍是全站品牌卡 `public/og.png`。
+interface Props {
+  /** 分享標題（不給則由頁面 og 標題帶入）。 */
+  title: string;
+  /** 正規網址（絕對）。 */
+  url: string;
+}
+const { title, url } = Astro.props;
+
+const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+// Threads 的 intent 只吃 text，故把標題與網址併成一段。
+const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`${title} ${url}`)}`;
+---
+
+<aside class="share" aria-label="分享這一頁">
+  <span class="share-label">分享</span>
+  <div class="share-btns">
+    {/* 系統分享匣：唯一能到 Instagram 的路徑。無 navigator.share 的環境由 inline script 隱藏。 */}
+    <button type="button" class="share-btn share-native" data-share-native hidden
+      data-title={title} data-url={url}>分享到…</button>
+    <a class="share-btn" href={fb} target="_blank" rel="noopener nofollow">Facebook</a>
+    <a class="share-btn" href={threads} target="_blank" rel="noopener nofollow">Threads</a>
+    <button type="button" class="share-btn" data-share-copy data-url={url}>複製連結</button>
+  </div>
+</aside>
+
+<script is:inline>
+  (() => {
+    // 系統分享匣有支援才顯示那顆鈕（桌機多數瀏覽器沒有）。
+    if (navigator.share) {
+      for (const b of document.querySelectorAll('[data-share-native]')) b.hidden = false;
+    }
+    document.addEventListener('click', async (e) => {
+      const nativeBtn = e.target.closest?.('[data-share-native]');
+      if (nativeBtn) {
+        try {
+          await navigator.share({ title: nativeBtn.dataset.title, url: nativeBtn.dataset.url });
+        } catch {
+          /* 使用者取消分享會 reject，那不是錯誤，不要跳任何東西 */
+        }
+        return;
+      }
+      const copyBtn = e.target.closest?.('[data-share-copy]');
+      if (!copyBtn) return;
+      try {
+        await navigator.clipboard.writeText(copyBtn.dataset.url);
+        const before = copyBtn.textContent;
+        copyBtn.textContent = '已複製';
+        setTimeout(() => { copyBtn.textContent = before; }, 1600);
+      } catch {
+        /* 沒有剪貼簿權限就什麼都不做——網址列本來就看得到 */
+      }
+    });
+  })();
+</script>
+
+<style>
+  .share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    max-width: var(--max);
+    margin: 3rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+  .share-label {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+  }
+  .share-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .share-btn {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--line);
+    border-radius: 0.375rem;
+    background: var(--paper-2);
+    color: var(--ink-soft);
+    font-family: inherit;
+    font-size: var(--text-sm);
+    line-height: var(--lh-tight);
+    cursor: pointer;
+  }
+  .share-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>

@@ -23,32 +23,9 @@
 // 注意：全量會產出約 7.9k 個檔，故安排在 postbuild、輸出進 dist/ 而不進 repo。
 
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
-
-/**
- * 前置檢查：系統必須有中文字型，否則 librsvg 會把每個漢字畫成空框——
- * 而且**檔案照樣產得出來、不會報任何錯**，等於默默產出 7,891 張廢卡。
- * 故在這裡硬擋：對不到 CJK 字型就直接失敗。
- */
-function assertCjkFont() {
-  try {
-    const out = execFileSync('fc-match', ['-f', '%{family}', 'Noto Serif CJK TC'], {
-      encoding: 'utf8',
-    });
-    if (/CJK|Han|Hei|Ming|Song|WenQuanYi|Noto Serif TC/i.test(out)) return out.trim();
-    throw new Error(`fc-match 回傳「${out}」，看起來不是中文字型`);
-  } catch (e) {
-    console.error(
-      `✗ 找不到可用的中文字型，分享卡會整片變成空框，故中止。\n` +
-        `  Ubuntu/Debian：sudo apt-get install -y fonts-noto-cjk\n` +
-        `  詳情：${e.message}`,
-    );
-    process.exit(1);
-  }
-}
+import { C, esc, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -59,36 +36,6 @@ const { pickMainFestival, festivalCardLine } = await import(join(root, 'src/lib/
 const temples = JSON.parse(readFileSync(join(root, 'src/data/temples.json'), 'utf8'));
 const deities = JSON.parse(readFileSync(join(root, 'src/data/deities.json'), 'utf8'));
 const deityById = new Map(deities.map((d) => [d.id, d]));
-
-// 站台設計 token（src/styles/variables.css 的 oklch 轉 hex；librsvg 對 oklch 支援不穩）
-const C = {
-  ink: '#221f1b',
-  inkSoft: '#554f48',
-  paper: '#f7f3eb',
-  paper2: '#fefcf8',
-  line: '#dcd3c1',
-  accent: '#9a3835',
-  gold: '#927846',
-};
-
-const esc = (s) =>
-  String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-/** 全形字寬約等於字級，半形約一半——用來估算換行與自動縮字級。 */
-const visualWidth = (s) =>
-  [...String(s)].reduce((n, ch) => n + (/[\x00-\x7F]/.test(ch) ? 0.55 : 1), 0);
-
-/** 依視覺寬度斷行（不硬切詞：中文逐字、英數盡量不切）。 */
-function wrap(s, maxUnits) {
-  const out = [];
-  let line = '';
-  for (const ch of String(s)) {
-    if (visualWidth(line + ch) > maxUnits && line) { out.push(line); line = ch; }
-    else line += ch;
-  }
-  if (line) out.push(line);
-  return out;
-}
 
 /**
  * 卡面第二行：兩層，皆為既有資料，查無則回 null（→ 只顯示廟名／地區／主祀神）。
@@ -183,10 +130,7 @@ export function cardSvg(t, todayIso) {
 
 export async function renderCard(t, outDir, todayIso) {
   const svg = cardSvg(t, todayIso);
-  // palette 16 色：10.4 KB/張。勿降到 8 色（文字邊緣會出現硃紅雜邊，實測）。
-  const png = await sharp(Buffer.from(svg))
-    .png({ compressionLevel: 9, palette: true, colors: 16 })
-    .toBuffer();
+  const png = await toPng(svg); // palette 16 色，勿降到 8（見 lib/og-card.mjs）
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, `${t.id}.png`), png);
   return png.length;
