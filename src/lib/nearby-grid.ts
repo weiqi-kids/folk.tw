@@ -62,17 +62,30 @@ export function buildCells(temples: NearbyTemple[]): Map<string, NearbyRow[]> {
   const cells = new Map<string, NearbyRow[]>();
   for (const t of temples) {
     if (typeof t.lat !== 'number' || typeof t.lng !== 'number') continue;
-    const key = cellKey(t.lat, t.lng);
+    // 🔴 **先取整、再算格**（2026-08-08 被 gate 抓到，3 間廟）：反過來做的話，
+    //    四捨五入剛好跨過格線的座標會被放進「它存進去的座標並不屬於」的那一格
+    //    （如 120.299996 → 存 120.3，原始屬 1202 格、存進去的值屬 1203 格）。
+    //    後果很輕（前端抓 3×3 鄰格，差一格照樣找得到），但那是「資料自己跟自己不一致」，
+    //    留著遲早會有人照著它推論出錯的東西。
+    const lat = Number(t.lat.toFixed(COORD_DP));
+    const lng = Number(t.lng.toFixed(COORD_DP));
+    const key = cellKey(lat, lng);
     const row: NearbyRow = [
       t.id,
       t.name,
-      Number(t.lat.toFixed(COORD_DP)),
-      Number(t.lng.toFixed(COORD_DP)),
+      lat,
+      lng,
       t.district ?? '',
       firstDeity(t.main_deity_raw),
     ];
     (cells.get(key) ?? cells.set(key, []).get(key)!).push(row);
   }
+  // 🔴 格內依 id 定序，**不可拿掉**（2026-08-08 被 gate 當場抓到）：
+  //    產格檔的 endpoint 走 content collection（依 id 排序），gate 讀 temples.json（匯入順序），
+  //    同一份資料兩邊排出來不一樣 → 283 個格檔筆數全對、內容全「不符」。
+  //    顯示順序不受影響（client 一律依距離重排），但輸出必須可重現：
+  //    否則格檔會隨載入器的順序漂動，每次 build 都產生一堆假 diff。
+  for (const rows of cells.values()) rows.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
   return cells;
 }
 
