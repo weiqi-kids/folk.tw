@@ -88,6 +88,24 @@ function report(state, urls) {
   }
   const left = urls.length - checked;
   if (left) console.log(`\n尚未查 ${left} 頁；每日配額 2,000，約再 ${Math.ceil(left / 2000)} 天掃完（每天跑一次即可）。`);
+
+  // 🔴 一定要印資料有多舊（2026-08-08 加）。本檔是**滾動掃描**，一輪約 6 天，
+  //    所以任一頁的狀態都可能是一週前的——而報告只印狀態、不印時間，讀的人會當成現況。
+  //    實例：2026-08-08 查 8/8 檢查點（節日頁收錄），本檔對那 12 頁全寫「URL is unknown to Google」，
+  //    差點據此回報「0/12 收錄」；那筆是 2026-07-30 上線當天查的，重查後實際是 8/12 已收錄。
+  //    🔴 **要回答「某幾頁現在收錄了沒」，不要讀本檔，直接對那幾頁重跑 URL Inspection。**
+  const stamps = [];
+  for (const u of urls) { const r = state.results[u]; if (r?.checkedAt) stamps.push(Date.parse(r.checkedAt)); }
+  if (stamps.length) {
+    stamps.sort((a, b) => a - b);
+    const days = (t) => Math.floor((Date.now() - t) / 86400000);
+    const median = stamps[Math.floor(stamps.length / 2)];
+    console.log(
+      `\n⚠️ 這份是滾動掃描的快照，不是即時狀態：最舊 ${days(stamps[0])} 天前查的、` +
+      `中位 ${days(median)} 天、最新 ${days(stamps[stamps.length - 1])} 天。`,
+    );
+    console.log('   要問「某幾頁現在收錄了沒」，對那幾頁重跑 URL Inspection，不要讀這份。');
+  }
 }
 
 const state = loadState();
