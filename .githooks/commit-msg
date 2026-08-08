@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# 擋「commit 訊息**內文**提到 CI 略過標記」——那會讓整個 push 不觸發任何 workflow。
+#
+# 🔴 為什麼要有這支（2026-08-08 當場踩到，而且是在修同一類問題的那個 commit 裡）：
+#   GitHub 判斷要不要略過，看的是 head commit 的**整段訊息**，不只是標題。
+#   所以當你在內文裡「討論」這個標記時（例如寫一則說明它為什麼危險的 commit message），
+#   你就**真的觸發了它**——那次 push 一個 run 都不會產生，且沒有任何告警。
+#   `bb08b99` 與 `e0ea900` 就是這樣，各 0 個 run。
+#   CLAUDE.md 紅線 #3 早就用括號提過這個「連帶陷阱」，我照樣走進去——
+#   證明光是寫在文件裡不夠，得擋在路徑上。
+#
+# 規則：這個標記**只准出現在標題行的結尾**（自動化就是那樣用的），
+#   出現在內文任何地方一律擋下。
+#   要在訊息裡談論它，用全形括號「［skip ci］」或寫成「該標記」「CI 略過標記」。
+#
+# 安裝：`git config core.hooksPath .githooks`（與 pre-push 同一個設定）。
+# 真的要跳過：`git commit --no-verify`。
+
+set -uo pipefail
+MSG_FILE="$1"
+[ -f "$MSG_FILE" ] || exit 0
+
+# 去掉註解行（git 的 # 開頭說明），只看真正會進 commit 的內容。
+CONTENT="$(grep -v '^#' "$MSG_FILE")"
+SUBJECT="$(printf '%s\n' "$CONTENT" | sed -n '1p')"
+BODY="$(printf '%s\n' "$CONTENT" | sed '1d')"
+
+TOKEN_RE='\[(skip ci|ci skip|skip actions|actions skip)\]'
+
+if printf '%s' "$BODY" | grep -qEi "$TOKEN_RE"; then
+  echo "[commit-msg] ✗ commit 訊息的**內文**出現 CI 略過標記。"
+  echo "[commit-msg]   GitHub 看的是整段訊息，所以這則 commit 一旦成為 push 的 head，"
+  echo "[commit-msg]   **整個 push 不會產生任何 workflow run**，而且沒有告警。"
+  echo "[commit-msg]   （2026-08-08 實例：bb08b99 / e0ea900 各 0 個 run。）"
+  echo "[commit-msg]"
+  echo "[commit-msg]   要談論它請改寫，例如：「該標記」「CI 略過標記」「［skip ci］」（全形括號）。"
+  echo "[commit-msg]   自動化要真的略過 CI 時，它只准放在**標題行結尾**。"
+  echo "[commit-msg]   （真的要跳過本檢查：git commit --no-verify）"
+  printf '%s\n' "$BODY" | grep -nEi "$TOKEN_RE" | sed 's/^/[commit-msg]   內文 /' | head -5
+  exit 1
+fi
+
+# 標題行只准放在結尾（自動化的用法），放中間多半是誤植。
+if printf '%s' "$SUBJECT" | grep -qEi "$TOKEN_RE" && ! printf '%s' "$SUBJECT" | grep -qEi "$TOKEN_RE\$"; then
+  echo "[commit-msg] ✗ CI 略過標記出現在標題行中間；它只准放在標題行**結尾**。"
+  echo "[commit-msg]   標題：$SUBJECT"
+  exit 1
+fi
+
+exit 0
