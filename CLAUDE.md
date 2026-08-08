@@ -68,6 +68,11 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
    你留在本地的 commit 會被別人的 CI 略過標記 head 帶上去 → 整個 push 不觸發 workflow、
    線上停在舊版且無告警。**手動 commit 後立刻自己 push，並查本 SHA 有沒有 run。**
    （含「commit 訊息提到那個標記也會觸發它」的連帶陷阱，同上檔。）
+   ✅ 2026-08-08 起有機制擋這件事：`scripts/lib/skip-ci-suffix.sh` 是該標記的唯一判定入口，
+   本機有未推送 commit 時自動不加它。**新增任何會 commit 的自動化一律 source 它，不要自己寫死。**
+   ⚠️ 機制擋的是「被別人吃掉」，不擋「你根本沒 push」——那條仍要自己顧。
+   另有 `.githooks/pre-push`（九道快速 gate，約 7 秒）擋「跑完 gate 之後又改檔才 push」：
+   **驗證的效力綁在檔案內容上，不綁在「我跑過了」**。重新 clone 後要跑 `git config core.hooksPath .githooks`。
 4. **slug 是永久承諾。** `/festivals/`、`/festivals/local/`、`/good-days/`、`/trades/`、`/scenarios/`、
    `/compare/`、`/qiugian/blessing/<id>/` 一旦上線就不可改、不可 404。
 5. **個資不進 repo。** 本 repo 為 public：廟方電話與負責人只存 `/root/.config/folk-tw/`，
