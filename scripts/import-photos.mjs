@@ -94,7 +94,7 @@ const sniff = (buf) => {
   return hit.name;
 };
 
-const stat = { seen: 0, noMeta: 0, noPhotographer: 0, hasImage: 0, noTarget: 0, notImage: 0, written: 0 };
+const stat = { seen: 0, noMeta: 0, alreadyImported: 0, noPhotographer: 0, hasImage: 0, noTarget: 0, notImage: 0, written: 0 };
 const notImageKeys = [];
 if (WRITE) mkdirSync(join(OUT_DIR, 'deities'), { recursive: true });
 if (WRITE) mkdirSync(join(OUT_DIR, 'temples'), { recursive: true });
@@ -105,7 +105,21 @@ for (const f of files.sort()) {
   if (!sniff(buf)) { stat.notImage++; notImageKeys.push(f); continue; }
   const key = f.replace(/\.[A-Za-z0-9]+$/, '');
   const m = meta.get(key) ?? meta.get(f);
-  if (!m) { stat.noMeta++; continue; }
+  if (!m) {
+    // 候選檔查無此 key，有兩種完全不同的情況，**不可以混報**：
+    //   ① 這張圖早就匯入過了 → 候選佇列自己排空（它的定義是「該尊尚無圖」），所以查不到。
+    //      這是正常狀態，報成問題會讓 intake-status 的「待匯入」段天天喊假警報，
+    //      而會叫錯的狼會訓練人忽略整段（2026-08-08 加這段檢查的理由）。
+    //   ② 真的來路不明的檔 → 那才要報。
+    // 判準：從 key 反推目標（`deity-<id>` / `temple-<id>`），看它是不是已經掛著 /moi/ 的圖。
+    const mk = key.match(/^(deity|temple)-(.+)$/);
+    const already = mk
+      ? /^\/moi\//.test(((mk[1] === 'deity' ? deityById : templeById).get(mk[2])?.image?.src) ?? '')
+      : false;
+    if (already) stat.alreadyImported++;
+    else stat.noMeta++;
+    continue;
+  }
 
   // 🔴 沒有攝影者就不採用——姓名表示是著作人格權，掛一張沒署名的圖比沒圖糟。
   const author = String(m.photographer ?? '').trim();
@@ -140,8 +154,20 @@ for (const f of files.sort()) {
   stat.written++;
 }
 
+// --json：給 scripts/intake-status.mjs 的「待匯入」段消費（契約見 import-temple-history.mjs）。
+if (process.argv.includes('--json')) {
+  console.log(JSON.stringify({
+    read: stat.seen,
+    pending: { 代表圖: stat.written },
+    // 這兩個不是「待匯入」而是「收到但不能用」，狀態報告要分開講，別混在一起。
+    blocked: { 無署名: stat.noPhotographer, 非圖檔: stat.notImage, 來路不明: stat.noMeta },
+    already: stat.alreadyImported,
+  }));
+  process.exit(0);
+}
 console.log(`\n照片匯入：inbox 有 ${stat.seen} 個檔`);
 console.log(`  寫入 ${stat.written}｜已有圖不覆寫 ${stat.hasImage}`);
+console.log(`  先前已匯入 ${stat.alreadyImported}（候選佇列已排空，正常）`);
 console.log(`  略過：候選檔查無此 key ${stat.noMeta}｜**無攝影者姓名** ${stat.noPhotographer}｜對象不存在 ${stat.noTarget}｜非圖檔 ${stat.notImage}`);
 if (stat.notImage) {
   console.log(`  ⚠️ 這些檔的 magic bytes 不是圖（多半是被 302 導去的 HTML 頁），已跳過：`);

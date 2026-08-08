@@ -175,6 +175,13 @@ for (const t of temples) {
   }
 }
 
+// --json：給 scripts/intake-status.mjs 消費的機器可讀輸出（見該檔「待匯入」段）。
+// 🔴 契約：鍵名是 stat.written 的鍵（history／worship_flow／architecture…），值是「這次會寫幾筆」。
+//    乾跑時＝「收到了但還沒進站」的筆數，那正是狀態報告要的數字。改鍵名要同步改消費端。
+if (process.argv.includes('--json')) {
+  console.log(JSON.stringify({ read: stat.json, pending: stat.written }));
+  process.exit(0);
+}
 console.log(`\nGetUploadFile 匯入：讀 ${stat.json} 個 JSON（結果頁 ${listFiles.length} 頁建了 ${owner.size} 筆對映）`);
 console.log('  ── 對映 ──');
 console.log(`  廟名唯一命中　　${mstat.byUnique}｜行政區消歧 ${mstat.byRegion}｜完整地址消歧 ${mstat.byAddr}`);

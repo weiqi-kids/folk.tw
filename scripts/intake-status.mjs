@@ -11,6 +11,7 @@
 //
 // 搭配文件：docs/taiwan-intake-status.md（講每一份資料的整合方式與決策脈絡，不放數字）。
 import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const INBOX = '/root/.config/folk-tw/intake/inbox';
@@ -216,10 +217,32 @@ const LEDGER = [
       '結論全文見下方 recon 段的 religion-jianzhu-sample。沒用的那些仍由 isPlaceholder 擋一次。' +
       '⚠️ 同輪把 max_requests_per_run 由 200 提到 1500（間隔仍 1 秒不變），否則一天 200 項要跑 26 天。',
     metric: () => {
+      // 🔴 不可以拿「目錄檔案數 / 清單長度」當進度（2026-08-08 修）：
+      //    inbox 是 write-only 刪不掉，清單重產過（ONLY_ONSITE 濾掉站上沒有頁面的廟）之後，
+      //    舊清單抓回來的檔還留在目錄裡 → 分子被灌水。實測當時顯示「已收 4353/4351」＝看起來收完了，
+      //    但拆開看 IndexID=4（參拜流程）其實只有 589/706。
+      //    **而「參拜流程到齊」正是生肖頁第三段的解鎖條件**，誤判成到齊會讓人以為可以動手了。
+      //    正確作法：拿清單裡的 key 逐一去磁碟上找，只算「清單要的」那些，並分 IndexID 報。
       const dir = join(INBOX, 'religion-yange');
-      const got = existsSync(dir) ? readdirSync(dir).filter((f) => MAIN_JSON.test(f)).length : 0;
-      const want = existsSync('docs/intake-urls-yange.json') ? j('docs/intake-urls-yange.json').length : 0;
-      return `已收 ${got}/${want} 項`;
+      if (!existsSync('docs/intake-urls-yange.json')) return '清單尚未產出';
+      const have = existsSync(dir) ? new Set(readdirSync(dir).filter((f) => MAIN_JSON.test(f))) : new Set();
+      const list = j('docs/intake-urls-yange.json');
+      const LABEL = { 2: '沿革', 4: '參拜流程', 3: '建築特色' };
+      const per = new Map();
+      for (const it of list) {
+        const idx = String(it.key ?? '').match(/-(\d)$/)?.[1] ?? '?';
+        const cur = per.get(idx) ?? { got: 0, want: 0 };
+        cur.want++;
+        if (have.has(`${it.key}.json`)) cur.got++;
+        per.set(idx, cur);
+      }
+      const parts = [...per.entries()].sort()
+        .map(([idx, c]) => `${LABEL[idx] ?? `idx=${idx}`} ${c.got}/${c.want}${c.got >= c.want ? ' ✅' : ''}`);
+      const got = [...per.values()].reduce((n, c) => n + c.got, 0);
+      const want = [...per.values()].reduce((n, c) => n + c.want, 0);
+      const stale = have.size - got;
+      return `已收 ${got}/${want} 項（${parts.join('｜')}）` +
+        (stale > 0 ? `；另有 ${stale} 個舊清單留下的檔（inbox 刪不掉，不計入進度）` : '');
     },
     upstream: join(INBOX, 'recon-service/getuploadfile-63443-idx2-yange.json'),
     coversDir: ['religion-yange'],
@@ -430,5 +453,48 @@ if (orphanFiles.length && !BRIEF) for (const f of orphanFiles) console.log(`    
 console.log(`  inbox 內的說明文件（.md，不需 LEDGER）：${inboxFiles.filter((f) => f.endsWith('.md')).length} 份`);
 
 line();
+// ── 待匯入：「收到了」與「進站了」之間的落差 ──────────────────────────────────
+// 🔴 為什麼要有這段（2026-08-08 加）：本報告原本只講「台灣端送來多少」，
+//    完全沒有「送來了但還沒匯入」這個欄位。實際後果：inbox 裡躺著 773 筆沿革＋526 筆參拜流程
+//    沒進站，而報告看起來一切正常——要有人**記得**去手動跑一次匯入器乾跑才會發現。
+//    「報現況一律用指令查」的前提是那個指令真的算得出現況；算不出來的欄位等於不存在。
+//    故改由本報告直接去跑三支匯入器的乾跑（實測合計約 1.6 秒），拿它們的 --json 輸出。
+// ⚠️ 契約：匯入器的 `--json` 回 `{read, pending:{欄位:筆數}, blocked?:{原因:筆數}}`。
+//    改那邊的鍵名要同步改這裡（見 import-temple-history.mjs 的 --json 註解）。
+{
+  const IMPORTERS = [
+    { label: '廟宇沿革／參拜流程／建築特色', script: 'scripts/import-temple-history.mjs' },
+    { label: '神明條目（造型・引文・照片候選）', script: 'scripts/import-knowledge-deities.mjs' },
+    { label: '照片代表圖', script: 'scripts/import-photos.mjs' },
+  ];
+  console.log('');
+  console.log('─'.repeat(74));
+  console.log('■ 待匯入（inbox 已收到、但還沒寫進 src/data 的）');
+  let anyPending = false;
+  for (const im of IMPORTERS) {
+    let r;
+    try {
+      r = JSON.parse(execFileSync(process.execPath, [im.script, '--json'], { encoding: 'utf8' }).trim());
+    } catch (e) {
+      console.log(`  ⚠️ ${im.label}：乾跑失敗（${String(e.message).split('\n')[0]}）——這本身就是要處理的事`);
+      anyPending = true;
+      continue;
+    }
+    const pend = Object.entries(r.pending ?? {}).filter(([, n]) => n > 0);
+    const blocked = Object.entries(r.blocked ?? {}).filter(([, n]) => n > 0);
+    if (!pend.length && !blocked.length) { console.log(`  ✅ ${im.label}：無待匯入（讀 ${r.read}）`); continue; }
+    if (pend.length) {
+      anyPending = true;
+      console.log(`  ● ${im.label}：${pend.map(([k, n]) => `${k} ${n} 筆`).join('｜')}`);
+      console.log(`      → 跑 \`node ${im.script} --write\``);
+    }
+    if (blocked.length) {
+      console.log(`  ⚠️ ${im.label} 收到但用不了：${blocked.map(([k, n]) => `${k} ${n}`).join('｜')}`);
+    }
+  }
+  if (!anyPending) console.log('  （全部到站的資料都已匯入。）');
+}
+
+console.log('');
 console.log(`站上相關資料：沿革 ${M.history}／簡介 ${M.intro}／開放時間 ${M.openTime}　（共 ${M.temples} 間廟）`);
 console.log(`archive 保留版本數：${existsSync(ARCHIVE) ? readdirSync(ARCHIVE, { recursive: true }).filter((f) => String(f).endsWith('.xml')).length : 0}\n`);

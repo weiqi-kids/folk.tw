@@ -238,6 +238,14 @@ for (const f of files.sort()) {
   }
 }
 
+// --json：給 scripts/intake-status.mjs 的「待匯入」段消費（契約見 import-temple-history.mjs）。
+if (process.argv.includes('--json')) {
+  console.log(JSON.stringify({
+    read: stat.parsed,
+    pending: { iconography: stat.iconAdded, moi_knowledge: stat.excerptAdded, 照片候選: stat.photoCand },
+  }));
+  process.exit(0);
+}
 console.log(`\n宗教知識+ 條目：解析 ${stat.parsed} 篇`);
 console.log(`  對映到站上神明　　${stat.matched}｜站上無節點 ${stat.unmatched.length}`);
 console.log(`  iconography 新增　${stat.iconAdded}｜已有不覆寫 ${stat.iconSkipped}｜切不出短語留空 ${stat.iconEmpty}`);
