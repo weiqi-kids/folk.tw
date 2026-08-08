@@ -112,6 +112,33 @@ export { chongZodiac };
 //    但**不認單獨的「太歲」**——「太歲殿」是建築、「太歲星君聖誕」是神明生日，都不是辦安太歲。
 // ⚠️ `history` 裡也有幾筆提到安太歲，但那是沿革敘事（「某年增建太歲殿」這類），
 //    不等於現在有辦，故不收。參拜流程（IndexID=4）到齊後可再加一條來源，那批才是「現在怎麼參拜」。
+// ── 太歲殿：哪些廟有供奉太歲的殿／神位 ──────────────────────────────────────
+// 🔴 這是**比上面那條弱**的一種事實，兩者不可混為一談：
+//    · `antaisuiTemples()`（下面那支）＝廟方登記的**年度祭典**列有安太歲 → 那是「有在辦」。
+//    · 本支＝廟方登記的**內容欄位**（沿革／建築特色／參拜流程／簡介）提到太歲殿或太歲星君
+//      → 那只是「這間廟有這個殿／這尊神」，**不代表現在有提供安太歲服務**。
+//    頁面上的措辭必須跟著這條界線走，check:rendered 會驗那句 caveat 在不在。
+//
+// 📌 為什麼要有這支（2026-08-08）：原本的計畫是「等參拜流程（IndexID=4）到齊後，
+//    從裡面抽『安太歲』關鍵字」。參拜流程 706/706 到齊後實測——**0 筆提到安太歲**。
+//    假設是錯的，資料到齊也沒解開。但同一批資料裡有 79 間在參拜動線寫到太歲殿，
+//    全欄位合計 139 間，那是真實且有源的事實，只是它回答的問題比原本設想的窄。
+//
+// ⚠️ 認「太歲殿／太歲星君／太歲君／太歲廳」，**不認單獨的「太歲」**——
+//    「犯太歲」「太歲頭上動土」是詞語不是設施，收進來就是假資料。
+const TAISUI_SHRINE_RE = /太歲殿|太歲星君|太歲君|太歲廳/;
+export function taisuiShrineTemples(
+  temples: { id: string; data: { name: string; district?: string; history?: string; architecture?: string; worship_flow?: string; intro?: string } }[],
+) {
+  return temples
+    .filter((t) => {
+      const d = t.data;
+      return TAISUI_SHRINE_RE.test(`${d.history ?? ''}${d.architecture ?? ''}${d.worship_flow ?? ''}${d.intro ?? ''}`);
+    })
+    .map((t) => ({ id: t.id, name: t.data.name, district: t.data.district ?? '' }))
+    .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name));
+}
+
 const ANTAISUI_RE = /安太歲|安奉[^，。、]{0,6}太歲/;
 export function antaisuiTemples(
   temples: { id: string; data: { name: string; district?: string; festivals?: { name?: string; desc?: string }[] } }[],

@@ -67,6 +67,11 @@ for (const file of ROOTS.flatMap((r) => [...jsFiles(r)])) {
     const items = [...arr[1].matchAll(/['"](\/[^'"]*)['"]/g)].map((x) => x[1]);
     if (items.length < 2) continue;                       // 單一字串不當成路徑清單，避免誤抓
     if (items.some((p) => /[\\^$*+?()|]/.test(p))) continue; // 看起來是正則片段，跳過
+    // 🔴 檔案系統路徑不是站台網址（2026-08-08 加）：`JSON_DIRS = ['/root/.config/…', '/root/.config/…']`
+    //    這種陣列剛好符合「≥2 個 / 開頭的字串」的啟發式，被誤報成「該補尾斜線的站內網址」。
+    //    誤判比漏判更糟：它會逼人為了讓 gate 閉嘴而去改一段本來正確的程式碼。
+    //    這幾個前綴在 folk.tw 的網址空間裡不存在，出現就必然是磁碟路徑。
+    if (items.some((p) => /^\/(root|etc|opt|var|tmp|home|usr|proc|sys|dev)\//.test(p))) continue;
     for (const p of items) {
       if (needsSlash(p)) {
         problems.push({ file, line: lineOf(src, arr.index), rule: 'R2', found: p, want: p + '/' });

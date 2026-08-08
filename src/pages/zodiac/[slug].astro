@@ -11,9 +11,10 @@ import Base from '../../layouts/Base.astro';
 import { todayInTaipei } from '../../lib/daily';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { getTemples } from '../../lib/queries';
+import { templeCounty } from '../../lib/temple-region';
 import {
   ZODIAC_LIST, bySlug, yearPillarOf, taisuiRelation, taisuiZodiacs,
-  RELATION_LABEL, birthYears, chongDays, antaisuiTemples,
+  RELATION_LABEL, birthYears, chongDays, antaisuiTemples, taisuiShrineTemples,
 } from '../../lib/zodiac';
 
 export function getStaticPaths() {
@@ -39,7 +40,25 @@ const years = birthYears(z.branch).filter((y) => y <= solarYear + 6);
 // 有登記安太歲的宮廟。判定在 lib（唯一入口），本檔不自行比對字串。
 // 🔴 措辭：這是**廟方向內政部登記的年度祭典**裡列有安太歲，不是「本廟提供安太歲服務」。
 //    無值沖關係的生肖不顯示這一段——沒有這個需求就不該推服務。
-const antaisui = rel === 'none' ? [] : antaisuiTemples(await getTemples());
+const allTemples = await getTemples();
+const antaisui = rel === 'none' ? [] : antaisuiTemples(allTemples);
+// 有太歲殿／供奉太歲星君的廟（2026-08-08 加）。
+// 🔴 這是**比上面那批弱**的事實，兩塊必須分開呈現、各自帶自己的 caveat：
+//    上面是「登記的年度祭典列有安太歲」＝有在辦；這裡只是「有這個殿／這尊神」。
+//    原訂計畫是等參拜流程到齊後抽「安太歲」關鍵字，實測 0 筆——假設是錯的（見 lib 檔頭）。
+// ⚠️ 去掉與上面那批重複的，免得同一間廟在同一頁出現兩次。
+const antaisuiIds = new Set(antaisui.map((x) => x.id));
+const taisuiShrine = rel === 'none' ? [] : taisuiShrineTemples(allTemples).filter((x) => !antaisuiIds.has(x.id));
+// 按縣市分組：139 間平鋪成一串沒人看得完，分組後才找得到「我家附近」。
+const shrineByCounty = (() => {
+  const m = new Map<string, { id: string; name: string; district: string }[]>();
+  for (const x of taisuiShrine) {
+    const c = templeCounty(x.district)?.name ?? '其他';
+    if (!m.has(c)) m.set(c, []);
+    m.get(c)!.push(x);
+  }
+  return [...m.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+})();
 
 const jsonLd: object[] = [
   breadcrumb([
@@ -178,6 +197,31 @@ const relSentence =
             </ul>
           </>
         )}
+
+        {taisuiShrine.length > 0 && (
+          <>
+            <h3>登記資料提到太歲殿或太歲星君的宮廟</h3>
+            <p class="muted small">
+              另有 {taisuiShrine.length} 間宮廟，在向內政部登記的沿革、建築特色或參拜流程裡
+              提到太歲殿、或供奉太歲星君。
+              <strong>這是廟方登記資料裡的記載，不代表該廟目前有提供安太歲服務</strong>——
+              要不要辦、怎麼辦，以廟方公告為準。
+            </p>
+            {shrineByCounty.map(([county, list]) => (
+              <details class="county-group">
+                <summary>{county}（{list.length}）</summary>
+                <ul class="temple-list">
+                  {list.map((x) => (
+                    <li>
+                      <a href={`/temples/${x.id}/`}>{x.name}</a>
+                      <span class="muted small">{x.district.replace(/^(..[縣市].{1,4}?[鄉鎮市區]).*$/, '$1')}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </>
+        )}
       </section>
     )
   }
@@ -215,6 +259,18 @@ const relSentence =
 </script>
 
 <style>
+  /* 縣市分組：139 間平鋪沒人看得完，收合後才找得到「我家附近」。
+     用原生 <details>（同 nav 的理由：靜態 markup，爬蟲看得到，不靠 JS）。 */
+  .county-group { border-top: 1px solid var(--line); padding: 0.5rem 0; }
+  .county-group > summary {
+    cursor: pointer;
+    font-size: var(--text-base);
+    color: var(--ink-soft);
+    padding: 0.25rem 0;
+  }
+  .county-group > summary:hover { color: var(--accent); }
+  .county-group[open] > summary { color: var(--ink); font-weight: 700; }
+
   .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
   .crumbs a { color: var(--accent); }
   .hero { margin: 1.5rem 0 2rem; }
