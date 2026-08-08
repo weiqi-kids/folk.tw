@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# push 前跑一次「快速 gate」——擋的是一個**流程**上的錯，不是某個程式的 bug。
+#
+# 🔴 為什麼要有這支（2026-08-08 實際發生）：
+#   我的順序是「跑 pnpm check:doc-numbers ✓ → 又編輯了一份 docs → commit → push」，
+#   於是我回報的「本機 gate 全綠」涵蓋的是**上一版**，而 CI 用最終版跑就紅了。
+#   **驗證的效力綁在檔案內容上，不綁在「我今天跑過了」這件事上**——
+#   跑完 gate 之後只要再動過任何檔，那次驗證就作廢。
+#   人（含我）記不住這件事，所以把它移到 push 這個必經路徑上。
+#
+# 只跑**快、且純檔案掃描**的那幾道（實測合計約 7 秒）。
+# 刻意不跑 `astro check`（約 40 秒）、`verify:almanac`、`build`（約 20 分）——
+# 那些留給 CI。這支的目的是「不要讓明顯的東西溜過去」，不是取代 CI。
+#
+# ⚠️ 已知限制，寫出來免得誤以為它保證了更多：
+#   gate 掃的是**工作樹**，不是即將推送的那個 commit。工作樹乾淨時兩者相同（一般情況）；
+#   髒的時候只會警告不會擋——因為髒工作樹對 cron 是正常的
+#   （qiugian-aggregate-cron 會刻意留著 topical.json 的 WIP 不動它）。
+#
+# 安裝：`git config core.hooksPath .githooks`（已設定；換機器或重新 clone 要再跑一次）。
+# 真的要跳過：`git push --no-verify`——那是刻意的動作，不會不小心發生。
+
+set -uo pipefail
+cd "$(git rev-parse --show-toplevel)" || exit 0
+
+# 沒有東西要推（例如純刪除 ref）就不擋。
+read -r _local_ref _local_sha _remote_ref _remote_sha || exit 0
+[ "${_local_sha:-}" = "0000000000000000000000000000000000000000" ] && exit 0
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "[pre-push] ⚠️ 工作樹有未提交的改動——以下 gate 掃的是工作樹，不是你要推的那個 commit。"
+fi
+
+GATES=(
+  check:doc-numbers
+  check:design
+  check:design-tokens
+  check:copy-voice
+  check:scoped-styles
+  check:anchor-text
+  check:integrity
+  check:content
+  check:outbound-urls
+)
+
+failed=()
+for g in "${GATES[@]}"; do
+  if ! out="$(pnpm "$g" 2>&1)"; then
+    failed+=("$g")
+    echo "──────── ✗ $g ────────"
+    echo "$out" | tail -25
+  fi
+done
+
+if [ ${#failed[@]} -gt 0 ]; then
+  echo
+  echo "[pre-push] ✗ ${#failed[@]} 道 gate 沒過：${failed[*]}"
+  echo "[pre-push]   push 已中止。修好再推——CI 會擋同樣的東西，只是要等 20 分鐘才知道。"
+  echo "[pre-push]   （真的要跳過：git push --no-verify）"
+  exit 1
+fi
+
+echo "[pre-push] ✓ ${#GATES[@]} 道快速 gate 通過（astro check／verify:almanac／build 仍由 CI 負責）"
+exit 0

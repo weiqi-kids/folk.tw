@@ -24,6 +24,9 @@
 # 要改需把 cw_* 那組 helper 參數化（目前寫死只准動 topical.json）。
 set -euo pipefail
 cd /root/folk.tw
+# 🔴 [skip ci] 能不能加由 lib 決定，不要在這裡自己判斷（理由見該檔檔頭：
+#    本機若有別人未推送的 commit，加了會讓它們被帶上去卻永遠不部署＝紅線 #3）。
+source /root/folk.tw/scripts/lib/skip-ci-suffix.sh
 
 git fetch -q origin main || { echo "[qiugian-cron] fetch 失敗，跳過"; exit 1; }
 git rebase --autostash origin/main || {
@@ -80,7 +83,9 @@ fi
 
 if ! git diff --quiet $STAGE; then
   git add $STAGE
-  git commit -q -m "chore(qiugian): 共情數字聚合 $(date -u +%F' '%H:%M)Z [skip ci]"
+  # 先算 suffix 再 commit：判準是 origin/main..HEAD，含了自己那顆就永遠 >0。
+  SKIPCI="$(skip_ci_suffix '[qiugian-cron]')"
+  git commit -q -m "chore(qiugian): 共情數字聚合 $(date -u +%F' '%H:%M)Z${SKIPCI}"
   git push origin main
   echo "[qiugian-cron] 已更新並推送（$STAGE）"
 else

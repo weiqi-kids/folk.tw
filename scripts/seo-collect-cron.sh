@@ -37,7 +37,12 @@ git add data/seo-daily/
 if git diff --cached --quiet; then
   echo "[seo-collect] 無變更，略過 commit"
 else
-  git commit -q -m "chore(seo): 每日數據 ${DATE} [skip ci]"
+  # 🔴 [skip ci] 由 lib 判定：本機若有別人未推送的 commit，加了會讓它們被帶上去卻
+  #    永遠不部署（紅線 #3）。必須在 commit 前算，判準是 origin/main..HEAD。
+  source /root/folk.tw/scripts/lib/skip-ci-suffix.sh
+  git fetch -q origin main 2>/dev/null || true
+  SKIPCI="$(skip_ci_suffix '[seo-collect]')"
+  git commit -q -m "chore(seo): 每日數據 ${DATE}${SKIPCI}"
   git pull --rebase --autostash origin main 2>&1 || true
   if git push origin main 2>&1; then
     echo "[seo-collect] ✓ 已 push 今日數據"

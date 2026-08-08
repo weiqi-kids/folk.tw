@@ -83,7 +83,7 @@ PROMPT="$(cat <<PROMPTEOF
 
 ## 5. 留痕（供明日驗證）
 - 寫 data/seo-daily/$DATE-actions.md：① 昨日賭注勝負 ② 今日判讀摘要 ③ 改了哪些檔、賭哪些 query/page、預期效果。技術細節（commit、build、deploy、推送）寫這裡，不寫進 Slack。
-- no-op 日（DRY_RUN=0）：只 commit actions.md，訊息 chore(seo): $DATE 無動作 [skip ci]；git pull --rebase 後 git push。
+- no-op 日（DRY_RUN=0）：只 commit actions.md。🔴 **[skip ci] 不可以直接寫死**——本機若有別人尚未推送的 commit，它們會被你這次 push 一起帶上去卻**不觸發部署**（紅線 #3，2026-08-08 實際踩到）。一律照這個順序算：`git fetch -q origin main` → `source /root/folk.tw/scripts/lib/skip-ci-suffix.sh` → `SKIPCI="$(skip_ci_suffix '[seo-brain]')"` → 訊息用 `chore(seo): $DATE 無動作${SKIPCI}`；git pull --rebase 後 git push。（該 lib 判準：origin/main..HEAD 有東西就不加。）
 
 ## 6. 發 Slack（DRY_RUN=0 每天都發；一律人話、禁術語）
 用 Bash 執行 folk.tw 專屬發送工具（**不是** MCP）：把組好的多行訊息用 here-string 餵給它：

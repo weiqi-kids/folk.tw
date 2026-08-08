@@ -57,6 +57,48 @@ scripts/indexnow-ping.mjs:33  const CORE = ['/', '/almanac/', …]   ← byte-id
 
 🔴 **兩個例外都只准做一次。** 若已有本 SHA 的 run 而你想「再開一個」，一律不可以。
 
+### 🔴 `[skip ci]` 會連別人的 commit 一起吃掉（2026-08-08 做成機制）
+
+`[skip ci]` 是**看 push 的 head commit 訊息**決定跑不跑 workflow，不是看單一 commit。
+所以當本機還有未推送的 commit 時，一支 cron 推上來就變成：
+
+```
+origin/main ← [某人手動的 feature commit] ← [cron commit「… [skip ci]」] ＝ head
+```
+
+**整個 push 一個 run 都不會產生**——前面那顆 feature commit 被順手帶上去、卻永遠不會被部署，
+線上停在舊版而且沒有任何告警。這就是 `CLAUDE.md` 紅線 #3 描述的情形。
+
+2026-08-08 差一點就這樣：`4d22b8e chore(qiugian): … [skip ci]` 插在兩個手動 commit 中間，
+當時是因為「commit 完立刻自己 push」才沒事——**那是運氣，不是機制**。
+
+**現在的機制**：`scripts/lib/skip-ci-suffix.sh` 是 `[skip ci]` 的唯一判定入口。
+判準是 `origin/main..HEAD` 只要有任何 commit，就**不加** `[skip ci]`，讓 CI 正常跑、
+把那些 commit 部署出去（代價只是多一次 build）。三個會 push 的 cron 都接上了：
+`qiugian-aggregate-cron.sh`、`seo-collect-cron.sh`，以及 `seo-brain-cron.sh`（寫在給 Claude 的指示裡）。
+⚠️ 之後**新增任何會 commit 的自動化，一律 source 那支 lib，不要自己寫死 `[skip ci]`**。
+（`topical` 三支不受影響：它們跑在每輪 reset 到 `origin/main` 的隔離 worktree，看不到本機 commit。）
+
+### 🔴 pre-push hook：驗證必須涵蓋「真的要送出去的那個狀態」（2026-08-08 建）
+
+2026-08-08 實際發生：順序是「跑 `check:doc-numbers` ✓ → 又編輯了一份 docs → commit → push」，
+於是回報的「本機 gate 全綠」涵蓋的是**上一版**，CI 用最終版跑就紅了。
+**驗證的效力綁在檔案內容上，不綁在「我今天跑過了」這件事上**——
+跑完 gate 之後只要再動過任何檔，那次驗證就作廢。
+
+`.githooks/pre-push` 在 push 這條必經路徑上跑九道快速 gate（實測合計約 7 秒）：
+`doc-numbers`／`design`／`design-tokens`／`copy-voice`／`scoped-styles`／`anchor-text`／
+`integrity`／`content`／`outbound-urls`。
+刻意**不**跑 `astro check`（約 40 秒）、`verify:almanac`、`build`（約 20 分）——那些留給 CI；
+這支的目的是「不要讓明顯的東西溜過去」，不是取代 CI。
+
+- 安裝方式是 `git config core.hooksPath .githooks`（hook 放版控目錄，`.git/hooks` 不進 repo，
+  換機器或重新 clone 會沒有——**重新 clone 後要再跑一次那行**）。
+- ⚠️ **限制**：gate 掃的是工作樹，不是即將推送的 commit。工作樹乾淨時兩者相同；
+  髒的時候只警告不擋——因為髒工作樹對 cron 是正常的
+  （`qiugian-aggregate-cron` 會刻意留著 `topical.json` 的 WIP 不動它）。
+- 要跳過得打 `git push --no-verify`，是刻意動作，不會不小心發生。
+
 ### ⚠️ `deploy` 報 failure ≠ 沒有部署（2026-08-06 實證，同日連三次）
 
 `actions/deploy-pages` 會在等待 Pages 確認時逾時（log 是 `error_count: 10` → `Timeout reached, aborting!`），
