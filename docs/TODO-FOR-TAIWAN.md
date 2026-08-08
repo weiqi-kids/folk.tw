@@ -136,8 +136,11 @@ done
 
 結果比我方要求的更嚴，兩點值得記著：
 - **值的形狀驗在 `assertJobSupported()`，不是 `validate()`** ——寫壞了在發第一個請求前就停，
-  一個請求都不發。他們的理由是成本：`religion-yange` 有 4,351 項，spec 寫壞若擋不住
-  會變成每輪空打 1,500 個請求、一個都不落地，**而且從外面看起來像「來源壞了」**。
+  一個請求都不發。他們 2026-08-08 給的理由是成本：`religion-yange` 是全批最大的 job，
+  spec 寫壞若擋不住，會變成每輪把 `max_requests_per_run` 整批空打掉、一個都不落地，
+  **而且從外面看起來像「來源壞了」**。
+  （項數與單輪上限的現況跑 `node scripts/intake-status.mjs` 與 `docs/intake-manifest.json` 看，
+  別引用這段的敘述當數字。）
 - **驗不過的檔連 `.sha256`／`.meta.json` 側檔都不產生**（有測試斷言三個檔名一個都不存在）。
   這正是我方要的：inbox 是 write-only，存進去的檔我方刪不掉。
 
