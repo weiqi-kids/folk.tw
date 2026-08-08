@@ -173,7 +173,7 @@ inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync
 
 ## 附錄：管道建置的原始記錄（2026-08-06 自 CLAUDE.md 抽出，原文未改）
 
-> - 收件：`/root/.config/folk-tw/intake/inbox/`（**repo 外**，因 temple.xml 含 12,419 間廟的
+> - 收件：`/root/.config/folk-tw/intake/inbox/`（**repo 外**，因 temple.xml 含全台寺廟的
 >   電話與負責人＝個資，而本 repo 為 public 且每日 seo cron 會 commit 整個工作區）
 > - 處理：`scripts/intake-ingest.mjs`（驗 sha256＋expect → 原子 rename 上位 → 舊版進 archive；
 >   **內容與現有上位檔相同就略過上位、不歸檔**）；`scripts/intake-watch-cron.sh`
@@ -189,8 +189,8 @@ inbox 是 **write-only 的暫存區**：台灣端只能寫、不能刪（`rrsync
 >   （handoff 3.5，2026-08-01 事故換來的）。
 >   ⚠️ 「略過上位」與「靠 sha 判新鮮度」是**配套**：略過後 mtime 就凍住，只看 mtime 必然誤報。
 > - ⚠️ **`expect` 的絕對下限擋不住殘檔**：2026-07-30 實測 5 MB 截斷檔（真檔 6.27 MB）通過
->   `min_bytes: 4000000` 並**覆蓋掉完整檔**（12,419 筆只剩前 5 MB），靠 archive 救回。
->   故必須有 `not_smaller_than_current_pct`（不得比現有檔小 10% 以上）與 `min_occurrences`
+>   `min_bytes: 4000000` 並**覆蓋掉完整檔**（整份只剩前 5 MB），靠 archive 救回。
+>   故必須有 `not_smaller_than_current_pct`（比現有檔小超過設定比例就不收，值見 manifest）與 `min_occurrences`
 >   （整檔記錄筆數下限）兩道**相對**檢查。改 manifest 時別把這兩道拿掉。
 > - ⚠️ 上位必須原子（寫暫存再 `rename`）：`/root/.config/folk-tw/temple.xml` 被
 >   `/root/folk-outreach/outreach-daily.mjs` 每日 04:30 台北讀取，讀到半個檔會產生錯誤的外撥名單。

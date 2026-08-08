@@ -25,7 +25,11 @@ const CURRENT_DOCS = [
 
 // 量詞：出現「數字＋這些字」就是一則數量宣稱。
 const QUANT = '間|首|頁|條|筆|套|個|尊|張|篇|支|道';
-const CLAIM = new RegExp(`(\\d[\\d,]*)\\s*(${QUANT})|(\\d[\\d.]*)\\s*%`, 'g');
+// 🔴 也要抓「N/M」這種比例寫法（2026-08-08 加）：我自己寫了「覆蓋率——27/10,704」進 CLAUDE.md，
+//    它沒有量詞所以整條規則接不到，而那正是最會過期的一種數字。
+//    ⚠️ 分母限 3 位數以上，否則會誤傷日期（`8/8 看收錄`、`8/16`）與「1/3」這類分數。
+const RATIO = '(\\d[\\d,]*)\\s*/\\s*(\\d[\\d,]{2,})';
+const CLAIM = new RegExp(`(\\d[\\d,]*)\\s*(${QUANT})|(\\d[\\d.]*)\\s*%|${RATIO}`, 'g');
 
 // 允許的例外——這些不是「會過期的現況」：
 const ALLOW = [
@@ -34,10 +38,18 @@ const ALLOW = [
   /第\s*\d+\s*[-–~]\s*\d+\s*首/, // 藏品著錄原文（「第 1-100 首龍山寺籤詩」）
   /NMTL\d+|dataset\s*\d+|\b8\d{3}\b/, // 外部編號／資料集 ID
   /藥籤\s*330\s*首|六十甲子\s*60|關帝[^\n]{0,6}100\s*首/, // 固定的文獻首數，不會變
-  /^\s*[|>]/,                   // 表格列與引用區塊（多為歷史對照）
-  /`[^`]*\d[^`]*`/,             // 出現在程式碼片段裡（指令、路徑、欄位）
   /版本|條款|第\s*\d+\s*條/,     // 「第 3 條」這類條次
 ];
+// 🔴 2026-08-08 拿掉兩條**行層級**豁免，它們把最該檢查的地方整片放行：
+//   ① `/^\s*[|>]/`（表格列與引用區塊）——`CLAUDE.md` 的待辦**就是一張表**，
+//      等於「現況」最集中的地方完全沒被檢查。
+//   ② `` /`[^`]*\d[^`]*`/ ``（行內有含數字的程式碼片段就整行豁免）——待辦表格幾乎每列都有
+//      `IndexID=4` 這種 code span，於是整列免驗。
+//   實際後果：2026-08-08 我在待辦裡寫下「覆蓋率——27/10,704」，gate 說通過。
+//   正解是**只把程式碼片段從比對字串裡拿掉，不豁免整行**（下方 stripCode）——
+//   指令與欄位名裡的數字本來就不該被當成數量宣稱，但它們不該替同一行的其他文字擋子彈。
+//   拿掉後全量只多出 4 處，全部都是真的該修的（已修）。
+const stripCode = (line) => line.replace(/`[^`]*`/g, ' ');
 
 const violations = [];
 for (const f of CURRENT_DOCS) {
@@ -48,7 +60,7 @@ for (const f of CURRENT_DOCS) {
     if (line.trim().startsWith('```')) { inFence = !inFence; continue; }
     if (inFence) continue;                       // 指令區塊本來就該有數字
     if (ALLOW.some((re) => re.test(line))) continue;
-    const hits = [...line.matchAll(CLAIM)].map((m) => m[0].trim());
+    const hits = [...stripCode(line).matchAll(CLAIM)].map((m) => m[0].trim());
     if (hits.length) {
       violations.push({ f, n: idx + 1, hits, text: line.trim().slice(0, 76) });
     }
