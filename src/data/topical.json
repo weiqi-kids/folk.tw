@@ -2192,5 +2192,28 @@
       "last_checked": "2026-08-08",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-landslide-20260805-0c8a78",
+    "eventType": "landslide",
+    "title": "為陝西柞水山崩祈福",
+    "event": "陝西省柞水縣杏坪鎮8月5日遭強降雨引發土石流，造成人員傷亡，多人失聯，願罹難者安息、失聯者早日尋獲、當地民眾平安。",
+    "sources": [
+      {
+        "ref": "澎湃新聞",
+        "url": "https://www.thepaper.cn/newsDetail_forward_33729566"
+      },
+      {
+        "ref": "人民網",
+        "url": "http://society.people.com.cn/n1/2026/0806/c1008-40775142.html"
+      }
+    ],
+    "place": "陝西省柞水縣杏坪鎮",
+    "time": "2026-08-05",
+    "lat": 33.4870516,
+    "lon": 109.4929183,
+    "detector": "news",
+    "since": "2026-08-08",
+    "status": "active"
   }
 ]
