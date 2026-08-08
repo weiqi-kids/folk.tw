@@ -12,6 +12,7 @@ import { todayInTaipei } from '../../lib/daily';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { getTemples } from '../../lib/queries';
 import { templeCounty } from '../../lib/temple-region';
+import { num } from '../../lib/format';
 import {
   ZODIAC_LIST, bySlug, yearPillarOf, taisuiRelation, taisuiZodiacs,
   RELATION_LABEL, birthYears, chongDays, antaisuiTemples, taisuiShrineTemples,
@@ -186,7 +187,7 @@ const relSentence =
           <>
             <h3>登記的年度祭典中列有安太歲的宮廟</h3>
             <p class="muted small">
-              以下 {antaisui.length} 間宮廟向內政部登記的年度慶(祭)典中列有安太歲。
+              以下 {num(antaisui.length)} 間宮廟向內政部登記的年度慶(祭)典中列有安太歲。
               這是登記內容，實際辦理時間與方式以廟方公告為準。
             </p>
             <ul class="temple-list">
@@ -204,7 +205,7 @@ const relSentence =
           <>
             <h3>登記資料提到太歲殿或太歲星君的宮廟</h3>
             <p class="muted small">
-              另有 {taisuiShrine.length} 間宮廟，在向內政部登記的沿革、建築特色或參拜流程裡
+              另有 {num(taisuiShrine.length)} 間宮廟，在向內政部登記的沿革、建築特色或參拜流程裡
               提到太歲殿、或供奉太歲星君。
               <strong>這是廟方登記資料裡的記載，不代表該廟目前有提供安太歲服務</strong>——
               要不要辦、怎麼辦，以廟方公告為準。

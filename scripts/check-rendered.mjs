@@ -8,6 +8,10 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
+// 千分位與頁面共用同一支（src/lib/format.ts）：頁面上的「收錄 10,704 間廟宇」與這裡的
+// 期望字串必須永遠一致，複製一份規則過來的話遲早會漂。本檔跑在 --experimental-strip-types
+// 底下，讀得動 .ts。
+import { num } from '../src/lib/format.ts';
 const require = createRequire(import.meta.url);
 
 const DIST = 'dist';
@@ -449,7 +453,7 @@ for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
   }
   const count = key ? townCounts.get(key) : undefined;
   if (count === undefined) { townUnmatched++; continue; } // 地區名解析規則差異，不當違規（見上）
-  if (!new RegExp(`收錄\\s*${count}\\s*間廟宇`).test(html)) {
+  if (!new RegExp(`收錄\\s*${num(count)}\\s*間廟宇`).test(html)) {
     violations.push(`鄉鎮頁 ${key} 摘要間數與資料不符（資料 ${count} 間）`);
   }
 }
@@ -622,7 +626,7 @@ for (const f of festivals) {
       if (shown !== want) {
         violations.push(`節日頁 ${f.slug} 當日祭典宮廟名單列出 ${shown} 間，資料為 ${want} 間`);
       }
-      if (!new RegExp(`全台共\\s*${want}\\s*間宮廟`).test(html)) {
+      if (!new RegExp(`全台共\\s*${num(want)}\\s*間宮廟`).test(html)) {
         violations.push(`節日頁 ${f.slug} 名單間數敘述與資料不符（資料 ${want} 間）`);
       }
     } else if (shown > 0) {
@@ -885,7 +889,7 @@ let lcTempleSections = 0;
     if (dup.length) {
       violations.push(`生肖頁 ${dir} 太歲殿名單重複列出了已在「祭典登記有安太歲」那批的 ${dup.length} 間`);
     }
-    if (!new RegExp(`另有\\s*${want.length}\\s*間宮廟`).test(html)) {
+    if (!new RegExp(`另有\\s*${num(want.length)}\\s*間宮廟`).test(html)) {
       violations.push(`生肖頁 ${dir} 太歲殿間數敘述與資料不符（資料 ${want.length} 間）`);
     }
   }

@@ -4,6 +4,7 @@ import Base from '../../../../layouts/Base.astro';
 import { getTemples, getDeities } from '../../../../lib/queries';
 import { breadcrumb } from '../../../../lib/seo';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../../lib/temple-region';
+import { num } from '../../../../lib/format';
 
 // 縣市二級：各鄉鎮市區一頁，化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）。
 //
@@ -75,7 +76,7 @@ const share = countyTotal ? Math.round((temples.length / countyTotal) * 100) : 0
 // 直轄市／省轄市要說「全市」，不能一律「全縣」（台南市、台北市…）。
 const whole = cName.endsWith('市') ? '全市' : '全縣';
 const lead = [
-  `${cName}${town}收錄 ${temples.length} 間廟宇`,
+  `${cName}${town}收錄 ${num(temples.length)} 間廟宇`,
   topPhrase,
   `在${cName} ${townCount} 個鄉鎮市區中排第 ${rank} 多，佔${whole} ${share}%`,
 ].filter(Boolean).join('，') + '。';
@@ -83,7 +84,7 @@ const lead = [
 
 <Base
   title={`${cName}${town}廟宇`}
-  description={`${cName}${town}共 ${temples.length} 間廟宇${topPhrase ? `，${topPhrase}` : ''}。資料來自內政部全國宗教資訊網。`}
+  description={`${cName}${town}共 ${num(temples.length)} 間廟宇${topPhrase ? `，${topPhrase}` : ''}。資料來自內政部全國宗教資訊網。`}
   jsonLd={breadcrumb([
     { name: '廟宇', path: '/temples/' },
     { name: cName, path: `/temples/region/${slug}/` },

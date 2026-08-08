@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getSystems, getPoems, deitiesBySystem, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
+import { num } from '../../lib/format';
 
 // 籤系樞紐（2026-08-01 建）：原本只有 /systems/<id>/ 各籤系頁，**沒有共同入口**——
 // 各籤系只能從 /poems/ 或神明頁側門進來，彼此不相連。籤系擴充前必須先有這一層，
@@ -86,7 +87,7 @@ if (faq) jsonLd.push(faq);
   <p class="lead">
     台灣廟宇用的籤不是同一套。不同主祀神、不同廟宇沿革，發的籤本就不一樣。
     本站目前收錄 <strong>{rows.length} 套共 {totalPoems} 首</strong>，
-    對應到 <strong>{totalTemples.toLocaleString()} 間</strong>登記在案的宮廟。
+    對應到 <strong>{num(totalTemples)} 間</strong>登記在案的宮廟。
   </p>
 
   <div class="sys-list">
@@ -96,7 +97,7 @@ if (faq) jsonLd.push(faq);
         <p class="sys-sum">{r.data.summary}</p>
         <p class="sys-meta">
           {r.deities.length > 0 && <>主祀神：{r.deities.map((d) => d.data.name).join('、')}　</>}
-          {r.temples > 0 && <>可用此籤的宮廟 {r.temples.toLocaleString()} 間</>}
+          {r.temples > 0 && <>可用此籤的宮廟 {num(r.temples)} 間</>}
         </p>
       </a>
     ))}

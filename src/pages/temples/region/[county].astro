@@ -4,6 +4,7 @@ import Base from '../../../layouts/Base.astro';
 import { getTemples } from '../../../lib/queries';
 import { breadcrumb } from '../../../lib/seo';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../lib/temple-region';
+import { num } from '../../../lib/format';
 
 // 各縣市一頁。改為「鄉鎮市區二級樞紐」：列各鄉鎮（含廟數）連到 /region/[county]/[town]，
 // 化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）；無法判定鄉鎮者列入「其他」直連廟頁。
@@ -40,7 +41,7 @@ const towns = [...byTown.entries()]
 
 <Base
   title={`${name}廟宇`}
-  description={`${name}的廟宇與主祀神祇，共 ${temples.length} 間，可依鄉鎮市區瀏覽。`}
+  description={`${name}的廟宇與主祀神祇，共 ${num(temples.length)} 間，可依鄉鎮市區瀏覽。`}
   jsonLd={breadcrumb([
     { name: '廟宇', path: '/temples/' },
     { name, path: `/temples/region/${slug}/` },
@@ -48,7 +49,7 @@ const towns = [...byTown.entries()]
 >
   <nav class="crumb"><a href="/temples/">廟宇</a> ／ {name}</nav>
   <h1>{name}廟宇</h1>
-  <p class="muted">{name}收錄 {temples.length} 間，依鄉鎮市區瀏覽。</p>
+  <p class="muted">{name}收錄 {num(temples.length)} 間，依鄉鎮市區瀏覽。</p>
 
   {
     towns.length > 0 && (
@@ -56,7 +57,7 @@ const towns = [...byTown.entries()]
         {towns.map((r) => (
           <a class="card town" href={`/temples/region/${slug}/${r.town}/`}>
             <strong>{r.town}</strong>
-            <span class="muted count">{r.n}</span>
+            <span class="muted count">{num(r.n)}</span>
           </a>
         ))}
       </div>

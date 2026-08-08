@@ -8,6 +8,7 @@ import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
+import { num } from '../../lib/format';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
 import localCelebrations from '../../data/local-celebrations.json';
@@ -382,7 +383,7 @@ const pageDesc = covers.length
       <section class="on-date">
         <h2>{lunarLabel}當天有登記祭典的宮廟</h2>
         <p class="muted small">
-          全台共 {templesOnDate.length} 間宮廟向內政部登記了{lunarLabel}的慶(祭)典。
+          全台共 {num(templesOnDate.length)} 間宮廟向內政部登記了{lunarLabel}的慶(祭)典。
           廟名後為該廟自己登記的祭典名稱。資料源自內政部全國宗教資訊網「慶(祭)典查詢」。
         </p>
         {/* 前 60 間直接列出，其餘收進 <details>（2026-08-08）：中元節那頁光這一段就好幾千 px，
