@@ -14,10 +14,12 @@
     "🔴 2026-08-06：**job 順序有意義，別隨手插在最前面**。台灣端逐項照順序抓、用完 max_requests_per_run 就收工，所以排在前面的大批次會**餓死後面所有 job**——實測：foundation-list 排第一，一輪 199 頁用光 200 個請求，只有 96 項的 knowledge-deity-entries 連清單都沒取到。規則：**小 job 在前，批次型（url_list／paginate）一律排最後，且項數越多排越後面**。",
     "2026-08-07：v13 **只改註解，不改行為**——religion-yange 的 _why 原本寫「刻意不收 IndexID=3」，那是 2026-08-05 的舊裁定，2026-08-06 抽樣後已改為收（全量在 religion-jianzhu job）。jobs 的數量、順序、url、expect、politeness 全部與 v12 相同。",
     "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。",
-    "2026-08-07：v15 修正 religion-photos 的 dest_dir（religion-photos/ → photos/）。理由見該 job 的 _why 第一條。除此之外與 v14 相同。"
+    "2026-08-07：v15 修正 religion-photos 的 dest_dir（religion-photos/ → photos/）。理由見該 job 的 _why 第一條。除此之外與 v14 相同。",
+    "2026-08-07：v16 **只改清單與註解，不改欄位契約**——religion-photos 的清單移除 /ReligionSys/FileStore/ 一族（來源本身 404，且那網址是 GetUploadFile 的 JSON 自報的，沒有別的網址可產）。jobs 的數量、順序、url、politeness 全部與 v15 相同。",
+    "2026-08-08：v17 啟用台灣端實作的 **magic_any_of**（只加在 religion-photos）。這是全新欄位，台灣端已先實作＋自測＋投遞規格（inbox 的 MAGIC-SPEC.md）才由我方發版，順序不可顛倒。理由見該 job 的 _why。"
   ],
-  "version": 16,
-  "updated": "2026-08-07",
+  "version": 17,
+  "updated": "2026-08-08",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -250,7 +252,8 @@
       "note": "宗教知識+ 神明照（二進位）。清單由 scripts/gen-intake-urls-photos.mjs 產生。",
       "expect_per_item": {
         "http_status": 200,
-        "min_bytes": 4096
+        "min_bytes": 4096,
+        "magic_any_of": ["FFD8FF", "89504E470D0A1A0A"]
       },
       "_why": [
         "🔴 dest_dir 必須是 `photos/` 不是 `religion-photos/`：匯入器 scripts/import-photos.mjs 讀的是 inbox/photos/（它比本 job 早存在，契約以它為準）。2026-08-07 初版寫成 religion-photos/，照片會落到匯入器永遠看不到的地方——加 job 的當天就抓到，未進到台灣端。",
@@ -268,7 +271,17 @@
    "   而那個網址是 GetUploadFile 回傳的 JSON 自己的 `URL` 欄位給的絕對路徑——**沒有別的網址可以產**，",
    "   所以是在 gen-intake-urls-photos.mjs 濾掉整族，不是改抓法。台灣端請**停止重試那 3 項**。",
    "   沿革／參拜流程／建築特色全量到齊後這族候選會長到數百筆，濾在產生器才擋得住整批。",
-   "   本 job 因此變成純神明照；要廟宇照片得另找來源。"
+   "   本 job 因此變成純神明照；要廟宇照片得另找來源。",
+   "🔴 v17（2026-08-08）：加上 magic_any_of＝比對檔案開頭實際 bytes（JPEG FFD8FF／PNG 89504E470D0A1A0A），命中任一即過。",
+   "   堵的縫：min_bytes 4096 擋得住 646 B 的 404 錯誤頁，卻擋不住「302 導回 200 的 HTML 頁」——台灣端實測，",
+   "   religion.moi.gov.tw 的知識+ 頁（71 KB）與神明列表（115 KB）在只有 min_bytes 時**會被當成合格圖片存下來**。",
+   "   為什麼驗 bytes 不驗 content_type：header 是來源說了算。台灣端讓每一份測試樣本都謊報 content-type: image/jpeg，magic 照樣擋下。",
+   "   🔴 必須擋在**台灣端的 writeFile 之前**：我方 inbox 是 write-only（rrsync -wo -no-del），存進去的檔刪不掉。",
+   "   台灣端已確認驗不過時連 .sha256／.meta.json 側檔都不產生（專門測試斷言三個檔名一個都不存在）。",
+   "   ⚠️ 值列了 JPEG **與 PNG** 兩種：目前 19 張都是 JPEG，但內政部圖庫確實有 .PNG（那 3 個 404 的廟宇附件就是），",
+   "   只列 JPEG 會在日後某張 PNG 神明照上線時把它擋掉＝自己造一個假的「來源壞了」。",
+   "   ⚠️ **只加在本 job**：其餘 18 個 job 都是文字內容且已有 contains 逐份驗字串，magic 對它們沒有意義。",
+   "   欄位規格全文：台灣端投遞的 MAGIC-SPEC.md（inbox 根目錄）。"
       ]
     },
     {

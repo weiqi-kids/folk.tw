@@ -38,3 +38,39 @@
       - ⚠️ `/qiugian/`、`/jiaobei/` 是全站僅有的拼音 slug（其餘皆英文）。`/qiugian/` 已被 Google 收錄
         且在 seo-ops `trackUrls` 內，**改網址會斷收錄，維持不動**。
       - ⚠️ **擇日子項只放真的推得出宜日的**。清單見 `src/data/good-days.json` 的 `_policy`。
+
+---
+
+## 頁尾分享列（2026-08-08 上線，全站鋪滿）
+
+用戶指示「所有頁面都可以有分享到 fb / ig / thread 的功能」，裁示全站 15,000+ 頁一次鋪滿。
+實作在 `src/components/ShareRow.astro`，由 `Base.astro` 預設渲染（`share` prop 預設 `true`）。
+
+- 🔴 **Instagram 沒有網頁分享 API。** 不像 Facebook 的 `sharer.php` 或 Threads 的
+  `intent/post`，IG 無法用「開一個網址」把內容貼進動態——這不是我們沒找到方法，是不存在。
+  唯一能到 IG 的路徑是行動裝置的**系統分享匣**（`navigator.share`），由使用者自己在匣裡選。
+  所以版面是「一顆系統分享主鈕 ＋ FB／Threads intent ＋ 複製連結」，**不是三顆平行按鈕**；
+  桌機多數瀏覽器沒有 `navigator.share`，那顆鈕由 inline script 隱藏。
+  ⚠️ 之後若有人要求「加一顆 IG 按鈕」，先看這一條再回答。
+- 🔴 **版位在 `<main data-pagefind-body>` 外面**＋`data-pagefind-ignore`。放進去的話
+  「分享／Facebook／Threads／複製連結」會被 Pagefind 索引進**全站每一頁**，
+  站內搜尋打「分享」就命中一萬多頁。`check:rendered` 不變量 11 有反向驗這件事。
+- 🔴 markup 全靜態、JS 只切 `hidden` 與按鈕文字、**不注入 DOM**（同 nav 的理由：
+  scoped `<style>` 套不到 JS 注入的節點，記憶 [[astro-scoped-style-innerhtml-pitfall]]）。
+  FB／Threads 是 `<a>`，沒有 JS 也能用。
+- 404 傳 `share={false}`（沒有可分享的內容，掛上去只是噪音），gate 反向驗。
+
+### 先補分享卡，再加按鈕
+
+加按鈕前先做了 og:image 擴充——原本**只有廟宇頁**有專屬分享卡，其餘一萬多頁共用
+`public/og.png` 同一張品牌卡。**按鈕不缺，缺的是分享出去有東西看。**
+現況：廟宇（`gen-og-temples.mjs`）／籤詩・神明（`gen-og-content.mjs`），其餘仍是品牌卡。
+
+- 🔴 **籤詩卡上只有籤詩本文與吉凶二字，不放分項解與賞析**——那些是本站的文化解讀，
+  抽離脈絡印在一張會被轉發的卡上會讀成對個人的預言，與 `/about` 的
+  「不對個人預言吉凶、不構成命理建議」自打嘴巴。這條界線與廟宇卡的「不替廟方宣稱辦什麼活動」同級。
+- ⚠️ 籤詩／神明卡**帶 `folk.tw` 小字，廟宇卡不帶**——不是不一致，是情境不同：
+  廟宇卡是外撥時傳給廟方看的（主委該看到自家招牌，2026-07-30 用戶指示），
+  籤詩／神明卡是使用者主動轉發，出處反而需要。
+- 色票／字寬／斷行／字型檢查收斂在 `scripts/lib/og-card.mjs`（單一來源）。
+  複製一份就等於把品牌色複製成兩份，改色只會改到一邊**且不會有任何紅燈**。
