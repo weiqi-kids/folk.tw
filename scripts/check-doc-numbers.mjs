@@ -21,7 +21,25 @@ const CURRENT_DOCS = [
   'docs/README.md',
   'docs/taiwan-intake-status.md',
   'docs/TODO-FOR-TAIWAN.md',
+  // 2026-08-08 擴大涵蓋：這幾份也是**現況型**（描述系統現在怎麼運作），
+  // 之前沒被守，於是「12,419 間」「7,891 張」這類數字一直躺在裡面。
+  'docs/taiwan-host-handoff.md',
+  'docs/topical-blessing.md',
+  'docs/seo-automation.md',
+  'docs/festival-data-import.md',
+  'docs/yaoqian-physician-spec.md',
+  'docs/yaoqian-batch-01.md',
+  'docs/nmtl-guanyin-qianpu-request.md',
 ];
+
+// 🔴 `docs/decisions/**` 刻意**不**納入：那些是決策的歷史脈絡、原文一字未改（見 CLAUDE.md §4），
+//    數字就是當時的量測，改掉等於竄改紀錄。要判斷一份文件該不該納入，問一句：
+//    「讀的人會不會拿它當現在的狀況去行動？」會 → 納入；只是在講當時發生什麼 → 不納入。
+
+// 整份文件就是一則帶日期的歷史紀錄時，在檔案開頭 20 行內放這個標記，全檔跳過。
+// 這是給「完成紀錄／一次性申請／規格快照」用的——它們的數字本來就是當時的，
+// 逐行補日期只是把同一個日期抄幾十遍。⚠️ 不要拿它來豁免現況型文件。
+const HISTORICAL_MARK = /<!--\s*doc-numbers:\s*historical\s+(\d{4}-\d{2}-\d{2})\s*-->/;
 
 // 量詞：出現「數字＋這些字」就是一則數量宣稱。
 const QUANT = '間|首|頁|條|筆|套|個|尊|張|篇|支|道';
@@ -52,9 +70,13 @@ const ALLOW = [
 const stripCode = (line) => line.replace(/`[^`]*`/g, ' ');
 
 const violations = [];
+const historical = [];
 for (const f of CURRENT_DOCS) {
   if (!existsSync(f)) continue;
-  const lines = readFileSync(f, 'utf8').split('\n');
+  const raw = readFileSync(f, 'utf8');
+  const mark = raw.split('\n').slice(0, 20).join('\n').match(HISTORICAL_MARK);
+  if (mark) { historical.push(`${f}（${mark[1]}）`); continue; }
+  const lines = raw.split('\n');
   let inFence = false;
   for (const [idx, line] of lines.entries()) {
     if (line.trim().startsWith('```')) { inFence = !inFence; continue; }
@@ -83,4 +105,7 @@ if (violations.length) {
    而讀者會照著行動。逐條修是治症狀，這道 gate 才是治本。`);
   process.exit(1);
 }
-console.log(`✓ 文件數字檢查通過：${CURRENT_DOCS.length} 份現況型文件無寫死的數量宣稱`);
+console.log(`✓ 文件數字檢查通過：${CURRENT_DOCS.length - historical.length} 份現況型文件無寫死的數量宣稱`);
+if (historical.length) {
+  console.log(`  （另 ${historical.length} 份標記為歷史紀錄、整份跳過：${historical.join('、')}）`);
+}

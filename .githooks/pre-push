@@ -31,6 +31,14 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   echo "[pre-push] ⚠️ 工作樹有未提交的改動——以下 gate 掃的是工作樹，不是你要推的那個 commit。"
 fi
 
+# 🔴 記憶檔的檢查**只能在這裡跑**：記憶目錄不在 repo 裡，CI 上不存在。
+#    而它比文件更該守——記憶每個 session 自動載入，過期數字會被當成前提用下去。
+if ! out="$(node scripts/check-memory-numbers.mjs 2>&1)"; then
+  echo "$out"
+  echo "[pre-push] ✗ 記憶檔數字檢查沒過，push 已中止。"
+  exit 1
+fi
+
 GATES=(
   check:doc-numbers
   check:design

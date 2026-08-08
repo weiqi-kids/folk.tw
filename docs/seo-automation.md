@@ -80,7 +80,7 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 > 原因：**Google Indexing API 的每日 200 配額是 per GCP 專案**，不是 per 站
 > （API 實測回 `project_number:970644545797`、`quota_unit "1/d/{project}"`），
 > 而 seo-ops 有 **5 站共用同一把 `ga4-insights@yaocare`**（arthurs.tw／folk.tw／sutta.io／
-> twdro.net／vuko.life；12 個站台設定檔 sha256 比對，11 個完全相同），等於共搶同一份 200。
+> twdro.net／vuko.life；2026-07-31 全站台設定檔 sha256 比對，幾乎全部相同），等於共搶同一份 200。
 > 配額以**太平洋時間**換日 ≈ 07:00 UTC ≈ **台北 15:00**。原本 folk.tw collect 排 20:30 UTC＝
 > 配額日 +13.5h，前面三站先吃光 → **實測待送佇列（含農曆七月節日頁）連兩天一筆都沒送出**，
 > 兩次手動執行都是第一筆就 429。移到 +0.5h 成為第一順位。
@@ -123,12 +123,12 @@ folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工�
 **人要看的數據（gh issue list --label weekly-report 讀最新週報，或看 Slack）：**
 
 1. **起飛已確認（2026-07-02 查證）**：週報 6/30（Issue #4）：台灣自然搜尋訪客 **137/週**（前週 5）、
-   GSC 曝光 5,572、點擊 111；日收集（資料窗至 6/29）：7 天點擊 172（週增 24%）、曝光 9,845（週增 26%）、平均排名 10.8。
+   GSC 曝光與點擊見當期快照；日收集（資料窗至 2026-06-29）：7 天點擊 172（週增約兩成）、曝光 9,845（週增 26%）、平均排名 10.8。
    （舊基準留檔供對照：2026-06-21 前 90 天僅 47 曝光/3 點擊、GA4 27 sessions 幾乎全 Direct＝形同不存在。）
 2. **索引收錄轉化（續觀察）**：旗艦獨特頁 **3/5 已收錄**（`/deities/mazu` 從 unknown 轉 ✅、
    `/poems/liushi_jiazi-1` ✅、`/allusions/suitang_qinshubao` ✅）；`/deities/guangong` 仍 Discovered-not-indexed
    （URL Inspection 偶回 unknown＝API 既有雜訊，8 天內交替出現，勿當退化）；`/poems` 仍 Crawled-not-indexed。
-3. **廟宇頁 CTR（新焦點）**：廟宇頁已佔曝光 **52%**（基準時「廟宇頁 0 搜尋貢獻」的前提已被推翻）。
+3. **廟宇頁 CTR（新焦點）**：廟宇頁已佔曝光**過半**（基準時「廟宇頁 0 搜尋貢獻」的前提已被推翻）。
    CTR≈0 的結構性根因（全站 ~6500 廟宇頁無 meta description、落回首頁通用文案）已由大腦 7/2
    commit `a231e2d` 修復；**7/4 起看廟宇頁整體 CTR 是否回升**（結構性改動，看群體趨勢非單頁）。
 4. **Sitemap 提交數疑點（2026-07-16 已修正結案）**：根因＝**週報腳本計數 bug**，非 GSC 後台有問題。
