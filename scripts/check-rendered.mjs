@@ -20,8 +20,13 @@ const { pickMainFestival, festivalSentence } = await import('../src/lib/temple-f
 const TODAY = new Date().toISOString().slice(0, 10);
 // 內文節點與屬性值的跳脫規則不同（屬性多跳脫引號），比對時要分開用，
 // 否則哪天資料出現 &／"／< 就會 gate 誤報。目前資料無此字元，但別把它留成未來的陷阱。
-const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const escAttr = (s) => escText(s).replace(/"/g, '&quot;');
+// 🔴 escText 必須跳脫 `"`（2026-08-08 修）：Astro 在**文字節點**也把 `"` 輸出成 `&quot;`，
+//    但這裡原本只跳脫 & < >，於是任何含半形雙引號的資料都會被誤判成「文字與資料不符」。
+//    實例：內政部參拜流程有 3 筆的 Comment 自帶 `"`（來源的引號殘留），
+//    526 筆匯入後就這 3 筆紅燈——**渲染是對的，錯的是這個檢查**。
+//    ⚠️ 這不是把 escText 併成 escAttr：屬性值還要處理更多情形，兩者維持分開。
+const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const escAttr = (s) => escText(s);
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
