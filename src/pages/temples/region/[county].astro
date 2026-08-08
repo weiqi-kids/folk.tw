@@ -29,7 +29,13 @@ for (const t of temples) {
   if (!tw) { other.push(t); continue; }
   (byTown.get(tw.name) ?? byTown.set(tw.name, []).get(tw.name)!).push(t);
 }
-const towns = [...byTown.entries()].map(([town, list]) => ({ town, n: list.length }));
+// 排序：廟數多的在前，同數再照名稱。
+// 2026-08-08 之前這裡直接沿用 temples.json 的資料順序（＝匯入批次順序），對使用者是隨機的——
+// 既不是筆畫、不是郵遞區號、也不是廟數，彰化縣 26 個鄉鎮排成「鹿港→田中→二水→社頭…」，
+// 要找特定鄉鎮只能整片逐格掃。旁邊本來就印著廟數，用它排最說得通，也讓大的鄉鎮先被看到。
+const towns = [...byTown.entries()]
+  .map(([town, list]) => ({ town, n: list.length }))
+  .sort((a, b) => b.n - a.n || a.town.localeCompare(b.town, 'zh-Hant'));
 ---
 
 <Base

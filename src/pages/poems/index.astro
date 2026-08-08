@@ -4,7 +4,9 @@ import { getPoems, getSystems } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 
 const poems = await getPoems();
-const systems = (await getSystems()).sort((a, b) => a.data.count - b.data.count);
+// 首數多的籤系在前（2026-08-08 改）：原本是由小到大，於是月老籤（27 首）排第一、
+// 六十甲子籤這個旗艦系統被埋在第三段，而整頁有 16,000px 高，使用者根本捲不到。
+const systems = (await getSystems()).sort((a, b) => b.data.count - a.data.count);
 // 依籤系分組
 const bySystem = new Map<string, typeof poems>();
 for (const p of poems) {
@@ -18,13 +20,17 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
 
 <Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。" jsonLd={ld}>
   <h1>籤詩解碼</h1>
-  <p class="muted">
+  {/* 2026-08-08：導言原本把籤系用「與」串成「A與B與C與D」，四個「與」讀起來卡；
+      而且那句同時兼著「跳到某個籤系」的導覽功能，可是它長得就是一句話。
+      拆成兩件事：句子只講這頁有什麼，跳轉獨立成一排看得出可以點的按鈕。 */}
+  <p class="muted">共 {systems.filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0).length} 套籤系：四句本文、卦頭故事典故、白話賞析與分項解。</p>
+  <nav class="sys-jumps" aria-label="跳到籤系">
     {systems
       .filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0)
-      .map((s, i) => (
-        <>{i > 0 && '與'}<a class="sys-jump" href={`#${s.id}`}>{s.data.name}</a></>
-      ))}：四句本文、卦頭故事典故、白話賞析與分項解。
-  </p>
+      .map((s) => (
+        <a class="sys-jump" href={`#${s.id}`}>{s.data.name}<span class="n">{bySystem.get(s.id)!.length}</span></a>
+      ))}
+  </nav>
   <p class="allusion-link"><a href="/allusions/">看全部卦頭典故總覽 →</a></p>
   {
     systems.map((s) => {
@@ -54,7 +60,15 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
     })
   }
   <style>
-    .sys-jump { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .sys-jumps { display: flex; flex-wrap: wrap; gap: 0.625rem; margin: 1rem 0 1.25rem; }
+    .sys-jump {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      padding: 0.4375rem 1rem; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--paper-2);
+      color: var(--ink); font-size: var(--text-sm);
+    }
+    .sys-jump:hover { border-color: var(--accent-soft); color: var(--accent); text-decoration: none; }
+    .sys-jump .n { color: var(--ink-soft); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
     .sys { scroll-margin-top: 1rem; }
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .count { font-size: var(--text-sm); font-weight: 400; }

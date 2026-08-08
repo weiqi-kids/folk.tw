@@ -21,12 +21,22 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
     每筆事實掛來源；聖誕待查者不顯示。
   </p>
 
+  {/* 分類跳轉（2026-08-08）：整頁 11,000px、七大類一次全開，想看「自然神信仰」得先捲過
+      前面幾百張卡。錨點指向下面既有的 <section class="cat">，沒有新增任何頁面或內鏈。 */}
+  <nav class="cat-jumps" aria-label="跳到分類">
+    {DEITY_CATEGORIES.filter((c) => (byCat.get(c) ?? []).length > 0).map((c) => (
+      <a class="cat-jump" href={`#cat-${encodeURIComponent(c)}`}>
+        {c}<span class="n">{(byCat.get(c) ?? []).length}</span>
+      </a>
+    ))}
+  </nav>
+
   {
     DEITY_CATEGORIES.map((cat) => {
       const list = (byCat.get(cat) ?? []).sort((a, b) => a.id.localeCompare(b.id));
       if (list.length === 0) return null;
       return (
-        <section class="cat">
+        <section class="cat" id={`cat-${encodeURIComponent(cat)}`}>
           <h2>{cat}<span class="count muted">（{list.length}）</span></h2>
           <div class="grid cols">
             {list.map((dd) => (
@@ -35,7 +45,10 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
                 href={`/deities/${dd.id}/`}
               >
                 <strong>{dd.data.name}</strong>
-                {dd.data.is_category && <span class="tag">類別</span>}
+                {/* 標籤原本只寫「類別」，對使用者沒有訊息量（每一尊都屬於某個類別，
+                    看不出這是在說「王爺／城隍爺是一個信仰類別、不是某一尊神」）。
+                    對齊詳情頁已在用的講法（deities/[id].astro 的「信仰類別（非單神）」）。 */}
+                {dd.data.is_category && <span class="tag">信仰類別</span>}
                 {dd.data.aliases.length > 0 && (
                   <span class="muted small">{dd.data.aliases.slice(0, 3).join('·')}</span>
                 )}
@@ -83,7 +96,17 @@ const groups = [...byGroup.entries()].sort((a, b) => b[1].length - a[1].length);
   }
 
   <style>
+    .cat { scroll-margin-top: 1rem; }
     .cat h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; }
+    .cat-jumps { display: flex; flex-wrap: wrap; gap: 0.625rem; margin: 1.25rem 0 1.75rem; }
+    .cat-jump {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      padding: 0.4375rem 1rem; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--paper-2);
+      color: var(--ink); font-size: var(--text-sm);
+    }
+    .cat-jump:hover { border-color: var(--accent-soft); color: var(--accent); text-decoration: none; }
+    .cat-jump .n { color: var(--ink-soft); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
     .count { font-size: var(--text-sm); font-weight: 400; }
     .deity-cell { display: flex; flex-direction: column; gap: 0.3125rem; align-items: start; }
     .deity-cell strong { color: var(--ink); }

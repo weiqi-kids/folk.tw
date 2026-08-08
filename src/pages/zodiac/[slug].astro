@@ -129,8 +129,10 @@ const relSentence =
   <section>
     <h2>哪些年次屬{z.name}</h2>
     <p class="years">{years.join('、')}</p>
-    <p class="muted small">
-      ⚠️ 生肖以<strong>立春</strong>分年，不是元旦、也不是農曆正月初一。
+    {/* 用左側色條標示「這句要看一下」，不用 ⚠️ emoji 當項目符號：
+        emoji 在沒有 emoji 字型的環境會變成豆腐方框，而且它在版面上是裝飾、不是資訊。 */}
+    <p class="muted small caveat">
+      生肖以<strong>立春</strong>分年，不是元旦、也不是農曆正月初一。
       在立春之前出生的人，生肖算前一年——年初出生者請以實際立春時刻為準。
     </p>
   </section>
@@ -208,7 +210,7 @@ const relSentence =
               要不要辦、怎麼辦，以廟方公告為準。
             </p>
             {shrineByCounty.map(([county, list]) => (
-              <details class="county-group">
+              <details class="county-group disclosure">
                 <summary>{county}（{list.length}）</summary>
                 <ul class="temple-list">
                   {list.map((x) => (
@@ -271,6 +273,8 @@ const relSentence =
   .county-group > summary:hover { color: var(--accent); }
   .county-group[open] > summary { color: var(--ink); font-weight: 700; }
 
+  .caveat { border-left: 3px solid var(--accent-soft); padding-left: 0.875rem; margin-top: 0.75rem; }
+
   .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
   .crumbs a { color: var(--accent); }
   .hero { margin: 1.5rem 0 2rem; }
@@ -281,9 +285,17 @@ const relSentence =
   section { margin-block: 2rem; }
   .table-wrap { overflow-x: auto; }
   table.chong { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
-  table.chong th, table.chong td { padding: 0.4rem 0.6rem; text-align: left; border-bottom: 1px solid var(--rule); }
-  table.chong tr.is-mine td { background: var(--surface-soft); font-weight: 600; }
-  table.chong tr.is-today td { outline: 2px solid var(--accent); outline-offset: -2px; }
+  table.chong th, table.chong td { padding: 0.4rem 0.6rem; text-align: left; border-bottom: 1px solid var(--line); }
+  table.chong tr.is-mine td { background: var(--paper-2); font-weight: 600; }
+  /* 「今日」要看起來是**一整列**被標起來。原本在每個 td 上畫 outline，
+     結果是三個各自帶框的格子，像三個獨立的東西（2026-08-08 截圖確認）。
+     改用 inset box-shadow：上下邊由每格畫、左右邊只由頭尾兩格畫，接起來就是一整列的框。 */
+  table.chong tr.is-today td {
+    background: var(--paper-2);
+    box-shadow: inset 0 2px 0 0 var(--accent), inset 0 -2px 0 0 var(--accent);
+  }
+  table.chong tr.is-today td:first-child { box-shadow: inset 0 2px 0 0 var(--accent), inset 0 -2px 0 0 var(--accent), inset 2px 0 0 0 var(--accent); }
+  table.chong tr.is-today td:last-child { box-shadow: inset 0 2px 0 0 var(--accent), inset 0 -2px 0 0 var(--accent), inset -2px 0 0 0 var(--accent); }
   .temple-list { list-style: none; padding: 0; display: grid; gap: 0.4rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
   .temple-list li { display: flex; gap: 0.5rem; align-items: baseline; }

@@ -13,7 +13,13 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Noto Serif TC', 'Source Han Serif TC', '本蘭明體', serif;
+  /* 2026-08-08 補實際存在的系統明體：原本三個名字（Noto Serif TC／Source Han Serif TC／本蘭明體）
+     都不是自託管、也不是任何主流系統的內建家族名，實機上幾乎一律掉到 generic serif——
+     於是「明體」這個設計意圖從來沒送到使用者眼前，且 CJK 由後備字型補、垂直書寫的度量會對不上
+     （籤詩四句直書就是在這個組合下爆掉的）。補上 macOS/iOS 的 Songti TC、Windows 的 PMingLiU、
+     Android/Linux 的 Noto Serif CJK TC，全部是系統堆疊，不引入任何 CDN（設計守門第 4 條）。 */
+  font-family: 'Noto Serif TC', 'Noto Serif CJK TC', 'Source Han Serif TC', '本蘭明體', 'Songti TC',
+    'PMingLiU', 'MingLiU', serif;
   font-size: var(--text-base);
   line-height: var(--lh);
   color: var(--ink);
@@ -22,8 +28,19 @@ body {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+/* 🔴 整張卡片是一個 <a> 時，上面那條會讓 hover 把卡內每一行文字同時加底線
+   （card-photo 更慘：底線會畫到照片上）。2026-08-08 實測九個索引頁沒有一頁自己擋掉。
+   這裡統一：卡片連結的 hover 回饋是邊框變色，不是底線。
+   靠特異性 0,2,1 蓋過上面那條的 0,1,1 就夠，不需要動用設計守門第 3 條禁用的那個關鍵字。 */
+a.card:hover,
+a.card:hover * { text-decoration: none; }
+a.card { transition: border-color 0.15s ease; }
+a.card:hover { border-color: var(--accent-soft); }
 
-h1, h2, h3 { line-height: var(--lh-tight); }
+/* text-wrap: pretty 收掉落單字（「名／廟沿革」「行／業吉日」那種一行只剩一兩個字的斷行）。
+   是漸進增強：不支援的瀏覽器直接忽略，版面與現在完全一樣。 */
+h1, h2, h3 { line-height: var(--lh-tight); text-wrap: pretty; }
+.card { text-wrap: pretty; }
 h1 { font-size: var(--text-2xl); }
 h2 { font-size: var(--text-xl); }
 h3 { font-size: var(--text-lg); }
@@ -56,8 +73,16 @@ p { margin: 0.875rem 0; }
   color: var(--ink-soft); font-size: var(--text-base);
 }
 .nav-group > summary::-webkit-details-marker { display: none; }
-.nav-group > summary::after { content: '⌄'; margin-left: 0.25rem; font-size: var(--text-sm); }
-.nav-group[open] > summary::after { content: '⌃'; }
+/* 收合箭頭用 CSS 畫（旋轉的直角），不用 '⌄'／'⌃' 全形標點——那兩個字的字身位置隨字型跑，
+   2026-08-08 實測七個下拉的箭頭都比文字基線高一點、對不齊。 */
+.nav-group > summary::after {
+  content: ''; display: inline-block; margin-left: 0.4em;
+  width: 0.36em; height: 0.36em;
+  border: solid currentColor; border-width: 0 0.11em 0.11em 0;
+  transform: translateY(-0.18em) rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.nav-group[open] > summary::after { transform: translateY(0.06em) rotate(-135deg); }
 .nav-group > summary.active { color: var(--accent); font-weight: 700; }
 .nav-group > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* 滑鼠點擊不留外框（:focus-visible 規格上不該觸發，但部分瀏覽器對 summary 會） */
@@ -95,12 +120,40 @@ p { margin: 0.875rem 0; }
   .nav-sub { padding: 0.5rem 0 0.25rem 1rem; border-left: 2px solid var(--line); }
 }
 .site-main { max-width: var(--max); margin: 0 auto; padding: 2rem 1.5625rem 3.75rem; }
+/* 頁尾＝分享列＋關於，一個區塊、一條分隔線（2026-08-08，見 Base.astro 的註解）。
+   桌機左右分置、手機上下堆疊；分享列與關於之間留一條淡淡的內線做分隔，不再用第二條 border-top。 */
 .site-footer {
-  max-width: var(--max); margin: 0 auto; padding: 1.875rem 1.5625rem 3.125rem;
-  border-top: 1px solid var(--line); color: var(--ink-soft); font-size: var(--text-sm);
+  max-width: var(--max); margin: 3rem auto 0; padding: 1.5rem 1.5625rem 3.125rem;
+  border-top: 1px solid var(--line); color: var(--ink-soft); font-size: var(--text-xs);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem 2rem;
 }
-.site-footer p { margin: 0.5rem 0; }
+.site-footer p { margin: 0; }
 .site-footer .meta { color: var(--gold); }
+.site-footer .footer-share { flex: 1 1 auto; }
+@media (max-width: 47.99rem) {
+  .site-footer { display: block; }
+  .site-footer .meta { margin-top: 1.25rem; padding-top: 1.125rem; border-top: 1px solid var(--line); }
+}
+
+/* ── 內文收合（.disclosure）──
+   nav 已有自訂箭頭，但內文裡的 <details>（農民曆推導與出處、彭祖百忌、曆算基準、關於頁 FAQ…）
+   仍是瀏覽器原生 ▶，同一頁上兩套收合外觀。這裡給內文一組共用外觀，與 nav 的箭頭同形。 */
+.disclosure > summary {
+  list-style: none; cursor: pointer;
+  color: var(--ink-soft); font-size: var(--text-sm);
+}
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::after {
+  content: ''; display: inline-block; margin-left: 0.4em;
+  width: 0.36em; height: 0.36em;
+  border: solid currentColor; border-width: 0 0.11em 0.11em 0;
+  transform: translateY(-0.18em) rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.disclosure[open] > summary::after { transform: translateY(0.06em) rotate(-135deg); }
+.disclosure > summary:hover { color: var(--accent); }
+.disclosure > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ── 共用元件 ── */
 .tag {
@@ -130,15 +183,21 @@ p { margin: 0.875rem 0; }
   mask-image: linear-gradient(105deg, transparent 3%, var(--mask-opaque) 22%);
   z-index: 0;
 }
-/* 主漸層＝紙色襯底：由左側文字區實心（48%）柔和淡出至透明（68%），
+/* 主漸層＝紙色襯底：由左側文字區實心（52%）柔和淡出至透明（68%），
    淡出帶正好落在圖片左段＝可見的漸層；68% 之後留給神像正臉的實心清楚區。 */
 .card-photo::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(100deg, var(--paper-2) 48%, var(--white-a0) 68%);
+  background: linear-gradient(100deg, var(--paper-2) 52%, var(--white-a0) 68%);
   z-index: 0; pointer-events: none;
 }
+/* 🔴 文字必須限寬，否則整段會壓到照片上。
+   2026-08-08 實測 /temples/：54 個文字節點 54 個都越過圖片左緣，深色照片
+   （城隍爺／地藏王／玄天上帝／東嶽大帝）上那層紙色 text-shadow 完全撐不住，字直接消失。
+   限的是**文字**寬度，不是讓圖片寬度跟著文字跑——`--pw` 固定不動（房規：每張圖同寬同位置）。
+   上限取 calc(100% - var(--pw))，剛好停在紙色襯底還是實心的那一段。 */
 .card-photo > :not(.card-photo-img) {
   position: relative; z-index: 1;
+  max-width: calc(100% - var(--pw));
   text-shadow: 0 0 5px var(--paper-2), 0 0 4px var(--paper-2), 0 0 3px var(--paper-2), 0 0 2px var(--paper-2);
 }
 .muted { color: var(--ink-soft); }
@@ -148,5 +207,10 @@ p { margin: 0.875rem 0; }
   border-left: 3px solid var(--line); padding-left: 0.875rem; margin: 0.75rem 0;
 }
 .grid { display: grid; gap: 1rem; }
-.grid.cols { grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr)); }
+/* 🔴 用 :where() 把特異性歸零：原本 `.grid.cols`（0,2,0）會蓋掉頁面 scoped <style> 裡的欄數覆寫，
+   /qiugian/ 的「桌機兩欄」就是這樣被吃掉的（2026-08-08 實測 computed 是單欄 537px，
+   結果左欄 1273px 高、右欄 333px，桌機右邊空一大片）。改成 :where 之後頁面層一律覆寫得動。 */
+:where(.grid.cols) { grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr)); }
+/* .card 自帶 margin: 1rem 0，在 grid 裡會和 gap 疊加成「垂直 2rem、水平 1rem」的不對稱間距。 */
+.grid > .card { margin: 0; }
 .lines-vertical { font-size: var(--text-xl); letter-spacing: 0.15em; line-height: 2.2; }

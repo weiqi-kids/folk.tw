@@ -19,12 +19,33 @@ const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
   <p class="muted">
     籤詩四句之外的卦頭故事，共 {allusions.length} 則；同一典故可能橫跨多支籤，這裡也能反查出現於哪些籤。
   </p>
-  <div class="grid cols allusion-grid">
+  {/* 篩選（2026-08-08）：137 則一次全出、整頁 11,500px，沒有任何索引或篩選，
+      想找「包公」只能用瀏覽器搜尋。
+      ⚠️ 只切既有 <a> 的 hidden 屬性，**不注入也不移除任何 DOM**
+      （Astro scoped style 套不到注入的節點，見記憶 astro-scoped-style-innerhtml-pitfall）；
+      沒有 JS 時整份清單本來就全部在，爬蟲看到的也是完整的 137 則。 */}
+  <div class="filter-row">
+    <label class="filter-label" for="allusion-filter">篩選</label>
+    <input
+      id="allusion-filter"
+      type="search"
+      class="filter-input"
+      placeholder="輸入典故名或出典，例如：包公、三國、史記"
+      autocomplete="off"
+    />
+    <span class="filter-count" data-role="count" hidden></span>
+  </div>
+
+  <div class="grid cols allusion-grid" data-allusions>
     {
       allusions.map((a) => {
         const poems = (poemIndex.get(a.id) ?? []).sort((x, y) => x.data.no - y.data.no);
         return (
-          <a class="allusion-cell card" href={`/allusions/${a.id}/`}>
+          <a
+            class="allusion-cell card"
+            href={`/allusions/${a.id}/`}
+            data-hay={`${a.data.name} ${a.data.source ?? ''}`}
+          >
             <span class="name">{a.data.name}</span>
             {a.data.source && <span class="source muted small">出典：{a.data.source}</span>}
             {poems.length > 0 && (
@@ -35,8 +56,45 @@ const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
       })
     }
   </div>
+  <p class="no-hit muted" data-role="empty" hidden>沒有符合的典故。</p>
+
+  <script is:inline>
+    (function () {
+      const input = document.getElementById('allusion-filter');
+      const grid = document.querySelector('[data-allusions]');
+      if (!input || !grid) return;
+      const cells = Array.prototype.slice.call(grid.querySelectorAll('[data-hay]'));
+      const count = document.querySelector('[data-role=count]');
+      const empty = document.querySelector('[data-role=empty]');
+      input.addEventListener('input', function () {
+        const q = input.value.trim();
+        let shown = 0;
+        cells.forEach(function (el) {
+          const hit = !q || el.getAttribute('data-hay').indexOf(q) >= 0;
+          el.hidden = !hit;
+          if (hit) shown++;
+        });
+        if (count) {
+          count.hidden = !q;
+          count.textContent = q ? shown + ' / ' + cells.length : '';
+        }
+        if (empty) empty.hidden = shown > 0;
+      });
+    })();
+  </script>
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+    .filter-label { font-size: var(--text-sm); color: var(--ink-soft); letter-spacing: 0.08em; }
+    .filter-input {
+      flex: 1 1 20rem; max-width: 32rem;
+      padding: 0.5rem 0.875rem; border: 1px solid var(--line); border-radius: 0.5rem;
+      background: var(--paper-2); color: var(--ink);
+      font-family: inherit; font-size: var(--text-sm);
+    }
+    .filter-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .filter-count { font-size: var(--text-xs); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+    .no-hit { margin-top: 1.5rem; }
     .allusion-grid { margin-top: 1.5rem; }
     .allusion-cell { display: flex; flex-direction: column; gap: 0.25rem; }
     .allusion-cell .name { font-weight: 700; color: var(--ink); }

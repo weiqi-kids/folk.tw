@@ -707,11 +707,18 @@ const jsonLd = [
       display: flex; flex-direction: column; gap: 0.4375rem; }
     .qifu-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
     .qifu-list a { font-weight: 600; }
-    .qifu-role { color: var(--muted); font-size: var(--text-sm); }
+    .qifu-role { color: var(--ink-soft); font-size: var(--text-sm); }
     .qifu-more { margin-top: 0.75rem; font-size: var(--text-sm); }
     .qifu-more a { font-weight: 600; }
+    /* 沿革照片限高（2026-08-08）：直式照片原本 width:100%/height:auto，桌機實測整張約 1000px 高，
+       一張圖就吃掉整個視窗、把下面的內容全部推走。限一個最大高度、object-position 偏上
+       （廟門與匾額在上半部，裁下緣不會裁掉主體），比例交給 object-fit。 */
     .temple-photo { margin: 1rem 0 1.5rem; }
-    .temple-photo img { width: 100%; height: auto; border-radius: 0.25rem; display: block; }
+    .temple-photo img {
+      width: 100%; max-height: 32rem; height: auto;
+      object-fit: cover; object-position: center 30%;
+      border-radius: 0.25rem; display: block;
+    }
     .temple-photo figcaption { margin-top: 0.375rem; }
     .temple-moi-detail { margin-top: 1.5rem; }
     .moi-body { white-space: pre-line; }
@@ -725,7 +732,7 @@ const jsonLd = [
     .deity-festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.5rem; }
     .deity-festival-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
-    .deity-festival-list .dfdate { color: var(--muted); font-size: var(--text-sm); }
+    .deity-festival-list .dfdate { color: var(--ink-soft); font-size: var(--text-sm); }
     .festival-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.625rem; }
     .festival-list li { display: grid; grid-template-columns: 11rem 1fr; gap: 0.25rem 0.75rem;
@@ -746,6 +753,6 @@ const jsonLd = [
     .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1.25rem; font-size: var(--text-sm); }
     .temple-site a { font-weight: 600; }
-    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; }
+    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; line-height: 1.9; }
   </style>
 </Base>

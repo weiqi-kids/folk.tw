@@ -103,8 +103,14 @@ if (faq) jsonLd.push(faq);
   section { margin-block: 2rem; }
   .grid { list-style: none; padding: 0; display: grid; gap: 0.75rem;
     grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+  /* 2026-08-08：這十二格原本看不出可以點——邊框寫的是 var(--rule)（**站上沒有這個 token**，
+     宣告整條無效 → 完全沒有邊框），加上沒有底色、沒有 hover 回饋，讀起來就是十二段純文字。
+     token 已改成 --line，再補卡片底色與 hover。 */
   .grid a { display: flex; flex-direction: column; gap: 0.15rem;
-    padding: 0.75rem 0.9rem; border: 1px solid var(--rule); border-radius: 0.5rem; color: inherit; }
+    padding: 0.75rem 0.9rem; border: 1px solid var(--line); border-radius: 0.5rem; color: inherit;
+    background: var(--paper-2); transition: border-color 0.15s ease; }
+  .grid a:hover { border-color: var(--accent-soft); text-decoration: none; }
+  .grid a:hover .name { color: var(--accent); }
   .grid .name { font-size: var(--text-lg); }
   .grid .branch { font-size: var(--text-sm); color: var(--ink-soft); }
   .grid .rel { font-size: var(--text-sm); color: var(--ink-soft); }

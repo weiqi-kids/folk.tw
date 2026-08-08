@@ -65,7 +65,9 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
   .birthdays { list-style: none; margin: 0.5rem 0 0; padding: 0; }
   .bd-item {
     display: grid;
-    grid-template-columns: 5.625rem 7.5rem 1fr;
+    /* 農曆欄 7.5rem 放不下「農曆十一月初十」（2026-08-08 截圖確認被折成「農曆十一月初／十」），
+       字級階梯調整後更擠。給足寬度並禁止折行。 */
+    grid-template-columns: 5.625rem 10rem 1fr;
     gap: 0.75rem;
     align-items: baseline;
     padding: 0.5rem 0;
@@ -74,7 +76,7 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
   .bd-when { display: flex; flex-direction: column; }
   .bd-solar { font-weight: 700; color: var(--accent); }
   .bd-countdown { font-size: var(--text-xs); color: var(--gold); }
-  .bd-lunar { font-size: var(--text-sm); }
+  .bd-lunar { font-size: var(--text-sm); white-space: nowrap; }
   .bd-deities a { color: var(--ink); }
   .bd-deities a.bd-divine { color: var(--accent); font-size: var(--text-xs); }
   @media (max-width: 480px) {

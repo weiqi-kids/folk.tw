@@ -250,7 +250,14 @@ if (faq) ld.push(faq);
     .ph .meta { margin-bottom: 0.625rem; }
     .ph .lead { font-size: var(--text-sm); margin: 0.25rem 0 0; }
     .lines-block { margin: 2.25rem 0 2.75rem; display: flex; justify-content: center; }
-    /* 四句直書（直排・右起），§0.5 四句直書 */
+    /* 四句直書（直排・右起），§0.5 四句直書
+       🔴 flex-direction 一定要是 column，不可省略（2026-08-08 修）：
+          在 writing-mode: vertical-rl 之下，flex 的 row＝沿**行內軸**排＝由上往下，
+          於是四句被排成上下四段、每段各自再折成好幾欄，讀出來是
+          「日出／光明／一向／萬事、便見／清淨／前途／清吉…」——順序全錯、讀不成一首詩；
+          在沒有相符明體的機器上還會再退化成整團互相重疊的黑塊。
+          column＝沿**區塊軸**排＝右到左，才是四句各佔一欄的直書。
+          （已用同一份 CSS 在 Chromium 分別以 row／column 實測比對過。） */
     .lines-zhi {
       writing-mode: vertical-rl;
       text-orientation: upright;
@@ -259,6 +266,7 @@ if (faq) ld.push(faq);
       line-height: 2.1;
       max-height: 22.5rem;
       display: flex;
+      flex-direction: column;
       gap: 0.25rem;
     }
     .lines-zhi .line { margin: 0; }

@@ -44,9 +44,13 @@ const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat}
 <style>
   .temple-map { margin-top: 1.5rem; }
   .temple-map h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+  /* 16:9 在兩端都不對（2026-08-08 實測）：桌機 1108×622 太高、一張地圖佔掉整個視窗，
+     手機 338×189 又太矮、看不到周邊路口。加上下限與上限，中間才照比例。 */
   .map-frame {
     position: relative;
     aspect-ratio: 16 / 9;
+    min-height: 15rem;
+    max-height: 26rem;
     margin: 1rem 0 0.875rem;
     border: 1px solid var(--line);
     border-radius: 0.625rem;

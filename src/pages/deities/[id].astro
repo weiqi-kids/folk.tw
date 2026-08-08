@@ -338,7 +338,9 @@ const jsonLd = [
     temples.length > 0 && (
       <section>
         <h2>主祀此神之廟宇{temples.length > 30 && <span class="muted small">　共 {temples.length} 間，列出 30 間</span>}</h2>
-        <ul>
+        {/* 分欄（2026-08-08）：三十間排成單欄一路往下，媽祖那頁光這一段就好幾個螢幕高，
+            而每一列其實只有「廟名＋鄉鎮」兩個短欄位。清單內容與筆數都沒動，只是排版。 */}
+        <ul class="temple-refs">
           {temples.slice(0, 30).map((t) => (
             <li>
               <a href={`/temples/${t.id}/`}>{t.data.name}</a>
@@ -416,9 +418,22 @@ const jsonLd = [
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .summary { font-size: var(--text-base); }
+    /* 神像照片限高（同廟宇頁）：直式神像原本 width:100%/height:auto，桌機約 1000px 高，
+       第一屏之後整個視野都是那張圖，職司與聖誕全被推到看不見的地方。
+       object-position 偏上是為了保住頭臉（同 .card-photo 的理由）。 */
     .deity-photo { margin: 1rem 0 1.5rem; }
-    .deity-photo img { width: 100%; height: auto; border-radius: 0.25rem; display: block; }
+    .deity-photo img {
+      width: 100%; max-height: 30rem; height: auto;
+      object-fit: cover; object-position: center top;
+      border-radius: 0.25rem; display: block;
+    }
     .deity-photo figcaption { margin-top: 0.375rem; }
+    .temple-refs {
+      list-style: none; padding-left: 0; margin: 0.75rem 0;
+      display: grid; gap: 0.25rem 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+    .temple-refs li { padding: 0.25rem 0; }
     .moi-quote { margin: 0.75rem 0 0.5rem; padding: 0 0 0 1rem;
       border-left: 3px solid var(--line); color: var(--ink); }
     .moi-quote p { margin: 0 0 0.75rem; }

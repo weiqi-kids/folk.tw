@@ -385,8 +385,12 @@ const pageDesc = covers.length
           全台共 {templesOnDate.length} 間宮廟向內政部登記了{lunarLabel}的慶(祭)典。
           廟名後為該廟自己登記的祭典名稱。資料源自內政部全國宗教資訊網「慶(祭)典查詢」。
         </p>
+        {/* 前 60 間直接列出，其餘收進 <details>（2026-08-08）：中元節那頁光這一段就好幾千 px，
+            整頁 7,700px 有大半是這份清單，後面的「其他節日」實際上沒人捲得到。
+            ⚠️ 收合用原生 <details>＋靜態 markup，**全部宮廟仍然在 HTML 裡**——
+            爬蟲讀得到、內鏈一條都沒少（同 nav 的理由，不用 JS 分頁）。 */}
         <ul class="on-date-list">
-          {templesOnDate.map((t) => (
+          {templesOnDate.slice(0, 60).map((t) => (
             <li>
               <a href={`/temples/${t.id}/`}>{t.name}</a>
               {t.county && <span class="muted small"> {t.county}</span>}
@@ -394,6 +398,20 @@ const pageDesc = covers.length
             </li>
           ))}
         </ul>
+        {templesOnDate.length > 60 && (
+          <details class="disclosure more-temples">
+            <summary>展開其餘 {templesOnDate.length - 60} 間</summary>
+            <ul class="on-date-list">
+              {templesOnDate.slice(60).map((t) => (
+                <li>
+                  <a href={`/temples/${t.id}/`}>{t.name}</a>
+                  {t.county && <span class="muted small"> {t.county}</span>}
+                  <span class="fname small"> — {t.festival}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
       </section>
     )
   }
@@ -476,6 +494,7 @@ const pageDesc = covers.length
       display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
     .on-date-list li { padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
     .on-date-list .fname { color: var(--ink-soft); }
+    .more-temples { margin-top: 1rem; }
     .local-on-date { margin-top: 1.5rem; }
     .local-list { list-style: none; padding: 0; margin: 0.75rem 0;
       display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
@@ -487,7 +506,7 @@ const pageDesc = covers.length
     .sibling-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: flex; flex-direction: column; gap: 0.5rem; }
     .sibling-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
-    .sibling-list .sfdate { color: var(--muted); font-size: var(--text-sm); }
+    .sibling-list .sfdate { color: var(--ink-soft); font-size: var(--text-sm); }
     .footer-src { margin-top: 2.5rem; }
   </style>
 </Base>

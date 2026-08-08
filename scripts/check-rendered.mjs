@@ -609,8 +609,15 @@ for (const f of festivals) {
       (t.festivals ?? []).some((x) => x.calendar === 'lunar' && x.date === f.lunar_date),
     ).length;
     // 同上：不可假設是裸標籤（Astro 補 data-astro-cid-*），故先切出名單區間再數廟宇連結。
-    const listHtml = html.match(/class="on-date-list"[\s\S]*?<\/ul>/)?.[0] ?? '';
-    const shown = (listHtml.match(/href="\/temples\//g) ?? []).length;
+    // ⚠️ 2026-08-08 改切「整個 <section class="on-date">」而不是「第一個 <ul>」：
+    //    該區塊已改成「前 60 間直接列、其餘收進 <details>」（中元節那頁的清單原本佔掉整頁一半），
+    //    名單因此是兩個 <ul>。不變量本身沒有放寬——仍然要求**全部**登記在案的宮廟都出現在
+    //    這一頁的 HTML 裡（收合的部分也在 HTML 裡，爬蟲讀得到、內鏈一條都沒少），
+    //    只是計數範圍從單一 <ul> 擴成整個區塊，比原本更不容易被 markup 調整騙過去。
+    const sectionStart = html.indexOf('class="on-date"');
+    const sectionHtml =
+      sectionStart >= 0 ? html.slice(sectionStart, html.indexOf('</section>', sectionStart)) : '';
+    const shown = (sectionHtml.match(/href="\/temples\//g) ?? []).length;
     if (want > 0) {
       if (shown !== want) {
         violations.push(`節日頁 ${f.slug} 當日祭典宮廟名單列出 ${shown} 間，資料為 ${want} 間`);

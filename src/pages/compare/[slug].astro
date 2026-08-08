@@ -143,8 +143,12 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
-    .tbl-wrap { overflow-x: auto; }
-    table { border-collapse: collapse; width: 100%; }
+    /* 🔴 min-width 不可省（2026-08-08 修）：只有 overflow-x:auto、table 又是 width:100% 的話，
+       表格永遠等於容器寬、根本不會產生水平捲軸，只會被壓扁——390px 實測三欄各剩約 90px，
+       「土地公、伯公、后土、福德爺」被斷成一行一個字。給一個大於手機寬度的 min-width，
+       捲軸才真的會出來。 */
+    .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { border-collapse: collapse; width: 100%; min-width: 34rem; }
     th, td { border: 1px solid var(--line); padding: 0.625rem 0.875rem; text-align: left; vertical-align: top; }
     thead th { background: var(--paper-2); }
     tbody th[scope='row'] { background: var(--paper-2); white-space: nowrap; color: var(--ink-soft); }

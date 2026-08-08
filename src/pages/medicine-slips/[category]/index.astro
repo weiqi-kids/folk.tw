@@ -64,9 +64,17 @@ if (faq) jsonLd.push(faq);
   </p>
 
 
+  {/* 籤號跳號（2026-08-08）：大人科 120 首全在一頁、整頁 21,000px，要找第 87 首
+      只能用瀏覽器搜尋或一路捲。錨點指向下面既有的 <li>，沒有新增頁面或內鏈。 */}
+  <nav class="ms-jump" aria-label="跳到籤號">
+    {list.map((s) => (
+      <a class:list={['ms-jump-no', { warned: isWarned(s) }]} href={`#no-${s.no}`}>{s.no}</a>
+    ))}
+  </nav>
+
   <ol class="ms-slips">
     {list.map((s) => (
-      <li class:list={['ms-slip', { warned: isWarned(s) }]}>
+      <li id={`no-${s.no}`} class:list={['ms-slip', { warned: isWarned(s) }]}>
         <a class="ms-link" href={`/medicine-slips/${category}/${s.no}/`}>
           <h2>{meta.name}第 {s.no} 首{isWarned(s) && <span class="ms-flag">典藏標註不可使用</span>}</h2>
           <p class="ms-formula">{s.formula}</p>
@@ -99,9 +107,19 @@ if (faq) jsonLd.push(faq);
     background: var(--paper-2); border-left: 3px solid var(--accent);
     padding: 0.875rem 1.125rem; margin: 1.25rem 0 2rem; font-size: var(--text-sm);
   }
+  .ms-jump { display: flex; flex-wrap: wrap; gap: 0.3125rem; margin: 1.5rem 0 2rem; }
+  .ms-jump-no {
+    display: inline-block; min-width: 2.5rem; text-align: center;
+    padding: 0.1875rem 0.4375rem; border: 1px solid var(--line); border-radius: 0.375rem;
+    background: var(--paper-2); color: var(--ink-soft); font-size: var(--text-xs);
+    font-variant-numeric: tabular-nums;
+  }
+  .ms-jump-no:hover { border-color: var(--accent-soft); color: var(--accent); text-decoration: none; }
+  .ms-jump-no.warned { color: var(--accent); border-color: var(--accent-soft); }
   .ms-slips { list-style: none; padding: 0; margin: 0; }
   .ms-slip {
     border-top: 1px solid var(--line); padding: 1.25rem 0;
+    scroll-margin-top: 1rem;
   }
   .ms-link { display: block; text-decoration: none; color: inherit; }
   .ms-slip h2 { margin: 0 0 0.5rem; font-size: var(--text-lg); }

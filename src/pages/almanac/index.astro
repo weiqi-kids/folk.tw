@@ -82,20 +82,29 @@ if (faq) jsonLd.push(faq);
       仍是「已發現／已檢索－未建立索引」、曝光 0，而搜尋尖峰就在那幾天。
       /almanac/ 是本站 priority 僅次於首頁的樞紐（0.8）且主題相鄰，從這裡再給一條高權重內鏈。
       ⚠️ 日期一律由 festivalNextSolar() 於 build 時算，**勿在本頁自行換算農曆**。 */}
+  {/* 2026-08-08：這底下原本是三組沒有標題、只用細線隔開的連結，讀起來是一團連結湯
+      （分享固定連結／近期節日／宜忌·沖煞·封存 各自一段，看不出哪組是什麼）。
+      補上小標並收成同一個區塊，連結本身與 href 都沒動——只是讓人看得出這是三類東西。 */}
   {upcomingFestivals.length > 0 && (
     <nav class="almanac-more" aria-label="近期節日">
-      {upcomingFestivals.slice(0, 4).map((f) => (
-        <a href={`/festivals/${f.slug}/`}>{f.name}（{Number(f.iso.slice(5, 7))}/{Number(f.iso.slice(8, 10))}，{f.lunarLabel}）→</a>
-      ))}
-      <a href="/festivals/">完整節日曆 →</a>
+      <p class="more-title">近期節日</p>
+      <div class="more-links">
+        {upcomingFestivals.slice(0, 4).map((f) => (
+          <a href={`/festivals/${f.slug}/`}>{f.name}（{Number(f.iso.slice(5, 7))}/{Number(f.iso.slice(8, 10))}，{f.lunarLabel}）→</a>
+        ))}
+        <a href="/festivals/">完整節日曆 →</a>
+      </div>
     </nav>
   )}
 
   <!-- P0-3：自已索引之 /almanac hub 顯式內鏈封存＋長尾樞紐（宜忌詞義／沖煞），提升可發現性。 -->
   <nav class="almanac-more" aria-label="更多農民曆">
-    <a href="/almanac/yiji/">宜忌事項是什麼？用事白話解釋 →</a>
-    <a href="/almanac/chongsha/">今日沖什麼生肖？沖煞查詢 →</a>
-    <a href="/almanac/archive/">歷代農民曆封存（依年月瀏覽）→</a>
+    <p class="more-title">再查下去</p>
+    <div class="more-links">
+      <a href="/almanac/yiji/">宜忌事項是什麼？用事白話解釋 →</a>
+      <a href="/almanac/chongsha/">今日沖什麼生肖？沖煞查詢 →</a>
+      <a href="/almanac/archive/">歷代農民曆封存（依年月瀏覽）→</a>
+    </div>
   </nav>
 </Base>
 
@@ -105,10 +114,15 @@ if (faq) jsonLd.push(faq);
     padding-top: 1.25rem;
     border-top: 1px solid var(--line);
     font-size: var(--text-sm);
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
   }
+  .more-title {
+    margin: 0 0 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  .more-links { display: flex; flex-direction: column; gap: 0.625rem; }
   .almanac-more a { color: var(--accent); }
   .almanac-share {
     margin-top: 1.5rem;

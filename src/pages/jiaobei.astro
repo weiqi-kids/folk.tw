@@ -15,7 +15,9 @@ const { results, sequence_rule, sources } = data;
 
   <section>
     <h2>三種筊象</h2>
-    <div class="grid">
+    {/* 三張卡並排（2026-08-08）：原本只給 .grid（單欄），三張各只有兩行字的卡片
+        在桌機上疊成三條滿版長條、中間都是空的。三個筊象本來就是要互相對照著看。 */}
+    <div class="grid jiaobei-grid">
       {
         results.map((r) => (
           <div class="card">
@@ -44,6 +46,7 @@ const { results, sequence_rule, sources } = data;
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+    .jiaobei-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); align-items: start; }
     .card strong { color: var(--accent); }
     .small { font-size: var(--text-sm); }
     .src { color: var(--gold); margin-top: 1.875rem; }

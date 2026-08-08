@@ -375,15 +375,18 @@ const groupActive = (sections: NavSection[]) =>
     <main class="site-main" data-pagefind-body>
       <slot />
     </main>
-    {/* 🔴 分享列刻意放在 <main data-pagefind-body> **外面**＋data-pagefind-ignore：
+    {/* 🔴 分享列仍在 <main data-pagefind-body> **外面**＋data-pagefind-ignore：
         放進去的話「分享／Facebook／Threads／複製連結」會被 Pagefind 索引進全站每一頁，
-        站內搜尋打「分享」就會命中 15,000 頁。版位在 main 之後、footer 之前。 */}
-    {share && (
-      <div data-pagefind-ignore>
-        <ShareRow title={ogFullTitle} url={canonical} />
-      </div>
-    )}
+        站內搜尋打「分享」就會命中 15,000 頁。
+        2026-08-08 版位由「main 之後、footer 之前」改成**併進 footer**：原本分享列自帶一條
+        border-top、footer 又一條，兩條只差約 40px，每一頁結尾都是兩條平行細線夾一排灰按鈕。
+        現在整個結尾是一個區塊、一條分隔線；桌機分享在左、關於在右，手機上下堆疊。 */}
     <footer class="site-footer">
+      {share && (
+        <div class="footer-share" data-pagefind-ignore>
+          <ShareRow title={ogFullTitle} url={canonical} />
+        </div>
+      )}
       <p class="meta">
         免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>
       </p>

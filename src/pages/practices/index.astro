@@ -25,10 +25,12 @@ for (const p of practices) {
     <a href="/jiaobei/">擲筊判讀 →</a>　<a href="/vocabulary/">金紙·供品·陣頭受控詞彙 →</a>
   </p>
   {
+    /* 少於三筆的分類（求子/轉胎、生命禮俗各只有一條）改用不撐滿的橫排，
+       不然三欄格線右邊會空兩格，看起來像資料掉了。同 /festivals/ 的處理。 */
     [...byCat.entries()].map(([cat, list]) => (
-      <section>
+      <section class:list={['pcat', { few: list.length < 3 }]}>
         <h2>{cat}</h2>
-        <div class="grid cols">
+        <div class="grid cols pcat-grid">
           {list.map((p) => (
             <a
               class:list={['card', { 'card-photo': p.data.image }]}
@@ -56,6 +58,8 @@ for (const p of practices) {
   }
   <style>
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; }
+    .pcat.few .pcat-grid { display: flex; flex-wrap: wrap; }
+    .pcat.few .pcat-grid > .card { flex: 0 1 20rem; }
     .card strong { color: var(--ink); }
     .small { font-size: var(--text-base); margin-top: 0.25rem; }
     .card .muted { color: oklch(0.37 0.02 72); }

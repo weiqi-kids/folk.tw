@@ -77,14 +77,18 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
     <FestivalCountdown items={items} />
   </section>
 
+  {/* 依節日數排序，多的在前（2026-08-08）：農曆七月有八個節日，正月與節氣各只有一個，
+      原本一視同仁排成三欄格線，只有一張卡的那兩段右邊各空兩格、看起來像漏掉東西。
+      少於三個的那幾段改用不撐滿的橫排（.few），版面節奏才對得起內容量。 */}
   {
-    seasons.map((s) => (
-      <section>
-        <h2>{s}</h2>
-        <div class="grid cols">
-          {items
-            .filter((i) => i.season === s)
-            .map((i) => (
+    seasons
+      .map((s) => ({ s, list: items.filter((i) => i.season === s) }))
+      .sort((a, b) => b.list.length - a.list.length)
+      .map(({ s, list }) => (
+        <section class:list={['season', { few: list.length < 3 }]}>
+          <h2>{s}<span class="count muted">（{list.length}）</span></h2>
+          <div class="grid cols fest-grid">
+            {list.map((i) => (
               <a class="card fest-cell" href={`/festivals/${i.slug}/`}>
                 <strong>{i.name}</strong>
                 <span class="muted small">
@@ -92,9 +96,9 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
                 </span>
               </a>
             ))}
-        </div>
-      </section>
-    ))
+          </div>
+        </section>
+      ))
   }
 
   <section>
@@ -115,6 +119,11 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
   <style>
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
+    .count { font-size: var(--text-sm); font-weight: 400; }
+    /* 少於三個節日的季段：卡片橫排、不撐滿三欄，段落間距也收窄一級。 */
+    .season.few .fest-grid { display: flex; flex-wrap: wrap; }
+    .season.few .fest-cell { flex: 0 1 20rem; }
+    .season.few h2 { margin-top: 1.5rem; }
     .fest-cell { display: flex; flex-direction: column; gap: 0.25rem; }
     .fest-cell strong { color: var(--ink); }
     .fest-cell .muted { color: oklch(0.37 0.02 72); }

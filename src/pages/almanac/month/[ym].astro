@@ -51,31 +51,36 @@ const hasAnyYi = allYiAffairs.some((a) => (yiDays.get(a) ?? []).length > 0);
 
   <section class="trade-days" data-pagefind-ignore>
     <h2>本月各行業吉日</h2>
+    {/* 2026-08-08 改版：原本每個行業是一整段「宜祭祀：2、3、4、5、10、12、13…；宜祈福：…」
+        的紅字流水句，十三段疊起來是全站最難讀的一塊——數字全是連結、全同色、沒有欄位邊界，
+        眼睛沒有著力點。改成「行業＝一列，每個用事一行，日期做成方塊」，資料與連結完全沒動。 */}
     {
       hasAnyYi ? (
-        trades.map((t) => {
-          const rows = t.data.affairs_yi
-            .map((a) => ({ a, list: yiDays.get(a) ?? [] }))
-            .filter((r) => r.list.length > 0);
-          if (!rows.length) return null;
-          return (
-            <p>
-              <a href={`/trades/${t.id}/`}><strong>{t.data.name}</strong></a>：
-              {rows.map((r, i) => (
-                <>
-                  {i > 0 && '；'}
-                  宜{affairNameOf(r.a)}：
-                  {r.list.map((iso, j) => (
-                    <>
-                      {j > 0 && '、'}
-                      <a href={days.find((d) => d.iso === iso)!.href}>{Number(iso.slice(8))}</a>
-                    </>
+        <div class="trade-rows">
+          {trades.map((t) => {
+            const rows = t.data.affairs_yi
+              .map((a) => ({ a, list: yiDays.get(a) ?? [] }))
+              .filter((r) => r.list.length > 0);
+            if (!rows.length) return null;
+            return (
+              <div class="trade-row">
+                <a class="trade-name" href={`/trades/${t.id}/`}>{t.data.name}</a>
+                <div class="trade-affairs">
+                  {rows.map((r) => (
+                    <div class="affair">
+                      <span class="affair-name">宜{affairNameOf(r.a)}</span>
+                      <span class="dates">
+                        {r.list.map((iso) => (
+                          <a class="d" href={days.find((d) => d.iso === iso)!.href}>{Number(iso.slice(8))}</a>
+                        ))}
+                      </span>
+                    </div>
                   ))}
-                </>
-              ))}
-            </p>
-          );
-        })
+                </div>
+              </div>
+            );
+          })}
+        </div>
       ) : (
         <p class="muted">本月暫無各行業吉日資料。</p>
       )
@@ -104,5 +109,26 @@ const hasAnyYi = allYiAffairs.some((a) => (yiDays.get(a) ?? []).length > 0);
     .trade-days h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
     .trade-days p { margin: 0.5rem 0; }
     .small { font-size: var(--text-sm); }
+    .trade-rows { margin: 1.25rem 0; }
+    .trade-row {
+      display: grid; grid-template-columns: 11rem 1fr; gap: 0.75rem 1.25rem;
+      padding: 0.875rem 0; border-bottom: 1px dashed var(--line);
+    }
+    .trade-name { font-weight: 700; color: var(--ink); }
+    .trade-name:hover { color: var(--accent); text-decoration: none; }
+    .trade-affairs { display: flex; flex-direction: column; gap: 0.625rem; }
+    .affair { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem; }
+    .affair-name { font-size: var(--text-sm); color: var(--ink-soft); min-width: 5rem; }
+    .dates { display: flex; flex-wrap: wrap; gap: 0.3125rem; }
+    .dates .d {
+      display: inline-block; min-width: 2.25rem; text-align: center;
+      padding: 0.125rem 0.375rem; border: 1px solid var(--line); border-radius: 0.375rem;
+      background: var(--paper-2); font-size: var(--text-sm);
+      font-variant-numeric: tabular-nums;
+    }
+    .dates .d:hover { text-decoration: none; border-color: var(--accent-soft); }
+    @media (max-width: 40rem) {
+      .trade-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
   </style>
 </Base>

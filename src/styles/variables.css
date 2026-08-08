@@ -28,8 +28,12 @@
   --mask-opaque: #000; /* mask-image 實心端（mask 只取 alpha，任何不透明色皆等效） */
 
   /* ── 字級階梯（rem，相對 root 20px）── */
-  --text-xs: 1.125rem; /* 18px（≥18px 下限；原 16px 收斂至下限，.tag/footer 等使用處放大至 18px） */
-  --text-sm: 1.125rem; /* 18px */
+  /* 2026-08-08：--text-xs 與 --text-sm 原本同為 18px，階梯實際只有 6 階——
+     「註記」與「次要文字」在版面上一樣大，全站因此看起來很平（每一頁都只有兩層）。
+     18px 是團隊守門的硬下限（check-design 第 6 條），不能再往下切，
+     所以往上補一階：xs 18（圖說／來源／tag）→ sm 20（次要文字／按鈕／標籤）→ base 22（內文）。 */
+  --text-xs: 1.125rem; /* 18px（≥18px 下限；圖說、來源、tag 等最輕的一層） */
+  --text-sm: 1.25rem; /* 20px（次要文字：按鈕、小標、表格輔助欄） */
   --text-base: 1.375rem; /* 22px（內文） */
   --text-lg: 1.625rem; /* 26px */
   --text-xl: 2rem; /* 32px */

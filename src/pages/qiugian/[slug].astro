@@ -47,7 +47,12 @@ type Agg = { week_draws: number; baoxi: number; top: Record<string, number>; joy
 const st: Agg = (stats as unknown as Record<string, Agg>)[concern.id] ?? { week_draws: 0, baoxi: 0, top: {}, joys: [] };
 
 const sysLabel = systemName.get(concern.system) ?? concern.system;
-const patronDeities = concern.deities.map((id) => ({ id, name: deityById.get(id)?.name ?? id })).filter((d) => deityById.has(d.id));
+// 帶上職司（2026-08-08）：這幾張卡原本只有神名、其他全是留白，滿版高度配兩個字，
+// 看起來像壞掉或還沒載入。職司是 deities.json 既有且已掛源的欄位（同 /deities/ 索引的呈現），
+// 零新增事實，只是把卡片裡本來就該有的東西放進去。
+const patronDeities = concern.deities
+  .map((id) => ({ id, name: deityById.get(id)?.name ?? id, office: (deityById.get(id)?.office ?? []).slice(0, 3) }))
+  .filter((d) => deityById.has(d.id));
 
 // 求籤（抽一支籤）↔ 情境（怎麼拜/拜哪尊）互連，見 src/pages/scenarios/[slug].astro 反向對照。
 const SCENARIO_BY_CONCERN: Record<string, { id: string; label: string }> = {
@@ -135,7 +140,10 @@ const jsonLd = [
   <div class="divider">為{concern.label}，常拜這幾位</div>
   <div class="gods">
     {patronDeities.map((d) => (
-      <a class="god card" href={`/deities/${d.id}/`}><div class="n">{d.name}</div></a>
+      <a class="god card" href={`/deities/${d.id}/`}>
+        <div class="n">{d.name}</div>
+        {d.office.length > 0 && <div class="o">{d.office.join('・')}</div>}
+      </a>
     ))}
   </div>
 
@@ -210,9 +218,10 @@ const jsonLd = [
     .chip:hover { border-color: var(--accent-soft); }
     .chip:focus-visible { outline: 2.5px solid var(--accent-soft); outline-offset: 2px; }
 
-    .gods { display: flex; gap: 0.75rem; }
-    .god { flex: 1; padding: 1rem 1.125rem; text-decoration: none; color: var(--ink); }
+    .gods { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .god { flex: 1 1 14rem; padding: 1rem 1.125rem; text-decoration: none; color: var(--ink); }
     .god .n { font-size: var(--text-lg); }
+    .god .o { margin-top: 0.25rem; font-size: var(--text-sm); color: var(--accent); }
     .scenario-cta { margin-top: 1.25rem; }
 
   </style>

@@ -18,12 +18,23 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
     全站活動類型、陣頭、金紙、供品採受控詞彙：每詞一句定義、地方變體以別名收、逐詞掛來源；
     避免同義詞各自新增。
   </p>
+  {/* 分類跳轉（2026-08-08）：四大段、上百個詞條一次全開共 6,300px，
+      想看「金紙／紙錢」得先捲過前兩段。錨點指向下方既有的 <section>。 */}
+  <nav class="group-jumps" aria-label="跳到分類">
+    {groups
+      .filter((g) => ((vocab[g.key] as Term[]) ?? []).length > 0)
+      .map((g) => (
+        <a class="group-jump" href={`#g-${g.key}`}>
+          {g.label}<span class="n">{(vocab[g.key] as Term[]).length}</span>
+        </a>
+      ))}
+  </nav>
   {
     groups.map((g) => {
       const terms = (vocab[g.key] as Term[]) ?? [];
       if (terms.length === 0) return null;
       return (
-        <section>
+        <section id={`g-${g.key}`}>
           <h2>{g.label}<span class="count muted">（{terms.length}）</span></h2>
           <dl class="vocab">
             {terms.map((t) => (
@@ -45,7 +56,17 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
   }
   <style>
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; margin-top: 2.25rem; }
+    section { scroll-margin-top: 1rem; }
     .count { font-size: var(--text-sm); font-weight: 400; }
+    .group-jumps { display: flex; flex-wrap: wrap; gap: 0.625rem; margin: 1.25rem 0 0.5rem; }
+    .group-jump {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      padding: 0.4375rem 1rem; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--paper-2);
+      color: var(--ink); font-size: var(--text-sm);
+    }
+    .group-jump:hover { border-color: var(--accent-soft); color: var(--accent); text-decoration: none; }
+    .group-jump .n { color: var(--ink-soft); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
     .vocab .row { display: grid; grid-template-columns: 8.75rem 1fr; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px dashed var(--line); }
     .vocab dt { font-weight: 700; color: var(--accent); }
     .vocab dd { margin: 0; }

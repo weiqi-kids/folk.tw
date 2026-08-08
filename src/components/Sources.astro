@@ -16,14 +16,22 @@ const parsed = sources.map(parseSourceRef);
   <Fragment>
     {prefix}
     {parsed.map((p, i) => (
-      <Fragment>
+      /* 2026-08-08：每筆包一層 span 並 inline-block——廟宇頁的來源常有七八筆、
+         原本是一整條會在任意位置換行的灰字流水句，一筆來源被切成兩行的中間、
+         讀者根本看不出一筆到哪裡結束。包起來之後換行只會發生在「筆與筆之間」。
+         文字內容與分隔符完全沒動（來源標示是授權條件，不動它）。 */
+      <span class="s">
         {i > 0 ? '；' : ''}
         {p.url ? (
           <a href={p.url} rel="nofollow noopener" target="_blank">{p.label}</a>
         ) : (
           p.label
         )}
-      </Fragment>
+      </span>
     ))}
   </Fragment>
 )}
+
+<style>
+  .s { display: inline-block; }
+</style>

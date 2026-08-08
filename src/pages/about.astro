@@ -47,11 +47,24 @@ const faqLd = {
     做成逐條掛來源、諸說並陳的結構化知識。我們賣「看懂文化」，不賣「預言吉凶」。
   </p>
 
-  <section>
+  {/* 目錄（2026-08-08）：整頁 10,000px、八個主題一路往下，最後還接一份數百筆的圖片來源清單，
+      要找「版權與授權」得先捲過全部。錨點指向下方既有的 <section>，沒有新增內容。 */}
+  <nav class="toc" aria-label="本頁目錄">
+    <a href="#faq">常見問答</a>
+    <a href="#disclaimer">使用邊界與免責</a>
+    <a href="#negative">負面結果的呈現</a>
+    <a href="#respect">編輯尊重與廟際敏感</a>
+    <a href="#scope">範圍與身分聲明</a>
+    <a href="#license">版權與授權</a>
+    <a href="#credits">圖片來源</a>
+    <a href="#errata">可信度與勘誤</a>
+  </nav>
+
+  <section id="faq">
     <h2>常見問答</h2>
     {
       faqs.map((f) => (
-        <details class="faq">
+        <details class="faq disclosure">
           <summary>{f.q}</summary>
           <p>{f.a}</p>
         </details>
@@ -59,7 +72,7 @@ const faqLd = {
     }
   </section>
 
-  <section>
+  <section id="disclaimer">
     <h2>使用邊界與免責</h2>
     <p>
       本站為民俗文化考據與教育呈現，<strong>不構成醫療、法律、投資、命理或宗教指導建議</strong>。
@@ -82,7 +95,7 @@ const faqLd = {
     <p class="muted small">以上免責、責任限制與使用條款均已定稿。</p>
   </section>
 
-  <section>
+  <section id="negative">
     <h2>負面結果的呈現</h2>
     <p>
       凶籤、凶宜忌、疾病／訴訟分項，以文化脈絡與解讀呈現，避免命令式斷言；
@@ -90,7 +103,7 @@ const faqLd = {
     </p>
   </section>
 
-  <section>
+  <section id="respect">
     <h2>編輯尊重與廟際敏感</h2>
     <p>
       面向信眾語氣莊重，不褻瀆、不戲謔、不以神明與儀俗為哏。
@@ -99,7 +112,7 @@ const faqLd = {
     </p>
   </section>
 
-  <section>
+  <section id="scope">
     <h2>範圍與身分聲明</h2>
     <p>
       本站涵蓋以<strong>漢人民間信仰</strong>為主（海神／開拓神／族群神／行業神／愛情婦幼／動物神／自然神 七大類），
@@ -111,7 +124,7 @@ const faqLd = {
     </p>
   </section>
 
-  <section>
+  <section id="license">
     <h2>版權與授權</h2>
     <ul>
       <li>籤詩四句本文：多屬公有領域，直接收錄並標明系統／版本。</li>
@@ -163,7 +176,7 @@ const faqLd = {
     <p class="muted small">程式碼採開源授權（見原始碼庫 LICENSE）；資料來源逐條標註於各條目。</p>
   </section>
 
-  <section>
+  <section id="credits">
     <h2>圖片來源</h2>
     {/* 🔴 這段話是**清單的全稱斷言**，不是裝飾——下方逐張列出的每一種授權都必須在這裡被提到。
         2026-08-07 踩過：原句寫「代表圖皆取自 Wikimedia Commons」，但當天匯入 19 張內政部照片後，
@@ -203,7 +216,7 @@ const faqLd = {
     }
   </section>
 
-  <section>
+  <section id="errata">
     <h2>可信度與勘誤</h2>
     <p>
       本站每條目具來源標註。發現錯誤（事實、來源或判讀）歡迎回報；
@@ -221,10 +234,29 @@ const faqLd = {
     h2 { border-bottom: 1px solid var(--accent-soft); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .small { font-size: var(--text-sm); }
     li { margin: 0.375rem 0; }
+    section { scroll-margin-top: 1rem; }
+    .toc {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 0.625rem;
+      margin: 1.75rem 0 0.5rem; padding: 1.125rem 1.25rem;
+      border: 1px solid var(--line); border-radius: 0.625rem; background: var(--paper-2);
+    }
+    .toc a {
+      padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--ink-soft); font-size: var(--text-xs);
+    }
+    .toc a:hover { border-color: var(--accent-soft); color: var(--accent); text-decoration: none; }
     .faq { border-bottom: 1px dashed var(--line); padding: 0.625rem 0; }
-    .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+    /* .disclosure 已在 global.css 統一 summary 外觀，這裡只覆寫「問句要重一點」。 */
+    .faq > summary { font-weight: 700; color: var(--ink); font-size: var(--text-base); }
     .faq p { margin: 0.625rem 0 0; color: var(--ink-soft); }
-    .credits { font-size: var(--text-sm); color: var(--ink-soft); }
+    /* 圖片來源逐張列出是授權條件，不能收起來；但單欄一路往下有好幾百筆。
+       改成多欄密排，每一筆仍完整可見（含作者與授權連結），只是版面壓縮。 */
+    .credits {
+      font-size: var(--text-xs); color: var(--ink-soft);
+      list-style: none; padding-left: 0;
+      display: grid; gap: 0.125rem 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    }
     .credits li { margin: 0.1875rem 0; }
   </style>
 </Base>
