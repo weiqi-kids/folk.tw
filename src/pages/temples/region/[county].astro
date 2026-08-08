@@ -50,6 +50,7 @@ const towns = [...byTown.entries()]
   <nav class="crumb"><a href="/temples/">廟宇</a> ／ {name}</nav>
   <h1>{name}廟宇</h1>
   <p class="muted">{name}收錄 {num(temples.length)} 間，依鄉鎮市區瀏覽。</p>
+  <p class="nearby-entry"><a href="/temples/nearby/">用我的位置找附近的廟 →</a></p>
 
   {
     towns.length > 0 && (
@@ -85,6 +86,7 @@ const towns = [...byTown.entries()]
 
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .nearby-entry { margin: 0.625rem 0 0; font-size: var(--text-base); }
     .town-wall {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr));

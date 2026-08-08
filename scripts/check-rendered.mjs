@@ -1020,8 +1020,94 @@ let lcTempleSections = 0;
   }
 }
 
+// ── 不變量 13（2026-08-08 加）：「附近的廟」的頁面骨架與格網索引 ──────────────────
+//
+// 🔴 這條擋的是一整類「不會有紅燈的壞掉」：格檔沒產出、產錯格、欄位順序被改、
+//    或有人把結果槽刪了——症狀全都是「按下去查不到廟」，build 照樣全綠、頁面照樣渲染，
+//    只有真的拿手機站在廟前面的人才會發現。所以這裡驗到底，不抽樣。
+//
+// 三件事：
+//   ① 頁面骨架：定位鈕、結果清單、以及**預先渲染好的結果槽**必須都在。
+//      槽是這個功能的房規（不注入 DOM，見該頁檔頭），槽沒了 JS 就沒有地方寫。
+//   ② 格檔 ↔ 資料**雙向**逐筆相符：每一間有座標的廟都在它該在的那一格、欄位逐項相符；
+//      且 dist 裡不存在多出來的格檔。
+//   ③ 無座標的廟一間都不能出現在任何格檔（寧可查不到，也不能把人導到假座標）。
+//      切格與欄位規則一律 import 頁面用的那支 lib，本檔不重寫（重寫＝新的漂移源）。
+{
+  const { buildCells, cellKey } = await import('../src/lib/nearby-grid.ts');
+  const page = `${DIST}/temples/nearby/index.html`;
+  if (!existsSync(page)) {
+    violations.push('/temples/nearby/ 未建置');
+  } else {
+    const html = readFileSync(page, 'utf8');
+    if (!html.includes('id="nb-go"')) violations.push('/temples/nearby/ 缺定位按鈕（id="nb-go"）');
+    if (!html.includes('id="nb-list"')) violations.push('/temples/nearby/ 缺結果清單（id="nb-list"）');
+    const slots = (html.match(/class="nb-item"/g) ?? []).length;
+    if (slots === 0) {
+      violations.push('/temples/nearby/ 沒有任何預先渲染的結果槽（class="nb-item"）＝JS 無處可寫');
+    }
+    globalThis.__nbSlots = slots;
+    // 靜態退路：不給位置／無 JS 的人要有東西可用，同時這也是這頁對爬蟲的實際內容。
+    if (!html.includes('class="county-wall"')) {
+      violations.push('/temples/nearby/ 缺縣市清單（無 JS／不給權限時的唯一退路）');
+    }
+  }
+
+  const expected = buildCells(temples);
+  const cellDir = join(DIST, 'temples', 'nearby', 'cells');
+  let nbRows = 0;
+  for (const [key, rows] of expected) {
+    const file = join(cellDir, `${key}.json`);
+    if (!existsSync(file)) {
+      violations.push(`附近的廟：格檔缺少 ${key}.json（資料有 ${rows.length} 間廟落在這格）`);
+      continue;
+    }
+    let actual;
+    try {
+      actual = JSON.parse(readFileSync(file, 'utf8'));
+    } catch {
+      violations.push(`附近的廟：格檔 ${key}.json 不是合法 JSON`);
+      continue;
+    }
+    if (JSON.stringify(actual) !== JSON.stringify(rows)) {
+      violations.push(
+        `附近的廟：格檔 ${key}.json 與資料不符（檔內 ${Array.isArray(actual) ? actual.length : '?'} 筆、` +
+        `資料 ${rows.length} 筆；欄位順序或內容被改動？）`
+      );
+      continue;
+    }
+    // 每一筆都真的屬於這一格（防「格檔內容對、但整格算在錯的位置」）。
+    for (const r of rows) {
+      if (cellKey(r[2], r[3]) !== key) {
+        violations.push(`附近的廟：${r[0]} 被放進 ${key}.json，但其座標應落在 ${cellKey(r[2], r[3])}`);
+      }
+    }
+    nbRows += rows.length;
+  }
+  globalThis.__nbCells = expected.size;
+  globalThis.__nbRows = nbRows;
+
+  if (existsSync(cellDir)) {
+    const extra = readdirSync(cellDir)
+      .filter((n) => n.endsWith('.json'))
+      .filter((n) => !expected.has(n.replace(/\.json$/, '')));
+    for (const n of extra.slice(0, 5)) violations.push(`附近的廟：dist 有多餘的格檔 ${n}（資料裡沒有這一格）`);
+    if (extra.length > 5) violations.push(`附近的廟：另有 ${extra.length - 5} 個多餘格檔`);
+    // 無座標的廟不得出現在任何格檔。
+    const noCoord = new Set(temples.filter((t) => typeof t.lat !== 'number' || typeof t.lng !== 'number').map((t) => t.id));
+    if (noCoord.size) {
+      const inCells = new Set([...expected.values()].flat().map((r) => r[0]));
+      for (const id of noCoord) {
+        if (inCells.has(id)) violations.push(`附近的廟：${id} 無座標卻出現在格檔裡`);
+      }
+    }
+  } else if (expected.size) {
+    violations.push('附近的廟：dist 完全沒有格檔目錄（/temples/nearby/cells/）');
+  }
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複；另「附近的廟」頁骨架齊全（定位鈕／結果清單／${globalThis.__nbSlots} 個預渲染結果槽／無 JS 退路的縣市清單），格網索引 ${globalThis.__nbCells} 個格檔共 ${globalThis.__nbRows} 筆與資料**雙向**逐筆相符（每筆都落在正確的格、無多餘格檔、無座標者一間都不在裡面）。`);
   process.exit(0);
 }
 

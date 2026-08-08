@@ -1,0 +1,267 @@
+---
+/**
+ * 附近的廟（2026-08-08 上線，用戶指示）。
+ *
+ * 解決的問題：站上找一間廟只有兩條路——`/temples/` → 縣市 → 鄉鎮逐層點進去，
+ * 或知道廟名去 `/search/`。人站在一間廟前面、想知道「這是哪一間、站上怎麼寫」的時候，
+ * 兩條路都要求你先知道自己在哪個鄉鎮。這頁用裝置座標直接把最近的幾間排出來。
+ *
+ * 🔴 三條實作界線，改這頁前先讀：
+ *  ① **不注入 DOM**：結果列是 build 期就渲染好的 {LIMIT} 個空槽，JS 只寫 textContent／href／hidden。
+ *     這是全站房規（nav、ShareRow 同）——Astro scoped `<style>` 套不到 JS 注入的節點，
+ *     會靜默失樣（記憶 astro-scoped-style-innerhtml-pitfall、gate `check:scoped-styles`）。
+ *     所以本檔的 `<style>` 可以維持 scoped，不必 is:global。
+ *  ② **座標不外送**：只在瀏覽器裡算距離。頁面上那句承諾是真的，
+ *     底下的 gtag 事件刻意只帶「找到幾間／擴了幾圈」，**不可以把 lat/lng 放進去**。
+ *  ③ **無 JS／不給權限也要能用**：底下的縣市清單是靜態的，不是 fallback 補丁——
+ *     它讓這頁在爬蟲眼裡也有實際內容與內鏈，不是一個空殼工具頁。
+ *
+ * 格檔（`/temples/nearby/cells/*.json`）與切格規則見 `src/lib/nearby-grid.ts`，
+ * 全量驗證在 `scripts/check-rendered.mjs` 不變量 13。
+ */
+import Base from '../../../layouts/Base.astro';
+import { getTemples } from '../../../lib/queries';
+import { breadcrumb } from '../../../lib/seo';
+import { ALL_COUNTIES, templeCounty } from '../../../lib/temple-region';
+import { num } from '../../../lib/format';
+
+const temples = await getTemples();
+const located = temples.filter((t) => typeof t.data.lat === 'number' && typeof t.data.lng === 'number');
+
+// 縣市清單與 /temples/ 同一套計數規則（那頁是母體，這裡只是第二個入口）。
+const counts = new Map<string, number>();
+for (const t of temples) {
+  const c = templeCounty(t.data.district);
+  if (c) counts.set(c.slug, (counts.get(c.slug) ?? 0) + 1);
+}
+const regions = ALL_COUNTIES.map(([name, slug]) => ({ name, slug, n: counts.get(slug) ?? 0 })).filter((r) => r.n > 0);
+
+// 結果槽數。這個數字同時是 client script 的上限（它讀 DOM 裡實際有幾個槽，不另外寫死）。
+const LIMIT = 20;
+const slots = Array.from({ length: LIMIT }, (_, i) => i);
+---
+
+<Base
+  title="附近的廟"
+  description={`用你的位置，從站上 ${num(located.length)} 間有座標的廟裡找出離你最近的幾間，附直線距離、登記地址與主祀神。`}
+  jsonLd={breadcrumb([
+    { name: '廟宇', path: '/temples' },
+    { name: '附近的廟', path: '/temples/nearby' },
+  ])}
+>
+  <nav class="crumb"><a href="/temples/">廟宇</a> ／ 附近的廟</nav>
+  <h1>附近的廟</h1>
+  <p class="lead">
+    站上 {num(located.length)} 間廟有座標。按下面那顆鈕，瀏覽器會問你要不要給位置，
+    給了就把最近的 {LIMIT} 間依直線距離排出來。你的座標只用來在這台裝置上算距離，不會傳給我們。
+  </p>
+
+  <div class="nb-actions">
+    <button id="nb-go" type="button" class="nb-go">找出離我最近的廟</button>
+  </div>
+  <p id="nb-status" class="nb-status" role="status" aria-live="polite" hidden></p>
+
+  <ol id="nb-list" class="nb-list" hidden>
+    {
+      slots.map(() => (
+        <li class="nb-item" hidden>
+          <a class="nb-link">
+            <span class="nb-head">
+              <strong class="nb-name" />
+              <span class="nb-dist" />
+            </span>
+            <span class="nb-deity small" />
+            <span class="nb-addr small" />
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  <h2>依縣市瀏覽</h2>
+  <p class="muted">不想給位置，或人不在台灣，從這裡找也一樣。</p>
+  <div class="county-wall">
+    {
+      regions.map((r) => (
+        <a class="card county" href={`/temples/region/${r.slug}/`}>
+          <strong>{r.name}</strong>
+          <span class="muted count">{num(r.n)}</span>
+        </a>
+      ))
+    }
+  </div>
+
+  <style>
+    .crumb { margin-bottom: 0.625rem; font-size: var(--text-sm); }
+    .lead { max-width: 44rem; }
+    .nb-actions { margin: 1.5rem 0 0.625rem; }
+    .nb-go {
+      font-family: inherit;
+      font-size: var(--text-base);
+      color: var(--paper);
+      background: var(--accent);
+      border: 0;
+      border-radius: 0.25rem;
+      padding: 0.75rem 1.625rem;
+      cursor: pointer;
+    }
+    .nb-go:hover { background: var(--accent-soft); }
+    .nb-go[disabled] { background: var(--ink-soft); cursor: default; }
+    .nb-status { color: var(--ink-soft); font-size: var(--text-sm); margin: 0.625rem 0 0; }
+
+    .nb-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+    .nb-item { border-bottom: 1px solid var(--line); }
+    .nb-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.875rem 0.25rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .nb-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .nb-name { color: var(--ink); }
+    .nb-dist { color: var(--accent); font-size: var(--text-sm); white-space: nowrap; }
+    .nb-deity, .nb-addr { color: var(--ink-soft); font-size: var(--text-xs); }
+    .nb-deity:empty, .nb-addr:empty { display: none; }
+
+    .county-wall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .county {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.625rem;
+      padding: 0.75rem 1.0625rem;
+      margin: 0;
+    }
+    .county strong { color: var(--ink); }
+    .county .count { font-size: var(--text-sm); }
+  </style>
+
+  <script>
+    // 切格數學一律從 lib 來（見該檔 🔴）：這裡自己再寫一次 Math.floor，
+    // 格檔與查詢就會對不上，而且症狀是「查無資料」，不會有任何錯誤訊息。
+    import { cellKey, distanceMeters, distanceLabel, type NearbyRow } from '../../../lib/nearby-grid';
+
+    const btn = document.getElementById('nb-go') as HTMLButtonElement | null;
+    const statusEl = document.getElementById('nb-status');
+    const listEl = document.getElementById('nb-list');
+    if (btn && statusEl && listEl) {
+      const items = Array.from(listEl.querySelectorAll<HTMLLIElement>('.nb-item'));
+
+      const say = (msg: string) => {
+        statusEl.textContent = msg;
+        statusEl.hidden = false;
+      };
+      // 事件只帶「有沒有找到、擴了幾圈」，**不帶座標**（見檔頭界線 ②）。
+      const track = (name: string, params: Record<string, unknown>) => {
+        const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+        if (typeof w.gtag === 'function') w.gtag('event', name, params);
+      };
+
+      const cache = new Map<string, NearbyRow[]>();
+      async function loadCell(key: string): Promise<NearbyRow[]> {
+        const hit = cache.get(key);
+        if (hit) return hit;
+        let rows: NearbyRow[] = [];
+        try {
+          const res = await fetch(`/temples/nearby/cells/${key}.json`);
+          // 404＝那一格根本沒有廟（海上、山區），是正常結果不是錯誤。
+          if (res.ok) rows = (await res.json()) as NearbyRow[];
+        } catch {
+          rows = [];
+        }
+        cache.set(key, rows);
+        return rows;
+      }
+
+      // 以自己所在格為中心抓 (2r+1)² 格。r=1 約 30 km 見方，夠密的地方一輪就夠。
+      async function collect(lat: number, lng: number, r: number): Promise<NearbyRow[]> {
+        const [ci, cj] = cellKey(lat, lng).split('_').map(Number);
+        const keys: string[] = [];
+        for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) keys.push(`${ci + i}_${cj + j}`);
+        const all = await Promise.all(keys.map(loadCell));
+        return all.flat();
+      }
+
+      function render(lat: number, lng: number, rows: NearbyRow[]) {
+        const ranked = rows
+          .map((row) => ({ row, m: distanceMeters(lat, lng, row[2], row[3]) }))
+          .sort((a, b) => a.m - b.m)
+          .slice(0, items.length);
+        items.forEach((li, i) => {
+          const hit = ranked[i];
+          li.hidden = !hit;
+          if (!hit) return;
+          const [id, name, , , addr, deity] = hit.row;
+          const link = li.querySelector('a') as HTMLAnchorElement;
+          link.href = `/temples/${id}/`;
+          (li.querySelector('.nb-name') as HTMLElement).textContent = name;
+          (li.querySelector('.nb-dist') as HTMLElement).textContent = distanceLabel(hit.m);
+          (li.querySelector('.nb-deity') as HTMLElement).textContent = deity ? `主祀 ${deity}` : '';
+          (li.querySelector('.nb-addr') as HTMLElement).textContent = addr;
+        });
+        listEl!.hidden = ranked.length === 0;
+        return ranked.length;
+      }
+
+      async function locate(pos: GeolocationPosition) {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        say('正在找附近的廟…');
+        let ring = 1;
+        let rows = await collect(lat, lng, ring);
+        // 山區、離島、外海：一圈不夠就擴到 5×5（約 50 km 見方）再看一次。
+        if (rows.length < items.length) {
+          ring = 2;
+          rows = await collect(lat, lng, ring);
+        }
+        const n = render(lat, lng, rows);
+        btn!.disabled = false;
+        btn!.textContent = '重新定位';
+        if (n === 0) {
+          say('你附近沒有站上收錄的廟。可以改用下面的縣市清單找。');
+        } else {
+          say(`離你最近的 ${n} 間，依直線距離排序。`);
+        }
+        track('nearby_temples', { found: n, ring });
+      }
+
+      function failed(err: GeolocationPositionError) {
+        btn!.disabled = false;
+        btn!.textContent = '再試一次';
+        listEl!.hidden = true;
+        say(
+          err.code === err.PERMISSION_DENIED
+            ? '瀏覽器沒有給位置權限。可以改用下面的縣市清單找。'
+            : '這台裝置這次拿不到位置。可以改用下面的縣市清單找。',
+        );
+        track('nearby_temples_failed', { code: err.code });
+      }
+
+      btn.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+          say('這個瀏覽器不支援定位。可以改用下面的縣市清單找。');
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = '定位中…';
+        say('正在取得你的位置…');
+        navigator.geolocation.getCurrentPosition(locate, failed, {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 60000,
+        });
+      });
+    }
+  </script>
+</Base>

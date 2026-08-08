@@ -115,6 +115,9 @@ export default defineConfig({
         // 且 Google 會把首頁 SearchAction 的 urlTemplate 當真網址去抓——實測 `/search?q={search_term_string}`
         // 就出現在 GSC「已檢索－目前尚未建立索引」清單裡。見 src/pages/search.astro 註解。
         if (/\/search\/?$/.test(page.replace('https://folk.tw', ''))) return false;
+        // 「附近的廟」的格檔（/temples/nearby/cells/<格>.json）：是給前端算距離的資料檔，
+        // 不是頁面。提交給搜尋引擎只會拿抓取預算去換一堆 JSON。頁面本身（/temples/nearby/）保留。
+        if (/\/temples\/nearby\/cells\//.test(page)) return false;
         // 今日（Asia/Taipei, UTC+8）ISO 日期，與站內 today 定義一致。
         const TODAY = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。
@@ -168,7 +171,10 @@ export default defineConfig({
         }
         // 廟宇詳情頁：內政部開放資料大量匯入（約 7.9k），多為樣板化小廟，
         // 比照封存日期頁以最低優先降稀釋（保護新域爬取預算）；仍可被索引與內連。
-        if (/^\/temples\/[^/]+$/.test(path)) return { ...item, priority: 0.3, changefreq: ChangeFreqEnum.YEARLY };
+        // ⚠️ `/temples/nearby` 長得像廟宇詳情頁但不是——它是工具頁，不可落進這個 0.3 分支
+        //    （2026-08-08 上線時發現：本判斷排在下面的 hubs 之前，不排除就被當成一間廟降權）。
+        if (/^\/temples\/[^/]+$/.test(path) && path !== '/temples/nearby')
+          return { ...item, priority: 0.3, changefreq: ChangeFreqEnum.YEARLY };
         // 模組樞紐／靜態頁。
         // 樞紐頁 priority 0.8 / weekly。2026-07-30 補進 /festivals（新節日模組）與
         // /qiugian、/scenarios、/compare——這三個原本漏列而落到 0.7/monthly 的一般分支，

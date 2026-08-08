@@ -30,6 +30,9 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
   <h1>廟宇</h1>
   <p class="muted">收錄全台 {num(temples.length)} 間廟宇。依縣市瀏覽，或先看代表名廟。</p>
 
+  {/* 人在外面、想知道旁邊那間廟是哪一間時，逐層點縣市→鄉鎮是最慢的一條路。入口放第一屏。 */}
+  <p class="nearby-entry"><a href="/temples/nearby/">用我的位置找附近的廟 →</a></p>
+
   <h2>依縣市瀏覽</h2>
   <div class="county-wall">
     {
@@ -101,5 +104,6 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
     .small { font-size: var(--text-base); }
     .temple .muted { color: oklch(0.37 0.02 72); }
     .src { margin-top: 1.875rem; color: var(--gold); }
+    .nearby-entry { margin: 0.625rem 0 0; font-size: var(--text-base); }
   </style>
 </Base>

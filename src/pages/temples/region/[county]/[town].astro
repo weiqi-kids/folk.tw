@@ -96,6 +96,7 @@ const lead = [
   </nav>
   <h1>{cName}{town}廟宇</h1>
   <p class="lead">{lead}</p>
+  <p class="nearby-entry"><a href="/temples/nearby/">用我的位置找附近的廟 →</a></p>
 
   {
     deityStats.length > 0 && (
@@ -150,6 +151,7 @@ const lead = [
   </div>
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .nearby-entry { margin: 0.625rem 0 0; font-size: var(--text-base); }
     .lead { color: var(--ink); margin-bottom: 1.5rem; }
     .deity-stats, .documented { margin-bottom: 1.875rem; }
     .stats { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
