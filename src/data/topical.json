@@ -219,8 +219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
-      "empty_runs": 3
+      "last_checked": "2026-08-08",
+      "empty_runs": 4
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -521,8 +521,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
-      "empty_runs": 0
+      "last_checked": "2026-08-08",
+      "empty_runs": 1
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1976,8 +1976,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
-      "empty_runs": 0
+      "last_checked": "2026-08-08",
+      "empty_runs": 1
     }
   },
   {
@@ -2018,8 +2018,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
-      "empty_runs": 0
+      "last_checked": "2026-08-08",
+      "empty_runs": 1
     }
   },
   {
@@ -2073,11 +2073,23 @@
         ],
         "added": "2026-08-07T12:36:33.405Z",
         "hash": "39e8e399b48d"
+      },
+      {
+        "date": "2026-08-08",
+        "text": "沖縄都市單軌電車「ゆいレール」於八日提前恢復正常行駛，較原訂復駛時間提前。",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/news/entry-5444430.html"
+          }
+        ],
+        "added": "2026-08-08T12:33:55.968Z",
+        "hash": "da5dec34f844"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
+      "last_checked": "2026-08-08",
       "empty_runs": 0
     }
   },
@@ -2123,8 +2135,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-07",
-      "empty_runs": 0
+      "last_checked": "2026-08-08",
+      "empty_runs": 1
     }
   },
   {
@@ -2148,6 +2160,37 @@
     "lon": 126.6276177,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-05",
+        "text": "哈爾濱中央大街等淹水路段經搶排作業後路面已恢復乾爽，沿街店家陸續恢復營業，市容逐漸回復日常樣貌。",
+        "sources": [
+          {
+            "ref": "新浪新聞",
+            "url": "https://www.sina.cn/news/detail/5328643774753287.html"
+          }
+        ],
+        "added": "2026-08-08T12:35:30.915Z",
+        "hash": "ad3c301772bf"
+      },
+      {
+        "date": "2026-08-06",
+        "text": "哈爾濱這波強降雨經多方應急處置後，排澇搶救已見成效，城區積水路段陸續恢復有序運作。",
+        "sources": [
+          {
+            "ref": "騰訊新聞",
+            "url": "https://news.qq.com/rain/a/20260806A03FBO00?id=20260806A03FBO00&path=a&app=news&suid=&redirect_pc=1"
+          }
+        ],
+        "added": "2026-08-08T12:35:31.767Z",
+        "hash": "963612da091d"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-08",
+      "empty_runs": 0
+    }
   }
 ]
