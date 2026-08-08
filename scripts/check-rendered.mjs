@@ -984,7 +984,15 @@ let lcTempleSections = 0;
   } else {
     const html = readFileSync(file, 'utf8');
     // 引言＝<h2>圖片來源</h2> 之後、第一個 <h3> 之前那段。
-    const sec = html.slice(html.indexOf('圖片來源'));
+    // ⚠️ 2026-08-08：定位改成錨在 **<h2> 標題本身**，不再用 indexOf('圖片來源') 抓第一個字面。
+    //    /about/ 加了目錄之後，「圖片來源」四個字最先出現在目錄的 <a> 裡，
+    //    切出來的 lead 變成目錄到「責任限制」那個 <h3> 之間的東西，引言根本不在裡面
+    //    → gate 直接誤報。判準一點都沒放寬，只是把錨點釘準。
+    const h2 = html.match(/<h2[^>]*>圖片來源<\/h2>/);
+    if (!h2) {
+      violations.push('/about/ 找不到「圖片來源」的 <h2>，無法驗引言（版面被改動？）');
+    }
+    const sec = h2 ? html.slice(html.indexOf(h2[0]) + h2[0].length) : '';
     const lead = sec.slice(0, sec.indexOf('<h3'));
     const FAMILIES = [
       { id: 'moi', mark: '內政部', test: (img) => /religion\.moi\.gov\.tw/.test(img.source ?? '') },

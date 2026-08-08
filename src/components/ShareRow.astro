@@ -39,11 +39,9 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
     {/* 系統分享匣：唯一能到 Instagram 的路徑。無 navigator.share 的環境由 inline script 隱藏，
         並把 .share-copy 升為主鈕（加上 .primary）。 */}
     <button type="button" class="share-btn primary share-native" data-share-native hidden
-      data-title={title} data-url={url}>
-      <span class="ic" aria-hidden="true"></span>分享
-    </button>
+      data-title={title} data-url={url}>分享</button>
     <button type="button" class="share-btn share-copy" data-share-copy data-url={url}>
-      <span class="ic ic-link" aria-hidden="true"></span><span data-copy-label>複製連結</span>
+      <span data-copy-label>複製連結</span>
     </button>
     <a class="share-btn" href={fb} target="_blank" rel="noopener nofollow">Facebook</a>
     <a class="share-btn" href={threads} target="_blank" rel="noopener nofollow">Threads</a>
@@ -92,6 +90,11 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
 <style>
   .share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem 1rem; }
   .share-btns { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.625rem; }
+  /* 🔴 `hidden` 必須自己擋掉 display（2026-08-08 實測抓到，且是舊有的病）：
+     UA 樣式表給 [hidden] 的 display:none 會被**任何**作者端 display 宣告蓋掉，
+     原本 `.share-btn { display: inline-block }` 就已經讓那顆「分享到…」在沒有
+     navigator.share 的桌機上照樣顯示——版面因此永遠是四顆鈕，主鈕邏輯等於沒生效。 */
+  .share-btn[hidden] { display: none; }
   .share-btn {
     display: inline-flex; align-items: center; gap: 0.4em;
     padding: 0.5rem 1rem;
@@ -129,15 +132,4 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
     background: transparent;
   }
   .share-btn.done.primary { background: var(--ok-green); border-color: var(--ok-green); color: var(--paper-2); }
-  /* 圖示用 CSS 畫（不引外部資源、不放 emoji——emoji 在沒有 emoji 字型的桌機會變成豆腐）。
-     分享＝由中心往右上的箭頭；連結＝兩段相扣的圓角線。 */
-  .ic {
-    width: 0.62em; height: 0.62em; flex: none;
-    border: solid currentColor; border-width: 0.13em 0.13em 0 0;
-    transform: rotate(-45deg) translateY(0.1em);
-  }
-  .ic-link {
-    border-width: 0.13em; border-radius: 0.22em 0 0.22em 0;
-    transform: rotate(-45deg);
-  }
 </style>
