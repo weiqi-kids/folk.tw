@@ -25,7 +25,13 @@ const TODAY = new Date().toISOString().slice(0, 10);
 //    實例：內政部參拜流程有 3 筆的 Comment 自帶 `"`（來源的引號殘留），
 //    526 筆匯入後就這 3 筆紅燈——**渲染是對的，錯的是這個檢查**。
 //    ⚠️ 這不是把 escText 併成 escAttr：屬性值還要處理更多情形，兩者維持分開。
-const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// 🔴 這裡必須**完整對齊 Astro 的 escapeHTML 集合**：`& < > " '`，一個都不能少。
+//    2026-08-08 分兩次栽在同一件事上：先補了 `"`（3 筆參拜流程紅燈），
+//    當時沒想到 `'`，隔一個匯入批次又被 `Dynasty's` 咬（Astro 輸出 `&#39;`）。
+//    **逐字元補是錯的做法**——來源是政府資料，什麼字元都可能出現。
+//    改任何一邊都要同時想另一邊：這支的職責就是「重現 Astro 會輸出什麼」。
+const ASTRO_ESCAPE = [[/&/g, '&amp;'], [/</g, '&lt;'], [/>/g, '&gt;'], [/"/g, '&quot;'], [/'/g, '&#39;']];
+const escText = (s) => ASTRO_ESCAPE.reduce((acc, [re, to]) => acc.replace(re, to), String(s));
 const escAttr = (s) => escText(s);
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
