@@ -481,7 +481,9 @@ for (const file of townPageFiles(join(DIST, 'temples', 'region'))) {
 // ── 不變量 4：神明頁 title 的聖誕日期（2026-07-30 加；本檔首次涵蓋 deity 頁）──────────
 // 背景：GSC 實測神明頁 CTR 僅 1.13%，主流意圖是「○○生日／聖誕」＝一個日期就滿足，
 //       但 title 原本只有農曆、且用阿拉伯數字（農曆3月23日），從未命中查詢用的「農曆三月廿三」形式，
-//       也沒有使用者真正要的國曆。改為「・聖誕農曆三月廿三（國曆 4/29）」後，這裡逐尊全驗。
+//       也沒有使用者真正要的國曆。2026-08-09 再把 cohort 改為
+//       「媽祖生日｜聖誕農曆三月廿三（國曆 4/29）」：同時命中「生日／聖誕」，且拿掉首別名控制長度。
+//       這裡逐尊全驗關鍵詞、長度與日期同筆。
 // ⚠️ 不用「今天」去算期望值（build 與 gate 若跨越台灣午夜就會差一天而誤報）。
 //    改做**往返驗證**：把 title 上印的國曆 M/D 轉回農曆，必須等於該尊的聖誕 MM-DD
 //    （短月順延：卅日聖誕落在僅廿九日之農曆月底亦算相符）。年份未印在 title，故容許今年或明年。
@@ -564,7 +566,7 @@ let deityWithMoi = 0;
     if (!shengdan) {
       // 雙向反例：無聖誕者（如好兄弟／城隍／太歲）不得出現聖誕後綴，
       // 也不得因舊的 `?? realBdays[0]` 回退而漏出「・飛昇…」這類非聖誕字樣。
-      if (/・聖誕/.test(title)) violations.push(`${d.id} 無聖誕資料，title 卻出現「・聖誕」：${title}`);
+      if (/｜聖誕/.test(title)) violations.push(`${d.id} 無聖誕資料，title 卻出現「｜聖誕」：${title}`);
       if (/・(飛昇|得道|成道|其他)/.test(title)) {
         violations.push(`${d.id} title 出現非聖誕的日期後綴（應只用 kind==='聖誕'）：${title}`);
       }
@@ -578,8 +580,23 @@ let deityWithMoi = 0;
     //   (a) title 印的農曆標籤必須是該尊「某一筆真實聖誕」；
     //   (b) title 印的國曆 M/D 轉回農曆必須等於**同一筆**（短月順延亦算相符）。
     const shengdanDates = real.filter((b) => b.kind === '聖誕').map((b) => b.date);
-    const shown = title.match(/・聖誕(農曆[^（|]+)/);
-    if (!shown) { violations.push(`${d.id} title 缺「・聖誕農曆…」（實際：${title}）`); continue; }
+    if (!title.startsWith(`${d.name}生日｜聖誕`)) {
+      violations.push(`${d.id} title 未以「${d.name}生日｜聖誕」自然涵蓋兩種查詢用語：${title}`);
+      continue;
+    }
+    // 日期是這個 cohort 的核心答案，故標題不帶別名，並限制品牌前內容不超過 30 全形字。
+    // 英數各算半形；站名由 Base 統一附加，不列入 cohort 的內容預算。
+    const seoTitle = title.replace(/｜神酷$/, '');
+    const titleWide = [...seoTitle].reduce((n, c) => (/[^\x00-\xff]/.test(c) ? n + 1 : n + 0.5), 0);
+    if (titleWide > 30) {
+      violations.push(`${d.id} 生日 title 超過 30 全形字（${titleWide}）：${title}`);
+    }
+    const alias = (d.aliases ?? [])[0];
+    if (alias && alias !== d.name && seoTitle.includes(`（${alias}）`)) {
+      violations.push(`${d.id} 生日 title 不應塞入首別名「${alias}」（會擠掉日期）：${title}`);
+    }
+    const shown = title.match(/｜聖誕(農曆[^（|]+)/);
+    if (!shown) { violations.push(`${d.id} title 缺「｜聖誕農曆…」（實際：${title}）`); continue; }
     const shownLabel = shown[1].trim();
     const matchedDate = shengdanDates.find((dt) => lunarDateLabel(dt) === shownLabel);
     if (!matchedDate) {
@@ -609,7 +626,7 @@ let deityWithMoi = 0;
 }
 
 // ── 不變量 5：節日頁（2026-07-30 加）─────────────────────────────────────────
-// 每個 festivals.json 條目都必須有頁、有 answer-first .lead、有 FAQPage 與 Event 結構化資料，
+// 每個 festivals.json 條目都必須有頁、有 answer-first .lead、有 FAQPage 與 Article 結構化資料，
 // 且 title 上的國曆 M/D 同樣做農曆往返驗證（防日期算錯或模板寫死）。
 let festChecked = 0;
 for (const f of festivals) {
@@ -619,7 +636,10 @@ for (const f of festivals) {
   festChecked++;
   if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
   if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
-  if (!html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 缺 Event 結構化資料`);
+  if (!html.includes('"@type":"Article"')) violations.push(`節日頁 ${f.slug} 缺 Article 結構化資料`);
+  // 節日知識頁不是本站主辦的線下活動。反向擋住 Event，避免連帶宣稱
+  // EventScheduled、OfflineEventAttendanceMode 與 folk.tw organizer。
+  if (html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 不得宣稱 Event 結構化資料`);
   // 不變量 5d（2026-08-09 加）：一套儀式的完整內容**只准出現在主場節日頁**。
   // 背景：`pudu` 被 7 個節日頁指到，此前每頁都整組渲染它的步驟／供品／金紙／禁忌／地區差異，
   //       造成站內自我重複（實測與中元節頁的 8 字片段重疊：搶孤 84.4%、雞籠中元祭 71.6%），
@@ -721,6 +741,16 @@ for (const f of festivals) {
     violations.push(`節日頁 ${f.slug} 未出現日期標籤「${wantLabel}」`);
   }
   const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  const campaignTitleProbe = {
+    zhongyuan: '普渡供品、金紙與祭拜順序',
+    qixi: '七娘媽生、做十六歲與祭拜',
+    fangshuideng: '由來、對象與基隆中元祭',
+    'jilong-zhongyuan': '開龕門、放水燈與字姓輪值',
+    qianggu: '頭城、恆春日期與文化資產',
+  }[f.slug];
+  if (campaignTitleProbe && !title.includes(campaignTitleProbe)) {
+    violations.push(`節日頁 ${f.slug} title 未呈現本頁獨有的搜尋意圖：${title}`);
+  }
   const md = title.match(/(\d{1,2})\/(\d{1,2})/);
   if (!md && !f.date_note) {
     violations.push(`節日頁 ${f.slug} title 缺國曆日期：${title}`);
@@ -1186,7 +1216,7 @@ let lcTempleSections = 0;
 }
 
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊聖誕（農曆標籤＋國曆往返驗證）相符、其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複；另「附近的廟」頁骨架齊全（定位鈕／結果清單／${globalThis.__nbSlots} 個預渲染結果槽／無 JS 退路的縣市清單），格網索引 ${globalThis.__nbCells} 個格檔共 ${globalThis.__nbRows} 筆與資料**雙向**逐筆相符（每筆都落在正確的格、無多餘格檔、無座標者一間都不在裡面）。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊生日 title 同時含「生日／聖誕」、全形寬未超過 30，且農曆標籤／國曆往返驗證相符，其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複；另「附近的廟」頁骨架齊全（定位鈕／結果清單／${globalThis.__nbSlots} 個預渲染結果槽／無 JS 退路的縣市清單），格網索引 ${globalThis.__nbCells} 個格檔共 ${globalThis.__nbRows} 筆與資料**雙向**逐筆相符（每筆都落在正確的格、無多餘格檔、無座標者一間都不在裡面）。`);
   process.exit(0);
 }
 

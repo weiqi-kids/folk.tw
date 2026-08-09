@@ -92,8 +92,13 @@ if (realBdays.length > 0) {
 }
 // 描述用：帶農曆中文標籤＋國曆。
 const birthdayLabel = shengdanLunarLabel ? `，聖誕${shengdanLunarLabel}${solarPart}` : '';
-// 標題用：同上（只有 kind==='聖誕' 才加後綴；14 尊無聖誕者不加）。
-const titleBday = shengdanLunarLabel ? `・聖誕${shengdanLunarLabel}${solarPart}` : '';
+// 標題 cohort：有確切聖誕者同時自然命中使用者常搜的「○○生日」與資料用語「聖誕」。
+// 只用主名、不再塞首別名：別名仍完整留在 description／頁面，避免長神名加別名後把日期截掉。
+// shengdanPick 仍是同一筆農曆／國曆資料；無聖誕者維持既有「主名（首別名）」標題，不硬加生日。
+const baseTitle = d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name;
+const deityTitle = shengdanLunarLabel
+  ? `${d.name}生日｜聖誕${shengdanLunarLabel}${solarPart}`
+  : baseTitle;
 
 // 職司／是什麼神：以 category＋office＋summary 答覆（answer-first）。
 {
@@ -146,7 +151,7 @@ const jsonLd = [
 ---
 
 <Base
-  title={`${d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name}${titleBday}`}
+  title={deityTitle}
   description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
   ogType="article"
   ogImage={`/og/deities/${deity.id}.png`}

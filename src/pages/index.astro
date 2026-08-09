@@ -60,6 +60,43 @@ const featuredDeities = [
   { id: 'baosheng', name: '保生大帝' },
   { id: 'chenghuang', name: '城隍爺' },
 ];
+
+// 2026 農曆七月站內戰役主卡：首頁同時只有一個主題，放在每日一籤之前。
+// 建置時先渲染當日卡，前端再以台灣日期切換；即使數日沒部署也不會過期。
+// 9/10 後無匹配項目，卡片會自動隱藏，不留長期版位。
+const seasonalCampaigns = [
+  {
+    start: '2026-08-09', end: '2026-08-13', target: '2026-08-13', href: '/festivals/guimenkai/',
+    eyebrow: '農曆七月・本週重點', title: '2026 鬼門開是 8/13',
+    prompt: '農曆七月初一要做什麼？看開龕門、起燈腳與雞籠中元祭的起點。',
+    dateLabel: '8/13・農曆七月初一', cta: '查鬼門開日期與節俗 →',
+  },
+  {
+    start: '2026-08-14', end: '2026-08-19', target: '2026-08-19', href: '/festivals/qixi/',
+    eyebrow: '農曆七月・本週重點', title: '2026 七夕是 8/19',
+    prompt: '台灣七夕不只是情人節：看七娘媽生、做十六歲與開隆宮。',
+    dateLabel: '8/19・農曆七月初七', cta: '查七娘媽生與做十六歲 →',
+  },
+  {
+    start: '2026-08-20', end: '2026-08-26', target: '2026-08-26', href: '/festivals/fangshuideng/',
+    eyebrow: '農曆七月・本週重點', title: '2026 放水燈是 8/26',
+    prompt: '為什麼普渡前要放水燈？看「普照陰光」、祭祀對象與基隆海港脈絡。',
+    dateLabel: '8/26・農曆七月十四', cta: '查放水燈由來與儀式 →',
+  },
+  {
+    start: '2026-08-27', end: '2026-08-27', target: '2026-08-27', href: '/festivals/zhongyuan/',
+    eyebrow: '農曆七月・今日重點', title: '2026 中元節是 8/27',
+    prompt: '中元普渡怎麼拜？一次查祭拜順序、供品、金紙與禁忌。',
+    dateLabel: '8/27・農曆七月十五', cta: '查中元普渡完整整理 →',
+  },
+  {
+    start: '2026-08-28', end: '2026-09-10', target: '2026-09-10', href: '/festivals/dizang/',
+    eyebrow: '農曆七月・月底重點', title: '2026 鬼門關是 9/10',
+    prompt: '為什麼和地藏王菩薩聖誕同天？看關龕門、燒掛燈與撤燈篙。',
+    dateLabel: '9/10・農曆七月廿九', cta: '查鬼門關與地藏王聖誕 →',
+  },
+];
+const activeSeasonalCampaign = seasonalCampaigns.find((x) => x.start <= iso && iso <= x.end);
 ---
 
 <Base
@@ -71,6 +108,49 @@ const featuredDeities = [
     <h1>神酷<span class="alt">（神庫）</span></h1>
     <p class="tagline">查籤詩、看神明、懂台灣民俗</p>
   </header>
+  {
+    activeSeasonalCampaign && (
+      <section class="seasonal" data-seasonal-campaign>
+        <p class="campaign-kicker" data-campaign-eyebrow>{activeSeasonalCampaign.eyebrow}</p>
+        <article class="campaign-card card">
+          <p class="campaign-date">
+            <strong data-campaign-date>{activeSeasonalCampaign.dateLabel}</strong>
+            <span class="muted" data-campaign-countdown></span>
+          </p>
+          <h2><a href={activeSeasonalCampaign.href} data-campaign-link>{activeSeasonalCampaign.title}</a></h2>
+          <p data-campaign-prompt>{activeSeasonalCampaign.prompt}</p>
+          <p class="campaign-cta"><a href={activeSeasonalCampaign.href} data-campaign-cta>{activeSeasonalCampaign.cta}</a></p>
+        </article>
+        <script type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(seasonalCampaigns).replace(/</g, '\\u003c')} />
+        <script is:inline>
+          (() => {
+            const root = document.querySelector('[data-seasonal-campaign]');
+            const source = document.getElementById('seasonal-campaigns');
+            if (!root || !source) return;
+            const parts = new Intl.DateTimeFormat('en', {
+              timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
+            }).formatToParts(new Date());
+            const value = (type) => parts.find((part) => part.type === type)?.value;
+            const today = `${value('year')}-${value('month')}-${value('day')}`;
+            const campaigns = JSON.parse(source.textContent || '[]');
+            const active = campaigns.find((item) => item.start <= today && today <= item.end);
+            if (!active) { root.hidden = true; return; }
+            root.querySelector('[data-campaign-eyebrow]').textContent = active.eyebrow;
+            root.querySelector('[data-campaign-date]').textContent = active.dateLabel;
+            root.querySelector('[data-campaign-link]').textContent = active.title;
+            root.querySelector('[data-campaign-link]').setAttribute('href', active.href);
+            root.querySelector('[data-campaign-prompt]').textContent = active.prompt;
+            root.querySelector('[data-campaign-cta]').textContent = active.cta;
+            root.querySelector('[data-campaign-cta]').setAttribute('href', active.href);
+            const [y, m, d] = active.target.split('-').map(Number);
+            const [ty, tm, td] = today.split('-').map(Number);
+            const days = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(ty, tm - 1, td)) / 86400000);
+            root.querySelector('[data-campaign-countdown]').textContent = days === 0 ? '　今天' : `　還有 ${days} 天`;
+          })();
+        </script>
+      </section>
+    )
+  }
   <section class="hero">
     <p class="kicker">今日選讀 · {iso}（全站同一支）</p>
     {
@@ -176,6 +256,13 @@ const featuredDeities = [
     .brand-hero h1 { margin: 0; font-size: var(--text-2xl); letter-spacing: 0.1em; color: var(--accent); }
     .brand-hero h1 .alt { color: var(--ink-soft); font-size: var(--text-lg); font-weight: 400; }
     .brand-hero .tagline { margin: 0.25rem 0 0; color: var(--ink-soft); letter-spacing: 0.08em; }
+    .seasonal { margin: 0 0 2.25rem; }
+    .campaign-kicker { color: var(--accent); letter-spacing: 0.1em; font-size: var(--text-sm); margin: 0 0 0.625rem; }
+    .campaign-card { border-color: var(--gold); background: var(--paper-2); }
+    .campaign-card h2 { margin: 0.5rem 0 0.75rem; font-size: var(--text-xl); }
+    .campaign-card h2 a { color: var(--ink); }
+    .campaign-date { margin: 0; color: var(--accent); }
+    .campaign-cta { margin: 1rem 0 0; font-weight: 700; }
     .kicker { color: var(--gold); letter-spacing: 0.1em; font-size: var(--text-sm); margin: 0 0 0.625rem; }
     .daily { border-color: var(--accent-soft); }
     .daily-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.25rem; }

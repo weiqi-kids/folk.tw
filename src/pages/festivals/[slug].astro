@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
-import { breadcrumb, eventThing, faqPage } from '../../lib/seo';
+import { breadcrumb, faqPage, ORG } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
@@ -122,7 +122,7 @@ const multiDay = f.multi_day === true;
 const dateSentence = multiDay
   ? `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
   : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
-const pageTitle = multiDay
+const defaultPageTitle = multiDay
   ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
   : `${f.name}${year}是哪一天？${lunarLabel}・國曆${solarMd(iso)}`;
 
@@ -241,20 +241,6 @@ const faq = faqPage([
   ...(taboos.length > 0 ? [{ q: `${f.name}有什麼禁忌？`, a: `${taboos.join('；')}。` }] : []),
 ]);
 
-const jsonLd = [
-  breadcrumb([
-    { name: '節日', path: '/festivals' },
-    { name: f.name, path: `/festivals/${f.slug}` },
-  ]),
-  eventThing({
-    name: `${f.name}（${year}）`,
-    description: `${dateSentence}${f.lead}`,
-    startDate: iso,
-    eventType: '中元普渡',
-    url: `https://folk.tw/festivals/${f.slug}/`,
-  }),
-  ...(faq ? [faq] : []),
-].filter(Boolean);
 // meta description（2026-08-03）：原本是「日期句 ＋ lead 前 90 字」，
 // 但日期已經在 title 裡（「中元節2026是哪一天？」），description 再講一次等於浪費半句。
 // GSC 實測農曆七月的釘選字裡，「中元普渡」「普渡 供品」「七夕 拜什麼」「農曆七月 禁忌」全是 0 曝光——
@@ -272,9 +258,60 @@ const covers = [
   regionals.length > 0 ? '地區差異' : '',
   heritages.length > 0 ? '文化資產登錄層級與公告文號' : '',
 ].filter(Boolean);
-const pageDesc = covers.length
+const defaultPageDesc = covers.length
   ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${f.lead.slice(0, 40)}`
   : `${dateSentence}${f.lead.slice(0, 90)}`;
+
+// 2026-08-09 起的農曆七月搜尋戰役：只重組本頁已掛源、也確實渲染的資料，
+// 把「日期＋這頁真正回答的問題」放進 title/description。其他節日仍走通用模板。
+// ⚠️ 不在這裡補新事實；下列字詞均來自 festivals.json 的 lead/question 或已渲染區塊。
+const campaignSeo: Record<string, { title: string; description: string }> = {
+  zhongyuan: {
+    title: `${year} 中元節是 ${solarMd(iso)}｜普渡供品、金紙與祭拜順序`,
+    description: `${year} 中元節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理中元普渡的祭拜順序、供品、金紙、禁忌與地區差異，逐條掛出處。`,
+  },
+  qixi: {
+    title: `${year} 七夕是 ${solarMd(iso)}｜七娘媽生、做十六歲與祭拜`,
+    description: `${year} 七夕為國曆 ${solarMd(iso)}（${lunarLabel}）。台灣七夕也是七娘媽生，本頁整理七娘媽、做十六歲、七娘媽亭與台南開隆宮的現有掛源資料。`,
+  },
+  fangshuideng: {
+    title: `${year} 放水燈是 ${solarMd(iso)}｜由來、對象與基隆中元祭`,
+    description: `${year} 放水燈為國曆 ${solarMd(iso)}（${lunarLabel}）。說明「普照陰光」的用意、海上罹難者的祭祀對象，以及放水燈與基隆海港、雞籠中元祭的關係。`,
+  },
+  'jilong-zhongyuan': {
+    title: `${year} 雞籠中元祭｜開龕門、放水燈與字姓輪值`,
+    description: `${year} 雞籠中元祭自${lunarLabel}起，橫跨整個農曆七月。整理開龕門、豎燈篙、放水燈、公普、關龕門的儀式順序，以及字姓輪值與文化資產登錄。`,
+  },
+  qianggu: {
+    title: `${year} 搶孤｜頭城、恆春日期與文化資產`,
+    description: `${year} 搶孤日期不只一天：恆春於農曆七月十五，頭城於七月底關鬼門前。本頁整理兩地的現有掛源資料與文化資產登錄。`,
+  },
+};
+const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
+const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
+
+// 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
+// 因此用 Article，不宣稱 EventScheduled、OfflineEventAttendanceMode 或 folk.tw organizer。
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `https://folk.tw/festivals/${f.slug}/#article`,
+  url: `https://folk.tw/festivals/${f.slug}/`,
+  headline: pageTitle,
+  description: pageDesc,
+  inLanguage: 'zh-Hant-TW',
+  about: { '@type': 'Thing', name: f.name },
+  publisher: ORG,
+  mainEntityOfPage: `https://folk.tw/festivals/${f.slug}/`,
+};
+const jsonLd = [
+  breadcrumb([
+    { name: '節日', path: '/festivals' },
+    { name: f.name, path: `/festivals/${f.slug}` },
+  ]),
+  article,
+  ...(faq ? [faq] : []),
+].filter(Boolean);
 
 ---
 
