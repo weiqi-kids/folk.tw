@@ -711,6 +711,7 @@
     "festival_ref": [
       "中元七月"
     ],
+    "home_festival": "zhongyuan",
     "steps": [
       {
         "order": 1,

@@ -369,6 +369,14 @@ const practices = defineCollection({
     deities: z.array(z.string()).default([]), // → deity.id
     occasion: z.string().optional(),
     festival_ref: z.array(z.string()).default([]), // 接 M3 節日
+    // 🔴 這套儀式的「主場節日」slug（2026-08-09 加）。
+    // 一套儀式常被多個節日 practice_refs 指到（`pudu` 被中元節／搶孤／雞籠中元祭／鬼門開四頁指到），
+    // 而節日頁原本一律把完整步驟／供品／金紙／禁忌／地區差異整組渲染出來
+    // → **同一站內四頁互相高度重複**（實測 8 字片段重疊：搶孤 84.4%、雞籠中元祭 71.6%、鬼門開 70.3%），
+    // 而那兩個最重複的頁正好是 Google 不收錄的（`Discovered - currently not indexed`／`unknown to Google`）。
+    // 設了本欄後：只有主場節日渲染完整內容，其餘節日頁改成一句摘要＋連到 /practices/<id>/ 與主場節日。
+    // ⚠️ 沒設本欄＝維持舊行為（每個指到它的節日頁都渲染），所以只需要替「被多頁共用」的儀式設。
+    home_festival: z.string().optional(),
     // 步驟五要素同構（E.4）：順序/誰做/用什麼/對誰/禁忌
     steps: z
       .array(

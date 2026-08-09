@@ -42,6 +42,8 @@ const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
 const festivals = normalize(require('../src/data/festivals.json'));
+// 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
+const practices = normalize(require('../src/data/practices.json'));
 
 function normalize(j) {
   if (Array.isArray(j)) return j;
@@ -616,6 +618,28 @@ for (const f of festivals) {
   if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
   if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
   if (!html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 缺 Event 結構化資料`);
+  // 不變量 5d（2026-08-09 加）：一套儀式的完整內容**只准出現在主場節日頁**。
+  // 背景：`pudu` 被 7 個節日頁指到，此前每頁都整組渲染它的步驟／供品／金紙／禁忌／地區差異，
+  //       造成站內自我重複（實測與中元節頁的 8 字片段重疊：搶孤 84.4%、雞籠中元祭 71.6%），
+  //       而重疊最高的兩頁正是 Google 不收錄的那兩頁。
+  // 🔴 驗**雙向**，兩邊都是實害：主場頁少了＝把能排名的內容弄丟；非主場頁多了＝重複又回來。
+  //    而且兩種都不會有錯誤訊息，只會在幾週後從 GSC 看出來。
+  const mainPracticeId = (f.practice_refs ?? [])[0];
+  const mainPracticeData = mainPracticeId ? practices.find((p) => p.id === mainPracticeId) : null;
+  if (mainPracticeData?.home_festival && (mainPracticeData.steps ?? []).length > 0) {
+    const hasSteps = html.includes('<ol class="steps"');
+    const isHome = f.slug === mainPracticeData.home_festival;
+    if (isHome && !hasSteps) {
+      violations.push(`節日頁 ${f.slug} 是 ${mainPracticeId} 的主場，卻沒渲染完整步驟`);
+    }
+    if (!isHome && hasSteps) {
+      violations.push(`節日頁 ${f.slug} 不是 ${mainPracticeId} 的主場，卻渲染了完整步驟（站內重複內容）`);
+    }
+    // 非主場頁必須留下往正主頁的指路，否則讀者與爬蟲都走不過去。
+    if (!isHome && !html.includes(`/practices/${mainPracticeId}/`)) {
+      violations.push(`節日頁 ${f.slug} 未指向 /practices/${mainPracticeId}/`);
+    }
+  }
   // 不變量 5b（2026-07-31 加）：「當天有登記祭典的宮廟」名單。
   // 這一段是節日頁對 appi.news 等內容站的差異化資產（逐廟、掛源、可反查），
   // 故驗名單數量與資料完全相符——數字灌水或漏算都會被擋。

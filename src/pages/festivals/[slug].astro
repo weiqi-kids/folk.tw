@@ -98,12 +98,16 @@ export const getStaticPaths = (async () => {
         vocabByTerm,
         templesOnDate: templesOnDate.get(f.slug) ?? [],
         localOnDate: localByFestival.get(f.slug) ?? [],
+        // 主場節日的顯示名（本頁不是主場時，要連過去且寫得出名字）。
+        // 在這裡查是因為頁面本體拿不到 festivals 全集；查不到就給 null，模板退回只連 /practices/。
+        festivalNameBySlug: Object.fromEntries(festivals.map((x) => [x.slug, x.name])),
       },
     }));
 }) satisfies GetStaticPaths;
 
 const {
   f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm, templesOnDate, localOnDate,
+  festivalNameBySlug,
 } = Astro.props;
 
 const year = iso.slice(0, 4);
@@ -153,11 +157,38 @@ const siblingFestivals = f.season
 // 在 frontmatter 先收斂成明確的陣列，模板才不必到處 `mp?.x?.length > 0`（該寫法在 ts 下為 possibly undefined）。
 const mainPractice = linkedPractices[0];
 const mp = mainPractice?.data;
-const steps = mp?.steps ?? [];
-const offerings = mp?.offerings ?? [];
-const jossPaper = mp?.joss_paper ?? [];
-const taboos = mp?.taboo ?? [];
-const regionals = mp?.regional ?? [];
+
+// 🔴 **同一套儀式只在「主場節日」攤開**（2026-08-09，用戶裁示要打頭部詞後查出來的根因）。
+// 背景：`pudu` 被 7 個節日頁 practice_refs 指到（中元節／鬼門開／放水燈／雞籠中元祭／搶孤／義民／地藏），
+// 而本頁原本一律把它的完整步驟＋供品＋金紙＋禁忌＋地區差異整組渲染出來
+// → 那 7 頁彼此高度重複。實測（8 字片段與 /festivals/zhongyuan/ 的重疊率）：
+//   搶孤 84.4%、雞籠中元祭 71.6%、鬼門開 70.3%、清明 29.9%（清明用 saomu，故低）。
+// 而重疊最高的兩頁，正是 Google **不收錄**的那兩頁
+//   （搶孤＝`Discovered - currently not indexed`、雞籠中元祭＝`URL is unknown to Google`，2026-08-09 逐頁 URL Inspection），
+//   義民與地藏則是收錄了但 7 天 0 曝光。
+// ⚠️ 先前（2026-08-03，commit a030482）對這批頁下的藥是「補內鏈」，5 天後這幾頁狀態沒變——
+//   `jilong-zhongyuan` 現在有 191 頁連過去仍是 unknown。**別再重做補內鏈那一輪**，問題不在入口。
+// 非主場頁改成一句摘要＋連到 /practices/<id>/（那才是這套儀式的正主頁）與主場節日。
+const isPracticeHome = !mp?.home_festival || f.slug === mp.home_festival;
+const homeFestivalName = mp?.home_festival ? (festivalNameBySlug?.[mp.home_festival] ?? null) : null;
+
+const steps = isPracticeHome ? (mp?.steps ?? []) : [];
+const offerings = isPracticeHome ? (mp?.offerings ?? []) : [];
+const jossPaper = isPracticeHome ? (mp?.joss_paper ?? []) : [];
+const taboos = isPracticeHome ? (mp?.taboo ?? []) : [];
+const regionals = isPracticeHome ? (mp?.regional ?? []) : [];
+
+// 文資登錄（層級＋公告文號）：既有 events 欄位，此前節日頁完全沒渲染。
+// 這是各節日**真正獨有**的事實（雞籠中元祭＝國家重要民俗、頭城／恆春搶孤＝縣市定民俗，各有文號），
+// 正好補上非主場頁去重後少掉的份量。🔴 只陳述「被登錄為什麼、文號是什麼」，不推論活動內容。
+const HERITAGE_LABEL: Record<string, string> = {
+  national_important: '國家重要民俗',
+  national: '國定民俗',
+  county: '縣（市）定民俗',
+};
+const heritages = linkedEvents
+  .map((e) => ({ name: e!.data.name, h: e!.data.heritage }))
+  .filter((x) => x.h?.verified && x.h?.level && HERITAGE_LABEL[x.h.level]);
 
 // 來源：節日自身來源 ＋ 所連 practice/event 的來源（去重）
 const allSources = [
@@ -217,11 +248,15 @@ const jsonLd = [
 // 只是 title 與 description 都沒把它們露出來。
 // 這裡只列**該頁真的渲染得出來**的區塊（依 steps/offerings/taboos/regionals 是否有資料），
 // 零新增事實；沒有那些區塊的節日就退回原本的 lead。
+// ⚠️ 非主場頁的 steps/offerings/taboos/regionals 已被清空，covers 自然為空、退回 lead——
+//    這是對的：description 不該再宣稱本頁「說明供品與金紙」，那些內容已經移到主場頁了。
+//    改列本頁真正獨有的東西（文資登錄），沒有就退回 lead。
 const covers = [
   steps.length > 0 ? `${mainPractice?.data.title ?? f.name}怎麼拜` : '',
   offerings.length > 0 || jossPaper.length > 0 ? '供品與金紙' : '',
   taboos.length > 0 ? '禁忌' : '',
   regionals.length > 0 ? '地區差異' : '',
+  heritages.length > 0 ? '文化資產登錄層級與公告文號' : '',
 ].filter(Boolean);
 const pageDesc = covers.length
   ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${f.lead.slice(0, 40)}`
@@ -254,6 +289,44 @@ const pageDesc = covers.length
   </header>
 
   <p class="lead">{dateSentence}{f.lead}</p>
+
+  {/* 文資登錄：各節日真正獨有的事實（層級＋公告文號），此前完全沒渲染。
+      🔴 措辭界線：只說「被登錄為什麼、文號是什麼」，不推論「所以當天有辦什麼」。 */}
+  {
+    heritages.length > 0 && (
+      <section class="heritage">
+        <h2>文化資產登錄</h2>
+        <ul>
+          {heritages.map((x) => (
+            <li>
+              <strong>{x.name}</strong>　{HERITAGE_LABEL[x.h!.level!]}
+              {x.h!.authority_ref && <span class="muted small">（公告文號：{x.h!.authority_ref}）</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* 非主場頁：不重刻一次普渡流程，指到正主頁。理由見 frontmatter 的 isPracticeHome 註解。 */}
+  {
+    !isPracticeHome && mainPractice && (
+      <section class="practice-pointer">
+        <h2>{mainPractice.data.title}怎麼拜</h2>
+        <p>
+          {f.name}沿用{mainPractice.data.title}的儀式流程，本站不在這裡重複一次：
+          完整步驟、供品與金紙、禁忌與地區差異見
+          <a href={`/practices/${mainPractice.id}/`}>{mainPractice.data.title}</a>
+          {homeFestivalName && mp?.home_festival && (
+            <>
+              ，或<a href={`/festivals/${mp.home_festival}/`}>{homeFestivalName}</a>
+            </>
+          )}
+          。
+        </p>
+      </section>
+    )
+  }
 
   {
     steps.length > 0 && mainPractice && (
