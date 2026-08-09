@@ -338,6 +338,16 @@ const events = defineCollection({
         announcements: z
           .array(z.object({ date: z.string(), doc: z.string(), note: z.string().optional() }))
           .default([]),
+        // ── 2026-08-09（同日稍晚）：用戶回報**已取得文化部授權**，敘述文字改為可用 ──────
+        // 🔴 與上面那段「只收事實不收敘述」是**相反的規則，但不是推翻**：先前不收，是因為當時
+        //    查證的結論是「不在 data.gov.tw 開放資料集裡＝網站語文著作」，那個查證仍然成立；
+        //    改變的是**授權狀態**，不是資料性質。沿用內政部 2026-08-06 那次的做法：
+        //    **逐字引用、不改寫、每筆掛回個案公開網址**——我們沒有立場替官方敘述做摘要，
+        //    改寫反而引入杜撰風險（同 deities 的 `moi_knowledge` 欄位註解）。
+        // ⚠️ 若文化部給的條件不只「標示來源連結」，這三個欄位要一起重新評估。
+        register_reason: z.string().optional(), // 登錄／指定理由（逐字）
+        history: z.string().optional(), // 歷史沿革（逐字）
+        notices: z.array(z.string()).default([]), // 參觀注意事項（逐字）
         // 這筆登錄明細要在哪個節日頁攤開（同 practices 的 home_festival，理由一模一樣）。
         // ⚠️ 一個 event 常被多個節日 event_refs 指到：`jilong` 同時被中元節與雞籠中元祭指到、
         //    `hengchun_qianggu` 同時被中元節與搶孤指到。不設這個欄位就會**兩頁各印一份完整登錄明細**
@@ -349,7 +359,15 @@ const events = defineCollection({
     // 儀式順序（名稱＋時程）。同樣**只收名稱與時間，不收敘述**（理由同上）。
     // 這是雞籠中元祭那頁最需要的東西——它自己的提問就是「在哪幾天？儀式順序是什麼？」。
     ceremony_stages: z
-      .array(z.object({ name: z.string(), schedule: z.string().optional(), lunar: z.string().optional() }))
+      .array(
+        z.object({
+          name: z.string(),
+          schedule: z.string().optional(),
+          lunar: z.string().optional(),
+          // 2026-08-09 取得文化部授權後加：各段的說明（逐字，未改寫）。
+          description: z.string().optional(),
+        }),
+      )
       .default([]),
     region: z.array(z.string()).default([]),
     // 路線（D.4）：停駕/駐駕節點（geo-node）；GPS polyline 多為即時源（§12.4 發佈範圍外）故僅存節點＋來源指標

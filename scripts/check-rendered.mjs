@@ -659,6 +659,25 @@ for (const f of festivals) {
     if (home !== f.slug && printed) {
       violations.push(`節日頁 ${f.slug} 不是 ${eid} 的登錄主場，卻印出了它的公告文號 ${doc}（站內重複內容）`);
     }
+    // 不變量 5f（2026-08-09 加）：文資網逐字內容與**來源連結**必須同時在頁面上。
+    // 🔴 這是**授權條件**，不是排版偏好：2026-08-09 取得文化部授權，條件＝標示資料來源連結。
+    //    與內政部那批（不變量：建築特色／參拜流程「來源連結確實渲染在頁面上」）同一個規格——
+    //    少了連結就是違反授權，而那是不會有任何錯誤訊息的違反。
+    if (home !== f.slug) continue;
+    const h = ev.heritage;
+    const caseUrl = h.case_id ? `https://nchdb.boch.gov.tw/assets/overview/folklore/${h.case_id}` : null;
+    for (const [field, label] of [['register_reason', '登錄理由'], ['history', '歷史沿革']]) {
+      const text = h[field];
+      if (!text) continue;
+      // 取一段夠長、且不含會被 HTML 轉義字元的片段比對（逐字未改寫的證據）。
+      const probe = text.split('\n')[0].slice(0, 24);
+      if (probe && !html.includes(escText(probe))) {
+        violations.push(`節日頁 ${f.slug} 的 ${eid} ${label}未逐字渲染（找不到「${probe}」）`);
+      }
+    }
+    if ((h.register_reason || h.history || (h.notices ?? []).length) && caseUrl && !html.includes(caseUrl)) {
+      violations.push(`節日頁 ${f.slug} 引用了 ${eid} 的文資網逐字內容，卻沒有渲染來源連結（違反授權條件）`);
+    }
   }
   // 不變量 5b（2026-07-31 加）：「當天有登記祭典的宮廟」名單。
   // 這一段是節日頁對 appi.news 等內容站的差異化資產（逐廟、掛源、可反查），

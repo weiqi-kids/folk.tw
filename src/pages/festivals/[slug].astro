@@ -329,9 +329,30 @@ const pageDesc = covers.length
                 ))}</ul></dd></>
               )}
             </dl>
+            {/* 🔴 逐字引用、未改寫（2026-08-09 取得文化部授權，條件＝標示資料來源連結）。
+                明寫「引自」有兩個理由，與觀光署簡介那段同源：①授權條件要求標示出處
+                ②這段文字的語氣與站上其他文案不同，要讓讀者知道那是官方原文、不是我們寫的。 */}
+            {x.h!.register_reason && (
+              <div class="quoted">
+                <h3>登錄理由</h3>
+                {x.h!.register_reason.split('\n').filter(Boolean).map((para) => <p>{para}</p>)}
+              </div>
+            )}
+            {x.h!.history && (
+              <div class="quoted">
+                <h3>歷史沿革</h3>
+                {x.h!.history.split('\n').filter(Boolean).map((para) => <p>{para}</p>)}
+              </div>
+            )}
+            {(x.h!.notices ?? []).length > 0 && (
+              <div class="quoted">
+                <h3>參觀注意事項</h3>
+                {(x.h!.notices ?? []).flatMap((n) => n.split('\n')).filter(Boolean).map((para) => <p>{para}</p>)}
+              </div>
+            )}
             {x.h!.case_id && (
               <p class="muted small">
-                資料引自 <a href={`https://nchdb.boch.gov.tw/assets/overview/folklore/${x.h!.case_id}`} rel="nofollow">文化部國家文化資產網個案 {x.h!.case_id}</a>（僅取事實欄位）。
+                以上引自 <a href={`https://nchdb.boch.gov.tw/assets/overview/folklore/${x.h!.case_id}`} rel="nofollow">文化部國家文化資產網個案 {x.h!.case_id}</a>，逐字未改寫。
               </p>
             )}
           </div>
@@ -355,6 +376,7 @@ const pageDesc = covers.length
                   <strong>{s.name}</strong>
                   {s.schedule && <span class="muted small">　{s.schedule}</span>}
                   {s.lunar && s.lunar !== s.schedule && <span class="muted small">（{s.lunar}）</span>}
+                  {s.description && <p class="stage-desc">{s.description}</p>}
                 </li>
               ))}
             </ol>
@@ -651,6 +673,10 @@ const pageDesc = covers.length
     .heritage-case dd { margin: 0; }
     .heritage-case ul.criteria, .heritage-case ul.announces { margin: 0; padding-left: 1.1rem; }
     .stages .stage-list { line-height: 1.9; }
+    .stages .stage-desc { margin: 0.25rem 0 0.75rem; line-height: 1.8; }
+    .quoted { margin-top: 1rem; }
+    .quoted h3 { color: var(--gold); font-size: var(--text-sm); margin-bottom: 0.35rem; }
+    .quoted p { line-height: 1.8; margin: 0 0 0.5rem; }
     .facts li { line-height: 1.9; margin-bottom: 0.4rem; }
     .regional dt { font-weight: 700; margin-top: 0.75rem; }
     .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
