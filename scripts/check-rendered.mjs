@@ -12,6 +12,7 @@ import { createRequire } from 'node:module';
 // 期望字串必須永遠一致，複製一份規則過來的話遲早會漂。本檔跑在 --experimental-strip-types
 // 底下，讀得動 .ts。
 import { num } from '../src/lib/format.ts';
+import { commonTempleName } from '../src/lib/temple-name.ts';
 const require = createRequire(import.meta.url);
 
 const DIST = 'dist';
@@ -179,6 +180,20 @@ for (const t of temples) {
         violations.push(`${t.id} title 主祀神超過 8 全形字：${m[1]}`);
       }
     }
+    // 不變量 1h（2026-08-09 加）：法人前綴不得出現在 title 開頭。
+    // 背景：348 間廟的登記全名以「財團法人／社團法人」開頭，SERP 上第一眼看到的就是那四個字。
+    //       GSC 7 天實測這群 CTR 1.37%、其餘 10,342 間 2.42%；而「財團法人」本身零搜尋需求
+    //       （6,339 個查詢詞裡 11 個含這四字、81 曝光、0 點擊）。
+    // 🔴 驗**雙向**，兩邊都是實害：
+    //   ① title 不得以法人前綴開頭——退化回去就是把 CTR 賠掉，且不會有任何錯誤訊息；
+    //   ② 一般稱呼必須真的出現在 title——防「剝過頭把廟名剝沒了」。
+    // ⚠️ 只驗開頭。登記全名出現在 title 後段的括號裡是**刻意的**（放得下就留），不是違規。
+    if (pageTitle && /^(財團法人|社團法人)/.test(pageTitle)) {
+      violations.push(`${t.id} title 以法人前綴開頭（應改用一般稱呼，見 src/lib/temple-name.ts）：${pageTitle}`);
+    }
+    if (pageTitle && !pageTitle.includes(commonTempleName(t.name))) {
+      violations.push(`${t.id} title 未含一般稱呼「${commonTempleName(t.name)}」：${pageTitle}`);
+    }
   }
 
   // 不變量 1c（2026-07-31 加）：年度慶(祭)典區塊。
@@ -273,23 +288,24 @@ for (const t of temples) {
   }
 
   // 不變量 1g（2026-08-05 加）：觀光署簡介與開放時間。
-  // 背景：intro（115 間）與 history（22 間，逐間查證）是兩種東西且**互斥顯示**。
-  // 🔴 條件是 `!t.history` 而非 `!hasHistory`（founded||history||main_festival）——
-  //    用後者會讓「有 main_festival 但無 history」的廟連 intro 一起靜默消失。
-  //    頁面已改成 `!t.history`，這裡照同一條斷言，兩邊必然一致。
+  // 🔴 2026-08-09 起 intro 與 history **並存**（此前互斥，理由見 src/pages/temples/[id].astro 顯示段註解）。
+  //    斷言因此變成單純的雙向：有 intro 就必須顯示、沒有就不准顯示，**不再看 history**。
+  //    ⚠️ 舊條件是 `!t.history`（且刻意不是 `!hasHistory`，否則有 main_festival 的廟會連 intro
+  //    一起靜默消失）——那個坑在並存後自然消失，但別因此以為「顯示條件可以隨便寫」：
+  //    這裡與頁面必須永遠是同一條件，兩邊任一邊改了另一邊沒改，症狀就是整段安靜不見。
   const introBlock = html.match(/<section class="temple-intro"[^>]*>([\s\S]*?)<\/section>/)?.[1];
-  const wantIntro = !t.history && !!t.intro;
+  const wantIntro = !!t.intro;
   if (wantIntro) {
     qifuIntro++;
     if (!introBlock) {
-      violations.push(`${t.id}（有 intro 且無 history）應顯示簡介區塊，實際缺少`);
+      violations.push(`${t.id}（有 intro）應顯示簡介區塊，實際缺少`);
     } else {
       if (!introBlock.includes(escText(t.intro))) violations.push(`${t.id} 簡介區塊文字與 temples.json 的 intro 不符`);
       // OGDL 1.0 要求標示出處：頁面須明寫引自何處（頁尾 Sources 之外再標一次給讀者看）。
       if (!introBlock.includes('觀光資訊資料庫')) violations.push(`${t.id} 簡介區塊未標示來源（應含「觀光資訊資料庫」）`);
     }
   } else if (introBlock) {
-    violations.push(`${t.id}（${t.history ? '已有 history' : '無 intro'}）不應顯示簡介區塊，實際卻有`);
+    violations.push(`${t.id}（無 intro）不應顯示簡介區塊，實際卻有`);
   }
   // 開放時間：雙向。有資料必須出現在基本資料表且值相符；無資料不得出現該列。
   const hasOpenRow = html.includes('>開放時間</dt>');

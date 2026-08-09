@@ -7,6 +7,7 @@ import { getTemples, getDeities, getEvents, getSystems, getScenarios } from '../
 import concernsData from '../../data/concerns.json';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
+import { commonTempleName } from '../../lib/temple-name';
 import { imageCredit } from '../../lib/image-credit';
 import { lunarDateLabel } from '../../lib/birthdays';
 import { festivalNextSolar } from '../../lib/lunar-date';
@@ -322,6 +323,11 @@ const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' 
 //      首位過長（>8 全形字）則回退到已對映的神明節點短名，再不行就整段不加。
 //   ② 組出來超過 30 全形字就整段退回原樣，**不截字**——截字會把「｜神酷」切成半個詞。
 // 實測：7,801/7,891（98.9%）加得上，中位數 20 全形字、p90 24、超過 30 字者 3 頁。
+//
+// 2026-08-09 再加「法人前綴移到括號裡」：348 間廟的登記全名以「財團法人／社團法人」開頭，
+// 那群 CTR 1.37%、其餘 2.42%（GSC 7 天實測，完整數字與判準見 src/lib/temple-name.ts 檔頭）。
+// 🔴 **這不是截字**——拿掉的是零搜尋需求的法人前綴，登記全名仍完整出現在 title 的括號裡
+//    （放不下才退到只留一般稱呼），且 `<h1>`、meta description、內文一律仍是登記全名。
 const TITLE_MAX = 30;
 const TITLE_DEITY_MAX = 8;
 const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
@@ -331,10 +337,21 @@ const titleDeity = (() => {
   const node = refOk ? deityName.get(t.main_deity_ref!) : '';
   return node && fullWidth(node) <= TITLE_DEITY_MAX ? node : '';
 })();
-const titleHead = regionLabel ? `${t.name}・${regionLabel}` : (t.district ? `${t.name}・${t.district}` : t.name);
-const titleWithDeity = titleDeity ? `${titleHead}・主祀${titleDeity}` : titleHead;
+const commonName = commonTempleName(t.name);
+const legalParen = commonName === t.name ? '' : `（${t.name}）`;
+const regionSuffix = regionLabel ? `・${regionLabel}` : (t.district ? `・${t.district}` : '');
+const deitySuffix = titleDeity ? `・主祀${titleDeity}` : '';
+// 候選由「資訊最全」往「最精簡」排，取第一個裝得下的。
+// ⚠️ 順序刻意讓「主祀○○」贏過「（登記全名）」——前者命中沒有地圖包的修飾詞長尾（2026-07-31 實測），
+//    後者只是不想讓登記全名從 SERP 完全消失；兩者只能留一個時留前者。
 // 站名「｜神酷」由 Base.astro 附加，長度判斷須把它算進去。
-const templeTitle = fullWidth(`${titleWithDeity}｜神酷`) > TITLE_MAX ? titleHead : titleWithDeity;
+const templeTitle =
+  [
+    `${commonName}${legalParen}${regionSuffix}${deitySuffix}`,
+    `${commonName}${regionSuffix}${deitySuffix}`,
+    `${commonName}${legalParen}${regionSuffix}`,
+    `${commonName}${regionSuffix}`,
+  ].find((c) => fullWidth(`${c}｜神酷`) <= TITLE_MAX) ?? `${commonName}${regionSuffix}`;
 
 // FAQ（AEO）：全數就既有欄位出題，faqPage 會過濾空答；無資料的題目不生，絕不杜撰。
 const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);
@@ -484,18 +501,22 @@ const jsonLd = [
     <p class="qifu-more"><a href="/qiugian/">也可以為此刻的平安集氣 →</a></p>
   </section>
 
-  {/* 簡介（觀光署景點資料庫，115 間）。
-      🔴 與「沿革」是兩種東西，**互斥顯示**：`history` 是逐間查證的敘述句（22 間，品質較高），
-      匯入器對有 history 者根本不寫 intro，所以這裡不會同時出現。
+  {/* 簡介（觀光署景點資料庫）。
       明寫「引自」有兩個理由：①OGDL 1.0 要求標示出處（頁尾 Sources 也有，這裡再標一次給讀者看）
       ②這段文字的語氣與站上其他文案不同，告訴讀者那是政府原文、不是我們寫的。
-      ⚠️ **不改寫原文**——改寫就是杜撰風險；不合用的整筆不採用（規則見 scripts/lib/tourism-intro.mjs）。 */}
-  {/* ⚠️ 條件是 `!t.history` 而**不是** `!hasHistory`：後者的定義是
-      `founded || history || main_festival`，用它會讓「有 main_festival 但無 history」的廟
-      連 intro 一起消失。今天這種廟是 0 間，但日後有人替某間有 intro 的廟補上 main_festival，
-      intro 就會**靜默不見**。intro 只該讓位給真正的沿革文字，不該讓位給祭典欄位。 */}
+      ⚠️ **不改寫原文**——改寫就是杜撰風險；不合用的整筆不採用（規則見 scripts/lib/tourism-intro.mjs）。
+
+      🔴 **2026-08-09：與「沿革」由互斥改為並存（用戶裁示）。**
+      舊規則是「有 history 就不顯示 intro」，立法時 history 只有 22 間、是我們逐間查證的敘述句，
+      「品質較高者勝出」講得通。但 2026-08-06 內政部沿革匯入後 history 變成 3,273 間的
+      **政府登記原文**——那是逐年條列的建廟編年（「清康熙七年鄭成功部何積善等擴大興建…」），
+      與觀光署那段白話導覽（「相傳明朝末年，麻豆一位信女…」）**是互補的兩種東西，不是同一件事的兩個版本**。
+      互斥的實害在 2026-08-09 併頁時現形：鹽水武廟併入 MOI 沿革，白話簡介被 gate 逼著整段刪掉，
+      頁面反而變薄。改為並存後兩段各自掛各自的來源，讀者先讀白話再讀編年。
+      ⚠️ **並存不等於可以把兩段揉成一段**：合寫就要改寫，改寫就是杜撰風險（§2 紅線 1）。
+      兩段各自逐字、各自標源，這是「介紹更詳細」唯一不踩紅線的做法。 */}
   {
-    !t.history && t.intro && (
+    t.intro && (
       <section class="temple-intro">
         <h2>簡介</h2>
         <p class="intro-body">{t.intro}</p>

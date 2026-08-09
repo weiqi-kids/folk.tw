@@ -27,9 +27,10 @@
 //   · idx=4 參拜流程 → `worship_flow`。
 //   · `AttachType === 'pic'` → 照片候選，另存清單給 gen-intake-urls-photos.mjs。
 //
-// ⚠️ `intro`（觀光署）與 `history` **不得並存**（check:integrity 硬擋）。
-//    預設**跳過已有 intro 的廟**，不動它們；要改用沿革取代觀光文案請加 `--replace-intro`
-//    （那會一併移除 intro，但保留 open_time 與觀光署來源標註）。
+// 🔴 `intro`（觀光署白話導覽）與 `history`（內政部登記編年）**並存**（2026-08-09 用戶裁示）。
+//    兩段是互補的兩種東西，各自逐字、各自標源、頁面上下排。此前是互斥：預設跳過已有 intro 的廟
+//    （59 間拿不到沿革），加 `--replace-intro` 則反過來把 intro 整段刪掉——兩種都在丟資料。
+//    `--replace-intro` 保留但不再是常規用法（只在確認某筆 intro 該退場時才用）。
 //
 // 用法：
 //   node scripts/import-temple-history.mjs              # 乾跑（預設）
@@ -116,7 +117,7 @@ const { resolve: resolveTemple, stat: mstat } = makeResolver(owner, temples);
 
 const stat = {
   json: 0,
-  written: {}, decoded: 0, skippedExisting: 0, skippedPlaceholder: 0, skippedIntro: 0, photos: 0,
+  written: {}, decoded: 0, skippedExisting: 0, skippedPlaceholder: 0, coexistIntro: 0, photos: 0,
 };
 const photoList = [];
 
@@ -146,11 +147,12 @@ for (const { dir, f } of jsonFiles.sort((a, b) => (a.f < b.f ? -1 : a.f > b.f ? 
   } else if (t[field]) {
     stat.skippedExisting++;
     if (VERBOSE) console.log(`  ${key} ${KIND[idx]} → ${t.id}：已有 ${field}，不覆寫`);
-  } else if (field === 'history' && t.intro && !REPLACE_INTRO) {
-    stat.skippedIntro++;
-    if (VERBOSE) console.log(`  ${key} 沿革 → ${t.id}：已有觀光署 intro，預設不動（--replace-intro 可覆蓋）`);
   } else {
-    if (field === 'history' && t.intro) delete t.intro; // check:integrity 硬擋兩者並存
+    // 🔴 2026-08-09 起 `intro` 與 `history` **並存**（用戶裁示，理由見 src/pages/temples/[id].astro
+    //    的顯示段註解）。此前這裡會跳過已有 intro 的廟（59 間），或在 --replace-intro 時
+    //    把 intro 整段刪掉——兩種做法都在丟資料。現在兩段各自逐字、各自標源，一起顯示。
+    if (field === 'history' && t.intro) stat.coexistIntro++;
+    if (REPLACE_INTRO && field === 'history' && t.intro) delete t.intro;
     t[field] = comment;
     t.sources = t.sources ?? [];
     const ref = `${SOURCE_PREFIX}·${KIND[idx]} https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=${key.split('-')[0]}&IndexID=${idx}&_t=0`;
@@ -204,7 +206,7 @@ console.log(`  廟名唯一命中　　${mstat.byUnique}｜行政區消歧 ${mst
 console.log(`  同名無法消歧　　${mstat.unresolved}｜站上無此廟 ${mstat.notInDb}｜結果頁查無此 id ${mstat.noOwner}`);
 console.log('  ── 寫入 ──');
 for (const [k, v] of Object.entries(stat.written)) console.log(`  ${k}　${v} 筆`);
-console.log(`  entity 解碼修正 ${stat.decoded}｜已有不覆寫 ${stat.skippedExisting}｜佔位值略過 ${stat.skippedPlaceholder}｜有 intro 不動 ${stat.skippedIntro}`);
+console.log(`  entity 解碼修正 ${stat.decoded}｜已有不覆寫 ${stat.skippedExisting}｜佔位值略過 ${stat.skippedPlaceholder}｜與觀光署 intro 並存 ${stat.coexistIntro}`);
 console.log(`  照片候選 ${stat.photos}`);
 
 if (PHOTOS) {

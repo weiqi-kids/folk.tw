@@ -310,12 +310,17 @@ softReport.push(
     `其中 ${lcItems.filter((x) => x.temple_ref).length} 項可唯一對映到廟（其餘留空＝寧缺勿假）`,
 );
 
-// 廟宇 intro／open_time（交通部觀光署觀光資訊資料庫，OGDL 1.0，2026-08-05 匯入）硬驗三件事：
+// 廟宇 intro／open_time（交通部觀光署觀光資訊資料庫，OGDL 1.0，2026-08-05 匯入）硬驗兩件事：
 //   ・有 intro／open_time 必須有對應來源標註（OGDL 1.0 要求標示出處，且 §5 無源不發佈）。
-//   ・intro 不得同時與 history 並存——那 22 間 history 是逐間查證的敘述句，品質高於觀光文案，
-//     匯入器對有 history 者不寫 intro；並存代表有人繞過匯入器手改。
 //   ・intro 不得命中行銷／旅遊指南腔詞表。**規則與匯入器共用同一支 lib**，
 //     否則 gate 擋不住日後手改（這正是把規則抽成 lib 的理由）。
+//
+// 🔴 **2026-08-09 拿掉「intro 不得與 history 並存」這道硬擋（用戶裁示）。**
+//    立法時（2026-08-05）history 只有 22 間、是我們逐間查證的敘述句，講「品質較高者勝出」成立。
+//    2026-08-06 內政部沿革匯入後 history 是 3,273 間的政府登記編年，與觀光署的白話導覽互補而非重複，
+//    互斥反而讓併頁時整段白話簡介被刪掉（鹽水武廟）。理由全文見 src/pages/temples/[id].astro 的顯示段註解。
+//    ⚠️ 拿掉的只是「不得並存」，**「有 intro 必須有觀光署來源標註」與腔調詞表兩道仍在**——
+//    並存不代表可以少標一個源，更不代表可以把兩段揉成一段（揉＝改寫＝杜撰風險）。
 const { TOURISM_SOURCE, acceptIntro } = await import('./lib/tourism-intro.mjs');
 let tIntro = 0;
 let tOpen = 0;
@@ -327,8 +332,6 @@ for (const t of temples) {
   if (hasOpen) tOpen++;
   if (!(t.sources ?? []).some((s: { ref?: string }) => (s.ref ?? '').includes(TOURISM_SOURCE)))
     hard(`temple ${t.id}：有 intro／open_time 卻無「${TOURISM_SOURCE}」來源標註`);
-  if (hasIntro && t.history)
-    hard(`temple ${t.id}：intro 與 history 並存（history 為已查證敘述句，應優先且不共存）`);
   if (hasIntro) {
     const v = acceptIntro((t as { intro?: string }).intro);
     if (!v.ok) hard(`temple ${t.id}：intro 不符採用規則（${v.why}）——見 scripts/lib/tourism-intro.mjs`);
