@@ -1384,7 +1384,7 @@
   {
     "id": "xinzhuang_dizangan_dazhongye",
     "name": "新莊地藏庵文武大眾爺祭典",
-    "host_temple": "moi_5205_新莊地藏庵",
+    "host_temple": "xinzhuang_dizhong_mazu",
     "main_deity": "haoxiongdi",
     "type": [
       "夜巡",

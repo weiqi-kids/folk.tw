@@ -373,6 +373,55 @@ for (const t of temples) {
 }
 softReport.push(`內政部條目內容：architecture ${tArch} 間、worship_flow ${tFlow} 間、沿革(MOI 來源) ${tMoiHistory} 間`);
 
+// ── 同廟兩頁偵測（2026-08-09 立）────────────────────────────────────────────────
+// 🔴 這條擋的是一整類：**手工策展廟在內政部開放資料裡以法人全名（或去掉地名的短名）又出現一次**，
+//    站上就有兩頁指同一間廟。2026-08-07 併了 3 對、2026-08-09 又併了 14 對——
+//    第二批是靠 /temples/nearby/ 實測時「同一間廟在離你 50 公尺的名單上並排出現」才發現的，
+//    而那純屬運氣：在縣市頁那種長清單裡它完全看不出來。所以這次做成機器每次都跑的偵測。
+//    軟提示不硬擋：判準是啟發式（座標＋名稱），硬擋會在資料更新時誤殺真的不同廟
+//    （老市區廟宇密集，100 公尺內好幾間是常態）。它的職責是**讓人看見**，不是替人決定。
+// 判準：策展廟（id 非 moi_ 開頭）與 MOI 條目，座標 100 公尺內 **且** 名稱去掉法人／地名前綴後互相包含。
+{
+  const merged = new Set(
+    (JSON.parse(readFileSync(join(root, 'src/data/temple-redirects.json'), 'utf8')).redirects as {
+      from: string;
+    }[]).map((r) => r.from),
+  );
+  const normName = (s: string) =>
+    String(s ?? '')
+      .replace(/臺/g, '台')
+      .replace(/^(宗教)?(財團|社團)法人/, '')
+      .replace(/^台灣省/, '')
+      .replace(/^[^市縣]{2,3}[市縣]/, '')
+      .replace(/\s/g, '');
+  const R = Math.PI / 180;
+  const distM = (a: any, b: any) =>
+    2 * 6371008.8 * Math.asin(Math.min(1, Math.sqrt(
+      Math.sin(((b.lat - a.lat) * R) / 2) ** 2 +
+      Math.cos(a.lat * R) * Math.cos(b.lat * R) * Math.sin(((b.lng - a.lng) * R) / 2) ** 2)));
+  const curated = temples.filter((t: any) => !t.id.startsWith('moi_') && typeof t.lat === 'number');
+  const moiRows = temples.filter((t: any) => t.id.startsWith('moi_') && typeof t.lat === 'number');
+  const dups: string[] = [];
+  for (const c of curated) {
+    const cn = normName(c.name);
+    for (const m of moiRows) {
+      if (merged.has(m.id)) continue;
+      if (distM(c, m) > 100) continue;
+      const mn = normName(m.name);
+      if (!(mn === cn || mn.endsWith(cn) || cn.endsWith(mn))) continue;
+      dups.push(`${c.id}（${c.name}）↔ ${m.id}（${m.name}）相距 ${Math.round(distM(c, m))} 公尺`);
+    }
+  }
+  if (dups.length) {
+    softReport.push(
+      `⚠️ 疑似同廟兩頁 ${dups.length} 對（未併頁）：${dups.join('；')}` +
+        `　→ 併頁作法見 src/data/temple-redirects.json 的 _readme`,
+    );
+  } else {
+    softReport.push('同廟兩頁偵測：無新的疑似重複（已併頁者見 temple-redirects.json）');
+  }
+}
+
 // 神明的宗教知識+ 引文：逐字引用，來源連結同樣是授權條件。
 let dMoi = 0;
 for (const d of deities) {

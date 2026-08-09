@@ -12,7 +12,22 @@
     "   還要用併掉條目的地名字串擋同事件再開頁——資料本身還有用途，情況不同。）",
     "",
     "併之前必須先把舊頁獨有的資料搬到正本，不然轉址等於刪資料。",
-    "2026-08-07 這三筆搬的是 `festivals`（1／1／6 筆）與內政部 8203 的 sources 標註（授權要求標示來源）。"
+    "2026-08-07 這三筆搬的是 `festivals`（1／1／6 筆）與內政部 8203 的 sources 標註（授權要求標示來源）。",
+    "",
+    "2026-08-09 第二批 14 對（由 /temples/nearby/ 實測時發現：同一間廟在「離你 50 公尺」的名單上並排出現）。",
+    "這批遇到頭三筆沒遇過的情形，規則補在這裡：",
+    "  · 搬 MOI 版獨有的欄位（festivals／history／architecture／worship_flow），",
+    "    **正本已有的同名欄位一律不覆蓋**——策展版是逐間查證的，品質高於開放資料（既有政策）。",
+    "  · 只搬「與所搬欄位對應」的來源標註（內政部授權條件＝標示來源連結），不整包複製。",
+    "  · 🔴 **來源本身錯置的不搬**：頭城慶元宮那筆 MOI 沿革講的是羅東郡五結庄供奉香山祖師的廟，",
+    "    與本廟（頭城、天上聖母）不符。搬過去等於在正本頁面上發佈一段別間廟的沿革＝杜撰。",
+    "    同一組上傳的 architecture 一併不採（來源可信度已破，無法單獨採信）。",
+    "  · ⚠️ `intro` 與 `history` 互斥（check:integrity 硬擋）：鹽水武廟搬入 MOI 沿革後移除了觀光署 intro，",
+    "    依既有政策「沿革優先於觀光文案」。要改回來就是反過來不搬 history。",
+    "  · `src/data/events.json` 的 `host_temple` 若指向被併掉的 id 要一起改指正本（本批 1 筆）。",
+    "  · `src/data/temples.import.json` 是匯入暫存、不供頁面消費，**不動它**（前一批也沒動）。",
+    "",
+    "漏網的重複由 `pnpm check:integrity` 的重複廟偵測負責提醒（策展廟 vs MOI 條目，座標近＋名稱吻合）。"
   ],
   "redirects": [
     {
@@ -29,6 +44,76 @@
       "from": "moi_11074_財團法人南鯤鯓代",
       "to": "nankunshen_daitian",
       "why": "同一間南鯤鯓代天府。MOI 版是法人全名且 id 被 slug 截斷成「南鯤鯓代」；手工版有沿革、創建年代、官網、代表圖，留手工版。已把 MOI 版的 6 筆 festivals（五府千歲各聖誕）與 8203 來源標註併入。"
+    },
+    {
+      "from": "moi_8928_財團法人臺中市大",
+      "to": "dajia_zhenlan",
+      "why": "同一間大甲鎮瀾宮。MOI 版名稱是「財團法人臺中市大甲鎮瀾宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(1 筆)。"
+    },
+    {
+      "from": "moi_10629_拱天宮",
+      "to": "baishatun_gongtian",
+      "why": "同一間白沙屯拱天宮。MOI 版名稱是「拱天宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(1 筆)。"
+    },
+    {
+      "from": "moi_8756_財團法人台灣省屏",
+      "to": "donggang_dongling",
+      "why": "同一間東港東隆宮。MOI 版名稱是「財團法人台灣省屏東縣東港東隆宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。無獨有內容可併，僅補來源標註。"
+    },
+    {
+      "from": "moi_6272_武廟",
+      "to": "yanshui_wumiao",
+      "why": "同一間鹽水武廟（MOI 版就叫「武廟」，地址武廟路87號、座標相距 26 公尺）。策展版有代表圖與三筆查證來源，留策展版。已併入 MOI 的 history（麻豆信女→鹽水港的創建緣起，內容與本廟相符）與 architecture。⚠️ 併入 history 後與觀光署 intro 互斥（check:integrity 硬擋），依既有政策「沿革優先於觀光文案」移除了 intro 與觀光署來源標註——要改回來就是反過來不搬 history。"
+    },
+    {
+      "from": "moi_5749_慶元宮",
+      "to": "toucheng_zhongyuan",
+      "why": "同一間頭城慶元宮。MOI 版名稱是「慶元宮」，內容為開放資料欄位；策展版有image，留策展版。已併入 festivals(1 筆)。 🔴 history 刻意不併：這筆沿革講的是「羅東郡五結庄」供奉「香山祖師」的廟，與頭城慶元宮（天上聖母）不符＝來源本身錯置。🔴 architecture 刻意不併：與上述沿革同一組上傳，來源可信度已破，無法單獨採信。"
+    },
+    {
+      "from": "moi_8996_財團法人台北市松",
+      "to": "songshan_ciyou",
+      "why": "同一間松山慈祐宮。MOI 版名稱是「財團法人台北市松山慈祐宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(9 筆)。"
+    },
+    {
+      "from": "moi_10889_財團法人台北市艋",
+      "to": "wanhua_longshan",
+      "why": "同一間艋舺龍山寺。MOI 版名稱是「財團法人台北市艋舺龍山寺」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(17 筆)、architecture、worship_flow。"
+    },
+    {
+      "from": "moi_6989_財團法人台北行天",
+      "to": "taipei_xingtian",
+      "why": "同一間行天宮。MOI 版名稱是「財團法人台北行天宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(1 筆)。"
+    },
+    {
+      "from": "moi_7377_大天后宮",
+      "to": "tainan_da_tianhou",
+      "why": "同一間祀典大天后宮。MOI 版名稱是「大天后宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 architecture。"
+    },
+    {
+      "from": "moi_9483_天后宮",
+      "to": "lugang_tianhou",
+      "why": "同一間鹿港天后宮。MOI 版名稱是「天后宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(7 筆)、architecture、worship_flow。"
+    },
+    {
+      "from": "moi_9865_財團法人台灣省台",
+      "to": "xuejia_cijigong",
+      "why": "同一間學甲慈濟宮。MOI 版名稱是「財團法人台灣省台南縣學甲慈濟宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(1 筆)、architecture、worship_flow。"
+    },
+    {
+      "from": "moi_5205_新莊地藏庵",
+      "to": "xinzhuang_dizhong_mazu",
+      "why": "同一間新莊地藏庵（座標完全重合、地址中正路84號）。策展版有代表圖與查證來源，留策展版。已併入 festivals(2 筆) 與 MOI 的 history、architecture（策展版原本沒有沿革）。另 events.json 的「新莊地藏庵文武大眾爺祭典」host_temple 已改指本正本。"
+    },
+    {
+      "from": "moi_1973_開基天后宮",
+      "to": "tainan_kaiji_tianhou",
+      "why": "同一間台南開基天后宮。MOI 版名稱是「開基天后宮」，內容為開放資料欄位；策展版有history／image／founded，留策展版。已併入 festivals(6 筆)、architecture。"
+    },
+    {
+      "from": "moi_4084_財團法人台北保安",
+      "to": "dalongdong_baoan",
+      "why": "同一間大龍峒保安宮。MOI 版名稱是「財團法人台北保安宮」，內容為開放資料欄位；策展版有history／website／image／founded，留策展版。已併入 festivals(1 筆)。"
     }
   ]
 }
