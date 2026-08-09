@@ -28,13 +28,17 @@ function titleSize(name) {
 
 function overlaySvg(festival, iso, lunarLabel) {
   const size = titleSize(festival.name);
-  const titleLines = wrap(festival.name, Math.floor(500 / size)).slice(0, 2);
+  const titleLines = wrap(festival.name, Math.floor(570 / size)).slice(0, 2);
   const title = titleLines
     .map((line, i) => `<text x="72" y="${168 + i * (size + 12)}" class="title" font-size="${size}px">${esc(line)}</text>`)
     .join('\n');
   const titleBottom = 168 + (titleLines.length - 1) * (size + 12);
-  const dateLine = `${iso.slice(0, 4)} 年國曆 ${solarMd(iso)}　·　${lunarLabel}`;
-  const question = wrap(festival.question, 20).slice(0, 2);
+  // 搶孤不是全台同一天：festivals.json 明載恆春在七月十五、頭城在七月底。
+  // 卡面若只畫換算出的七月十五，會誤讀成兩地都在 8/27，故明確分開。
+  const dateLine = festival.slug === 'qianggu'
+    ? `${iso.slice(0, 4)} 恆春 ${solarMd(iso)}　·　頭城於七月底`
+    : `${iso.slice(0, 4)} 年國曆 ${solarMd(iso)}　·　${lunarLabel}`;
+  const question = wrap(festival.question, 16).slice(0, 2);
   const questionLines = question
     .map((line, i) => `<text x="74" y="${titleBottom + 118 + i * 48}" class="question">${esc(line)}</text>`)
     .join('\n');

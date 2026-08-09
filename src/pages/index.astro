@@ -121,7 +121,7 @@ const activeSeasonalCampaign = seasonalCampaigns.find((x) => x.start <= iso && i
           <p data-campaign-prompt>{activeSeasonalCampaign.prompt}</p>
           <p class="campaign-cta"><a href={activeSeasonalCampaign.href} data-campaign-cta>{activeSeasonalCampaign.cta}</a></p>
         </article>
-        <script type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(seasonalCampaigns).replace(/</g, '\\u003c')} />
+        <script is:inline type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(seasonalCampaigns).replace(/</g, '\\u003c')} />
         <script is:inline>
           (() => {
             const root = document.querySelector('[data-seasonal-campaign]');

@@ -23,6 +23,17 @@
 
 folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工廠的站）。
 
+### 8/31 活躍使用者目標（2026-08-09 起自動對帳）
+
+原目標口徑不變：**2026-08-31 當天 GA4 `active28DayUsers` 至少 20,000**。該日的近 28 日
+視窗為 2026-08-04..2026-08-31，因此 `sites/folk.tw.json` 的 `heartbeat.audienceGoal`
+同時固定 `windowStart=2026-08-04`、`targetDate=2026-08-31`、`target=20000`。
+
+每日 collect 額外寫入 `ga4.audienceGoal`，Slack 的 🎯 區塊顯示：當日近 28 日活躍使用者、
+8/4 起累積 `activeUsers`、距 20,000 的缺口、剩餘日數／每日所需新增活躍使用者，以及
+8/13（6,100）、8/19（10,700）、8/27（16,900）、8/31（20,000）檢查點。這裡不用
+sessions、PV 或推估月速率替代目標，因此不會悄悄降低門檻。
+
 ## 仍在本 repo 使用的 live 腳本（**勿退役**）
 
 - `scripts/index-ping.mjs`（Google Indexing API，配額 200/日；`indexPing.command` 與 `pnpm notify` 都用）

@@ -34,22 +34,28 @@ const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(ur
 const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`${title} ${url}`)}`;
 ---
 
-<aside class="share" aria-label="分享這一頁">
+<aside class="share" aria-label="分享這一頁" data-pagefind-ignore>
   <div class="share-btns">
     {/* 系統分享匣：唯一能到 Instagram 的路徑。無 navigator.share 的環境由 inline script 隱藏，
         並把 .share-copy 升為主鈕（加上 .primary）。 */}
-    <button type="button" class="share-btn primary share-native" data-share-native hidden
+    <button type="button" class="share-btn primary share-native" data-share-native data-share-method="native" hidden
       data-title={title} data-url={url}>分享</button>
-    <button type="button" class="share-btn share-copy" data-share-copy data-url={url}>
+    <button type="button" class="share-btn share-copy" data-share-copy data-share-method="copy" data-url={url}>
       <span data-copy-label>複製連結</span>
     </button>
-    <a class="share-btn" href={fb} target="_blank" rel="noopener nofollow">Facebook</a>
-    <a class="share-btn" href={threads} target="_blank" rel="noopener nofollow">Threads</a>
+    <a class="share-btn" href={fb} data-share-method="facebook" data-url={url} target="_blank" rel="noopener nofollow">Facebook</a>
+    <a class="share-btn" href={threads} data-share-method="threads" data-url={url} target="_blank" rel="noopener nofollow">Threads</a>
   </div>
 </aside>
 
 <script is:inline>
   (() => {
+    const trackShare = (method, url) => {
+      if (typeof window.gtag !== 'function') return;
+      let itemId = url;
+      try { itemId = new URL(url).pathname; } catch { /* 保留原值 */ }
+      window.gtag('event', 'share', { method, content_type: 'page', item_id: itemId });
+    };
     // 系統分享匣有支援才顯示那顆鈕（桌機多數瀏覽器沒有）；沒有的話讓「複製連結」遞補當主鈕，
     // 版面上永遠恰好有一顆主鈕，不會出現一排同權重的灰框。
     if (navigator.share) {
@@ -62,6 +68,7 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
       if (nativeBtn) {
         try {
           await navigator.share({ title: nativeBtn.dataset.title, url: nativeBtn.dataset.url });
+          trackShare('native', nativeBtn.dataset.url);
         } catch {
           /* 使用者取消分享會 reject，那不是錯誤，不要跳任何東西 */
         }
@@ -71,6 +78,7 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
       if (!copyBtn) return;
       try {
         await navigator.clipboard.writeText(copyBtn.dataset.url);
+        trackShare('copy', copyBtn.dataset.url);
         const label = copyBtn.querySelector('[data-copy-label]');
         if (!label || copyBtn.classList.contains('done')) return;
         const before = label.textContent;
@@ -83,6 +91,10 @@ const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`
       } catch {
         /* 沒有剪貼簿權限就什麼都不做——網址列本來就看得到 */
       }
+    });
+    document.addEventListener('click', (e) => {
+      const intent = e.target.closest?.('a[data-share-method]');
+      if (intent) trackShare(intent.dataset.shareMethod, intent.dataset.url);
     });
   })();
 </script>

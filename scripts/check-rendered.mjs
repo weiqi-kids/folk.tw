@@ -751,6 +751,18 @@ for (const f of festivals) {
   if (campaignTitleProbe && !title.includes(campaignTitleProbe)) {
     violations.push(`節日頁 ${f.slug} title 未呈現本頁獨有的搜尋意圖：${title}`);
   }
+  const festivalOgSlugs = new Set(['guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'qianggu']);
+  if (festivalOgSlugs.has(f.slug)) {
+    const wantOg = `/og/festivals/${f.slug}.png`;
+    if (!html.includes(escAttr(wantOg))) {
+      violations.push(`節日頁 ${f.slug} 的 og:image 不是自己的分享卡（應為 ${wantOg}）`);
+    } else if (!existsSync(`${DIST}${wantOg}`)) {
+      violations.push(`節日頁 ${f.slug} 的分享卡檔不存在：dist${wantOg}`);
+    }
+    if (!html.includes('aria-label="分享這一頁"') || !html.includes('data-pagefind-ignore')) {
+      violations.push(`節日頁 ${f.slug} 的頁首分享列缺少或會被 Pagefind 索引`);
+    }
+  }
   const md = title.match(/(\d{1,2})\/(\d{1,2})/);
   if (!md && !f.date_note) {
     violations.push(`節日頁 ${f.slug} title 缺國曆日期：${title}`);
@@ -771,6 +783,32 @@ for (const f of festivals) {
       return wantD === 30 && l.getDay() === 29 && isLunarMonthEnd(s.toYmd());
     });
     if (!ok) violations.push(`節日頁 ${f.slug} title 國曆 ${mo}/${day} 轉回農曆不等於 ${f.lunar_date}`);
+  }
+}
+
+// 不變量 5g（2026-08-09 加）：首頁農曆七月戰役卡只能同時推一頁。
+// 建置當日的主題要正確，前端排程也必須含後續所有切換項。
+{
+  const home = readFileSync(`${DIST}/index.html`, 'utf8');
+  const taipeiToday = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+  const schedule = [
+    ['2026-08-09', '2026-08-13', '/festivals/guimenkai/'],
+    ['2026-08-14', '2026-08-19', '/festivals/qixi/'],
+    ['2026-08-20', '2026-08-26', '/festivals/fangshuideng/'],
+    ['2026-08-27', '2026-08-27', '/festivals/zhongyuan/'],
+    ['2026-08-28', '2026-09-10', '/festivals/dizang/'],
+  ];
+  const current = schedule.find(([start, end]) => start <= taipeiToday && taipeiToday <= end);
+  if (current) {
+    if (!home.includes('data-seasonal-campaign')) violations.push('首頁在戰役期間缺少節日主卡');
+    if (!home.includes(`href="${current[2]}"`)) violations.push(`首頁節日主卡未指向當日主題 ${current[2]}`);
+    for (const [, , href] of schedule) {
+      if (!home.includes(href)) violations.push(`首頁節日主卡的前端排程缺少 ${href}`);
+    }
+  } else if (taipeiToday > '2026-09-10' && home.includes('data-seasonal-campaign')) {
+    violations.push('首頁節日主卡應於 2026-09-10 後自然退場');
   }
 }
 

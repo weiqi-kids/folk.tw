@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import ShareRow from '../../components/ShareRow.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
@@ -289,6 +290,9 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
 };
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
+const festivalOgSlugs = new Set(['guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'qianggu']);
+const festivalOgImage = festivalOgSlugs.has(f.slug) ? `/og/festivals/${f.slug}.png` : undefined;
+const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
 
 // 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
 // 因此用 Article，不宣稱 EventScheduled、OfflineEventAttendanceMode 或 folk.tw organizer。
@@ -319,8 +323,11 @@ const jsonLd = [
   title={pageTitle}
   description={pageDesc}
   ogType="article"
+  ogImage={festivalOgImage}
+  ogImageAlt={festivalOgImage ? `${f.name}｜${year} 日期與節俗整理` : undefined}
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  share={false}
 >
   <nav class="crumb"><a href="/festivals/">節日</a> ／ {f.name}</nav>
 
@@ -340,6 +347,7 @@ const jsonLd = [
   </header>
 
   <p class="lead">{dateSentence}{f.lead}</p>
+  <ShareRow title={pageTitle} url={canonicalUrl} />
 
   {/* 文資登錄：各節日真正獨有的事實（層級＋公告文號），此前完全沒渲染。
       🔴 措辭界線：只說「被登錄為什麼、文號是什麼」，不推論「所以當天有辦什麼」。 */}
