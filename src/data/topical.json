@@ -2329,5 +2329,28 @@
       "last_checked": "2026-08-09",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-cyclone-20260809-d46f35",
+    "eventType": "cyclone",
+    "title": "為沖繩八重山颱風平安祈福",
+    "event": "強烈颱風侵襲沖繩八重山地區，石垣漁港設施因強風高潮受損，沖繩本島也有多人因強風跌倒受傷。願當地早日恢復平靜，居民都能平安無事。",
+    "sources": [
+      {
+        "ref": "Yahoo!ニュース",
+        "url": "https://news.yahoo.co.jp/pickup/6590977"
+      },
+      {
+        "ref": "沖縄タイムス",
+        "url": "https://www.okinawatimes.co.jp/articles/-/1899176"
+      }
+    ],
+    "place": "沖縄県・八重山（石垣市）",
+    "time": "2026-08-09",
+    "lat": 24.0589471,
+    "lon": 123.7825564,
+    "detector": "news",
+    "since": "2026-08-09",
+    "status": "active"
   }
 ]
