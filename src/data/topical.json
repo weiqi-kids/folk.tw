@@ -219,8 +219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 4
+      "last_checked": "2026-08-09",
+      "empty_runs": 5
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -521,8 +521,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 1
+      "last_checked": "2026-08-09",
+      "empty_runs": 2
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1976,8 +1976,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 1
+      "last_checked": "2026-08-09",
+      "empty_runs": 2
     }
   },
   {
@@ -2018,8 +2018,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 1
+      "last_checked": "2026-08-09",
+      "empty_runs": 2
     }
   },
   {
@@ -2085,11 +2085,35 @@
         ],
         "added": "2026-08-08T12:33:55.968Z",
         "hash": "da5dec34f844"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "沖縄本島公車四家業者已從首班車起恢復正常營運，結束前一日的全日停駛。",
+        "sources": [
+          {
+            "ref": "沖縄タイムス",
+            "url": "https://www.okinawatimes.co.jp/articles/-/1898870"
+          }
+        ],
+        "added": "2026-08-09T12:36:20.669Z",
+        "hash": "c2736f699baa"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "沖縄電力持續在北部災區進行搶修作業，多數地區已恢復供電，僅少數村鎮仍在復電中。",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5447894.html"
+          }
+        ],
+        "added": "2026-08-09T12:36:20.805Z",
+        "hash": "1551bf2370e0"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
+      "last_checked": "2026-08-09",
       "empty_runs": 0
     }
   },
@@ -2135,8 +2159,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 1
+      "last_checked": "2026-08-09",
+      "empty_runs": 2
     }
   },
   {
@@ -2189,8 +2213,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-08",
-      "empty_runs": 0
+      "last_checked": "2026-08-09",
+      "empty_runs": 1
     }
   },
   {
@@ -2214,7 +2238,13 @@
     "lon": 109.4929183,
     "detector": "news",
     "since": "2026-08-08",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-09",
+      "empty_runs": 1
+    }
   },
   {
     "id": "news-landslide-20260805-6fe2ae",
@@ -2237,7 +2267,26 @@
     "lon": 109.275278,
     "detector": "news",
     "since": "2026-08-09",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-08",
+        "text": "柞水土石流失聯者遺體已尋獲，搜救工作告一段落，當地持續進行災後安置與復原作業。",
+        "sources": [
+          {
+            "ref": "星島頭條",
+            "url": "https://www.stheadline.com/realtime-china/3602332/%E9%99%9D%E8%A5%BF%E6%9F%9E%E6%B0%B4%E6%B3%A5%E7%9F%B3%E6%B5%813%E4%BA%BA%E9%81%87%E9%9B%A3-%E6%9C%80%E5%BE%8C%E4%B8%80%E5%90%8D%E5%A4%B1%E8%81%AF%E8%80%85%E9%81%BA%E9%AB%94%E5%B0%8B%E7%8D%B2"
+          }
+        ],
+        "added": "2026-08-09T12:38:41.494Z",
+        "hash": "6a242711ba09"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-09",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-landslide-20260808-ad486a",
@@ -2260,6 +2309,25 @@
     "lon": 137.9054972,
     "detector": "news",
     "since": "2026-08-09",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-09",
+        "text": "日本長野縣安曇野市搶通臨時便橋，受困登山客與旅宿旅客已陸續徒步下山，警方表示無人受傷；正式復原時程尚未確定。",
+        "sources": [
+          {
+            "ref": "信濃毎日新聞",
+            "url": "https://www.shinmai.co.jp/news/article/gf01d9rt6gem5strh1fap7i0"
+          }
+        ],
+        "added": "2026-08-09T12:39:18.104Z",
+        "hash": "20bbb4e2f03f"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-09",
+      "empty_runs": 0
+    }
   }
 ]
