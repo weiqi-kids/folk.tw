@@ -34,6 +34,19 @@ const PROSE_JSON = [
   // check:content 只掃 .md）。觀光行銷／旅遊指南腔另由 check:integrity 以
   // scripts/lib/tourism-intro.mjs 的同一份規則硬驗，兩道互補。
   { file: 'src/data/temples.json', fields: ['intro'] },
+  // 2026-08-09：節日頁「逐句掛源的補充事實」。同樣是存在 JSON 裡、直接渲染給讀者看的散文。
+  { file: 'src/data/festivals.json', fields: ['facts.text'] },
+];
+
+// Markdown 殘留（2026-08-09 加）。這些欄位**渲染時是純文字**，不會過 Markdown ——
+// 寫 `**時刻**` 就會把星號原樣印在頁面上。當天實際發生：清明的補充事實上線前才抓到。
+// 🔴 為什麼做成 gate 而不是改掉那一句：資料是手寫或由模型產生的，寫 JSON 的人習慣帶 Markdown 語法，
+//    這是**會重複發生的類型**，不是單一筆的筆誤。
+const MARKDOWN_ARTIFACTS = [
+  { re: /\*\*[^*]+\*\*/, why: 'Markdown 粗體殘留（此欄渲染為純文字，星號會原樣印出）' },
+  { re: /(?:^|[^*])\*[^*\n]+\*(?:[^*]|$)/, why: 'Markdown 斜體殘留（同上）' },
+  { re: /\[[^\]]+\]\([^)]+\)/, why: 'Markdown 連結殘留（同上）' },
+  { re: /^#{1,6}\s/m, why: 'Markdown 標題殘留（同上）' },
 ];
 // 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
 const AI_TELLS = [
@@ -124,9 +137,9 @@ function scanProseJson(hits) {
         // 加了白名單卻什麼都沒掃，比沒加更糟（誤以為有守）。
         for (const { path, value } of resolveField(row, k)) {
           if (typeof value !== 'string') continue;
-          for (const b of AI_TELLS) {
+          for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS]) {
             const m = value.match(b.re);
-            if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0], why: b.why });
+            if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0].trim(), why: b.why });
           }
         }
       }
