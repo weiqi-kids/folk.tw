@@ -2215,5 +2215,28 @@
     "detector": "news",
     "since": "2026-08-08",
     "status": "active"
+  },
+  {
+    "id": "news-landslide-20260805-6fe2ae",
+    "eventType": "landslide",
+    "title": "為陝西柞水土石流平安祈福",
+    "event": "陝西省商洛市柞水縣連日強降雨引發土石流，造成人員傷亡、多人失聯。願罹難者安息，失聯者早日尋獲，當地民眾平安。",
+    "sources": [
+      {
+        "ref": "新華網",
+        "url": "https://www.news.cn/politics/20260806/28f723872fbd41f6a0e0bffe4033eccb/c.html"
+      },
+      {
+        "ref": "中新網",
+        "url": "https://www.chinanews.com.cn/sh/2026/08-06/10673117.shtml"
+      }
+    ],
+    "place": "陝西省商洛市柞水縣",
+    "time": "2026-08-05",
+    "lat": 33.681389,
+    "lon": 109.275278,
+    "detector": "news",
+    "since": "2026-08-09",
+    "status": "active"
   }
 ]
