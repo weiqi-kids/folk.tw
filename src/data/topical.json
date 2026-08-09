@@ -2238,5 +2238,28 @@
     "detector": "news",
     "since": "2026-08-09",
     "status": "active"
+  },
+  {
+    "id": "news-landslide-20260808-ad486a",
+    "eventType": "landslide",
+    "title": "為日本長野安曇野山崩平安祈福",
+    "event": "日本長野縣安曇野市於8月8日晚間發生土石流，沖毀山區道路橋樑，造成多名登山客與旅宿旅客一度受困，警方表示無人受傷，祈願受困者早日平安脫困、當地早日恢復平靜。",
+    "sources": [
+      {
+        "ref": "NHK",
+        "url": "https://news.web.nhk/newsweb/na/nd-20260809de42947"
+      },
+      {
+        "ref": "新華社 Xinhua",
+        "url": "https://english.news.cn/asiapacific/20260809/2fa37681e84c4be7bcad1a4850cd76aa/c.html"
+      }
+    ],
+    "place": "長野県安曇野市",
+    "time": "2026-08-08",
+    "lat": 36.3044083,
+    "lon": 137.9054972,
+    "detector": "news",
+    "since": "2026-08-09",
+    "status": "active"
   }
 ]
