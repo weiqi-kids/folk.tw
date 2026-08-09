@@ -74,9 +74,23 @@ origin/main ← [某人手動的 feature commit] ← [cron commit「… [skip ci
 
 **現在的機制**：`scripts/lib/skip-ci-suffix.sh` 是 `[skip ci]` 的唯一判定入口。
 判準是 `origin/main..HEAD` 只要有任何 commit，就**不加** `[skip ci]`，讓 CI 正常跑、
-把那些 commit 部署出去（代價只是多一次 build）。三個會 push 的 cron 都接上了：
-`qiugian-aggregate-cron.sh`、`seo-collect-cron.sh`，以及 `seo-brain-cron.sh`（寫在給 Claude 的指示裡）。
+把那些 commit 部署出去（代價只是多一次 build）。
 ⚠️ 之後**新增任何會 commit 的自動化，一律 source 那支 lib，不要自己寫死 `[skip ci]`**。
+
+🔴 **2026-08-09：這道機制當時只蓋到 repo 內的 cron，漏了真正在跑的那兩支——當天就被咬。**
+本節原本寫「三個會 push 的 cron 都接上了：`qiugian-aggregate-cron.sh`、`seo-collect-cron.sh`、
+`seo-brain-cron.sh`」。實際查證：**collect 與 brain 的 cron 進入點根本不是那兩支**——
+`/etc/cron.d/seo-ops` 呼叫的是 `/root/seo-ops/bin/seo-collect.mjs` 與 `seo-brain.sh`，
+而 `scripts/seo-brain-cron.sh` 檔頭自己就寫著「2026-07-02 已退役，僅留查考」。
+於是 `[skip ci]` 在 seo-ops 那邊是寫死的（`lib/config.mjs` 的 `commitMessage`＋
+`bin/brain-prompt.mjs` 的 no-op 指示），繞過本機制。
+**當天實害**：brain 推 `a400c1b`（no-op，帶標記）把手動 commit `043cc0c`
+（廟宇頁 title／簡介／地址改動）一起帶上 main，**兩個 SHA 都 0 run**，改動躺在 main 上沒部署。
+已修在來源端：`seo-collect.mjs` 於 commit **前**查 `git rev-list --count origin/main..HEAD`，
+大於 0 就把標記整段拿掉並印警告；`brain-prompt.mjs` 對 headless Claude 下同一條指示。
+⚠️ **教訓不是「再補一支 cron」**：是「機制寫在 repo 裡，但執行者在 repo 外」——
+`git remote get-url origin` 查得到服務對應哪個 repo，**cron 呼叫的是哪支檔案要去 `/etc/cron.d/` 查**，
+別照文件裡的檔名推論。
 （`topical` 三支不受影響：它們跑在每輪 reset 到 `origin/main` 的隔離 worktree，看不到本機 commit。）
 
 ### 🔴 在 commit 訊息裡「討論」CI 略過標記，等於真的觸發它（2026-08-08 當場踩到）
