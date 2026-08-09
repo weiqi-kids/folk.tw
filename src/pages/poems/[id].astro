@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import Sources from '../../components/Sources.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem } from '../../lib/queries';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
@@ -111,6 +112,8 @@ if (faq) ld.push(faq);
       {/* answer-first 一行摘要（P1-5）：可被引用為直接答案，仍保克制（小、次於四句主角） */}
       <p class="lead muted">{leadAnswer}</p>
     </header>
+    {/* 與 og:image 共用同一張本籤專屬卡；卡面文字由本籤資料產生，不混用其他人物或事件。 */}
+    <LeadVisual src={`/og/poems/${poem.id}.png`} alt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`} />
 
     {/* 主角：四句直書 */}
     <section class="lines-block">

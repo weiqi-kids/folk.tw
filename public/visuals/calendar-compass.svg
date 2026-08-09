@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">曆書與擇日意象</title>
+  <desc id="desc">朱紅與米色構成的曆書、日期格與羅盤線條</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#f1dfbf"/>
+    </linearGradient>
+    <pattern id="grain" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="5" r="1" fill="#8c2f28" opacity=".09"/>
+      <circle cx="17" cy="15" r="1" fill="#6b4b2a" opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#paper)"/>
+  <rect width="1200" height="630" fill="url(#grain)"/>
+  <circle cx="920" cy="315" r="220" fill="none" stroke="#9b3a32" stroke-width="10" opacity=".2"/>
+  <circle cx="920" cy="315" r="154" fill="none" stroke="#9b3a32" stroke-width="3" opacity=".32"/>
+  <path d="M920 95v440M700 315h440M764 159l312 312M1076 159L764 471" stroke="#9b3a32" stroke-width="3" opacity=".28"/>
+  <path d="M920 168l38 109 109 38-109 38-38 109-38-109-109-38 109-38z" fill="#9b3a32" opacity=".72"/>
+  <rect x="125" y="100" width="510" height="430" rx="28" fill="#fffdf8" stroke="#7f2925" stroke-width="10"/>
+  <path d="M125 205h510" stroke="#7f2925" stroke-width="10"/>
+  <g fill="#7f2925">
+    <rect x="215" y="70" width="30" height="80" rx="15"/>
+    <rect x="515" y="70" width="30" height="80" rx="15"/>
+  </g>
+  <g fill="#b54c42" opacity=".78">
+    <circle cx="225" cy="280" r="34"/><circle cx="380" cy="280" r="34"/><circle cx="535" cy="280" r="34"/>
+    <circle cx="225" cy="405" r="34"/><circle cx="380" cy="405" r="34"/><circle cx="535" cy="405" r="34"/>
+  </g>
+</svg>

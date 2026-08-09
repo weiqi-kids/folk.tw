@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
@@ -90,6 +91,7 @@ const jsonLd = [
     <p class="lead">在為{concern.label}煩惱的，不只你。這裡才剛開張——你可能是最早來為{concern.label}求籤的人之一。</p>
   )}
   <p class="muted small blurb">{concern.blurb}</p>
+  <LeadVisual src="/visuals/qian-slips.svg" alt={`為${concern.label}求籤的站內通用插圖`} />
 
   <div class="actions">
     <button class="btn btn-primary" id="drawBtn" type="button">求一支籤<small>靜下心，想著這件事</small></button>

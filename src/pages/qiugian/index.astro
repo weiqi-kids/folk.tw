@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
 import topical from '../../data/topical.json';
@@ -61,6 +62,7 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     選一件煩惱，求一支籤，看白話解籤——不用註冊、不用付費。下面會顯示最近有多少人為同一件事求過。
     在廟裡已經抽到籤或擲筊擲到第幾首，也可以在各煩惱頁面直接輸入籤號查解籤，不用重新抽。
   </p>
+  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
 
   {/* 集氣區的錨點指標（2026-08-05）。🔴 **不動「抽籤在上」的版位**——那是用戶 2026-08-03
       明示的裁示（見下方 .qcols 的註解）。但行動版佔流量 70%，集氣區疊在 7 張抽籤卡下面，

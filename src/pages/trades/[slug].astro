@@ -7,6 +7,7 @@ import { breadcrumb, faqPage } from '../../lib/seo';
 import { todayInTaipei } from '../../lib/daily';
 import { addDays, almanacHref } from '../../lib/almanac/dates';
 import { verifiedYiDays, affairNameOf } from '../../lib/almanac/select';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 export const getStaticPaths = (async () => {
   const trades = await getTrades();
@@ -29,6 +30,7 @@ const t = trade.data;
 const patrons = t.patrons
   .map((p) => ({ ...p, deity: deityById.get(p.deity_ref) }))
   .filter((p) => p.deity);
+const leadImage = patrons.map((p) => p.deity!.data.image).find(Boolean);
 
 // 近期吉日（今日起 60 天）：僅 verified 條目（M3，經 select.ts 唯一入口）
 const next60 = Array.from({ length: 60 }, (_, i) => addDays(today, i));
@@ -98,6 +100,7 @@ const pageDesc =
     {t.modern && <p class="aliases"><span class="tag">現代延伸</span></p>}
   </header>
 
+  {leadImage && <LeadVisual image={leadImage} />}
   <p class="lead">{t.description}</p>
   {
     t.modern && (

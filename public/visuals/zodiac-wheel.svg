@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">十二生肖與地支輪盤</title>
+  <desc id="desc">十二個圓點環繞太極與羅盤線條，象徵十二生肖、地支與歲次循環</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop stop-color="#fff9ed"/>
+      <stop offset="1" stop-color="#ead2aa"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(600 315)">
+    <circle r="245" fill="#fffdf8" stroke="#852f2a" stroke-width="9"/>
+    <circle r="180" fill="none" stroke="#b98a4a" stroke-width="3"/>
+    <g fill="#a43d35">
+      <circle cx="0" cy="-212" r="20"/><circle cx="106" cy="-184" r="20"/>
+      <circle cx="184" cy="-106" r="20"/><circle cx="212" cy="0" r="20"/>
+      <circle cx="184" cy="106" r="20"/><circle cx="106" cy="184" r="20"/>
+      <circle cx="0" cy="212" r="20"/><circle cx="-106" cy="184" r="20"/>
+      <circle cx="-184" cy="106" r="20"/><circle cx="-212" cy="0" r="20"/>
+      <circle cx="-184" cy="-106" r="20"/><circle cx="-106" cy="-184" r="20"/>
+    </g>
+    <g stroke="#b98a4a" stroke-width="2" opacity=".55">
+      <path d="M0-180V180M-180 0H180M-127-127L127 127M127-127L-127 127"/>
+    </g>
+    <circle r="86" fill="#852f2a"/>
+    <path d="M0-86a43 43 0 010 86 43 43 0 000 86 86 86 0 010-172z" fill="#f6e7c9"/>
+    <circle cy="-43" r="12" fill="#f6e7c9"/><circle cy="43" r="12" fill="#852f2a"/>
+  </g>
+  <path d="M130 315h175M895 315h175" stroke="#852f2a" stroke-width="6" opacity=".32"/>
+  <path d="M195 270l-45 45 45 45M1005 270l45 45-45 45" fill="none" stroke="#852f2a" stroke-width="6" opacity=".32"/>
+</svg>

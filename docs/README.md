@@ -42,6 +42,7 @@
 |---|---|---|
 | [`topical-blessing.md`](topical-blessing.md) | 時事集氣祈福 P1／P2／P4（無 P3） 全自動管線的 SOP：四道硬 gate、去重規則、生命週期 | **活的**。改管線前必讀 |
 | [`seo-automation.md`](seo-automation.md) | SEO 自動化閉環（收集／反思／大腦／週報）＋ 2026-07-02 起飛基準（歷史存查） | **活的**。操作用 `/seo` skill |
+| [`growth-48h.md`](growth-48h.md) | GA4 48 小時 campaign 成效對帳、事件埋點口徑與首頁版位淘汰規則 | **活的**。執行 `pnpm growth:48h` |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
 | [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ✅ **330 首全部審過**（2026-08-06）。🔴 **頁面上不寫審閱狀態、不掛醫師姓名**——授權/來源/典藏警語已由樞紐頁與 `/about/` 統一處理，逐首頁再加就是多餘警語 |
 

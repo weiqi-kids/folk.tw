@@ -301,6 +301,30 @@ const groupActive = (sections: NavSection[]) =>
           window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', GA4_ID, { anonymize_ip: true });
+          // Growth 行動事件的共用委派：頁面只標 data attribute，不各自複製 gtag glue。
+          // campaign_id 從目的頁 slug 取，沒有個資；calendar_add 記錄 Google／ICS 行事曆入口。
+          document.addEventListener('click', function (event) {
+            var target = event.target && event.target.closest ? event.target : null;
+            if (!target) return;
+            var campaignLink = target.closest('[data-growth-campaign]');
+            if (campaignLink) {
+              var campaignUrl = new URL(campaignLink.href, location.href);
+              var parts = campaignUrl.pathname.split('/').filter(Boolean);
+              gtag('event', 'campaign_click', {
+                campaign_id: campaignLink.dataset.growthCampaign || parts[parts.length - 1] || 'unknown',
+                campaign_placement: campaignLink.dataset.growthPlacement || 'internal',
+                link_url: campaignUrl.href,
+                link_text: (campaignLink.textContent || '').trim().slice(0, 100)
+              });
+            }
+            var calendarLink = target.closest('[data-calendar-add]');
+            if (calendarLink) {
+              gtag('event', 'calendar_add', {
+                item_id: calendarLink.dataset.calendarId || location.pathname,
+                method: calendarLink.dataset.calendarMethod || 'unknown'
+              });
+            }
+          });
           var loadGA = function () {
             if (window.__gaLoaded) return;
             window.__gaLoaded = true;

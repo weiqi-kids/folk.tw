@@ -18,7 +18,10 @@ const root = join(here, '..');
 const { festivalNextSolar, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
 const festivals = JSON.parse(readFileSync(join(root, 'src/data/festivals.json'), 'utf8'));
 
-const CARD_SLUGS = ['guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'qianggu'];
+const CARD_SLUGS = [
+  'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
+  'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
+];
 const today = new Date().toISOString().slice(0, 10);
 
 function titleSize(name) {
@@ -82,6 +85,7 @@ for (const slug of CARD_SLUGS) {
   const background = join(root, 'src/assets/og-festivals', `${slug}.webp`);
   const out = join(outDir, `${slug}.png`);
   await sharp(background)
+    .resize(1200, 630, { fit: 'cover', position: 'centre' })
     .composite([{ input: overlaySvg(festival, next.iso, next.label), top: 0, left: 0 }])
     .png({ compressionLevel: 9, palette: true, colors: 128 })
     .toFile(out);

@@ -4,11 +4,13 @@ import { getDeities } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import comparisons from '../../data/comparisons.json';
 import { imageCreditTitle } from '../../lib/image-credit';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 const deities = await getDeities();
 const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 // 卡片代表圖重用對照組首位神明（a）的神明圖
 const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
+const hubImage = comparisons.map((c) => imgById.get(c.a) ?? imgById.get(c.b)).find(Boolean);
 ---
 
 <Base
@@ -17,6 +19,7 @@ const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.
   jsonLd={[breadcrumb([{ name: '神明比較', path: '/compare' }])]}
 >
   <h1>神明比較</h1>
+  {hubImage && <LeadVisual image={hubImage} />}
   <p class="lead">
     職司相近或常被混淆的神明，究竟差在哪？本頁逐項對照別稱、信仰類別、主要職司與聖誕，
     對照內容衍生自逐條掛來源的<a href="/deities/">神明圖譜</a>。

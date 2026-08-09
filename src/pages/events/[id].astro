@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
 import festivalsData from '../../data/festivals.json';
@@ -15,6 +16,7 @@ const { event } = Astro.props;
 const e = event.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const deityById = new Map(deities.map((d) => [d.id, d.data]));
 const isNode = (id: string) => deityName.has(id);
 // 廟宇對映：host/destination 若為有效 temple id 則連 /temples（否則維持純文字佔位）。
 const templeName = await templeNameById();
@@ -44,6 +46,21 @@ const HERITAGE_D: Record<string, string> = { national_important: '國家重要�
 const pageDesc =
   `${e.name}：${e.type.join('、')}${e.main_deity && deityName.has(e.main_deity) ? `，主神${deityName.get(e.main_deity)}` : ''}` +
   `${e.heritage ? `，${HERITAGE_D[e.heritage.level]}` : ''}${e.region.length ? `，${e.region.join('、')}` : ''}。${e.date_note ?? ''}`;
+
+// 正文代表圖優先用本活動自己的 Wikimedia Commons 紀實照（資料內含作者／授權／來源）。
+// 僅兩個尚無活動照的頁面退到其主神既有授權圖，且圖說明確寫「非本活動現場紀實」，
+// 避免把神像照片冒充特定活動的影像紀錄。若連主神圖也沒有，才用站內品牌通用視覺。
+const deityFallbackImage = e.main_deity ? deityById.get(e.main_deity)?.image : undefined;
+const pageImage = e.image
+  ? { ...e.image, genericNote: '' }
+  : deityFallbackImage
+    ? { ...deityFallbackImage, genericNote: `${deityName.get(e.main_deity) ?? '相關神明'}通用神像視覺，非${e.name}現場紀實。` }
+    : {
+        src: '/og.png', alt: '神酷站內通用視覺', author: '神酷', license: '', source: '',
+        genericNote: `站內通用視覺，非${e.name}現場紀實。`,
+      };
+const pageImageWidth = pageImage.src === '/og.png' ? 1200 : 240;
+const pageImageHeight = pageImage.src === '/og.png' ? 630 : 240;
 
 // P1-4 AEO：FAQ 由真實資料生成，缺資料的問答自動略過。
 const eDeity = e.main_deity && deityName.has(e.main_deity) ? deityName.get(e.main_deity) : '';
@@ -106,6 +123,27 @@ const jsonLd: object[] = [
   <nav class="crumb"><a href="/events/">民俗活動</a></nav>
   <h1>{e.name}</h1>
   <p class="summary">{pageDesc}</p>
+  <RelatedSeasonalCampaign festivalSlugs={linkedFestivals.map((f) => f.slug)} />
+  <figure class="entry-photo">
+    <img src={pageImage.src} alt={pageImage.alt} width={pageImageWidth} height={pageImageHeight} loading="lazy" decoding="async" />
+    <figcaption class="muted small">
+      {pageImage.genericNote && <span>{pageImage.genericNote} </span>}
+      {
+        pageImage.source ? (
+          <>
+            圖：<a href={pageImage.source} target="_blank" rel="noopener nofollow">{pageImage.author}</a>
+            {pageImage.license && (
+              <>
+                ・{pageImage.license_url
+                  ? <a href={pageImage.license_url} target="_blank" rel="noopener nofollow">{pageImage.license}</a>
+                  : pageImage.license}
+              </>
+            )}
+          </>
+        ) : '圖：神酷站內素材'
+      }
+    </figcaption>
+  </figure>
   <p>{e.type.map((t) => <span class="tag">{t}</span>)}</p>
 
   <dl class="rec">
@@ -212,6 +250,9 @@ const jsonLd: object[] = [
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
+    .entry-photo { margin: 1.25rem 0; }
+    .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }
+    .entry-photo figcaption { margin-top: 0.375rem; }
     .rec { display: grid; gap: 0.5rem; margin: 1.25rem 0; }
     .rec > div { display: grid; grid-template-columns: 8.75rem 1fr; gap: 0.625rem; padding: 0.375rem 0; border-bottom: 1px dashed var(--line); }
     .rec dt { font-weight: 700; color: var(--accent); }

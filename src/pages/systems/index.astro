@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { getSystems, getPoems, deitiesBySystem, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { num } from '../../lib/format';
@@ -89,6 +90,7 @@ if (faq) jsonLd.push(faq);
     本站目前收錄 <strong>{rows.length} 套共 {totalPoems} 首</strong>，
     對應到 <strong>{num(totalTemples)} 間</strong>登記在案的宮廟。
   </p>
+  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的籤詩系統通用插圖" />
 
   <div class="sys-list">
     {rows.map((r) => (

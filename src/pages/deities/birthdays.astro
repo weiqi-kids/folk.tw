@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import UpcomingBirthdays from '../../components/UpcomingBirthdays.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { upcomingDeityBirthdays } from '../../lib/birthdays';
 import { todayInTaipei } from '../../lib/daily';
 import { breadcrumb, faqPage } from '../../lib/seo';
@@ -65,6 +66,14 @@ const jsonLd = [
     聖誕以農曆為準、每年國曆不同，本頁日期由農民曆引擎推算；各神明資料逐條掛來源。
   </p>
 
+  <LeadVisual
+    src="/og/deities/mazu.png"
+    alt="媽祖神明資料卡，示例呈現神名、職司與聖誕日期"
+  />
+  <p class="muted small visual-note">
+    神明聖誕資料卡示例；本頁下方依日期列出全部神明，逐尊可查看自己的掛源資料。
+  </p>
+
   <section>
     <UpcomingBirthdays items={all} />
   </section>
@@ -80,5 +89,6 @@ const jsonLd = [
     .lead { font-size: var(--text-base); }
     .small { font-size: var(--text-sm); }
     .extend { margin-top: 1.875rem; }
+    .visual-note { margin-top: -1rem; }
   </style>
 </Base>

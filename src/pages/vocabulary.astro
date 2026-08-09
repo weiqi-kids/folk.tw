@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Sources from '../components/Sources.astro';
+import LeadVisual from '../components/LeadVisual.astro';
 import vocab from '../data/vocabulary.json';
 
 const groups: { key: keyof typeof vocab; label: string }[] = [
@@ -18,6 +19,8 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
     全站活動類型、陣頭、金紙、供品採受控詞彙：每詞一句定義、地方變體以別名收、逐詞掛來源；
     避免同義詞各自新增。
   </p>
+  <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
+  <p class="muted small visual-note">本頁是神酷資料庫共用的民俗詞彙定義表。</p>
   {/* 分類跳轉（2026-08-08）：四大段、上百個詞條一次全開共 6,300px，
       想看「金紙／紙錢」得先捲過前兩段。錨點指向下方既有的 <section>。 */}
   <nav class="group-jumps" aria-label="跳到分類">
@@ -72,5 +75,6 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
     .vocab dd { margin: 0; }
     .alias { font-size: var(--text-sm); }
     .src { color: var(--gold); font-size: var(--text-xs); }
+    .visual-note { margin-top: -1rem; font-size: var(--text-xs); }
   </style>
 </Base>

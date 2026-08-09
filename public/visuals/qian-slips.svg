@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">籤詩與典故通用視覺</title>
+  <desc id="desc">抽象竹籤、紙卷與印記構成的站內通用插圖</desc>
+  <rect width="1200" height="630" fill="#f2ead8"/>
+  <circle cx="1010" cy="108" r="230" fill="#d9c9a7" opacity=".48"/>
+  <circle cx="174" cy="548" r="260" fill="#dcc9aa" opacity=".42"/>
+  <g transform="translate(170 80) rotate(-7 150 230)">
+    <rect x="0" y="0" width="72" height="470" rx="28" fill="#7f5833"/>
+    <rect x="92" y="-18" width="72" height="488" rx="28" fill="#9a6d3e"/>
+    <rect x="184" y="10" width="72" height="460" rx="28" fill="#75502f"/>
+    <path d="M28 58h18M120 48h18M212 68h18M28 388h18M120 374h18M212 400h18" stroke="#eadcbe" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-18 112h296M-18 352h296" stroke="#9c2f2f" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(520 112)">
+    <path d="M46 0h440l54 54v394H46C20 448 0 428 0 402V46C0 20 20 0 46 0Z" fill="#fffaf0" stroke="#b9a47e" stroke-width="5"/>
+    <path d="M486 0v54h54" fill="none" stroke="#b9a47e" stroke-width="5"/>
+    <path d="M92 112h330M92 174h288M92 236h330M92 298h250" stroke="#483c31" stroke-width="18" stroke-linecap="round" opacity=".82"/>
+    <circle cx="414" cy="350" r="54" fill="none" stroke="#9c2f2f" stroke-width="13"/>
+    <path d="M384 350h60M414 320v60" stroke="#9c2f2f" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

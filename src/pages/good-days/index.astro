@@ -5,6 +5,7 @@ import { addDays } from '../../lib/almanac/dates';
 import { verifiedYiDays } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
 import { breadcrumb, faqPage } from '../../lib/seo';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 const items = (goodDaysData as { items: { slug: string; name: string; affairs: string[]; nav_label: string; intent: string }[] }).items;
 
@@ -49,6 +50,7 @@ if (faq) jsonLd.push(faq);
   <nav class="crumbs" aria-label="麵包屑">看日子</nav>
 
   <h1>看日子</h1>
+  <LeadVisual src="/visuals/calendar-compass.svg" alt="曆書、日期格與擇日羅盤" />
   <p class="lead">
     這裡列出近六十天內，通書所載宜結婚、搬家入厝、動土、安葬、拜拜的日子。
     判斷依據是《欽定協紀辨方書》卷十一「用事」所載的宜忌神煞，每一條規則都核對過四庫全書本原文。

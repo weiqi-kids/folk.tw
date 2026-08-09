@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 
@@ -52,6 +53,8 @@ if (hasStory) {
   {a.people.length > 0 && (
     <p>關聯人物：{a.people.map((p) => <span class="tag">{p}</span>)}</p>
   )}
+  {/* 通用抽象視覺不描繪人物或場景，避免把錯誤歷史人物配給典故。 */}
+  <LeadVisual src="/visuals/qian-slips.svg" alt={`${a.name}典故的站內通用籤詩插圖`} />
 
   {
     hasStory ? (

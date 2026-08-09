@@ -4,6 +4,7 @@ import { getScenarios, getDeities } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import { affairNameOf } from '../../lib/almanac/select';
 import { imageCreditTitle } from '../../lib/image-credit';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 const scenarios = await getScenarios();
 const deities = await getDeities();
@@ -11,6 +12,7 @@ const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 // 卡片代表圖重用主要守護神的神明圖（首位 patron）
 const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
 const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]?.deity_ref);
+const hubImage = scenarios.map(scenImg).find(Boolean);
 ---
 
 <Base
@@ -19,6 +21,7 @@ const scenImg = (s: (typeof scenarios)[number]) => imgById.get(s.data.patrons[0]
   jsonLd={[breadcrumb([{ name: '拜什麼神', path: '/scenarios' }])]}
 >
   <h1>拜什麼神？（依情境）</h1>
+  {hubImage && <LeadVisual image={hubImage} />}
   <p class="lead">
     求姻緣、求功名、開店求財、搬家入厝——不同人生情境各有相應的守護神與擇日視角。
     本頁按情境聚合既有神明與農民曆資料，守護神對映逐條掛來源。

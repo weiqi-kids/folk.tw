@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import LeadVisual from '../../../components/LeadVisual.astro';
 import slipsData from '../../../data/yaoqian.import.json';
 import { breadcrumb, faqPage } from '../../../lib/seo';
 
@@ -62,6 +63,7 @@ if (faq) jsonLd.push(faq);
   <p class="lead">
     臺南興濟宮保生大帝藥籤{meta.name}共 <strong>{list.length} 首</strong>。{meta.blurb}
   </p>
+  <LeadVisual src="/visuals/medicine-manuscript.svg" alt={`${meta.name}藥籤文獻的站內通用插圖`} />
 
 
   {/* 籤號跳號（2026-08-08）：大人科 120 首全在一頁、整頁 21,000px，要找第 87 首

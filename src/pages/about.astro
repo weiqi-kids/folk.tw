@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import LeadVisual from '../components/LeadVisual.astro';
 import { breadcrumb } from '../lib/seo';
 import { getEvents, getDeities, getTemples, getPractices } from '../lib/queries';
 
@@ -46,6 +47,8 @@ const faqLd = {
     本站是<strong>台灣民俗信仰的考據工具</strong>：把籤詩、神明、農民曆、民俗活動與拜拜習俗，
     做成逐條掛來源、諸說並陳的結構化知識。我們賣「看懂文化」，不賣「預言吉凶」。
   </p>
+
+  <LeadVisual src="/og.png" alt="神酷：神庫・台灣民俗信仰知識系統" />
 
   {/* 目錄（2026-08-08）：整頁 10,000px、八個主題一路往下，最後還接一份數百筆的圖片來源清單，
       要找「版權與授權」得先捲過全部。錨點指向下方既有的 <section>，沒有新增內容。 */}

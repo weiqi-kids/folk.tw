@@ -9,6 +9,7 @@
 //   memorial ＝ 事件記錄頁（凍結集氣快照＋後續發展時間軸）→ 有 updates 才對搜尋引擎開放。
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
+import LeadVisual from '../../../components/LeadVisual.astro';
 import { breadcrumb, memorialArticle } from '../../../lib/seo';
 import topical from '../../../data/topical.json';
 import stats from '../../../data/qiugian-stats.json';
@@ -103,6 +104,8 @@ if (isMemorial) {
   )}
 
   <p class="lead">{item.event}</p>
+  {/* 站內抽象燈火，不是事件照片，也不暗示任何特定災害現場。 */}
+  <LeadVisual src="/visuals/prayer-light.svg" alt={`${item.title}的站內通用祈福燈火插圖`} />
 
   {isMemorial ? (
     <>

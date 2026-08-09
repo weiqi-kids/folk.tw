@@ -5,6 +5,7 @@ import { addDays } from '../../lib/almanac/dates';
 import { verifiedYiDays, dayRecordCached, affairNameOf } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
 import { breadcrumb, faqPage } from '../../lib/seo';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 interface Item {
   slug: string; name: string; affairs: string[];
@@ -100,6 +101,8 @@ if (faq) jsonLd.push(faq);
   </nav>
 
   <h1>{item.nav_label}</h1>
+
+  <LeadVisual src="/visuals/calendar-compass.svg" alt={`${item.name}看日子的曆書與擇日羅盤`} />
 
   <p class="lead">
     {soonestLabel ? (

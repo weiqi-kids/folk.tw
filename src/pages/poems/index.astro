@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { getPoems, getSystems } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 
@@ -24,6 +25,7 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
       而且那句同時兼著「跳到某個籤系」的導覽功能，可是它長得就是一句話。
       拆成兩件事：句子只講這頁有什麼，跳轉獨立成一排看得出可以點的按鈕。 */}
   <p class="muted">共 {systems.filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0).length} 套籤系：四句本文、卦頭故事典故、白話賞析與分項解。</p>
+  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的籤詩通用插圖" />
   <nav class="sys-jumps" aria-label="跳到籤系">
     {systems
       .filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0)

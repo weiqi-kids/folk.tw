@@ -2817,6 +2817,14 @@
     "divination_systems": [],
     "groups": [],
     "summary": "《西遊記》孫悟空的神格化，以猴王形象護衛兒童驅邪避凶，別稱「大聖爺」；職司驅邪與護童，廟宇奉祀傳統源自閩南移民，廟會中大聖爺陣頭深受民眾歡迎。",
+    "image": {
+      "src": "/deities/dasheng.webp",
+      "alt": "澎湖白坑玉聖殿的齊天大聖像",
+      "author": "舟集 Toadboat",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%99%BD%E5%9D%91%E7%8E%89%E8%81%96%E6%AE%BF_(29)%E9%BD%8A%E5%A4%A9%E5%A4%A7%E8%81%96%E5%83%8F.jpg"
+    },
     "sources": [
       {
         "type": "book",
@@ -3474,6 +3482,14 @@
     "divination_systems": [],
     "groups": [],
     "summary": "掌管雷電的神明組合，雷公施雷、電母閃電，共同執行天庭懲戒惡人的職責；台灣民間對雷公電母的敬畏，體現傳統社會對自然力量的崇敬與道德秩序的想像。",
+    "image": {
+      "src": "/deities/leigongdianmu.webp",
+      "alt": "同幅廟宇彩繪中的雷公與電母",
+      "author": "LiuSanjie",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Leigong_and_Dianmu.jpg"
+    },
     "sources": [
       {
         "type": "book",
@@ -5196,6 +5212,14 @@
       "觀世音菩薩"
     ],
     "summary": "善財童子出自《華嚴經·入法界品》，於文殊指導下參訪五十三位善知識（含向觀音請法）；龍女出自《法華經》，為娑竭羅龍王之女，八歲獻珠即身成佛。佛教經典本無觀音脅侍之明文，民間造像以二者並列為觀音左右脅侍，此並列形象多被指為明代《南海觀音全傳》等寶卷文學流傳所致，屬後出宗教創作而非早期經典記載（諸說並陳）。各權威來源均未載其聖誕日期。",
+    "image": {
+      "src": "/deities/shancai_longnv.webp",
+      "alt": "羅東震安宮觀音佛祖神龕，兩側分立善財童子與龍女",
+      "author": "蔡明志／林鴻文",
+      "license": "CC BY 3.0 TW",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/tw/",
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%BE%85%E6%9D%B1%E9%9C%87%E5%AE%89%E5%AE%AE%E5%BE%8C%E6%AE%BF%E8%A7%80%E9%9F%B3%E4%BD%9B%E7%A5%96%E7%A5%9E%E9%BE%95.jpg"
+    },
     "sources": [
       {
         "type": "web",
@@ -5620,6 +5644,14 @@
     "iconography": [],
     "divination_systems": [],
     "groups": [],
+    "image": {
+      "src": "/deities/baoyi.webp",
+      "alt": "臺北景美集應廟的保儀尊王神像",
+      "author": "Sean Chiu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E6%99%AF%E7%BE%8E%E9%9B%86%E6%87%89%E5%BB%9F%E4%BF%9D%E5%84%80%E5%B0%8A%E7%8E%8B(%E5%B0%AA%E5%85%AC).jpg"
+    },
     "sources": [
       {
         "type": "gov",

@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import LeadVisual from '../../../components/LeadVisual.astro';
 import slipsData from '../../../data/yaoqian.import.json';
 import notesData from '../../../data/yaoqian-notes.json';
 import { breadcrumb, faqPage } from '../../../lib/seo';
@@ -90,6 +91,7 @@ const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[
     {warned && <> 這一首的<strong>原始典藏本身就標註了藥材有毒或請勿使用</strong>。</>}
     身體不舒服請就醫；想走中醫請掛合格中醫師門診當面辨證。
   </p>
+  <LeadVisual src="/visuals/medicine-manuscript.svg" alt={`${label}藥籤文獻的站內通用插圖`} />
 
   {warned && (
     <p class="ms-flagbox">

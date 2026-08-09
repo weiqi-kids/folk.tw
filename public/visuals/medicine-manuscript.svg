@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">藥籤文獻通用視覺</title>
+  <desc id="desc">抽象藥籤文獻、藥櫃與葉片構成的站內通用插圖</desc>
+  <rect width="1200" height="630" fill="#eee7d5"/>
+  <path d="M0 500C250 420 360 610 620 510s390-40 580 50v70H0Z" fill="#d3c5a5" opacity=".55"/>
+  <g transform="translate(105 90)">
+    <rect width="400" height="450" rx="22" fill="#8b6038"/>
+    <g fill="#d6b982" stroke="#6c482d" stroke-width="8">
+      <rect x="32" y="34" width="152" height="98" rx="8"/><rect x="216" y="34" width="152" height="98" rx="8"/>
+      <rect x="32" y="158" width="152" height="98" rx="8"/><rect x="216" y="158" width="152" height="98" rx="8"/>
+      <rect x="32" y="282" width="152" height="98" rx="8"/><rect x="216" y="282" width="152" height="98" rx="8"/>
+    </g>
+    <g fill="#6c482d"><circle cx="108" cy="83" r="9"/><circle cx="292" cy="83" r="9"/><circle cx="108" cy="207" r="9"/><circle cx="292" cy="207" r="9"/><circle cx="108" cy="331" r="9"/><circle cx="292" cy="331" r="9"/></g>
+  </g>
+  <g transform="translate(590 78)">
+    <path d="M40 0h430l45 45v430H40C18 475 0 457 0 435V40C0 18 18 0 40 0Z" fill="#fffaf0" stroke="#b5a078" stroke-width="5"/>
+    <path d="M470 0v45h45" fill="none" stroke="#b5a078" stroke-width="5"/>
+    <path d="M82 105h315M82 167h270M82 229h315M82 291h230" stroke="#54473a" stroke-width="17" stroke-linecap="round" opacity=".78"/>
+    <path d="M330 390c-52-104 28-148 98-126 9 75-18 136-98 126Zm0 0c-44-65-101-50-128-12 28 63 81 81 128 12Z" fill="#71815d"/>
+    <path d="M329 390c9-53 37-87 78-105M329 390c-31-14-65-16-101-2" fill="none" stroke="#4d6040" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

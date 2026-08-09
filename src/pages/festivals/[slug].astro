@@ -6,6 +6,7 @@ import ShareRow from '../../components/ShareRow.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
+import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
@@ -290,9 +291,14 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
 };
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
-const festivalOgSlugs = new Set(['guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'qianggu']);
+const festivalOgSlugs = new Set([
+  'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
+  'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
+]);
 const festivalOgImage = festivalOgSlugs.has(f.slug) ? `/og/festivals/${f.slug}.png` : undefined;
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
+const addToGoogleCalendar = googleCalendarUrl(f, iso, lunarLabel);
+const festivalIcsUrl = `/festivals/${f.slug}.ics`;
 
 // 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
 // 因此用 Article，不宣稱 EventScheduled、OfflineEventAttendanceMode 或 folk.tw organizer。
@@ -348,6 +354,18 @@ const jsonLd = [
 
   <p class="lead">{dateSentence}{f.lead}</p>
   <ShareRow title={pageTitle} url={canonicalUrl} />
+  <section class="calendar-reminder" aria-labelledby="calendar-reminder-title">
+    <div>
+      <h2 id="calendar-reminder-title">提醒我</h2>
+      <p>把 {year} 年國曆 {solarMd(iso)} 加入行事曆；多日或異地日期差異請以本頁說明為準。</p>
+    </div>
+    <div class="calendar-actions">
+      <a class="btn btn-primary" href={addToGoogleCalendar} target="_blank" rel="noreferrer"
+        data-calendar-add data-calendar-id={f.slug} data-calendar-method="google">加入 Google Calendar</a>
+      <a class="btn" href={festivalIcsUrl} download={`folk-tw-${f.slug}-${iso}.ics`}
+        data-calendar-add data-calendar-id={f.slug} data-calendar-method="ics">下載 Apple／通用 .ics</a>
+    </div>
+  </section>
   {
     festivalOgImage && (
       <figure class="festival-visual">
@@ -723,6 +741,11 @@ const jsonLd = [
     .when strong { color: var(--accent); font-size: var(--text-lg); }
     .cd { color: var(--gold); font-size: var(--text-sm); margin-left: 0.5rem; }
     .lead { font-size: var(--text-base); }
+    .calendar-reminder { margin: 1rem 0 1.5rem; padding: 1rem; border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .calendar-reminder h2 { margin: 0 0 0.25rem; padding: 0; border: 0; font-size: var(--text-lg); }
+    .calendar-reminder p { margin: 0; color: var(--ink-soft); font-size: var(--text-sm); }
+    .calendar-actions { display: flex; flex-wrap: wrap; gap: 0.625rem; flex: none; }
     .festival-visual { margin: 1rem 0 1.5rem; }
     .festival-visual img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
@@ -762,5 +785,10 @@ const jsonLd = [
     .sibling-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
     .sibling-list .sfdate { color: var(--ink-soft); font-size: var(--text-sm); }
     .footer-src { margin-top: 2.5rem; }
+    @media (max-width: 46rem) {
+      .calendar-reminder { align-items: stretch; flex-direction: column; }
+      .calendar-actions { flex-direction: column; }
+      .calendar-actions .btn { text-align: center; }
+    }
   </style>
 </Base>

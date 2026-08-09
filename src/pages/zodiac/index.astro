@@ -7,6 +7,7 @@ import { breadcrumb, faqPage } from '../../lib/seo';
 import {
   ZODIAC_LIST, yearPillarOf, taisuiRelation, taisuiZodiacs, RELATION_LABEL, chongDays,
 } from '../../lib/zodiac';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 const { iso: todayIso } = todayInTaipei();
 const yp = yearPillarOf(todayIso);
@@ -47,6 +48,8 @@ if (faq) jsonLd.push(faq);
   </nav>
 
   <h1>十二生肖：{solarYear}年太歲關係與今日沖煞</h1>
+
+  <LeadVisual src="/visuals/zodiac-wheel.svg" alt="十二生肖、地支與太歲關係輪盤" />
 
   <section class="hero">
     <p class="hero-answer">

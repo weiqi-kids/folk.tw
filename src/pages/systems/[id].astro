@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { getSystems, getPoems, deitiesBySystem, allusionNameById } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import concernsData from '../../data/concerns.json';
@@ -67,6 +68,7 @@ const jsonLd = [
   <nav class="crumb"><a href="/poems/">籤詩</a> ／ <a href="/systems/">籤系</a> ／ {s.name}</nav>
   <h1>{s.name}</h1>
   {s.summary && <p class="summary">{s.summary}</p>}
+  <LeadVisual src="/visuals/qian-slips.svg" alt={`${s.name}的站內通用籤詩插圖`} />
 
   {/* 接回線上求籤——見 frontmatter 註解。有對映的煩惱就直接指過去，否則連樞紐。 */}
   <p class="qiugian-cta">

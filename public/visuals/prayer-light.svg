@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">祈福集氣通用視覺</title>
+  <desc id="desc">抽象燈火與同心圓構成的站內通用插圖，不代表特定事件現場</desc>
+  <rect width="1200" height="630" fill="#342c2a"/>
+  <circle cx="600" cy="300" r="260" fill="#985b35" opacity=".12"/>
+  <circle cx="600" cy="300" r="190" fill="#c58345" opacity=".12"/>
+  <circle cx="600" cy="300" r="120" fill="#e3ad68" opacity=".16"/>
+  <g transform="translate(440 105)">
+    <path d="M160 20c70 88 126 146 126 236 0 78-57 139-126 139S34 334 34 256c0-72 44-133 95-195-5 60 14 93 31 111 19-35 22-88 0-152Z" fill="#e4a85f"/>
+    <path d="M160 162c41 51 67 84 67 126 0 43-30 76-67 76s-67-33-67-76c0-37 25-74 56-107-2 26 3 45 11 59 9-22 10-47 0-78Z" fill="#fff0c2"/>
+    <path d="M64 408h192l28 78H36Z" fill="#8f3430"/>
+    <path d="M18 486h284" stroke="#d8b578" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <g fill="#e7c98f" opacity=".48">
+    <circle cx="260" cy="172" r="8"/><circle cx="330" cy="400" r="6"/><circle cx="888" cy="172" r="7"/><circle cx="930" cy="390" r="9"/>
+  </g>
+</svg>

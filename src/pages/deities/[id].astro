@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
+import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
@@ -172,6 +174,7 @@ const jsonLd = [
   </header>
 
   {d.summary && <p class="summary">{d.summary}</p>}
+  <RelatedSeasonalCampaign festivalSlugs={relatedFestivals.map((f) => f.slug)} />
 
   <div class="cols2">
     <section>
@@ -216,7 +219,7 @@ const jsonLd = [
   {/* 代表圖（2026-08-06 起在詳情頁也顯示；原本只有 /deities/ 索引頁的卡片用得到）。
       出處標示走 `imageCredit()` 唯一入口——內政部的照片**必須給可點的來源連結**（授權條件）。 */}
   {
-    d.image && (
+    d.image ? (
       <figure class="deity-photo">
         <img src={d.image.src} alt={d.image.alt} loading="lazy" decoding="async" />
         <figcaption class="muted small">
@@ -227,6 +230,13 @@ const jsonLd = [
           )}
         </figcaption>
       </figure>
+    ) : (
+      // 查無可授權神像照的神明，使用由本尊既有名稱／類別／職司／聖誕資料產生的文字卡。
+      // 卡片不描繪神像、不猜身分；postbuild 與 og:image 會產生同一路徑的檔案。
+      <LeadVisual
+        src={`/og/deities/${deity.id}.png`}
+        alt={`${d.name}資料卡：${d.category}${d.office.length ? `，職司${d.office.join('、')}` : ''}`}
+      />
     )
   }
 

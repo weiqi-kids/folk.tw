@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import TempleMap from '../../components/TempleMap.astro';
+import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getTemples, getDeities, getEvents, getSystems, getScenarios } from '../../lib/queries';
 import concernsData from '../../data/concerns.json';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
@@ -21,6 +22,7 @@ import {
 } from '../../lib/temple-festival.ts';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
+import imagePriority from '../../data/image-priority.json';
 
 export const getStaticPaths = (async () => {
   const temples = await getTemples();
@@ -147,6 +149,11 @@ const deityNodeName = refOk ? (deityName.get(t.main_deity_ref!) ?? '') : '';
 const qifuScenarios = refOk ? (scenariosByDeity.get(t.main_deity_ref!) ?? []) : [];
 const qifuConcerns = refOk ? (concernsByDeity.get(t.main_deity_ref!) ?? []) : [];
 
+// GA4 近 28 天（2026-08-09 擷取）的流量前 100 宮廟。沒有授權實景照者顯示本站資料卡，
+// 並明確標示「非廟宇實景」，避免把生成式卡片誤認為現場照片。
+const topTrafficTempleIds = new Set(imagePriority.top_temples.map((x) => x.id));
+const showTrafficCard = topTrafficTempleIds.has(t.id) && !t.image;
+
 // 主祀神聖誕（農曆）：僅取 deity 節點既有 birthday_lunar 中 kind==='聖誕' 者，轉中文標籤；無源不補。
 const birthdayLunar = refOk
   ? ((deityData.get(t.main_deity_ref!)?.birthday_lunar ?? []).find((b: { kind?: string; date?: string }) => b.kind === '聖誕')?.date ?? '')
@@ -164,6 +171,23 @@ const mainFestival = pickMainFestival(t.festivals);
 // festivalOwnerByLunarDate，兩邊必然一致，不會互相矛盾。
 const festivalOwner = festivalOwnerByLunarDate(festivalsData);
 const festivalName = new Map(festivalsData.map((f) => [f.slug, f.name]));
+// 當期節慶 CTA 只沿既有關係出現：節日直接點名本廟、主祀神對應、主辦活動對應，
+// 或本廟登記祭典日期由 festivalOwner 明確歸到該節日。沒有任一條就不渲染。
+const hostedEventIds = new Set(hostedEvents.map((e) => e.id));
+const registeredFestivalSlugs = new Set(
+  festivalList
+    .filter((f) => f.calendar === 'lunar')
+    .map((f) => festivalOwner.get(f.date))
+    .filter((slug): slug is string => !!slug),
+);
+const seasonalFestivalSlugs = festivalsData
+  .filter((f) =>
+    ((f as { temple_refs?: string[] }).temple_refs ?? []).includes(temple.id) ||
+    (!!t.main_deity_ref && ((f as { deity_refs?: string[] }).deity_refs ?? []).includes(t.main_deity_ref)) ||
+    ((f as { event_refs?: string[] }).event_refs ?? []).some((id) => hostedEventIds.has(id)) ||
+    registeredFestivalSlugs.has(f.slug),
+  )
+  .map((f) => f.slug);
 
 // 主祀神 → /festivals/ 節日頁的內鏈（2026-08-03）。
 // 為什麼要有這一段：`festivalOwnerByLunarDate` 只在「該廟登記的祭典**日期**與節日同天」時才連，
@@ -430,7 +454,22 @@ const jsonLd = [
   </nav>
   <h1>{t.name}</h1>
 
+  {showTrafficCard && (
+    <figure class="temple-photo">
+      <img
+        src={`/og/temples/${encodeURIComponent(t.id)}.png`}
+        alt={`${t.name}宮廟資料卡（非廟宇實景）`}
+        width="1200"
+        height="630"
+        loading="eager"
+        decoding="async"
+      />
+      <figcaption class="muted small">本站宮廟資料卡，非廟宇實景照片</figcaption>
+    </figure>
+  )}
+
   <p class="summary">{summaryText}</p>
+  <RelatedSeasonalCampaign festivalSlugs={seasonalFestivalSlugs} />
 
   <dl class="rec">
     {t.district && <div><dt>行政區</dt><dd>{t.district}</dd></div>}

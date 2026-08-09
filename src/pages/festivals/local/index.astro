@@ -20,15 +20,18 @@
 // 刻意不用 JS 注入 DOM——那會踩到 scoped <style> 套不到注入節點的坑（見 check:scoped-styles）。
 import Base from '../../../layouts/Base.astro';
 import Sources from '../../../components/Sources.astro';
+import LeadVisual from '../../../components/LeadVisual.astro';
 import { breadcrumb, faqPage } from '../../../lib/seo';
 import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
 import { todayInTaipei } from '../../../lib/daily';
-import { getTemples } from '../../../lib/queries';
+import { getEvents, getTemples } from '../../../lib/queries';
 import lc from '../../../data/local-celebrations.json';
 
 const { iso: today } = todayInTaipei();
 const temples = await getTemples();
 const templeById = new Map(temples.map((t) => [t.id, t.data]));
+// 清單頁只用一張已掛身分與授權的活動照片作「資料示例」，不暗示它代表全部地方慶典。
+const localVisual = (await getEvents()).find((e) => e.id === 'jilong')?.data.image;
 
 // 每筆算「下一次國曆日期」。回曆無法換算 → iso 為 null，仍然要列出（資料本身是事實），
 // 只是不進「近期」排序、也不顯示國曆。
@@ -121,6 +124,15 @@ const jsonLd = [
     農曆日期已換算成下一次的國曆日期，可依縣市或依月份查看。
     這份清單記的是<strong>縣市登錄了哪些慶典</strong>，與各宮廟自己登記的<a href="/festivals/">年度祭典</a>是兩份不同的資料。
   </p>
+
+  {
+    localVisual && (
+      <>
+        <LeadVisual image={localVisual} />
+        <p class="muted small visual-note">圖片為地方宗教慶典資料示例：雞籠中元祭；不代表清單中的全部慶典。</p>
+      </>
+    )
+  }
 
   <section>
     <h2>近期</h2>
@@ -276,5 +288,6 @@ const jsonLd = [
     .extend { margin-top: 1.875rem; }
     .src { color: var(--gold); font-size: var(--text-xs); }
     .footer-src { margin-top: 2.5rem; }
+    .visual-note { margin-top: -1rem; }
   </style>
 </Base>

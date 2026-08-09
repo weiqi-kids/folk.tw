@@ -17,6 +17,7 @@ import {
   ZODIAC_LIST, bySlug, yearPillarOf, taisuiRelation, taisuiZodiacs,
   RELATION_LABEL, birthYears, chongDays, antaisuiTemples, taisuiShrineTemples,
 } from '../../lib/zodiac';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 export function getStaticPaths() {
   return ZODIAC_LIST.map((z) => ({ params: { slug: z.slug } }));
@@ -102,6 +103,8 @@ const relSentence =
   </nav>
 
   <h1>屬{z.name}（{z.branch}）：{solarYear}年太歲關係與今日沖煞</h1>
+
+  <LeadVisual src="/visuals/zodiac-wheel.svg" alt={`屬${z.name}的生肖、地支與太歲關係輪盤`} />
 
   <section class="hero">
     <p class="hero-answer">

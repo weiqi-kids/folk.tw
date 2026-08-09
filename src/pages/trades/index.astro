@@ -4,6 +4,7 @@ import { getTrades, getDeities } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 import { affairNameOf } from '../../lib/almanac/select';
 import { imageCreditTitle } from '../../lib/image-credit';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 const trades = await getTrades();
 const deities = await getDeities();
@@ -11,6 +12,7 @@ const nameById = new Map(deities.map((d) => [d.id, d.data.name]));
 // 卡片代表圖重用主要守護神的神明圖（首位 patron），不另備圖
 const imgById = new Map(deities.filter((d) => d.data.image).map((d) => [d.id, d.data.image!]));
 const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.deity_ref);
+const hubImage = trades.map(tradeImg).find(Boolean);
 ---
 
 <Base
@@ -19,6 +21,7 @@ const tradeImg = (t: (typeof trades)[number]) => imgById.get(t.data.patrons[0]?.
   jsonLd={[breadcrumb([{ name: '行業守護神', path: '/trades' }])]}
 >
   <h1>行業守護神</h1>
+  {hubImage && <LeadVisual image={hubImage} />}
   <p class="muted">
     擇日與祖師信仰本就服務各行各業。本頁按行業聚合既有神明與農民曆資料，守護神對映逐條掛來源。
   </p>

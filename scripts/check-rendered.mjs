@@ -13,6 +13,7 @@ import { createRequire } from 'node:module';
 // 底下，讀得動 .ts。
 import { num } from '../src/lib/format.ts';
 import { commonTempleName } from '../src/lib/temple-name.ts';
+import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
 const require = createRequire(import.meta.url);
 
 const DIST = 'dist';
@@ -42,6 +43,7 @@ const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
 const festivals = normalize(require('../src/data/festivals.json'));
+const imagePriority = require('../src/data/image-priority.json');
 // 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
 const practices = normalize(require('../src/data/practices.json'));
 // 不變量 5e 用：民俗活動的文資登錄明細該印在哪一頁（events.json 的 heritage.home_festival）。
@@ -751,7 +753,10 @@ for (const f of festivals) {
   if (campaignTitleProbe && !title.includes(campaignTitleProbe)) {
     violations.push(`節日頁 ${f.slug} title 未呈現本頁獨有的搜尋意圖：${title}`);
   }
-  const festivalOgSlugs = new Set(['guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'qianggu']);
+  const festivalOgSlugs = new Set([
+    'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
+    'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
+  ]);
   if (festivalOgSlugs.has(f.slug)) {
     const wantOg = `/og/festivals/${f.slug}.png`;
     if (!html.includes(escAttr(wantOg))) {
@@ -802,22 +807,38 @@ for (const f of festivals) {
   const taipeiToday = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
-  const schedule = [
-    ['2026-08-09', '2026-08-13', '/festivals/guimenkai/'],
-    ['2026-08-14', '2026-08-19', '/festivals/qixi/'],
-    ['2026-08-20', '2026-08-26', '/festivals/fangshuideng/'],
-    ['2026-08-27', '2026-08-27', '/festivals/zhongyuan/'],
-    ['2026-08-28', '2026-09-10', '/festivals/dizang/'],
-  ];
-  const current = schedule.find(([start, end]) => start <= taipeiToday && taipeiToday <= end);
+  const schedule = seasonalCampaigns;
+  const campaignEnd = schedule.at(-1)?.end ?? '';
+  const current = schedule.find(({ start, end }) => start <= taipeiToday && taipeiToday <= end);
   if (current) {
     if (!home.includes('data-seasonal-campaign')) violations.push('首頁在戰役期間缺少節日主卡');
-    if (!home.includes(`href="${current[2]}"`)) violations.push(`首頁節日主卡未指向當日主題 ${current[2]}`);
-    for (const [, , href] of schedule) {
-      if (!home.includes(href)) violations.push(`首頁節日主卡的前端排程缺少 ${href}`);
+    if (!home.includes(`href="${current.href}"`)) violations.push(`首頁節日主卡未指向當日主題 ${current.href}`);
+    if (!home.includes('data-campaign-image') || !home.includes('width="1200"') || !home.includes('height="630"')) {
+      violations.push('首頁節日主卡缺少 1200×630 主視覺');
     }
-  } else if (taipeiToday > '2026-09-10' && home.includes('data-seasonal-campaign')) {
-    violations.push('首頁節日主卡應於 2026-09-10 後自然退場');
+    for (const campaign of schedule) {
+      if (!home.includes(campaign.href)) violations.push(`首頁節日主卡的前端排程缺少 ${campaign.href}`);
+      if (!home.includes(campaign.image)) {
+        violations.push(`首頁節日主卡的前端排程缺少 ${campaign.festivalSlug} 主視覺`);
+      }
+    }
+  } else if (campaignEnd && taipeiToday > campaignEnd && home.includes('data-seasonal-campaign')) {
+    violations.push(`首頁節日主卡應於 ${campaignEnd} 後自然退場`);
+  }
+}
+
+// 不變量 5h（2026-08-09 加）：節日總覽必須讓十個主題直接露出各自的主視覺。
+{
+  const html = readFileSync(`${DIST}/festivals/index.html`, 'utf8');
+  const slugs = [
+    'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
+    'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
+  ];
+  for (const slug of slugs) {
+    const image = `/og/festivals/${slug}.png`;
+    if (!html.includes(`src="${escAttr(image)}"`)) {
+      violations.push(`節日總覽缺少 ${slug} 主視覺`);
+    }
   }
 }
 
@@ -1262,8 +1283,62 @@ let lcTempleSections = 0;
   }
 }
 
+// 不變量 18（2026-08-09 加）：正文圖片覆蓋。
+// 使用者要求所有非黃曆／宮廟正式頁都必須有圖；黃曆覆蓋今日起 30 天，
+// 宮廟覆蓋 GA4 近 28 天流量前 100。只認 body 實際 <img>，不把 meta og:image 算進來。
+{
+  const indexFiles = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) walk(path);
+      else if (entry.name === 'index.html') indexFiles.push(path);
+    }
+  };
+  walk(DIST);
+  let requiredGeneral = 0;
+  for (const file of indexFiles) {
+    const route = file.slice(DIST.length).replace(/\/index\.html$/, '/') || '/';
+    if (route.startsWith('/almanac/') || route.startsWith('/temples/')) continue;
+    const html = readFileSync(file, 'utf8');
+    // astro.config 的 mergedInto 舊 slug 是只有跳轉標記的相容網址，沒有正文，也不是內容頁。
+    if (!/<html\b/i.test(html)) continue;
+    requiredGeneral += 1;
+    if (!/<img\b/i.test(html)) violations.push(`正文圖片：${route} 沒有 <img>`);
+  }
+
+  const todayTaipei = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+  const almanacHub = join(DIST, 'almanac', 'index.html');
+  if (!existsSync(almanacHub) || !/<img\b/i.test(readFileSync(almanacHub, 'utf8'))) {
+    violations.push('正文圖片：今日黃曆入口 /almanac/ 沒有 <img>');
+  }
+  let date = todayTaipei;
+  let requiredAlmanac = 0;
+  while (requiredAlmanac < imagePriority.almanac_rolling_days) {
+    const dated = join(DIST, 'almanac', date, 'index.html');
+    const file = existsSync(dated) ? dated : date === todayTaipei ? join(DIST, 'almanac', 'index.html') : dated;
+    requiredAlmanac += 1;
+    if (!existsSync(file)) violations.push(`正文圖片：黃曆 ${date} 未建置`);
+    else if (!/<img\b/i.test(readFileSync(file, 'utf8'))) violations.push(`正文圖片：黃曆 ${date} 沒有 <img>`);
+    const d = new Date(`${date}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + 1);
+    date = d.toISOString().slice(0, 10);
+  }
+
+  let requiredTemples = 0;
+  for (const row of imagePriority.top_temples) {
+    const file = join(DIST, 'temples', row.id, 'index.html');
+    requiredTemples += 1;
+    if (!existsSync(file)) violations.push(`正文圖片：流量優先宮廟 ${row.id} 未建置`);
+    else if (!/<img\b/i.test(readFileSync(file, 'utf8'))) violations.push(`正文圖片：流量優先宮廟 ${row.id} 沒有 <img>`);
+  }
+  globalThis.__imageCoverage = { requiredGeneral, requiredAlmanac, requiredTemples };
+}
+
 if (violations.length === 0) {
-  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊生日 title 同時含「生日／聖誕」、全形寬未超過 30，且農曆標籤／國曆往返驗證相符，其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複；另「附近的廟」頁骨架齊全（定位鈕／結果清單／${globalThis.__nbSlots} 個預渲染結果槽／無 JS 退路的縣市清單），格網索引 ${globalThis.__nbCells} 個格檔共 ${globalThis.__nbRows} 筆與資料**雙向**逐筆相符（每筆都落在正確的格、無多餘格檔、無座標者一間都不在裡面）。`);
+  console.log(`✓ render 不變量檢查通過：全 ${checked} 間廟頁逐一比對，${expectedCount} 間正確顯示求籤區塊、其餘正確不顯示；並確認全 ${checked} 間廟頁皆含 answer-first 摘要（${SUMMARY_MARK}）與 FAQPage 結構化資料、且 og:image 為本廟專屬卡（檔案存在）且 og:title 不含站名；title 其中 ${titleWithDeity} 頁帶主祀神、神名皆已清洗且全形寬未超過 30；另全 ${globalThis.__nearbyChecked} 間有鄰居的廟頁皆含同鄉鎮宮廟區塊且鎮內廟數相符；全 ${townPages} 個鄉鎮頁摘要存在、其中 ${townPages - townUnmatched} 頁間數與資料逐一相符；全 ${deityChecked} 尊神明頁其中 ${deityWithShengdan} 尊生日 title 同時含「生日／聖誕」、全形寬未超過 30，且農曆標籤／國曆往返驗證相符，其餘正確不帶日期後綴，另 ${deityWithIcon} 尊造型・法器逐項相符、${deityWithMoi} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染；全 ${festChecked} 個節日頁含 lead／FAQPage／Event 且日期相符、當日祭典宮廟名單間數與資料相符；另全 ${festTemples} 間有年度祭典的廟頁筆數／名稱／代表祭典句逐一相符、其餘 ${checked - festTemples} 間正確不顯示該區塊；另 ${yijiPagesChecked} 個擇日頁共 ${yijiDaysChecked} 個「宜」日逐日翻查該日農民曆頁，建除／日干／日支皆非投票表明列所忌；另全 ${qifuChecked} 間廟頁皆含祈福區塊與 /qiugian/ 集氣入口，其中 ${qifuWithOffice} 間職司句與資料相符、${qifuWithScenario} 間列出情境、${qifuWithConcern} 間列出煩惱籤，情境與煩惱籤皆雙向比對（該有的都在、不該有的都不在）；另 ${qifuIntro} 間顯示觀光署簡介（文字相符且標示來源）、${qifuOpen} 間顯示開放時間，兩者皆雙向比對；另 ${moiDetailTemples} 間顯示內政部建築特色／參拜流程，文字逐字相符且**來源連結確實渲染在頁面上**（授權條件），其餘正確不渲染；另 ${templePhotos} 間廟頁與 ${deityPhotos} 尊神明頁的代表圖皆已渲染且檔案存在，其中內政部來源者**攝影者姓名與可點來源連結都在**；另地方宗教慶典 ${lcChecked}/${localCel.items.length} 項逐項在 /festivals/local/ 出現、項數敘述相符、回曆項未被擅自換算，${lcTempleSections} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）；另籤詩頁 ${globalThis.__poemCards} 張與神明頁 ${globalThis.__deityCards} 張專屬分享卡皆為該頁自己的卡且**檔案存在**，全站分享列逐頁驗過 ${globalThis.__shareRows} 頁、404 正確不帶、且確認分享列在 pagefind 索引區外；另 ${globalThis.__zodiacShrine} 個生肖頁的太歲殿名單（各 ${globalThis.__zodiacShrineN} 間）**措辭界線那句在**、名單雙向比對相符、且未與「祭典登記有安太歲」那批重複；另「附近的廟」頁骨架齊全（定位鈕／結果清單／${globalThis.__nbSlots} 個預渲染結果槽／無 JS 退路的縣市清單），格網索引 ${globalThis.__nbCells} 個格檔共 ${globalThis.__nbRows} 筆與資料**雙向**逐筆相符（每筆都落在正確的格、無多餘格檔、無座標者一間都不在裡面）；另正文圖片覆蓋 ${globalThis.__imageCoverage.requiredGeneral} 個非黃曆／宮廟頁、${globalThis.__imageCoverage.requiredAlmanac} 個指定黃曆日與 ${globalThis.__imageCoverage.requiredTemples} 個流量 Top 宮廟頁。`);
   process.exit(0);
 }
 

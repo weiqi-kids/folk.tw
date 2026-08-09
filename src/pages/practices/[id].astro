@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage, howTo } from '../../lib/seo';
 import festivals from '../../data/festivals.json';
@@ -15,6 +16,7 @@ const { practice } = Astro.props;
 const p = practice.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
+const deityById = new Map(deities.map((d) => [d.id, d.data]));
 const isNode = (id: string) => deityName.has(id);
 // 相關民俗活動：經由共同神明關聯（去重），避免習俗頁僅單向連神明。
 const eventsByD = await eventsByDeity();
@@ -24,6 +26,23 @@ const relatedEvents = [
 // 相關節日：festivals.json 的 practice_refs 是唯一對到本頁 id 的權威欄位；
 // p.festival_ref（上面「關聯節日」）是季節描述文字，非節日代稱，故另開一列放真連結，不動原欄位。
 const relatedFestivals = festivals.filter((f) => f.practice_refs?.includes(practice.id));
+
+// 正文代表圖優先使用本習俗自己的授權紀實照。缺圖時只有「栽花換斗」能安全退到
+// 已有授權的註生娘娘神像；收驚／入厝沒有足以代表儀式的可信圖，使用站內通用視覺，
+// 並在圖說明標非儀式紀實，不拿其他習俗的照片冒充。
+const fallbackDeityByPractice: Record<string, string> = { zaihua: 'zhusheng' };
+const fallbackDeityId = fallbackDeityByPractice[practice.id];
+const deityFallbackImage = fallbackDeityId ? deityById.get(fallbackDeityId)?.image : undefined;
+const pageImage = p.image
+  ? { ...p.image, genericNote: '' }
+  : deityFallbackImage
+    ? { ...deityFallbackImage, genericNote: `${deityName.get(fallbackDeityId) ?? '相關神明'}通用神像視覺，非${p.title}儀式紀實。` }
+    : {
+        src: '/og.png', alt: '神酷站內通用視覺', author: '神酷', license: '', source: '',
+        genericNote: `站內通用視覺，非${p.title}儀式紀實。`,
+      };
+const pageImageWidth = pageImage.src === '/og.png' ? 1200 : 240;
+const pageImageHeight = pageImage.src === '/og.png' ? 630 : 240;
 
 // P1-4 AEO：FAQ 由真實資料生成（步驟／供品／禁忌／場合），缺資料自動略過。
 const stepLine = p.steps
@@ -86,6 +105,27 @@ const jsonLd: object[] = [
   <nav class="crumb"><a href="/practices/">拜拜習俗</a> ／ {p.category}</nav>
   <h1>{p.title}</h1>
   {p.summary && <p class="summary">{p.summary}</p>}
+  <RelatedSeasonalCampaign festivalSlugs={relatedFestivals.map((f) => f.slug)} />
+  <figure class="entry-photo">
+    <img src={pageImage.src} alt={pageImage.alt} width={pageImageWidth} height={pageImageHeight} loading="lazy" decoding="async" />
+    <figcaption class="muted small">
+      {pageImage.genericNote && <span>{pageImage.genericNote} </span>}
+      {
+        pageImage.source ? (
+          <>
+            圖：<a href={pageImage.source} target="_blank" rel="noopener nofollow">{pageImage.author}</a>
+            {pageImage.license && (
+              <>
+                ・{pageImage.license_url
+                  ? <a href={pageImage.license_url} target="_blank" rel="noopener nofollow">{pageImage.license}</a>
+                  : pageImage.license}
+              </>
+            )}
+          </>
+        ) : '圖：神酷站內素材'
+      }
+    </figcaption>
+  </figure>
 
   <dl class="rec">
     {p.occasion && <div><dt>場合</dt><dd>{p.occasion}</dd></div>}
@@ -180,6 +220,9 @@ const jsonLd: object[] = [
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
+    .entry-photo { margin: 1.25rem 0; }
+    .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }
+    .entry-photo figcaption { margin-top: 0.375rem; }
     .rec { display: grid; gap: 0.5rem; margin: 1.25rem 0; }
     .rec > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.625rem; padding: 0.375rem 0; border-bottom: 1px dashed var(--line); }
     .rec dt { font-weight: 700; color: var(--accent); }

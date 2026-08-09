@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import { getDeities, getScenarios } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import comparisons from '../../data/comparisons.json';
+import LeadVisual from '../../components/LeadVisual.astro';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -22,6 +23,7 @@ export const getStaticPaths = (async () => {
 const { cmp, a, b, scenName } = Astro.props;
 const A = a.data;
 const B = b.data;
+const leadImage = A.image ?? B.image;
 
 // 聖誕（農曆）：僅實際日期，同神明頁規則
 const bdays = (d: typeof A) =>
@@ -79,6 +81,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
     <h1>{cmp.question}</h1>
   </header>
 
+  {leadImage && <LeadVisual image={leadImage} />}
   <p class="lead">{cmp.contrast}</p>
 
   <section>

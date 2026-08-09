@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Sources from '../components/Sources.astro';
+import LeadVisual from '../components/LeadVisual.astro';
 import data from '../data/jiaobei.json';
 const { results, sequence_rule, sources } = data;
 ---
@@ -12,6 +13,9 @@ const { results, sequence_rule, sources } = data;
     擲筊（跋桮）是請示神意的儀式判讀，為民俗中少數可規則化者。判讀慣例各廟略異，以下為通行說法，
     <strong>廟方規範優先</strong>。
   </p>
+
+  <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
+  <p class="muted small visual-note">擲筊判讀依下方掛源規則整理；本站不以無來源圖像示範筊象。</p>
 
   <section>
     <h2>三種筊象</h2>
@@ -52,5 +56,6 @@ const { results, sequence_rule, sources } = data;
     .card strong { color: var(--accent); }
     .small { font-size: var(--text-sm); }
     .src { color: var(--gold); margin-top: 1.875rem; }
+    .visual-note { margin-top: -1rem; }
   </style>
 </Base>

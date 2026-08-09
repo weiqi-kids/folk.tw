@@ -90,6 +90,14 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
           <div class="grid cols fest-grid">
             {list.map((i) => (
               <a class="card fest-cell" href={`/festivals/${i.slug}/`}>
+                <img
+                  src={`/og/festivals/${i.slug}.png`}
+                  alt={`${i.name}日期與節俗主視覺`}
+                  width="1200"
+                  height="630"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <strong>{i.name}</strong>
                 <span class="muted small">
                   {i.lunarLabel}　·　國曆 {solarMd(i.iso)}
@@ -125,6 +133,7 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
     .season.few .fest-cell { flex: 0 1 20rem; }
     .season.few h2 { margin-top: 1.5rem; }
     .fest-cell { display: flex; flex-direction: column; gap: 0.25rem; }
+    .fest-cell img { display: block; width: 100%; height: auto; margin-bottom: 0.5rem; border: 1px solid var(--line); }
     .fest-cell strong { color: var(--ink); }
     .fest-cell .muted { color: oklch(0.37 0.02 72); }
     .small { font-size: var(--text-sm); }
