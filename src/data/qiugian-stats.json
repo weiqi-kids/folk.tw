@@ -102,9 +102,10 @@
     "joys": []
   },
   "qiuzi": {
-    "week_draws": 2,
+    "week_draws": 3,
     "baoxi": 0,
     "top": {
+      "21": 1,
       "38": 1,
       "50": 1
     },
