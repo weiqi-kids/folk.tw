@@ -186,9 +186,23 @@ const HERITAGE_LABEL: Record<string, string> = {
   national: '國定民俗',
   county: '縣（市）定民俗',
 };
+// ⚠️ `home_festival` 沒設＝在每個指到它的節日頁都攤開（舊行為）；設了就只在主場頁攤開。
+//    不加這道閘的話，`jilong` 的登錄明細會同時印在中元節頁與雞籠中元祭頁上。
 const heritages = linkedEvents
   .map((e) => ({ name: e!.data.name, h: e!.data.heritage }))
-  .filter((x) => x.h?.verified && x.h?.level && HERITAGE_LABEL[x.h.level]);
+  .filter((x) => x.h?.verified && x.h?.level && HERITAGE_LABEL[x.h.level])
+  .filter((x) => !x.h!.home_festival || x.h!.home_festival === f.slug);
+
+// 儀式順序（名稱＋農曆時程）。目前只有雞籠中元祭有 13 段，正好回答它自己的提問
+// 「在哪幾天？儀式順序是什麼？」。⚠️ 只印名稱與時程，敘述不取（授權理由見 content.config.ts）。
+const ceremonyStages = linkedEvents
+  .filter((e) => !e!.data.heritage?.home_festival || e!.data.heritage.home_festival === f.slug)
+  .map((e) => ({ name: e!.data.name, stages: e!.data.ceremony_stages ?? [] }))
+  .filter((x) => x.stages.length > 0);
+
+// 逐句掛源的補充事實（2026-08-09 加）。給「有權威源可寫、但不屬於任何既有欄位」的內容用，
+// 目前只有清明（節氣的天文定義）。🔴 一句一源，不合併、不外推——寫不出源的句子就不要寫。
+const facts = (f as { facts?: { text: string; sources: { type: string; ref: string; note?: string }[] }[] }).facts ?? [];
 
 // 來源：節日自身來源 ＋ 所連 practice/event 的來源（去重）
 const allSources = [
@@ -296,11 +310,82 @@ const pageDesc = covers.length
     heritages.length > 0 && (
       <section class="heritage">
         <h2>文化資產登錄</h2>
+        {heritages.map((x) => (
+          <div class="heritage-case">
+            <p class="heritage-head"><strong>{x.name}</strong>　{HERITAGE_LABEL[x.h!.level!]}</p>
+            <dl>
+              {x.h!.authority && <><dt>主管機關</dt><dd>{x.h!.authority}</dd></>}
+              {x.h!.venue && <><dt>登錄地點</dt><dd>{x.h!.venue}</dd></>}
+              {(x.h!.preservers ?? []).length > 0 && (
+                <><dt>保存者</dt><dd>{(x.h!.preservers ?? []).map((p) => `${p.name}${p.type ? `（${p.type}）` : ''}`).join('、')}</dd></>
+              )}
+              {(x.h!.criteria ?? []).length > 0 && (
+                <><dt>登錄基準</dt><dd><ul class="criteria">{(x.h!.criteria ?? []).map((c) => <li>{c}</li>)}</ul></dd></>
+              )}
+              {x.h!.laws && <><dt>法令依據</dt><dd>{x.h!.laws}</dd></>}
+              {(x.h!.announcements ?? []).length > 0 && (
+                <><dt>公告沿革</dt><dd><ul class="announces">{(x.h!.announcements ?? []).map((a) => (
+                  <li>{a.date}　{a.doc}{a.note && <span class="muted small">（{a.note}）</span>}</li>
+                ))}</ul></dd></>
+              )}
+            </dl>
+            {x.h!.case_id && (
+              <p class="muted small">
+                資料引自 <a href={`https://nchdb.boch.gov.tw/assets/overview/folklore/${x.h!.case_id}`} rel="nofollow">文化部國家文化資產網個案 {x.h!.case_id}</a>（僅取事實欄位）。
+              </p>
+            )}
+          </div>
+        ))}
+      </section>
+    )
+  }
+
+  {/* 儀式順序：名稱＋農曆時程。放在指路區塊之前——對雞籠中元祭這種頁，
+      「哪幾天、什麼順序」正是使用者查的東西，比普渡通則更該先出現。 */}
+  {
+    ceremonyStages.length > 0 && (
+      <section class="stages">
+        <h2>儀式順序</h2>
+        {ceremonyStages.map((x) => (
+          <>
+            {ceremonyStages.length > 1 && <h3>{x.name}</h3>}
+            <ol class="stage-list">
+              {x.stages.map((s) => (
+                <li>
+                  <strong>{s.name}</strong>
+                  {s.schedule && <span class="muted small">　{s.schedule}</span>}
+                  {s.lunar && s.lunar !== s.schedule && <span class="muted small">（{s.lunar}）</span>}
+                </li>
+              ))}
+            </ol>
+          </>
+        ))}
+      </section>
+    )
+  }
+
+  {/* 逐句掛源的補充事實。每一句自己帶來源，讀者看得到我們憑什麼這樣寫。 */}
+  {
+    facts.length > 0 && (
+      <section class="facts">
+        <h2>關於{f.name}的日期</h2>
         <ul>
-          {heritages.map((x) => (
+          {facts.map((x) => (
             <li>
-              <strong>{x.name}</strong>　{HERITAGE_LABEL[x.h!.level!]}
-              {x.h!.authority_ref && <span class="muted small">（公告文號：{x.h!.authority_ref}）</span>}
+              {x.text}
+              {x.sources.length > 0 && (
+                <span class="muted small">
+                  　—
+                  {x.sources.map((s, i) => (
+                    <>
+                      {i > 0 && '、'}
+                      <a href={s.ref.slice(s.ref.indexOf('http'))} rel="nofollow">
+                        {s.ref.slice(0, s.ref.indexOf(' http') > 0 ? s.ref.indexOf(' http') : undefined)}
+                      </a>
+                    </>
+                  ))}
+                </span>
+              )}
             </li>
           ))}
         </ul>
@@ -560,6 +645,13 @@ const pageDesc = covers.length
     .steps { padding-left: 1.5rem; }
     .steps li { margin-bottom: 0.625rem; }
     .taboo { color: var(--accent); font-size: var(--text-sm); }
+    .heritage-case { margin-bottom: 1.25rem; }
+    .heritage-case dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0.5rem 0; }
+    .heritage-case dt { color: var(--gold); font-size: var(--text-sm); }
+    .heritage-case dd { margin: 0; }
+    .heritage-case ul.criteria, .heritage-case ul.announces { margin: 0; padding-left: 1.1rem; }
+    .stages .stage-list { line-height: 1.9; }
+    .facts li { line-height: 1.9; margin-bottom: 0.4rem; }
     .regional dt { font-weight: 700; margin-top: 0.75rem; }
     .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
     .small { font-size: var(--text-sm); }

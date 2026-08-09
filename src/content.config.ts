@@ -318,8 +318,39 @@ const events = defineCollection({
         level: z.enum(['national_important', 'municipal', 'county', 'none']),
         authority_ref: z.string().optional(), // 文資網個案 ID（待填）
         verified: z.boolean().default(false), // 未核者標 false（D.5 待核）
+        // ── 以下 2026-08-09 加：文化部國家文化資產網個案的**事實欄位** ──────────────
+        // 🔴 **只收事實，不收敘述**。授權查證過程與結論（2026-08-09）：
+        //    文資網（nchdb.boch.gov.tw）的個案資料由 data.boch.gov.tw 的 API 供應，
+        //    但那份**不在 data.gov.tw 的開放資料集裡**（`data.gov.tw/dataset/7723`
+        //    是「國家文化資料庫」nrch 的、已下架，且欄位只有標題/年代/主題，沒有長文），
+        //    依 docs/taiwan-intake-status.md 的判準＝**網站語文著作**，與內政部取得同意前的
+        //    `GetUploadFile` 同一類。所以 `registerReason`／`historyDevelopment`／
+        //    `ceremony[].description` 那些**整段敘述一律不取**。
+        //    這裡收的是登錄基準（法條文字）、法令依據、主管機關、保存者、地點、公告文號——
+        //    事實與法條不受著作權保護，且正是各節日**彼此不同**的東西。
+        //    要用敘述文字得比照內政部那次去函取得同意（用戶 2026-08-06 的做法）。
+        case_id: z.string().optional(), // 文資網個案編號，可組出人看得到的驗證網址
+        criteria: z.array(z.string()).default([]), // 登錄／指定基準（引自審查辦法條文）
+        laws: z.string().optional(), // 法令依據
+        authority: z.string().optional(), // 主管機關
+        preservers: z.array(z.object({ name: z.string(), type: z.string().optional() })).default([]),
+        venue: z.string().optional(), // 舉辦地點（文資網 addresses）
+        announcements: z
+          .array(z.object({ date: z.string(), doc: z.string(), note: z.string().optional() }))
+          .default([]),
+        // 這筆登錄明細要在哪個節日頁攤開（同 practices 的 home_festival，理由一模一樣）。
+        // ⚠️ 一個 event 常被多個節日 event_refs 指到：`jilong` 同時被中元節與雞籠中元祭指到、
+        //    `hengchun_qianggu` 同時被中元節與搶孤指到。不設這個欄位就會**兩頁各印一份完整登錄明細**
+        //    ——那正是本次要消滅的重複，2026-08-09 加這批欄位時當場又製造了一次（實測 guimenkai
+        //    的重疊率反而從 46.8% 升到 61.6%），所以規則必須跟資料同時進來。
+        home_festival: z.string().optional(),
       })
       .optional(),
+    // 儀式順序（名稱＋時程）。同樣**只收名稱與時間，不收敘述**（理由同上）。
+    // 這是雞籠中元祭那頁最需要的東西——它自己的提問就是「在哪幾天？儀式順序是什麼？」。
+    ceremony_stages: z
+      .array(z.object({ name: z.string(), schedule: z.string().optional(), lunar: z.string().optional() }))
+      .default([]),
     region: z.array(z.string()).default([]),
     // 路線（D.4）：停駕/駐駕節點（geo-node）；GPS polyline 多為即時源（§12.4 發佈範圍外）故僅存節點＋來源指標
     route: z

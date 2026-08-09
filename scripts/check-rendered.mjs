@@ -44,6 +44,8 @@ const deities = normalize(require('../src/data/deities.json'));
 const festivals = normalize(require('../src/data/festivals.json'));
 // 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
 const practices = normalize(require('../src/data/practices.json'));
+// 不變量 5e 用：民俗活動的文資登錄明細該印在哪一頁（events.json 的 heritage.home_festival）。
+const events = normalize(require('../src/data/events.json'));
 
 function normalize(j) {
   if (Array.isArray(j)) return j;
@@ -638,6 +640,24 @@ for (const f of festivals) {
     // 非主場頁必須留下往正主頁的指路，否則讀者與爬蟲都走不過去。
     if (!isHome && !html.includes(`/practices/${mainPracticeId}/`)) {
       violations.push(`節日頁 ${f.slug} 未指向 /practices/${mainPracticeId}/`);
+    }
+  }
+  // 不變量 5e（2026-08-09 加）：民俗活動的**文資登錄明細**同樣只准出現在主場節日頁。
+  // 這一條是 5d 當天的**續發事故**：補「文化資產登錄」區塊時忘了套同一條規則，
+  // 於是 `jilong` 的登錄明細同時印在中元節頁與雞籠中元祭頁上，
+  // guimenkai 的重疊率當場從 46.8% 反升到 61.6%——**補內容也會製造重複**，不是只有共用欄位會。
+  // 判定用「公告文號」而非區塊 class：文號是那一筆登錄獨有的字串，抄到別頁就會被抓到。
+  for (const eid of f.event_refs ?? []) {
+    const ev = events.find((e) => e.id === eid);
+    const home = ev?.heritage?.home_festival;
+    if (!home || !ev?.heritage?.announcements?.length) continue;
+    const doc = ev.heritage.announcements[0].doc;
+    const printed = html.includes(doc);
+    if (home === f.slug && !printed) {
+      violations.push(`節日頁 ${f.slug} 是 ${eid} 的登錄主場，卻沒印出公告文號 ${doc}`);
+    }
+    if (home !== f.slug && printed) {
+      violations.push(`節日頁 ${f.slug} 不是 ${eid} 的登錄主場，卻印出了它的公告文號 ${doc}（站內重複內容）`);
     }
   }
   // 不變量 5b（2026-07-31 加）：「當天有登記祭典的宮廟」名單。

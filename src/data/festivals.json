@@ -445,8 +445,55 @@
         "type": "web",
         "ref": "https://zh.wikipedia.org/zh-tw/%E6%B8%85%E6%98%8E%E7%AF%80",
         "note": "維基百科〈清明節〉：清明為二十四節氣之一，國曆約 4/4–4/6"
+      },
+      {
+        "type": "gov",
+        "ref": "香港天文台〈二十四節氣〉 https://www.hko.gov.hk/tc/gts/time/24solarterms.htm",
+        "note": "二十四節氣把黃道分成二十四等份，每氣相差黃經 15 度；表列清明黃經為 15 度"
+      },
+      {
+        "type": "gov",
+        "ref": "香港天文台〈二十四節氣的日期及時間資料〉 https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+        "note": "節氣逐年列出日期**與時刻**——節氣是一個時刻，不是一整天"
+      },
+      {
+        "type": "gov",
+        "ref": "農業部〈二十四節氣〉 https://www.moa.gov.tw/ws.php?id=2506893",
+        "note": "清明列為國曆 4 月 4 或 5 或 6 日"
       }
     ],
-    "multi_day": false
+    "multi_day": false,
+    "facts": [
+      {
+        "text": "二十四節氣是把黃道分成二十四等份，每一氣相差太陽黃經 15 度；清明對應的黃經是 15 度。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "香港天文台〈二十四節氣〉 https://www.hko.gov.hk/tc/gts/time/24solarterms.htm",
+            "note": "二十四節氣把黃道分成二十四等份，每氣相差黃經 15 度；表列清明黃經為 15 度"
+          }
+        ]
+      },
+      {
+        "text": "節氣指的是太陽到達那個黃經度數的**時刻**，不是一整天——所以官方曆表對每個節氣同時列出日期與時間。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "香港天文台〈二十四節氣的日期及時間資料〉 https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+            "note": "節氣逐年列出日期**與時刻**——節氣是一個時刻，不是一整天"
+          }
+        ]
+      },
+      {
+        "text": "也因為節氣是天文時刻而非固定日期，清明的國曆日期逐年浮動，落在 4 月 4 日、5 日或 6 日。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "農業部〈二十四節氣〉 https://www.moa.gov.tw/ws.php?id=2506893",
+            "note": "清明列為國曆 4 月 4 或 5 或 6 日"
+          }
+        ]
+      }
+    ]
   }
 ]
