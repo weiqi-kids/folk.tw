@@ -344,7 +344,9 @@ const events = defineCollection({
         //    改變的是**授權狀態**，不是資料性質。沿用內政部 2026-08-06 那次的做法：
         //    **逐字引用、不改寫、每筆掛回個案公開網址**——我們沒有立場替官方敘述做摘要，
         //    改寫反而引入杜撰風險（同 deities 的 `moi_knowledge` 欄位註解）。
-        // ⚠️ 若文化部給的條件不只「標示來源連結」，這三個欄位要一起重新評估。
+        // ✅ 條件＝**標示資料來源連結**，與內政部那次相同（2026-08-09 用戶明確確認，不是推測）。
+        //    落實方式＝每筆掛回 `nchdb.boch.gov.tw/assets/overview/folklore/<caseId>`，
+        //    並由 `check:rendered` 不變量 5f 硬驗「逐字內容與來源連結必須同頁」。**不必再去問一次。**
         register_reason: z.string().optional(), // 登錄／指定理由（逐字）
         history: z.string().optional(), // 歷史沿革（逐字）
         notices: z.array(z.string()).default([]), // 參觀注意事項（逐字）
