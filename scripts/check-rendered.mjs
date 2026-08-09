@@ -762,6 +762,15 @@ for (const f of festivals) {
     if (!html.includes('aria-label="分享這一頁"') || !html.includes('data-pagefind-ignore')) {
       violations.push(`節日頁 ${f.slug} 的頁首分享列缺少或會被 Pagefind 索引`);
     }
+    const visual = html.match(/<figure class="festival-visual"[^>]*>[\s\S]*?<\/figure>/)?.[0] ?? '';
+    if (!visual.includes(`src="${escAttr(wantOg)}"`)) {
+      violations.push(`節日頁 ${f.slug} 未在正文顯示自己的分享卡（應為 ${wantOg}）`);
+    }
+    if (!visual.includes('width="1200"') || !visual.includes('height="630"')) {
+      violations.push(`節日頁 ${f.slug} 的正文分享卡缺少 1200×630 固定尺寸`);
+    }
+  } else if (html.includes('class="festival-visual"')) {
+    violations.push(`節日頁 ${f.slug} 沒有專屬分享卡卻顯示節令主視覺`);
   }
   const md = title.match(/(\d{1,2})\/(\d{1,2})/);
   if (!md && !f.date_note) {
