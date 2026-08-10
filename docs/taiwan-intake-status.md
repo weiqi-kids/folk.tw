@@ -192,6 +192,14 @@ manifest v16 起，`url_list` 型 job **沒有 `dest` 欄位**（2026-08-10 實�
 分開、cron 文案跟著分開；`--stale` 不再吞錯誤。細節與當初的判斷寫在
 `scripts/intake-ingest.mjs` 檔頭與 `jobKind()`／`verifyDir()` 的註解。
 
+同時定案的還有「`url_list`／`paginate` 那批檔怎麼處理」（台灣端 2026-08-10 問的第 ② 題）：
+**逐檔驗 sha256 ＋ `expect_per_item`，但不上位、不清 inbox**——因為匯入器
+（`import-photos.mjs`／`import-temple-history.mjs`／`import-knowledge-deities.mjs`）
+是**直接讀 inbox** 的，清掉它們就再也讀不到。驗不過的搬進 `intake/quarantine/`。
+⚠️ 隔離不等於通報會停：台灣端每輪 rsync 整個 `out/`，我們少了哪個檔它就補送。
+所以**傳輸途中壞掉的檔會自己痊癒**（下一輪補送就驗得過）；若同一則通報一直重複，
+代表台灣端 `out/` 那份本身驗不過＝兩端規則不一致，要人介入。
+
 ---
 
 ## 附錄：管道建置的原始記錄（2026-08-06 自 CLAUDE.md 抽出，原文未改）

@@ -103,8 +103,9 @@ if [ "$rc" -ne 0 ]; then
 $problems
 \`\`\`
 台灣端可能抓到錯誤頁或傳輸截斷；該 job 會留在 inbox，修正後重送即可。
-目錄型 job（url_list／paginate）的壞檔已搬進 \`/root/.config/folk-tw/intake/quarantine/\`——
-inbox 是 write-only 刪不掉，不搬走的話匯入器會一直讀到它、而且每小時重報一次。"
+目錄型 job（url_list／paginate）的壞檔已搬進 \`/root/.config/folk-tw/intake/quarantine/\`，
+讓匯入器讀不到它。⚠️ 台灣端下一輪 rsync 會把缺的檔補送回來——
+**傳輸途中壞掉的會就此痊癒；若還是同一則通報，代表台灣端 out/ 那份本身就驗不過**（兩端規則不一致，要人看）。"
   exit 0   # 已通報，不讓 cron 反覆噴錯
 fi
 
