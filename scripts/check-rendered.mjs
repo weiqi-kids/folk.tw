@@ -1431,6 +1431,28 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
     violations.push('首屏版面：/qiugian/ 主視覺必須維持 compact，不得把求籤選項推離首屏');
   }
 
+  // 中元普渡清單是依 pudu 的掛源 offerings／joss_paper 欄位產生；
+  // 雙向驗證可防清單與頁面資料漂移，也鎖住複製、分享與 attribution 埋點。
+  const zhongyuanFile = join(DIST, 'festivals', 'zhongyuan', 'index.html');
+  const zhongyuanHtml = existsSync(zhongyuanFile) ? readFileSync(zhongyuanFile, 'utf8') : '';
+  const pudu = practices.find((practice) => practice.id === 'pudu');
+  if (!zhongyuanHtml) violations.push('中元普渡清單：/festivals/zhongyuan/ 未建置');
+  else {
+    for (const mark of [
+      'data-pudu-checklist', 'data-checklist-copy', 'data-checklist-share',
+      'checklist_copy', 'checklist_share', 'utm_campaign', 'zhongyuan_pudu_checklist',
+    ]) {
+      if (!zhongyuanHtml.includes(mark)) violations.push(`中元普渡清單：渲染產物缺少 ${mark}`);
+    }
+    for (const item of [...(pudu?.offerings ?? []), ...(pudu?.joss_paper ?? [])]) {
+      if (!zhongyuanHtml.includes(escText(item))) violations.push(`中元普渡清單：缺少掛源項目「${item}」`);
+    }
+    const canonical = zhongyuanHtml.match(/<link rel="canonical" href="([^"]+)"/)?.[1] ?? '';
+    if (canonical !== 'https://folk.tw/festivals/zhongyuan/') {
+      violations.push(`中元普渡清單：canonical 被 attribution 汙染（${canonical || '缺少'}）`);
+    }
+  }
+
   let requiredTemples = 0;
   for (const row of imagePriority.top_temples) {
     const file = join(DIST, 'temples', row.id, 'index.html');
