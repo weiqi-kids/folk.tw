@@ -35,7 +35,7 @@ slack() { # $1=text
 
 # 逐筆後續發展通知（可回覆訂正）
 echo "$OUT" | grep '^UPDATED' | while IFS=$'\t' read -r _ id title text url; do
-  slack "🕯 事件有後續發展：${title}——${text}  ${url}（若有誤可回覆）" && echo "[followup-cron] 已通知後續：$title"
+  slack "🕯 事件有後續發展：${title}——${text}  ${url}（資料已送出，站台部署完成後顯示；若有誤可回覆）" && echo "[followup-cron] 已通知後續：$title"
 done
 
 # 升為事件記錄頁通知

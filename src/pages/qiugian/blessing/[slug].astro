@@ -46,7 +46,9 @@ const isMemorial = status === 'memorial';
 const isArchived = status === 'archived';
 const isExample = item.example === true;
 
-// 後續發展時間軸（memorial 才顯示）：依 date 升冪排序，過濾無文字者。
+// 後續發展時間軸：依 date 升冪排序，過濾無文字者。
+// 後續追蹤器會在事件仍為 active 時寫入 updates，因此時間軸不能被鎖在
+// memorial 分支裡；Slack 通知連結指向的當下頁面必須立即看得到新進展。
 const updates = [...(item.updates ?? [])]
   .filter((u) => (u.text ?? '').trim())
   .sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')));
@@ -107,6 +109,31 @@ if (isMemorial) {
   {/* 站內抽象燈火，不是事件照片，也不暗示任何特定災害現場。 */}
   <LeadVisual src="/visuals/prayer-light.svg" alt={`${item.title}的站內通用祈福燈火插圖`} />
 
+  {!isArchived && updates.length > 0 && (
+    <section class="timeline" aria-label="後續發展">
+      <h2>後續發展</h2>
+      <ol>
+        {updates.map((u) => (
+          <li>
+            {u.date && <span class="date">{u.date}</span>}
+            <p class="utext">{u.text}</p>
+            {u.sources && u.sources.length > 0 && (
+              <p class="usources small muted">
+                來源：
+                {u.sources.map((s, i) => (
+                  <>
+                    {i > 0 && '、'}
+                    <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
   {isMemorial ? (
     <>
       <div class="past-hearth">
@@ -117,31 +144,6 @@ if (isMemorial) {
           <p class="cold small">當時有人在這裡一起為平安點了一盞。</p>
         )}
       </div>
-
-      {updates.length > 0 && (
-        <section class="timeline" aria-label="後續發展">
-          <h2>後續發展</h2>
-          <ol>
-            {updates.map((u) => (
-              <li>
-                {u.date && <span class="date">{u.date}</span>}
-                <p class="utext">{u.text}</p>
-                {u.sources && u.sources.length > 0 && (
-                  <p class="usources small muted">
-                    來源：
-                    {u.sources.map((s, i) => (
-                      <>
-                        {i > 0 && '、'}
-                        <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-                      </>
-                    ))}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ol>
-        </section>
-      )}
 
       {item.sources && item.sources.length > 0 && (
         <p class="sources small muted">
@@ -240,7 +242,7 @@ if (isMemorial) {
     .qi.done { background: var(--accent); color: var(--paper); cursor: default; }
     .note { color: var(--ink-soft); min-height: 1.375rem; margin: 0; }
 
-    /* memorial 態：靜態「當時的集氣」＋後續發展時間軸 */
+    /* memorial 態的靜態「當時的集氣」；時間軸由 active／memorial 共用 */
     .past-hearth { margin-top: 1.75rem; border-radius: 1.125rem; padding: 1.25rem 1.5rem 0.75rem;
       background: var(--paper-2); border: 1px solid var(--line); }
     .past-h { font-size: var(--text-lg); font-weight: 700; margin-bottom: 0.5rem; }
