@@ -34,6 +34,7 @@
     "check:temple-ctr": "node scripts/check-temple-ctr-cohorts.mjs",
     "growth:48h": "node --experimental-strip-types scripts/growth-48h.mjs",
     "growth:search-demand": "node scripts/search-demand.mjs",
+    "growth:temple-demand": "node --experimental-strip-types scripts/temple-demand-discover.mjs",
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "notify": "node scripts/notify.mjs",

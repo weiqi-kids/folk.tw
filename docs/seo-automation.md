@@ -23,6 +23,19 @@
 
 folk.tw **無內容產出層**（第六層 `seo-content.mjs` 只給有內容工廠的站）。
 
+### 每日完整搜尋需求與地區 × 神明頁（2026-08-10 起）
+
+collect 對 GSC `page × query` 使用 25,000 列分頁抓取，直到短頁或 250,000 列安全上限；
+`gsc.pageQueryCoverage` 明示是否完整，`gsc.demandEvidence` 保存達 50 曝光且至少 1 點擊的逐 query
+聚合，`gsc.cannibalization` 列出同一 query 由兩個以上頁面承接的候選。互搶清單只供人工／大腦判讀
+搜尋意圖，不會自動做 canonical、redirect 或刪頁。
+
+大腦每天先執行 `pnpm growth:temple-demand -- --write`。只有同時符合 GSC 需求門檻，且精確
+`main_deity_ref` 主祀宮廟數達到 `TEMPLE_DEMAND_THRESHOLDS.minTemples` 的「地區 × 神明」交集，才追加至
+`src/data/temple-demand-pages.json`。此檔是永久 URL 台帳：只增不減；歷史證據保留在每筆
+`evidenceFile`，當期需求下降不會讓已發布頁消失。可用 `pnpm check:temple-demand` 驗證候選完整性、
+路由、宮廟數、地圖與祭典措辭。
+
 ### 8/31 活躍使用者目標（2026-08-09 起自動對帳）
 
 原目標口徑不變：**2026-08-31 當天 GA4 `active28DayUsers` 至少 20,000**。該日的近 28 日

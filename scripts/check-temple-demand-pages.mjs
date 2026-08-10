@@ -2,7 +2,7 @@
 // 「地區 × 神明」需求頁 gate：拒絕無搜尋證據、宮廟數不足或行政區／主祀對映不精確的薄頁。
 // 頁面唯一資料源是 src/lib/temple-demand-pages.ts，本檔只驗證，不另維護候選清單。
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   TEMPLE_DEMAND_PAGES,
@@ -10,6 +10,10 @@ import {
   templeDemandHref,
 } from '../src/lib/temple-demand-pages.ts';
 import { countyName, templeCounty, templeTownship } from '../src/lib/temple-region.ts';
+import {
+  discoverTempleDemandPages,
+  queryEvidence,
+} from './lib/temple-demand-discovery.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const temples = JSON.parse(readFileSync(resolve(root, 'src/data/temples.json'), 'utf8'));
@@ -18,48 +22,24 @@ const violations = [];
 const seen = new Set();
 const configuredByHref = new Map(TEMPLE_DEMAND_PAGES.map((page) => [templeDemandHref(page), page]));
 
-// 同一份最新快照做全量候選掃描：只有 query 同時命中鄉鎮名與神明正名／別名，且搜尋量、
-// 點擊與精確主祀宮廟數都過門檻，才應存在於白名單。這會同時擋住「漏做合格頁」與「硬塞薄頁」。
-const evidenceFiles = [...new Set(TEMPLE_DEMAND_PAGES.map((page) => page.evidenceFile))];
-for (const evidenceFile of evidenceFiles) {
-  const snapshot = JSON.parse(readFileSync(resolve(root, evidenceFile), 'utf8'));
-  const places = new Map();
-  for (const temple of temples) {
-    const county = templeCounty(temple.district), town = templeTownship(temple.district);
-    if (!county || !town) continue;
-    places.set(`${county.slug}/${town.name}`, {
-      county: county.slug,
-      town: town.name,
-      stem: town.name.replace(/[區鄉鎮市]$/, ''),
-    });
-  }
-  const qualified = new Set();
-  for (const row of snapshot.gsc?.topQueries ?? []) {
-    if (row.impressions < TEMPLE_DEMAND_THRESHOLDS.minImpressions || row.clicks < TEMPLE_DEMAND_THRESHOLDS.minClicks) continue;
-    for (const place of places.values()) {
-      if (place.stem.length < 2 || !row.query.includes(place.stem)) continue;
-      for (const deity of deities.filter((d) => !d.draft)) {
-        const terms = [deity.name, ...(deity.aliases ?? [])].filter((term) => term.length >= 2);
-        if (!terms.some((term) => row.query.includes(term))) continue;
-        const count = temples.filter((temple) =>
-          templeCounty(temple.district)?.slug === place.county &&
-          templeTownship(temple.district)?.name === place.town &&
-          temple.main_deity_ref === deity.id
-        ).length;
-        if (count < TEMPLE_DEMAND_THRESHOLDS.minTemples) continue;
-        qualified.add(templeDemandHref({ county: place.county, town: place.town, deity: deity.id }));
-      }
-    }
-  }
-  for (const href of qualified) {
-    if (!configuredByHref.has(href)) violations.push(`${evidenceFile} 有過門檻需求但白名單遺漏：${href}`);
-  }
-  for (const page of TEMPLE_DEMAND_PAGES.filter((page) => page.evidenceFile === evidenceFile)) {
-    const href = templeDemandHref(page);
-    if (!qualified.has(href)) violations.push(`${href} 未通過 ${evidenceFile} 的全量候選規則`);
-  }
-  console.log(`✓ ${evidenceFile} 全量掃描：${qualified.size} 個地區×神明交集過門檻`);
+// 最新快照做全量候選掃描；新過門檻交集若沒進永久白名單就硬擋。
+// 已發布頁不會因近期需求下降被移除，改由下方回讀「首次達標快照」證明當初有依據。
+const snapshots = readdirSync(resolve(root, 'data/seo-daily'))
+  .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
+  .sort();
+const latestEvidenceFile = `data/seo-daily/${snapshots.at(-1)}`;
+const latestSnapshot = JSON.parse(readFileSync(resolve(root, latestEvidenceFile), 'utf8'));
+const latestCandidates = discoverTempleDemandPages(
+  latestSnapshot,
+  temples,
+  deities,
+  TEMPLE_DEMAND_THRESHOLDS,
+);
+for (const candidate of latestCandidates) {
+  const href = templeDemandHref(candidate);
+  if (!configuredByHref.has(href)) violations.push(`${latestEvidenceFile} 有過門檻需求但永久白名單遺漏：${href}`);
 }
+console.log(`✓ ${latestEvidenceFile} 最新快照全量掃描：${latestCandidates.length} 個地區×神明交集過門檻`);
 
 for (const page of TEMPLE_DEMAND_PAGES) {
   const href = templeDemandHref(page);
@@ -78,9 +58,9 @@ for (const page of TEMPLE_DEMAND_PAGES) {
     violations.push(`${href} 無法讀取 GSC 證據 ${page.evidenceFile}：${error.message}`);
     continue;
   }
-  const evidence = snapshot.gsc?.topQueries?.find((row) => row.query === page.query);
+  const evidence = queryEvidence(snapshot).find((row) => row.query === page.query);
   if (!evidence) {
-    violations.push(`${href} 在 ${page.evidenceFile} 的 gsc.topQueries 查無精確 query「${page.query}」`);
+    violations.push(`${href} 在 ${page.evidenceFile} 的 GSC 需求證據查無精確 query「${page.query}」`);
   } else {
     if (evidence.impressions < TEMPLE_DEMAND_THRESHOLDS.minImpressions)
       violations.push(`${href} GSC 曝光 ${evidence.impressions} < ${TEMPLE_DEMAND_THRESHOLDS.minImpressions}`);
