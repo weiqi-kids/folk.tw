@@ -1284,8 +1284,8 @@ let lcTempleSections = 0;
 }
 
 // 不變量 18（2026-08-09 加）：正文圖片覆蓋。
-// 使用者要求所有非黃曆／宮廟正式頁都必須有圖；黃曆覆蓋今日起 30 天，
-// 宮廟覆蓋 GA4 近 28 天流量前 100。只認 body 實際 <img>，不把 meta og:image 算進來。
+// 使用者要求所有非黃曆／宮廟正式頁都必須有圖；黃曆與宮廟的覆蓋範圍
+// 由 image-priority.json 控制。只認 body 實際 <img>，不把 meta og:image 算進來。
 {
   const indexFiles = [];
   const walk = (dir) => {
