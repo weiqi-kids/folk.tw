@@ -90,13 +90,12 @@ const showRollingVisual = date! >= today && date! <= addDays(today, imagePriorit
     <figure class="almanac-visual">
       <img
         src="/visuals/calendar-compass.svg"
-        alt={`${date} 農民曆日期羅盤主視覺`}
+        alt={`${date} 農民曆`}
         width="1200"
         height="630"
         loading="eager"
         decoding="async"
       />
-      <figcaption class="muted small">本站農民曆日期羅盤示意圖</figcaption>
     </figure>
   )}
   <AlmanacDay iso={date!} today={today} />
