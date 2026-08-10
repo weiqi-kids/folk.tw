@@ -16,7 +16,7 @@ const valueOf = (x) => { const i = args.indexOf(x); return i >= 0 ? args[i + 1] 
 if (has('--help')) {
   console.log(`用法：pnpm growth:48h [選項]
 
-  --landing <paths>   逗號分隔入口路徑（預設農曆七月五個 campaign 頁）
+  --landing <paths>   逗號分隔入口路徑（預設農曆七月 campaign 與相關內容頁）
   --campaign <text>   只保留 session campaign 名稱含此文字者
   --hours <N>         回看時數（預設 48）
   --json              輸出 JSON；預設 Markdown
@@ -26,8 +26,25 @@ GOOGLE_SA_KEY / GOOGLE_APPLICATION_CREDENTIALS / /root/.config/folk-tw/ga4-sa.js
   process.exit(0);
 }
 
-// 唯一資料源＝首頁自己使用的 seasonal-campaigns；不可在報表另抄一份 slug 清單。
-const DEFAULT_LANDINGS = [...new Set(seasonalCampaigns.map((x) => x.href))];
+// 首頁會輪播的頁仍以 seasonal-campaigns 為唯一排程來源；另把同一波搜尋戰役中
+// 不適合獨佔首頁日期的雞籠中元祭／搶孤納入 acquisition cohort。已在排程的放水燈、
+// 地藏也顯式放入這個 cohort，Set 去重後不會重複查詢。
+const SEASONAL_CONTENT_LANDINGS = [
+  '/festivals/jilong-zhongyuan/',
+  '/festivals/qianggu/',
+  '/festivals/fangshuideng/',
+  '/festivals/dizang/',
+];
+const DEFAULT_LANDINGS = [...new Set([
+  ...seasonalCampaigns.map((x) => x.href),
+  ...SEASONAL_CONTENT_LANDINGS,
+])];
+const TRACKED_EVENTS = [
+  'share', 'campaign_click', 'intent_click', 'calendar_add', 'line_add_click',
+  'checklist_toggle', 'checklist_copy', 'checklist_share', 'checklist_reset',
+];
+const CHECKLIST_EVENTS = ['checklist_toggle', 'checklist_copy', 'checklist_share', 'checklist_reset'];
+const HOME_PRIMARY_PLACEMENTS = ['home_image', 'home_title', 'home_cta'];
 const landings = (valueOf('--landing') || DEFAULT_LANDINGS.join(','))
   .split(',').map((x) => x.trim()).filter(Boolean).map((x) => x.startsWith('/') ? x : `/${x}`);
 const campaignNeedle = (valueOf('--campaign') || '').toLowerCase();
@@ -90,6 +107,7 @@ function walk(dir) {
 
 function instrumentation() {
   const share = readFileSync(join(repo, 'src/components/ShareRow.astro'), 'utf8');
+  const puduChecklist = readFileSync(join(repo, 'src/components/PuduChecklist.astro'), 'utf8');
   const base = readFileSync(join(repo, 'src/layouts/Base.astro'), 'utf8');
   const uiFiles = walk(join(repo, 'src')).filter((p) => !p.endsWith('Base.astro'));
   const calendarUi = uiFiles.some((p) => readFileSync(p, 'utf8').includes('data-calendar-add'));
@@ -99,6 +117,8 @@ function instrumentation() {
     intent_click: base.includes("gtag('event', 'intent_click'") ? 'active' : 'not_instrumented',
     line_add_click: base.includes("gtag('event', 'line_add_click'")
       && base.includes('line_placement:') ? 'active' : 'not_instrumented',
+    pudu_checklist: ['checklist_toggle', 'checklist_copy', 'checklist_share', 'checklist_reset']
+      .every((eventName) => puduChecklist.includes(`track('${eventName}'`)) ? 'active' : 'not_instrumented',
     calendar_add: !base.includes("gtag('event', 'calendar_add'") ? 'not_instrumented'
       : calendarUi ? 'active' : 'prepared_no_ui',
   };
@@ -116,18 +136,32 @@ async function linePlacementReport() {
   }
 }
 
-const [targetTotalRaw, entryRaw, sourceRaw, eventRaw, homeRaw, returnRaw, lineRaw] = await Promise.all([
+async function campaignPlacementReport() {
+  try {
+    const rows = await report(['customEvent:campaign_placement'], ['eventCount', 'totalUsers'], {
+      dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT', value: 'campaign_click' } } },
+    });
+    return { status: 'available', rows };
+  } catch (error) {
+    // custom dimension 未註冊或還在 metadata 傳播時，首頁總點擊仍可以用 pagePath
+    // 正確統計；只有 image/title/cta/secondary 細分需等維度就緒。
+    return { status: 'registration_pending', rows: [], note: error instanceof Error ? error.message : String(error) };
+  }
+}
+
+const [targetTotalRaw, entryRaw, sourceRaw, eventRaw, homeRaw, returnRaw, lineRaw, campaignPlacementRaw] = await Promise.all([
   report([], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions'], {
     dimensionFilter: { filter: { fieldName: 'landingPagePlusQueryString', stringFilter: { matchType: 'FULL_REGEXP', value: landingRegex } } },
   }),
   report(['landingPagePlusQueryString'], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions']),
   report(['landingPagePlusQueryString', 'sessionSource', 'sessionCampaignName'], ['activeUsers', 'sessions', 'engagedSessions']),
   report(['eventName', 'pagePath', 'linkUrl'], ['eventCount', 'totalUsers'], {
-    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['share', 'campaign_click', 'intent_click', 'calendar_add', 'line_add_click'] } } },
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: TRACKED_EVENTS } } },
   }),
   report(['pagePath'], ['activeUsers', 'screenPageViews']),
   report(['newVsReturning'], ['activeUsers', 'sessions']),
   linePlacementReport(),
+  campaignPlacementReport(),
 ]);
 
 const target = (s) => landings.some((p) => s === p || s === p.slice(0, -1) || s.startsWith(`${p}?`));
@@ -146,16 +180,39 @@ const returning = aggregate(returnRaw, ['newVsReturning'], ['activeUsers', 'sess
 const linePlacements = aggregate(lineRaw.rows, ['customEvent:line_placement'], ['eventCount', 'totalUsers'])
   .map((x) => ({ placement: x['customEvent:line_placement'], eventCount: x.eventCount, totalUsers: x.totalUsers }))
   .sort((a, b) => b.eventCount - a.eventCount || a.placement.localeCompare(b.placement));
+const campaignPlacements = aggregate(campaignPlacementRaw.rows, ['customEvent:campaign_placement'], ['eventCount', 'totalUsers'])
+  .map((x) => ({ placement: x['customEvent:campaign_placement'], eventCount: x.eventCount, totalUsers: x.totalUsers }))
+  .sort((a, b) => b.eventCount - a.eventCount || a.placement.localeCompare(b.placement));
 const inst = instrumentation();
-const eventTotals = Object.fromEntries(['share', 'campaign_click', 'intent_click', 'calendar_add', 'line_add_click'].map((name) => [
+const eventTotals = Object.fromEntries(TRACKED_EVENTS.map((name) => [
   name, events.filter((x) => x.eventName === name).reduce((n, x) => n + x.eventCount, 0),
 ]));
+const campaignEvents = events.filter((x) => x.eventName === 'campaign_click');
+// CTR 的分子與分母必須是同一個首頁範圍。RelatedSeasonalCampaign 也會送
+// campaign_click，若把全站事件除以首頁 PV，會在樣本足夠後做出錯誤淘汰決策。
+const homeCampaignClicks = campaignEvents
+  .filter((x) => x.pagePath === '/')
+  .reduce((sum, x) => sum + x.eventCount, 0);
+const sitewideCampaignClicks = eventTotals.campaign_click;
+const campaignPlacementCount = (placement) => number(campaignPlacements.find((x) => x.placement === placement)?.eventCount);
+const campaignPlacementTotals = campaignPlacementRaw.status === 'available' ? {
+  primary: HOME_PRIMARY_PLACEMENTS.reduce((sum, placement) => sum + campaignPlacementCount(placement), 0),
+  secondary: campaignPlacementCount('home_secondary'),
+  image: campaignPlacementCount('home_image'),
+  title: campaignPlacementCount('home_title'),
+  cta: campaignPlacementCount('home_cta'),
+} : { primary: null, secondary: null, image: null, title: null, cta: null };
+const checklistEvents = CHECKLIST_EVENTS.map((eventName) => ({
+  eventName,
+  eventCount: eventTotals[eventName],
+  totalUsers: events.filter((x) => x.eventName === eventName).reduce((sum, x) => sum + x.totalUsers, 0),
+}));
 const intentEntries = events.filter((x) => x.eventName === 'intent_click').map((x) => ({
   destination: (() => { try { return new URL(x.linkUrl).pathname; } catch { return x.linkUrl || '(not set)'; } })(),
   eventCount: x.eventCount,
   totalUsers: x.totalUsers,
 }));
-const campaignCtr = home.screenPageViews ? eventTotals.campaign_click / home.screenPageViews : null;
+const campaignCtr = home.screenPageViews ? homeCampaignClicks / home.screenPageViews : null;
 const targetTotal = aggregate(targetTotalRaw, [], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions'])[0] || {};
 const targetUsers = number(targetTotal.activeUsers);
 const targetViews = number(targetTotal.screenPageViews);
@@ -176,22 +233,30 @@ const output = {
   generatedAt: now.toISOString(), timezone: 'Asia/Taipei', hours,
   window: { start: `${startDate} 00:00`, end: `${endDate} 23:59` },
   landings, campaignFilter: campaignNeedle || null, instrumentation: inst,
-  totals: { targetUsers, targetViews, homeViews: home.screenPageViews, campaignClicks: eventTotals.campaign_click,
+  totals: { targetUsers, targetViews, homeViews: home.screenPageViews, campaignClicks: homeCampaignClicks,
+    sitewideCampaignClicks,
     campaignCtr, intentClicks: eventTotals.intent_click, shareClicks: eventTotals.share,
-    calendarAdds: eventTotals.calendar_add, lineAdds: eventTotals.line_add_click },
+    calendarAdds: eventTotals.calendar_add, lineAdds: eventTotals.line_add_click,
+    checklistToggles: eventTotals.checklist_toggle, checklistCopies: eventTotals.checklist_copy,
+    checklistShares: eventTotals.checklist_share, checklistResets: eventTotals.checklist_reset },
   entries, sources, intentEntries, line: { dimensionStatus: lineRaw.status, placements: linePlacements, note: lineRaw.note || null },
+  campaign: { dimensionStatus: campaignPlacementRaw.status, placements: campaignPlacements,
+    home: campaignPlacementTotals, note: campaignPlacementRaw.note || null },
+  checklist: { instrumentation: inst.pudu_checklist, events: checklistEvents },
   events, returningClassification: returning,
   sevenDayReturn: { status: 'unavailable', note: 'GA4 aggregate runReport 無法把本次匿名 campaign 訪客串成 7 日回訪 cohort；需等滿 7 日並以 Explore/cohort 或另設 user-level 匯出驗證。' },
   decision: { verdict, reason, scope: '只淘汰首頁 campaign 版位，不刪內容頁。' },
   caveats: ['使用最近兩個完整台北曆日，避免逐小時相加造成 activeUsers 重複計數；GA4 仍可能延遲回填最近一天。',
     inst.calendar_add === 'prepared_no_ui' ? 'calendar_add 追蹤已預留，但站上目前沒有加入行事曆 UI；0 代表尚無入口，不代表使用者拒絕。' : null,
     lineRaw.status === 'registration_pending' ? 'line_placement 剛註冊，GA4 Data API 尚未提供此維度；總點擊仍會計入，待 metadata 生效後自動分版位。' : null,
+    campaignPlacementRaw.status === 'registration_pending' ? 'campaign_placement 尚未在 GA4 Data API 可用；首頁總點擊仍以 pagePath 正確統計，但暫時無法拆分圖片／標題／CTA／次入口。' : null,
   ].filter(Boolean),
 };
 
 if (jsonMode) console.log(JSON.stringify(output, null, 2));
 else {
   const n = (x) => number(x).toLocaleString('en-US');
+  const maybeN = (x) => x == null ? '—' : n(x);
   const pct = (x) => x == null ? '—' : `${(x * 100).toFixed(1)}%`;
   const status = (x) => ({ active: '已埋點', not_instrumented: '尚未埋點', prepared_no_ui: '已預留、站上尚無入口' }[x] || x);
   const lines = [`# folk.tw ${hours} 小時成效報表`, '', `期間：${output.window.start} ～ ${output.window.end}（台北）`,
@@ -201,11 +266,15 @@ else {
     '', '## 入口來源', ...(sources.length ? sources.slice(0, 30).map((x) =>
       `- ${x.landingPagePlusQueryString} ← ${x.sessionSource} / ${x.sessionCampaignName || '(not set)'}：${n(x.activeUsers)} users`) : ['- 無資料']),
     '', '## 站內行動',
-    `- 首頁 campaign click：${n(eventTotals.campaign_click)}（首頁 ${n(home.screenPageViews)} views，CTR ${pct(campaignCtr)}；${status(inst.campaign_click)}）`,
+    `- 首頁 campaign click：${n(homeCampaignClicks)}（首頁 ${n(home.screenPageViews)} views，CTR ${pct(campaignCtr)}；${status(inst.campaign_click)}）`,
+    `  - 主版位：${maybeN(campaignPlacementTotals.primary)}（圖片 ${maybeN(campaignPlacementTotals.image)}／標題 ${maybeN(campaignPlacementTotals.title)}／CTA ${maybeN(campaignPlacementTotals.cta)}）`,
+    `  - 次入口：${maybeN(campaignPlacementTotals.secondary)}（版位維度 ${campaignPlacementRaw.status === 'available' ? '可用' : '等待 GA4 生效'}）`,
+    `- 全站 campaign click：${n(sitewideCampaignClicks)}（含相關頁 CTA；不納入首頁 CTR）`,
     `- 首頁常青入口：${n(eventTotals.intent_click)}（${status(inst.intent_click)}）`,
     ...intentEntries.map((x) => `  - ${x.destination}：${n(x.eventCount)} clicks／${n(x.totalUsers)} users`),
     `- 分享 click：${n(eventTotals.share)}（${status(inst.share)}）`,
     `- 加入行事曆：${n(eventTotals.calendar_add)}（${status(inst.calendar_add)}）`,
+    `- 中元普渡清單：勾選 ${n(eventTotals.checklist_toggle)}／複製 ${n(eventTotals.checklist_copy)}／分享 ${n(eventTotals.checklist_share)}／清除 ${n(eventTotals.checklist_reset)}（${status(inst.pudu_checklist)}）`,
     `- LINE 加好友：${n(eventTotals.line_add_click)}（${status(inst.line_add_click)}；版位維度 ${lineRaw.status === 'available' ? '可用' : '等待 GA4 生效'}）`,
     ...(linePlacements.length ? linePlacements.map((x) => `  - ${x.placement}：${n(x.eventCount)} clicks／${n(x.totalUsers)} users`) : ['  - 目前沒有可分版位的點擊資料']),
     '', '## 回訪', `- 48 小時 GA4 new/returning 分類：${returning.map((x) => `${x.newVsReturning} ${n(x.activeUsers)}`).join('、') || '無資料'}`,

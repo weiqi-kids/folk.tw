@@ -18,23 +18,33 @@ pnpm growth:48h -- --landing /festivals/qixi/,/festivals/zhongyuan/ --json
 
 預設以 GA4 property 時區 `Asia/Taipei` 取最近兩個完整曆日（00:00–23:59，共 48 小時），列出：
 
-- 五個 campaign landing page 的 `activeUsers`、sessions、PV、engaged sessions
+- 七個農曆七月 campaign／相關 landing page 的 `activeUsers`、sessions、PV、engaged sessions
 - landing page × session source × session campaign
-- 首頁 campaign card 的 `campaign_click`
+- 首頁 campaign card 的 `campaign_click`（只以 `pagePath=/` 計算 CTR）
+- campaign 依 `campaign_placement` 拆分主版位、次入口、圖片、標題與 CTA
 - 首頁三個常青入口的 `intent_click`，依目的網址分列
 - 全站 `share`、`calendar_add`、`line_add_click`
+- 中元普渡清單的勾選、複製、分享與清除事件
 - LINE 加好友依事件範圍自訂維度 `line_placement` 拆分版位
 - GA4 的 New／Returning 分類
 
-Campaign landing 清單不在報表另抄一份，直接 import 首頁使用的
-`src/lib/seasonal-campaigns.ts`，所以首頁戰役換頁時報表會同步。`--hours` 必須是 24 的倍數；
+Campaign landing 以首頁使用的 `src/lib/seasonal-campaigns.ts` 為排程來源，並加入同一搜尋
+戰役但不獨佔首頁日期的雞籠中元祭與搶孤頁。放水燈、地藏頁已在排程中，去重後
+預設共七頁。`--hours` 必須是 24 的倍數；
 這是為了讓 GA4 對整段期間的 `activeUsers` 去重，不能把逐小時 users 相加（同一人跨小時會重複）。
 
-`share` 已由 `ShareRow.astro` 埋點。首頁 campaign 三個入口透過 `Base.astro` 的共用事件委派送
-`campaign_click`，頁面只放 `data-growth-campaign`，不各自複製追蹤程式。
+`share` 已由 `ShareRow.astro` 埋點。首頁 campaign 圖片、標題、CTA 與中元次入口透過
+`Base.astro` 的共用事件委派送 `campaign_click`。報表的首頁 CTR 分子只納入
+`pagePath=/` 的點擊；相關內容頁的 `related_title`／`related_cta` 只列入全站總數，
+絕不能除以首頁 PV。`campaign_placement` 已於 2026-08-10 註冊為事件範圍自訂維度，會再拆出
+`home_image`、`home_title`、`home_cta`、`home_secondary`；GA4 metadata 尚未傳播完成時仍保留正確的
+首頁總點擊，只沒有細分版位。
 `intent_click` 由首頁固定的今日宜忌、情境求籤、附近宮廟三個入口送出；報表使用 GA4 內建
 `linkUrl` 維度分辨目的頁，不依賴未註冊的 custom dimension。`calendar_add` 同樣由共用 selector
 `data-calendar-add` 送出，目前節日頁已有 Google Calendar 與 ICS 入口。
+
+中元普渡清單送出 `checklist_toggle`、`checklist_copy`、`checklist_share`、
+`checklist_reset`；報表直接列事件數，用來判斷「看到內容」有沒有轉成「實際整理或分享」。
 
 `line_add_click` 由 `Base.astro` 的共用事件委派送出，`line_placement` 會分辨首頁、全站頁尾、
 求籤結果、節日、黃曆與看日子等 CTA。GA4 property 已把 `line_placement` 註冊為事件範圍自訂維度，
