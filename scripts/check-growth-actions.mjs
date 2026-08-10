@@ -21,6 +21,13 @@ const lineFamilies = [
 const actions = [...home.matchAll(/data-intent-action="([^"]+)"/g)].map((m) => m[1]);
 assert.deepEqual(actions.sort(), ['nearby_temples', 'qiugian', 'today']);
 for (const href of ['/almanac/', '/qiugian/', '/temples/nearby/']) assert.ok(home.includes(`href="${href}"`));
+// GA4 48h 樣本不足時不得撤掉當期主卡；GSC 已出現中元查詢則用次入口提早承接，
+// 並獨立標記 placement，後續報表才能判斷是否值得保留。
+assert.match(home, /data-early-zhongyuan/);
+assert.match(home, /data-growth-placement="home_secondary"/);
+assert.match(home, /data-growth-campaign=\{zhongyuanCampaign\.festivalSlug\}/);
+assert.ok(home.indexOf('data-seasonal-campaign') < home.indexOf('class="intent-actions"'),
+  '首頁節日戰役必須在手機三張常青卡之前，否則主版位會被推離首屏');
 assert.match(base, /gtag\('event', 'intent_click'/);
 assert.match(base, /intent_id:/);
 assert.match(search, /'search_zero_results'/);

@@ -65,6 +65,11 @@ const featuredDeities = [
 
 // 2026 農曆七月站內戰役主卡：排程與相關頁 CTA 共用 seasonal-campaigns 唯一資料源。
 const activeSeasonalCampaign = pickSeasonalCampaign(iso);
+// GA4 8/8–8/9 的首頁樣本僅 28 views，依 48h 規則不足以撤換當期主卡；
+// 但 GSC 已出現「中原普渡2026／中元節2026」共 197 曝光，故在不搶走當期主題的前提下，
+// 於 8/10–8/26 提早放一條中元節次入口。仍從同一份排程取資料，不另抄日期或網址。
+const zhongyuanCampaign = seasonalCampaigns.find((campaign) => campaign.festivalSlug === 'zhongyuan');
+const showEarlyZhongyuan = Boolean(zhongyuanCampaign && '2026-08-10' <= iso && iso <= '2026-08-26');
 ---
 
 <Base
@@ -76,23 +81,6 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
     <h1>神酷<span class="alt">（神庫）</span></h1>
     <p class="tagline">查籤詩、看神明、懂台灣民俗</p>
   </header>
-  <section class="intent-actions" aria-labelledby="intent-actions-title">
-    <h2 id="intent-actions-title">現在想做什麼？</h2>
-    <div class="intent-grid">
-      <a class="intent-card card" href="/almanac/" data-intent-action="today" data-intent-placement="home_quick_action">
-        <strong>看今天適合做什麼</strong>
-        <span class="muted">查今日宜忌、沖煞與農民曆</span>
-      </a>
-      <a class="intent-card card" href="/qiugian/" data-intent-action="qiugian" data-intent-placement="home_quick_action">
-        <strong>為目前的事求一支籤</strong>
-        <span class="muted">從工作、感情、考試等情境開始</span>
-      </a>
-      <a class="intent-card card" href="/temples/nearby/" data-intent-action="nearby_temples" data-intent-placement="home_quick_action">
-        <strong>找附近適合參拜的廟</strong>
-        <span class="muted">座標只在瀏覽器計算，不會外送</span>
-      </a>
-    </div>
-  </section>
   {
     activeSeasonalCampaign && (
       <section class="seasonal" data-seasonal-campaign>
@@ -111,15 +99,24 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
               data-campaign-image
             />
           </a>
-          <p class="campaign-date">
-            <strong data-campaign-date>{activeSeasonalCampaign.dateLabel}</strong>
-            <span class="muted" data-campaign-countdown></span>
-          </p>
-          <h2><a href={activeSeasonalCampaign.href} data-campaign-link
-            data-growth-campaign data-growth-placement="home_title">{activeSeasonalCampaign.title}</a></h2>
-          <p data-campaign-prompt>{activeSeasonalCampaign.prompt}</p>
-          <p class="campaign-cta"><a href={activeSeasonalCampaign.href} data-campaign-cta
-            data-growth-campaign data-growth-placement="home_cta">{activeSeasonalCampaign.cta}</a></p>
+          <div class="campaign-copy">
+            <p class="campaign-date">
+              <strong data-campaign-date>{activeSeasonalCampaign.dateLabel}</strong>
+              <span class="muted" data-campaign-countdown></span>
+            </p>
+            <h2><a href={activeSeasonalCampaign.href} data-campaign-link
+              data-growth-campaign data-growth-placement="home_title">{activeSeasonalCampaign.title}</a></h2>
+            <p data-campaign-prompt>{activeSeasonalCampaign.prompt}</p>
+            <p class="campaign-cta"><a href={activeSeasonalCampaign.href} data-campaign-cta
+              data-growth-campaign data-growth-placement="home_cta">{activeSeasonalCampaign.cta}</a></p>
+            {zhongyuanCampaign && (
+              <p class="campaign-next" data-early-zhongyuan hidden={!showEarlyZhongyuan}>
+                接下來：<a href={zhongyuanCampaign.href}
+                  data-growth-campaign={zhongyuanCampaign.festivalSlug}
+                  data-growth-placement="home_secondary">{zhongyuanCampaign.title}，先看普渡準備</a>
+              </p>
+            )}
+          </div>
         </article>
         <script is:inline type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(seasonalCampaigns).replace(/</g, '\\u003c')} />
         <script is:inline>
@@ -145,6 +142,10 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
             root.querySelector('[data-campaign-prompt]').textContent = active.prompt;
             root.querySelector('[data-campaign-cta]').textContent = active.cta;
             root.querySelector('[data-campaign-cta]').setAttribute('href', active.href);
+            const earlyZhongyuan = root.querySelector('[data-early-zhongyuan]');
+            if (earlyZhongyuan) {
+              earlyZhongyuan.hidden = !('2026-08-10' <= today && today <= '2026-08-26' && active.festivalSlug !== 'zhongyuan');
+            }
             const [y, m, d] = active.target.split('-').map(Number);
             const [ty, tm, td] = today.split('-').map(Number);
             const days = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(ty, tm - 1, td)) / 86400000);
@@ -154,6 +155,23 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
       </section>
     )
   }
+  <section class="intent-actions" aria-labelledby="intent-actions-title">
+    <h2 id="intent-actions-title">現在想做什麼？</h2>
+    <div class="intent-grid">
+      <a class="intent-card card" href="/almanac/" data-intent-action="today" data-intent-placement="home_quick_action">
+        <strong>看今天適合做什麼</strong>
+        <span class="muted">查今日宜忌、沖煞與農民曆</span>
+      </a>
+      <a class="intent-card card" href="/qiugian/" data-intent-action="qiugian" data-intent-placement="home_quick_action">
+        <strong>為目前的事求一支籤</strong>
+        <span class="muted">從工作、感情、考試等情境開始</span>
+      </a>
+      <a class="intent-card card" href="/temples/nearby/" data-intent-action="nearby_temples" data-intent-placement="home_quick_action">
+        <strong>找附近適合參拜的廟</strong>
+        <span class="muted">座標只在瀏覽器計算，不會外送</span>
+      </a>
+    </div>
+  </section>
   <LineCta
     placement="home"
     title="把神酷放進 LINE"
@@ -273,13 +291,21 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
     @media (max-width: 46rem) { .intent-grid { grid-template-columns: 1fr; } }
     .seasonal { margin: 0 0 2.25rem; }
     .campaign-kicker { color: var(--accent); letter-spacing: 0.1em; font-size: var(--text-sm); margin: 0 0 0.625rem; }
-    .campaign-card { border-color: var(--gold); background: var(--paper-2); }
-    .campaign-visual-link { display: block; margin-bottom: 1rem; }
+    .campaign-card { display: grid; grid-template-columns: minmax(14rem, 20rem) minmax(0, 1fr); gap: 1.25rem;
+      align-items: start; border-color: var(--gold); background: var(--paper-2); }
+    .campaign-visual-link { display: block; }
     .campaign-visual-link img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+    .campaign-copy { min-width: 0; }
     .campaign-card h2 { margin: 0.5rem 0 0.75rem; font-size: var(--text-xl); }
     .campaign-card h2 a { color: var(--ink); }
     .campaign-date { margin: 0; color: var(--accent); }
     .campaign-cta { margin: 1rem 0 0; font-weight: 700; }
+    .campaign-next { margin: 1rem 0 0; padding-top: 0.875rem; border-top: 1px solid var(--line); color: var(--ink-soft); }
+    .campaign-next a { font-weight: 700; }
+    @media (max-width: 46rem) {
+      .campaign-card { grid-template-columns: 1fr; }
+      .campaign-visual-link { display: none; }
+    }
     .kicker { color: var(--gold); letter-spacing: 0.1em; font-size: var(--text-sm); margin: 0 0 0.625rem; }
     .daily { border-color: var(--accent-soft); }
     .daily-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.25rem; }

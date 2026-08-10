@@ -1,0 +1,196 @@
+---
+interface Props {
+  offerings: string[];
+  jossPaper: string[];
+  shareUrl: string;
+}
+
+const { offerings, jossPaper, shareUrl } = Astro.props;
+const groups = [
+  { id: 'offerings', title: '供品', items: offerings },
+  { id: 'joss-paper', title: '金紙', items: jossPaper },
+].filter((group) => group.items.length > 0);
+const total = groups.reduce((sum, group) => sum + group.items.length, 0);
+---
+
+<section class="pudu-checklist" aria-labelledby="pudu-checklist-title" data-pudu-checklist data-share-url={shareUrl}>
+  <div class="checklist-head">
+    <div>
+      <p class="eyebrow">手機可用工具</p>
+      <h2 id="pudu-checklist-title">中元普渡準備／採買清單</h2>
+      <p>勾選進度只儲存在這台裝置；複製或分享時會帶上目前的勾選狀態。</p>
+    </div>
+    <p class="progress" aria-live="polite"><strong data-checklist-done>0</strong> / {total} 已準備</p>
+  </div>
+
+  <div class="checklist-groups">
+    {groups.map((group) => (
+      <fieldset data-checklist-group={group.id}>
+        <legend>{group.title}</legend>
+        <div class="checklist-items">
+          {group.items.map((item, index) => {
+            const inputId = `pudu-${group.id}-${index}`;
+            return (
+              <label for={inputId}>
+                <input id={inputId} type="checkbox" value={item} data-checklist-item />
+                <span>{item}</span>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+    ))}
+  </div>
+
+  <div class="checklist-actions">
+    <button type="button" class="btn btn-primary" data-checklist-copy>複製清單</button>
+    <button type="button" class="btn" data-checklist-share>分享清單</button>
+    <button type="button" class="reset" data-checklist-reset>清除勾選</button>
+  </div>
+  <p class="feedback muted small" data-checklist-feedback aria-live="polite"></p>
+  <p class="source-note muted small">清單項目直接取自本頁「供品與金紙」的掛源資料；實際做法請依家中、社區或當地慣例調整。
+  </p>
+</section>
+
+<script is:inline>
+  (() => {
+    const TOOL_ID = 'zhongyuan_pudu_checklist';
+    const STORAGE_KEY = 'folk:zhongyuan-pudu-checklist:v1';
+    const track = (eventName, params = {}) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, { checklist_id: TOOL_ID, ...params });
+      }
+    };
+    const copyText = async (text) => {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    };
+
+    document.querySelectorAll('[data-pudu-checklist]').forEach((root) => {
+      const inputs = [...root.querySelectorAll('[data-checklist-item]')];
+      const feedback = root.querySelector('[data-checklist-feedback]');
+      const done = root.querySelector('[data-checklist-done]');
+      let saved = [];
+      try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { saved = []; }
+      inputs.forEach((input) => { input.checked = saved.includes(input.value); });
+
+      const checkedValues = () => inputs.filter((input) => input.checked).map((input) => input.value);
+      const update = () => {
+        const values = checkedValues();
+        done.textContent = String(values.length);
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(values)); } catch { /* 私密模式可能停用儲存 */ }
+      };
+      const attributedUrl = (content) => {
+        const url = new URL(root.dataset.shareUrl);
+        url.searchParams.set('utm_source', 'shared_checklist');
+        url.searchParams.set('utm_medium', 'referral');
+        url.searchParams.set('utm_campaign', TOOL_ID);
+        url.searchParams.set('utm_content', content);
+        return url.toString();
+      };
+      const listText = (content) => {
+        const lines = ['中元普渡準備／採買清單'];
+        root.querySelectorAll('[data-checklist-group]').forEach((group) => {
+          lines.push('', group.querySelector('legend')?.textContent?.trim() || '');
+          group.querySelectorAll('[data-checklist-item]').forEach((input) => {
+            lines.push(`${input.checked ? '☑' : '☐'} ${input.value}`);
+          });
+        });
+        lines.push('', `完整說明：${attributedUrl(content)}`);
+        return lines.join('\n');
+      };
+      const showFeedback = (message) => {
+        feedback.textContent = message;
+        window.setTimeout(() => { if (feedback.textContent === message) feedback.textContent = ''; }, 2400);
+      };
+
+      inputs.forEach((input) => input.addEventListener('change', () => {
+        update();
+        track('checklist_toggle', {
+          item_group: input.closest('[data-checklist-group]')?.dataset.checklistGroup || '',
+          item_name: input.value,
+          checked: input.checked,
+        });
+      }));
+      root.querySelector('[data-checklist-copy]')?.addEventListener('click', async () => {
+        try {
+          await copyText(listText('copy'));
+          showFeedback('清單已複製，可直接貼到 LINE 或訊息。');
+          track('checklist_copy', { checked_count: checkedValues().length, item_count: inputs.length });
+        } catch {
+          showFeedback('無法自動複製，請檢查瀏覽器剪貼簿權限。');
+        }
+      });
+      root.querySelector('[data-checklist-share]')?.addEventListener('click', async () => {
+        const shareData = {
+          title: '中元普渡準備／採買清單',
+          text: listText('native_share').replace(/\n\n完整說明：.*$/, ''),
+          url: attributedUrl('native_share'),
+        };
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+            track('checklist_share', { method: 'native', checked_count: checkedValues().length, item_count: inputs.length });
+          } else {
+            await copyText(listText('share_fallback'));
+            showFeedback('這個瀏覽器沒有分享選單；清單已複製，可直接貼上分享。');
+            track('checklist_share', { method: 'copy_fallback', checked_count: checkedValues().length, item_count: inputs.length });
+          }
+        } catch {
+          /* 使用者取消系統分享時不顯示錯誤，也不記成功事件。 */
+        }
+      });
+      root.querySelector('[data-checklist-reset]')?.addEventListener('click', () => {
+        inputs.forEach((input) => { input.checked = false; });
+        update();
+        showFeedback('已清除這台裝置的勾選進度。');
+        track('checklist_reset', { item_count: inputs.length });
+      });
+      update();
+    });
+  })();
+</script>
+
+<style>
+  .pudu-checklist {
+    margin: 1.5rem 0 2rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: var(--paper-2);
+  }
+  .checklist-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .eyebrow { margin: 0; color: var(--gold); font-size: var(--text-xs); font-weight: 700; }
+  .checklist-head h2 { margin: 0.2rem 0 0.35rem; padding: 0; border: 0; font-size: var(--text-lg); }
+  .checklist-head p:not(.eyebrow) { margin: 0; color: var(--ink-soft); font-size: var(--text-sm); }
+  .checklist-head .progress { flex: none; padding: 0.4rem 0.65rem; border: 1px solid var(--line); border-radius: 0.5rem; }
+  .checklist-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+  fieldset { min-width: 0; margin: 0; padding: 0.75rem; border: 1px solid var(--line); }
+  legend { padding: 0 0.35rem; color: var(--accent); font-size: var(--text-sm); font-weight: 700; }
+  .checklist-items { display: grid; gap: 0.45rem; }
+  label { display: flex; align-items: center; gap: 0.6rem; min-height: 2.5rem; cursor: pointer; }
+  input { flex: none; width: 1.25rem; height: 1.25rem; accent-color: var(--accent); }
+  input:checked + span { color: var(--ink-soft); text-decoration: line-through; }
+  .checklist-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem; margin-top: 1rem; }
+  .checklist-actions .reset { padding: 0.5rem; border: 0; background: transparent; color: var(--ink-soft);
+    font: inherit; font-size: var(--text-xs); text-decoration: underline; cursor: pointer; }
+  .feedback { min-height: 1.5em; margin: 0.5rem 0 0; color: var(--ok-green); }
+  .source-note { margin: 0.5rem 0 0; }
+  @media (max-width: 46rem) {
+    .checklist-head { flex-direction: column; }
+    .checklist-head .progress { align-self: flex-start; }
+    .checklist-groups { grid-template-columns: 1fr; }
+    .checklist-actions .btn { flex: 1 1 9rem; text-align: center; }
+  }
+</style>
