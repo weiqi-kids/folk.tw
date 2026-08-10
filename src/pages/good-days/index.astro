@@ -6,6 +6,7 @@ import { verifiedYiDays } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import LeadVisual from '../../components/LeadVisual.astro';
+import LineCta from '../../components/LineCta.astro';
 
 const items = (goodDaysData as { items: { slug: string; name: string; affairs: string[]; nav_label: string; intent: string }[] }).items;
 
@@ -72,6 +73,11 @@ if (faq) jsonLd.push(faq);
       </a>
     ))}
   </div>
+  <LineCta
+    placement="good_days_index"
+    title="在 LINE 選一件事看宜日"
+    description="打「看日子」，從拜拜、理髮、出行、搬家入厝等事項中直接選擇。"
+  />
 
   <section class="card">
     <h2>這些日子是怎麼來的</h2>

@@ -9,6 +9,7 @@ import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 import festivalsData from '../../data/festivals.json';
 import { festivalNextSolar } from '../../lib/lunar-date';
 import imagePriority from '../../data/image-priority.json';
+import LineCta from '../../components/LineCta.astro';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
@@ -87,6 +88,11 @@ if (faq) jsonLd.push(faq);
     </figure>
   )}
   <AlmanacDay iso={iso} today={iso} hub />
+  <LineCta
+    placement="almanac_today"
+    title="下次直接在 LINE 打日期"
+    description="打「8/15」或「2026-08-15」，就能查那一天的農曆、干支與宜忌。"
+  />
 
   <!-- 分享用固定連結：/almanac 網址不帶日期，社群卡片的 og 無法免重部署保持當日；
        故導向今日的 dated 鏡像頁（網址帶日期→卡片帶當日宜忌且永不過期）。 -->

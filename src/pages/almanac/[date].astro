@@ -9,6 +9,7 @@ import { lunarProvider } from '../../lib/almanac/provider';
 import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 import festivalsData from '../../data/festivals.json';
 import imagePriority from '../../data/image-priority.json';
+import LineCta from '../../components/LineCta.astro';
 
 // 任一日期農民曆。以「今日」為中心預生 ±一年的日期頁（今日本身由 /almanac 提供）。
 export function getStaticPaths() {
@@ -99,6 +100,11 @@ const showRollingVisual = date! >= today && date! <= addDays(today, imagePriorit
     </figure>
   )}
   <AlmanacDay iso={date!} today={today} />
+  <LineCta
+    placement="almanac_date"
+    title="下次直接在 LINE 打日期"
+    description="打「8/15」或完整日期，就能查那一天的農曆、干支與宜忌。"
+  />
 </Base>
 
 <style>

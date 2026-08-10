@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
+import LineCta from '../../components/LineCta.astro';
 import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
@@ -115,6 +116,13 @@ const jsonLd = [
   <p id="topNote" class="note small"></p>
 
   <div id="result" hidden></div>
+  <div id="lineAfterDraw" hidden>
+    <LineCta
+      placement={`qiugian_${concern.id}`}
+      title="明天想再求一支？放進 LINE"
+      description="在 LINE 打「求籤」，每天固定一支六十甲子籤；也能加進群組一起抽。"
+    />
+  </div>
 
   <div class="divider">別人後來怎麼了</div>
   <div class="joys" id="joys">
@@ -324,6 +332,7 @@ const jsonLd = [
         </div>
         <p class="note small caption-time">為明天的事求的？把這頁存起來，有結果再回來回報。</p>`;
       document.getElementById('result')!.hidden = false;
+      document.getElementById('lineAfterDraw')!.hidden = false;
       document.getElementById('qiInline')!.addEventListener('click', qifuInline);
       rememberPoem({
         id: item.id,

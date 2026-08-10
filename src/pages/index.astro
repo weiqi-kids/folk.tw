@@ -5,6 +5,7 @@ import { todayInTaipei, pickDailyIndex } from '../lib/daily';
 import { upcomingDeityBirthdays } from '../lib/birthdays';
 import UpcomingBirthdays from '../components/UpcomingBirthdays.astro';
 import FestivalCountdown from '../components/FestivalCountdown.astro';
+import LineCta from '../components/LineCta.astro';
 import { festivalNextSolar } from '../lib/lunar-date';
 import festivals from '../data/festivals.json';
 import { orgNode } from '../lib/seo';
@@ -153,6 +154,12 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
       </section>
     )
   }
+  <LineCta
+    placement="home"
+    title="把神酷放進 LINE"
+    description="每天一支籤、查最近節日、直接打日期看宜忌。平常不推播，想用時再叫它。"
+    showImage
+  />
   <section class="hero">
     <p class="kicker">今日選讀 · {iso}（全站同一支）</p>
     {

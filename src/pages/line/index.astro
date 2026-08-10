@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const LINE_ADD_URL = 'https://line.me/R/ti/p/@616yhksm';
+const features = [
+  { title: '每日求籤', text: '在 LINE 打「求籤」，每天一支六十甲子籤；同一天再問，仍是同一支。' },
+  { title: '最近節日', text: '打「節日」，查看接下來最近五個民俗節日、國曆日期與倒數天數。' },
+  { title: '看日子', text: '打「看日子」挑事項，或直接打「8/15」「2026-08-15」查當日宜忌。' },
+  { title: '群組也能用', text: '加進家族或朋友群組，整句打「求籤」「節日」「看日子」才回覆，其他聊天不插嘴。' },
+];
+---
+
+<Base
+  title="神酷 LINE 官方帳號"
+  description="把神酷加進 LINE：每天一支六十甲子籤、查最近五個民俗節日、直接打日期看宜忌，也能加進群組一起用。平常不推播，想查時再叫它。"
+  speakable={['h1', '.line-lead']}
+>
+  <nav class="crumb"><a href="/">神酷</a> ／ LINE 官方帳號</nav>
+
+  <header class="line-hero">
+    <img src="/line-profile-640.png" alt="神酷 LINE 官方帳號" width="640" height="640" loading="eager" decoding="async" />
+    <div>
+      <p class="eyebrow">LINE 官方帳號 · @616yhksm</p>
+      <h1>把神酷放進 LINE</h1>
+      <p class="line-lead">每天一支籤、查最近節日、直接打日期看宜忌，也能加進群組一起用。平常不推播，想查時再叫它。</p>
+      <p class="hero-actions">
+        <a class="btn btn-primary" href={LINE_ADD_URL} target="_blank" rel="noopener"
+          data-line-add data-line-placement="line_page_hero">加神酷好友</a>
+        <span class="line-id">LINE ID：<strong>@616yhksm</strong></span>
+      </p>
+    </div>
+  </header>
+
+  <section aria-labelledby="line-features">
+    <h2 id="line-features">可以做什麼</h2>
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <article class="card">
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="line-rules card" aria-labelledby="line-rules-title">
+    <h2 id="line-rules-title">不推播，想用再叫它</h2>
+    <p>神酷不會主動傳訊息。加好友後建議把聊天室置頂；想查時打開 LINE，就不必重新找網站入口。</p>
+    <p>籤詩、節日與宜忌都是民俗參考，不是命定。凶籤不是詛咒，忌也不是禁止。</p>
+  </section>
+
+  <section aria-labelledby="line-commands">
+    <h2 id="line-commands">直接打這些字</h2>
+    <dl class="commands">
+      <div><dt>求籤</dt><dd>今天這一支六十甲子籤</dd></div>
+      <div><dt>節日</dt><dd>接下來最近五個節日</dd></div>
+      <div><dt>看日子</dt><dd>選擇要查的事項</dd></div>
+      <div><dt>8/15</dt><dd>查這一天的農曆與宜忌</dd></div>
+      <div><dt>關於</dt><dd>查看帳號說明</dd></div>
+    </dl>
+  </section>
+
+  <p class="bottom-add">
+    <a class="btn btn-primary" href={LINE_ADD_URL} target="_blank" rel="noopener"
+      data-line-add data-line-placement="line_page_bottom">加神酷好友</a>
+  </p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 1rem; }
+    .line-hero { display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; align-items: center; margin: 1rem 0 2.5rem; }
+    .line-hero img { display: block; width: 10rem; height: 10rem; object-fit: cover; }
+    .line-hero h1 { margin: 0.25rem 0 0.75rem; }
+    .eyebrow { margin: 0; color: var(--accent); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; }
+    .line-lead { margin: 0; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 1.25rem; }
+    .line-id { color: var(--ink-soft); font-size: var(--text-sm); }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+    .feature-grid h3 { margin: 0 0 0.375rem; color: var(--accent); }
+    .feature-grid p { margin: 0; }
+    .line-rules { margin: 2rem 0; border-left: 3px solid var(--gold); }
+    .line-rules h2 { margin-top: 0; font-size: var(--text-lg); }
+    .commands { display: grid; gap: 0; }
+    .commands > div { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 0.625rem 0; border-bottom: 1px dashed var(--line); }
+    .commands dt { color: var(--accent); font-weight: 700; }
+    .commands dd { margin: 0; }
+    .bottom-add { margin-top: 2rem; }
+    @media (max-width: 38rem) {
+      .line-hero { grid-template-columns: 1fr; }
+      .line-hero img { width: 6rem; height: 6rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</Base>

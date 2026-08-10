@@ -335,6 +335,13 @@ const groupActive = (sections: NavSection[]) =>
                 method: calendarLink.dataset.calendarMethod || 'unknown'
               });
             }
+            var lineLink = target.closest('[data-line-add]');
+            if (lineLink) {
+              gtag('event', 'line_add_click', {
+                line_placement: lineLink.dataset.linePlacement || 'unknown',
+                link_url: lineLink.href
+              });
+            }
           });
           var loadGA = function () {
             if (window.__gaLoaded) return;
@@ -438,7 +445,7 @@ const groupActive = (sections: NavSection[]) =>
         </div>
       )}
       <p class="meta">
-        <a href="/rss.xml" type="application/rss+xml">每週拜拜提醒 RSS</a>｜免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>
+        <a href="/line/">神酷 LINE（@616yhksm）</a>｜<a href="/rss.xml" type="application/rss+xml">每週拜拜提醒 RSS</a>｜免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>
       </p>
     </footer>
   </body>

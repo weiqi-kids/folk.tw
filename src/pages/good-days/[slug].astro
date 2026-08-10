@@ -6,6 +6,7 @@ import { verifiedYiDays, dayRecordCached, affairNameOf } from '../../lib/almanac
 import goodDaysData from '../../data/good-days.json';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import LeadVisual from '../../components/LeadVisual.astro';
+import LineCta from '../../components/LineCta.astro';
 
 interface Item {
   slug: string; name: string; affairs: string[];
@@ -190,6 +191,12 @@ if (faq) jsonLd.push(faq);
       </section>
     )
   }
+
+  <LineCta
+    placement={`good_days_${item.slug}`}
+    title="下次直接在 LINE 看日子"
+    description="打「看日子」選事項，或輸入日期查當天完整宜忌。"
+  />
 
   <nav class="gd-siblings" aria-label="其他事項">
     <h2>其他要看日子的事</h2>

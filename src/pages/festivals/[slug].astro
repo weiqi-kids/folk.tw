@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import ShareRow from '../../components/ShareRow.astro';
+import LineCta from '../../components/LineCta.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
@@ -366,6 +367,11 @@ const jsonLd = [
         data-calendar-add data-calendar-id={f.slug} data-calendar-method="ics">下載 Apple／通用 .ics</a>
     </div>
   </section>
+  <LineCta
+    placement={`festival_${f.slug}`}
+    title="下次直接在 LINE 查節日"
+    description="在 LINE 打「節日」，就能看到接下來最近五個節日、國曆日期與還有幾天。"
+  />
   {
     festivalOgImage && (
       <figure class="festival-visual">
