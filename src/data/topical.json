@@ -219,8 +219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 5
+      "last_checked": "2026-08-10",
+      "empty_runs": 6
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -521,8 +521,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 2
+      "last_checked": "2026-08-10",
+      "empty_runs": 3
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1976,8 +1976,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 2
+      "last_checked": "2026-08-10",
+      "empty_runs": 3
     }
   },
   {
@@ -2014,12 +2014,24 @@
         ],
         "added": "2026-08-07T12:35:40.312Z",
         "hash": "26128bdeb753"
+      },
+      {
+        "date": "2026-08-08",
+        "text": "菲律賓社會福利發展部表示，正等候地方當局提出完整事故報告，以便核轉受影響家庭後續的現金援助申請。",
+        "sources": [
+          {
+            "ref": "GMA News Online",
+            "url": "https://www.gmanetwork.com/news/topstories/regions/997781/dswd-gives-financial-aid-to-maymay-habagat-victims-in-benguet-rizal/story/"
+          }
+        ],
+        "added": "2026-08-10T12:36:31.330Z",
+        "hash": "a988a48468b8"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 2
+      "last_checked": "2026-08-10",
+      "empty_runs": 0
     }
   },
   {
@@ -2109,11 +2121,23 @@
         ],
         "added": "2026-08-09T12:36:20.805Z",
         "hash": "1551bf2370e0"
+      },
+      {
+        "date": "2026-08-10",
+        "text": "沖縄地方氣象台已於十日上午解除強風注意報，象徵風勢威脅大致解除",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5448425.html"
+          }
+        ],
+        "added": "2026-08-10T12:37:55.523Z",
+        "hash": "7a9e92f049f1"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
+      "last_checked": "2026-08-10",
       "empty_runs": 0
     }
   },
@@ -2159,8 +2183,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 2
+      "last_checked": "2026-08-10",
+      "empty_runs": 3
     }
   },
   {
@@ -2213,8 +2237,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 1
+      "last_checked": "2026-08-10",
+      "empty_runs": 2
     }
   },
   {
@@ -2239,11 +2263,24 @@
     "detector": "news",
     "since": "2026-08-08",
     "status": "active",
-    "updates": [],
+    "updates": [
+      {
+        "date": "2026-08-07",
+        "text": "陝西省委書記赴柞水土石流災區現場勘查，要求全力搜尋失聯者，並妥善辦理罹難者後續事宜與家屬安撫工作。",
+        "sources": [
+          {
+            "ref": "京報網",
+            "url": "https://news.bjd.com.cn/2026/08/07/11904630.shtml"
+          }
+        ],
+        "added": "2026-08-10T12:39:33.208Z",
+        "hash": "b38773fe7750"
+      }
+    ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
-      "empty_runs": 1
+      "last_checked": "2026-08-10",
+      "empty_runs": 0
     }
   },
   {
@@ -2280,11 +2317,23 @@
         ],
         "added": "2026-08-09T12:38:41.494Z",
         "hash": "6a242711ba09"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "陝西柞水縣持續搶修受損道路與通訊設施，並展開清淤排澇作業，災後重建工作有序推進中。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260809/655ae30581bc499fa535c5de8ac18bd2/c.html"
+          }
+        ],
+        "added": "2026-08-10T12:40:49.425Z",
+        "hash": "ded63dfc5e43"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
+      "last_checked": "2026-08-10",
       "empty_runs": 0
     }
   },
@@ -2322,11 +2371,23 @@
         ],
         "added": "2026-08-09T12:39:18.104Z",
         "hash": "20bbb4e2f03f"
+      },
+      {
+        "date": "2026-08-10",
+        "text": "受困的登山客與旅宿旅客已全數完成徒步下山，縣道搶修工程持續進行中，通車時程仍未確定。",
+        "sources": [
+          {
+            "ref": "長野県",
+            "url": "https://www.pref.nagano.lg.jp/bosai/kurashi/shobo/saigai/260808tsuukoudome.html"
+          }
+        ],
+        "added": "2026-08-10T12:42:06.316Z",
+        "hash": "168b678268cd"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-09",
+      "last_checked": "2026-08-10",
       "empty_runs": 0
     }
   },
@@ -2351,7 +2412,13 @@
     "lon": 123.7825564,
     "detector": "news",
     "since": "2026-08-09",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-10",
+      "empty_runs": 1
+    }
   },
   {
     "id": "news-flood-20260809-2f6b7f",
@@ -2374,6 +2441,49 @@
     "lon": 121.7428504,
     "detector": "news",
     "since": "2026-08-10",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-09",
+        "text": "基隆市府表示將於本週研議動用災害準備金，適度補償受災商家，並加派抽水機防範滿潮再度倒灌。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7328/9680115"
+          }
+        ],
+        "added": "2026-08-10T12:45:19.045Z",
+        "hash": "2077609fadbc"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "市長謝國樑宣布，基隆市府未來將建立「滿潮警報」機制，無論有無風雨，滿潮時都會提前發布警報提醒民眾與店家防範。",
+        "sources": [
+          {
+            "ref": "自由時報",
+            "url": "https://news.ltn.com.tw/news/life/breakingnews/5534121"
+          }
+        ],
+        "added": "2026-08-10T12:45:19.183Z",
+        "hash": "f6e9e644dd56"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "中央災害應變中心當晚首度發布「暴潮告警」，提醒沿海民眾潮位接近警戒值，市長謝國樑再赴愛四路視察應變。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7328/9680779"
+          }
+        ],
+        "added": "2026-08-10T12:45:19.220Z",
+        "hash": "7fd7d5bbaebf"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-10",
+      "empty_runs": 0
+    }
   }
 ]
