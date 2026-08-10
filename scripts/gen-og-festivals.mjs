@@ -18,10 +18,10 @@ const root = join(here, '..');
 const { festivalNextSolar, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
 const festivals = JSON.parse(readFileSync(join(root, 'src/data/festivals.json'), 'utf8'));
 
-const CARD_SLUGS = [
-  'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
-  'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
-];
+// 清單的唯一真實來源是 src/lib/festival-og.ts——節日頁的 og:image 與 bot-index.json
+// 的 festivals[].image 讀的是同一份，這裡不再自己抄一份（抄兩份會漂移，而且漂移了
+// build 仍然全綠，症狀只在使用者端顯示成破圖）。
+const { FESTIVAL_OG_SLUGS: CARD_SLUGS } = await import(join(root, 'src/lib/festival-og.ts'));
 const today = new Date().toISOString().slice(0, 10);
 
 function titleSize(name) {

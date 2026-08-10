@@ -93,6 +93,12 @@
           "name": { "type": "string" },
           "aliases": { "type": "array", "items": { "type": "string" } },
           "lead": { "type": "string", "description": "可選：一句話介紹。" },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://folk\\.tw/og/festivals/[^/]+\\.png$",
+            "description": "可選：節日分享卡（1200×630 PNG），與站上節日頁掛的 og:image 是同一張。**不是每個節日都有**——只有 src/lib/festival-og.ts 清單上的才有，消費端必須能處理缺這個欄位的情況，而且**不得自己從 slug 拼網址**：拼出來的路徑本站一改名就變破圖，且 LINE 這類消費端對取不到的圖不會留白。圖上已燒進節名、國曆日期、農曆與一句提問，消費端若自己再顯示節名與日期會重複。日期隨每日重建更新，恆等於「自今日起的下一次」。"
+          },
           "url": {
             "type": "string",
             "format": "uri",

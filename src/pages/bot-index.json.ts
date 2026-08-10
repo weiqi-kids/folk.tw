@@ -20,6 +20,7 @@
 import type { APIRoute } from 'astro';
 import { getPoems, getSystems, interpretationById } from '../lib/queries';
 import { festivalNextSolar, lunarDateLabel } from '../lib/lunar-date';
+import { festivalOgUrl } from '../lib/festival-og';
 import { addDays, FUTURE_DAYS } from '../lib/almanac/dates';
 import { dayRecordCached, verifiedYiDays } from '../lib/almanac/select';
 import { todayInTaipei } from '../lib/daily';
@@ -123,11 +124,16 @@ export const GET: APIRoute = async () => {
       occurrences.push({ date: iso, ...(f.lunar_date ? { lunar: f.lunar_date } : {}) });
       cursor = addDays(iso, 1);
     }
+    // 分享卡不是每個節日都有（清單見 lib/festival-og.ts）。沒有就整個欄位不輸出，
+    // 而不是給一個猜出來的網址——消費端（神酷 LINE Bot）拿到網址就會當成圖去顯示，
+    // 拼錯的下場是使用者看到破圖。欄位在契約上是選填，缺了是預期內的狀態。
+    const image = festivalOgUrl(f.slug, SITE);
     return {
       slug: f.slug,
       name: f.name,
       aliases: f.aliases ?? [],
       ...(f.lead ? { lead: f.lead } : {}),
+      ...(image ? { image } : {}),
       url: `${SITE}/festivals/${f.slug}/`,
       occurrences,
     };
