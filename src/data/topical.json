@@ -2352,5 +2352,28 @@
     "detector": "news",
     "since": "2026-08-09",
     "status": "active"
+  },
+  {
+    "id": "news-flood-20260809-2f6b7f",
+    "eventType": "flood",
+    "title": "為基隆廟口夜市水災祈福",
+    "event": "颱風白海豚外圍環流疊加滿潮，海水倒灌基隆廟口夜市與仁愛路一帶，多間店家貨品泡水受損，願商家與居民平安渡過、早日恢復。",
+    "sources": [
+      {
+        "ref": "聯合新聞網",
+        "url": "https://udn.com/news/story/7328/9679724"
+      },
+      {
+        "ref": "民視新聞mnews",
+        "url": "https://www.mnews.tw/story/20260809sot1832001"
+      }
+    ],
+    "place": "基隆廟口夜市",
+    "time": "2026-08-09",
+    "lat": 25.1285516,
+    "lon": 121.7428504,
+    "detector": "news",
+    "since": "2026-08-10",
+    "status": "active"
   }
 ]
