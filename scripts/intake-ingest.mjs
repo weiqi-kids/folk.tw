@@ -21,12 +21,28 @@
 //   node scripts/intake-ingest.mjs --dry      # 只驗證與報告，不上位
 //   node scripts/intake-ingest.mjs --status   # 只印各 job 的新鮮度（給過期提醒用）
 //
-// 結束碼：0＝正常（含「沒有新檔」）；1＝有檔驗證失敗（呼叫端應發 Slack）。
+// 結束碼：0＝正常（含「沒有新檔」）；1＝有檔驗證失敗；2＝本腳本自己壞了（不是資料問題）。
+//
+// 🔴 為什麼 1 和 2 一定要分開（2026-08-10 事故，五天的靜默）：
+//   v16 起有 5 個 url_list job 沒有 `dest` 欄位，而本檔兩處都直接 `join(INBOX, j.dest)`
+//   → TypeError、exit 1。呼叫端 intake-watch-cron.sh 只看 rc≠0 就發「投遞收件驗證失敗」，
+//   於是崩潰**偽裝成台灣端的資料問題**每小時發一次，害台灣端去逐檔複驗 8,008 個檔（資料全乾淨）。
+//   更嚴重的是 --status 走同一個地雷，而 cron 的 --stale 分支用 `|| true` 吞掉錯誤 →
+//   「台灣端沒在跑」與「抓到了但檔沒送達」兩道警報從 2026-08-06 起靜默失效。
+//   教訓：**崩潰不可以長得像資料問題**，而「沒收到警報」不等於「一切正常」。
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync, statSync, readdirSync, rmSync, copyFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+// 崩潰一律 exit 2，且印出可辨識的前綴——呼叫端據此把文案切成「腳本壞了」而非「資料壞了」。
+const crash = (e) => {
+  console.error(`\n💥 intake-ingest 崩潰（本腳本的 bug，不是台灣端的資料問題）：\n${e?.stack ?? e}`);
+  process.exit(2);
+};
+process.on('uncaughtException', crash);
+process.on('unhandledRejection', crash);
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(here, '..');
@@ -44,9 +60,45 @@ const PROMOTE_TO = {
   'temple-xml/temple.xml': '/root/.config/folk-tw/temple.xml',
 };
 
+/** 驗不過的目錄型檔案搬來這裡，離開匯入器的視線（見 verifyDir 的說明）。 */
+const QUARANTINE = join(INTAKE, 'quarantine');
+
+/**
+ * manifest 有三種形態的 job，路徑欄位**完全不同**——混著看就是 2026-08-10 事故的成因。
+ *   ① file     ：`url` ＋ `dest`（單一檔，會上位到 PROMOTE_TO）
+ *   ② url_list ：`url_list` ＋ `dest_dir` ＋ `dest_template` ＋ `expect_per_item`（**無 dest**）
+ *   ③ paginate ：`paginate.dest_template` 逐頁落檔（`dest` 只是宣告用，那個路徑永遠不存在）
+ * 🔴 判斷順序不可調：religion-foundation-list **同時有 dest 與 paginate**，先看 dest 會判成 ①，
+ *    然後去找一個從來不存在的 recon-service/foundation-list.html，把 200 頁真檔全部漏掉。
+ */
+function jobKind(j) {
+  if (j.url_list) return 'url_list';
+  if (j.paginate) return 'paginate';
+  if (j.dest) return 'file';
+  return 'unknown'; // 契約錯誤：往下一定會炸，所以在這裡就點名（不要再讓它變成 TypeError）
+}
+
+/** 目錄型 job（②③）的落點目錄；① 回 null。 */
+function jobDir(j) {
+  const k = jobKind(j);
+  if (k === 'url_list') return join(INBOX, j.dest_dir ?? '');
+  if (k === 'paginate') return join(INBOX, dirname(j.paginate.dest_template));
+  return null;
+}
+
+/** 目錄裡的「資料檔」＝排除兩個側檔。台灣端每項固定投三件套（URLLIST-SPEC）。 */
+const dataFiles = (dir) =>
+  existsSync(dir) ? readdirSync(dir).filter((f) => !f.endsWith('.sha256') && !f.endsWith('.meta.json')) : [];
+
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 const todayIso = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
 const ageDays = (p) => (existsSync(p) ? (Date.now() - statSync(p).mtimeMs) / 864e5 : Infinity);
+/** 目錄型 job 的資料齡＝目錄裡最新那個**資料檔**的齡（目錄 mtime 只反映最後一次增刪檔名）。 */
+const dirNewestAgeDays = (dir) => {
+  let newest = 0;
+  for (const f of dataFiles(dir)) newest = Math.max(newest, statSync(join(dir, f)).mtimeMs);
+  return newest ? (Date.now() - newest) / 864e5 : Infinity;
+};
 const hoursSince = (iso) => (iso ? (Date.now() - Date.parse(iso)) / 36e5 : Infinity);
 const tpe = (iso) =>
   iso
@@ -87,8 +139,10 @@ function loadManifest() {
   try {
     return JSON.parse(readFileSync(MANIFEST, 'utf8'));
   } catch (e) {
-    console.error(`✗ 讀不到 manifest（${MANIFEST}）：${e.message}`);
-    process.exit(1);
+    // exit 2 不是 1：讀不到自己 repo 裡的清單是**我們這端壞了**，
+    // 與「台灣端送來的檔驗不過」是兩件事，通報文案也該不同。
+    console.error(`💥 讀不到 manifest（${MANIFEST}）：${e.message}`);
+    process.exit(2);
   }
 }
 
@@ -102,8 +156,13 @@ function loadManifest() {
  *   ① `not_smaller_than_current_pct`：新檔不得比現有上位檔小超過 N%
  *      （MOI 月更是增修，正常不會驟減；驟減＝傳輸截斷或來源出錯）
  *   ② `min_occurrences`：記錄筆數下限（整檔計數，例如 `<OpenData_3>` 至少 12,000 筆）
+ *
+ * `meta` ＝該檔的 .meta.json（台灣端記的 HTTP 狀態）。給了才驗 `http_status`／`http_status_any_of`；
+ * 沒給就跳過——側檔不是每個檔都有，缺側檔另有專門的判定，不在這裡當成內容錯誤。
+ * 🔴 `magic_any_of` 是 v17 為 photos job 加的，**只能在這裡實作、不能只信台灣端**：
+ *    它擋的是「302 導回 200 的 HTML 頁被當成合格圖片」，而 header 是來源說了算、bytes 不會騙人。
  */
-function checkExpect(buf, expect, currentPath) {
+function checkExpect(buf, expect, currentPath, meta = null) {
   const bad = [];
   if (!expect) return bad;
 
@@ -115,6 +174,24 @@ function checkExpect(buf, expect, currentPath) {
   if (expect.min_bytes != null && buf.length < expect.min_bytes) {
     bad.push(`大小 ${buf.length}B < 絕對下限 ${expect.min_bytes}B（疑為錯誤頁）`);
   }
+
+  // 台灣端記的 HTTP 狀態（有 meta 才驗）。同一份規則兩端各驗一次＝本檔的「雙重把關」前提。
+  const okStatus = expect.http_status_any_of ?? (expect.http_status != null ? [expect.http_status] : null);
+  if (okStatus && meta?.http_status != null && !okStatus.includes(meta.http_status)) {
+    bad.push(`HTTP ${meta.http_status} 不在預期 ${okStatus.join('／')} 內`);
+  }
+
+  // 檔案開頭實際 bytes（JPEG FFD8FF／PNG 89504E470D0A1A0A），命中任一即過。二進位檔專用。
+  if (expect.magic_any_of?.length) {
+    const head = buf.subarray(0, 32).toString('hex').toUpperCase();
+    if (!expect.magic_any_of.some((m) => head.startsWith(String(m).toUpperCase()))) {
+      bad.push(`檔頭 ${head.slice(0, 16)}… 不符 magic ${expect.magic_any_of.join('／')}（疑為錯誤頁冒充二進位檔）`);
+    }
+  }
+
+  // 🔴 magic 之後才轉字串：二進位檔轉 utf8 是垃圾，contains 一定失敗——
+  //    但那類 job 本來就不該宣告 contains（v17 photos 用 magic_any_of 取代），這裡只是不浪費。
+  if (expect.contains == null && !expect.min_occurrences && expect.not_smaller_than_current_pct == null) return bad;
 
   const text = buf.toString('utf8');
 
@@ -145,6 +222,93 @@ function checkExpect(buf, expect, currentPath) {
   return bad;
 }
 
+/**
+ * 目錄型 job（url_list／paginate）的收件處理。回 { total, bad[], quarantined }。
+ *
+ * 🔴 這類 job **沒有上位目標，也不該有**：匯入器直接讀 inbox
+ *    （import-photos.mjs → inbox/photos／import-temple-history.mjs → inbox/religion-yange
+ *     ＋ inbox/religion-jianzhu ＋ inbox/recon-service/foundation-list／
+ *     import-knowledge-deities.mjs → inbox/knowledge-deities）。
+ *    所以這裡只做「驗 ＋ 隔離壞檔」，**不上位、不清 inbox**——清掉匯入器就再也讀不到，
+ *    而 inbox 是 write-only，台灣端補不回來（只有整個 key 重抓才會重送）。
+ *
+ * ⚠️ 目錄裡會有「不在現行清單上」的檔（母體變動後清單重產，舊 key 的檔刪不掉，
+ *    2026-08-10 時 religion-yange 有 164 個）。那些**照樣驗**——它們是真資料、匯入器也讀得到——
+ *    只是不計入清單覆蓋率。判定以磁碟為準，與台灣端 URLLIST-SPEC 的「進度以磁碟為準」同一原則。
+ *
+ * 🔴 隔離的安全閥：驗不過的比例過高時**一個檔都不搬**。
+ *    理由：搬檔是破壞性操作，而「整批驗不過」遠比「整批真的壞了」更可能是本規則寫錯
+ *    （台灣端驗不過時連側檔都不會產生，壞檔本來就進不了 inbox）。寧可只報不動手，讓人來看。
+ */
+function verifyDir(j) {
+  const dir = jobDir(j);
+  const expect = j.expect_per_item ?? j.paginate?.expect_per_page ?? null;
+  const files = dataFiles(dir);
+  const bad = [];
+
+  for (const f of files) {
+    const p = join(dir, f);
+    const shaPath = `${p}.sha256`;
+
+    // 缺 .sha256 只報不隔離：可能只是 rsync 這一輪還沒把側檔送完（三件套不是原子送達）。
+    if (!existsSync(shaPath)) {
+      bad.push({ f, why: `缺 ${basename(shaPath)}（側檔未到或未產生）`, move: false });
+      continue;
+    }
+
+    const buf = readFileSync(p);
+    const want = readFileSync(shaPath, 'utf8').trim().split(/\s+/)[0].toLowerCase();
+    const got = sha256(buf);
+    if (want !== got) {
+      bad.push({ f, why: `sha256 不符（預期 ${want.slice(0, 12)}… 實得 ${got.slice(0, 12)}…）`, move: true });
+      continue;
+    }
+
+    let meta = null;
+    if (existsSync(`${p}.meta.json`)) {
+      try { meta = JSON.parse(readFileSync(`${p}.meta.json`, 'utf8')); } catch { /* 側檔壞掉不擋內容判定 */ }
+    }
+
+    const problems = checkExpect(buf, expect, null, meta);
+    if (problems.length) bad.push({ f, why: problems.join('；'), move: true });
+  }
+
+  // 安全閥：超過 20%（且至少 5 個）驗不過 → 判定為「規則可疑」，只報不搬。
+  const movable = bad.filter((b) => b.move);
+  const tooMany = movable.length >= 5 && movable.length > files.length * 0.2;
+  let quarantined = 0;
+
+  if (!DRY && !tooMany) {
+    for (const b of movable) {
+      const to = join(QUARANTINE, j.id, todayIso());
+      mkdirSync(to, { recursive: true });
+      for (const suffix of ['', '.sha256', '.meta.json']) {
+        const from = join(dir, `${b.f}${suffix}`);
+        if (existsSync(from)) renameSync(from, join(to, `${b.f}${suffix}`));
+      }
+      quarantined++;
+    }
+  }
+
+  return { dir, total: files.length, bad, quarantined, tooMany };
+}
+
+/** url_list job 的清單覆蓋率：清單在我們自己的 repo，拿來對帳「該有幾個、實收幾個」。 */
+function listCoverage(j) {
+  if (jobKind(j) !== 'url_list' || !j.url_list) return null;
+  const local = join(repoRoot, 'docs', basename(new URL(j.url_list).pathname));
+  if (!existsSync(local)) return null;
+  try {
+    const items = JSON.parse(readFileSync(local, 'utf8'));
+    if (!Array.isArray(items)) return null;
+    const dir = jobDir(j);
+    const have = items.filter((it) => existsSync(join(dir, (j.dest_template ?? '{key}').replace('{key}', it.key))));
+    return { list: basename(local), total: items.length, have: have.length };
+  } catch {
+    return null;
+  }
+}
+
 const manifest = loadManifest();
 const jobs = manifest.jobs ?? [];
 
@@ -165,6 +329,13 @@ const jobs = manifest.jobs ?? [];
 // 「來源沒更新」是常態，不是故障——用戶原話：「台灣端資料不一定會有更新，主要還是看資料來源」。
 const PIPELINE_MAX_HOURS = 36; // 台灣端每日跑；連兩輪沒動靜才算沒在跑
 
+/** 目錄型 job 在台灣端「已無待抓項目」：斷點清空、數量到齊、且沒有失敗紀錄（URLLIST-SPEC 的進度契約）。 */
+function progressDone(js) {
+  const p = js?.items ?? js?.pages;
+  if (!p) return false;
+  return p.next == null && (p.done ?? 0) >= (p.total ?? Infinity) && !Object.keys(p.failed ?? {}).length;
+}
+
 if (STATUS_ONLY) {
   const st = loadRemoteState();
   const remoteAgeH = hoursSince(st?.updated);
@@ -172,8 +343,15 @@ if (STATUS_ONLY) {
 
   const transport = [];
   for (const j of jobs) {
-    const watch = PROMOTE_TO[j.dest] ?? join(INBOX, j.dest);
-    const age = ageDays(watch);
+    const kind = jobKind(j);
+    if (kind === 'unknown') {
+      console.log(`⁉️ ${j.id.padEnd(23)} manifest 契約錯誤：既無 url_list／paginate 也無 dest，無從觀測`);
+      continue;
+    }
+    // 觀測點依 job 形態而異：單檔看那個檔，目錄型看目錄裡**最新的資料檔**
+    // （目錄自己的 mtime 只反映最後一次增刪檔名，不反映內容更新）。
+    const watch = kind === 'file' ? PROMOTE_TO[j.dest] ?? join(INBOX, j.dest) : jobDir(j);
+    const age = kind === 'file' ? ageDays(watch) : dirNewestAgeDays(watch);
     const limit = j.max_age_days ?? Infinity;
     const ageTxt = age === Infinity ? '不存在' : `${age.toFixed(1)} 天`;
     const head = `${j.id.padEnd(23)} 資料齡 ${ageTxt.padStart(9)}（上限 ${limit} 天）`;
@@ -192,8 +370,13 @@ if (STATUS_ONLY) {
       console.log(`🛈 ${head}  台灣端 state.json 沒有這個 job（清單版本可能還沒同步過去）`);
     } else if (!js.last_ok) {
       console.log(`🛈 ${head}  來源問題：台灣端從未抓成功（重試 ${js.attempts ?? '?'} 次｜${js.last_error ?? '無錯誤訊息'}）`);
-    } else if (js.sha256 && js.sha256 === fileSha(watch)) {
+    } else if (kind === 'file' && js.sha256 && js.sha256 === fileSha(watch)) {
       console.log(`🛈 ${head}  來源沒更新：台灣端 ${tpe(js.last_ok)} 抓到的內容與我們手上這份相同`);
+    } else if (kind !== 'file' && progressDone(js)) {
+      // 目錄型 job 沒有單一 sha 可比，改看台灣端的進度：清單／頁面全抓完且無失敗
+      // ＝「沒有新項目」，與單檔的「來源沒更新」是同一件事，同樣不該叫人。
+      const p = js.items ?? js.pages;
+      console.log(`🛈 ${head}  來源沒更新：台灣端 ${tpe(js.last_ok)} 已全部抓完（${p.done}/${p.total}），無待抓項目`);
     } else if (hoursSince(js.last_ok) < PIPELINE_MAX_HOURS) {
       transport.push(`${j.id}（台灣端 ${tpe(js.last_ok)} 抓取成功，但檔案沒進來／資料齡 ${ageTxt}）`);
       console.log(`⚠️ ${head}  傳輸斷線：台灣端 ${tpe(js.last_ok)} 抓成功但我們沒收到`);
@@ -222,6 +405,44 @@ let skipped = 0;
 const problems = [];
 
 for (const j of jobs) {
+  const kind = jobKind(j);
+
+  // 契約錯誤先擋下來。2026-08-10 之前這裡直接 join(INBOX, undefined) → TypeError →
+  // 整支腳本死在第 14 個 job，後面 6 個 job（含 200 頁的 foundation-list）一輪都沒跑過。
+  if (kind === 'unknown') {
+    problems.push(`${j.id}：manifest 契約錯誤——既無 url_list／paginate 也無 dest，本 job 無從處理`);
+    rejected++;
+    continue;
+  }
+
+  // 目錄型 job：逐檔驗證、壞檔隔離，不上位也不清 inbox（理由見 verifyDir）。
+  if (kind !== 'file') {
+    const r = verifyDir(j);
+    if (!r.total) { skipped++; continue; }
+
+    const cov = listCoverage(j);
+    const covTxt = cov ? `｜清單 ${cov.list} ${cov.have}/${cov.total} 項已到` : '';
+    if (!r.bad.length) {
+      console.log(`✓ ${j.id} 逐檔驗證通過（${r.total} 個檔${covTxt}）；此類 job 由匯入器直接讀 inbox，不上位`);
+      continue;
+    }
+
+    if (r.tooMany) {
+      problems.push(
+        `${j.id}：${r.bad.length}/${r.total} 個檔驗不過（超過 20%）→ **一個都沒隔離**，` +
+          `這種比例比較像 expect_per_item 規則寫錯，請人工確認：${r.bad.slice(0, 3).map((b) => `${b.f}（${b.why}）`).join('、')}`,
+      );
+    } else {
+      problems.push(
+        `${j.id}：${r.bad.length}/${r.total} 個檔驗不過${r.quarantined ? `，已隔離 ${r.quarantined} 個到 ${QUARANTINE}/${j.id}/` : ''}` +
+          `${covTxt} → ${r.bad.slice(0, 5).map((b) => `${b.f}（${b.why}）`).join('、')}` +
+          `${r.bad.length > 5 ? `、另有 ${r.bad.length - 5} 個` : ''}`,
+      );
+    }
+    rejected++;
+    continue;
+  }
+
   const src = join(INBOX, j.dest);
   if (!existsSync(src)) { skipped++; continue; }
 
@@ -243,22 +464,24 @@ for (const j of jobs) {
     continue;
   }
 
+  // 台灣端記的 HTTP 狀態：既要印出來給人判讀（`record_status_only` 類全靠它），
+  // 也餵給 checkExpect 驗 `http_status`，所以要在 expect 之前讀。
+  const metaFile = `${src}.meta.json`;
+  let meta = null;
+  let metaNote = '';
+  if (existsSync(metaFile)) {
+    try {
+      meta = JSON.parse(readFileSync(metaFile, 'utf8'));
+      metaNote = `｜HTTP ${meta.http_status ?? '?'}｜抓取於 ${meta.fetched_at ?? '?'}`;
+    } catch { metaNote = '｜meta.json 解析失敗'; }
+  }
+
   // 2) manifest 的 expect（台灣端也該擋，這裡再擋一次：別讓錯誤頁或殘檔覆蓋好資料）
-  const bad = checkExpect(buf, j.expect, PROMOTE_TO[j.dest]);
+  const bad = checkExpect(buf, j.expect, PROMOTE_TO[j.dest], meta);
   if (bad.length) {
     problems.push(`${j.id}：${bad.join('；')} → 不上位`);
     rejected++;
     continue;
-  }
-
-  // 把台灣端記的 HTTP 狀態印出來——`record_status_only` 類的 job 全靠這個判讀。
-  const metaFile = `${src}.meta.json`;
-  let metaNote = '';
-  if (existsSync(metaFile)) {
-    try {
-      const m = JSON.parse(readFileSync(metaFile, 'utf8'));
-      metaNote = `｜HTTP ${m.http_status ?? '?'}｜抓取於 ${m.fetched_at ?? '?'}`;
-    } catch { metaNote = '｜meta.json 解析失敗'; }
   }
 
   const dest = PROMOTE_TO[j.dest];

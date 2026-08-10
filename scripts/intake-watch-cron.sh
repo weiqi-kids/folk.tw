@@ -32,12 +32,37 @@ notify() {
   printf '%s' "$1" | "$REPO/scripts/slack-notify.sh" "$CHANNEL" || echo "[intake] Slack 通報失敗（略過）"
 }
 
+# 🔴 崩潰不可以長得像資料問題（2026-08-10 事故，見 intake-ingest.mjs 檔頭）。
+# intake-ingest.mjs 的結束碼：1＝檔驗不過（台灣端的事）／2＝腳本自己壞了（我們的事）。
+# 2 之外再加一道保險：rc≠0 但**一則 ✗ 都沒有**也算崩潰——
+# 語法錯誤之類的情況 node 自己 exit 1，輪不到我們的 handler 改成 2。
+notify_crash() {
+  notify ":boom: *intake $1 崩潰了——這不是台灣端的資料問題*
+本腳本（\`scripts/intake-ingest.mjs\`）自己拋例外，rc=$2。**$3**
+\`\`\`
+$(printf '%s' "$4" | tail -12)
+\`\`\`
+修的是我們這端；台灣端不需要重送、也不必複驗資料。"
+}
+
 if [ "${1:-}" = "--stale" ]; then
   # 只在「我們這邊能動手」的兩種情況發 Slack（判讀邏輯與理由見 intake-ingest.mjs 的 --status 段）：
   #   ALERT_PIPELINE ＝台灣端沒在跑；ALERT_TRANSPORT ＝台灣端抓到了但檔沒進來。
   # 「來源掛了／來源沒更新」不發——那不是我們能處理的事，只留在 log。
-  out="$(node scripts/intake-ingest.mjs --status 2>&1)" || true
+  # 🔴 這裡以前是 `|| true`，把崩潰吞成靜默：--status 一崩潰就沒有任何 ALERT_ 行，
+  # 底下兩個 grep 抓到 0 行 → 腳本安安靜靜 exit 0。
+  # 結果是 2026-08-06 到 08-10 之間「台灣端沒在跑」與「檔沒送達」兩道警報**完全失效**，
+  # 而失效本身也不會叫人。留 rc 判斷，別再把它丟掉。
+  set +e
+  out="$(node scripts/intake-ingest.mjs --status 2>&1)"
+  rc=$?
+  set -e
   echo "$out"
+
+  if [ "$rc" -ne 0 ]; then
+    notify_crash "--status" "$rc" "本輪的資料新鮮度完全沒有檢查——「沒收到警報」這次不代表一切正常。" "$out"
+    exit 0
+  fi
 
   if line="$(printf '%s' "$out" | grep '^ALERT_PIPELINE' || true)"; [ -n "$line" ]; then
     notify ":hourglass: *台灣端投遞管線沒在跑*
@@ -65,12 +90,21 @@ rc=$?
 set -e
 echo "$out"
 
+problems="$(printf '%s' "$out" | grep '✗' | head -10 || true)"
+
+if [ "$rc" -eq 2 ] || { [ "$rc" -ne 0 ] && [ -z "$problems" ]; }; then
+  notify_crash "收件" "$rc" "本輪沒有任何檔被驗證或上位。" "$out"
+  exit 0
+fi
+
 if [ "$rc" -ne 0 ]; then
   notify ":rotating_light: *台灣端投遞收件驗證失敗*（上位檔維持原狀、未被覆蓋）
 \`\`\`
-$(printf '%s' "$out" | grep '✗' | head -10)
+$problems
 \`\`\`
-台灣端可能抓到錯誤頁或傳輸截斷；該 job 會留在 inbox，修正後重送即可。"
+台灣端可能抓到錯誤頁或傳輸截斷；該 job 會留在 inbox，修正後重送即可。
+目錄型 job（url_list／paginate）的壞檔已搬進 \`/root/.config/folk-tw/intake/quarantine/\`——
+inbox 是 write-only 刪不掉，不搬走的話匯入器會一直讀到它、而且每小時重報一次。"
   exit 0   # 已通報，不讓 cron 反覆噴錯
 fi
 
