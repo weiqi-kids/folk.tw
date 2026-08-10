@@ -55,5 +55,17 @@ assert.match(base, /href="\/line\/">神酷 LINE（@616yhksm）/);
 assert.match(growth48h, /customEvent:line_placement/);
 assert.match(growth48h, /line_add_click/);
 assert.match(growth48h, /dimensionStatus/);
+assert.match(growth48h, /customEvent:campaign_placement/);
+assert.match(growth48h, /x\.pagePath === '\/'/);
+assert.match(growth48h, /sitewideCampaignClicks/);
+for (const placement of ['home_image', 'home_title', 'home_cta', 'home_secondary']) {
+  assert.ok(growth48h.includes(placement), `48h 報表缺 campaign 版位 ${placement}`);
+}
+for (const eventName of ['checklist_toggle', 'checklist_copy', 'checklist_share', 'checklist_reset']) {
+  assert.ok(growth48h.includes(eventName), `48h 報表缺普渡清單事件 ${eventName}`);
+}
+for (const landing of ['jilong-zhongyuan', 'qianggu', 'fangshuideng', 'dizang']) {
+  assert.ok(growth48h.includes(`/festivals/${landing}/`), `48h 報表缺季節 landing ${landing}`);
+}
 
-console.log('✓ 常青成長入口檢查通過：首頁 3 個固定意圖、搜尋需求與隱私閘、LINE 8 類入口／求籤後顯示／共用事件與 48h 版位報表皆存在。');
+console.log('✓ 常青成長入口檢查通過：首頁 3 個固定意圖、搜尋需求與隱私閘、LINE 8 類入口、campaign 首頁 CTR／版位、普渡清單事件與季節 landing 報表皆存在。');
