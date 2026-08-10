@@ -7,6 +7,7 @@ const base = readFileSync(new URL('../src/layouts/Base.astro', import.meta.url),
 const search = readFileSync(new URL('../src/pages/search.astro', import.meta.url), 'utf8');
 const linePage = readFileSync(new URL('../src/pages/line/index.astro', import.meta.url), 'utf8');
 const lineCta = readFileSync(new URL('../src/components/LineCta.astro', import.meta.url), 'utf8');
+const growth48h = readFileSync(new URL('./growth-48h.mjs', import.meta.url), 'utf8');
 const lineFamilies = [
   '../src/pages/index.astro',
   '../src/pages/festivals/[slug].astro',
@@ -44,5 +45,8 @@ assert.match(qiugian, /getElementById\('lineAfterDraw'\)!\.hidden = false/);
 assert.match(base, /gtag\('event', 'line_add_click'/);
 assert.match(base, /line_placement:/);
 assert.match(base, /href="\/line\/">神酷 LINE（@616yhksm）/);
+assert.match(growth48h, /customEvent:line_placement/);
+assert.match(growth48h, /line_add_click/);
+assert.match(growth48h, /dimensionStatus/);
 
-console.log('✓ 常青成長入口檢查通過：首頁 3 個固定意圖、搜尋需求與隱私閘、LINE 8 類入口／求籤後顯示／共用事件皆存在。');
+console.log('✓ 常青成長入口檢查通過：首頁 3 個固定意圖、搜尋需求與隱私閘、LINE 8 類入口／求籤後顯示／共用事件與 48h 版位報表皆存在。');

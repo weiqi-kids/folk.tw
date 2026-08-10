@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 48 小時成效對帳（唯讀）：GA4 Data API → campaign 入口／來源／互動事件／淘汰判定。
+// 48 小時成效對帳（唯讀）：GA4 Data API → campaign 入口／來源／LINE 導流／互動事件／淘汰判定。
 // 預設觀察「現在往前 48 小時」（GA4 property 時區＝Asia/Taipei），不寫檔、不發 Slack。
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
@@ -97,22 +97,37 @@ function instrumentation() {
     share: share.includes("gtag('event', 'share'") ? 'active' : 'not_instrumented',
     campaign_click: base.includes("gtag('event', 'campaign_click'") ? 'active' : 'not_instrumented',
     intent_click: base.includes("gtag('event', 'intent_click'") ? 'active' : 'not_instrumented',
+    line_add_click: base.includes("gtag('event', 'line_add_click'")
+      && base.includes('line_placement:') ? 'active' : 'not_instrumented',
     calendar_add: !base.includes("gtag('event', 'calendar_add'") ? 'not_instrumented'
       : calendarUi ? 'active' : 'prepared_no_ui',
   };
 }
 
-const [targetTotalRaw, entryRaw, sourceRaw, eventRaw, homeRaw, returnRaw] = await Promise.all([
+async function linePlacementReport() {
+  try {
+    const rows = await report(['customEvent:line_placement'], ['eventCount', 'totalUsers'], {
+      dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT', value: 'line_add_click' } } },
+    });
+    return { status: 'available', rows };
+  } catch (error) {
+    // 新註冊的 GA4 自訂維度可能需要一段時間才會出現在 Data API metadata。
+    return { status: 'registration_pending', rows: [], note: error instanceof Error ? error.message : String(error) };
+  }
+}
+
+const [targetTotalRaw, entryRaw, sourceRaw, eventRaw, homeRaw, returnRaw, lineRaw] = await Promise.all([
   report([], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions'], {
     dimensionFilter: { filter: { fieldName: 'landingPagePlusQueryString', stringFilter: { matchType: 'FULL_REGEXP', value: landingRegex } } },
   }),
   report(['landingPagePlusQueryString'], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions']),
   report(['landingPagePlusQueryString', 'sessionSource', 'sessionCampaignName'], ['activeUsers', 'sessions', 'engagedSessions']),
   report(['eventName', 'pagePath', 'linkUrl'], ['eventCount', 'totalUsers'], {
-    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['share', 'campaign_click', 'intent_click', 'calendar_add'] } } },
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['share', 'campaign_click', 'intent_click', 'calendar_add', 'line_add_click'] } } },
   }),
   report(['pagePath'], ['activeUsers', 'screenPageViews']),
   report(['newVsReturning'], ['activeUsers', 'sessions']),
+  linePlacementReport(),
 ]);
 
 const target = (s) => landings.some((p) => s === p || s === p.slice(0, -1) || s.startsWith(`${p}?`));
@@ -128,8 +143,11 @@ const events = aggregate(eventRaw, ['eventName', 'pagePath', 'linkUrl'], ['event
 const home = aggregate(homeRaw.filter((r) => ['/', '(not set)'].includes(r.dimensions.pagePath)),
   ['pagePath'], ['activeUsers', 'screenPageViews']).find((r) => r.pagePath === '/') || { activeUsers: 0, screenPageViews: 0 };
 const returning = aggregate(returnRaw, ['newVsReturning'], ['activeUsers', 'sessions']);
+const linePlacements = aggregate(lineRaw.rows, ['customEvent:line_placement'], ['eventCount', 'totalUsers'])
+  .map((x) => ({ placement: x['customEvent:line_placement'], eventCount: x.eventCount, totalUsers: x.totalUsers }))
+  .sort((a, b) => b.eventCount - a.eventCount || a.placement.localeCompare(b.placement));
 const inst = instrumentation();
-const eventTotals = Object.fromEntries(['share', 'campaign_click', 'intent_click', 'calendar_add'].map((name) => [
+const eventTotals = Object.fromEntries(['share', 'campaign_click', 'intent_click', 'calendar_add', 'line_add_click'].map((name) => [
   name, events.filter((x) => x.eventName === name).reduce((n, x) => n + x.eventCount, 0),
 ]));
 const intentEntries = events.filter((x) => x.eventName === 'intent_click').map((x) => ({
@@ -159,12 +177,15 @@ const output = {
   window: { start: `${startDate} 00:00`, end: `${endDate} 23:59` },
   landings, campaignFilter: campaignNeedle || null, instrumentation: inst,
   totals: { targetUsers, targetViews, homeViews: home.screenPageViews, campaignClicks: eventTotals.campaign_click,
-    campaignCtr, intentClicks: eventTotals.intent_click, shareClicks: eventTotals.share, calendarAdds: eventTotals.calendar_add },
-  entries, sources, intentEntries, events, returningClassification: returning,
+    campaignCtr, intentClicks: eventTotals.intent_click, shareClicks: eventTotals.share,
+    calendarAdds: eventTotals.calendar_add, lineAdds: eventTotals.line_add_click },
+  entries, sources, intentEntries, line: { dimensionStatus: lineRaw.status, placements: linePlacements, note: lineRaw.note || null },
+  events, returningClassification: returning,
   sevenDayReturn: { status: 'unavailable', note: 'GA4 aggregate runReport 無法把本次匿名 campaign 訪客串成 7 日回訪 cohort；需等滿 7 日並以 Explore/cohort 或另設 user-level 匯出驗證。' },
   decision: { verdict, reason, scope: '只淘汰首頁 campaign 版位，不刪內容頁。' },
   caveats: ['使用最近兩個完整台北曆日，避免逐小時相加造成 activeUsers 重複計數；GA4 仍可能延遲回填最近一天。',
     inst.calendar_add === 'prepared_no_ui' ? 'calendar_add 追蹤已預留，但站上目前沒有加入行事曆 UI；0 代表尚無入口，不代表使用者拒絕。' : null,
+    lineRaw.status === 'registration_pending' ? 'line_placement 剛註冊，GA4 Data API 尚未提供此維度；總點擊仍會計入，待 metadata 生效後自動分版位。' : null,
   ].filter(Boolean),
 };
 
@@ -185,6 +206,8 @@ else {
     ...intentEntries.map((x) => `  - ${x.destination}：${n(x.eventCount)} clicks／${n(x.totalUsers)} users`),
     `- 分享 click：${n(eventTotals.share)}（${status(inst.share)}）`,
     `- 加入行事曆：${n(eventTotals.calendar_add)}（${status(inst.calendar_add)}）`,
+    `- LINE 加好友：${n(eventTotals.line_add_click)}（${status(inst.line_add_click)}；版位維度 ${lineRaw.status === 'available' ? '可用' : '等待 GA4 生效'}）`,
+    ...(linePlacements.length ? linePlacements.map((x) => `  - ${x.placement}：${n(x.eventCount)} clicks／${n(x.totalUsers)} users`) : ['  - 目前沒有可分版位的點擊資料']),
     '', '## 回訪', `- 48 小時 GA4 new/returning 分類：${returning.map((x) => `${x.newVsReturning} ${n(x.activeUsers)}`).join('、') || '無資料'}`,
     `- 真正 7 日 campaign cohort：尚不可得。${output.sevenDayReturn.note}`,
     '', '## 注意', ...output.caveats.map((x) => `- ${x}`)];

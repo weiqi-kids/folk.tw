@@ -22,7 +22,8 @@ pnpm growth:48h -- --landing /festivals/qixi/,/festivals/zhongyuan/ --json
 - landing page × session source × session campaign
 - 首頁 campaign card 的 `campaign_click`
 - 首頁三個常青入口的 `intent_click`，依目的網址分列
-- 全站 `share`、`calendar_add`
+- 全站 `share`、`calendar_add`、`line_add_click`
+- LINE 加好友依事件範圍自訂維度 `line_placement` 拆分版位
 - GA4 的 New／Returning 分類
 
 Campaign landing 清單不在報表另抄一份，直接 import 首頁使用的
@@ -34,6 +35,11 @@ Campaign landing 清單不在報表另抄一份，直接 import 首頁使用的
 `intent_click` 由首頁固定的今日宜忌、情境求籤、附近宮廟三個入口送出；報表使用 GA4 內建
 `linkUrl` 維度分辨目的頁，不依賴未註冊的 custom dimension。`calendar_add` 同樣由共用 selector
 `data-calendar-add` 送出，目前節日頁已有 Google Calendar 與 ICS 入口。
+
+`line_add_click` 由 `Base.astro` 的共用事件委派送出，`line_placement` 會分辨首頁、全站頁尾、
+求籤結果、節日、黃曆與看日子等 CTA。GA4 property 已把 `line_placement` 註冊為事件範圍自訂維度，
+並把 `line_add_click` 設為每次事件計數的重要事件。新維度若仍在 GA4 metadata 傳播中，報表會保留
+LINE 總點擊並標記「等待 GA4 生效」，不會讓整份報表失敗；生效後會自動列出版位明細。
 
 真正的「本次 campaign 訪客是否在七日內回來」無法由匿名的 GA4 aggregate `runReport` 串成
 user-level cohort。報表只列當期 New／Returning 分類，並明確把七日 campaign cohort 標為不可得；
