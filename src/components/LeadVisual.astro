@@ -8,16 +8,17 @@ interface Props {
   alt?: string;
   image?: ImageMeta;
   eager?: boolean;
+  compact?: boolean;
 }
 
-const { src, alt, image, eager = true } = Astro.props;
+const { src, alt, image, eager = true, compact = false } = Astro.props;
 const actualSrc = image?.src ?? src;
 const actualAlt = image?.alt ?? alt ?? '';
 if (!actualSrc) throw new Error('LeadVisual 需要 src 或 image');
 const credit = image ? imageCredit(image) : null;
 ---
 
-<figure class="lead-visual">
+<figure class:list={['lead-visual', { compact }]}>
   <img
     src={actualSrc}
     alt={actualAlt}
@@ -46,6 +47,7 @@ const credit = image ? imageCredit(image) : null;
   .lead-visual img {
     display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 40 / 21;
     object-fit: cover;
   }
@@ -55,4 +57,5 @@ const credit = image ? imageCredit(image) : null;
     font-size: var(--text-xs);
   }
   .lead-visual figcaption a { color: inherit; }
+  .lead-visual.compact { width: min(100%, 20rem); margin: 0; }
 </style>

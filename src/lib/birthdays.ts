@@ -57,7 +57,8 @@ export async function upcomingDeityBirthdays(
     const ld = l.getDay();
     const mm = String(lm).padStart(2, '0');
     // 對映到「今天」的聖誕鍵：當日；若今日為農曆月最後一日且僅廿九（短月無卅），卅日聖誕順延至此日。
-    const keys = [`${mm}-${String(ld).padStart(2, '0')}`];
+    const actualKey = `${mm}-${String(ld).padStart(2, '0')}`;
+    const keys = [actualKey];
     if (ld === 29 && isLunarMonthEnd(iso)) keys.push(`${mm}-30`);
     for (const key of keys) {
       let deities = idx.get(key);
@@ -70,7 +71,9 @@ export async function upcomingDeityBirthdays(
       out.push({
         iso,
         lunar: key,
-        lunarLabel: lunarDateLabel(key),
+        // key 是資料登錄日；短月的 30 日聖誕會在實際 29 日列出，
+        // 所以當年顯示標籤必須用 actualKey，才會與 iso 對得上。
+        lunarLabel: lunarDateLabel(actualKey),
         deities: deities.map((x) => ({ ...x, systems: systemsByDeity.get(x.deityId) ?? [] })),
       });
     }

@@ -1,8 +1,8 @@
 {
   "captured_at": "2026-08-10",
   "temple_metric": "GA4 screenPageViews, 28daysAgo through yesterday",
-  "almanac_policy": "today through the next 51 days (rolling 52-day window; covers through 2026-09-30 at 2026-08-10)",
-  "almanac_rolling_days": 52,
+  "almanac_policy": "0 days: almanac is a dense utility view; decorative lead images must not displace date controls or daily facts",
+  "almanac_rolling_days": 0,
   "top_temples": [
     { "id": "moi_4480_玉安宮", "views": 32 },
     { "id": "moi_5621_蔡文聲靈宮", "views": 30 },

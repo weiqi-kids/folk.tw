@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
-import { getScenarios, getDeities, templesByDeity, getSystems } from '../../lib/queries';
+import { getScenarios, getDeities, templesByDeity, getSystems, systemHref } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { todayInTaipei } from '../../lib/daily';
 import { addDays, almanacHref } from '../../lib/almanac/dates';
@@ -24,6 +24,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { scenario, deityById, tByDeity, systemName, today } = Astro.props;
+const systemHrefOf = await systemHref();
 const s = scenario.data;
 
 // 情境（怎麼拜/拜哪尊）↔ 求籤（抽一支籤）互連：同一件煩惱的兩個入口，之前彼此埋沒。
@@ -139,7 +140,7 @@ const jsonLd = [
                 {d.divination_systems.map((sys, i) => (
                   <>
                     {i > 0 && '、'}
-                    <a href={`/systems/${sys.id}/`}>{systemName.get(sys.id) ?? sys.id}</a>
+                    <a href={systemHrefOf(sys.id)}>{systemName.get(sys.id) ?? sys.id}</a>
                   </>
                 ))}
               </p>

@@ -10,6 +10,18 @@ const { compactCalendarDate, festivalIcs, googleCalendarUrl, nextCalendarDay } =
 const fromIso = '2026-08-09';
 const problems = [];
 
+// 短月退日的國曆日與農曆標籤必須是同一個實際日期；不可把 9/10（七月廿九）
+// 仍標成資料登錄的「七月三十」。同時鎖住一個有三十日的年份，避免修正過頭。
+const dizang = festivals.find((festival) => festival.slug === 'dizang');
+const shortMonth = festivalNextSolar(dizang ?? {}, '2026-01-01');
+if (shortMonth.iso !== '2026-09-10' || shortMonth.label !== '農曆七月廿九') {
+  problems.push(`2026 七月短月應為 2026-09-10／農曆七月廿九，實際 ${shortMonth.iso}／${shortMonth.label}`);
+}
+const fullMonth = festivalNextSolar({ lunar_date: '07-30' }, '2025-01-01');
+if (fullMonth.iso !== '2025-09-21' || fullMonth.label !== '農曆七月三十') {
+  problems.push(`2025 七月三十應保持 2025-09-21／農曆七月三十，實際 ${fullMonth.iso}／${fullMonth.label}`);
+}
+
 if (festivals.length !== 10) problems.push(`festivals.json 應有 10 筆，目前為 ${festivals.length}`);
 
 for (const festival of festivals) {

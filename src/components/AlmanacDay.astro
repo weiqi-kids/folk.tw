@@ -41,6 +41,11 @@ const relatedPractices = await practicesForDate(record.festivals, lunar?.month ?
 const P = record.pillars;
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
   p.value ? `${p.value.stem}${p.value.branch}` : '—';
+const sourceDisplay = (source: string) => {
+  const url = source.match(/https?:\/\/\S+/)?.[0] ?? '';
+  const label = url ? source.replace(url, '').trim() : source;
+  return { label: label || '查看原典', url };
+};
 
 // 進階層只顯示已考據核校（verified）者；未核者一律不出（無源不發佈）。
 const yiV = record.yi.filter((v) => v.verified);
@@ -102,7 +107,10 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
   });
 </script>
 
-<div class:list={['almanac-day', { 'is-dated': !hub }]} data-pagefind-ignore={!hub}>
+<div
+  class:list={['almanac-day', { 'is-dated': !hub }]}
+  {...(!hub ? { 'data-pagefind-ignore': true } : {})}
+>
   <h1>{iso}<span class="wk">（星期{wk}）</span>{isToday && <span class="badge">今日</span>}</h1>
 
   {summary && <p class="day-summary">{summary}</p>}
@@ -192,7 +200,15 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
                   {[...yiV, ...jiV].map((v) => (
                     <li>
                       <strong>{v.affair}</strong> {v.judgement}：{v.resolvedBy}
-                      <span class="src small">　{v.sources.join('；')}</span>
+                      <span class="src small">
+                        {'　'}
+                        {v.sources.map((source, i) => {
+                          const shown = sourceDisplay(source);
+                          return <>{i > 0 && '；'}{shown.url
+                            ? <a href={shown.url} rel="nofollow noopener" target="_blank">{shown.label}</a>
+                            : shown.label}</>;
+                        })}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -296,6 +312,7 @@ const summary = (summaryParts.length ? `${iso} 為${summaryParts.join('，')}。
   .rec dt { font-weight: 700; color: var(--accent); }
   .rec dd { margin: 0; }
   .src { color: var(--gold); }
+  .src a { color: inherit; overflow-wrap: anywhere; }
   .mini-link { font-size: var(--text-xs); color: var(--accent); white-space: nowrap; }
   .yiji p { margin: 0.5rem 0; font-size: var(--text-base); }
   .yiji-row { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0; }

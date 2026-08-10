@@ -4,8 +4,9 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import Sources from '../../components/Sources.astro';
-import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem } from '../../lib/queries';
+import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem, systemHref } from '../../lib/queries';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
+import { stripOuterParens, withoutTerminalPunctuation } from '../../lib/text';
 
 export const getStaticPaths = (async () => {
   const poems = await getPoems();
@@ -21,6 +22,7 @@ const allusionById = new Map(allusions.map((a) => [a.id, a]));
 const allusionName = await allusionNameById(); // 不過濾 draft，供顯示典故名
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+const systemHrefOf = await systemHref();
 
 // 接通「籤詩↔神明」子圖：採用本籤系之神明（直連神明頁）。
 const deitiesForSystem = (await deitiesBySystem()).get(d.system.id) ?? [];
@@ -47,12 +49,12 @@ const firstAllusionNote = d.allusions[0]?.note ?? '';
 const pageDesc =
   `${sysName}第 ${d.no} 籤${label ? `「${label}」` : ''}${d.fortune ? `（${d.fortune}）` : ''}：` +
   `${d.lines.join('，')}。` +
-  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${firstAllusionNote}` : ''}。` : ''}白話賞析與八項分項解。`;
+  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${withoutTerminalPunctuation(firstAllusionNote)}` : ''}。` : ''}白話賞析與八項分項解。`;
 const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
   breadcrumb([
     { name: '籤詩', path: '/poems/' },
-    { name: sysName, path: `/systems/${d.system.id}/` },
+    { name: sysName, path: systemHrefOf(d.system.id) },
     { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}/` },
   ]),
 ];
@@ -101,7 +103,7 @@ if (faq) ld.push(faq);
     <header class="ph">
       <h1>第 {d.no} 籤{(d.ganzhi || d.title) && ` · ${d.ganzhi ?? d.title}`}</h1>
       <div class="meta">
-        <a class="tag" href={`/systems/${d.system.id}/`}>{systemName.get(d.system.id)}</a>
+        <a class="tag" href={systemHrefOf(d.system.id)}>{systemName.get(d.system.id)}</a>
         {d.ganzhi && d.title && <span class="tag">{d.title}</span>}
         {d.gua && <span class="tag">{d.gua}卦</span>}
         {/* 擲筊組合（月老籤專屬）：現場是靠三次杯象找到自己那一首，不是抽籤支 */}
@@ -168,7 +170,7 @@ if (faq) ld.push(faq);
                   ) : (
                     <span>{allusionName.get(a.ref.id) ?? a.ref.id}</span>
                   )}
-                  {node?.data.source && <span class="muted">（{node.data.source}）</span>}
+                  {node?.data.source && <span class="muted">（{stripOuterParens(node.data.source)}）</span>}
                 </p>
                 {a.note && <p class="muted small">記載：{a.note}</p>}
                 {node && (node.body ?? '').trim().length > 0 ? (
@@ -239,7 +241,7 @@ if (faq) ld.push(faq);
           <span class="nav-btn disabled">‹ 已是首籤</span>
         )
       }
-      <a class="nav-btn" href={`/systems/${d.system.id}/`}>全部籤</a>
+      <a class="nav-btn" href={systemHrefOf(d.system.id)}>全部籤</a>
       {
         nextPoem ? (
           <a class="nav-btn" href={`/poems/${nextPoem.id}/`} rel="next">{poemLabel(nextPoem)} ›</a>

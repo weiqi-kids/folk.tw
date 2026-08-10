@@ -23,6 +23,7 @@ import {
   getTrades,
   getScenarios,
   getTemples,
+  systemHref,
   allusionNameById,
 } from '../lib/queries';
 import { lunarDateLabel, solarMd } from '../lib/birthdays';
@@ -70,6 +71,7 @@ export const GET: APIRoute = async () => {
 
   const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
   const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+  const systemHrefOf = await systemHref();
   const nameOf = (id: string) => deityName.get(id) ?? id;
 
   // 關係邊（出邊＋入邊）依神明彙整，供神明介紹段列「關係網」。
@@ -164,7 +166,7 @@ export const GET: APIRoute = async () => {
   push('## 三、籤詩與求籤', '');
   push('### 籤詩系統');
   for (const s of systems) {
-    push(`- ${s.data.name}（${s.data.count} 首）｜${SITE}/systems/${s.id}/`);
+    push(`- ${s.data.name}（${s.data.count} 首）｜${SITE}${systemHrefOf(s.id)}`);
     if (s.data.summary) push(`  ${s.data.summary}`);
     const src = srcLine(s.data.sources, 1);
     if (src) push(`  ${src}`);

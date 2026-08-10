@@ -14,13 +14,14 @@ import { createRequire } from 'node:module';
 import { num } from '../src/lib/format.ts';
 import { commonTempleName } from '../src/lib/temple-name.ts';
 import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
+import { excerptAtBoundary, stripOuterParens, withoutTerminalPunctuation } from '../src/lib/text.ts';
 const require = createRequire(import.meta.url);
 
 const DIST = 'dist';
 // 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
 const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
 // 農曆換算同理：用頁面用的同一支 lib（src/lib/lunar-date.ts 刻意零專案內 import，故本檔可直接載）。
-const { lunarDateLabel, isLunarMonthEnd, festivalNextSolar } = await import('../src/lib/lunar-date.ts');
+const { lunarDateLabel, isLunarMonthEnd, lunarToNextOccurrence, festivalNextSolar } = await import('../src/lib/lunar-date.ts');
 // 廟宇年度祭典的代表筆挑選與句子生成同理：頁面、OG 卡、本 gate 走同一支 lib。
 const { pickMainFestival, festivalSentence } = await import('../src/lib/temple-festival.ts');
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -42,6 +43,7 @@ const escAttr = (s) => escText(s);
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
+const divinationSystems = normalize(require('../src/data/divination-systems.json'));
 const festivals = normalize(require('../src/data/festivals.json'));
 const imagePriority = require('../src/data/image-priority.json');
 // 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
@@ -57,6 +59,10 @@ function normalize(j) {
 }
 
 const deityById = new Map(deities.map((d) => [d.id, d]));
+const systemHrefById = new Map(
+  divinationSystems.map((s) => [s.id, s.hub ?? `/systems/${s.id}/`]),
+);
+const systemHrefOf = (id) => systemHrefById.get(id) ?? `/systems/${id}/`;
 
 // ── 不變量 1f 的資料（2026-08-05）：廟宇頁祈福區塊的反查表 ──────────────────────
 // 與 src/pages/temples/[id].astro 同一套反查（scenarios 的 patrons[].deity_ref、
@@ -113,6 +119,8 @@ let qifuOpen = 0;
 let moiDetailTemples = 0;
 let templePhotos = 0;
 let deityPhotos = 0;
+const templeTitleOwners = new Map();
+const templeDescOwners = new Map();
 
 for (const t of temples) {
   const file = `${DIST}/temples/${t.id}/index.html`;
@@ -137,6 +145,9 @@ for (const t of temples) {
   //    而那 21 間走 main_festival 分支、被 `if (!t.main_festival)` 明確排除；
   //    不變量 2b 只驗「不得落回通用樣板」。故獨立成一條，涵蓋全 7,891 頁（不設任何前置條件）。
   const descForPunct = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+  if (descForPunct) {
+    (templeDescOwners.get(descForPunct) ?? templeDescOwners.set(descForPunct, []).get(descForPunct)).push(t.id);
+  }
   const dupPunct = descForPunct.match(/[。，、；：！？]{2,}/);
   if (dupPunct) {
     const at = descForPunct.indexOf(dupPunct[0]);
@@ -173,6 +184,9 @@ for (const t of temples) {
   //   (94年9月變動更名)・高雄市梓官區」），那是**改動前就存在**的既有狀態，且不該為了湊字數去
   //   截廟方的登記全名——廟名正是使用者搜的字，截掉比顯示被 Google 省略更糟。
   const pageTitle = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  if (pageTitle) {
+    (templeTitleOwners.get(pageTitle) ?? templeTitleOwners.set(pageTitle, []).get(pageTitle)).push(t.id);
+  }
   if (!pageTitle) {
     violations.push(`${t.id} 缺 <title>`);
   } else {
@@ -381,13 +395,24 @@ for (const t of temples) {
       continue;
     }
     for (const sid of systems) {
-      if (!html.includes(`/systems/${sid}/`)) {
-        violations.push(`${t.id} 求籤區塊缺少連結 /systems/${sid}/`);
+      const href = systemHrefOf(sid);
+      if (!html.includes(`href="${href}"`)) {
+        violations.push(`${t.id} 求籤區塊缺少連結 ${href}`);
       }
     }
   } else if (hasSection) {
     violations.push(`${t.id}（主祀 ${t.main_deity_ref ?? '無對映'} 無籤系）不應顯示求籤區塊，實際卻有`);
   }
+}
+
+// 不變量 1i（2026-08-10 加）：不同宮廟不得送出完全相同的 SERP title／description。
+// 同鄉鎮、同名、同主祀的廟原本即使加了地區與主祀仍無法辨識；這批頁用既有地址的
+// 最短唯一片段消歧。這裡驗最終產物，避免未來 title 候選或長度退回分支使碰撞復發。
+for (const [title, ids] of templeTitleOwners) {
+  if (ids.length > 1) violations.push(`宮廟 title 完全重複（${ids.join('、')}）：${title}`);
+}
+for (const [description, ids] of templeDescOwners) {
+  if (ids.length > 1) violations.push(`宮廟 description 完全重複（${ids.join('、')}）：${description}`);
 }
 
 // ── 不變量 2：廟頁的「同鄉鎮其他宮廟」區塊與脈絡句（2026-07-28 加）──────────────
@@ -502,6 +527,11 @@ let deityWithMoi = 0;
     if (!existsSync(file)) { violations.push(`神明頁未建置：${d.id}`); continue; }
     const html = readFileSync(file, 'utf8');
     const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+    // 連續右括號可能是合法巢狀括號（如「出典（原典（補註））」）；只擋雙開括號。
+    if (/（（|，，|。。/.test(description)) {
+      violations.push(`神明頁 ${d.id} description 含重複括號或標點：${description}`);
+    }
     deityChecked++;
 
     // 不變量 4b（2026-08-06 加）：造型・法器區塊**雙向**。
@@ -600,29 +630,25 @@ let deityWithMoi = 0;
     const shown = title.match(/｜聖誕(農曆[^（|]+)/);
     if (!shown) { violations.push(`${d.id} title 缺「｜聖誕農曆…」（實際：${title}）`); continue; }
     const shownLabel = shown[1].trim();
-    const matchedDate = shengdanDates.find((dt) => lunarDateLabel(dt) === shownLabel);
-    if (!matchedDate) {
-      violations.push(
-        `${d.id} title 的聖誕「${shownLabel}」不對應任何一筆資料（資料：${shengdanDates.map((x) => lunarDateLabel(x)).join('、')}）`,
-      );
-      continue;
-    }
     const md = title.match(/（國曆\s*(\d{1,2})\/(\d{1,2})）/);
     if (!md) { violations.push(`${d.id} title 缺國曆日期「（國曆 M/D）」：${title}`); continue; }
     const mo = Number(md[1]);
     const day = Number(md[2]);
-    const wantM = Number(matchedDate.slice(0, 2));
-    const wantD = Number(matchedDate.slice(3));
-    const roundTripOk = [nowYear, nowYear + 1, nowYear + 2].some((y) => {
-      let s;
-      try { s = Solar.fromYmd(y, mo, day); } catch { return false; }
-      const l = s.getLunar();
-      if (l.getMonth() !== wantM) return false;
-      if (l.getDay() === wantD) return true;
-      return wantD === 30 && l.getDay() === 29 && isLunarMonthEnd(s.toYmd());
-    });
-    if (!roundTripOk) {
-      violations.push(`${d.id} title 國曆 ${mo}/${day} 轉回農曆不等於所標示的聖誕 ${matchedDate}（${shownLabel}）`);
+    // 以頁面同一支 occurrence 同時驗農曆標籤與國曆 M/D。
+    // 原始登錄 07-30 遇短月時，正確組合是「農曆七月廿九／國曆 9/10」；
+    // 不能僅允許 29 日順延，卻繼續把標籤驗成資料的 30 日。
+    const pairMatches = shengdanDates.some((dt) =>
+      [nowYear, nowYear + 1, nowYear + 2].some((y) => {
+        const occurrence = lunarToNextOccurrence(dt, `${y}-01-01`);
+        return occurrence?.label === shownLabel
+          && Number(occurrence.iso.slice(5, 7)) === mo
+          && Number(occurrence.iso.slice(8, 10)) === day;
+      }),
+    );
+    if (!pairMatches) {
+      violations.push(
+        `${d.id} title 的聖誕組合「${shownLabel}／國曆 ${mo}/${day}」不對應任何一筆資料（資料：${shengdanDates.map((x) => lunarDateLabel(x)).join('、')}）`,
+      );
     }
   }
 }
@@ -636,6 +662,13 @@ for (const f of festivals) {
   if (!existsSync(file)) { violations.push(`節日頁未建置：${f.slug}`); continue; }
   const html = readFileSync(file, 'utf8');
   festChecked++;
+  const festivalDescription = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+  if (!/[。！？…]$/.test(festivalDescription)) {
+    violations.push(`節日頁 ${f.slug} description 不是完整句或安全刪節：${festivalDescription}`);
+  }
+  if (/（（|，，|。。/.test(festivalDescription)) {
+    violations.push(`節日頁 ${f.slug} description 含重複括號或標點：${festivalDescription}`);
+  }
   if (!html.includes('class="lead"')) violations.push(`節日頁 ${f.slug} 缺 answer-first 摘要（class="lead"）`);
   if (!html.includes(FAQ_MARK)) violations.push(`節日頁 ${f.slug} 缺 FAQPage 結構化資料`);
   if (!html.includes('"@type":"Article"')) violations.push(`節日頁 ${f.slug} 缺 Article 結構化資料`);
@@ -1093,6 +1126,10 @@ let lcTempleSections = 0;
     const file = `${DIST}/poems/${p.id}/index.html`;
     if (!existsSync(file)) { violations.push(`籤詩頁未建置：${p.id}`); continue; }
     const html = readFileSync(file, 'utf8');
+    const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+    if (/（（|，，|。。/.test(description)) {
+      violations.push(`籤詩頁 ${p.id} description 含重複括號或標點：${description}`);
+    }
     const want = `/og/poems/${p.id}.png`;
     if (!html.includes(escAttr(want))) violations.push(`籤詩頁 ${p.id} 的 og:image 不是自己的分享卡（應為 ${want}）`);
     else if (!existsSync(`${DIST}${want}`)) violations.push(`籤詩頁 ${p.id} 的分享卡檔不存在：dist${want}`);
@@ -1283,7 +1320,63 @@ let lcTempleSections = 0;
   }
 }
 
-// 不變量 18（2026-08-09 加）：正文圖片覆蓋。
+// 不變量 18（2026-08-10 加）：籤系 hub 連結與 Pagefind 屬性。
+// 自有樞紐（目前藥籤＝/medicine-slips/）不會生成 /systems/<id>/ 頁；任何輸出仍指向後者
+// 都是使用者可點到的 404。全站逐檔掃描，避免只修廟頁、卻從生日／行業／情境等入口復發。
+// Pagefind 對 data-pagefind-ignore 的判定是「屬性存在即忽略」，字串 "false" 也一樣；
+// 因此除了全面禁止 false，另確認 /almanac/ 的正文容器完全不帶此屬性。
+{
+  const renderedFiles = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) walk(path);
+      else if (entry.name.endsWith('.html') || entry.name === 'llms-full.txt') renderedFiles.push(path);
+    }
+  };
+  walk(DIST);
+
+  const hubSystems = divinationSystems.filter((s) => s.hub);
+  for (const file of renderedFiles) {
+    const output = readFileSync(file, 'utf8');
+    const route = file.slice(DIST.length) || '/';
+    for (const system of hubSystems) {
+      const deadPath = `/systems/${system.id}/`;
+      if (output.includes(deadPath)) {
+        violations.push(`籤系 hub：${route} 仍輸出不存在的 ${deadPath}（應為 ${system.hub}）`);
+      }
+    }
+    if (/data-pagefind-ignore=(?:"false"|'false')/.test(output)) {
+      violations.push(`Pagefind：${route} 輸出 data-pagefind-ignore="false"，仍會被視為忽略`);
+    }
+  }
+
+  const almanacHubFile = join(DIST, 'almanac', 'index.html');
+  if (existsSync(almanacHubFile)) {
+    const html = readFileSync(almanacHubFile, 'utf8');
+    const dayTag = html.match(/<div\b[^>]*class="[^"]*\balmanac-day\b[^"]*"[^>]*>/)?.[0] ?? '';
+    if (!dayTag) violations.push('Pagefind：/almanac/ 找不到 .almanac-day 正文容器');
+    else if (dayTag.includes('data-pagefind-ignore')) {
+      violations.push('Pagefind：/almanac/ 的 .almanac-day 正文容器不應被排除索引');
+    }
+  } else {
+    violations.push('Pagefind：/almanac/ 未建置，無法驗證正文索引屬性');
+  }
+  globalThis.__systemHubFiles = renderedFiles.length;
+}
+
+// 文字工具本身也是渲染規則的一部分；用已知事故樣本鎖住三個退路。
+if (excerptAtBoundary('整個七月結束後才把門口掛燈燒去。下一句。', 6) !== '整個七月結…') {
+  violations.push('文字摘要工具未在無句界時使用安全刪節號');
+}
+if (stripOuterParens('（梨園祖師）') !== '梨園祖師') {
+  violations.push('文字摘要工具未移除欄位最外層括號');
+}
+if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
+  violations.push('文字摘要工具未移除既有句末標點');
+}
+
+// 不變量 19（2026-08-09 加）：正文圖片覆蓋。
 // 使用者要求所有非黃曆／宮廟正式頁都必須有圖；黃曆與宮廟的覆蓋範圍
 // 由 image-priority.json 控制。只認 body 實際 <img>，不把 meta og:image 算進來。
 {
@@ -1311,8 +1404,12 @@ let lcTempleSections = 0;
     timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
   const almanacHub = join(DIST, 'almanac', 'index.html');
-  if (!existsSync(almanacHub) || !/<img\b/i.test(readFileSync(almanacHub, 'utf8'))) {
-    violations.push('正文圖片：今日黃曆入口 /almanac/ 沒有 <img>');
+  const almanacHubHtml = existsSync(almanacHub) ? readFileSync(almanacHub, 'utf8') : '';
+  if (!almanacHubHtml) violations.push('首屏版面：今日黃曆入口 /almanac/ 未建置');
+  // 黃曆是高密度工具頁，首屏必須先看到日期導覽與今日資訊。曾因全站圖片覆蓋 gate
+  // 把 1200×630 裝飾圖塞在 AlmanacDay 前面，桌機 1000px 高仍只看到圖與標題。
+  if (almanacHubHtml.includes('class="almanac-visual"')) {
+    violations.push('首屏版面：/almanac/ 不得用大型裝飾圖把日期資訊推到折線下');
   }
   let date = todayTaipei;
   let requiredAlmanac = 0;
@@ -1325,6 +1422,13 @@ let lcTempleSections = 0;
     const d = new Date(`${date}T00:00:00Z`);
     d.setUTCDate(d.getUTCDate() + 1);
     date = d.toISOString().slice(0, 10);
+  }
+
+  const qiugianHub = join(DIST, 'qiugian', 'index.html');
+  const qiugianHubHtml = existsSync(qiugianHub) ? readFileSync(qiugianHub, 'utf8') : '';
+  if (!qiugianHubHtml) violations.push('首屏版面：求籤入口 /qiugian/ 未建置');
+  else if (!/class="lead-visual compact"/.test(qiugianHubHtml)) {
+    violations.push('首屏版面：/qiugian/ 主視覺必須維持 compact，不得把求籤選項推離首屏');
   }
 
   let requiredTemples = 0;

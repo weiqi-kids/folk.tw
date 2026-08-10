@@ -4,14 +4,14 @@
 
 ## 已就緒（確定性）
 
-- `jdn.ts` — 國曆 ↔ 儒略日數（S1）
-- `ganzhi.ts` — 干支、五虎遁／五鼠遁、日柱公式、對沖生肖（S4、S10 沖）
-- `jianchu.ts` — 建除十二神（S5）＋宜忌基調
-- `ershiba.ts` — 廿八宿循環（S6）
-- `resolve.ts` — 宜忌從違裁決（C.7.6）
-- `index.ts` — `computeDayRecord()` 組裝（C.1）
+- `jdn.ts`：國曆 ↔ 儒略日數（S1）
+- `ganzhi.ts`：干支、五虎遁／五鼠遁、日柱公式、對沖生肖（S4、S10 沖）
+- `jianchu.ts`：建除十二神（S5）＋宜忌基調
+- `ershiba.ts`：廿八宿循環（S6）
+- `resolve.ts`：宜忌從違裁決（C.7.6）
+- `index.ts`：`computeDayRecord()` 組裝（C.1）
 
-## 核心層 — ✅ 已點亮並驗證
+## 核心層：✅ 已點亮並驗證
 
 `provider.ts` 接 **lunar-javascript**（壽星天文曆算法，對齊香港天文台）為 `AstronomicalProvider`，
 傳入 `computeDayRecord(y,m,d,{astro:lunarProvider})` 即點亮核心層（`verified=true`）：
@@ -21,17 +21,17 @@
   ＋ wannianrili 錨點交叉驗證（`calibration.test.mjs`，38 項全綠）。日柱／建除／廿八宿公式與權威來源一致。
 - **發佈前**：建議再對中央氣象署官方農民曆抽查（C.4-4）。
 
-## 進階層 — ◑ 考據化待人工核（C.6）
+## 進階層：◑ 考據化待人工核（C.6）
 
 以下為進階層，須依《欽定協紀辨方書》逐條校驗、考據化後始 `verified=true` 上架（§5、C.6）：
 
 1. **黃黑道「月支→青龍」起神表**（`rules/huanghei.json`，verified:false）。
 2. **神煞定例表** `rules/shensha.json`、**宜忌投票表** `rules/votes.json`、**制化表** `rules/restrain.json`
-   — 已引《協紀辨方書》四庫本原文匯入首批，但全部 `verified:false`，古文轉錄待人工核。
+   已引《協紀辨方書》四庫本原文匯入首批，但全部 `verified:false`，古文轉錄待人工核。
 3. **胎神逐日表**。
-4. **真太陽時精校**（經度＋均時差）— 時柱／時辰宜忌，列發佈後增補（C.6）。
+4. **真太陽時精校**（經度＋均時差）：時柱／時辰宜忌，列發佈後增補（C.6）。
 
-## 考據化原則（C.6 — 本模組差異化核心）
+## 考據化原則（C.6：本模組差異化核心）
 
 進階層**不只給結論，必附出處與推導**：每條宜忌／值神／神煞結論帶 `derivation`（由哪些值神／神煞依何規則判定）與 `sources[]`（《欽定協紀辨方書》為基準，包含但不限於）。諸說不一時並陳，不裁定。
 
