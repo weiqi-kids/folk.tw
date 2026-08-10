@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://folk.tw/contracts/bot-index.schema.json",
+  "title": "folk.tw bot-index.json",
+  "$comment": "這份 schema 是跨 repo 的唯一真實來源（single source of truth）。生產者是 /root/folk.tw（build 期由 src/pages/bot-index.json.ts 產出 https://folk.tw/bot-index.json）；消費者是 /root/my-line-bot-customer/tenants/shenku/（LINE 官方帳號「神酷」，每日 ETL 抓取）。改任何欄位——新增、改名、改型別、改語意——都要先改這份 schema，並同一回合更新 bot-index.json.ts 的產出邏輯。消費端不會因為欄位對不上而報錯，只會靜靜降級（該欄位視為缺漏、對使用者少答一件事），所以單方面改動在生產端完全不會被發現，只能靠雙邊都遵守這份契約來防。完整脈絡見 /root/folk.tw 與 /root/my-line-bot-customer 兩邊 CLAUDE.md 的往來說明。",
+  "description": "folk.tw（神酷）餵給 LINE bot 的扁平資料饋（籤詩／節日／看日子／農民曆逐日）。所有曆法計算（農曆、節氣、宜忌）都由 folk.tw 的 src/lib/almanac/ 與 src/lib/lunar-date.ts 算好才輸出；bot 端只讀資料、不重算，避免兩邊曆法邏輯漂移。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generated_at", "site", "window", "systems", "poems", "festivals", "affairs", "days"],
+  "properties": {
+    "version": {
+      "const": 1,
+      "description": "契約版本。破壞性改動（刪欄位／改語意／改型別）一律先加 1，讓消費端能判斷相容性。"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "本檔產出時間，ISO 8601（UTC）。"
+    },
+    "site": {
+      "const": "https://folk.tw"
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "description": "days 與 affairs[].good_days 兩區塊實際涵蓋的日期範圍（含頭尾）。這是 bot 判斷「該不該老實說沒資料」的唯一依據——寫寬了就是讓 bot 對使用者說謊，寫窄了 bot 會誤判有資料的日子為「還沒有」。festivals[].occurrences 不受此範圍限制（它們的日期本來就可能落在 window 之外，因為節日算的是未來 3 年）。",
+      "properties": {
+        "from": { "type": "string", "format": "date", "description": "含當日。" },
+        "to": { "type": "string", "format": "date", "description": "含當日。" }
+      }
+    },
+    "systems": {
+      "type": "array",
+      "description": "有籤詩收錄在 poems[] 的籤詩系統（非站上全部籤系——例如藥籤是問病症的藥方，不是求運勢的籤，不在此列）。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name", "count"],
+        "properties": {
+          "slug": { "type": "string", "description": "= poems[].system 的值，穩定鍵。" },
+          "name": { "type": "string" },
+          "count": { "type": "integer", "minimum": 1, "description": "該系統實際輸出在 poems[] 裡的首數（與 poems[] 逐筆核對必須一致）。" }
+        }
+      }
+    },
+    "poems": {
+      "type": "array",
+      "description": "全部籤詩，公有領域四句本文全收。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "system", "no", "lines", "url"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "穩定鍵（= 站上籤 id，格式 `<system>-<no>`）。一旦發布不可變更（站方 slug 永久承諾同一紅線）。"
+          },
+          "system": { "type": "string", "description": "對應 systems[].slug。" },
+          "no": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string", "description": "可選：籤題／古人（非每套籤系都有）。" },
+          "fortune": { "type": "string", "description": "可選：吉凶等第（非每套籤系原生有此欄位）。" },
+          "lines": {
+            "type": "array",
+            "description": "四句本文，公有領域。",
+            "items": { "type": "string" },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "summary": {
+            "type": "string",
+            "description": "可選：白話賞析取一句，≤80 字、斷在句讀（句號／驚嘆號／問號，取不到安全斷點才退而求其次用逗號／頓號／分號）。取不到就整個欄位不輸出，不得硬切成半句、不得杜撰。",
+            "maxLength": 80
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://folk\\.tw/poems/[^/]+/$",
+            "description": "= https://folk.tw/poems/<id>/，必須是已產出的靜態頁。"
+          }
+        }
+      }
+    },
+    "festivals": {
+      "type": "array",
+      "description": "全部節日（固定清單）。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name", "aliases", "url", "occurrences"],
+        "properties": {
+          "slug": { "type": "string", "description": "穩定鍵，一旦發布不可變更。" },
+          "name": { "type": "string" },
+          "aliases": { "type": "array", "items": { "type": "string" } },
+          "lead": { "type": "string", "description": "可選：一句話介紹。" },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://folk\\.tw/festivals/[^/]+/$",
+            "description": "= https://folk.tw/festivals/<slug>/（節日頁不分日期，恆定存在）。"
+          },
+          "occurrences": {
+            "type": "array",
+            "description": "未來 3 年的實際國曆日期，folk.tw 用站上既有換算函式（festivalNextSolar，底層 lunar-javascript）算好，由近到遠排序。multi_day 的節日給起始日。找不到（極端情況，換算函式回 null）時該節日的 occurrences 可能少於 3 筆甚至為空陣列，不得以外推或猜測補齊。",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["date"],
+              "properties": {
+                "date": { "type": "string", "format": "date", "description": "國曆日期。" },
+                "lunar": {
+                  "type": "string",
+                  "pattern": "^\\d{2}-\\d{2}$",
+                  "description": "可選：農曆 MM-DD（= 站上 festivals.json 的 lunar_date 原值）。只有『固定農曆日』型的節日才有；節氣型節日（如清明）沒有固定農曆日，此欄位省略，不得杜撰換算。"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "affairs": {
+      "type": "array",
+      "description": "全部看日子事項（固定清單）。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name", "url", "good_days"],
+        "properties": {
+          "slug": { "type": "string", "description": "穩定鍵，一旦發布不可變更。= 站上 /good-days/<slug>/ 的 slug（非底層宜忌規則 id）。" },
+          "name": { "type": "string" },
+          "note": { "type": "string", "description": "可選。" },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://folk\\.tw/good-days/[^/]+/$",
+            "description": "= https://folk.tw/good-days/<slug>/。注意：不是 /good-days/<日期>/，那種網址不存在。"
+          },
+          "good_days": {
+            "type": "array",
+            "description": "window 內所有 verified 宜日（由近到遠）。可能是空陣列——某些事項因規則尚未考據完成而恆空（站方「無源不發佈」），這是正常狀態不是故障，必須照實輸出空陣列，不得跳過該事項或塞假日期。",
+            "items": { "type": "string", "format": "date" }
+          }
+        }
+      }
+    },
+    "days": {
+      "type": "array",
+      "description": "window 範圍內每一天的農民曆摘要。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "yi", "ji", "url"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "lunar": { "type": "string", "description": "可選：顯示用農曆字串（如「六月廿七」）。" },
+          "ganzhi": { "type": "string", "description": "可選：當日干支（日柱）。" },
+          "solar_term": { "type": "string", "description": "可選：節氣名（僅交節或節氣期間內當日才有值，視站上曆算引擎輸出）。" },
+          "yi": { "type": "array", "items": { "type": "string" }, "description": "宜（僅 verified 者，可能為空陣列）。" },
+          "ji": { "type": "array", "items": { "type": "string" }, "description": "忌（僅 verified 者，可能為空陣列）。" },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://folk\\.tw/almanac/\\d{4}-\\d{2}-\\d{2}/$",
+            "description": "= https://folk.tw/almanac/<date>/。folk.tw 只預生 ARCHIVE_START 到今日+FUTURE_DAYS(730 天) 的日期頁（見 src/lib/almanac/dates.ts），本檔的 window 必須落在這個範圍內，否則這裡會是死連結。"
+          }
+        }
+      }
+    }
+  }
+}

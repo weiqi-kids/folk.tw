@@ -118,6 +118,9 @@ export default defineConfig({
         // 「附近的廟」的格檔（/temples/nearby/cells/<格>.json）：是給前端算距離的資料檔，
         // 不是頁面。提交給搜尋引擎只會拿抓取預算去換一堆 JSON。頁面本身（/temples/nearby/）保留。
         if (/\/temples\/nearby\/cells\//.test(page)) return false;
+        // bot-index.json：跨 repo 資料饋，餵給 LINE 官方帳號「神酷」（見 contracts/bot-index.schema.json），
+        // 不是給人看的頁面，契約明文「不進 sitemap、不需要被連結掃描工具當來源掃」。
+        if (/\/bot-index\.json$/.test(page)) return false;
         // 今日（Asia/Taipei, UTC+8）ISO 日期，與站內 today 定義一致。
         const TODAY = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
         // 僅比對「日期頁」/almanac/YYYY-MM-DD/（不含 /almanac/month/YYYY-MM/ 樞紐）。
