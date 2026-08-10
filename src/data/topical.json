@@ -2485,5 +2485,29 @@
       "last_checked": "2026-08-10",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "eq-us6000tjl2",
+    "eventType": "quake",
+    "title": "為哥倫比亞地震平安祈福",
+    "event": "哥倫比亞Chocó地區於二〇二六年八月十日發生規模七點四強震，恐造成傷亡，願當地居民平安、家園早日恢復。",
+    "sources": [
+      {
+        "ref": "USGS 地震資訊",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tjl2"
+      },
+      {
+        "ref": "交通部中央氣象署地震測報中心",
+        "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
+      }
+    ],
+    "place": "5 km E of San José del Palmar, Colombia",
+    "time": "2026-08-10",
+    "mag": 7.4,
+    "lat": 4.9031,
+    "lon": -76.1885,
+    "detector": "usgs",
+    "since": "2026-08-10",
+    "status": "active"
   }
 ]
