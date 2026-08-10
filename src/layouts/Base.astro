@@ -279,6 +279,7 @@ const groupActive = (sections: NavSection[]) =>
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={ogImageAltText} />
+    <link rel="alternate" type="application/rss+xml" title="神酷每週拜拜提醒" href="https://folk.tw/rss.xml" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="theme-color" content="#8a2b2b" />
@@ -437,7 +438,7 @@ const groupActive = (sections: NavSection[]) =>
         </div>
       )}
       <p class="meta">
-        免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>
+        <a href="/rss.xml" type="application/rss+xml">每週拜拜提醒 RSS</a>｜免責聲明、涵蓋範圍、版權授權與資料原則 — <a href="/about/">關於與勘誤 →</a>
       </p>
     </footer>
   </body>
