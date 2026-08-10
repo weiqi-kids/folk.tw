@@ -6,12 +6,13 @@ import ShareRow from '../../components/ShareRow.astro';
 import LineCta from '../../components/LineCta.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
-import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
+import { festivalNextSolar, lunarDateLabel, solarMd } from '../../lib/lunar-date';
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
 import { num } from '../../lib/format';
+import { excerptAtBoundary } from '../../lib/text';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
 import localCelebrations from '../../data/local-celebrations.json';
@@ -121,10 +122,14 @@ const lunarLabel = dateLabel;
 // date_note 也用來寫純說明（如地藏王聖誕的短月順延、搶孤的頭城/恆春異地異日），
 // 初版誤把它當跨多日旗標，產生「地藏王菩薩聖誕｜農曆七月三十起・儀式順序」這種與事實不符的標題。
 const multiDay = f.multi_day === true;
+const nominalLunarLabel = f.lunar_date ? lunarDateLabel(f.lunar_date) : '';
+const shiftedFromShortMonth = Boolean(nominalLunarLabel && nominalLunarLabel !== lunarLabel);
 // answer-first 第一句：直接回答「今年是哪一天」——這是這類查詢唯一想要的答案。
 const dateSentence = multiDay
   ? `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
-  : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
+  : shiftedFromShortMonth
+    ? `${f.name}傳統日期為${nominalLunarLabel}；${year} 年該農曆月只有廿九日，因此落在${lunarLabel}，國曆 ${solarMd(iso)}。`
+    : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
 const defaultPageTitle = multiDay
   ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
   : `${f.name}${year}是哪一天？${lunarLabel}・國曆${solarMd(iso)}`;
@@ -262,13 +267,17 @@ const covers = [
   heritages.length > 0 ? '文化資產登錄層級與公告文號' : '',
 ].filter(Boolean);
 const defaultPageDesc = covers.length
-  ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${f.lead.slice(0, 40)}`
-  : `${dateSentence}${f.lead.slice(0, 90)}`;
+  ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${excerptAtBoundary(f.lead, 40)}`
+  : `${dateSentence}${excerptAtBoundary(f.lead, 90)}`;
 
 // 2026-08-09 起的農曆七月搜尋戰役：只重組本頁已掛源、也確實渲染的資料，
 // 把「日期＋這頁真正回答的問題」放進 title/description。其他節日仍走通用模板。
 // ⚠️ 不在這裡補新事實；下列字詞均來自 festivals.json 的 lead/question 或已渲染區塊。
 const campaignSeo: Record<string, { title: string; description: string }> = {
+  guimenkai: {
+    title: `${year} 鬼門開是 ${solarMd(iso)}｜開龕門與起燈腳`,
+    description: `${year} 鬼門開為國曆 ${solarMd(iso)}（${lunarLabel}）。整理基隆老大公廟開龕門、起燈腳與門口掛燈等現有掛源資料。`,
+  },
   zhongyuan: {
     title: `${year} 中元節是 ${solarMd(iso)}｜普渡供品、金紙與祭拜順序`,
     description: `${year} 中元節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理中元普渡的祭拜順序、供品、金紙、禁忌與地區差異，逐條掛出處。`,
@@ -288,6 +297,10 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   qianggu: {
     title: `${year} 搶孤｜頭城、恆春日期與文化資產`,
     description: `${year} 搶孤日期不只一天：恆春於農曆七月十五，頭城於七月底關鬼門前。本頁整理兩地的現有掛源資料與文化資產登錄。`,
+  },
+  dizang: {
+    title: `${year} 地藏王菩薩聖誕是 ${solarMd(iso)}｜短月日期與鬼門關`,
+    description: `${f.name}傳統日期為${nominalLunarLabel}；${year} 農曆七月只有廿九日，因此落在國曆 ${solarMd(iso)}（${lunarLabel}）。本頁整理地藏信仰與鬼門關的現有掛源資料。`,
   },
 };
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;

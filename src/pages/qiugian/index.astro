@@ -58,11 +58,13 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
   <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤</p>
   <h1>你在為什麼煩惱？</h1>
-  <p class="lead">
-    選一件煩惱，求一支籤，看白話解籤——不用註冊、不用付費。下面會顯示最近有多少人為同一件事求過。
-    在廟裡已經抽到籤或擲筊擲到第幾首，也可以在各煩惱頁面直接輸入籤號查解籤，不用重新抽。
-  </p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
+  <div class="qiugian-intro">
+    <p class="lead">
+      選一件煩惱，求一支籤，看白話解籤；不用註冊或付費。若已在廟裡抽到籤，
+      也能到各煩惱頁輸入籤號直接查解籤。
+    </p>
+    <LeadVisual compact src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
+  </div>
   <p class="saved-link"><a href="/poems/#my-poems">查看收藏與最近查過的籤詩 →</a></p>
 
   {/* 集氣區的錨點指標（2026-08-05）。🔴 **不動「抽籤在上」的版位**——那是用戶 2026-08-03
@@ -114,6 +116,8 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     /* 左右兩欄（2026-08-03 用戶指定）：左＝抽籤（主動作、七張卡，給較寬），右＝集氣。
        行動版（≤48rem）疊成一欄，抽籤仍在上——小螢幕上主動作不該被次要區塊擋在前面。 */
     .qcols { display: grid; gap: 1.75rem; margin-top: 1.5rem; }
+    .qiugian-intro { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 2rem; align-items: center; margin-bottom: 1rem; }
+    .qiugian-intro .lead { margin: 0; }
     /* 配比 1.45:1 是錯的（2026-08-03 用戶指出）：左邊七張卡在窄欄裡一排只擺得下一張，
        整片留白；右邊的集氣標題很長（「為日本栃木縣足利市山崩平安祈福」），1fr 擠到每則折三行。
        改成 1:1，並強制左欄的卡片兩張一排——卡片內容短（四個字＋一行小字），兩張並排剛好，
@@ -150,5 +154,10 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     .concern:hover { border-color: var(--accent-soft); }
     .concern .n { font-size: var(--text-lg); }
     .more-soon { margin-top: 1.75rem; }
+    @media (max-width: 47.99rem) {
+      .qiugian-intro { grid-template-columns: 1fr; gap: 1rem; }
+      /* 行動版首屏高度有限，裝飾圖不應把真正的求籤選項推到下一屏。 */
+      .qiugian-intro :global(.lead-visual.compact) { display: none; }
+    }
   </style>
 </Base>

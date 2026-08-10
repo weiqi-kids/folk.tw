@@ -8,12 +8,10 @@ import { lunarProvider } from '../../lib/almanac/provider';
 import { almanacBreadcrumb, faqPage } from '../../lib/seo';
 import festivalsData from '../../data/festivals.json';
 import { festivalNextSolar } from '../../lib/lunar-date';
-import imagePriority from '../../data/image-priority.json';
 import LineCta from '../../components/LineCta.astro';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
-const showRollingVisual = imagePriority.almanac_rolling_days > 0;
 
 // 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
 const [y, m, dd] = iso.split('-').map(Number);
@@ -33,6 +31,7 @@ const lunarText = lunar ? `${lunar.isLeap ? '閏' : ''}農曆 ${lunar.month} 月
 const yiV = rec.yi.filter((v) => v.verified).map((v) => v.affair);
 const jiV = rec.ji.filter((v) => v.verified).map((v) => v.affair);
 const chong = rec.chongSha.value;
+const chongDirection = chong?.direction?.replace(/^煞/, '') ?? '';
 const yearBranch = rec.pillars.year.value?.branch;
 const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
 
@@ -58,7 +57,7 @@ const faq = faqPage([
   { q: `${iso} 忌做什麼？`, a: jiV.length ? `${iso} 忌：${jiV.join('、')}。` : '' },
   {
     q: `${iso} 沖煞什麼生肖、方位？`,
-    a: chong?.zodiac && chong.direction && chong.direction !== '—' ? `${iso} 沖${chong.zodiac}，煞${chong.direction}。` : '',
+    a: chong?.zodiac && chongDirection && chongDirection !== '—' ? `${iso} 沖${chong.zodiac}，煞${chongDirection}。` : '',
   },
   {
     q: `${iso} 是什麼節氣、節日？`,
@@ -75,18 +74,6 @@ if (faq) jsonLd.push(faq);
   description="每日農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕，可瀏覽任一日期。"
   jsonLd={jsonLd}
 >
-  {showRollingVisual && (
-    <figure class="almanac-visual">
-      <img
-        src="/visuals/calendar-compass.svg"
-        alt={`${iso} 農民曆`}
-        width="1200"
-        height="630"
-        loading="eager"
-        decoding="async"
-      />
-    </figure>
-  )}
   <AlmanacDay iso={iso} today={iso} hub />
   <LineCta
     placement="almanac_today"
@@ -129,9 +116,6 @@ if (faq) jsonLd.push(faq);
 </Base>
 
 <style>
-  .almanac-visual { margin: 0 0 1.5rem; }
-  .almanac-visual img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
-  .almanac-visual figcaption { margin-top: 0.375rem; }
   .almanac-more {
     margin-top: 2rem;
     padding-top: 1.25rem;

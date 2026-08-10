@@ -17,6 +17,7 @@ import { GA4_ID } from '../consts';
 import goodDaysData from '../data/good-days.json'; // nav「看日子」小段由資料驅動，勿硬編（見下方 nav 註解）
 import concernsData from '../data/concerns.json'; // nav「線上求籤」小段（依 GA 流量排序，見下方 nav 註解）
 import systemsData from '../data/divination-systems.json'; // nav「解籤」小段
+import { excerptAtBoundary } from '../lib/text';
 import ShareRow from '../components/ShareRow.astro'; // 全站分享列（版位理由見下方 main 之後的註解）
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
@@ -28,7 +29,10 @@ const fullTitle = title
   ? `${title}｜${siteName}`
   : '神酷｜台灣民俗信仰資料庫、籤詩解讀與神明關係圖譜';
 const ogFullTitle = ogTitle ?? fullTitle; // OG 標題（社群分享）
-const desc = description ?? '神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。';
+const rawDesc = description ?? '神酷（神庫）：台灣民俗信仰知識系統——籤詩解讀、神明關係圖譜、廟宇文化與農民曆，逐條掛來源、諸說並陳。';
+// SERP 摘要統一守在 160 字內，且只在完整句／分句邊界截取；正文與結構化資料不受影響。
+// 避免長神明摘要被 Google 任意改寫，也避免直接 slice 留下半個詞。
+const desc = excerptAtBoundary(rawDesc, 160);
 const canonical = new URL(canonicalOverride ?? Astro.url.pathname, Astro.site ?? 'https://folk.tw').href;
 // 社群分享圖：預設全站品牌卡；廟宇頁改傳自己那張（外撥把廟宇連結傳給廟方時，
 // 主委看到的應是自己的廟名，而不是神酷的招牌——2026-07-30 用戶指示）。

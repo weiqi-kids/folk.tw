@@ -4,13 +4,14 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
-import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity } from '../../lib/queries';
+import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity, systemHref } from '../../lib/queries';
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
-import { lunarDateLabel, lunarToNextSolar, solarMd } from '../../lib/lunar-date';
+import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 import { imageCredit } from '../../lib/image-credit';
 import { num } from '../../lib/format';
+import { stripOuterParens } from '../../lib/text';
 
 export const getStaticPaths = (async () => {
   const deities = await getDeities();
@@ -25,8 +26,11 @@ export const getStaticPaths = (async () => {
   const pickShengdan = (d: (typeof deities)[number]) => {
     const cands = d.data.birthday_lunar
       .filter((b) => b.kind === '聖誕' && /^\d{2}-\d{2}$/.test(b.date))
-      .map((b) => ({ date: b.date, iso: lunarToNextSolar(b.date, today) }))
-      .filter((x): x is { date: string; iso: string } => x.iso !== null)
+      .map((b) => {
+        const occurrence = lunarToNextOccurrence(b.date, today);
+        return occurrence ? { date: b.date, ...occurrence } : null;
+      })
+      .filter((x): x is NonNullable<typeof x> => x !== null)
       .sort((a, b) => a.iso.localeCompare(b.iso));
     return cands[0] ?? null;
   };
@@ -49,8 +53,7 @@ const d = deity.data;
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
 // 籤系連結走唯一入口（自有樞紐的籤系如藥籤要指 /medicine-slips/，不是 /systems/<id>/）
-const hrefOfSystem = new Map(systems.map((s) => [s.id, s.data.hub ?? `/systems/${s.id}/`]));
-const systemHrefOf = (id: string) => hrefOfSystem.get(id) ?? `/systems/${id}/`;
+const systemHrefOf = await systemHref();
 
 // 接通「神明↔籤詩」子圖：本神採用之系統的全部籤（直連籤，避免子圖斷開）。
 const poemsBySys = await poemsBySystem();
@@ -78,7 +81,7 @@ const realBdays = d.birthday_lunar.filter(
 //   (3) 原本 `find(kind==='聖誕') ?? realBdays[0]` 會讓只有飛昇/得道者的標題出現「・飛昇農曆9月9日」。
 // 國曆日期於 build 時算，且 deploy.yml 有每日 16:00 UTC 重建，故「下一次」永不過期。
 // shengdanPick 由 getStaticPaths 逐筆算過、挑最近一次，故 date 與 iso 必為同一筆（勿在此另挑）。
-const shengdanLunarLabel = shengdanPick ? lunarDateLabel(shengdanPick.date) : '';
+const shengdanLunarLabel = shengdanPick?.label ?? '';
 const solarPart = shengdanPick ? `（國曆 ${solarMd(shengdanPick.iso)}）` : '';
 
 if (realBdays.length > 0) {
@@ -150,11 +153,12 @@ const jsonLd = [
   ]),
   ...(faq ? [faq] : []),
 ];
+const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
 ---
 
 <Base
   title={deityTitle}
-  description={`${d.name}${d.aliases.length ? `（${d.aliases.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
+  description={`${d.name}${aliasesForMeta.length ? `（${aliasesForMeta.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
   ogType="article"
   ogImage={`/og/deities/${deity.id}.png`}
   ogImageAlt={`${d.name}—${d.category}${d.office.length ? `，職司${d.office.join('、')}` : ''}`}
@@ -306,7 +310,7 @@ const jsonLd = [
           return (
             <div class="poem-group">
               <p class="muted small">
-                <a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a>　共 {list.length} 籤
+                <a href={systemHrefOf(s.id)}>{systemName.get(s.id) ?? s.id}</a>　共 {list.length} 籤
               </p>
               <ul class="poem-links">
                 {list.slice(0, 12).map((p) => (
@@ -315,7 +319,7 @@ const jsonLd = [
                   </li>
                 ))}
               </ul>
-              {list.length > 12 && <p class="muted small"><a href={`/systems/${s.id}/`}>看全部 {list.length} 籤 →</a></p>}
+              {list.length > 12 && <p class="muted small"><a href={systemHrefOf(s.id)}>看全部 {list.length} 籤 →</a></p>}
             </div>
           );
         })}

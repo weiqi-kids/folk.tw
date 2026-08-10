@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import TempleMap from '../../components/TempleMap.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
-import { getTemples, getDeities, getEvents, getSystems, getScenarios } from '../../lib/queries';
+import { getTemples, getDeities, getEvents, getSystems, getScenarios, systemHref } from '../../lib/queries';
 import concernsData from '../../data/concerns.json';
 import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
@@ -43,6 +43,42 @@ export const getStaticPaths = (async () => {
     (byTown.get(key) ?? byTown.set(key, []).get(key)!).push(t);
   }
 
+  // SERP 消歧（2026-08-10）：同鄉鎮內若有同名、同主祀宮廟，原本的
+  // 「廟名・縣市鄉鎮・主祀○○」仍會完全相同。只替這些碰撞頁加入地址中能唯一辨識的
+  // 最短完整片段（村／里／路／街／巷／弄／號），其餘一萬多頁維持既有 title。
+  // 地址是內政部既有欄位；不猜俗名、不新增地理事實，也不截斷在任意字元中間。
+  const seoCollisionGroups = new Map<string, typeof temples>();
+  for (const t of temples) {
+    const c = templeCounty(t.data.district), tw = templeTownship(t.data.district);
+    const place = c && tw ? `${c.slug}/${tw.name}` : t.data.district;
+    // 不把 deity_ref 放進鍵：兩筆原始主祀字串可能對映到不同節點，清洗後 title 卻仍取到
+    // 同一個首位神名（實例：勸善社志德堂），以神明分組會漏掉最終產物的碰撞。
+    const key = `${t.data.name}\u0000${place}`;
+    (seoCollisionGroups.get(key) ?? seoCollisionGroups.set(key, []).get(key)!).push(t);
+  }
+  const seoQualifier = new Map<string, string>();
+  for (const group of seoCollisionGroups.values()) {
+    if (group.length < 2) continue;
+    const details = new Map(group.map((t) => {
+      const address = t.data.district ?? '';
+      const tw = templeTownship(address);
+      const at = tw ? address.indexOf(tw.name) : -1;
+      const detail = at >= 0 ? address.slice(at + tw!.name.length).trim() : address;
+      return [t.id, detail || address];
+    }));
+    for (const t of group) {
+      const detail = details.get(t.id)!;
+      const candidates = [...detail]
+        .map((ch, i) => ('村里路街道段巷弄號'.includes(ch) ? detail.slice(0, i + 1) : ''))
+        .filter(Boolean);
+      candidates.push(detail);
+      const unique = candidates.find((candidate) =>
+        group.every((other) => other.id === t.id || !details.get(other.id)!.startsWith(candidate)),
+      );
+      seoQualifier.set(t.id, unique ?? detail);
+    }
+  }
+
   return temples.map((t) => {
     const c = templeCounty(t.data.district), tw = templeTownship(t.data.district);
     const inTown = c && tw ? (byTown.get(`${c.slug}/${tw.name}`) ?? []) : [];
@@ -69,18 +105,20 @@ export const getStaticPaths = (async () => {
         townTotal: inTown.length,
         sameDeityInTown,
         neighbors,
+        seoQualifier: seoQualifier.get(t.id) ?? '',
       },
     };
   });
 }) satisfies GetStaticPaths;
 
-const { temple, uniqueName, townTotal, sameDeityInTown, neighbors } = Astro.props;
+const { temple, uniqueName, townTotal, sameDeityInTown, neighbors, seoQualifier } = Astro.props;
 const t = temple.data;
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
 const deityData = new Map(deities.map((d) => [d.id, d.data]));
 const systems = await getSystems();
 const systemName = new Map(systems.map((s) => [s.id, s.data.name]));
+const systemHrefOf = await systemHref();
 const events = await getEvents();
 // 此廟主辦之活動（host_temple 對映 temple.id）
 const hostedEvents = events.filter((e) => e.data.host_temple === temple.id);
@@ -332,7 +370,7 @@ const descTail = [
   .join('');
 const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${
   descTail
-}`;
+}${seoQualifier ? `地址為${t.district}。` : ''}`;
 
 // 廟宇頁 title：原本僅 t.name，導致大量同名廟（慶安宮／福德宮…）落回完全相同標題、無在地辨識度。
 // 全站 7891 廟 100% 具 district，加上鄉鎮地名可消歧並強化在地搜尋匹配（僅用既有欄位，不補新事實）。
@@ -364,6 +402,9 @@ const titleDeity = (() => {
 const commonName = commonTempleName(t.name);
 const legalParen = commonName === t.name ? '' : `（${t.name}）`;
 const regionSuffix = regionLabel ? `・${regionLabel}` : (t.district ? `・${t.district}` : '');
+const disambiguatedRegionSuffix = seoQualifier
+  ? `${regionSuffix}・${seoQualifier}`
+  : regionSuffix;
 const deitySuffix = titleDeity ? `・主祀${titleDeity}` : '';
 // 候選由「資訊最全」往「最精簡」排，取第一個裝得下的。
 // ⚠️ 順序刻意讓「主祀○○」贏過「（登記全名）」——前者命中沒有地圖包的修飾詞長尾（2026-07-31 實測），
@@ -371,11 +412,11 @@ const deitySuffix = titleDeity ? `・主祀${titleDeity}` : '';
 // 站名「｜神酷」由 Base.astro 附加，長度判斷須把它算進去。
 const templeTitle =
   [
-    `${commonName}${legalParen}${regionSuffix}${deitySuffix}`,
-    `${commonName}${regionSuffix}${deitySuffix}`,
-    `${commonName}${legalParen}${regionSuffix}`,
-    `${commonName}${regionSuffix}`,
-  ].find((c) => fullWidth(`${c}｜神酷`) <= TITLE_MAX) ?? `${commonName}${regionSuffix}`;
+    `${commonName}${legalParen}${disambiguatedRegionSuffix}${deitySuffix}`,
+    `${commonName}${disambiguatedRegionSuffix}${deitySuffix}`,
+    `${commonName}${legalParen}${disambiguatedRegionSuffix}`,
+    `${commonName}${disambiguatedRegionSuffix}`,
+  ].find((c) => fullWidth(`${c}｜神酷`) <= TITLE_MAX) ?? `${commonName}${disambiguatedRegionSuffix}`;
 
 // FAQ（AEO）：全數就既有欄位出題，faqPage 會過濾空答；無資料的題目不生，絕不杜撰。
 const lingqianNames = lingqianSystems.map((s) => systemName.get(s.id) ?? s.id);
@@ -508,7 +549,7 @@ const jsonLd = [
         <p class="muted small">{mainDeity}的靈籤，可線上查閱籤詩與白話解籤：</p>
         <ul>
           {lingqianSystems.map((s) => (
-            <li><a href={`/systems/${s.id}/`}>{systemName.get(s.id) ?? s.id}</a></li>
+            <li><a href={systemHrefOf(s.id)}>{systemName.get(s.id) ?? s.id}</a></li>
           ))}
         </ul>
       </section>

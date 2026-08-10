@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
-import { getSystems, getPoems, deitiesBySystem, getTemples } from '../../lib/queries';
+import { getSystems, getPoems, deitiesBySystem, getTemples, systemHref } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { num } from '../../lib/format';
 
@@ -12,6 +12,7 @@ const systems = await getSystems();
 const poems = await getPoems();
 const bySystem = await deitiesBySystem();
 const temples = await getTemples();
+const systemHrefOf = await systemHref();
 
 // 每個籤系實際涵蓋多少廟：主祀神掛該籤系者 → 該廟可用此籤。純由既有對映衍生，不補新事實。
 const templeCountOf = (systemId: string) => {
@@ -26,7 +27,7 @@ const rows = systems
   .map((s) => ({
     id: s.id,
     data: s.data,
-    href: s.data.hub ?? `/systems/${s.id}/`,
+    href: systemHrefOf(s.id),
     count: s.data.count,
     deities: bySystem.get(s.id) ?? [],
     temples: templeCountOf(s.id),

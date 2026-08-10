@@ -39,6 +39,9 @@ function lunarDayCn(d: number): string {
 
 const labelOf = (key: string) => `農曆${lunarMonthCn(Number(key.slice(0, 2)))}月${lunarDayCn(Number(key.slice(3)))}`;
 
+const lunarKeyOf = (lunar: { getMonth(): number; getDay(): number }): string =>
+  `${String(lunar.getMonth()).padStart(2, '0')}-${String(lunar.getDay()).padStart(2, '0')}`;
+
 /** 農曆「MM-DD」→ 中文標籤（如「03-23」→「農曆三月廿三」）。非 MM-DD 回空字串。 */
 export const lunarDateLabel = (mmdd: string): string => (/^\d{2}-\d{2}$/.test(mmdd) ? labelOf(mmdd) : '');
 
@@ -55,6 +58,25 @@ export function isLunarMonthEnd(iso: string): boolean {
  * ⏱ 只算「國曆日期」這個靜態事實；倒數 N 天由前端依台灣時區即時算，故 build 不新鮮也不會錯。
  */
 export function lunarToNextSolar(mmdd: string, fromIso: string, days = 400): string | null {
+  return lunarToNextOccurrence(mmdd, fromIso, days)?.iso ?? null;
+}
+
+export interface LunarOccurrence {
+  /** 該次實際落在的國曆日期。 */
+  iso: string;
+  /** 該個國曆日實際對應的農曆 MM-DD；短月退日時會是 29，不是資料登錄的 30。 */
+  lunar: string;
+  /** 由 actual lunar 產生的顯示標籤，必定與 iso 相符。 */
+  label: string;
+}
+
+/**
+ * 農曆登錄日→下一次實際發生日。
+ *
+ * 與 `lunarToNextSolar()` 的差別是這支同時回傳該國曆日的**實際**農曆日與標籤。
+ * 如 07-30 遇短月落在 07-29，資料仍保留 07-30，但當年日期文案必須顯示七月廿九。
+ */
+export function lunarToNextOccurrence(mmdd: string, fromIso: string, days = 400): LunarOccurrence | null {
   if (!/^\d{2}-\d{2}$/.test(mmdd)) return null;
   const wantM = Number(mmdd.slice(0, 2));
   const wantD = Number(mmdd.slice(3));
@@ -67,8 +89,10 @@ export function lunarToNextSolar(mmdd: string, fromIso: string, days = 400): str
     if (lm < 0) continue; // 負月＝閏月，節日/聖誕不計閏月
     if (lm !== wantM) continue;
     const ld = l.getDay();
-    if (ld === wantD) return iso;
-    if (wantD === 30 && ld === 29 && isLunarMonthEnd(iso)) return iso;
+    if (ld === wantD || (wantD === 30 && ld === 29 && isLunarMonthEnd(iso))) {
+      const lunar = lunarKeyOf(l);
+      return { iso, lunar, label: lunarDateLabel(lunar) };
+    }
   }
   return null;
 }
@@ -113,7 +137,10 @@ export function festivalNextSolar(
     return { iso: solarTermToNextSolar(f.solar_term, fromIso), label: `節氣${f.solar_term}` };
   }
   if (f.lunar_date) {
-    return { iso: lunarToNextSolar(f.lunar_date, fromIso), label: lunarDateLabel(f.lunar_date) };
+    const occurrence = lunarToNextOccurrence(f.lunar_date, fromIso);
+    return occurrence
+      ? { iso: occurrence.iso, label: occurrence.label }
+      : { iso: null, label: lunarDateLabel(f.lunar_date) };
   }
   return { iso: null, label: '' };
 }

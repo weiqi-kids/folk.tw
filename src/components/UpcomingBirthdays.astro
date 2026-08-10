@@ -4,12 +4,14 @@
 // 「倒數 N 天」與「隱藏已過」由下方 is:inline script 依台灣當下日期即時算，
 // 故即使 build 不新鮮（每日收集 [skip ci] 不部署），倒數永遠正確（⏱ 時間正確性保證）。
 import type { BirthdayEntry } from '../lib/birthdays';
+import { systemHref } from '../lib/queries';
 
 interface Props {
   items: BirthdayEntry[];
   limit?: number; // 前端過濾掉已過者後，最多顯示幾筆（首頁用；不給＝全顯示）
 }
 const { items, limit } = Astro.props;
+const systemHrefOf = await systemHref();
 const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
 ---
 
@@ -28,7 +30,7 @@ const mdOf = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 
               {i > 0 && '、'}
               <a href={`/deities/${d.deityId}/`}>{d.name}</a>
               {d.systems.map((sys) => (
-                <a class="bd-divine" href={`/systems/${sys.id}/`}>
+                <a class="bd-divine" href={systemHrefOf(sys.id)}>
                   （求籤）
                 </a>
               ))}

@@ -30,7 +30,7 @@ import { C, esc, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.m
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const { templeCounty, templeTownship } = await import(join(root, 'src/lib/temple-region.ts'));
-const { lunarDateLabel, lunarToNextSolar, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
+const { lunarDateLabel, lunarToNextOccurrence, solarMd } = await import(join(root, 'src/lib/lunar-date.ts'));
 const { pickMainFestival, festivalCardLine } = await import(join(root, 'src/lib/temple-festival.ts'));
 
 const temples = JSON.parse(readFileSync(join(root, 'src/data/temples.json'), 'utf8'));
@@ -70,10 +70,12 @@ export function recentActivity(t, todayIso) {
   const b = (d?.birthday_lunar ?? []).find((x) => x.kind === '聖誕' && /^\d{2}-\d{2}$/.test(x.date));
   if (!b) return null; // 城隍／太歲等 467 間無聖誕者：正確地不顯示，不硬湊
   const deityName = t.main_deity_raw ?? d?.name ?? '';
-  const iso = todayIso ? lunarToNextSolar(b.date, todayIso) : null;
+  const occurrence = todayIso ? lunarToNextOccurrence(b.date, todayIso) : null;
   return {
     label: `${deityName}聖誕`,
-    text: iso ? `${lunarDateLabel(b.date)}（國曆 ${solarMd(iso)}）` : lunarDateLabel(b.date),
+    text: occurrence
+      ? `${occurrence.label}（國曆 ${solarMd(occurrence.iso)}）`
+      : lunarDateLabel(b.date),
   };
 }
 

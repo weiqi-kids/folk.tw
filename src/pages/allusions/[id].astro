@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
 import { breadcrumb, faqPage } from '../../lib/seo';
+import { stripOuterParens } from '../../lib/text';
 
 export const getStaticPaths = (async () => {
   const allusions = await getAllusions();
@@ -22,7 +23,7 @@ const hasStory = (allusion.body ?? '').trim().length > 0;
 const { Content } = await render(allusion);
 const pageDesc =
   a.seoDesc ??
-  (`${a.name}${a.source ? `（出典：${a.source}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
+  (`${a.name}${a.source ? `（出典：${stripOuterParens(a.source)}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
   `${poems.length ? `出現於第 ${poems.map((p) => p.data.no).join('、')} 籤（跨文本反查）。` : ''}`);
 
 // GEO：BreadcrumbList ＋（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰

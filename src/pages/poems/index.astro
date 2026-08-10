@@ -2,13 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import PoemShelf from '../../components/PoemShelf.astro';
-import { getPoems, getSystems } from '../../lib/queries';
+import { getPoems, getSystems, systemHref } from '../../lib/queries';
 import { breadcrumb } from '../../lib/seo';
 
 const poems = await getPoems();
 // 首數多的籤系在前（2026-08-08 改）：原本是由小到大，於是月老籤（27 首）排第一、
 // 六十甲子籤這個旗艦系統被埋在第三段，而整頁有 16,000px 高，使用者根本捲不到。
 const systems = (await getSystems()).sort((a, b) => b.data.count - a.data.count);
+const systemHrefOf = await systemHref();
 // 依籤系分組
 const bySystem = new Map<string, typeof poems>();
 for (const p of poems) {
@@ -43,7 +44,7 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
       return (
         <section id={s.id} class="sys">
           <h2>
-            <a href={`/systems/${s.id}/`}>{s.data.name}</a>
+            <a href={systemHrefOf(s.id)}>{s.data.name}</a>
             <span class="count muted">（{list.length} 首）</span>
           </h2>
           <div class="grid cols poem-grid">
