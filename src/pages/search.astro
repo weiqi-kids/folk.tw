@@ -66,6 +66,66 @@ import LeadVisual from '../components/LeadVisual.astro';
         for (const b of document.querySelectorAll('.ex')) {
           b.addEventListener('click', () => fill(b.dataset.q));
         }
+
+        // 站內需求探勘：只把明確屬於公開民俗領域、且不含常見個資格式的查詢字面送到 GA4。
+        // 其他自由文字一律只送分類與長度區間，避免人名、電話、email 或網址進分析系統。
+        const root = document.getElementById('search');
+        const input = root?.querySelector('input');
+        const domainTerm = /(廟|宮|寺|堂|壇|祠|神|佛|菩薩|帝君|王爺|媽祖|籤|農民曆|農曆|宜忌|祭|普渡|聖誕|生日|擲筊|拜拜|遶境|進香|典故|故事)/;
+        const sensitive = /(@|https?:|www\.|\b(?:09\d{8}|\d{7,})\b)/i;
+        const topicOf = (term) => {
+          if (/(廟|宮|寺|堂|壇|祠)/.test(term)) return 'temple';
+          if (/(籤|擲筊)/.test(term)) return 'qian';
+          if (/(農民曆|農曆|宜忌|沖煞|吉日)/.test(term)) return 'almanac';
+          if (/(節|祭|普渡|遶境|進香|拜拜)/.test(term)) return 'festival_practice';
+          if (/(神|佛|菩薩|帝君|王爺|媽祖|聖誕)/.test(term)) return 'deity';
+          return 'other';
+        };
+        const analyticsTerm = (term) => domainTerm.test(term) && !sensitive.test(term) && term.length <= 60
+          ? term
+          : `[redacted:${topicOf(term)}]`;
+        const lengthBucket = (term) => term.length <= 5 ? '2-5' : term.length <= 12 ? '6-12' : term.length <= 30 ? '13-30' : '31+';
+        let timer = 0;
+        let lastReport = '';
+        const report = () => {
+          if (!root || !input) return;
+          const term = input.value.trim().replace(/\s+/g, ' ');
+          const message = root.querySelector('.pagefind-ui__message')?.textContent?.trim() || '';
+          if (term.length < 2 || !message || /搜尋.+中/.test(message)) return;
+          const zero = /找不到/.test(message);
+          const countMatch = message.match(/找到\s*([\d,]+)\s*筆/);
+          if (!zero && !countMatch) return;
+          const resultCount = zero ? 0 : Number(countMatch[1].replace(/,/g, ''));
+          const key = `${term}\u0000${resultCount}`;
+          if (key === lastReport) return;
+          lastReport = key;
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', zero ? 'search_zero_results' : 'view_search_results', {
+              search_term: analyticsTerm(term),
+              search_topic: topicOf(term),
+              search_length: lengthBucket(term),
+              result_count: resultCount,
+            });
+          }
+        };
+        const scheduleReport = () => {
+          window.clearTimeout(timer);
+          timer = window.setTimeout(report, 900);
+        };
+        if (root && input) {
+          input.addEventListener('input', scheduleReport);
+          new MutationObserver(scheduleReport).observe(root, { childList: true, subtree: true, characterData: true });
+          root.addEventListener('click', (event) => {
+            const link = event.target.closest?.('.pagefind-ui__result-link');
+            if (!link || typeof window.gtag !== 'function') return;
+            const links = [...root.querySelectorAll('.pagefind-ui__result-link')];
+            window.gtag('event', 'search_result_click', {
+              search_term: analyticsTerm(input.value.trim().replace(/\s+/g, ' ')),
+              result_position: links.indexOf(link) + 1,
+              link_url: new URL(link.href, location.href).pathname,
+            });
+          });
+        }
       }
     });
   </script>

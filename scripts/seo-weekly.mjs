@@ -11,6 +11,7 @@ import { execSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ga4RunReport, gscQuery, inspectUrl, sitemapsList, loadConfig } from './lib/google-data.mjs';
+import { fetchSearchDemand, searchDemandMarkdown } from './lib/search-demand.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, '..');
@@ -60,6 +61,9 @@ async function fetchAll() {
   };
   const ga4Now = await ga('7daysAgo', 'yesterday');
   const ga4Prev = await ga('14daysAgo', '8daysAgo');
+  let searchDemand;
+  try { searchDemand = await fetchSearchDemand(ga4RunReport, ga4PropertyId); }
+  catch (error) { searchDemand = { error: error.message, zeroResults: [], searches: [], resultClicks: [] }; }
 
   // ── GSC：近 7 天 vs 前 7 天 totals（GSC 約 2-3 日延遲，往前推 3 天起算）
   const gscTotals = async (s, e) => (await gscQuery(gscSiteUrl, { startDate: ymd(s), endDate: ymd(e), dimensions: [] })).rows?.[0] ?? {};
@@ -90,7 +94,7 @@ async function fetchAll() {
     for (const x of (leaves.length ? leaves : sms)) { submitted += (x.contents ?? []).reduce((a, c) => a + Number(c.submitted), 0); smErr += Number(x.errors ?? 0); }
   } catch { /* noop */ }
 
-  return { ga4Now, ga4Prev, gNow, gPrev, impUnique, impTemple, impOther, cov, submitted, smErr };
+  return { ga4Now, ga4Prev, searchDemand, gNow, gPrev, impUnique, impTemple, impOther, cov, submitted, smErr };
 }
 
 // 稀釋判讀（細版）：收錄比率 + 搜尋曝光來源 + 趨勢 → 結論先行
@@ -124,6 +128,8 @@ function buildMarkdown(d, dil, date) {
   L.push(`- 全站 sessions：${d.ga4Now.total}（前週 ${d.ga4Prev.total}）`);
   L.push(`- GSC 曝光：**${d.gNow.impressions ?? 0}**（前週 ${d.gPrev.impressions ?? 0}）；點擊：**${d.gNow.clicks ?? 0}**（前週 ${d.gPrev.clicks ?? 0}）`);
   L.push(`- 點擊率：${((d.gNow.ctr ?? 0) * 100).toFixed(1)}%；平均排名：${d.gNow.position ? d.gNow.position.toFixed(1) : '—'}`, '');
+  if (d.searchDemand.error) L.push('## 站內搜尋需求（近 7 天）', '', `- 讀取失敗：${d.searchDemand.error}`, '');
+  else L.push(searchDemandMarkdown(d.searchDemand), '');
   L.push('## 索引稀釋判讀（核心）');
   L.push(`**結論：${dil.flag} — ${dil.verdict}**`, '');
   L.push('### 搜尋曝光來源（稀釋與否的關鍵）');

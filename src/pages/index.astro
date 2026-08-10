@@ -75,6 +75,23 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
     <h1>神酷<span class="alt">（神庫）</span></h1>
     <p class="tagline">查籤詩、看神明、懂台灣民俗</p>
   </header>
+  <section class="intent-actions" aria-labelledby="intent-actions-title">
+    <h2 id="intent-actions-title">現在想做什麼？</h2>
+    <div class="intent-grid">
+      <a class="intent-card card" href="/almanac/" data-intent-action="today" data-intent-placement="home_quick_action">
+        <strong>看今天適合做什麼</strong>
+        <span class="muted">查今日宜忌、沖煞與農民曆</span>
+      </a>
+      <a class="intent-card card" href="/qiugian/" data-intent-action="qiugian" data-intent-placement="home_quick_action">
+        <strong>為目前的事求一支籤</strong>
+        <span class="muted">從工作、感情、考試等情境開始</span>
+      </a>
+      <a class="intent-card card" href="/temples/nearby/" data-intent-action="nearby_temples" data-intent-placement="home_quick_action">
+        <strong>找附近適合參拜的廟</strong>
+        <span class="muted">座標只在瀏覽器計算，不會外送</span>
+      </a>
+    </div>
+  </section>
   {
     activeSeasonalCampaign && (
       <section class="seasonal" data-seasonal-campaign>
@@ -241,6 +258,12 @@ const activeSeasonalCampaign = pickSeasonalCampaign(iso);
     .brand-hero h1 { margin: 0; font-size: var(--text-2xl); letter-spacing: 0.1em; color: var(--accent); }
     .brand-hero h1 .alt { color: var(--ink-soft); font-size: var(--text-lg); font-weight: 400; }
     .brand-hero .tagline { margin: 0.25rem 0 0; color: var(--ink-soft); letter-spacing: 0.08em; }
+    .intent-actions { margin: 0 0 2.25rem; }
+    .intent-actions h2 { margin: 0 0 0.75rem; font-size: var(--text-lg); }
+    .intent-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+    .intent-card { display: flex; flex-direction: column; gap: 0.3125rem; }
+    .intent-card strong { color: var(--ink); }
+    @media (max-width: 46rem) { .intent-grid { grid-template-columns: 1fr; } }
     .seasonal { margin: 0 0 2.25rem; }
     .campaign-kicker { color: var(--accent); letter-spacing: 0.1em; font-size: var(--text-sm); margin: 0 0 0.625rem; }
     .campaign-card { border-color: var(--gold); background: var(--paper-2); }

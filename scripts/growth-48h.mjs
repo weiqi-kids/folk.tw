@@ -96,6 +96,7 @@ function instrumentation() {
   return {
     share: share.includes("gtag('event', 'share'") ? 'active' : 'not_instrumented',
     campaign_click: base.includes("gtag('event', 'campaign_click'") ? 'active' : 'not_instrumented',
+    intent_click: base.includes("gtag('event', 'intent_click'") ? 'active' : 'not_instrumented',
     calendar_add: !base.includes("gtag('event', 'calendar_add'") ? 'not_instrumented'
       : calendarUi ? 'active' : 'prepared_no_ui',
   };
@@ -107,8 +108,8 @@ const [targetTotalRaw, entryRaw, sourceRaw, eventRaw, homeRaw, returnRaw] = awai
   }),
   report(['landingPagePlusQueryString'], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions']),
   report(['landingPagePlusQueryString', 'sessionSource', 'sessionCampaignName'], ['activeUsers', 'sessions', 'engagedSessions']),
-  report(['eventName', 'pagePath'], ['eventCount', 'totalUsers'], {
-    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['share', 'campaign_click', 'calendar_add'] } } },
+  report(['eventName', 'pagePath', 'linkUrl'], ['eventCount', 'totalUsers'], {
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['share', 'campaign_click', 'intent_click', 'calendar_add'] } } },
   }),
   report(['pagePath'], ['activeUsers', 'screenPageViews']),
   report(['newVsReturning'], ['activeUsers', 'sessions']),
@@ -122,15 +123,20 @@ const sources = aggregate(sourceRaw.filter((r) => target(r.dimensions.landingPag
     && (!campaignNeedle || r.dimensions.sessionCampaignName.toLowerCase().includes(campaignNeedle))),
   ['landingPagePlusQueryString', 'sessionSource', 'sessionCampaignName'], ['activeUsers', 'sessions', 'engagedSessions'])
   .sort((a, b) => b.activeUsers - a.activeUsers);
-const events = aggregate(eventRaw, ['eventName', 'pagePath'], ['eventCount', 'totalUsers'])
+const events = aggregate(eventRaw, ['eventName', 'pagePath', 'linkUrl'], ['eventCount', 'totalUsers'])
   .sort((a, b) => b.eventCount - a.eventCount);
 const home = aggregate(homeRaw.filter((r) => ['/', '(not set)'].includes(r.dimensions.pagePath)),
   ['pagePath'], ['activeUsers', 'screenPageViews']).find((r) => r.pagePath === '/') || { activeUsers: 0, screenPageViews: 0 };
 const returning = aggregate(returnRaw, ['newVsReturning'], ['activeUsers', 'sessions']);
 const inst = instrumentation();
-const eventTotals = Object.fromEntries(['share', 'campaign_click', 'calendar_add'].map((name) => [
+const eventTotals = Object.fromEntries(['share', 'campaign_click', 'intent_click', 'calendar_add'].map((name) => [
   name, events.filter((x) => x.eventName === name).reduce((n, x) => n + x.eventCount, 0),
 ]));
+const intentEntries = events.filter((x) => x.eventName === 'intent_click').map((x) => ({
+  destination: (() => { try { return new URL(x.linkUrl).pathname; } catch { return x.linkUrl || '(not set)'; } })(),
+  eventCount: x.eventCount,
+  totalUsers: x.totalUsers,
+}));
 const campaignCtr = home.screenPageViews ? eventTotals.campaign_click / home.screenPageViews : null;
 const targetTotal = aggregate(targetTotalRaw, [], ['activeUsers', 'sessions', 'screenPageViews', 'engagedSessions'])[0] || {};
 const targetUsers = number(targetTotal.activeUsers);
@@ -153,8 +159,8 @@ const output = {
   window: { start: `${startDate} 00:00`, end: `${endDate} 23:59` },
   landings, campaignFilter: campaignNeedle || null, instrumentation: inst,
   totals: { targetUsers, targetViews, homeViews: home.screenPageViews, campaignClicks: eventTotals.campaign_click,
-    campaignCtr, shareClicks: eventTotals.share, calendarAdds: eventTotals.calendar_add },
-  entries, sources, events, returningClassification: returning,
+    campaignCtr, intentClicks: eventTotals.intent_click, shareClicks: eventTotals.share, calendarAdds: eventTotals.calendar_add },
+  entries, sources, intentEntries, events, returningClassification: returning,
   sevenDayReturn: { status: 'unavailable', note: 'GA4 aggregate runReport 無法把本次匿名 campaign 訪客串成 7 日回訪 cohort；需等滿 7 日並以 Explore/cohort 或另設 user-level 匯出驗證。' },
   decision: { verdict, reason, scope: '只淘汰首頁 campaign 版位，不刪內容頁。' },
   caveats: ['使用最近兩個完整台北曆日，避免逐小時相加造成 activeUsers 重複計數；GA4 仍可能延遲回填最近一天。',
@@ -175,6 +181,8 @@ else {
       `- ${x.landingPagePlusQueryString} ← ${x.sessionSource} / ${x.sessionCampaignName || '(not set)'}：${n(x.activeUsers)} users`) : ['- 無資料']),
     '', '## 站內行動',
     `- 首頁 campaign click：${n(eventTotals.campaign_click)}（首頁 ${n(home.screenPageViews)} views，CTR ${pct(campaignCtr)}；${status(inst.campaign_click)}）`,
+    `- 首頁常青入口：${n(eventTotals.intent_click)}（${status(inst.intent_click)}）`,
+    ...intentEntries.map((x) => `  - ${x.destination}：${n(x.eventCount)} clicks／${n(x.totalUsers)} users`),
     `- 分享 click：${n(eventTotals.share)}（${status(inst.share)}）`,
     `- 加入行事曆：${n(eventTotals.calendar_add)}（${status(inst.calendar_add)}）`,
     '', '## 回訪', `- 48 小時 GA4 new/returning 分類：${returning.map((x) => `${x.newVsReturning} ${n(x.activeUsers)}`).join('、') || '無資料'}`,

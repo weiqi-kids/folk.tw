@@ -275,6 +275,8 @@ const jsonLd = [
   </style>
 
   <script>
+    import { rememberPoem } from '../../lib/poem-shelf';
+
     const cfg = document.getElementById('cfg')!.dataset;
     const QIAN = JSON.parse(document.getElementById('qiandata')!.textContent || '[]');
     const STAT = JSON.parse(document.getElementById('statsdata')!.textContent || '{}');
@@ -323,6 +325,12 @@ const jsonLd = [
         <p class="note small caption-time">為明天的事求的？把這頁存起來，有結果再回來回報。</p>`;
       document.getElementById('result')!.hidden = false;
       document.getElementById('qiInline')!.addEventListener('click', qifuInline);
+      rememberPoem({
+        id: item.id,
+        title: `${cfg.system}第 ${item.no} 籤${item.label ? `「${item.label}」` : ''}`,
+        system: cfg.system!,
+        href: `/poems/${item.id}/`,
+      });
       // 不自動捲動：求籤/輸入籤號後就地展開結果，強制捲動反而打斷使用者視線（2026-07-17 用戶回報）。
     }
 

@@ -1,0 +1,106 @@
+---
+import { MAX_RECENT_POEMS, MAX_SAVED_POEMS } from '../lib/poem-shelf';
+
+const savedSlots = Array.from({ length: MAX_SAVED_POEMS });
+const recentSlots = Array.from({ length: MAX_RECENT_POEMS });
+---
+
+<section class="poem-shelf" id="my-poems" data-poem-shelf aria-labelledby="my-poems-title">
+  <div class="shelf-head">
+    <div>
+      <p class="eyebrow">存在這台裝置</p>
+      <h2 id="my-poems-title">我的籤詩</h2>
+    </div>
+    <p class="privacy muted small">不用登入；收藏與紀錄只留在這個瀏覽器。</p>
+  </div>
+  <div class="shelf-cols">
+    <section class="shelf-group" aria-labelledby="saved-poems-title">
+      <h3 id="saved-poems-title">已收藏</h3>
+      <p class="empty muted small" data-saved-empty>還沒有收藏。打開一首籤詩，就能按「收藏這首」。</p>
+      <ul class="shelf-list" data-saved-list>
+        {savedSlots.map(() => (
+          <li hidden data-saved-slot>
+            <a href="/poems/"><span class="item-title"></span><span class="item-system muted small"></span></a>
+            <button type="button" data-remove-saved aria-label="取消收藏">取消</button>
+          </li>
+        ))}
+      </ul>
+    </section>
+    <section class="shelf-group" aria-labelledby="recent-poems-title">
+      <h3 id="recent-poems-title">最近查過</h3>
+      <p class="empty muted small" data-recent-empty>求一支籤或打開籤詩後，會記在這裡。</p>
+      <ul class="shelf-list" data-recent-list>
+        {recentSlots.map(() => (
+          <li hidden data-recent-slot>
+            <a href="/poems/"><span class="item-title"></span><span class="item-system muted small"></span></a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</section>
+
+<style>
+  .poem-shelf { scroll-margin-top: 1rem; margin: 1.75rem 0 2rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--paper-2); }
+  .shelf-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.875rem; }
+  .shelf-head h2 { margin: 0.125rem 0 0; border: 0; padding: 0; }
+  .eyebrow { margin: 0; color: var(--accent); font-size: var(--text-xs); letter-spacing: 0.12em; font-weight: 700; }
+  .privacy { margin: 0; text-align: right; }
+  .shelf-cols { display: grid; gap: 1.5rem; margin-top: 1rem; }
+  .shelf-group h3 { margin: 0 0 0.625rem; font-size: var(--text-base); }
+  .empty { margin: 0; }
+  .shelf-list { list-style: none; margin: 0; padding: 0; }
+  .shelf-list li { display: flex; align-items: center; gap: 0.75rem; border-top: 1px dashed var(--line); padding: 0.625rem 0; }
+  .shelf-list li[hidden] { display: none; }
+  .shelf-list a { display: flex; flex-direction: column; min-width: 0; flex: 1; color: var(--ink); text-decoration: none; }
+  .shelf-list a:hover .item-title { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .item-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .shelf-list button { font: inherit; font-size: var(--text-xs); color: var(--ink-soft); background: transparent; border: 0; padding: 0.375rem; cursor: pointer; }
+  .shelf-list button:hover { color: var(--accent); text-decoration: underline; }
+  @media (min-width: 48rem) {
+    .shelf-cols { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 37.5rem) {
+    .shelf-head { align-items: start; flex-direction: column; }
+    .privacy { text-align: left; }
+  }
+</style>
+
+<script>
+  import { emitPoemEvent, listRecentPoems, listSavedPoems, toggleSavedPoem, type PoemShelfItem } from '../lib/poem-shelf';
+
+  const root = document.querySelector<HTMLElement>('[data-poem-shelf]');
+  if (root) {
+    const fill = (slot: HTMLElement, item?: PoemShelfItem) => {
+      slot.hidden = !item;
+      if (!item) return;
+      const link = slot.querySelector<HTMLAnchorElement>('a')!;
+      link.href = item.href;
+      link.dataset.poemId = item.id;
+      slot.querySelector<HTMLElement>('.item-title')!.textContent = item.title;
+      slot.querySelector<HTMLElement>('.item-system')!.textContent = item.system;
+    };
+
+    const paint = () => {
+      const saved = listSavedPoems();
+      const recent = listRecentPoems();
+      root.querySelector<HTMLElement>('[data-saved-empty]')!.hidden = saved.length > 0;
+      root.querySelector<HTMLElement>('[data-recent-empty]')!.hidden = recent.length > 0;
+      root.querySelectorAll<HTMLElement>('[data-saved-slot]').forEach((slot, i) => fill(slot, saved[i]));
+      root.querySelectorAll<HTMLElement>('[data-recent-slot]').forEach((slot, i) => fill(slot, recent[i]));
+    };
+
+    root.querySelectorAll<HTMLElement>('[data-saved-slot]').forEach((slot) => {
+      slot.querySelector<HTMLButtonElement>('[data-remove-saved]')!.addEventListener('click', () => {
+        const id = slot.querySelector<HTMLAnchorElement>('a')!.dataset.poemId;
+        const item = listSavedPoems().find((row) => row.id === id);
+        if (!item) return;
+        toggleSavedPoem(item);
+        emitPoemEvent('unsave_poem', item.id, 'poems_hub');
+        paint();
+      });
+    });
+    window.addEventListener('storage', paint);
+    paint();
+  }
+</script>

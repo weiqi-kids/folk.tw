@@ -21,6 +21,7 @@ pnpm growth:48h -- --landing /festivals/qixi/,/festivals/zhongyuan/ --json
 - 五個 campaign landing page 的 `activeUsers`、sessions、PV、engaged sessions
 - landing page × session source × session campaign
 - 首頁 campaign card 的 `campaign_click`
+- 首頁三個常青入口的 `intent_click`，依目的網址分列
 - 全站 `share`、`calendar_add`
 - GA4 的 New／Returning 分類
 
@@ -30,8 +31,9 @@ Campaign landing 清單不在報表另抄一份，直接 import 首頁使用的
 
 `share` 已由 `ShareRow.astro` 埋點。首頁 campaign 三個入口透過 `Base.astro` 的共用事件委派送
 `campaign_click`，頁面只放 `data-growth-campaign`，不各自複製追蹤程式。
-`calendar_add` 同樣已預留共用 selector `data-calendar-add`，但站上目前沒有加入行事曆 UI；因此報表會把
-它標成「已預留、站上尚無入口」，不能把 0 解讀成使用者不要這個功能。
+`intent_click` 由首頁固定的今日宜忌、情境求籤、附近宮廟三個入口送出；報表使用 GA4 內建
+`linkUrl` 維度分辨目的頁，不依賴未註冊的 custom dimension。`calendar_add` 同樣由共用 selector
+`data-calendar-add` 送出，目前節日頁已有 Google Calendar 與 ICS 入口。
 
 真正的「本次 campaign 訪客是否在七日內回來」無法由匿名的 GA4 aggregate `runReport` 串成
 user-level cohort。報表只列當期 New／Returning 分類，並明確把七日 campaign cohort 標為不可得；

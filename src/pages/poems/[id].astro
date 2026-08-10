@@ -63,6 +63,7 @@ const leadAnswer =
   `${sysName}第 ${d.no} 籤${labelGloss}` +
   `${d.fortune ? `，吉凶為${d.fortune}` : ''}` +
   `${firstAllusionName ? `，卦頭典故出自「${firstAllusionName}」` : ''}。`;
+const shelfTitle = `${sysName}第 ${d.no} 籤${labelGloss}`;
 
 // FAQPage（AEO，P1-4）：八項分項解即天然問答，逐項對映；空項略過。問題含系統＋第N籤＋label，利精準命中
 const qlabel = `${sysName}第 ${d.no} 籤${labelGloss}`;
@@ -111,6 +112,10 @@ if (faq) ld.push(faq);
       </div>
       {/* answer-first 一行摘要（P1-5）：可被引用為直接答案，仍保克制（小、次於四句主角） */}
       <p class="lead muted">{leadAnswer}</p>
+      <div class="save-poem" data-poem-save data-id={poem.id} data-title={shelfTitle} data-system={sysName} data-href={`/poems/${poem.id}/`}>
+        <button type="button" aria-pressed="false">收藏這首</button>
+        <span class="muted small" aria-live="polite">收藏只存在這台裝置。</span>
+      </div>
     </header>
     {/* 與 og:image 共用同一張本籤專屬卡；卡面文字由本籤資料產生，不混用其他人物或事件。 */}
     <LeadVisual src={`/og/poems/${poem.id}.png`} alt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`} />
@@ -252,6 +257,10 @@ if (faq) ld.push(faq);
     .ph h1 { margin: 0.25rem 0 0.75rem; }
     .ph .meta { margin-bottom: 0.625rem; }
     .ph .lead { font-size: var(--text-sm); margin: 0.25rem 0 0; }
+    .save-poem { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin-top: 0.875rem; }
+    .save-poem button { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper-2); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.4375rem 1rem; }
+    .save-poem button:hover { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+    .save-poem button[aria-pressed="true"] { color: var(--paper); background: var(--accent); border-color: var(--accent); }
     .lines-block { margin: 2.25rem 0 2.75rem; display: flex; justify-content: center; }
     /* 四句直書（直排・右起），§0.5 四句直書
        🔴 flex-direction 一定要是 column，不可省略（2026-08-08 修）：
@@ -298,4 +307,33 @@ if (faq) ld.push(faq);
     .poem-nav .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
     .footer-src { margin-top: 2.5rem; }
   </style>
+  <script>
+    import { emitPoemEvent, isPoemSaved, rememberPoem, toggleSavedPoem } from '../../lib/poem-shelf';
+
+    const root = document.querySelector<HTMLElement>('[data-poem-save]');
+    if (root) {
+      const item = {
+        id: root.dataset.id!,
+        title: root.dataset.title!,
+        system: root.dataset.system!,
+        href: root.dataset.href!,
+      };
+      const button = root.querySelector<HTMLButtonElement>('button')!;
+      const status = root.querySelector<HTMLElement>('span')!;
+      const wasSaved = isPoemSaved(item.id);
+      const paint = (saved: boolean) => {
+        button.setAttribute('aria-pressed', String(saved));
+        button.textContent = saved ? '已收藏 · 取消收藏' : '收藏這首';
+        status.textContent = saved ? '下次可從「我的籤詩」找回來。' : '收藏只存在這台裝置。';
+      };
+      rememberPoem(item);
+      if (wasSaved) emitPoemEvent('revisit_saved_poem', item.id, 'poem_detail');
+      paint(wasSaved);
+      button.addEventListener('click', () => {
+        const saved = toggleSavedPoem(item);
+        emitPoemEvent(saved ? 'save_poem' : 'unsave_poem', item.id, 'poem_detail');
+        paint(saved);
+      });
+    }
+  </script>
 </Base>

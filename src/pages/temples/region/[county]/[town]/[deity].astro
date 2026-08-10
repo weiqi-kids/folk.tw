@@ -1,0 +1,123 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../../../layouts/Base.astro';
+import { getDeities, getTemples } from '../../../../../lib/queries';
+import { breadcrumb } from '../../../../../lib/seo';
+import { countyName, templeCounty, templeTownship } from '../../../../../lib/temple-region';
+import { festivalDateLabel, sortFestivals } from '../../../../../lib/temple-festival.ts';
+import { TEMPLE_DEMAND_PAGES, templeDemandHref } from '../../../../../lib/temple-demand-pages';
+
+// 只有 temple-demand-pages.ts 的實證白名單會產頁；禁止以全地區 × 全神明批量展開。
+// 白名單本身由 check:temple-demand 回讀 GSC 快照、宮廟數與精確主祀對映硬驗。
+export const getStaticPaths = (async () => {
+  const [temples, deities] = await Promise.all([getTemples(), getDeities()]);
+  const deityById = new Map(deities.map((d) => [d.id, d]));
+
+  return TEMPLE_DEMAND_PAGES.map((demand) => {
+    const deity = deityById.get(demand.deity);
+    if (!deity) throw new Error(`地區×神明頁查無 deity：${demand.deity}`);
+    const matches = temples.filter((t) =>
+      templeCounty(t.data.district)?.slug === demand.county &&
+      templeTownship(t.data.district)?.name === demand.town &&
+      t.data.main_deity_ref === demand.deity
+    );
+    return {
+      params: { county: demand.county, town: demand.town, deity: demand.deity },
+      props: { demand, deity, temples: matches },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { demand, deity, temples } = Astro.props;
+const cName = countyName(demand.county) ?? demand.county;
+const deityName = deity.data.name;
+const href = templeDemandHref(demand);
+const withCoordinates = temples.filter((t) => typeof t.data.lat === 'number' && typeof t.data.lng === 'number');
+const registeredFestivals = temples
+  .flatMap((t) => sortFestivals(t.data.festivals ?? []).map((festival) => ({ temple: t, festival })))
+  .filter(({ festival }) => festivalDateLabel(festival));
+// H1/title 直接使用已通過門檻的 GSC 查詢字面；不把行政區後綴硬插回使用者的搜尋詞。
+const title = `${demand.query}：主祀${deityName}的 ${temples.length} 間宮廟`;
+const description = `整理${cName}${demand.town}主祀${deityName}的 ${temples.length} 間宮廟，含地址${withCoordinates.length ? '、地圖' : ''}${registeredFestivals.length ? '與登記祭典' : ''}；資料來自既有宮廟登記資料。`;
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={breadcrumb([
+    { name: '廟宇', path: '/temples/' },
+    { name: cName, path: `/temples/region/${demand.county}/` },
+    { name: demand.town, path: `/temples/region/${demand.county}/${demand.town}/` },
+    { name: deityName, path: href },
+  ])}
+>
+  <nav class="crumb">
+    <a href="/temples/">廟宇</a> ／
+    <a href={`/temples/region/${demand.county}/`}>{cName}</a> ／
+    <a href={`/temples/region/${demand.county}/${demand.town}/`}>{demand.town}</a> ／ {deityName}
+  </nav>
+  <h1>{demand.query}</h1>
+  <p class="lead">
+    本站目前收錄 {cName}{demand.town} <strong>{temples.length} 間</strong>主祀
+    <a href={`/deities/${deity.id}/`}>{deityName}</a>的宮廟。以下依宮廟資料的
+    主祀欄位精確對映整理，不把陪祀或名稱相近者算入。
+  </p>
+
+  <section>
+    <h2>主祀{deityName}的宮廟名單</h2>
+    <ol class="temple-list">
+      {temples.map((t) => (
+        <li>
+          <div>
+            <a class="temple-name" href={`/temples/${t.id}/`}>{t.data.name}</a>
+            {t.data.district && <span class="address">{t.data.district}</span>}
+          </div>
+          {typeof t.data.lat === 'number' && typeof t.data.lng === 'number' && (
+            <a
+              class="map-link"
+              href={`https://www.openstreetmap.org/?mlat=${t.data.lat}&mlon=${t.data.lng}#map=17/${t.data.lat}/${t.data.lng}/`}
+              target="_blank"
+              rel="noopener"
+            >地圖 ↗</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  {registeredFestivals.length > 0 && (
+    <section class="festivals">
+      <h2>這些宮廟的登記祭典</h2>
+      <p class="muted small">
+        下列內容只表示宮廟資料中有這筆登記祭典，不代表本站確認當年度實際舉辦情形。
+      </p>
+      <ul>
+        {registeredFestivals.map(({ temple, festival }) => (
+          <li>
+            <a href={`/temples/${temple.id}/`}>{temple.data.name}</a>：
+            {festival.name}（{festivalDateLabel(festival)}）
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <p class="back-link"><a href={`/temples/region/${demand.county}/${demand.town}/`}>查看{demand.town}全部宮廟 →</a></p>
+  <p class="src small">宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。</p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .lead { line-height: 1.8; margin-bottom: 1.75rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+    .temple-list { list-style-position: outside; padding-left: 1.5rem; display: grid; gap: 0.625rem; }
+    .temple-list li { padding: 0.75rem 0.875rem; border: 1px solid var(--line); border-radius: 0.75rem; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .temple-name { display: block; font-weight: 700; }
+    .address { display: block; color: var(--ink-soft); font-size: var(--text-sm); margin-top: 0.25rem; }
+    .map-link { flex: 0 0 auto; font-size: var(--text-sm); }
+    .festivals { margin-top: 2rem; }
+    .small { font-size: var(--text-sm); }
+    .back-link { margin-top: 2rem; }
+    .src { color: var(--gold); }
+    @media (max-width: 36rem) { .temple-list li { align-items: flex-start; flex-direction: column; gap: 0.375rem; } }
+  </style>
+</Base>

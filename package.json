@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-doc-numbers.mjs && node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && node --experimental-strip-types scripts/check-seasonal-campaigns.mjs && astro build",
+    "build": "node scripts/check-doc-numbers.mjs && node scripts/check-design.mjs && node scripts/check-content.mjs && node scripts/check-outbound-urls.mjs && node --experimental-strip-types scripts/check-seasonal-campaigns.mjs && node --experimental-strip-types scripts/check-temple-demand-pages.mjs && node scripts/check-temple-ctr-cohorts.mjs && node scripts/check-growth-actions.mjs && node scripts/check-poem-shelf.mjs && node scripts/check-search-demand.mjs && astro build",
     "postbuild": "pagefind --site dist && node scripts/gen-indexnow-urls.mjs && node --experimental-strip-types scripts/gen-og-temples.mjs && node --experimental-strip-types scripts/gen-og-content.mjs && node --experimental-strip-types scripts/gen-og-festivals.mjs",
     "og:temples": "node --experimental-strip-types scripts/gen-og-temples.mjs",
     "og:content": "node --experimental-strip-types scripts/gen-og-content.mjs",
@@ -30,7 +30,10 @@
     "data:seo-daily": "node scripts/seo-daily.mjs",
     "data:qiugian": "node scripts/qiugian-aggregate.mjs",
     "data:weekly": "node scripts/seo-weekly.mjs --dry",
+    "seo:temple-ctr": "node --experimental-strip-types scripts/temple-ctr-cohorts.mjs",
+    "check:temple-ctr": "node scripts/check-temple-ctr-cohorts.mjs",
     "growth:48h": "node --experimental-strip-types scripts/growth-48h.mjs",
+    "growth:search-demand": "node scripts/search-demand.mjs",
     "index:ping": "node scripts/index-ping.mjs",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "notify": "node scripts/notify.mjs",
@@ -39,7 +42,11 @@
     "check:anchor-text": "node scripts/check-anchor-text.mjs",
     "check:doc-numbers": "node scripts/check-doc-numbers.mjs",
     "check:festival-calendar": "node --experimental-strip-types scripts/check-festival-calendar.mjs",
-    "check:seasonal": "node --experimental-strip-types scripts/check-seasonal-campaigns.mjs"
+    "check:growth-actions": "node scripts/check-growth-actions.mjs",
+    "check:poem-shelf": "node scripts/check-poem-shelf.mjs",
+    "check:search-demand": "node scripts/check-search-demand.mjs",
+    "check:seasonal": "node --experimental-strip-types scripts/check-seasonal-campaigns.mjs",
+    "check:temple-demand": "node --experimental-strip-types scripts/check-temple-demand-pages.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

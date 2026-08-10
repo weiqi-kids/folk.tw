@@ -5,6 +5,7 @@ import { getTemples, getDeities } from '../../../../lib/queries';
 import { breadcrumb } from '../../../../lib/seo';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../../lib/temple-region';
 import { num } from '../../../../lib/format';
+import { templeDemandHrefFor } from '../../../../lib/temple-demand-pages';
 
 // 縣市二級：各鄉鎮市區一頁，化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）。
 //
@@ -105,7 +106,9 @@ const lead = [
         <ul class="stats">
           {deityStats.slice(0, 12).map((d) => (
             <li>
-              {d.ref ? <a href={`/deities/${d.ref}/`}>{d.name}</a> : <span>{d.name}</span>}
+              {d.ref ? (
+                <a href={templeDemandHrefFor(slug, town, d.ref) ?? `/deities/${d.ref}/`}>{d.name}</a>
+              ) : <span>{d.name}</span>}
               <b>{d.count}</b>
             </li>
           ))}

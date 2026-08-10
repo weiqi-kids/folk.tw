@@ -302,7 +302,8 @@ const groupActive = (sections: NavSection[]) =>
           gtag('js', new Date());
           gtag('config', GA4_ID, { anonymize_ip: true });
           // Growth 行動事件的共用委派：頁面只標 data attribute，不各自複製 gtag glue。
-          // campaign_id 從目的頁 slug 取，沒有個資；calendar_add 記錄 Google／ICS 行事曆入口。
+          // campaign_id 從目的頁 slug 取，沒有個資；intent_click 只記固定站內入口代號；
+          // calendar_add 記錄 Google／ICS 行事曆入口。
           document.addEventListener('click', function (event) {
             var target = event.target && event.target.closest ? event.target : null;
             if (!target) return;
@@ -315,6 +316,15 @@ const groupActive = (sections: NavSection[]) =>
                 campaign_placement: campaignLink.dataset.growthPlacement || 'internal',
                 link_url: campaignUrl.href,
                 link_text: (campaignLink.textContent || '').trim().slice(0, 100)
+              });
+            }
+            var intentLink = target.closest('[data-intent-action]');
+            if (intentLink) {
+              var intentUrl = new URL(intentLink.href, location.href);
+              gtag('event', 'intent_click', {
+                intent_id: intentLink.dataset.intentAction || 'unknown',
+                intent_placement: intentLink.dataset.intentPlacement || 'internal',
+                link_url: intentUrl.href
               });
             }
             var calendarLink = target.closest('[data-calendar-add]');
