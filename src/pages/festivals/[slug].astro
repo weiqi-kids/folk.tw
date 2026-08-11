@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import ShareRow from '../../components/ShareRow.astro';
 import LineCta from '../../components/LineCta.astro';
 import PuduChecklist from '../../components/PuduChecklist.astro';
+import SeptemberHolidayStrip from '../../components/SeptemberHolidayStrip.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
 import { festivalNextSolar, lunarDateLabel, solarMd } from '../../lib/lunar-date';
@@ -14,6 +15,7 @@ import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
 import { num } from '../../lib/format';
 import { excerptAtBoundary } from '../../lib/text';
+import { festivalOgPath } from '../../lib/festival-og';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
 import localCelebrations from '../../data/local-celebrations.json';
@@ -125,11 +127,16 @@ const lunarLabel = dateLabel;
 const multiDay = f.multi_day === true;
 const nominalLunarLabel = f.lunar_date ? lunarDateLabel(f.lunar_date) : '';
 const shiftedFromShortMonth = Boolean(nominalLunarLabel && nominalLunarLabel !== lunarLabel);
+const fixedSolar = Boolean((f as { solar_date?: string }).solar_date);
 // answer-first 第一句：直接回答「今年是哪一天」——這是這類查詢唯一想要的答案。
 const dateSentence = multiDay
-  ? `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
+  ? fixedSolar
+    ? `${f.name}在 ${year} 年自國曆 ${solarMd(iso)} 起。`
+    : `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
   : shiftedFromShortMonth
     ? `${f.name}傳統日期為${nominalLunarLabel}；${year} 年該農曆月只有廿九日，因此落在${lunarLabel}，國曆 ${solarMd(iso)}。`
+    : fixedSolar
+      ? `${f.name}固定在國曆 ${solarMd(iso)}。`
     : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
 const defaultPageTitle = multiDay
   ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
@@ -212,6 +219,14 @@ const ceremonyStages = linkedEvents
 // 逐句掛源的補充事實（2026-08-09 加）。給「有權威源可寫、但不屬於任何既有欄位」的內容用，
 // 目前只有清明（節氣的天文定義）。🔴 一句一源，不合併、不外推——寫不出源的句子就不要寫。
 const facts = (f as { facts?: { text: string; sources: { type: string; ref: string; note?: string }[] }[] }).facts ?? [];
+const checklist = (f as {
+  checklist?: {
+    title: string;
+    tool_id: string;
+    source_note: string;
+    groups: { id: string; title: string; items: string[] }[];
+  };
+}).checklist;
 
 // 來源：節日自身來源 ＋ 所連 practice/event 的來源（去重）
 const allSources = [
@@ -271,7 +286,7 @@ const defaultPageDesc = covers.length
   ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${excerptAtBoundary(f.lead, 40)}`
   : `${dateSentence}${excerptAtBoundary(f.lead, 90)}`;
 
-// 2026-08-09 起的農曆七月搜尋戰役：只重組本頁已掛源、也確實渲染的資料，
+// 2026-08-09 起的節慶搜尋戰役：只重組本頁已掛源、也確實渲染的資料，
 // 把「日期＋這頁真正回答的問題」放進 title/description。其他節日仍走通用模板。
 // ⚠️ 不在這裡補新事實；下列字詞均來自 festivals.json 的 lead/question 或已渲染區塊。
 const campaignSeo: Record<string, { title: string; description: string }> = {
@@ -303,14 +318,26 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
     title: `${year} 地藏王菩薩聖誕是 ${solarMd(iso)}｜短月日期與鬼門關`,
     description: `${f.name}傳統日期為${nominalLunarLabel}；${year} 農曆七月只有廿九日，因此落在國曆 ${solarMd(iso)}（${lunarLabel}）。本頁整理地藏信仰與鬼門關的現有掛源資料。`,
   },
+  zhongqiu: {
+    title: `${year} 中秋節是 ${solarMd(iso)}｜拜月娘、土地公供品與四天連假`,
+    description: `${year} 中秋節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理拜月娘、秋報祭土地公、供品清單，並說明與 9/28 教師節相連的四天連假。`,
+  },
+  'kongzi-birthday': {
+    title: `${year} 教師節是 9/28｜孔子誕辰與祭孔釋奠典禮`,
+    description: `${year} 孔子誕辰紀念日／教師節為 9/28。本頁說明祭孔釋奠、初獻亞獻終獻、六佾舞，以及國曆紀念日與農曆聖誕表的差別。`,
+  },
+  'september-solar-terms': {
+    title: `${year} 白露與秋分日期｜9/7、9/23 節氣與農漁產`,
+    description: `${year} 白露為 9/7、秋分為 9/23。整理露水、晝夜均分、稻作、柚子與秋季漁產等農業部掛源資料。`,
+  },
+  'kinmen-bo-bing': {
+    title: `${year} 金門博狀元餅｜六顆骰子規則與活動日期`,
+    description: `${year} 金門中秋博狀元餅官方檔期列為 9/1–9/25。整理六顆骰子、一秀至狀元的科名彩號、紅四判定與洪旭起源傳說。`,
+  },
 };
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
-const festivalOgSlugs = new Set([
-  'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
-  'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
-]);
-const festivalOgImage = festivalOgSlugs.has(f.slug) ? `/og/festivals/${f.slug}.png` : undefined;
+const festivalOgImage = festivalOgPath(f.slug);
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
 const addToGoogleCalendar = googleCalendarUrl(f, iso, lunarLabel);
 const festivalIcsUrl = `/festivals/${f.slug}.ics`;
@@ -369,6 +396,9 @@ const jsonLd = [
 
   <p class="lead">{dateSentence}{f.lead}</p>
   <ShareRow title={pageTitle} url={canonicalUrl} />
+  {year === '2026' && (f.slug === 'zhongqiu' || f.slug === 'kongzi-birthday') && (
+    <SeptemberHolidayStrip current={f.slug} />
+  )}
   <section class="calendar-reminder" aria-labelledby="calendar-reminder-title">
     <div>
       <h2 id="calendar-reminder-title">提醒我</h2>
@@ -383,6 +413,15 @@ const jsonLd = [
   </section>
   {f.slug === 'zhongyuan' && (offerings.length > 0 || jossPaper.length > 0) && (
     <PuduChecklist offerings={offerings} jossPaper={jossPaper} shareUrl={canonicalUrl} />
+  )}
+  {checklist && (
+    <PuduChecklist
+      groups={checklist.groups}
+      shareUrl={canonicalUrl}
+      title={checklist.title}
+      toolId={checklist.tool_id}
+      sourceNote={checklist.source_note}
+    />
   )}
   <LineCta
     placement={`festival_${f.slug}`}
@@ -491,7 +530,7 @@ const jsonLd = [
   {
     facts.length > 0 && (
       <section class="facts">
-        <h2>關於{f.name}的日期</h2>
+        <h2>關於{f.name}</h2>
         <ul>
           {facts.map((x) => (
             <li>

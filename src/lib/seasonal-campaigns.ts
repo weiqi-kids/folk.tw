@@ -1,4 +1,4 @@
-// 農曆七月站內戰役的唯一資料源。
+// 首頁節慶檔期與站內相關頁 CTA 的唯一資料源。
 // 首頁主卡與相關內容頁 CTA 都從這裡讀取，日期、文案、目標頁不在各模板另抄一份。
 export type SeasonalCampaign = {
   festivalSlug: string;
@@ -55,6 +55,38 @@ export const seasonalCampaigns: SeasonalCampaign[] = [
     eyebrow: '農曆七月・月底重點', title: '2026 鬼門關是 9/10',
     prompt: '為什麼和地藏王菩薩聖誕同天？看關龕門、燒掛燈與撤燈篙。',
     dateLabel: '9/10・農曆七月廿九', cta: '查鬼門關與地藏王聖誕 →',
+  },
+  {
+    festivalSlug: 'september-solar-terms',
+    start: '2026-09-11', end: '2026-09-12', target: '2026-09-23', href: '/festivals/september-solar-terms/',
+    image: '/og/festivals/september-solar-terms.png', imageAlt: '白露與秋分日期及農漁產主視覺',
+    eyebrow: '九月節氣・秋意漸深', title: '2026 秋分是 9/23',
+    prompt: '白露與秋分差在哪？看露水、晝夜均分、稻作、柚子與秋季漁產。',
+    dateLabel: '白露 9/7・秋分 9/23', cta: '查九月兩個節氣 →',
+  },
+  {
+    festivalSlug: 'kinmen-bo-bing',
+    start: '2026-09-13', end: '2026-09-14', target: '2026-09-25', href: '/festivals/kinmen-bo-bing/',
+    image: '/og/festivals/kinmen-bo-bing.png', imageAlt: '金門中秋博狀元餅六骰規則主視覺',
+    eyebrow: '金門中秋・地方節俗', title: '六顆骰子怎麼博狀元？',
+    prompt: '一次看懂一秀、二舉、四進、三紅、對堂與狀元的傳統彩名。',
+    dateLabel: '2026 活動檔期 9/1–9/25', cta: '查博餅由來與規則 →',
+  },
+  {
+    festivalSlug: 'zhongqiu',
+    start: '2026-09-15', end: '2026-09-25', target: '2026-09-25', href: '/festivals/zhongqiu/',
+    image: '/og/festivals/zhongqiu.png', imageAlt: '中秋節拜月娘與土地公供品主視覺',
+    eyebrow: '農曆八月・本月重點', title: '2026 中秋節是 9/25',
+    prompt: '拜月娘與拜土地公有何不同？看供品、準備清單與四天連假。',
+    dateLabel: '9/25・農曆八月十五', cta: '查中秋拜拜與供品 →',
+  },
+  {
+    festivalSlug: 'kongzi-birthday',
+    start: '2026-09-26', end: '2026-09-28', target: '2026-09-28', href: '/festivals/kongzi-birthday/',
+    image: '/og/festivals/kongzi-birthday.png', imageAlt: '孔子誕辰教師節與祭孔釋奠主視覺',
+    eyebrow: '教師節・祭孔', title: '9/28 為什麼要祭孔？',
+    prompt: '看釋奠典禮、初獻亞獻終獻與六佾舞，也分清國曆紀念日與農曆聖誕。',
+    dateLabel: '9/28・孔子誕辰紀念日／教師節', cta: '查祭孔釋奠典禮 →',
   },
 ];
 

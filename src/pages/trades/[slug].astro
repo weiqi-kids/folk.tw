@@ -164,6 +164,15 @@ const pageDesc =
     }
   </section>
 
+  {
+    trade.id === 'educators' && (
+      <aside class="festival-link">
+        <strong>9 月 28 日教師節：</strong>
+        <a href="/festivals/kongzi-birthday/">看孔子誕辰紀念日、祭孔釋奠與 2026 四天連假整理</a>
+      </aside>
+    )
+  }
+
   <section>
     <h2>近期吉日（今日起 60 天）</h2>
     {
@@ -221,5 +230,6 @@ const pageDesc =
     .src { color: var(--gold); font-size: var(--text-xs); }
     .small { font-size: var(--text-sm); }
     .footer-src { margin-top: 2.5rem; }
+    .festival-link { margin: 1.25rem 0; padding: 0.8rem 1rem; border-left: 3px solid var(--accent); background: var(--paper-2); }
   </style>
 </Base>

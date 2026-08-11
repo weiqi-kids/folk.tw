@@ -1,35 +1,46 @@
 ---
 interface Props {
-  offerings: string[];
-  jossPaper: string[];
+  offerings?: string[];
+  jossPaper?: string[];
   shareUrl: string;
+  title?: string;
+  toolId?: string;
+  sourceNote?: string;
+  groups?: { id: string; title: string; items: string[] }[];
 }
 
-const { offerings, jossPaper, shareUrl } = Astro.props;
-const groups = [
+const {
+  offerings = [], jossPaper = [], shareUrl,
+  title = '中元普渡準備／採買清單', toolId = 'zhongyuan_pudu_checklist',
+  sourceNote = '清單項目直接取自本頁「供品與金紙」的掛源資料；實際做法請依家中、社區或當地慣例調整。',
+  groups: customGroups,
+} = Astro.props;
+const checklistGroups = (customGroups ?? [
   { id: 'offerings', title: '供品', items: offerings },
   { id: 'joss-paper', title: '金紙', items: jossPaper },
-].filter((group) => group.items.length > 0);
-const total = groups.reduce((sum, group) => sum + group.items.length, 0);
+]).filter((group) => group.items.length > 0);
+const total = checklistGroups.reduce((sum, group) => sum + group.items.length, 0);
+const titleId = `${toolId.replace(/[^a-z0-9_-]/gi, '-')}-title`;
 ---
 
-<section class="pudu-checklist" aria-labelledby="pudu-checklist-title" data-pudu-checklist data-share-url={shareUrl}>
+<section class="pudu-checklist" aria-labelledby={titleId} data-pudu-checklist data-share-url={shareUrl}
+  data-tool-id={toolId} data-checklist-title={title}>
   <div class="checklist-head">
     <div>
       <p class="eyebrow">手機可用工具</p>
-      <h2 id="pudu-checklist-title">中元普渡準備／採買清單</h2>
+      <h2 id={titleId}>{title}</h2>
       <p>勾選進度只儲存在這台裝置；複製或分享時會帶上目前的勾選狀態。</p>
     </div>
     <p class="progress" aria-live="polite"><strong data-checklist-done>0</strong> / {total} 已準備</p>
   </div>
 
   <div class="checklist-groups">
-    {groups.map((group) => (
+    {checklistGroups.map((group) => (
       <fieldset data-checklist-group={group.id}>
         <legend>{group.title}</legend>
         <div class="checklist-items">
           {group.items.map((item, index) => {
-            const inputId = `pudu-${group.id}-${index}`;
+            const inputId = `${toolId}-${group.id}-${index}`;
             return (
               <label for={inputId}>
                 <input id={inputId} type="checkbox" value={item} data-checklist-item />
@@ -48,19 +59,11 @@ const total = groups.reduce((sum, group) => sum + group.items.length, 0);
     <button type="button" class="reset" data-checklist-reset>清除勾選</button>
   </div>
   <p class="feedback muted small" data-checklist-feedback aria-live="polite"></p>
-  <p class="source-note muted small">清單項目直接取自本頁「供品與金紙」的掛源資料；實際做法請依家中、社區或當地慣例調整。
-  </p>
+  <p class="source-note muted small">{sourceNote}</p>
 </section>
 
 <script is:inline>
   (() => {
-    const TOOL_ID = 'zhongyuan_pudu_checklist';
-    const STORAGE_KEY = 'folk:zhongyuan-pudu-checklist:v1';
-    const track = (eventName, params = {}) => {
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', eventName, { checklist_id: TOOL_ID, ...params });
-      }
-    };
     const copyText = async (text) => {
       if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(text);
@@ -78,29 +81,37 @@ const total = groups.reduce((sum, group) => sum + group.items.length, 0);
     };
 
     document.querySelectorAll('[data-pudu-checklist]').forEach((root) => {
+      const toolId = root.dataset.toolId || 'festival_checklist';
+      const checklistTitle = root.dataset.checklistTitle || '節日準備清單';
+      const storageKey = `folk:${toolId}:v1`;
+      const track = (eventName, params = {}) => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, { checklist_id: toolId, ...params });
+        }
+      };
       const inputs = [...root.querySelectorAll('[data-checklist-item]')];
       const feedback = root.querySelector('[data-checklist-feedback]');
       const done = root.querySelector('[data-checklist-done]');
       let saved = [];
-      try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { saved = []; }
+      try { saved = JSON.parse(localStorage.getItem(storageKey) || '[]'); } catch { saved = []; }
       inputs.forEach((input) => { input.checked = saved.includes(input.value); });
 
       const checkedValues = () => inputs.filter((input) => input.checked).map((input) => input.value);
       const update = () => {
         const values = checkedValues();
         done.textContent = String(values.length);
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(values)); } catch { /* 私密模式可能停用儲存 */ }
+        try { localStorage.setItem(storageKey, JSON.stringify(values)); } catch { /* 私密模式可能停用儲存 */ }
       };
       const attributedUrl = (content) => {
         const url = new URL(root.dataset.shareUrl);
         url.searchParams.set('utm_source', 'shared_checklist');
         url.searchParams.set('utm_medium', 'referral');
-        url.searchParams.set('utm_campaign', TOOL_ID);
+        url.searchParams.set('utm_campaign', toolId);
         url.searchParams.set('utm_content', content);
         return url.toString();
       };
       const listText = (content) => {
-        const lines = ['中元普渡準備／採買清單'];
+        const lines = [checklistTitle];
         root.querySelectorAll('[data-checklist-group]').forEach((group) => {
           lines.push('', group.querySelector('legend')?.textContent?.trim() || '');
           group.querySelectorAll('[data-checklist-item]').forEach((input) => {
@@ -134,7 +145,7 @@ const total = groups.reduce((sum, group) => sum + group.items.length, 0);
       });
       root.querySelector('[data-checklist-share]')?.addEventListener('click', async () => {
         const shareData = {
-          title: '中元普渡準備／採買清單',
+          title: checklistTitle,
           text: listText('native_share').replace(/\n\n完整說明：.*$/, ''),
           url: attributedUrl('native_share'),
         };

@@ -62,7 +62,7 @@ const relatedPoems = d.divination_systems.flatMap((s) => poemsBySys.get(s.id) ??
 const relatedPractices = (await practicesByDeity()).get(deity.id) ?? [];
 const relatedEvents = (await eventsByDeity()).get(deity.id) ?? [];
 const relatedTrades = (await tradesByDeity()).get(deity.id) ?? [];
-const relatedFestivals = festivals.filter((f) => f.deity_refs?.includes(deity.id));
+const relatedFestivals = festivals.filter((f) => (f.deity_refs as readonly string[] | undefined)?.includes(deity.id));
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);

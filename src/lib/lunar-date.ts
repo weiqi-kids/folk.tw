@@ -126,11 +126,12 @@ export function solarMdToNext(mmdd: string, fromIso: string): string | null {
  * 農曆日期每年不同），故不能用 lunarToNextSolar 表達。節氣表由 lunar-javascript 提供（與農民曆同源）。
  */
 /**
- * 節日 → 下一次國曆日期＋要顯示的日期標籤。統一 lunar_date（農曆月日）與 solar_term（節氣）兩種節日。
+ * 節日 → 下一次國曆日期＋要顯示的日期標籤。統一 lunar_date（農曆月日）、
+ * solar_date（固定國曆月日）與 solar_term（節氣）三種節日。
  * 頁面與 gate 都走這支，避免各自判斷「這個節日是農曆還是節氣」。
  */
 export function festivalNextSolar(
-  f: { lunar_date?: string; solar_term?: string },
+  f: { lunar_date?: string; solar_date?: string; solar_term?: string },
   fromIso: string,
 ): { iso: string | null; label: string } {
   if (f.solar_term) {
@@ -141,6 +142,9 @@ export function festivalNextSolar(
     return occurrence
       ? { iso: occurrence.iso, label: occurrence.label }
       : { iso: null, label: lunarDateLabel(f.lunar_date) };
+  }
+  if (f.solar_date) {
+    return { iso: solarMdToNext(f.solar_date, fromIso), label: `國曆${Number(f.solar_date.slice(0, 2))}月${Number(f.solar_date.slice(3))}日` };
   }
   return { iso: null, label: '' };
 }

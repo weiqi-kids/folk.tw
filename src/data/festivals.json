@@ -618,6 +618,308 @@
     "multi_day": false
   },
   {
+    "slug": "september-solar-terms",
+    "name": "九月節氣・白露與秋分",
+    "aliases": [
+      "白露",
+      "秋分",
+      "九月節氣"
+    ],
+    "season": "九月節氣",
+    "solar_term": "白露",
+    "question": "2026 白露、秋分是哪一天？兩個節氣有什麼差別？",
+    "lead": "2026 年白露在 9 月 7 日，秋分在 9 月 23 日。白露標誌夜間與清晨的水氣更容易凝結成露，農作進入二期稻孕穗、早植稻抽穗等階段；秋分則是太陽到達秋分點、晝夜接近等長的時刻，秋季也走到一半。這兩個節氣在台灣都和農漁產期、氣溫轉涼及中秋前後的生活節奏相連。",
+    "practice_refs": [],
+    "event_refs": [],
+    "deity_refs": [],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "date_note": "本頁以白露作為行事曆起點；2026 年秋分為 9 月 23 日。",
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics",
+        "note": "農業部食農教育資訊整合平臺〈節氣時光 白露│秋分〉：兩節氣日期範圍、節氣意義、農漁產與農諺"
+      }
+    ],
+    "multi_day": true,
+    "facts": [
+      {
+        "text": "白露約在每年 9 月 7 至 9 日。名稱來自秋天屬金、色白，以及夜晚和清晨水氣凝成露珠的季節現象。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "農業部食農教育資訊整合平臺〈節氣時光 白露│秋分〉 https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics",
+            "note": "白露日期範圍、露水形成與名稱由來"
+          }
+        ]
+      },
+      {
+        "text": "秋分約在每年 9 月 23 或 24 日；此時太陽到達秋分點，南北半球晝夜接近等長，也表示秋季走到一半。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "農業部食農教育資訊整合平臺〈節氣時光 白露│秋分〉 https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics",
+            "note": "秋分日期範圍、晝夜均分與名稱意義"
+          }
+        ]
+      },
+      {
+        "text": "白露前後正逢柚子產期；秋分後台灣海峽可見鰆魚洄游，東北部海域也有小卷、旗魚等漁產。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "農業部食農教育資訊整合平臺〈節氣時光 白露│秋分〉 https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics",
+            "note": "白露柚子產期，以及秋分後鰆魚、小卷、旗魚等漁產資料"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "zhongqiu",
+    "name": "中秋節",
+    "aliases": [
+      "八月半",
+      "月夕",
+      "團圓節"
+    ],
+    "season": "農曆八月",
+    "lunar_date": "08-15",
+    "question": "2026 中秋節是哪一天？拜月娘、土地公要準備什麼？",
+    "lead": "2026 年中秋節是 9 月 25 日。台灣早期在中秋夜拜月娘，以月餅、柚子等供品祭月；同一天也是秋收後祭謝土地公的「秋報」，民家可到福德祠或在家敬奉。兩種祭拜的對象與脈絡不同，不必把所有供品混成一桌，實際做法仍依家中、社區及地方慣例調整。",
+    "practice_refs": [],
+    "event_refs": [],
+    "deity_refs": [
+      "taiyin",
+      "tudigong",
+      "zushen"
+    ],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+        "note": "行政院國情簡介〈傳統節慶〉：八月半、拜月娘、月餅柚子、祭當境土神與春祈秋報"
+      },
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?Ca=300&ID=1443",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜土地公祭品〉：八月十五祭土地公、供品與地區金紙差異"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.dgpa.gov.tw/information?pid=12574&uid=41",
+        "note": "行政院人事行政總處：2026 中秋節 9/25 與孔子誕辰紀念日／教師節 9/28 形成四日連假"
+      }
+    ],
+    "multi_day": false,
+    "checklist": {
+      "title": "中秋拜拜準備清單",
+      "tool_id": "zhongqiu_worship_checklist",
+      "source_note": "月娘與土地公是不同祭拜對象；清單依官方民俗資料整理，請按家中與地方慣例選用，不代表每項都必須準備。",
+      "groups": [
+        {
+          "id": "moon",
+          "title": "拜月娘常見供品",
+          "items": [
+            "月餅",
+            "柚子",
+            "其他圓形果品"
+          ]
+        },
+        {
+          "id": "tudigong",
+          "title": "拜土地公常見供品",
+          "items": [
+            "三牲",
+            "水果",
+            "餅乾",
+            "月餅與柚子",
+            "壽桃或壽麵（祝壽者）"
+          ]
+        }
+      ]
+    },
+    "facts": [
+      {
+        "text": "中秋是農曆八月十五，又稱八月半、月夕；月圓被用來象徵團圓，因此形成團圓節的節日意義。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "行政院國情簡介〈傳統節慶〉 https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+            "note": "中秋名稱、八月半、月夕與團圓節意義"
+          }
+        ]
+      },
+      {
+        "text": "台灣早期中秋夜會拜月娘，常見供品為月餅與柚子；月餅切開分食，因而也稱團圓餅。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "行政院國情簡介〈傳統節慶〉 https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+            "note": "拜月娘、月餅柚子與團圓餅"
+          }
+        ]
+      },
+      {
+        "text": "八月十五也是秋收後祭謝土地公的日子。民家可備三牲、水果、餅乾等到福德祠上香或在家敬奉，中秋供品常再加入月餅與柚子。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜土地公祭品〉 https://dict.th.gov.tw/detailPage.aspx?Ca=300&ID=1443",
+            "note": "中秋祭土地公的意義、場所與供品"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "kinmen-bo-bing",
+    "name": "金門中秋博狀元餅",
+    "aliases": [
+      "博餅",
+      "博中秋",
+      "博狀元"
+    ],
+    "season": "農曆八月",
+    "lunar_date": "08-15",
+    "question": "金門博狀元餅怎麼玩？六顆骰子的科名如何判定？",
+    "lead": "博狀元餅是金門中秋期間以六顆骰子和大碗公進行的民俗遊戲，彩名借用科舉等第，包括一秀、二舉、四進、三紅、對堂與狀元。規則在不同活動與時代可能調整，本頁列傳統常見版本；每年個別場次與報名方式仍應以金門縣官方公告為準。",
+    "practice_refs": [],
+    "event_refs": [],
+    "deity_refs": [],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "date_note": "博餅是中秋期間的活動，實際檔期與各鄉鎮場次逐年公告；2026 官方活動檔期列為 9/1–9/25。",
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://jincheng.kinmen.gov.tw/cp.aspx?n=FD044C5ABAF5B6E6",
+        "note": "金門縣金城鎮公所〈中秋博狀元餅鄉鎮賽〉：六骰、大碗公、彩名、傳說與習俗復興"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.kmdn.gov.tw/1117/1271/1274/298066",
+        "note": "金門日報〈六子齊投任變翻〉：傳統博餅工具、六類科名彩頭及點數規則"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.tad.gov.tw/m1.aspx?sNo=0001020",
+        "note": "交通部觀光署傳統節慶頁：2026 金門中秋博狀元餅活動檔期 9/1–9/25"
+      }
+    ],
+    "multi_day": false,
+    "facts": [
+      {
+        "text": "博餅以六顆骰子投入大碗公，不同點數排列對應科舉彩名：一秀、二舉、四進、三紅、對堂與狀元。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金門縣金城鎮公所〈中秋博狀元餅鄉鎮賽〉 https://jincheng.kinmen.gov.tw/cp.aspx?n=FD044C5ABAF5B6E6",
+            "note": "六骰大碗公與科舉彩名規則"
+          }
+        ]
+      },
+      {
+        "text": "常見規則以紅色四點為核心：一粒紅四為一秀、兩粒為二舉、三粒為三紅；四粒同點但不是四粒紅四，稱為四進。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金門日報〈六子齊投任變翻〉 https://www.kmdn.gov.tw/1117/1271/1274/298066",
+            "note": "一秀、二舉、三紅與四進的傳統點數判定"
+          }
+        ]
+      },
+      {
+        "text": "洪旭為安定軍心、排遣官兵中秋思鄉而設計博餅，是金門流傳最廣的起源說法；官方資料同時提醒，遊戲規則後來已有多種變化。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金門縣金城鎮公所〈中秋博狀元餅鄉鎮賽〉 https://jincheng.kinmen.gov.tw/cp.aspx?n=FD044C5ABAF5B6E6",
+            "note": "洪旭傳說與規則隨時代變化"
+          }
+        ]
+      },
+      {
+        "text": "交通部觀光署目前將 2026 金門中秋博狀元餅活動列為 9 月 1 日至 9 月 25 日；個別場次仍以金門縣官方公告為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "交通部觀光署〈傳統節慶〉 https://www.tad.gov.tw/m1.aspx?sNo=0001020",
+            "note": "2026 金門中秋博狀元餅活動檔期 9/1–9/25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "kongzi-birthday",
+    "name": "孔子誕辰紀念日・教師節",
+    "aliases": [
+      "教師節",
+      "祭孔",
+      "釋奠典禮"
+    ],
+    "season": "國曆九月",
+    "solar_date": "09-28",
+    "question": "2026 教師節是哪一天？祭孔釋奠典禮在做什麼？",
+    "lead": "孔子誕辰紀念日與教師節固定在國曆 9 月 28 日。台灣各地孔廟在這天舉行祭孔，正式名稱為「大成至聖先師釋奠典禮」；臺南孔廟的秋祭包含迎神、初獻、亞獻、終獻、送神等程序，並保存禮樂、祭器與六佾舞。這個國曆紀念日和民間聖誕表所載的農曆八月廿七是兩套日期，不能混為同一天。",
+    "practice_refs": [],
+    "event_refs": [],
+    "deity_refs": [
+      "kongzi"
+    ],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=108",
+        "note": "內政部臺灣宗教文化地圖〈大成至聖先師釋奠典禮〉：1952 年定於陽曆 9/28、名稱、流程與臺南孔廟六佾舞"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.dgpa.gov.tw/information?pid=12574&uid=41",
+        "note": "行政院人事行政總處：2026 孔子誕辰紀念日／教師節與中秋節形成四日連假"
+      }
+    ],
+    "multi_day": false,
+    "facts": [
+      {
+        "text": "政府在 1952 年宣布祭孔釋奠典禮於陽曆 9 月 28 日孔子誕辰紀念日舉行，並定名為「大成至聖先師釋奠典禮」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部臺灣宗教文化地圖〈大成至聖先師釋奠典禮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=108",
+            "note": "1952 年定日與正式名稱"
+          }
+        ]
+      },
+      {
+        "text": "「釋奠」是祭祀過往聖哲師尊的祭典；祭孔典禮由迎神開始，依序行初獻、亞獻、終獻，最後送神並燎祝帛。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部臺灣宗教文化地圖〈大成至聖先師釋奠典禮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=108",
+            "note": "釋奠意義與臺南孔廟祭典流程"
+          }
+        ]
+      },
+      {
+        "text": "臺南孔廟屬地方孔廟的中祀編制，祭孔時使用十籩豆、三酒尊並跳六佾舞；不同城市的參禮方式與儀程應以各孔廟當年公告為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部臺灣宗教文化地圖〈大成至聖先師釋奠典禮〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=108",
+            "note": "臺南孔廟祭孔規格與六佾舞"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "baitiangong",
     "name": "拜天公",
     "aliases": [

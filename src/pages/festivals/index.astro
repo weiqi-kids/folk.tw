@@ -10,6 +10,7 @@ import festivals from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
 
 const { iso: today } = todayInTaipei();
+const currentYear = today.slice(0, 4);
 // 地方宗教慶典（縣市層級登錄）的入口。數量與縣市數一律由資料算，不寫死。
 const localCounties = new Set(localCelebrations.items.map((x) => x.county)).size;
 
@@ -53,20 +54,27 @@ const faq = faqPage([
       .map((i) => `${i.name}（${i.lunarLabel}，國曆 ${solarMd(i.iso)}）`)
       .join('；'),
   },
+  {
+    q: `${currentYear} 年九月有哪些民俗節日？`,
+    a: items
+      .filter((i) => i.iso.startsWith(`${currentYear}-09`))
+      .map((i) => `${i.name}（國曆 ${solarMd(i.iso)}）`)
+      .join('；'),
+  },
 ]);
 
 const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? [faq] : [])];
 ---
 
 <Base
-  title="民俗節日曆—農曆節日的國曆日期與拜法"
-  description="中元節、七夕七娘媽生、鬼門開、放水燈、雞籠中元祭——農曆節日換算成今年的國曆日期，附各節日的祭拜順序、供品與金紙，資料逐條掛來源。"
+  title="民俗節日曆—農曆節日、節氣與祭典日期"
+  description="中元節、中秋節、教師節祭孔、白露秋分與金門博餅——換算今年國曆日期，整理祭拜、供品、儀式與地方節俗，資料逐條掛來源。"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
 >
   <h1>民俗節日曆</h1>
   <p class="lead">
-    農曆節日每年的國曆日期都不一樣。本頁把站內節日換算成今年的下一次國曆日期並即時倒數，
+    農曆節日每年的國曆日期都不一樣，固定國曆紀念日與節氣又有各自的算法。本頁統一換算成下一次國曆日期並即時倒數，
     各節日內頁列出祭拜順序、供品與金紙，內容衍生自逐條掛來源的<a href="/practices/">拜拜習俗</a>與<a
       href="/events/">民俗活動</a
     >。

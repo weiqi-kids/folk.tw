@@ -119,15 +119,18 @@ for (const id of Object.keys(yijiTerms)) {
     // slug 是永久承諾（發佈後不可改、不可 404），重複即為錯誤
     if (seenSlugs.has(f.slug)) hard(`festival: slug「${f.slug}」重複`);
     seenSlugs.add(f.slug);
-    // 節日的日期來源恰須二選一：農曆月日（lunar_date）或節氣（solar_term，如清明——它不是農曆固定日）。
+    // 節日的日期來源恰須三選一：農曆月日、節氣，或固定國曆月日（如教師節）。
     const hasLunar = typeof f.lunar_date === 'string' && f.lunar_date.length > 0;
     const hasTerm = typeof f.solar_term === 'string' && f.solar_term.length > 0;
-    if (hasLunar === hasTerm) {
-      hard(`festival ${f.slug}: 須且僅須其一 lunar_date 或 solar_term（現 lunar_date=${f.lunar_date ?? '無'}、solar_term=${f.solar_term ?? '無'}）`);
+    const hasSolar = typeof f.solar_date === 'string' && f.solar_date.length > 0;
+    if (Number(hasLunar) + Number(hasTerm) + Number(hasSolar) !== 1) {
+      hard(`festival ${f.slug}: 須且僅須其一 lunar_date、solar_term 或 solar_date`);
     } else if (hasLunar && !/^\d{2}-\d{2}$/.test(f.lunar_date)) {
       hard(`festival ${f.slug}: lunar_date「${f.lunar_date}」須為農曆 MM-DD`);
     } else if (hasTerm && !JIEQI.has(f.solar_term)) {
       hard(`festival ${f.slug}: solar_term「${f.solar_term}」不是二十四節氣之一`);
+    } else if (hasSolar && !/^\d{2}-\d{2}$/.test(f.solar_date)) {
+      hard(`festival ${f.slug}: solar_date「${f.solar_date}」須為國曆 MM-DD`);
     }
     // 事實型頁面必須掛源（與 deities/events/practices 同一鐵則：絕不杜撰）
     if (!(f.sources ?? []).length) hard(`festival ${f.slug}: 無 sources（事實型頁面必須掛源）`);

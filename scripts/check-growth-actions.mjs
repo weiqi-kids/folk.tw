@@ -64,7 +64,10 @@ for (const placement of ['home_image', 'home_title', 'home_cta', 'home_secondary
 for (const eventName of ['checklist_toggle', 'checklist_copy', 'checklist_share', 'checklist_reset']) {
   assert.ok(growth48h.includes(eventName), `48h 報表缺普渡清單事件 ${eventName}`);
 }
-for (const landing of ['jilong-zhongyuan', 'qianggu', 'fangshuideng', 'dizang']) {
+for (const landing of [
+  'jilong-zhongyuan', 'qianggu', 'fangshuideng', 'dizang',
+  'september-solar-terms', 'kinmen-bo-bing', 'zhongqiu', 'kongzi-birthday',
+]) {
   assert.ok(growth48h.includes(`/festivals/${landing}/`), `48h 報表缺季節 landing ${landing}`);
 }
 
