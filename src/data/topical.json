@@ -2484,7 +2484,8 @@
       "sealed": false,
       "last_checked": "2026-08-10",
       "empty_runs": 0
-    }
+    },
+    "bless_snapshot": 1
   },
   {
     "id": "eq-us6000tjl2",
