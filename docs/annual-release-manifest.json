@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "timezone": "Asia/Taipei",
+  "lead_days": 30,
+  "max_urls_per_month": 4,
+  "max_new_canonicals_per_month": 4,
+  "source_dir": "docs/topic-articles",
+  "defaults": {
+    "schedule_status": "blocked",
+    "date_status": "source_required",
+    "review_status": "pending",
+    "mode": "refresh"
+  },
+  "entries": [
+    {
+      "week": 1,
+      "event_date": "2026-09-07",
+      "publish_at": "2026-08-07",
+      "date_basis": "solar_term:白露",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "note": "白露與秋分共用既有節氣 canonical；年度時刻仍由中央氣象署資料更新。"
+    },
+    {
+      "week": 2,
+      "event_date": "2026-09-25",
+      "publish_at": "2026-08-25",
+      "date_basis": "lunar:08-15",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "note": "中秋與金門博餅日期相同，但活動檔期仍須另等主辦方公告。"
+    },
+    {
+      "week": 4,
+      "event_date": "2026-09-28",
+      "publish_at": "2026-08-28",
+      "date_basis": "solar:09-28",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "note": "教師節／孔子誕辰固定日；釋奠場次與入場規則仍以孔廟公告為準。"
+    }
+  ]
+}

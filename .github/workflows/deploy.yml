@@ -94,8 +94,14 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Submit sitemap URLs to IndexNow
-        run: node scripts/indexnow-submit.mjs
+      - name: Submit this month’s verified annual URLs to IndexNow
+        run: |
+          node scripts/annual-release-due.mjs --out /tmp/annual-release-urls.txt
+          if [ ! -s /tmp/annual-release-urls.txt ]; then
+            echo '本月沒有已核對且到期的年度 URL；不送全站 sitemap，避免一次灌入大量網址。'
+            exit 0
+          fi
+          node scripts/indexnow-submit.mjs --from /tmp/annual-release-urls.txt
 
   # 守門擋下／部署失敗 → Slack 告警（團隊統一模板 2026-07-20）。
   # secrets（SLACK_BOT_TOKEN / SLACK_CHANNEL_ID）未設定時自動靜默略過。

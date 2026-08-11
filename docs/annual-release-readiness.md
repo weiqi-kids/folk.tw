@@ -13,7 +13,7 @@
 | 8 份 packet 通過自動品質 gate | 8/8 | 否，自動 gate 不判斷來源是否真的支持每句話 |
 | 完成逐句來源與年度資料人工核對 | 尚未全數完成 | 否 |
 | 完成圖片／OG／手機畫面與 production QA | 尚未全數完成 | 否 |
-| `scheduled`、可依 `publish_at` 直接發佈 | 0/52 | 目前尚未達成 |
+| `scheduled`、可依 `publish_at` 直接進入小批 queue | 3/52 | 3 個固定／已核對日期；其餘由 manifest 明確 blocked |
 
 ## 進入 `scheduled` 前的硬條件
 
@@ -36,3 +36,11 @@
 ## 發布規則
 
 只有完成以上 7 項，才將該週／canonical 從 `content-packet-complete` 提升為 `scheduled`。未完成的項目留在 review queue，不進 sitemap、RSS、Pagefind、站內導航、IndexNow 或 GSC 提交清單。每月仍只發布 2–4 個不同搜尋意圖的 canonical。
+
+## 實際自動化狀態（2026-08-11）
+
+- `docs/annual-release-manifest.json` 是唯一的年度 queue 設定；週稿本身不會被 Astro 當成頁面。
+- `pnpm check:annual-release` 會對帳 52/52、驗證日期格式、活動日前一個月、審核狀態與每月 4 URL 上限。
+- GitHub Pages 每日建置後執行 `pnpm annual:release:due`。它只輸出當月到期且通過審核的 URL；過去月份不追送，避免 backlog 一次灌入搜尋引擎。
+- IndexNow job 只送上述小批，已移除部署時的全站 sitemap 提交。Google 不支援 IndexNow，GSC 的收錄仍由 sitemap 與自然爬取判定。
+- 目前 3/52 已設定實際 `publish_at`；49/52 明確 blocked，缺官方年度資料時不能填模型推算日期。這些是剩餘的資料審核工作，不是腳本假裝已完成。
