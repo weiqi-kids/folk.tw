@@ -681,6 +681,11 @@
         "type": "gov",
         "ref": "https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics",
         "note": "農業部食農教育資訊整合平臺〈節氣時光 白露│秋分〉：兩節氣日期範圍、節氣意義、農漁產與農諺"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf",
+        "note": "中央氣象署年度天文資料：白露、秋分等節氣的年度日期與時刻"
       }
     ],
     "multi_day": true,
