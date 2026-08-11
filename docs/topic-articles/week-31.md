@@ -1,7 +1,7 @@
 ---
 week: 31
 title: 南關線王醮與地方王船祭
-status: article-draft
+status: article-ready
 canonical: `/events/nanguanxian_wangjiao/`、`/events/anding_zhenhugong_wangchuan/`
 source_packet: docs/topic-drafts/aug-nov.md
 annual_status: published-watch
@@ -10,27 +10,27 @@ publish_at: annual-source-check
 
 # 南關線王醮與地方王船祭
 
-西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有 facts，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
+西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有事實，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
 
-## 這篇文章怎麼讀
+## 先看重點
 
-本文先處理「南關線王醮與地方王船祭」的文化脈絡與讀者常查的日期／差異；會變動的活動日期、路線、服務與報名資訊，僅在官方公告後更新。
+這篇先回答「南關線王醮與地方王船祭」；涉及年度日期、活動時刻、交通、報名或廟方服務時，請以當年度官方公告為準。
 
-## 文化脈絡與實用說明
+## 文化背景與實用資訊
 
-西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有 facts，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
+西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有事實，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
 
-### 閱讀範圍
+### 閱讀提示
 南關線王醮與地方王船祭的常年資料適合先用文化資產、地方政府或主辦單位的原始資料理解；年度國曆日期、活動時刻、路線、交通、報名與服務內容則要在公告出現後逐項更新。不同地區即使使用相同名稱，也可能有不同主辦廟、祭典週期與參與規則，因此本文只把有明確範圍的做法寫成案例，不把單一地方的說法推成全臺通則。
 
-## 年度資料怎麼維護
+## 最新日期與活動資訊
 
-本篇的常年文化說明可直接沿用；依各主辦方公告維護；沒有公告的年度維持歷年資料，不預測今年。 年度資料只在官方公告出現後更新，未公告時不填猜測日期或路線。
+本文先提供可長期閱讀的文化背景；涉及年度日期、活動時刻、路線、交通、報名或廟方服務時，請以當年度政府、文化資產保存者或主辦單位公告為準。尚未公告的資訊不以往年資料推算。
 
 ## 常見問題
 
 ### 南關線王醮與地方王船祭 主要在說什麼？
-西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有 facts，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
+西港香是三年一科的國家重要民俗；南關線三大廟王醮約十二年一科且非同步；下茄萣金鑾宮王醮是不定期、平均約十年一科。這三種週期本身就是獨有事實，不能拼成「全台王船祭日期」頁，也不能在未公告時宣稱某年一定舉行。來源：西港（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`）、南關線（https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`）、下茄萣（https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`）。
 
 ### 日期或活動時間固定嗎？
 文化脈絡可以先讀；國曆換算、年度場次、起駕時刻、路線、交通與報名若會變動，必須以當年度政府、文化資產保存者或主辦單位公告為準。
@@ -40,10 +40,10 @@ publish_at: annual-source-check
 
 ## 來源
 
-- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006，`gov`)
-- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002，`gov`)
-- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001，`gov`)
+- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006)
+- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002)
+- [來源頁](https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001)
 
 ## 延伸閱讀
 
-本週承接位置：`/events/nanguanxian_wangjiao/`、`/events/anding_zhenhugong_wangchuan/`。相關日期、習俗、神明或活動資訊應回到各自 canonical，避免把同義查詢拆成重複頁。
+本週承接位置：`/events/nanguanxian_wangjiao/`、`/events/anding_zhenhugong_wangchuan/`。相關日期、習俗、神明或活動資訊應回到各自的對應頁面，避免讓讀者在相同內容間來回查找。

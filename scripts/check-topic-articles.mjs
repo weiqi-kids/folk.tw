@@ -49,13 +49,21 @@ for (const file of files) {
   const body = text.replace(/^---[\s\S]*?---\n/u, '');
   const chars = body.replace(/\s+/gu, '').length;
   if (chars < 1000) errors.push(`${file} 正文過短（${chars} 字）`);
-  for (const heading of ['## 文化脈絡與實用說明', '## 年度資料怎麼維護', '## 常見問題', '## 來源']) {
-    if (!body.includes(heading)) errors.push(`${file} 缺少 ${heading}`);
+  const headingAlternatives = [
+    ['## 文化脈絡與實用說明', '## 文化背景與實用資訊'],
+    ['## 年度資料怎麼維護', '## 最新日期與活動資訊'],
+    ['## 常見問題'],
+    ['## 來源'],
+  ];
+  for (const alternatives of headingAlternatives) {
+    if (!alternatives.some((heading) => body.includes(heading))) errors.push(`${file} 缺少 ${alternatives.join(' 或 ')}`);
   }
   if (!/^# .+/mu.test(body)) errors.push(`${file} 缺少文章 H1`);
   const urls = new Set((body.match(/https?:\/\/[^)\s]+/gu) || []).map((url) => url.replace(/[，。；、）)]+$/u, '')));
   if (urls.size < 2) warnings.push(`${file} 來源 URL 少於 2 個，發布前補第二個獨立來源`);
-  if (/(?:GA4|GSC|工具操作|既有工具維護)/u.test(body)) errors.push(`${file} 混入成效工具／維護主題`);
+  if (/(?:GA4|GSC|工具操作|既有工具維護|研究資料包|evidence packet|source_required|review-gate|ready-refresh|published-refresh|可核實 facts|可核對 facts|發布狀態|合併[／與、]|圖片[／／]|既有 canonical|年度資料待核對|待評估)/u.test(body)) {
+    errors.push(`${file} 混入內部研究／發布標記，需改成讀者可讀的文章語氣`);
+  }
   docs.push({ file, body });
 }
 

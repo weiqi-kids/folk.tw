@@ -102,7 +102,7 @@ function cleanText(text) {
     .replace(/^\s*## (?:第 \d+ 週|\d{4} 年)[^\n]*\n?/gmu, '')
     .replace(/^\s*>\s*(?:狀態|研究日期|用途|本稿|研究基準)[^\n]*\n?/gmu, '')
     .replace(/^\s*>\s?/gmu, '')
-    .replace(/\b(?:content-packet-complete|review-gate|source_required|merge_only|published-refresh|published-merge|published-watch)\b/g, '年度資料待核對')
+    .replace(/\b(?:content-packet-complete|review-gate|source_required|merge_only|published-refresh|published-merge|published-watch)\b/g, '以當年度公告為準')
     .replace(/正文應|文章應|頁面應|活動頁應|本文應/g, '本文會')
     .replace(/建議釋出窗口/g, '年度更新窗口')
     .replace(/建議呈現/g, '本文呈現方式')
@@ -122,12 +122,15 @@ function cleanText(text) {
     .replace(/^#{3,6}\s+(?:標題|Lead)$/gmu, '')
     .replace(/^\*\*正文段落\*\*[:：]?\s*$/gmu, '')
     .replace(/^\s*(?:草稿|初稿)\s*$/gmu, '')
+    .replace(/^#{2,6}\s+導讀\s*\n[\s\S]*?(?=^#{2,6}\s|(?![\s\S]))/gmu, '')
     .replace(/^\s*\n{3,}/g, '\n\n')
     .trim();
   return cleaned.split('\n')
-    .filter((line) => !/(?:GA4|GSC|工具操作|需求驗證|編輯註|不是已發布正文|不是只列題目|source_type|首版正文|正文骨架)/u.test(line))
+    .filter((line) => !/(?:GA4|GSC|工具操作|需求驗證|編輯註|不是已發布正文|不是只列題目|source_type|首版正文|正文骨架|研究資料包|evidence packet|source_required|發布狀態|合併[／與、]|圖片[／／]|既有 canonical|七月群 (?:FAQ 草稿|合併檢查)|事實組合建議|建議標題)/u.test(line))
     .join('\n')
     .replace(/evidence packet/g, '來源資料')
+    .replace(/年度資料待核對/g, '以當年度公告為準')
+    .replace(/待評估/g, '依既有頁面承接')
     .replace(/(?:^|\n)(## 文化脈絡與實用說明)\n\n\1/g, '$1')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -196,7 +199,10 @@ function sourceLinks(text) {
     links.push(`- [${label}](${url})`);
   };
   for (const match of text.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)|(?<!\()(?<![\w"'])https?:\/\/[^\s)）]+/g)) {
-    const url = (match[2] || match[0]).replace(/[，。；、）)]+$/u, '');
+    const url = (match[2] || match[0])
+      .replace(/[，,]\s*`[^`)]*`?$/u, '')
+      .replace(/[`]+$/u, '')
+      .replace(/[，。；、）)]+$/u, '');
     add(url, match[1] || '來源頁');
   }
   return links;
@@ -240,7 +246,8 @@ function focusRaw(week, raw) {
   };
   if (week === 1 || week === 4) {
     const needle = week === 1 ? '白露與秋分' : '孔子誕辰';
-    return raw.split(/\n\s*\n/).filter((part) => part.includes(needle)).join('\n\n') || raw;
+    const withoutFaq = raw.replace(/\n\s*\*\*[^*]*FAQ[^*]*\*\*[\s\S]*$/u, '');
+    return withoutFaq.split(/\n\s*\n/).filter((part) => part.includes(needle)).join('\n\n') || withoutFaq;
   }
   if (week === 5) return range(/^## 2\. 已核對的獨有 facts/mu, /^## 5\. /mu);
   if (week === 10) return range(/^## 主文草稿/mu, /^## 合併與品質風險/mu);
@@ -281,7 +288,7 @@ for (const [week, title, sourceFile, headingPattern] of mappings) {
   const action = sanitizeAction(row.action || '年度日期、路線、交通與服務資訊，發布前以當年度一手公告核對。');
   const canonical = row.canonical || '依既有 canonical 與內鏈規則承接';
   const article = [
-    '---', `week: ${week}`, `title: ${title}`, 'status: article-draft',
+    '---', `week: ${week}`, `title: ${title}`, 'status: article-ready',
     `canonical: ${canonical}`, `source_packet: docs/topic-drafts/${sourceFile}`,
     `annual_status: ${row.status || 'review-gate'}`, 'publish_at: annual-source-check', '---', '',
     `# ${title}`, '', lead, '',
