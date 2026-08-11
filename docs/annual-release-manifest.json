@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "timezone": "Asia/Taipei",
+  "lead_days": 30,
+  "max_urls_per_month": 4,
+  "max_new_canonicals_per_month": 4,
+  "source_dir": "docs/topic-articles",
+  "evidence_dir": "docs/annual-release-evidence",
+  "defaults": {
+    "schedule_status": "blocked",
+    "date_status": "source_required",
+    "review_status": "pending",
+    "mode": "refresh"
+  },
+  "entries": [
+    {
+      "week": 1,
+      "event_date": "2026-09-07",
+      "publish_at": "2026-08-07",
+      "date_basis": "solar_term:白露",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "source_urls": [
+        "https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf",
+        "https://fae.moa.gov.tw/theme_data.php?id=22&sub_theme=knowledge&theme=topics"
+      ],
+      "source_checked_at": "2026-08-11",
+      "note": "白露與秋分共用既有節氣 canonical；年度時刻仍由中央氣象署資料更新。"
+    },
+    {
+      "week": 2,
+      "event_date": "2026-09-25",
+      "publish_at": "2026-08-25",
+      "date_basis": "lunar:08-15",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "source_urls": [
+        "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+      ],
+      "source_checked_at": "2026-08-11",
+      "note": "中秋與金門博餅日期相同，但活動檔期仍須另等主辦方公告。"
+    },
+    {
+      "week": 4,
+      "event_date": "2026-09-28",
+      "publish_at": "2026-08-28",
+      "date_basis": "solar:09-28",
+      "date_status": "verified",
+      "review_status": "pass",
+      "schedule_status": "scheduled",
+      "mode": "refresh",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=108",
+        "https://www.moi.gov.tw/cp.aspx?n=22506"
+      ],
+      "source_checked_at": "2026-08-11",
+      "note": "教師節／孔子誕辰固定日；釋奠場次與入場規則仍以孔廟公告為準。"
+    }
+  ]
+}

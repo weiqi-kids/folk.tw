@@ -39,7 +39,7 @@
 | 15 | 元宵節與地方燈／炮活動 | `/events/yanshui/`、`/events/taitung_handan/` | `published-refresh`／`source_required` | 一般元宵問題先研究；鹽水、寒單各自使用主辦方公告，不建「元宵大全」。 |
 | 16 | 鹽水蜂炮、臺東寒單 | `/events/yanshui/`、`/events/taitung_handan/` | `published-refresh` | 更新活動公告、參與與安全資訊；事件頁各自維持 canonical。 |
 | 17 | 大甲、白沙屯媽祖進香 | `/events/dajia/`、`/events/baishatun/` | `published-refresh` | 只在擲筊／主辦方公告後更新起駕、回鑾與路線。 |
-| 18 | 北港朝天宮迎媽祖 | `/events/beigang/` | `published-refresh` | 更新年度公告；不把不同媽祖進香合成一個活動頁。 |
+| 18 | 北港迎媽祖與北港進香差異 | `/events/beigang/` | `published-refresh` | 區分朝天宮地方迎媽祖與各地進香團；更新年度公告，不把不同媽祖進香合成一個活動頁。 |
 | 19 | 內門宋江陣與地方藝陣 | `/events/neimen/` | `review-gate` | 已列入缺稿補寫；以文化資產資料與主辦方公告補年度檔期，保留羅漢門迎佛祖與宋江陣的名稱邊界。 |
 | 20 | 清明日期、掃墓與培墓 | `/festivals/qingming/`、`/practices/saomu/` | `published-merge` | 節日頁回答日期與脈絡，習俗頁回答步驟；兩頁不複製正文。 |
 | 21 | 清明祭祖的區域做法 | `/practices/saomu/`、`/practices/baizuxian/` | `published-merge` | 只補有來源的區域差異；沒有來源就不擴寫成全台規則。 |
@@ -47,7 +47,7 @@
 | 23 | 三峽清水祖師聖誕祭典 | `/events/sanxia_qingshui/` | `published-refresh` | 取得長福巖與地方公告後更新活動資訊。 |
 | 24 | 大稻埕霞海城隍迎城隍 | `/events/dadaocheng_chenghuang/` | `published-refresh` | 更新暗訪、正日與交通；不另建「五月十三日期」頁。 |
 | 25 | 學甲上白礁暨刈香 | `/events/xuejia_shangbaijiao/` | `review-gate` | 已列入缺稿補寫；以國家重要民俗資料與學甲慈濟宮公告更新年度程序。 |
-| 26 | 媽祖遶境事件群的年度更新 | `/events/`（dajia、baishatun、beigang 等） | `published-watch` | 逐場檢查公告與收錄，不用一篇新頁承接所有媽祖活動。 |
+| 26 | 大甲、白沙屯、北港媽祖進香差異 | `/events/`（dajia、baishatun、beigang 等） | `published-watch` | 比較三場進香差異，日期、路線與服務分別依各自主辦廟公告更新。 |
 | 27 | 端午日期、祭祖與香包／龍舟區分 | `/almanac/`（歲時總覽中的端午章節） | `review-gate` | 以歲時總覽承接端午日期、家庭習俗與地方活動差異；年度公告與圖片資訊依主辦方刷新。 |
 | 28 | 關聖帝君聖誕與大溪遶境 | `/events/daxi_pujitang_guangong/`、`/deities/` | `published-refresh` | 事件頁更新年度檔期，神明頁承接生日與職司，不複製。 |
 | 29 | 口湖牽水車藏 | `/events/kouhu_qianshuizang/` | `published-refresh` | 更新雲林縣政府／主辦方公告；追思脈絡與參與資訊分層。 |
@@ -70,10 +70,10 @@
 | 46 | 農民曆宜忌怎麼讀 | `/almanac/`、`/almanac/month/` | `review-gate` | 說明節氣、建除、日干支與宜忌的資料邊界，不把黃曆建議寫成命令。 |
 | 47 | 如何選廟：主祀、祭典與參拜資訊 | `/temples/`、`/temples/region/`、`/temples/nearby/` | `review-gate` | 教讀者讀內政部資料、主祀神、年度祭典與開放資訊，不批量複製廟頁。 |
 | 48 | 地方民俗文化資產怎麼看 | `/festivals/local/`、`/events/` | `review-gate` | 解釋登錄等級、保存者、祭典週期與年度公告的差別。 |
-| 49 | 祈福事件後續如何查證 | `/qiugian/`、`/qiugian/blessing/` | `review-gate` | 說明事件更新、來源時間與合併規則，避免重複開相同事件頁。 |
-| 50 | 籤詩、典故與籤系如何閱讀 | `/poems/`、`/allusions/`、`/systems/` | `review-gate` | 以籤文、典故與籤系脈絡讀解，不把單句籤詩當成絕對預言。 |
-| 51 | 安太歲、點燈、補運、還願詞彙差異 | `/practices/`、`/vocabulary/`、`/compare/` | `review-gate` | 做名詞與流程分流，將廟方服務與民俗通說分開掛源。 |
-| 52 | 臺灣歲時年表：節氣、農曆與地方祭典 | `/almanac/`、`/festivals/`、`/events/` | `review-gate` | 以全年歲時脈絡作導覽主題，不把 GA4／GSC 操作當文章內容。 |
+| 49 | 祈福事件後續如何查證 | `/qiugian/` | `review-gate` | 說明事件更新、來源時間與合併規則，避免重複開相同事件頁。 |
+| 50 | 籤詩、典故與籤系如何閱讀 | `/poems/` | `review-gate` | 以籤文、典故與籤系脈絡讀解，不把單句籤詩當成絕對預言。 |
+| 51 | 儀式詞彙差異：遶境、進香、刈香和迎王 | `/vocabulary/` | `review-gate` | 做名詞與流程分流，將廟方服務與民俗通說分開掛源。 |
+| 52 | 臺灣歲時年表：節氣、農曆與地方祭典 | `/almanac/` | `review-gate` | 以全年歲時脈絡作導覽主題，不把 GA4／GSC 操作當文章內容。 |
 
 ## 盤點結論
 

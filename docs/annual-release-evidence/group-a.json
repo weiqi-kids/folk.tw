@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "group": "A",
+  "source_checked_at": "2026-08-11",
+  "timezone": "Asia/Taipei",
+  "entries": [
+    {
+      "week": 3,
+      "canonical": "/festivals/kinmen-bo-bing/",
+      "event_date": "2027-09-15",
+      "publish_at": "2027-08-15",
+      "date_basis": "lunar:08-15; official_announcement:activity_window_pending",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.kinmen.gov.tw/News_Content2.aspx?n=98E3CA7358C89100&s=4FFBEE8356056036&sms=BF7D6D478B935644",
+        "https://jincheng.kinmen.gov.tw/cp.aspx?n=FD044C5ABAF5B6E6",
+        "https://www.taiwan.net.tw/m1.aspx?sNo=0001019&id=R131",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "2027 中秋核心日期依官方年曆為 9/15，故頁面可在 8/15 先刷新規則與文化背景；金門當年度活動窗口、場次與報名仍待縣府／主辦方公告，不把 2026 檔期當成 2027 活動公告。"
+    },
+    {
+      "week": 6,
+      "canonical": "/events/qingshan/",
+      "event_date": "2027-11-17",
+      "event_window": "2027-11-17 至 2027-11-19",
+      "publish_at": "2027-10-17",
+      "date_basis": "lunar:10-20至10-22",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=81",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部文化資產資料固定記載農曆十月二十、二十一暗訪及二十二正日；依 2027 官方年曆換算為 11/17–11/19。年度路線、時刻與交通仍需艋舺青山宮／臺北市公告。"
+    },
+    {
+      "week": 9,
+      "canonical": "/events/dongshan_yingfozu/",
+      "event_date": "2027-01-30",
+      "event_window": "2027-01-30 送駕；2027-02-15 返駕（農曆正月初十）",
+      "publish_at": "2026-12-30",
+      "date_basis": "lunar:12-23送駕; lunar:01-10返駕",
+      "date_status": "verified",
+      "source_urls": [
+        "https://dongshan.tainan.gov.tw/News_Content.aspx?n=6628&s=72756",
+        "https://publications.culture.tainan.gov.tw/index.php?did=609&inter=publication",
+        "https://tmach-culture.tainan.gov.tw/page.asp?mainid=1B0A0E28-13DC-4A54-AAD6-21AC4553C29C",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "臺南市官方文化資料固定記載農曆十二月二十三日送駕、隔年正月初十返駕；以 2027 送駕日 1/30 作為 release event_date，返駕日 2/15 另列於 event_window。年度起駕時刻、路線與管制仍待公告。"
+    },
+    {
+      "week": 12,
+      "canonical": "/practices/baizuxian/",
+      "event_date": "2027-02-05",
+      "publish_at": "2027-01-05",
+      "date_basis": "official_calendar:農曆除夕",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "行政院人事行政總處 116 年辦公日曆明列春節假期自 2027-02-04 起，農曆初一為 2/6，因此除夕為 2/5；家庭祭祖時刻與地方做法不由辦公日曆推定。"
+    },
+    {
+      "week": 18,
+      "canonical": "/events/beigang/",
+      "event_date": "2027-04-25",
+      "event_window": "2027-04-25 南巡；2027-04-26 北巡",
+      "publish_at": "2027-03-25",
+      "date_basis": "lunar:03-19南巡; lunar:03-20北巡",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009",
+        "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312001",
+        "https://tcmb.culture.tw/zh-tw/detail?id=20100618000009&indexCode=BOCH_CountryCulture_51",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "北港朝天宮主辦方與文化資產資料均固定記載農曆三月十九、二十日出巡，2027 官方年曆換算為 4/25、4/26；其他進香團仍各自安排，不能併成同一日期。"
+    },
+    {
+      "week": 19,
+      "canonical": "/events/neimen/",
+      "event_date": "2027-03-23",
+      "publish_at": "2027-02-23",
+      "date_basis": "lunar:02-19前3日",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=119",
+        "https://tcmb.culture.tw/zh-tw/detail?id=563052&indexCode=Culture_Invisible",
+        "https://www.nmzizhusi.org.tw/",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部文化資產資料記載羅漢門迎佛祖由兩寺輪辦，於農曆二月十九日前三日舉行；2027 農曆二月十九日為 3/26，故固定基準日為 3/23。主辦寺、路線與當年度是否採完整活動規模仍需公告。"
+    },
+    {
+      "week": 22,
+      "canonical": "/events/dalongdong_baosheng/",
+      "event_date": "2027-04-21",
+      "event_window": "2027-04-20 前一日遶境；2027-04-21 農曆三月十五聖誕祭",
+      "publish_at": "2027-03-21",
+      "date_basis": "lunar:03-15",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.baoan.org.tw/history.php?lang=tw",
+        "https://www.baoan.org.tw/ceremony.php?action=show&id=11&lang=tw",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "保安宮官方資料固定記載農曆三月十五為保生大帝誕辰，前一日有遶境；2027 農曆三月十五為 4/21，release event_date 以聖誕祭主日為準，前一日列於 event_window。年度場次與交通仍待公告。"
+    },
+    {
+      "week": 23,
+      "canonical": "/events/sanxia_qingshui/",
+      "event_date": "2027-02-10",
+      "event_window": "2027-02-10 農曆正月初五遊境；2027-02-11 農曆正月初六聖誕",
+      "publish_at": "2027-01-10",
+      "date_basis": "lunar:01-05遊境; lunar:01-06聖誕",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=176",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20110718000001",
+        "https://www.longfuyan.org.tw/",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部文化資產資料固定記載正月初五遊境、正月初六清水祖師聖誕與賽神豬；2027 官方年曆換算為 2/10、2/11。遊境路線、戲台與開放資訊仍待長福巖／地方公告。"
+    },
+    {
+      "week": 24,
+      "canonical": "/events/dadaocheng_chenghuang/",
+      "event_date": "2027-06-15",
+      "event_window": "2027-06-15 農曆五月十一暗訪；2027-06-17 農曆五月十三正日遶境",
+      "publish_at": "2027-05-15",
+      "date_basis": "lunar:05-11暗訪; lunar:05-13正日",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+        "https://taiwangods.moi.gov.tw/html/landscape_cn/1_0011.aspx?i=13",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部文化資產資料固定記載農曆五月十一暗訪、五月十三繞境正日；2027 官方年曆換算為 6/15、6/17。主辦方路線、封路、起駕時刻與現場規則仍待年度公告。"
+    }
+  ]
+}

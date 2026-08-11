@@ -5,13 +5,23 @@
 // 用法：
 //   node scripts/indexnow-submit.mjs                 # 送 sitemap 全部 URL
 //   node scripts/indexnow-submit.mjs <url|/path>...  # 只送指定 URL（相對路徑補成正式網址）
+//   node scripts/indexnow-submit.mjs --from <檔案>   # 逐行送指定清單
 //   加 --dry 只印不送。
 // 環境變數：SITE_URL（含 https://）、INDEXNOW_KEY（32 hex，對應 public/<key>.txt）。
 // 任何失敗都 exit 0，不擋部署。
 
+import { readFileSync } from 'node:fs';
+
 const args = process.argv.slice(2);
 const dry = args.includes("--dry");
-const urlArgs = args.filter((a) => a !== "--dry");
+const fromIndex = args.indexOf('--from');
+const fromFile = fromIndex >= 0 ? args[fromIndex + 1] : '';
+const fromUrls = fromFile
+  ? readFileSync(fromFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean)
+  : [];
+const urlArgs = args.filter((arg, index) =>
+  arg !== "--dry" && !(fromIndex >= 0 && (index === fromIndex || index === fromIndex + 1)),
+);
 
 const SITE_URL = process.env.SITE_URL;
 const KEY = process.env.INDEXNOW_KEY;
@@ -56,7 +66,11 @@ async function sitemapUrls() {
 
 const toUrl = (a) => (/^https?:\/\//.test(a) ? a : new URL(a.replace(/^\.?\//, ""), site).href);
 
-const urlList = urlArgs.length ? urlArgs.map(toUrl) : ((await allPageUrls()) ?? (await sitemapUrls()));
+const urlList = urlArgs.length
+  ? urlArgs.map(toUrl)
+  : fromUrls.length
+    ? fromUrls.map(toUrl)
+    : ((await allPageUrls()) ?? (await sitemapUrls()));
 if (!urlList.length) {
   console.log("無 URL 可送。");
   process.exit(0);
