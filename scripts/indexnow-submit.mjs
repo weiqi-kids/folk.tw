@@ -20,7 +20,7 @@ const fromUrls = fromFile
   ? readFileSync(fromFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean)
   : [];
 const urlArgs = args.filter((arg, index) =>
-  arg !== "--dry" && index !== fromIndex && index !== fromIndex + 1,
+  arg !== "--dry" && !(fromIndex >= 0 && (index === fromIndex || index === fromIndex + 1)),
 );
 
 const SITE_URL = process.env.SITE_URL;
