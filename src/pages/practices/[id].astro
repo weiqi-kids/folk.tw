@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { breadcrumb, faqPage, howTo } from '../../lib/seo';
+import { releasedItems } from '../../lib/release-schedule';
 import festivals from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
@@ -25,7 +26,7 @@ const relatedEvents = [
 ];
 // 相關節日：festivals.json 的 practice_refs 是唯一對到本頁 id 的權威欄位；
 // p.festival_ref（上面「關聯節日」）是季節描述文字，非節日代稱，故另開一列放真連結，不動原欄位。
-const relatedFestivals = festivals.filter((f) => (f.practice_refs as readonly string[] | undefined)?.includes(practice.id));
+const relatedFestivals = releasedItems(festivals).filter((f) => (f.practice_refs as readonly string[] | undefined)?.includes(practice.id));
 
 // 正文代表圖優先使用本習俗自己的授權紀實照。缺圖時只有「栽花換斗」能安全退到
 // 已有授權的註生娘娘神像；收驚／入厝沒有足以代表儀式的可信圖，使用站內通用視覺，

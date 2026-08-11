@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import AlmanacDay from '../../components/AlmanacDay.astro';
 import { todayInTaipei } from '../../lib/daily';
+import { releasedItems } from '../../lib/release-schedule';
 import { almanacDates } from '../../lib/almanac/dates';
 import { computeDayRecord } from '../../lib/almanac';
 import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
@@ -18,6 +19,7 @@ export function getStaticPaths() {
 
 const { date } = Astro.params;
 const { today } = Astro.props as { today: string };
+const publicFestivals = releasedItems(festivalsData, today);
 
 // 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
 const [y, m, dd] = date!.split('-').map(Number);
@@ -29,7 +31,7 @@ const lunarKeyForFaq = lunar
   ? `${String(lunar.month).padStart(2, '0')}-${String(lunar.day).padStart(2, '0')}`
   : '';
 const ownFestivalNames = lunarKeyForFaq
-  ? festivalsData.filter((f) => f.lunar_date === lunarKeyForFaq).map((f) => f.name)
+  ? publicFestivals.filter((f) => f.lunar_date === lunarKeyForFaq).map((f) => f.name)
   : [];
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
   p.value ? `${p.value.stem}${p.value.branch}` : '';

@@ -20,6 +20,7 @@ import {
   isGenericFestivalName,
   festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
+import { releasedItems } from '../../lib/release-schedule';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
 import imagePriority from '../../data/image-priority.json';
@@ -202,13 +203,14 @@ const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
 // 與「主祀神聖誕」（神明的生日）不同——故可以標「主要祭典」，不算替廟方斷言。
 // 代表筆的挑選與句子生成一律走 lib，頁面不自行判斷（gate 與 OG 卡走同一支）。
 const todayIso = new Date().toISOString().slice(0, 10);
+const publicFestivals = releasedItems(festivalsData);
 const festivalList = sortFestivals(t.festivals ?? []);
 const mainFestival = pickMainFestival(t.festivals);
 // 該廟登記祭典 → 全站 /festivals/ 節日頁的正向連結（2026-08-02）：純日期比對，不做語意判斷
 // （同「AlmanacDay.astro」7/1 起的既有寫法），歸屬規則與節日頁的反向名單共用同一支
 // festivalOwnerByLunarDate，兩邊必然一致，不會互相矛盾。
-const festivalOwner = festivalOwnerByLunarDate(festivalsData);
-const festivalName = new Map(festivalsData.map((f) => [f.slug, f.name]));
+const festivalOwner = festivalOwnerByLunarDate(publicFestivals);
+const festivalName = new Map(publicFestivals.map((f) => [f.slug, f.name]));
 // 當期節慶 CTA 只沿既有關係出現：節日直接點名本廟、主祀神對應、主辦活動對應，
 // 或本廟登記祭典日期由 festivalOwner 明確歸到該節日。沒有任一條就不渲染。
 const hostedEventIds = new Set(hostedEvents.map((e) => e.id));
@@ -218,7 +220,7 @@ const registeredFestivalSlugs = new Set(
     .map((f) => festivalOwner.get(f.date))
     .filter((slug): slug is string => !!slug),
 );
-const seasonalFestivalSlugs = festivalsData
+const seasonalFestivalSlugs = publicFestivals
   .filter((f) =>
     ((f as { temple_refs?: string[] }).temple_refs ?? []).includes(temple.id) ||
     (!!t.main_deity_ref && ((f as { deity_refs?: string[] }).deity_refs ?? []).includes(t.main_deity_ref)) ||
@@ -237,7 +239,7 @@ const seasonalFestivalSlugs = festivalsData
 // deity_refs，逐條掛源），**不是**「這間廟在辦這個節日」。故標題掛神明名、並明寫非本廟活動公告。
 // 與 `fsame`（同天祭典）是兩件事，class 分開，check:rendered 的既有不變量不受影響。
 const festivalsByDeity = new Map<string, { slug: string; name: string }[]>();
-for (const f of festivalsData) {
+for (const f of publicFestivals) {
   for (const d of (f as { deity_refs?: string[] }).deity_refs ?? []) {
     (festivalsByDeity.get(d) ?? festivalsByDeity.set(d, []).get(d)!).push({ slug: f.slug, name: f.name });
   }
@@ -245,7 +247,7 @@ for (const f of festivalsData) {
 // 上限 2 條：避免主祀神掛多個節日時，長尾廟頁被一串連結蓋過本來就不多的自有內容。
 const deityFestivals = (refOk && t.main_deity_ref ? (festivalsByDeity.get(t.main_deity_ref) ?? []) : [])
   .map((x) => {
-    const src = festivalsData.find((f) => f.slug === x.slug)!;
+    const src = publicFestivals.find((f) => f.slug === x.slug)!;
     const { iso: solarIso, label } = festivalNextSolar(src, todayIso);
     return solarIso ? { ...x, iso: solarIso, lunarLabel: label } : null;
   })

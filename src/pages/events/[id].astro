@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
+import { releasedItems } from '../../lib/release-schedule';
 import festivalsData from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
@@ -28,7 +29,7 @@ const destIsTemple = e.destination_temple ? templeName.has(e.destination_temple)
 // union 後 .includes(string) 會報 ts(2345)。deploy.yml 的「型別檢查」step 會跑 astro check，
 // 但 `pnpm build` 不含它——2026-08-03 的 reflect commit 194e665 因此推上一個 CI 擋門的錯，
 // 從 08:24 起所有部署失敗。改動 JSON 衍生欄位時一律顯式標型別（同 temples/[id].astro 的 deity_refs）。
-const linkedFestivals = festivalsData.filter((f) =>
+const linkedFestivals = releasedItems(festivalsData).filter((f) =>
   ((f as { event_refs?: string[] }).event_refs ?? []).includes(event.id),
 );
 

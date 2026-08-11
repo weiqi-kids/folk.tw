@@ -6,17 +6,19 @@ import FestivalCountdown from '../../components/FestivalCountdown.astro';
 import { breadcrumb, faqPage } from '../../lib/seo';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
+import { releasedItems } from '../../lib/release-schedule';
 import festivals from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
 
 const { iso: today } = todayInTaipei();
 const currentYear = today.slice(0, 4);
+const publicFestivals = releasedItems(festivals, today);
 // 地方宗教慶典（縣市層級登錄）的入口。數量與縣市數一律由資料算，不寫死。
 const localCounties = new Set(localCelebrations.items.map((x) => x.county)).size;
 
 // 每個節日算「自今日起的下一次國曆日期」，依日期排序。
 // festivalNextSolar 同時處理農曆月日與節氣（清明）兩種，頁面不自行判斷型別。
-const items = festivals
+const items = publicFestivals
   .map((f) => {
     const { iso, label } = festivalNextSolar(f, today);
     return iso

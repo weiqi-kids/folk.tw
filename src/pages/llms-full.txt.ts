@@ -28,6 +28,7 @@ import {
 } from '../lib/queries';
 import { lunarDateLabel, solarMd } from '../lib/birthdays';
 import { festivalNextSolar } from '../lib/lunar-date';
+import { releasedItems } from '../lib/release-schedule';
 import { todayInTaipei } from '../lib/daily';
 import concerns from '../data/concerns.json';
 import comparisons from '../data/comparisons.json';
@@ -234,7 +235,7 @@ export const GET: APIRoute = async () => {
   push('### 節日（農曆節日的國曆日期）', `入口：${SITE}/festivals/`);
   {
     const { iso: todayIso } = todayInTaipei();
-    const rows = festivals
+    const rows = releasedItems(festivals, todayIso)
       .map((f) => ({ f, ...festivalNextSolar(f, todayIso) }))
       .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
       .sort((a, b) => a.iso.localeCompare(b.iso));

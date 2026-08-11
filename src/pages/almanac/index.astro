@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import AlmanacDay from '../../components/AlmanacDay.astro';
 import { todayInTaipei } from '../../lib/daily';
+import { releasedItems } from '../../lib/release-schedule';
 import { computeDayRecord } from '../../lib/almanac';
 import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
 import { lunarProvider } from '../../lib/almanac/provider';
@@ -12,6 +13,7 @@ import LineCta from '../../components/LineCta.astro';
 
 // 今日農民曆（UTC+8）。可前後翻頁或直接挑日期瀏覽（見 /almanac/[date]）。
 const { iso } = todayInTaipei();
+const publicFestivals = releasedItems(festivalsData, iso);
 
 // 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
 const [y, m, dd] = iso.split('-').map(Number);
@@ -23,7 +25,7 @@ const lunarKeyForFaq = lunar
   ? `${String(lunar.month).padStart(2, '0')}-${String(lunar.day).padStart(2, '0')}`
   : '';
 const ownFestivalNames = lunarKeyForFaq
-  ? festivalsData.filter((f) => f.lunar_date === lunarKeyForFaq).map((f) => f.name)
+  ? publicFestivals.filter((f) => f.lunar_date === lunarKeyForFaq).map((f) => f.name)
   : [];
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
   p.value ? `${p.value.stem}${p.value.branch}` : '';
@@ -38,7 +40,7 @@ const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof B
 // FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
 const jsonLd: object[] = [almanacBreadcrumb(iso)];
 // 近期節日：與首頁、/festivals/ 共用同一份資料與同一個換算函式，本頁不自行換算農曆。
-const upcomingFestivals = festivalsData
+const upcomingFestivals = publicFestivals
   .map((f) => {
     const { iso: solarIso, label } = festivalNextSolar(f, iso);
     return solarIso ? { slug: f.slug, name: f.name, iso: solarIso, lunarLabel: label } : null;

@@ -22,7 +22,10 @@ const festivals = JSON.parse(readFileSync(join(root, 'src/data/festivals.json'),
 // 的 festivals[].image 讀的是同一份，這裡不再自己抄一份（抄兩份會漂移，而且漂移了
 // build 仍然全綠，症狀只在使用者端顯示成破圖）。
 const { FESTIVAL_OG_SLUGS: CARD_SLUGS } = await import(join(root, 'src/lib/festival-og.ts'));
-const today = new Date().toISOString().slice(0, 10);
+const today = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
+const publicFestivals = festivals.filter((festival) => !festival.publish_at || festival.publish_at <= today);
 
 function titleSize(name) {
   const width = visualWidth(name);
@@ -82,8 +85,12 @@ mkdirSync(outDir, { recursive: true });
 
 let total = 0;
 for (const slug of CARD_SLUGS) {
-  const festival = festivals.find((f) => f.slug === slug);
-  if (!festival) throw new Error(`找不到節日資料：${slug}`);
+  const festival = publicFestivals.find((f) => f.slug === slug);
+  if (!festival) {
+    // Future scheduled pages intentionally have no route or share card yet.
+    if (festivals.some((f) => f.slug === slug)) continue;
+    throw new Error(`找不到節日資料：${slug}`);
+  }
   const next = festivalNextSolar(festival, today);
   if (!next.iso) throw new Error(`節日無法換算日期：${slug}`);
   const background = join(root, 'src/assets/og-festivals', `${slug}.webp`);

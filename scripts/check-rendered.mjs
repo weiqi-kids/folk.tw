@@ -15,6 +15,7 @@ import { num } from '../src/lib/format.ts';
 import { commonTempleName } from '../src/lib/temple-name.ts';
 import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
 import { FESTIVAL_OG_SLUGS } from '../src/lib/festival-og.ts';
+import { releasedItems } from '../src/lib/release-schedule.ts';
 import { excerptAtBoundary, stripOuterParens, withoutTerminalPunctuation } from '../src/lib/text.ts';
 const require = createRequire(import.meta.url);
 
@@ -25,7 +26,9 @@ const { templeCounty, templeTownship } = await import('../src/lib/temple-region.
 const { lunarDateLabel, isLunarMonthEnd, lunarToNextOccurrence, festivalNextSolar } = await import('../src/lib/lunar-date.ts');
 // 廟宇年度祭典的代表筆挑選與句子生成同理：頁面、OG 卡、本 gate 走同一支 lib。
 const { pickMainFestival, festivalSentence } = await import('../src/lib/temple-festival.ts');
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
 // 內文節點與屬性值的跳脫規則不同（屬性多跳脫引號），比對時要分開用，
 // 否則哪天資料出現 &／"／< 就會 gate 誤報。目前資料無此字元，但別把它留成未來的陷阱。
 // 🔴 escText 必須跳脫 `"`（2026-08-08 修）：Astro 在**文字節點**也把 `"` 輸出成 `&quot;`，
@@ -45,7 +48,7 @@ const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
 const divinationSystems = normalize(require('../src/data/divination-systems.json'));
-const festivals = normalize(require('../src/data/festivals.json'));
+const festivals = releasedItems(normalize(require('../src/data/festivals.json')), TODAY);
 const imagePriority = require('../src/data/image-priority.json');
 // 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
 const practices = normalize(require('../src/data/practices.json'));
