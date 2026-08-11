@@ -7,6 +7,7 @@ import UpcomingBirthdays from '../components/UpcomingBirthdays.astro';
 import FestivalCountdown from '../components/FestivalCountdown.astro';
 import LineCta from '../components/LineCta.astro';
 import { festivalNextSolar } from '../lib/lunar-date';
+import { releasedItems } from '../lib/release-schedule';
 import festivals from '../data/festivals.json';
 import { orgNode } from '../lib/seo';
 import { activeSeasonalCampaign as pickSeasonalCampaign, seasonalCampaigns } from '../lib/seasonal-campaigns';
@@ -25,7 +26,7 @@ const { iso, epochDay } = todayInTaipei();
 // 近期神明聖誕：build 算未來 60 天國曆日期（多抓些供前端過濾已過者後仍有 6 筆可顯示）
 const upcomingBirthdays = await upcomingDeityBirthdays(iso, 60);
 // 近期節日：同一套「build 算日期、前端即時倒數」機制，與 /festivals/ 樞紐共用同一份資料與函式。
-const upcomingFestivals = festivals
+const upcomingFestivals = releasedItems(festivals, iso)
   .map((f) => {
     const { iso: solarIso, label } = festivalNextSolar(f, iso);
     return solarIso ? { slug: f.slug, name: f.name, iso: solarIso, lunarLabel: label, dateNote: f.date_note } : null;
@@ -64,11 +65,15 @@ const featuredDeities = [
 ];
 
 // 2026 節慶站內戰役主卡：排程與相關頁 CTA 共用 seasonal-campaigns 唯一資料源。
-const activeSeasonalCampaign = pickSeasonalCampaign(iso);
+// 只有已釋出的節日才能成為 campaign 目標；否則預寫的下一月活動會先
+// 透過首頁主卡暴露尚未存在的 URL。排程本身仍保留完整，供後續 build 釋出。
+const publicFestivalSlugs = new Set(releasedItems(festivals, iso).map((f) => f.slug));
+const publicSeasonalCampaigns = seasonalCampaigns.filter((campaign) => publicFestivalSlugs.has(campaign.festivalSlug));
+const activeSeasonalCampaign = pickSeasonalCampaign(iso, publicSeasonalCampaigns);
 // GA4 8/8–8/9 的首頁樣本僅 28 views，依 48h 規則不足以撤換當期主卡；
 // 但 GSC 已出現「中原普渡2026／中元節2026」共 197 曝光，故在不搶走當期主題的前提下，
 // 於 8/10–8/26 提早放一條中元節次入口。仍從同一份排程取資料，不另抄日期或網址。
-const zhongyuanCampaign = seasonalCampaigns.find((campaign) => campaign.festivalSlug === 'zhongyuan');
+const zhongyuanCampaign = publicSeasonalCampaigns.find((campaign) => campaign.festivalSlug === 'zhongyuan');
 const showEarlyZhongyuan = Boolean(zhongyuanCampaign && '2026-08-10' <= iso && iso <= '2026-08-26');
 ---
 
@@ -118,7 +123,7 @@ const showEarlyZhongyuan = Boolean(zhongyuanCampaign && '2026-08-10' <= iso && i
             )}
           </div>
         </article>
-        <script is:inline type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(seasonalCampaigns).replace(/</g, '\\u003c')} />
+        <script is:inline type="application/json" id="seasonal-campaigns" set:html={JSON.stringify(publicSeasonalCampaigns).replace(/</g, '\\u003c')} />
         <script is:inline>
           (() => {
             const root = document.querySelector('[data-seasonal-campaign]');

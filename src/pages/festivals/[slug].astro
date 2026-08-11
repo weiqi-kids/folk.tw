@@ -13,6 +13,7 @@ import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
 import { todayInTaipei } from '../../lib/daily';
+import { releasedItems } from '../../lib/release-schedule';
 import { num } from '../../lib/format';
 import { excerptAtBoundary } from '../../lib/text';
 import { festivalOgPath } from '../../lib/festival-og';
@@ -37,6 +38,7 @@ export const getStaticPaths = (async () => {
       .map((t) => [t.term, t as { term: string; def: string; alias?: string[]; sources?: unknown[] }]),
   );
   const { iso: today } = todayInTaipei();
+  const publicFestivals = releasedItems(festivals, today);
 
   // 當天有登記祭典的宮廟（2026-07-31，內政部慶(祭)典資料匯入後才有可能）。
   // 🔴 判定＝該廟 `festivals[]` 有一筆**農曆日期與本節日完全相同**者，措辭也僅止於此：
@@ -52,10 +54,10 @@ export const getStaticPaths = (async () => {
   //    調整 festivals.json 的排序會改變歸屬——要改順序時記得回頭看這裡。
   //    2026-08-02：此分派規則抽到 `temple-festival.ts` 的 `festivalOwnerByLunarDate()`，
   //    因為廟宇頁新增的正向連結（該廟登記祭典→本節日頁）必須用同一份歸屬，否則兩邊會矛盾。
-  const listOwner = festivalOwnerByLunarDate(festivals); // lunar_date → 擁有名單的 slug
+  const listOwner = festivalOwnerByLunarDate(publicFestivals); // lunar_date → 擁有名單的 slug
 
   const templesOnDate = new Map<string, { id: string; name: string; county: string; festival: string }[]>();
-  for (const f of festivals) {
+  for (const f of publicFestivals) {
     const lunar = (f as { lunar_date?: string }).lunar_date;
     if (!lunar || listOwner.get(lunar) !== f.slug) continue;
     const hits = [];
@@ -89,7 +91,7 @@ export const getStaticPaths = (async () => {
     list.sort((a, b) => a.county.localeCompare(b.county, 'zh-Hant') || a.name.localeCompare(b.name, 'zh-Hant'));
   }
 
-  return festivals
+  return publicFestivals
     .map((f) => ({ f, ...festivalNextSolar(f, today) }))
     .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
     .map(({ f, iso, label }) => ({
@@ -107,7 +109,7 @@ export const getStaticPaths = (async () => {
         localOnDate: localByFestival.get(f.slug) ?? [],
         // 主場節日的顯示名（本頁不是主場時，要連過去且寫得出名字）。
         // 在這裡查是因為頁面本體拿不到 festivals 全集；查不到就給 null，模板退回只連 /practices/。
-        festivalNameBySlug: Object.fromEntries(festivals.map((x) => [x.slug, x.name])),
+        festivalNameBySlug: Object.fromEntries(publicFestivals.map((x) => [x.slug, x.name])),
       },
     }));
 }) satisfies GetStaticPaths;
@@ -116,6 +118,7 @@ const {
   f, iso, dateLabel, deityById, practiceById, eventById, templeById, vocabByTerm, templesOnDate, localOnDate,
   festivalNameBySlug,
 } = Astro.props;
+const publicFestivals = releasedItems(festivals, todayInTaipei().iso);
 
 const year = iso.slice(0, 4);
 // 農曆節日＝「農曆七月十五」；節氣節日＝「節氣清明」。由 lib 統一產出，頁面不自行判斷型別。
@@ -158,7 +161,7 @@ const linkedVocab = (f.vocab_refs ?? []).map((t) => vocabByTerm.get(t)).filter(B
 // 不可用農曆中文標籤 localeCompare（「初一」「十五」「廿」排不出正確順序）。
 const nowIso = todayInTaipei().iso;
 const siblingFestivals = f.season
-  ? festivals
+  ? publicFestivals
       .filter((x) => x.slug !== f.slug && x.season === f.season)
       .slice()
       .sort((a, b) => (a.lunar_date ?? '').localeCompare(b.lunar_date ?? ''))

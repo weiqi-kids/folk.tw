@@ -8,9 +8,9 @@ import { addDays } from './almanac/dates';
 import { upcomingDeityBirthdays } from './birthdays';
 import { festivalNextSolar, solarMd } from './lunar-date';
 import { mondayOf, rssDateForTaipeiMonday } from './weekly-date';
+import { releasedItems } from './release-schedule';
 
 const SITE = 'https://folk.tw';
-const festivals = festivalsData as Festival[];
 const practices = practicesData as Practice[];
 const practiceById = new Map(practices.filter((p) => !p.draft).map((p) => [p.id, p]));
 
@@ -56,6 +56,7 @@ function dateRange(start: string, end: string): string {
 }
 
 export async function weeklyFeedItems(today: string, count = 8): Promise<WeeklyFeedItem[]> {
+  const festivals = releasedItems(festivalsData as Festival[], today);
   const currentMonday = mondayOf(today);
   const items: WeeklyFeedItem[] = [];
 

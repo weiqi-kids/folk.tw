@@ -24,6 +24,7 @@ import { festivalOgUrl } from '../lib/festival-og';
 import { addDays, FUTURE_DAYS } from '../lib/almanac/dates';
 import { dayRecordCached, verifiedYiDays } from '../lib/almanac/select';
 import { todayInTaipei } from '../lib/daily';
+import { releasedItems } from '../lib/release-schedule';
 import festivalsData from '../data/festivals.json';
 import goodDaysData from '../data/good-days.json';
 
@@ -115,7 +116,7 @@ export const GET: APIRoute = async () => {
     });
 
   // ── 節日 ─────────────────────────────────────────────
-  const festivals = (festivalsData as FestivalRaw[]).map((f) => {
+  const festivals = releasedItems(festivalsData as FestivalRaw[], todayIso).map((f) => {
     const occurrences: { date: string; lunar?: string }[] = [];
     let cursor = todayIso;
     for (let i = 0; i < 3; i++) {

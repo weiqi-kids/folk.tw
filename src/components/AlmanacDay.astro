@@ -7,6 +7,7 @@ import { BRANCHES, ZODIACS } from '../lib/almanac/ganzhi';
 import { lunarProvider } from '../lib/almanac/provider';
 import { deityBirthdayIndex, deityBirthdaysByMonth, practicesForDate } from '../lib/queries';
 import { addDays, almanacRange, almanacHref } from '../lib/almanac/dates';
+import { releasedItems } from '../lib/release-schedule';
 import festivalsData from '../data/festivals.json';
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
   // false＝dated 頁（含今日鏡像頁，走 is-dated 樣式＋pagefind 忽略＋顯示「回今天」連回 hub）。
 }
 const { iso, today, hub = false } = Astro.props;
+const publicFestivals = releasedItems(festivalsData, today);
 const [y, m, dd] = iso.split('-').map(Number);
 
 const record = computeDayRecord(y, m, dd, { astro: lunarProvider });
@@ -31,7 +33,7 @@ const birthdays = (bdayIndex.get(lunarKey) ?? []) as { deityId: string; name: st
 // 同一農曆日期可能有多筆（如 07-01 鬼門開＋雞籠中元祭皆為事實，不做「擇一顯示」的歸屬判斷——
 // 那是 /festivals/[slug].astro 的廟宇反查名單才需要的規則，這裡純粹陳述日期對應的節日，全列不衝突）。
 const solarKey = iso.slice(5);
-const ownFestivals = festivalsData.filter((f) => {
+const ownFestivals = publicFestivals.filter((f) => {
   const solarTerm = 'solar_term' in f ? f.solar_term : undefined;
   return (lunarKey && f.lunar_date === lunarKey) ||
     ('solar_date' in f && f.solar_date === solarKey) ||

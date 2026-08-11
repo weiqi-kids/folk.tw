@@ -8,6 +8,7 @@ import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, pra
 import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
 import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
+import { releasedItems } from '../../lib/release-schedule';
 import festivals from '../../data/festivals.json';
 import { imageCredit } from '../../lib/image-credit';
 import { num } from '../../lib/format';
@@ -62,7 +63,7 @@ const relatedPoems = d.divination_systems.flatMap((s) => poemsBySys.get(s.id) ??
 const relatedPractices = (await practicesByDeity()).get(deity.id) ?? [];
 const relatedEvents = (await eventsByDeity()).get(deity.id) ?? [];
 const relatedTrades = (await tradesByDeity()).get(deity.id) ?? [];
-const relatedFestivals = festivals.filter((f) => (f.deity_refs as readonly string[] | undefined)?.includes(deity.id));
+const relatedFestivals = releasedItems(festivals).filter((f) => (f.deity_refs as readonly string[] | undefined)?.includes(deity.id));
 
 const label = (id: string) => nameById.get(id) ?? id; // 未成節點則顯示原字串（佔位）
 const isNode = (id: string) => nameById.has(id);
