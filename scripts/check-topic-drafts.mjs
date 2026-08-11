@@ -2,7 +2,7 @@
 // 年度主題草稿的內容與證據 gate。
 //
 // 草稿留在 docs/topic-drafts/，不會自動成為網站頁面；這支檢查確保「開始寫」
-// 代表真的有可審核文案，而不是只有題目。--strict 會要求年度六個交付檔全部存在。
+// 代表真的有可審核文案，而不是只有題目。--strict 會要求年度交付檔全部存在。
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -14,6 +14,8 @@ const expected = [
   'chongyang.md',
   'dongzhi.md',
   'duanwu.md',
+  'missing-weeks.md',
+  'content-themes-33-52.md',
 ];
 const strict = process.argv.includes('--strict');
 const errors = [];
