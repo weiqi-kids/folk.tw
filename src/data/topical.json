@@ -2676,5 +2676,47 @@
       "last_checked": "2026-08-11",
       "empty_runs": 0
     }
+  },
+  {
+    "id": "news-storm-20260810-d7a940",
+    "eventType": "storm",
+    "title": "為菲律賓呂宋島風災平安祈福",
+    "event": "西南季風與熱帶氣旋接連影響，菲律賓呂宋島馬尼拉大都會、碧瑤等地爆發水災與土石流，造成人員傷亡。願受災民眾早日脫離險境，平安渡過難關。",
+    "sources": [
+      {
+        "ref": "Rappler",
+        "url": "https://www.rappler.com/philippines/death-toll-luis-maymay-monsoon-ndrrmc/"
+      },
+      {
+        "ref": "Bastille Post",
+        "url": "https://www.bastillepost.com/hongkong/article/16546984-%E8%8F%B2%E5%BE%8B%E8%B3%93%E6%A5%B5%E7%AB%AF%E5%A4%A9%E6%B0%A3%E5%BC%95%E7%99%BC%E5%A4%9A%E5%AE%97%E5%B1%B1%E6%B3%A5%E5%82%BE%E7%80%89-%E6%9C%80%E5%B0%9119%E4%BA%BA%E6%AD%BB%E4%BA%A1220%E8%90%AC"
+      }
+    ],
+    "place": "菲律賓呂宋島（馬尼拉大都會、碧瑤等地）",
+    "time": "2026-08-10",
+    "detector": "news",
+    "since": "2026-08-11",
+    "status": "active"
+  },
+  {
+    "id": "news-storm-20260808-53ade0",
+    "eventType": "storm",
+    "title": "為沖繩本島北部風災平安祈福",
+    "event": "第13號颱風長時間侵襲日本沖繩本島北部（名護市等地），造成大規模停電、多人受傷及部分住宅損壞，願風災早日平息，居民平安無恙。",
+    "sources": [
+      {
+        "ref": "沖縄タイムス",
+        "url": "https://www.okinawatimes.co.jp/articles/-/1898628"
+      },
+      {
+        "ref": "琉球新報",
+        "url": "https://ryukyushimpo.jp/national/entry-5445922.html"
+      }
+    ],
+    "place": "沖縄県名護市など沖縄本島北部",
+    "time": "2026-08-08",
+    "detector": "news",
+    "since": "2026-08-11",
+    "status": "active"
   }
 ]
