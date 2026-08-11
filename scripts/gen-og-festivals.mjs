@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 農曆七月主力節日的社群分享卡。
+// 主力節日的社群分享卡。
 //
 // ImageGen 只負責無字背景；節名、國曆、農曆與提問全部從 festivals.json 與
 // lunar-date.ts 取得，再用本機 CJK 字型疊上。這樣不會把模型生成的錯字送進 OG，
@@ -40,7 +40,11 @@ function overlaySvg(festival, iso, lunarLabel) {
   // 卡面若只畫換算出的七月十五，會誤讀成兩地都在 8/27，故明確分開。
   const dateLine = festival.slug === 'qianggu'
     ? `${iso.slice(0, 4)} 恆春 ${solarMd(iso)}　·　頭城於七月底`
-    : `${iso.slice(0, 4)} 年國曆 ${solarMd(iso)}　·　${lunarLabel}`;
+    : festival.slug === 'kinmen-bo-bing' && iso.startsWith('2026-')
+      ? `${iso.slice(0, 4)} 活動檔期 9/1–9/25`
+    : festival.slug === 'september-solar-terms'
+        ? `${iso.slice(0, 4)} 白露 ${solarMd(iso)}　·　秋分約 9/22–23`
+        : `${iso.slice(0, 4)} 年國曆 ${solarMd(iso)}　·　${lunarLabel}`;
   const question = wrap(festival.question, 16).slice(0, 2);
   const questionLines = question
     .map((line, i) => `<text x="74" y="${titleBottom + 118 + i * 48}" class="question">${esc(line)}</text>`)

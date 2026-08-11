@@ -34,6 +34,10 @@ const SEASONAL_CONTENT_LANDINGS = [
   '/festivals/qianggu/',
   '/festivals/fangshuideng/',
   '/festivals/dizang/',
+  '/festivals/september-solar-terms/',
+  '/festivals/kinmen-bo-bing/',
+  '/festivals/zhongqiu/',
+  '/festivals/kongzi-birthday/',
 ];
 const DEFAULT_LANDINGS = [...new Set([
   ...seasonalCampaigns.map((x) => x.href),

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 不需 build 的節日提醒 gate：10 個節日須由 festivalNextSolar 同源產出可用 Google URL 與 ICS。
+// 不需 build 的節日提醒 gate：全部節日須由 festivalNextSolar 同源產出可用 Google URL 與 ICS。
 
 import { readFileSync } from 'node:fs';
 
@@ -22,7 +22,19 @@ if (fullMonth.iso !== '2025-09-21' || fullMonth.label !== '農曆七月三十') 
   problems.push(`2025 七月三十應保持 2025-09-21／農曆七月三十，實際 ${fullMonth.iso}／${fullMonth.label}`);
 }
 
-if (festivals.length !== 10) problems.push(`festivals.json 應有 10 筆，目前為 ${festivals.length}`);
+if (festivals.length !== 14) problems.push(`festivals.json 應有 14 筆，目前為 ${festivals.length}`);
+
+for (const [slug, iso, label] of [
+  ['september-solar-terms', '2026-09-07', '節氣白露'],
+  ['zhongqiu', '2026-09-25', '農曆八月十五'],
+  ['kinmen-bo-bing', '2026-09-25', '農曆八月十五'],
+  ['kongzi-birthday', '2026-09-28', '國曆9月28日'],
+]) {
+  const actual = festivalNextSolar(festivals.find((festival) => festival.slug === slug) ?? {}, '2026-01-01');
+  if (actual.iso !== iso || actual.label !== label) {
+    problems.push(`${slug} 應為 ${iso}／${label}，實際 ${actual.iso}／${actual.label}`);
+  }
+}
 
 for (const festival of festivals) {
   const next = festivalNextSolar(festival, fromIso);

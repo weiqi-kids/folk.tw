@@ -26,13 +26,17 @@ const lunarKey = lunar
   : '';
 const birthdays = (bdayIndex.get(lunarKey) ?? []) as { deityId: string; name: string }[];
 
-// 本站 /festivals/ 節日模組（10 筆，農曆固定日 9＋節氣型清明 1）與本頁日期的對映。
+// 本站 /festivals/ 節日模組與本頁日期的對映。
 // 與上面 bdayIndex 同一種寫法（lunarKey → 命中清單），零新增事實，只是換一份既有資料源。
 // 同一農曆日期可能有多筆（如 07-01 鬼門開＋雞籠中元祭皆為事實，不做「擇一顯示」的歸屬判斷——
 // 那是 /festivals/[slug].astro 的廟宇反查名單才需要的規則，這裡純粹陳述日期對應的節日，全列不衝突）。
-const ownFestivals = lunarKey
-  ? festivalsData.filter((f) => f.lunar_date === lunarKey)
-  : [];
+const solarKey = iso.slice(5);
+const ownFestivals = festivalsData.filter((f) => {
+  const solarTerm = 'solar_term' in f ? f.solar_term : undefined;
+  return (lunarKey && f.lunar_date === lunarKey) ||
+    ('solar_date' in f && f.solar_date === solarKey) ||
+    (typeof solarTerm === 'string' && record.festivals.includes(solarTerm));
+});
 
 // 跨文本追蹤（B2）：本月神明聖誕一覽（連 M2）、相關拜拜習俗（連 M5）
 const monthBirthdays = lunar ? (await deityBirthdaysByMonth()).get(lunar.month) ?? [] : [];

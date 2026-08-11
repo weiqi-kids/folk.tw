@@ -14,6 +14,7 @@ import { createRequire } from 'node:module';
 import { num } from '../src/lib/format.ts';
 import { commonTempleName } from '../src/lib/temple-name.ts';
 import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
+import { FESTIVAL_OG_SLUGS } from '../src/lib/festival-og.ts';
 import { excerptAtBoundary, stripOuterParens, withoutTerminalPunctuation } from '../src/lib/text.ts';
 const require = createRequire(import.meta.url);
 
@@ -782,14 +783,15 @@ for (const f of festivals) {
     fangshuideng: '由來、對象與基隆中元祭',
     'jilong-zhongyuan': '開龕門、放水燈與字姓輪值',
     qianggu: '頭城、恆春日期與文化資產',
+    zhongqiu: '拜月娘、土地公供品與四天連假',
+    'kongzi-birthday': '孔子誕辰與祭孔釋奠典禮',
+    'september-solar-terms': '9/7、9/23 節氣與農漁產',
+    'kinmen-bo-bing': '六顆骰子規則與活動日期',
   }[f.slug];
   if (campaignTitleProbe && !title.includes(campaignTitleProbe)) {
     violations.push(`節日頁 ${f.slug} title 未呈現本頁獨有的搜尋意圖：${title}`);
   }
-  const festivalOgSlugs = new Set([
-    'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
-    'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
-  ]);
+  const festivalOgSlugs = new Set(FESTIVAL_OG_SLUGS);
   if (festivalOgSlugs.has(f.slug)) {
     const wantOg = `/og/festivals/${f.slug}.png`;
     if (!html.includes(escAttr(wantOg))) {
@@ -831,6 +833,21 @@ for (const f of festivals) {
     });
     if (!ok) violations.push(`節日頁 ${f.slug} title 國曆 ${mo}/${day} 轉回農曆不等於 ${f.lunar_date}`);
   }
+  if (md && f.solar_date && `${String(md[1]).padStart(2, '0')}-${String(md[2]).padStart(2, '0')}` !== f.solar_date) {
+    violations.push(`節日頁 ${f.slug} title 國曆 ${md[1]}/${md[2]} 不等於固定日期 ${f.solar_date}`);
+  }
+  if (f.slug === 'zhongqiu') {
+    if (!html.includes('中秋拜拜準備清單') || !html.includes('zhongqiu_worship_checklist')) {
+      violations.push('中秋節頁缺少可操作的掛源準備清單');
+    }
+    if (!html.includes('中秋節與教師節共四天連假') || !html.includes('/festivals/kongzi-birthday/')) {
+      violations.push('中秋節頁缺少四天連假模組或祭孔頁連結');
+    }
+  }
+  if (f.slug === 'kongzi-birthday' &&
+      (!html.includes('中秋節與教師節共四天連假') || !html.includes('/festivals/zhongqiu/'))) {
+    violations.push('祭孔頁缺少四天連假模組或中秋頁連結');
+  }
 }
 
 // 不變量 5g（2026-08-09 加）：首頁農曆七月戰役卡只能同時推一頁。
@@ -860,14 +877,10 @@ for (const f of festivals) {
   }
 }
 
-// 不變量 5h（2026-08-09 加）：節日總覽必須讓十個主題直接露出各自的主視覺。
+// 不變量 5h（2026-08-09 加）：節日總覽必須讓所有有分享卡的主題直接露出各自主視覺。
 {
   const html = readFileSync(`${DIST}/festivals/index.html`, 'utf8');
-  const slugs = [
-    'baitiangong', 'qingming', 'guimenkai', 'jilong-zhongyuan', 'qixi',
-    'fangshuideng', 'zhongyuan', 'qianggu', 'yimin', 'dizang',
-  ];
-  for (const slug of slugs) {
+  for (const slug of FESTIVAL_OG_SLUGS) {
     const image = `/og/festivals/${slug}.png`;
     if (!html.includes(`src="${escAttr(image)}"`)) {
       violations.push(`節日總覽缺少 ${slug} 主視覺`);

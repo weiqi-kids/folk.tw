@@ -17,7 +17,8 @@
 /** 有分享卡的節日 slug。順序不影響行為，照 src/assets/og-festivals/ 的字母序放。 */
 export const FESTIVAL_OG_SLUGS = [
   'baitiangong', 'dizang', 'fangshuideng', 'guimenkai', 'jilong-zhongyuan',
-  'qianggu', 'qingming', 'qixi', 'yimin', 'zhongyuan',
+  'kinmen-bo-bing', 'kongzi-birthday', 'qianggu', 'qingming', 'qixi',
+  'september-solar-terms', 'yimin', 'zhongqiu', 'zhongyuan',
 ] as const;
 
 const OG_SLUG_SET: ReadonlySet<string> = new Set(FESTIVAL_OG_SLUGS);
