@@ -205,6 +205,18 @@
         "hash": "ca879387b922"
       },
       {
+        "date": "2026-07-29",
+        "text": "栃木縣政府公布轄內受豪雨侵襲的橋樑、道路、公園等公共土木設施損害調查結果，訂出以年度內盡速完成修復工程為目標。",
+        "sources": [
+          {
+            "ref": "下野新聞",
+            "url": "https://www.shimotsuke.co.jp/articles/-/1393309"
+          }
+        ],
+        "added": "2026-08-11T12:32:27.384Z",
+        "hash": "e510fb7d7ad2"
+      },
+      {
         "date": "2026-08-02",
         "text": "群馬縣館林市與綠市宣布派遣職員支援足利市，協助辦理災害廢棄物受理作業，盼加速當地復原進度。",
         "sources": [
@@ -219,8 +231,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 6
+      "last_checked": "2026-08-11",
+      "empty_runs": 0
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -521,8 +533,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 3
+      "last_checked": "2026-08-11",
+      "empty_runs": 4
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -1972,12 +1984,24 @@
         ],
         "added": "2026-08-07T12:34:46.643Z",
         "hash": "56311fc1f481"
+      },
+      {
+        "date": "2026-08-08",
+        "text": "黑龍江省水文單位於八月八日再對佳木斯市轄下黑龍江幹流撫遠站河段發布洪水黃色預警，顯示汛情仍持續向下游推進，當地持續嚴陣以待。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/20260808/3fc892cd24a34c9790ce69c07408785f/c.html"
+          }
+        ],
+        "added": "2026-08-11T12:35:55.818Z",
+        "hash": "250b88d16303"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 3
+      "last_checked": "2026-08-11",
+      "empty_runs": 0
     }
   },
   {
@@ -2030,8 +2054,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 0
+      "last_checked": "2026-08-11",
+      "empty_runs": 1
     }
   },
   {
@@ -2133,11 +2157,23 @@
         ],
         "added": "2026-08-10T12:37:55.523Z",
         "hash": "7a9e92f049f1"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "沖縄電力表示，除因倒木致車輛難以進入的大宜味村部分地區外，全區高壓輸電線復舊作業已於十一日上午完成，各戶用電線路搶修仍持續進行中",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5452489.html"
+          }
+        ],
+        "added": "2026-08-11T12:38:28.061Z",
+        "hash": "429fa3ca2a11"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
+      "last_checked": "2026-08-11",
       "empty_runs": 0
     }
   },
@@ -2183,8 +2219,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 3
+      "last_checked": "2026-08-11",
+      "empty_runs": 4
     }
   },
   {
@@ -2237,8 +2273,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 2
+      "last_checked": "2026-08-11",
+      "empty_runs": 3
     }
   },
   {
@@ -2275,11 +2311,23 @@
         ],
         "added": "2026-08-10T12:39:33.208Z",
         "hash": "b38773fe7750"
+      },
+      {
+        "date": "2026-08-09",
+        "text": "陝西柞水災區清淤與道路搶修持續進行，災後重建工作已在有序推進。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260809/655ae30581bc499fa535c5de8ac18bd2/c.html"
+          }
+        ],
+        "added": "2026-08-11T12:41:01.994Z",
+        "hash": "7f3e8204de01"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
+      "last_checked": "2026-08-11",
       "empty_runs": 0
     }
   },
@@ -2329,11 +2377,23 @@
         ],
         "added": "2026-08-10T12:40:49.425Z",
         "hash": "ded63dfc5e43"
+      },
+      {
+        "date": "2026-08-10",
+        "text": "商洛市市長率隊實地視察柞水縣受災村落，聽取安置保障與道路搶修進度，並要求加快爭取重建資金與政策支持，及早規劃受災住戶的異地遷建方案。",
+        "sources": [
+          {
+            "ref": "商洛之窗",
+            "url": "https://www.slrbs.com/xqzc/zax/2026-08-10/1933933.html"
+          }
+        ],
+        "added": "2026-08-11T12:41:57.843Z",
+        "hash": "3e42e5d94f77"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
+      "last_checked": "2026-08-11",
       "empty_runs": 0
     }
   },
@@ -2387,8 +2447,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 0
+      "last_checked": "2026-08-11",
+      "empty_runs": 1
     }
   },
   {
@@ -2416,8 +2476,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
-      "empty_runs": 1
+      "last_checked": "2026-08-11",
+      "empty_runs": 2
     }
   },
   {
@@ -2478,11 +2538,35 @@
         ],
         "added": "2026-08-10T12:45:19.220Z",
         "hash": "7fd7d5bbaebf"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "基隆廟口商圈於8月10日晚間再度受天文大潮影響發生海水倒灌，市府加派抽水機因應，市長謝國樑再度到場坐鎮指揮調度",
+        "sources": [
+          {
+            "ref": "自由時報",
+            "url": "https://news.ltn.com.tw/news/life/breakingnews/5535289"
+          }
+        ],
+        "added": "2026-08-11T12:44:39.653Z",
+        "hash": "5096a0baa6d6"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "基隆市政府正式啟動受災店家專案救助，由仁愛區公所單一窗口受理申請，協助商家申請災害救助金",
+        "sources": [
+          {
+            "ref": "蕃新聞",
+            "url": "https://n.yam.com/Article/20260811362010"
+          }
+        ],
+        "added": "2026-08-11T12:44:40.100Z",
+        "hash": "0c0e0a4adf93"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-10",
+      "last_checked": "2026-08-11",
       "empty_runs": 0
     },
     "bless_snapshot": 1
@@ -2509,7 +2593,50 @@
     "lon": -76.1885,
     "detector": "usgs",
     "since": "2026-08-10",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-11",
+        "text": "哥倫比亞政府已宣布全國進入緊急狀態，並動員搜救人力與工程人員進入喬科省災區展開搜救行動。",
+        "sources": [
+          {
+            "ref": "Al Jazeera",
+            "url": "https://www.aljazeera.com/news/2026/8/11/colombia-quake-frantic-search-for-survivors-as-over-2700-reported-missing"
+          }
+        ],
+        "added": "2026-08-11T12:45:30.621Z",
+        "hash": "3c1ada961fba"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "美國、歐盟、以色列與墨西哥等國已表態提供援助，歐盟並提供衛星影像協助搜救工作。",
+        "sources": [
+          {
+            "ref": "Infobae",
+            "url": "https://www.infobae.com/colombia/2026/08/11/mas-de-130-muertos-570-heridos-viviendas-y-vias-danadas-y-aeropuertos-cerrados-las-dramaticas-cifras-que-deja-hasta-ahora-el-terremoto-en-colombia/"
+          }
+        ],
+        "added": "2026-08-11T12:45:31.549Z",
+        "hash": "d7c6f930d9b5"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "震央所在的聖荷西德帕爾馬鎮已恢復對外通訊，傷者正陸續以空運方式後送至鄰近城市醫療院所救治。",
+        "sources": [
+          {
+            "ref": "Primicias",
+            "url": "https://www.primicias.ec/internacional/colombia-terremoto-sismo-temblor-10-agosto-129940/"
+          }
+        ],
+        "added": "2026-08-11T12:45:32.433Z",
+        "hash": "2b2498015373"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-11",
+      "empty_runs": 0
+    }
   },
   {
     "id": "gdacs-fl-1104081",
@@ -2529,6 +2656,25 @@
     "lon": 120.6879204,
     "detector": "gdacs",
     "since": "2026-08-11",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-09",
+        "text": "陝西商洛柞水縣日前豪雨受災地區，道路與通訊設施搶修已陸續完成，清淤排水持續進行，災後重建正逐步展開。",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260809/655ae30581bc499fa535c5de8ac18bd2/c.html"
+          }
+        ],
+        "added": "2026-08-11T12:47:26.814Z",
+        "hash": "a8fba26f901a"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-11",
+      "empty_runs": 0
+    }
   }
 ]
