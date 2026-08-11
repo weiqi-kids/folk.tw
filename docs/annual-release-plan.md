@@ -11,12 +11,19 @@
 只有逐月補齊當年度一手公告、圖片授權、重複率與 production QA 後，才可把條目轉為
 `scheduled`。
 
+本計畫的驗收分成兩層，避免把「稿件完成」誤稱為「可發布」：`content-packet-complete`
+表示每個週槽已有正文、facts、FAQ、canonical 與發布注意事項；`scheduled` 則還必須
+完成逐句來源核對、當年度公告、圖片／OG／手機視覺、production build 與發布 manifest。
+只有後者才代表「時間到可以直接發佈」。完整阻塞盤點見
+[`annual-release-readiness.md`](annual-release-readiness.md)。
+
 ## 1. 狀態定義
 
 | 狀態 | 意義 | 可否進入 build／sitemap |
 |---|---|---|
 | `idea` | 只有題目與搜尋意圖，尚未完成研究；不可視為承諾要做頁。 | 否 |
 | `source_required` | 已確認值得研究，但缺少日期、儀式或主辦方的一手來源；可做研究卡，不可寫成定稿。 | 否 |
+| `content-packet-complete` | 正文、facts、FAQ、canonical 與圖片／OG 規格已寫完；仍待逐句來源與年度資料核對。 | 否 |
 | `ready` | 已有 canonical 頁、資料節點或事件頁；本年度只需補核定日期、年度活動資訊或來源更新。 | 既有頁可維持；不因年度刷新新增 URL |
 | `scheduled` | 來源包、正文、圖片授權、重複頁審核與視覺檢查都通過，manifest 已有 `publish_at`。 | `publish_at` 前否，當日後是 |
 | `published` | 已經過 production build 與線上驗證；後續只做年度刷新或事件後續。 | 是 |
