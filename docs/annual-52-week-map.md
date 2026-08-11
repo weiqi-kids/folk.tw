@@ -26,12 +26,12 @@
 | 02 | 中秋節日期、拜月娘與土地公準備 | `/festivals/zhongqiu/` | `published-refresh` | 年度日期、清單與連假資訊核對；維持單一中秋 canonical。 |
 | 03 | 金門博狀元餅規則與活動檔期 | `/festivals/kinmen-bo-bing/`、`/events/kinmen_yingchenghuang/` | `published-refresh` | 只等金門縣政府／主辦方當年度公告，不沿用去年的活動日。 |
 | 04 | 教師節、孔子誕辰與祭孔釋奠 | `/festivals/kongzi-birthday/` | `published-refresh` | 更新教育／孔廟公告與儀式差異；不拆「教師節日期」副頁。 |
-| 05 | 重陽日期、敬老與祭祖 | 待評估；節日 guide 或既有祭祖頁 | `source_required` | 核對年度年曆與官方民俗資料；沒有三個獨有事實就併入既有頁。 |
+| 05 | 重陽日期、敬老與祭祖 | 待評估；節日 guide 或既有祭祖頁 | `review-gate` | 已完成重陽 evidence packet；核對年度年曆、官方民俗資料、圖片與重複率後，再決定是否新增 canonical。 |
 | 06 | 艋舺青山王祭：暗訪與正日 | `/events/qingshan/` | `published-refresh` | 等臺北市文化局、區公所與廟方公告後更新檔期、地點與變更。 |
 | 07 | 下元節與三官信仰 | `/deities/`、相關習俗頁 | `published-merge`／`source_required` | 先確認是否有獨立搜尋意圖；優先合併，不因「下元節日期」另造薄頁。 |
 | 08 | 王醮、王船祭的地方差異 | `/events/xigang/`、`/events/donggang/`、`/events/anding_zhenhugong_wangchuan/` | `published-watch` | 各活動只用自己的主辦方資料；禁止建立「全台王船祭」通用頁。 |
 | 09 | 東山迎佛祖暨遶境 | `/events/dongshan_yingfozu/` | `published-refresh` | 取得碧軒寺／地方政府年度公告，再更新日期與路線。 |
-| 10 | 冬至日期、祭祖與湯圓 | 待評估 | `source_required` | 先收節氣與文化來源；內容不足時併入祭祖／農民曆入口。 |
+| 10 | 冬至日期、祭祖與湯圓 | 待評估 | `review-gate` | 已完成冬至 evidence packet；年度天文日期與 canonical 重複審查通過前，仍併入祭祖／農民曆入口。 |
 | 11 | 送神、謝太歲與年末還願 | `/practices/antaisui/`、`/practices/buyun/` | `published-merge` | 把「廟方服務」與民俗通說分開；不做年末服務大全薄頁。 |
 | 12 | 除夕祭祖、拜公媽 | `/practices/baizuxian/` | `published-refresh` | 更新年曆與區域做法來源；維持習俗 canonical，不另開除夕節日頁。 |
 | 13 | 安太歲、點燈與祈安 | `/practices/antaisui/`、`/practices/diandeng/` | `published-refresh` | 只補有廟方來源的服務時間／方式；不得泛化成全台統一規則。 |
@@ -48,7 +48,7 @@
 | 24 | 大稻埕霞海城隍迎城隍 | `/events/dadaocheng_chenghuang/` | `published-refresh` | 更新暗訪、正日與交通；不另建「五月十三日期」頁。 |
 | 25 | 學甲上白礁暨刈香 | `/events/xuejia_shangbaijiao/` | `published-refresh` | 以主辦方與地方文化資料更新年度程序。 |
 | 26 | 媽祖遶境事件群的年度更新 | `/events/`（dajia、baishatun、beigang 等） | `published-watch` | 逐場檢查公告與收錄，不用一篇新頁承接所有媽祖活動。 |
-| 27 | 端午日期、祭祖與香包／龍舟區分 | 待評估；節日 guide＋事件頁 | `source_required` | 先取得文化部／地方官方資料；龍舟只有在有主辦方資料時留在事件頁。 |
+| 27 | 端午日期、祭祖與香包／龍舟區分 | 待評估；節日 guide＋事件頁 | `review-gate` | 已完成端午 evidence packet；2027 年曆、活動公告、圖片授權與重複率審查通過前，不新增公開 URL。 |
 | 28 | 關聖帝君聖誕與大溪遶境 | `/events/daxi_pujitang_guangong/`、`/deities/` | `published-refresh` | 事件頁更新年度檔期，神明頁承接生日與職司，不複製。 |
 | 29 | 口湖牽水車藏 | `/events/kouhu_qianshuizang/` | `published-refresh` | 更新雲林縣政府／主辦方公告；追思脈絡與參與資訊分層。 |
 | 30 | 東港迎王、西港香 | `/events/donggang/`、`/events/xigang/` | `published-watch` | 只在當年度確定舉行後更新；不同地方王醮不可合併成通用日期。 |
@@ -62,7 +62,7 @@
 | 38 | 鬼門開、開龕門與起燈腳 | `/festivals/guimenkai/`、`/events/jilong/` | `published-refresh` | 更新官方文化資料與當年度公告；維持節日／事件兩層。 |
 | 39 | 放水燈與中元前置儀式 | `/festivals/fangshuideng/`、`/events/jilong/` | `published-refresh` | 只寫基隆／特定地方有來源的做法，不泛化成全台普渡流程。 |
 | 40 | 中元普渡日期、供品與順序 | `/festivals/zhongyuan/`、`/practices/pudu/` | `published-merge` | 中元頁回答節日與日期，pudu 頁承接完整步驟；避免七月頁互貼。 |
-| 41 | 雞籠中元、搶孤、義民節 | `/festivals/jilong-zhongyuan/`、`/festivals/qianggu/`、`/events/yimin/` | `published-refresh` | 更新各自文資／主辦公告；特有歷史與地區差異留在各 canonical。 |
+| 41 | 雞籠中元、民雄大士爺、搶孤、義民節 | `/festivals/jilong-zhongyuan/`、`/events/jilong/`、`/events/minxiong_dashiye/`、`/festivals/qianggu/`、`/events/yimin/` | `published-refresh` | 更新各自文資／主辦公告；特有歷史與地區差異留在各 canonical，不合併成中元大全。 |
 | 42 | 地藏王聖誕與鬼門關 | `/festivals/dizang/`、`/deities/` | `review-gate` | 先核短月標籤與年度來源；不新增「鬼門關日期」副頁。 |
 | 43 | 神明生日與多說並列 | `/deities/`、神明頁 birthday | `published-merge` | 以神明圖譜承接生日查詢；有諸說並列來源，不批量生成節日薄頁。 |
 | 44 | 神明比較：媽祖／觀音／關帝等 | `/compare/` | `published-watch` | 依 GSC／GA4 代表頁觀察再擴寫；不為每組比較自動產文。 |

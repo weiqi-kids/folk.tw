@@ -26,6 +26,7 @@
     "check:content": "node scripts/check-content.mjs",
     "check:content:all": "node scripts/check-content.mjs --all",
     "check:quality": "node scripts/check-content-quality.mjs",
+    "check:topic-drafts": "node scripts/check-topic-drafts.mjs --strict",
     "check:release": "node scripts/check-release-schedule.mjs",
     "import:temples": "node --experimental-strip-types scripts/import-temples.ts",
     "verify:almanac": "node --experimental-strip-types scripts/verify-almanac.ts",

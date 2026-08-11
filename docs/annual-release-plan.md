@@ -6,6 +6,11 @@
 
 52 週的主題呈現與現有 canonical 對照，見 [`annual-52-week-map.md`](annual-52-week-map.md)。
 
+目前 2026-08 至 2027-07 的實際正文與來源證據包已整理在
+[`docs/topic-drafts/`](topic-drafts/README.md)，但仍是 `review-gate`，不代表已發布；
+只有逐月補齊當年度一手公告、圖片授權、重複率與 production QA 後，才可把條目轉為
+`scheduled`。
+
 ## 1. 狀態定義
 
 | 狀態 | 意義 | 可否進入 build／sitemap |
