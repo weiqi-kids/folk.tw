@@ -53,8 +53,9 @@
 4. **圖像證據**：活動現場照片要有作者、授權與原始頁；沒有現場照時，只能用明確標示「通用視覺／非活動現場」的授權圖，不得把神像照當成活動紀實。
 5. **寫作證據**：每個獨有主張逐句對應來源；至少三個相互獨立、不是換字重複的事實。來源不足的段落刪除，不用泛用 AI 敘述填長度。
 
-可執行的 manifest 位於 [`annual-release-manifest.json`](annual-release-manifest.json)。它以 52 份週稿為來源，
-只在需要年度資料的週次寫 override；未列出的週次套用 `blocked/source_required/pending` 預設值。
+可執行的 manifest 位於 [`annual-release-manifest.json`](annual-release-manifest.json)。它以 52 份週稿與
+[`annual-release-evidence/`](annual-release-evidence/) 的三批來源包為來源；未有單一年度日期的內容仍可標為
+`ready`（既有 canonical merge／常青維護），只有真正需要日期 anchor 的項目才進 `scheduled`。
 因此 manifest 永遠能對帳 52/52，但不會因為週稿存在就假造日期。每月建置會執行
 `pnpm check:annual-release`，只有 `scheduled`、`date_status=verified`、`review_status=pass`
 且 `publish_at` 正好是活動日前一個月的 canonical 才能進 queue。
@@ -214,7 +215,8 @@ merge_into, image_status, reviewer_status
 5. **T-7～T+1：小批發布。** 預設每月新增不超過 2—4 個真正不同意圖的 canonical；年度刷新既有頁不算新 URL。首頁只放當月與下個窗口的少數 CTA。
 6. **發布後：只提交已上線 URL。** `annual:release:due` 每日只讀取當月到期、已通過審核的 manifest 條目，最多 4 個去重 canonical；過去月份的 overdue 只報告、不自動追送。部署 workflow 會把這個小批清單送 IndexNow，絕不再把全站 sitemap 一次送出。Google 不吃 IndexNow，GSC 仍靠 sitemap／自然爬取或人工 URL Inspection，不能把 IndexNow 回應當成 GSC 收錄。
 
-目前 manifest 已將 3 個有明確 2026 日期與既有 production canonical 的刷新槽設為 `scheduled`；其餘 49 個仍是 `blocked`，等當年度官方日期、活動公告或 production QA 完成後，才可逐筆加入 override。這是防止「整年先灌 52 個 URL」的硬閘門，不是把週稿漏掉。
+目前 manifest 已將 28 個有日期 anchor、來源與獨立複核的刷新槽設為 `scheduled`；另有 24 個既有
+canonical 標為 `ready`，只做合併或常青維護，不進新 URL queue。年度主辦方尚未公告的路線、交通、報名與團次不被捏造，會留在 evidence 的 `event_window`，公告後更新同一 canonical。這仍保留「按月小批、不灌 52 個 URL」的硬閘門。
 
 ### Release 完成條件
 

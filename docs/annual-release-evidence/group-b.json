@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "group": "B",
+  "source_checked_at": "2026-08-11",
+  "timezone": "Asia/Taipei",
+  "entries": [
+    {
+      "week": 25,
+      "canonical": "/events/xuejia_shangbaijiao/",
+      "event_date": "2027-04-17",
+      "event_window": "年例上白礁：2027-04-17（農曆三月十一）；刈香擴大科儀的實際行程另依主辦方年度公告",
+      "publish_at": "2027-03-17",
+      "date_basis": "lunar:03-11; official_announcement:刈香活動細節_pending",
+      "date_status": "verified",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002",
+        "https://www.moc.gov.tw/News_Content.aspx?n=105&s=95254",
+        "https://info.tainan.gov.tw/News_Content.aspx?n=25742&s=8542538",
+        "https://www.tcgs.org.tw/?act=menuinfo&cmd=detail&mi_id=20260312001&mig_id=20240606001&ml_id=20231121002",
+        "https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=80",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部文化資產資料明載學甲慈濟宮每年農曆三月十一上白礁；2027 官方年曆換算為 4/17，因此先排核心年例內容。三年一科的刈香規模、路關、交通與實際場次仍等學甲慈濟宮／臺南市 2027 公告，不把年例基準誤寫成擴大科儀行程。"
+    },
+    {
+      "week": 28,
+      "canonical": "/events/daxi_pujitang_guangong/",
+      "event_date": "2027-07-27",
+      "event_window": "2027-07-27 農曆六月二十四；農曆六月二十三及前置儀式可能另依普濟堂年度排程安排",
+      "publish_at": "2027-06-27",
+      "date_basis": "lunar:06-24; Gregorian conversion via official 116 calendar",
+      "date_status": "verified",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001",
+        "https://pujitang.tw/about.php?class_id=1",
+        "https://pujitang.tw/about2.php?class_id=1",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=115",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "文化資產資料與大溪普濟堂官方頁均固定記載農曆六月二十四；依行政院人事行政總處 116 年官方年曆換算為 2027-07-27，publish_at 依活動日前一曆月為 2027-06-27。這是固定節日基準，不等於 2027 路線、起駕時刻或交通已公告，年度細節仍需回查普濟堂。"
+    },
+    {
+      "week": 29,
+      "canonical": "/events/kouhu_qianshuizang/",
+      "event_date": "2027-07-10",
+      "event_window": "2027-07-10 至 2027-07-12（農曆六月初七至初九；event_date 取傳統窗口第一日）",
+      "publish_at": "2027-06-10",
+      "date_basis": "lunar:06-07至06-09; Gregorian conversion via official 116 calendar",
+      "date_status": "verified",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269",
+        "https://www.yunlin.gov.tw/News_Content.aspx?n=1244&s=599245&sms=9662",
+        "https://ws.yunlin.gov.tw/Download.ashx?n=6Zuy5p6X57ij55m76YyE5rCR5L%2BX54Sh5b2i5paH5YyW6LOH55Si5YiX6KGoLnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvNTMzL3JlbGZpbGUvMTQ3MjgvNTQ5MTUwLzljNTM0ZTdhLTdmNjctNDJiNS04ZGNiLTQ5ZjRkZmQyMThlMC5wZGY%3D",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "文化資產、內政部文化地圖與雲林縣政府資料共同支持農曆六月初七至初九的年度窗口；2027 官方年曆換算為 7/10–7/12，故以窗口第一日作 release event_date，publish_at 為 6/10。雲林縣政府／主辦方尚未公告 2027 場地、儀程與交通，不能把 2026 的主祭安排直接套用。"
+    },
+    {
+      "week": 30,
+      "canonical": "/events/donggang/",
+      "event_date": "2027-09-28",
+      "event_window": "2027-09-28 起；完整迎王、出巡、王醮與送王期程待東隆宮年度公告",
+      "publish_at": "2027-08-28",
+      "date_basis": "official_2027_religion_culture_time_map; lunar:09",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/timemap_Cn/6_002.aspx?t=2",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85",
+        "https://www.66.org.tw/m2/m.php?category=x&id=1&m2id=2&mid=3"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "內政部臺灣宗教文化地圖 2027 時間地圖已列屏東縣東港迎王平安祭典 2027-09-28，故可作下一科 release anchor；文化資產資料確認東隆宮、農曆九月與迎王流程。東隆宮資料指出實際日期與儀程仍由主辦方擲筊／公告決定，不能把西港香的路線或日期混入本頁。"
+    },
+    {
+      "week": 31,
+      "canonical": "/events/nanguanxian_wangjiao/",
+      "event_date": null,
+      "event_window": "三大廟各約十二年或更久、且接辦不同步；2027 是否有任一廟舉行需逐廟公告",
+      "publish_at": null,
+      "date_basis": "official_announcement:2027_pending; n_year_non_synchronous",
+      "date_status": "verified",
+      "schedule_status": "ready",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002",
+        "https://publications.culture.tainan.gov.tw/index.php?did=1335&inter=publication",
+        "https://taiwangods.moi.gov.tw/html/Cultural/3_0011.aspx?i=243",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20091002000001",
+        "https://www.xigang.org/"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "文化部與臺南市文化局資料支持南關線三大廟的三角交陪、十二年或更久且非同步的科期；沒有 2027 任一保存廟的年度王醮公告，不能從上一次科期或生肖自行推算 event_date。西港、安定資料僅用來做頁內分流，不能當成南關線的日期證據。"
+    },
+    {
+      "week": 32,
+      "canonical": "/events/mingjian_shoutiangong_xuantian/",
+      "event_date": "2027-02-06",
+      "event_window": "2027-02-06（農曆正月初一）起至約 2027-04-09（農曆三月初三）為常年香期窗口；接駕／進香團日程待受天宮公告",
+      "publish_at": "2027-01-06",
+      "date_basis": "lunar:01-01至03-03; official_announcement:團次_pending",
+      "date_status": "verified",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001",
+        "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=53",
+        "https://tcmb.culture.tw/zh-tw/detail?id=20120913000001&indexCode=BOCH_CountryCulture_51",
+        "https://www.shoutian.org.tw/?act=menuinfo&cmd=list&ml_id=20220214002",
+        "https://www.trimt-nsa.gov.tw/zh-tw/attraction/109/"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "refresh",
+      "review_note": "官方文化資產與受天宮資料把香期定義為每年農曆正月至三月底，故以 2027 農曆正月初一 2/6 作為年度內容刷新 anchor，並在 event_window 標示三月初三高峰；接駕團次、祝壽宴、交通與現場安排仍待受天宮公告，不把 anchor 誤寫成單日完整行程。"
+    },
+    {
+      "week": 33,
+      "canonical": "/scenarios/qiu-pingan/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "not_applicable:evergreen_scenario",
+      "date_status": "not_applicable",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=280",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=3",
+        "https://dep.mohw.gov.tw/DOMHAOH/cp-4906-54077-107.html"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "merge",
+      "review_note": "情境／常青題：求平安、收驚與補運的差異及安全界線不依年度活動檔期變動，合併維護既有 scenario canonical，不建立年度事件頁、不填 event_date 或 publish_at。保留內政部信仰脈絡與衛福部 1925 支援資訊，實際廟方服務另以個別公告為準。"
+    },
+    {
+      "week": 34,
+      "canonical": "/scenarios/qiu-yinyuan/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "not_applicable:evergreen_scenario",
+      "date_status": "not_applicable",
+      "source_urls": [
+        "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=247148",
+        "https://www.sunfong.org.tw/?act=menuinfo&ml_id=20220720003&cmd=detail&mi_id=20220721006",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=267",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=268",
+        "https://www.mohw.gov.tw/cp-16-81777-1.html"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "merge",
+      "review_note": "情境／常青題：月下老人、註生娘娘與臨水夫人的信仰分工，以及求子／備孕的醫療安全提醒，不需要年度發布窗口；合併維護既有 scenario canonical，不填日期、不送年度 queue。個別廟宇紅線、供品、服務時間與生殖醫療資訊仍要在頁面內分別回到官方來源。"
+    },
+    {
+      "week": 35,
+      "canonical": "/scenarios/banjia-ruzhai/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "not_applicable:evergreen_scenario",
+      "date_status": "not_applicable",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=278",
+        "https://www.nfa.gov.tw/cht/index.php?article_id=830&code=list&flag=detail&ids=21",
+        "https://www.moj.gov.tw/2204/2473/2492/11677/"
+      ],
+      "source_checked_at": "2026-08-11",
+      "mode": "merge",
+      "review_note": "情境／常青題：搬家入厝、安神位與租屋／消防安全是決策分層，不依年度祭典日期發布；合併維護既有 scenario canonical，不建立事件頁、不填 event_date 或 publish_at。擇日、安座與神桌做法須保留地方／家族差異，瓦斯安全與租約責任以消防署、法務部及實際契約為準。"
+    }
+  ]
+}

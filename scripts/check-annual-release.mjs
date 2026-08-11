@@ -5,6 +5,8 @@
 // 有證據、來源／視覺審核通過、且 publish_at 確實是活動日前一個月時，才可標記
 // scheduled。其餘週次會明確列為 blocked，而不是默默排成假日期。
 
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   WEEK_COUNT, WEEK_DIR, effectiveRows, isIsoDate, listWeekFiles,
   loadManifest, monthOf, oneMonthBefore,
@@ -48,6 +50,33 @@ for (const row of manifest.config.entries ?? []) {
 }
 
 const rows = effectiveRows(manifest, WEEK_DIR);
+// 來源／日期 reviewer 與內容 reviewer 是兩道不同檢查；沒有第二道報告，
+// 不能把 ready/scheduled 叫做「可直接發布」。
+const contentReviewPath = join(manifest.evidenceDir, 'content-review.json');
+if (!existsSync(contentReviewPath)) {
+  addError(`缺少獨立內容 reviewer 報告：${contentReviewPath}`);
+} else {
+  try {
+    const packet = JSON.parse(readFileSync(contentReviewPath, 'utf8'));
+    const reviews = Array.isArray(packet) ? packet : (packet.entries ?? packet.reviews ?? []);
+    const reviewWeeks = new Set();
+    for (const review of reviews) {
+      const week = Number(review?.week);
+      if (!Number.isInteger(week) || week < 1 || week > WEEK_COUNT) {
+        addError(`content reviewer week 不合法：${review?.week}`);
+        continue;
+      }
+      if (reviewWeeks.has(week)) addError(`content reviewer week 重複：${week}`);
+      reviewWeeks.add(week);
+      if (!['pass', 'fail'].includes(review?.review_status ?? review?.status)) {
+        addError(`week-${String(week).padStart(2, '0')} content reviewer 狀態不合法`);
+      }
+    }
+    if (reviewWeeks.size !== WEEK_COUNT) addError(`content reviewer 必須涵蓋 52 週，目前 ${reviewWeeks.size} 週`);
+  } catch (error) {
+    addError(`content reviewer 報告無法讀取：${error.message}`);
+  }
+}
 const byMonth = new Map();
 const newByMonth = new Map();
 for (const row of rows) {
@@ -56,10 +85,10 @@ for (const row of rows) {
   if (!row.title) addError(`${prefix} 找不到文章 title`);
   if (!row.canonical) addError(`${prefix} canonical 不合法或缺少尾斜線`);
   if (!row.annual_status) addError(`${prefix} annual_status 缺少`);
-  if (!['blocked', 'scheduled', 'published'].includes(String(row.schedule_status))) {
+  if (!['blocked', 'watch', 'ready', 'scheduled', 'published'].includes(String(row.schedule_status))) {
     addError(`${prefix} schedule_status 不合法：${row.schedule_status}`);
   }
-  if (!['source_required', 'verified'].includes(String(row.date_status))) {
+  if (!['source_required', 'verified', 'blocked', 'not_applicable'].includes(String(row.date_status))) {
     addError(`${prefix} date_status 不合法：${row.date_status}`);
   }
   if (!['pending', 'pass'].includes(String(row.review_status))) {
@@ -71,6 +100,19 @@ for (const row of rows) {
 
   const hasEventDate = row.event_date != null && row.event_date !== '';
   const hasPublishAt = row.publish_at != null && row.publish_at !== '';
+  const sourceUrls = Array.isArray(row.source_urls)
+    ? [...new Set(row.source_urls.filter((url) => /^https?:\/\//u.test(String(url))))]
+    : [];
+  const sourceChecked = typeof row.source_checked_at === 'string' &&
+    /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)?$/u.test(row.source_checked_at);
+  if (['ready', 'scheduled', 'published'].includes(String(row.schedule_status))) {
+    if (sourceUrls.length < 2) addError(`${prefix} 可發布狀態至少要有 2 個可追溯 source_urls`);
+    if (!sourceChecked) addError(`${prefix} 可發布狀態必須有 source_checked_at`);
+    if (!['verified', 'not_applicable'].includes(String(row.date_status))) {
+      addError(`${prefix} 可發布狀態的 date_status 必須是 verified 或 not_applicable`);
+    }
+    if (row.review_status !== 'pass') addError(`${prefix} 可發布狀態必須 review_status=pass`);
+  }
   if (hasEventDate && !isIsoDate(row.event_date)) addError(`${prefix} event_date 必須是 YYYY-MM-DD`);
   if (hasPublishAt && !isIsoDate(row.publish_at)) addError(`${prefix} publish_at 必須是 YYYY-MM-DD`);
   if (row.schedule_status === 'scheduled') {
@@ -84,16 +126,19 @@ for (const row of rows) {
     if (!hasEventDate || !hasPublishAt) addError(`${prefix} published 必須保留 event_date 與 publish_at 證據`);
     if (row.date_status !== 'verified') addError(`${prefix} published 必須 date_status=verified`);
     if (row.review_status !== 'pass') addError(`${prefix} published 必須 review_status=pass`);
+  } else if (row.schedule_status === 'ready') {
+    if (hasPublishAt || hasEventDate) addError(`${prefix} ready 不應帶發布日期；有日期者應進 scheduled`);
   } else if (hasPublishAt) {
-    addError(`${prefix} blocked/published 以外的週次不可填 publish_at；先完成年度證據與審核`);
+    addError(`${prefix} watch/blocked 週次不可填 publish_at；先完成年度證據與審核`);
   }
   if (row.date_status === 'source_required' && (hasEventDate || hasPublishAt)) {
     addError(`${prefix} source_required 不可帶日期，避免把推算值當公告`);
   }
-  if (row.schedule_status === 'blocked' && row.review_status === 'pass') {
-    addWarning(`${prefix} review 已通過但仍 blocked；有日期證據後才能排入 queue`);
+  if (['blocked', 'watch'].includes(String(row.schedule_status)) && row.review_status === 'pass') {
+    addWarning(`${prefix} review 已通過但仍 ${row.schedule_status}；有年度公告後才能排入 queue`);
   }
   if (row.schedule_status === 'scheduled') {
+    if (row.merge_only) continue;
     const month = monthOf(row.publish_at);
     if (!byMonth.has(month)) byMonth.set(month, new Set());
     byMonth.get(month).add(row.canonical);
@@ -116,8 +161,10 @@ for (const [month, urls] of newByMonth) {
 }
 
 const scheduled = rows.filter((row) => row.schedule_status === 'scheduled');
+const ready = rows.filter((row) => row.schedule_status === 'ready');
+const watch = rows.filter((row) => row.schedule_status === 'watch');
 const blocked = rows.filter((row) => row.schedule_status === 'blocked');
-console.log(`年度 release manifest：52/52 週稿對齊；scheduled ${scheduled.length}，blocked ${blocked.length}`);
+console.log(`年度 release manifest：52/52 週稿對齊；scheduled ${scheduled.length}，ready ${ready.length}，watch ${watch.length}，blocked ${blocked.length}`);
 if (warnings.length) {
   console.log(`提示 ${warnings.length} 項：`);
   for (const warning of warnings.slice(0, 30)) console.log(`  - ${warning}`);
@@ -128,4 +175,4 @@ if (errors.length) {
   if (errors.length > 80) console.error(`  …另有 ${errors.length - 80} 項`);
   process.exit(1);
 }
-console.log('✓ annual release gate 通過：未核定日期的週次保持 blocked，不會進入發布或提交 queue。');
+console.log('✓ annual release gate 通過：scheduled 才會進入發布／提交 queue；ready 只做既有 canonical 維護，未具單一日期者不會被假排程。');

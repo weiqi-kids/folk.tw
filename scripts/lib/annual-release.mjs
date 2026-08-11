@@ -9,6 +9,7 @@ import { join } from 'node:path';
 
 export const MANIFEST_PATH = 'docs/annual-release-manifest.json';
 export const WEEK_DIR = 'docs/topic-articles';
+export const EVIDENCE_DIR = 'docs/annual-release-evidence';
 export const WEEK_COUNT = 52;
 export const DATE_RE = /^\d{4}-\d{2}-\d{2}$/u;
 
@@ -18,6 +19,71 @@ export const DEFAULTS = {
   review_status: 'pending',
   mode: 'refresh',
 };
+
+/**
+ * 研究 agent 產生的 evidence packet 不直接進 Astro；它們是 manifest 的可審計
+ * 覆寫來源。只讀 group-*.json，避免把 reviewer 報告或暫存檔誤當成週次資料。
+ */
+export function listEvidenceFiles(dir = EVIDENCE_DIR) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((name) => /^group-[a-z0-9_-]+\.json$/iu.test(name))
+    .sort();
+}
+
+export function loadEvidenceEntries(dir = EVIDENCE_DIR) {
+  const entries = [];
+  for (const file of listEvidenceFiles(dir)) {
+    const path = join(dir, file);
+    const packet = JSON.parse(readFileSync(path, 'utf8'));
+    if (!packet || typeof packet !== 'object' || !Array.isArray(packet.entries)) {
+      throw new Error(`${path} 必須包含 entries 陣列`);
+    }
+    for (const entry of packet.entries) {
+      if (!entry || typeof entry !== 'object') throw new Error(`${path} 含有無效 entry`);
+      entries.push({ ...entry, evidence_file: path });
+    }
+  }
+  return entries;
+}
+
+function loadReviewStatuses(dir = EVIDENCE_DIR) {
+  const statuses = new Map();
+  for (const file of ['review-audit.json', 'content-review.json']) {
+    const path = join(dir, file);
+    if (!existsSync(path)) continue;
+    const audit = JSON.parse(readFileSync(path, 'utf8'));
+    const rows = Array.isArray(audit) ? audit : (audit.entries ?? audit.reviews ?? []);
+    for (const row of rows) {
+      const week = Number(row?.week);
+      const status = row?.review_status ?? row?.status;
+      if (!Number.isInteger(week) || !['pass', 'fail'].includes(status)) continue;
+      // 任一獨立審查 fail 就不能進 queue；兩道審查都 pass 才算 pass。
+      if (status === 'fail' || statuses.get(week) !== 'fail') statuses.set(week, status);
+    }
+  }
+  return statuses;
+}
+
+function normalizeEvidenceEntry(entry) {
+  const hasDates = entry.event_date != null && entry.event_date !== '' &&
+    entry.publish_at != null && entry.publish_at !== '';
+  const dateStatus = entry.date_status ?? (
+    entry.mode === 'merge' ? 'not_applicable' : hasDates ? 'verified' : 'source_required'
+  );
+  let scheduleStatus = entry.schedule_status;
+  if (!scheduleStatus) {
+    if (hasDates && dateStatus === 'verified') scheduleStatus = 'scheduled';
+    else if (entry.mode === 'merge' || dateStatus === 'not_applicable' || dateStatus === 'verified') scheduleStatus = 'ready';
+    else scheduleStatus = 'watch';
+  }
+  return {
+    ...entry,
+    date_status: dateStatus,
+    schedule_status: scheduleStatus,
+    review_status: entry.review_status ?? 'pending',
+  };
+}
 
 export function isIsoDate(value) {
   if (typeof value !== 'string' || !DATE_RE.test(value)) return false;
@@ -72,6 +138,15 @@ export function loadManifest(path = MANIFEST_PATH) {
   }
   const defaults = { ...DEFAULTS, ...(value.defaults ?? {}) };
   const overrides = new Map();
+  const evidenceDir = value.evidence_dir ?? EVIDENCE_DIR;
+  const reviewStatuses = loadReviewStatuses(evidenceDir);
+  for (const row of loadEvidenceEntries(evidenceDir).map(normalizeEvidenceEntry)) {
+    const week = Number(row.week);
+    if (Number.isInteger(week)) {
+      const reviewStatus = reviewStatuses.get(week);
+      overrides.set(week, reviewStatus ? { ...row, review_status: reviewStatus } : row);
+    }
+  }
   for (const row of Array.isArray(value.entries) ? value.entries : []) {
     if (!row || typeof row !== 'object') continue;
     overrides.set(Number(row.week), row);
@@ -81,6 +156,7 @@ export function loadManifest(path = MANIFEST_PATH) {
     config: value,
     defaults,
     overrides,
+    evidenceDir,
     leadDays: Number(value.lead_days ?? 30),
     maxUrlsPerMonth: Number(value.max_urls_per_month ?? 4),
     maxNewCanonicalsPerMonth: Number(value.max_new_canonicals_per_month ?? 4),

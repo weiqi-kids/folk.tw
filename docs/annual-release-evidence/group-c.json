@@ -1,0 +1,520 @@
+{
+  "batch": "C",
+  "generated_at": "2026-08-11T13:04:25Z",
+  "timezone": "Asia/Taipei",
+  "scope": "weeks 36,37,38,39,41,42,43 and merge_only weeks 05,07,08,10,11,13,14,15,16,17,20,21,26,27,40,44,45,46,47,48,49,50,51,52",
+  "entries": [
+    {
+      "week": 36,
+      "canonical": "/practices/shoujing/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "date_status": "not_applicable",
+      "schedule_status": "ready",
+      "source_urls": [
+        "https://dep.mohw.gov.tw/DOMHAOH/cp-4906-54077-107.html",
+        "https://www.nfa.gov.tw/cht/index.php?act=article&article_id=795&code=print&ids=66",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=3"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "常年名詞與安全界線文章，沒有年度活動日期；衛福部 1925 心理支持與消防署 119/112 緊急報案頁可支撐安全分流。現稿 annual_status=review-gate，先維持 review-gate，不填年度日期。"
+    },
+    {
+      "week": 37,
+      "canonical": "/festivals/qixi/",
+      "event_date": "2027-08-08",
+      "publish_at": "2027-07-08",
+      "date_basis": "lunar:07-07",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=8",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=118&ID=938"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "官方資料核對七夕／七娘媽／做十六歲的常年日期基礎；2027 國曆換算與各地成年禮場次尚未由年度主辦公告核定，不能填 event_date 或 publish_at。現稿 annual_status=published-refresh。"
+    },
+    {
+      "week": 38,
+      "canonical": "/festivals/guimenkai/",
+      "event_date": "2027-08-02",
+      "publish_at": "2027-07-02",
+      "date_basis": "lunar:07-01",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "https://www.klcg.gov.tw/tw/klcg1/3168-305752.html",
+        "https://www.archives.gov.tw/tw/arctw/69-1903.html"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "國史館與基隆市政府資料均把開鬼門／開龕門放在農曆七月初一；市府頁為 2025 年活動公告，不能代替 2027 年場次，故不填國曆 event_date。現稿 annual_status=published-refresh。"
+    },
+    {
+      "week": 39,
+      "canonical": "/festivals/fangshuideng/",
+      "event_date": "2027-08-15",
+      "publish_at": "2027-07-15",
+      "date_basis": "lunar:07-14",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.klcg.gov.tw/tw/klcg1/3168-306115.html",
+        "https://www.president.gov.tw/NEWS/22",
+        "https://klctb.klcg.gov.tw/News3.aspx?n=7638&sms=12510"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "基隆市政府 2025 公告與總統府歷史資料均支撐放水燈常年落在農曆七月十四；2027 遊行、下水地點與交通管制仍待當年度市府公告，不能以 2025 國曆日期填入。現稿 annual_status=published-refresh。"
+    },
+    {
+      "week": 41,
+      "canonical": "/festivals/jilong-zhongyuan/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "lunar:varies_by_place",
+      "date_status": "verified",
+      "schedule_status": "ready",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=70",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7",
+        "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=91",
+        "https://www.hchcc.gov.tw/Tw/News/ActDetail?filter=e2ce565c-7042-466e-9b77-bb81937b8cf9&id=4e4bc054-2eaa-4fca-9e87-8f411b945c81",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "四組地方主題的日期與主辦者不同：雞籠中元為整月序列，民雄大士爺、頭城／恆春搶孤、褒忠亭義民節各有自己的農曆節點。2027 仍需逐地核對公告，不能合併成單一 event_date；現稿 annual_status=published-refresh。"
+    },
+    {
+      "week": 42,
+      "canonical": "/festivals/dizang/",
+      "event_date": "2027-08-31",
+      "publish_at": "2027-07-31",
+      "date_basis": "lunar:07-last-day",
+      "date_status": "verified",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=214",
+        "https://www.th.gov.tw/Epaper_Content/238/5442/",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=283&ID=1218",
+        "https://www.xzdza.org.tw/%E5%9C%B0%E8%97%8F%E7%8E%8B%E8%8F%A9%E8%96%A9%E4%BD%9B%E8%AA%95.html"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "官方文化資料支撐地藏王聖誕與鬼門關的農曆七月底／最後一日脈絡；短月不一定有三十日，故 date_basis 使用 last-day，不填國曆 event_date。現稿 annual_status=review-gate，年度法會仍需另核。"
+    },
+    {
+      "week": 43,
+      "canonical": "/deities/birthdays/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "lunar:varies_by_deity_and_temple",
+      "date_status": "not_applicable",
+      "schedule_status": "ready",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=246",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001",
+        "https://stat.moc.gov.tw/Research_Download.aspx?idno=1096",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=184&ID=2424"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "refresh",
+      "review_note": "神明通說、特定廟例祭與前置遶境不是同一日期欄位；官方資料可核對個別農曆日期，但不能推導所有廟的年度活動。現稿 annual_status=review-gate，保留異說並列，不能填單一 event_date/publish_at。"
+    },
+    {
+      "week": 5,
+      "canonical": "/almanac/",
+      "event_date": "2027-10-08",
+      "publish_at": "2027-09-08",
+      "date_basis": "lunar:09-09",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+        "https://www.president.gov.tw/NEWS/20753",
+        "https://www.kinmen.gov.tw/News_Content2.aspx?n=98E3CA7358C89100&s=18C1A400CB06C4DD&sms=BF7D6D478B935644"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "已有 /almanac/ canonical，可承接重陽日期、敬老與祭祖，不新增 URL；現稿 annual_status=review-gate，建議標 merge 而非 published，待下一年度官方節日清單核定後再刷新。"
+    },
+    {
+      "week": 7,
+      "canonical": "/deities/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "lunar:10-15",
+      "source_urls": [
+        "https://www.th.gov.tw/Epaper_Content/237/7419/",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "下元節應併入三官／神明既有入口；現稿 annual_status=published-merge，可標 published/merge。國曆落點仍依年度農曆／官方年曆核對，不填 event_date。"
+    },
+    {
+      "week": 8,
+      "canonical": "/events/xigang/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "official_announcement",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20190807000002",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20120814000001",
+        "https://www.xigang.org/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "西港、東港與下茄萣的王醮週期與主辦者不同，已有事件 canonical 可分流承接；現稿 annual_status=published-watch，保留 watch/merge，不把週期換算成單一年度日期。"
+    },
+    {
+      "week": 10,
+      "canonical": "/almanac/",
+      "event_date": "2026-12-22",
+      "publish_at": "2026-11-22",
+      "date_basis": "solar_term:冬至",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=196&ID=2451",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "冬至為節氣，直接併入 /almanac/；現稿 annual_status=review-gate，建議 merge 但不標 published，待中央氣象署年度天文時刻核對後刷新。"
+    },
+    {
+      "week": 11,
+      "canonical": "/practices/antaisui/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "lunar:12-24_with_local_variation",
+      "source_urls": [
+        "https://www.th.gov.tw/Epaper_Content/237/7577/",
+        "https://www.th.gov.tw/Epaper_Content/237/8630/",
+        "https://enews.moenv.gov.tw/Page/3B3C62C78849F32F/039146a0-e6ef-4219-93de-2484fe65b237",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "送神、謝太歲與還願的服務時段依廟方與地方傳承，不應填一個全臺 event_date；已有 /practices/antaisui/ 可承接。現稿 annual_status=published-merge，可標 published/merge，但年度廟方服務仍須逐廟刷新。"
+    },
+    {
+      "week": 13,
+      "canonical": "/practices/antaisui/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "official_announcement",
+      "source_urls": [
+        "https://www.th.gov.tw/Epaper_Content/237/7774/",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=44",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=178&ID=2400",
+        "https://www.changhua.gov.tw/Content/61"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "安太歲／點燈服務是各廟公告，不存在單一全臺 event_date；既有 /practices/antaisui/ 與點燈入口可承接。現稿 annual_status=published-refresh，但目前品質 gate 尚有核心子題數缺口，先維持 merge/refresh，不直接標 published。"
+    },
+    {
+      "week": 14,
+      "canonical": "/festivals/baitiangong/",
+      "event_date": "2027-02-14",
+      "publish_at": "2027-01-14",
+      "date_basis": "lunar:01-09",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.th.gov.tw/Epaper_Content/237/7592/",
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=180&ID=2403",
+        "https://tmach-culture.tainan.gov.tw/templemuseums/templepage.asp?mainid=FDE0EE2B-7BE1-44DC-A249-A3C7926537D1",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "已有節日 canonical 可承接拜天公與供桌，不另建同義頁；現稿 annual_status=review-gate，可 merge 但不標 published，2027 國曆換算與各廟法會仍待年度核對。"
+    },
+    {
+      "week": 15,
+      "canonical": "/events/yanshui/",
+      "event_date": "2027-02-20",
+      "publish_at": "2027-01-20",
+      "date_basis": "lunar:01-15",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.tad.gov.tw/m1.aspx?sNo=0001020",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2",
+        "https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=86",
+        "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "元宵為農曆正月十五，但燈會、鹽水蜂炮與寒單的場次、路線分屬不同主辦者；已有事件 canonical 可承接。現稿 annual_status=published-refresh，可維持 published/merge 取向，年度檔期仍不填。"
+    },
+    {
+      "week": 16,
+      "canonical": "/events/yanshui/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "lunar:varies_by_event",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=86",
+        "https://taiwangods.moi.gov.tw/religious_culture/html/landscape/1_0011.aspx?i=82",
+        "https://tcmb.culture.tw/zh-tw/detail?id=20080627000004&indexCode=BOCH_CountryCulture_51",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004",
+        "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "鹽水蜂炮與臺東寒單不是同一場活動，日期要按事件分開核對；已有事件 canonical 可 merge。現稿 annual_status=published-refresh，但目前品質 gate 尚有核心子題數缺口，先不把它視為無條件 published。"
+    },
+    {
+      "week": 17,
+      "canonical": "/events/dajia/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "official_announcement",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007",
+        "https://data.boch.gov.tw/upload/documents/2021-08-18/e422ab02-fd7e-41ad-9609-dc105c2a4e45/%E5%A4%A7%E7%94%B2%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E9%80%B2%E9%A6%99%E3%80%81%E5%8F%A3%E6%B9%96%E7%89%BD%E6%B0%B4%E8%BB%8A%E8%97%8F%E3%80%81%E7%99%BD%E6%B2%99%E5%B1%AF%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E9%80%B2%E9%A6%99%E3%80%81%E5%8C%97%E6%B8%AF%E6%9C%9D%E5%A4%A9%E5%AE%AE%E8%BF%8E%E5%AA%BD%E3%80%81%E6%9D%B1%E6%B8%AF%E8%BF%8E%E7%8E%8B%E5%B9%B3%E5%AE%89%E7%A5%AD%E5%85%B8.pdf"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "大甲與白沙屯各有既有事件 canonical，擇日、起駕與路關只由各自主辦方公告決定；現稿 annual_status=published-refresh，可維持 published/merge，不填共用 event_date。"
+    },
+    {
+      "week": 20,
+      "canonical": "/festivals/qingming/",
+      "event_date": "2027-04-05",
+      "publish_at": "2027-03-05",
+      "date_basis": "solar_term:清明",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf",
+        "https://www.dgpa.gov.tw/information?pid=12983&uid=2",
+        "https://www.kinmen.gov.tw/News_Content2.aspx?n=98E3CA7358C89100&s=83BC6BA617A1BAC9&sms=BF7D6D478B935644"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "清明日期與掃墓區域做法已有節日／習俗 canonical 分層承接；現稿 annual_status=published-merge，可標 published/merge，當年度天文時刻與墓區服務仍需刷新。"
+    },
+    {
+      "week": 21,
+      "canonical": "/practices/saomu/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "solar_term:清明",
+      "source_urls": [
+        "https://dict.th.gov.tw/detailPage.aspx?Ca=306&ID=1472",
+        "https://www.tfunscroll.ntpc.gov.tw/TombSweepingFestival/Worship",
+        "https://www.kinmen.gov.tw/News_Content2.aspx?n=98E3CA7358C89100&s=83BC6BA617A1BAC9&sms=BF7D6D478B935644"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "清明區域做法應留在 /practices/saomu/，不建立新 URL；現稿 annual_status=published-merge，可標 published/merge，但新北服務網與地方墓區安排需按年度更新。"
+    },
+    {
+      "week": 26,
+      "canonical": "/events/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "official_announcement",
+      "source_urls": [
+        "https://data.boch.gov.tw/upload/documents/2024-06-13/c08de867-d93d-4a94-87cc-a796e5cea331/%E3%80%90%E5%85%AC%E5%91%8A%E8%A1%A8%E3%80%91%E5%8C%97%E6%B8%AF%E9%80%B2%E9%A6%99.pdf",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "比較稿已有 /events/ hub 與三場進香事件入口，應以分流章節承接；現稿 annual_status=published-watch，可維持 watch/merge，不填共用 event_date。"
+    },
+    {
+      "week": 27,
+      "canonical": "/almanac/",
+      "event_date": "2027-06-09",
+      "publish_at": "2027-05-09",
+      "date_basis": "lunar:05-05",
+      "date_status": "verified",
+      "source_urls": [
+        "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "https://www.dgpa.gov.tw/information?pid=12574&uid=41",
+        "https://www.th.gov.tw/Epaper_Content/237/8530/",
+        "https://www.tad.gov.tw/m1.aspx?sNo=0020552"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "端午日期、家庭習俗與龍舟活動已有 /almanac/ 承接，不拆同義頁；現稿 annual_status=review-gate，可 merge 但不標 published，年度放假與地方活動另待官方公告。"
+    },
+    {
+      "week": 40,
+      "canonical": "/festivals/zhongyuan/",
+      "event_date": "2027-08-16",
+      "publish_at": "2027-07-16",
+      "date_basis": "lunar:07-15",
+      "date_status": "verified",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"
+        ,"https://www.dgpa.gov.tw/information?pid=12983&uid=2"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "中元節日與普渡步驟已有節日／習俗分層；現稿 annual_status=published-merge，可標 published/merge，地方普渡仍不能由七月十五推導統一日期。"
+    },
+    {
+      "week": 44,
+      "canonical": "/compare/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=241",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=276",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=286",
+        "https://tcmb.culture.tw/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "神明職司比較是 evergreen 意圖，已有 /compare/ canonical，不需年度日期或新 URL；現稿 annual_status=review-gate，可先 merge，完成來源／重複審查後再標 published。"
+    },
+    {
+      "week": 45,
+      "canonical": "/scenarios/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=244",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "https://www.mohw.gov.tw/cp-16-81777-1.html",
+        "https://www.laf.org.tw/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "考試、姻緣、開店與健康是情境分流 evergreen，已有 /scenarios/ canonical；現稿 annual_status=review-gate，可 merge，不應標成祈願結果保證或填年度日期。"
+    },
+    {
+      "week": 46,
+      "canonical": "/almanac/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "calendar_by_year",
+      "source_urls": [
+        "https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf",
+        "https://www.moa.gov.tw/ws.php?id=2506893",
+        "https://www.moa.gov.tw/ws.php?id=2507769",
+        "https://www.moa.gov.tw/ws.php?id=2507770"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "農民曆讀法是 /almanac/ 的 evergreen 章節，不需新 URL；現稿 annual_status=review-gate，可 merge，指定年份的節氣時刻與曆表仍需重新核對，不填單一 event_date。"
+    },
+    {
+      "week": 47,
+      "canonical": "/temples/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://religion.moi.gov.tw/",
+        "https://data.gov.tw/dataset/8203",
+        "https://taiwangods.moi.gov.tw/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "選廟與讀宮廟資料是既有 /temples/ hub 的 evergreen 入口；現稿 annual_status=review-gate，可 merge，地址／開放時間仍須逐廟回看最新公告。"
+    },
+    {
+      "week": 48,
+      "canonical": "/festivals/local/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002",
+        "https://nchdb.boch.gov.tw/assets/overview/folklore/20081112000003"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "文化資產閱讀方法是 /festivals/local/ 的 evergreen 章節，已有官方登錄案例且不需新 URL；現稿 annual_status=review-gate，可 merge，年度活動仍分回各主辦公告。"
+    },
+    {
+      "week": 49,
+      "canonical": "/qiugian/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://www.nfa.gov.tw/cht/index.php?act=article&article_id=795&code=print&ids=66",
+        "https://www.cwa.gov.tw/",
+        "https://www.nfa.gov.tw/cht/index.php?act=article&article_id=802&code=print&ids=68"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "祈福事件後續查證是 /qiugian/ 的 evergreen 方法頁，不應為同一事件重複開頁；現稿 annual_status=review-gate，可 merge，需保留各事件官方原文與時間，不填 event_date。"
+    },
+    {
+      "week": 50,
+      "canonical": "/poems/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://www.gtainanmazu.org.tw/?act=menuinfo&ml_id=20220121003",
+        "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=487841",
+        "https://folk.tw/systems/liushi_jiazi/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "籤系與典故閱讀是 /poems/ evergreen 入口，不需新 URL；現稿 annual_status=review-gate，可 merge，來源需區分廟方籤本、文化典藏與本站整理，不填年度日期。"
+    },
+    {
+      "week": 51,
+      "canonical": "/vocabulary/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "evergreen",
+      "source_urls": [
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=27",
+        "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=15",
+        "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=44"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "儀式詞彙差異是 /vocabulary/ evergreen 入口，不需新 URL；現稿 annual_status=review-gate，可 merge，年度路線與服務另回各主辦方公告。"
+    },
+    {
+      "week": 52,
+      "canonical": "/almanac/",
+      "event_date": null,
+      "publish_at": null,
+      "date_basis": "year_round",
+      "source_urls": [
+        "https://www.moa.gov.tw/ws.php?id=2506893",
+        "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+        "https://www.th.gov.tw/Epaper_Content/238/5723/"
+      ],
+      "source_checked_at": "2026-08-11T13:04:25Z",
+      "mode": "merge",
+      "review_note": "全年歲時年表是 /almanac/ 的導覽型 evergreen 章節，不需新 URL；現稿 annual_status=review-gate，可 merge，年度節氣時刻與地方祭典檔期仍分月核對，不填單一 event_date。"
+    }
+  ]
+}

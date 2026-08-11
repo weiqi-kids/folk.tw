@@ -194,6 +194,25 @@ const titleId = `${toolId.replace(/[^a-z0-9_-]/gi, '-')}-title`;
   input { flex: none; width: 1.25rem; height: 1.25rem; accent-color: var(--accent); }
   input:checked + span { color: var(--ink-soft); text-decoration: line-through; }
   .checklist-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem; margin-top: 1rem; }
+  /* `.btn` 不是全站的裸元素規則；這個工具的兩顆按鈕必須在元件 scoped CSS
+     內完成 reset，否則會退回瀏覽器原生 button（尤其是複製清單的主鈕）。 */
+  .checklist-actions .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 2.5rem; padding: 0.5rem 1rem;
+    border: 1px solid var(--line); border-radius: 0.625rem;
+    background: var(--paper-2); color: var(--ink);
+    font: inherit; font-size: var(--text-sm); font-weight: 700; line-height: var(--lh-tight);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+  .checklist-actions .btn:hover { border-color: var(--accent-soft); color: var(--accent); }
+  .checklist-actions .btn:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+  .checklist-actions .btn-primary {
+    border-color: var(--accent); background: var(--accent); color: var(--paper-2);
+  }
+  .checklist-actions .btn-primary:hover {
+    border-color: var(--accent-soft); background: var(--accent-soft); color: var(--paper-2);
+  }
   .checklist-actions .reset { padding: 0.5rem; border: 0; background: transparent; color: var(--ink-soft);
     font: inherit; font-size: var(--text-xs); text-decoration: underline; cursor: pointer; }
   .feedback { min-height: 1.5em; margin: 0.5rem 0 0; color: var(--ok-green); }

@@ -10,10 +10,10 @@
 |---|---:|---|
 | 52 週都有單一內容意圖 | 52/52 | 否，只有週次規劃 |
 | 52 週都有正文／facts／FAQ／canonical packet | 52/52 | 否，仍要逐句驗證 |
-| 8 份 packet 通過自動品質 gate | 8/8 | 否，自動 gate 不判斷來源是否真的支持每句話 |
-| 完成逐句來源與年度資料人工核對 | 尚未全數完成 | 否 |
+| 52 份 packet 通過自動品質 gate | 52/52 | 否，自動 gate 不判斷來源是否真的支持每句話 |
+| 49 份 evidence 完成獨立來源／日期複核 | 49/49 | evidence 已通過；年度主辦公告仍按 event_window 補回 |
 | 完成圖片／OG／手機畫面與 production QA | 尚未全數完成 | 否 |
-| `scheduled`、可依 `publish_at` 直接進入小批 queue | 3/52 | 3 個固定／已核對日期；其餘由 manifest 明確 blocked |
+| `scheduled`、可依 `publish_at` 直接進入小批 queue | 28/52 | 28 個有日期 anchor 與前一月 publish_at；24 個是既有 canonical 的 ready/merge 維護 |
 
 ## 進入 `scheduled` 前的硬條件
 
@@ -43,4 +43,5 @@
 - `pnpm check:annual-release` 會對帳 52/52、驗證日期格式、活動日前一個月、審核狀態與每月 4 URL 上限。
 - GitHub Pages 每日建置後執行 `pnpm annual:release:due`。它只輸出當月到期且通過審核的 URL；過去月份不追送，避免 backlog 一次灌入搜尋引擎。
 - IndexNow job 只送上述小批，已移除部署時的全站 sitemap 提交。Google 不支援 IndexNow，GSC 的收錄仍由 sitemap 與自然爬取判定。
-- 目前 3/52 已設定實際 `publish_at`；49/52 明確 blocked，缺官方年度資料時不能填模型推算日期。這些是剩餘的資料審核工作，不是腳本假裝已完成。
+- 目前 manifest 透過三個 evidence group 對齊 52/52：28 個 `scheduled`、24 個 `ready`、0 個 `watch/blocked`。`scheduled` 才會進入當月小批 queue；`ready` 是既有 canonical 的 merge／常青維護，不會被當成新 URL 灌入搜尋引擎。
+- 需要主辦方年度公告的路線、交通、報名與團次，已在各 evidence 的 `event_window`／`review_note` 明確標示，公告出現後只更新該 canonical，不另開年份薄頁。
