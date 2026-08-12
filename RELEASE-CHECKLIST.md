@@ -18,7 +18,7 @@ pnpm check:integrity      # 參照完整性＋對映率報表（硬錯誤須為 
 pnpm exec astro check     # 型別檢查（須 0 errors）
 node --experimental-strip-types src/lib/almanac/calibration.test.mjs   # M3 校準（46/46）
 pnpm verify:almanac       # 農民曆全範圍交叉驗證＋官方錨點（官方須 100%）
-pnpm build                # 靜態建置＋Pagefind 索引（postbuild）
+pnpm build:release        # 靜態建置＋Pagefind 索引（postbuild）
 ```
 
 預期：硬性完整性通過、0 型別錯誤、校準 46/46、官方錨點 163/163、build 完成。
@@ -74,7 +74,7 @@ pnpm build                # 靜態建置＋Pagefind 索引（postbuild）
 - **內容資料**：`src/data/*.json`（結構化）、`src/content/allusions|interpretations/*.md`（散文）。改後務必 `pnpm check:integrity`。
 - **新增廟宇（內政部開放資料）**：`pnpm import:temples`（fetch MOI XML→對映 deity→對映率報表；產出 `temples.import.json` 供人工審後併入）。
 - **provenance 鐵律**：每筆事實掛 `sources[]`；無源標 draft／待查，不對外發佈。爭議欄諸說並陳、不裁定。
-- **draft/verified gate**：`pnpm dev` 顯示全部（含 draft）；`pnpm build`（prod）自動隱藏 draft 與未驗證進階層。
+- **draft/verified gate**：`pnpm dev` 顯示全部（含 draft）；`pnpm build:release`（prod）自動隱藏 draft 與未驗證進階層。
 
 ## 八、關鍵檔案索引
 

@@ -54,16 +54,17 @@
 ```bash
 pnpm install
 pnpm dev               # 開發伺服器（顯示 draft 資料便於編輯）
-pnpm build             # 靜態建置（prod gate：draft／無源不發佈）
+pnpm build:changed     # 依變更檔案跑來源 gate，不重建 dist
+pnpm build:release     # 完整靜態建置＋Pagefind／OG／Discover gate
 pnpm check             # astro 型別檢查
 pnpm check:integrity   # 完整性與對映率報表（R5／§9.6）
 ```
 
-> `pnpm dev` 顯示全部資料（含 draft）；`pnpm build`（production）套用「無源不發佈」gate，draft 與待查欄位不輸出。
+> `pnpm dev` 顯示全部資料（含 draft）；`pnpm build:changed` 適合日常編輯，只檢查受影響的來源層且不產出部署檔。`pnpm build:release`（production）才會套用「無源不發佈」gate，產出完整 `dist`、Pagefind、OG 與 Discover 檢查結果。
 
 ### 內容守門（去 AI 味）— 兩個表面互補
 
-兩支腳本掃**不同表面**、規則同源，不是替換關係，都在 `pnpm build` 前置（本機／CI／seo-ops gate 全繼承）：
+兩支腳本掃**不同表面**、規則同源，不是替換關係，都在 `pnpm build:release` 前置（本機／CI／seo-ops gate 全繼承）：
 
 | 腳本 | script | 掃描表面 | 攔什麼 |
 |---|---|---|---|

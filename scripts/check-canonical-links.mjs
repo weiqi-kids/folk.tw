@@ -4,7 +4,7 @@
 //       會被 GitHub Pages 301 轉向帶斜線版 → 內鏈權重卡在 301 來源、爬蟲多繞一跳。
 //       此檢查阻擋任何非斜線內部網址（導航 href/src、JSON-LD url/@id/item/target/urlTemplate、
 //       canonical、og:url）再度上線。發現即 exit 1 → deploy.yml 的 build job 失敗 → 不部署。
-// 用法：pnpm build 後 `node scripts/check-canonical-links.mjs`（CI 已串在 build 之後）。
+// 用法：pnpm build:release 後 `node scripts/check-canonical-links.mjs`（CI 已串在 release 之後）。
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -47,7 +47,7 @@ let scanned = 0;
 try {
   statSync(DIST);
 } catch {
-  console.error(`[check-canonical-links] 找不到 ${DIST}/，請先 pnpm build。`);
+  console.error(`[check-canonical-links] 找不到 ${DIST}/，請先 pnpm build:release。`);
   process.exit(2);
 }
 

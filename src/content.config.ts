@@ -371,6 +371,15 @@ const events = defineCollection({
         }),
       )
       .default([]),
+    // 逐句掛源的活動特色；用來補足事件本身的獨有事實，不把節日頁的通用儀式整段複製過來。
+    facts: z
+      .array(
+        z.object({
+          text: z.string(),
+          sources: z.array(source).default([]),
+        }),
+      )
+      .default([]),
     region: z.array(z.string()).default([]),
     // 路線（D.4）：停駕/駐駕節點（geo-node）；GPS polyline 多為即時源（§12.4 發佈範圍外）故僅存節點＋來源指標
     route: z

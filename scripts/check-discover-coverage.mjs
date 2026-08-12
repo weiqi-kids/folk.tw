@@ -8,7 +8,7 @@
 //   2. content：有機會成為 Discover 內容的詳情頁，另檢查正文、主標、圖片。
 //
 // 用法：
-//   pnpm build && pnpm check:discover
+//   pnpm build:release && pnpm check:discover
 //   node scripts/check-discover-coverage.mjs --json
 //   node scripts/check-discover-coverage.mjs --strict
 //
@@ -34,7 +34,7 @@ function fail(message) {
   process.exit(2);
 }
 
-if (!existsSync(DIST) || !statSync(DIST).isDirectory()) fail(`找不到 ${DIST}/，請先 pnpm build。`);
+if (!existsSync(DIST) || !statSync(DIST).isDirectory()) fail(`找不到 ${DIST}/，請先 pnpm build:release。`);
 
 function* htmlFiles(dir) {
   for (const name of readdirSync(dir)) {

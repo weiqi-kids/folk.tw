@@ -20,6 +20,11 @@ type Topical = {
   id: string;
   title: string;
   event: string;
+  place?: string;
+  time?: string;
+  lat?: number;
+  lon?: number;
+  detector?: string;
   status: string;
   sources?: Src[];
   since: string;
@@ -61,7 +66,7 @@ const isIndexable = isActive || (isMemorial && !isExample && updates.length > 0)
 const blessCount = (stats as { topical?: Record<string, number> }).topical?.[item.id] ?? 0;
 const snapshot = typeof item.bless_snapshot === 'number' ? item.bless_snapshot : 0;
 
-const pageDesc = `${item.title}。${item.event}`.slice(0, 150);
+const pageDesc = `${item.title}。${item.event}${item.place ? ` 事件地點：${item.place}。` : ''}`.slice(0, 150);
 
 const jsonLd: object[] = [
   breadcrumb([
@@ -111,6 +116,17 @@ if (isMemorial) {
   <p class="lead">{item.event}</p>
   {/* 站內抽象燈火，不是事件照片，也不暗示任何特定災害現場。 */}
   <LeadVisual src="/visuals/prayer-light.svg" alt={`${item.title}的站內通用祈福燈火插圖`} />
+
+  {(item.place || item.time) && (
+    <section class="incident-facts">
+      <h2>事件資料</h2>
+      <dl>
+        {item.place && <><dt>事件地點</dt><dd>{item.place}</dd></>}
+        {item.time && <><dt>事件日期</dt><dd><time datetime={item.time}>{item.time}</time></dd></>}
+      </dl>
+      <p class="small muted">本頁只整理來源已指出的事件地點與日期；後續災情以頁面列出的新聞來源為準。</p>
+    </section>
+  )}
 
   {!isArchived && updates.length > 0 && (
     <section class="timeline" aria-label="後續發展">
@@ -226,6 +242,12 @@ if (isMemorial) {
       padding: 0.125rem 0.625rem; vertical-align: middle; }
     .example-note { color: var(--gold); border-left: 3px solid var(--line); padding-left: 0.875rem; margin: 0.75rem 0 0; }
     .lead { font-size: var(--text-base); margin: 1.25rem 0 0.5rem; }
+    .incident-facts { margin-top: 2rem; }
+    .incident-facts h2 { font-size: var(--text-lg); font-weight: 700; margin: 0 0 0.75rem; }
+    .incident-facts dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; margin: 0; }
+    .incident-facts dt { color: var(--gold); font-size: var(--text-sm); }
+    .incident-facts dd { margin: 0; }
+    .incident-facts p { margin: 0.75rem 0 0; }
     .sources { margin: 0.5rem 0 0; }
     .sources a { text-decoration: underline; text-underline-offset: 3px; }
     .closing { font-size: var(--text-base); color: var(--ink-soft); margin: 2.5rem 0 0; }

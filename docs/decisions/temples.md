@@ -239,7 +239,7 @@
   成功率僅約一成，但每一筆都零錯誤風險；要大批補仍須走下面那支的 MOI XML。
 
 - **廟宇座標回填（可重複、安全閘內建）**：`pnpm data:temple-coords <temple.xml>`（乾跑）→ 審 → 加 `--write` 回寫 →
-  `pnpm check:integrity && pnpm build` → push → `pnpm notify`。只碰缺座標/垃圾座標的廟、不動策展欄位；
+  `pnpm check:integrity && pnpm build:release` → push → `pnpm notify`。只碰缺座標/垃圾座標的廟、不動策展欄位；
   匹配限「地址精確／廟名完全相符＋同鄉鎮＋(長獨特名或里村佐證)」＋縣市 bbox，通用名無地名佐證不採（防同名跨村塞假座標）。
   **XML 取得**：MOI 擋境外 IP（本 server／GitHub Actions 皆連不到，25s timeout），data.gov.tw 也只轉址回同一被擋端點＝
   **無境外可達鏡像**；須台灣 IP 下載 `https://religion.moi.gov.tw/Report/temple.xml`（資料集 8203，約每月更新）後放本機指定路徑。

@@ -4,7 +4,7 @@
 //           必須渲染該區塊且連到每個 /systems/<id>/；否則必須不渲染。跨全部 7891 間廟逐一驗。
 // 背景：feature 正確性不能靠人工抽驗幾間廟；此檢查跑在 build 後，發現不符即 exit 1
 //       → deploy.yml build job 失敗 → 不部署。新 render 不變量可續加進本檔。
-// 用法：pnpm build 後 `node scripts/check-rendered.mjs`（CI 已串在 build 之後）。
+// 用法：pnpm build:release 後 `node scripts/check-rendered.mjs`（CI 已串在 release 之後）。
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';

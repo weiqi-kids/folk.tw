@@ -372,6 +372,38 @@
         "ref": "東港東隆宮"
       }
     ],
+    "facts": [
+      {
+        "text": "東港迎王平安祭典約每三年一科，依丑、辰、未、戌年在農曆九月舉行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "交通部觀光署〈宗教慶典〉 https://www.tad.gov.tw/m1.aspx?sNo=0001022",
+            "note": "三年一科、農曆九月"
+          }
+        ]
+      },
+      {
+        "text": "祭典程序包括造王船、請水、過火安座、出巡遶境、祀王、宴王，以及最後的送王、燒王船。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "交通部觀光署大鵬灣國家風景區〈傳統〉 https://www.dbnsa.gov.tw/zh-tw/Experience/articles?a=127",
+            "note": "迎王祭典程序"
+          }
+        ]
+      },
+      {
+        "text": "請水在東港海邊舉行，象徵恭請代天巡狩的千歲爺到來，之後依序展開遶境。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈東港迎王平安祭典〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85",
+            "note": "請水與遶境程序"
+          }
+        ]
+      }
+    ],
     "draft": false,
     "image": {
       "src": "/events/donggang.webp",
@@ -669,6 +701,38 @@
         "ref": "艋舺青山宮"
       }
     ],
+    "facts": [
+      {
+        "text": "青山王祭典通常在農曆十月二十、二十一日夜間暗訪，二十二日遶境，二十三日回到廟前舉行祝壽大祭。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "臺北市萬華區公所〈青山王祭〉 https://whdo.gov.taipei/cp.aspx?n=01FC6C90885205F5",
+            "note": "暗訪、遶境與祝壽日期"
+          }
+        ]
+      },
+      {
+        "text": "農曆十月二十、二十一日的暗訪，是青山王巡察艋舺南、北萬華的夜巡活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "臺北市萬華區公所〈青山王祭〉 https://whdo.gov.taipei/cp.aspx?n=01FC6C90885205F5",
+            "note": "夜巡範圍與活動安排"
+          }
+        ]
+      },
+      {
+        "text": "艋舺青山王祭已登錄為臺北市民俗文化資產，地方也常把這組暗訪與遶境稱作「艋舺大拜拜」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "臺北市萬華區公所〈青山王祭〉 https://whdo.gov.taipei/cp.aspx?n=01FC6C90885205F5",
+            "note": "臺北市定民俗與俗稱"
+          }
+        ]
+      }
+    ],
     "draft": false,
     "image": {
       "src": "/events/qingshan.webp",
@@ -711,6 +775,38 @@
       {
         "type": "temple",
         "ref": "鹽水武廟"
+      }
+    ],
+    "facts": [
+      {
+        "text": "鹽水蜂炮以鹽水武廟關聖帝君遶境為核心，主要在元宵前後沿街施放蜂炮與炮城。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈鹽水蜂炮〉 https://taiwangods.moi.gov.tw/Religious_Culture/html/landscape/1_0011.aspx?i=82",
+            "note": "武廟遶境、元宵與炮城"
+          }
+        ]
+      },
+      {
+        "text": "關於蜂炮起源，地方最普遍的說法是清光緒年間以遶境與炮火驅疫祈安，後來逐步形成今日的元宵民俗。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈鹽水蜂炮〉 https://taiwangods.moi.gov.tw/Religious_Culture/html/landscape/1_0011.aspx?i=82",
+            "note": "起源說明以地方傳說口徑呈現"
+          }
+        ]
+      },
+      {
+        "text": "參與蜂炮活動時，臺南市政府提醒穿著長袖厚重衣物、全罩式安全帽與護目鏡，並把袖口、褲管確實束緊。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "臺南市政府〈鹽水蜂炮活動作業要點〉 https://info.tainan.gov.tw/News_Content.aspx?n=25742&s=8611312",
+            "note": "市府發布的蜂炮安全防護提醒"
+          }
+        ]
       }
     ],
     "draft": false,
@@ -757,6 +853,43 @@
       {
         "type": "temple",
         "ref": "內門紫竹寺"
+      }
+    ],
+    "facts": [
+      {
+        "text": "本頁以「內門宋江陣」呈現內門的代表性陣頭；文化資產登錄標的是與其密切相連的「羅漢門迎佛祖」，不是把兩個名稱視為同一登錄標的。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "文化部國家文化資產網〈羅漢門迎佛祖〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001",
+            "note": "登錄標的名稱"
+          },
+          {
+            "type": "gov",
+            "ref": "高雄市政府新聞局〈國家重要民俗—羅漢門迎佛祖暨2026高雄內門宋江陣嘉年華會活動〉 https://kcginfo.kcg.gov.tw/News_Content.aspx?n=C527413F7300192A&s=B0370D1AB12BDB97&sms=114AAE178CD95D4C",
+            "note": "官方活動將兩者並列呈現"
+          }
+        ]
+      },
+      {
+        "text": "宋江陣是羅漢門迎佛祖遶境時的重要護駕陣頭，內門居民以庄頭組織參與操演與巡行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "高雄市政府〈護土佑民 內門觀音佛祖遶境〉 https://takao.kcg.gov.tw/article/1977",
+            "note": "宋江陣與觀音佛祖遶境"
+          }
+        ]
+      },
+      {
+        "text": "羅漢門迎佛祖的遶境程序可分為起駕、巡行各敬場、過火與入廟，宋江陣等文武陣頭沿途護駕演出。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "高雄市政府新聞局〈功夫內門——人、信仰與江湖相遇的山城〉 https://takao.kcg.gov.tw/article/431",
+            "note": "遶境程序與護駕陣頭"
+          }
+        ]
       }
     ],
     "draft": false,
@@ -832,6 +965,38 @@
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002）",
         "note": "登錄年 2006；宜蘭縣定民俗（非國家重要民俗）；首次登錄2006年（府文資字第0950007040號），後於2020年重新公告"
+      }
+    ],
+    "facts": [
+      {
+        "text": "頭城搶孤是頭城中元祭典的最後一環，慣例安排在農曆七月底、關鬼門前後舉行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈頭城搶孤〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7",
+            "note": "中元祭典位置與時程"
+          }
+        ]
+      },
+      {
+        "text": "正式競技使用的孤棚以十二根杉木作支柱，棚頂設平台並豎起十三座竹編孤棧，頂端繫有順風旗。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈頭城搶孤〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7",
+            "note": "孤棚結構"
+          }
+        ]
+      },
+      {
+        "text": "搶孤隊伍在大鑼響起後攀爬塗油的棚柱，利用麻繩與團隊協作登上孤棚，爭取孤棧頂端的順風旗。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈頭城搶孤〉 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7",
+            "note": "競技方式"
+          }
+        ]
       }
     ],
     "draft": false,
@@ -1758,6 +1923,7 @@
   {
     "id": "minxiong_dashiye",
     "name": "民雄大士爺祭典",
+    "host_temple": "moi_9433_財團法人台灣省嘉",
     "main_deity": "guanyin",
     "type": [
       "中元普渡"
@@ -1781,6 +1947,38 @@
         "type": "gov",
         "ref": "文化部國家文化資產網〈民雄大士爺祭典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002",
         "note": "嘉義縣定民俗；主祀觀音大士（大士爺），普渡後火化升天"
+      }
+    ],
+    "facts": [
+      {
+        "text": "民雄大士爺祭典每年在農曆七月二十一日至二十三日舉行，連續三天完成主要祭典。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈民雄大士爺祭典〉 https://tcmb.culture.tw/zh-tw/detail?id=20090619000002&indexCode=BOCH_CountryCulture_51",
+            "note": "祭典日期"
+          }
+        ]
+      },
+      {
+        "text": "每年農曆七月，廟方會製作紙糊的大士爺神像，安置在廟內供信眾參拜。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈民雄大士爺祭典〉 https://tcmb.culture.tw/zh-tw/detail?id=20090619000002&indexCode=BOCH_CountryCulture_51",
+            "note": "大士爺紙糊神像"
+          }
+        ]
+      },
+      {
+        "text": "祭典會設壇舉行普渡法會，誦經超度孤魂；完成普渡後，紙糊大士爺再依祭儀火化。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈民雄大士爺祭典〉 https://tcmb.culture.tw/zh-tw/detail?id=20090619000002&indexCode=BOCH_CountryCulture_51",
+            "note": "普渡、誦經與送大士爺儀式"
+          }
+        ]
       }
     ],
     "draft": false,
@@ -1916,6 +2114,38 @@
         "type": "gov",
         "ref": "文化部國家文化資產網〈金門迎城隍〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20131004000005",
         "note": "國家重要民俗（離島第一個）；人力蜈蚣座、輦轎、藝閣、神將"
+      }
+    ],
+    "facts": [
+      {
+        "text": "金門迎城隍固定在農曆四月十二日舉行，這一天也是浯島城隍遷治後浦的紀念日。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金城鎮公所〈2025年金門迎城隍－浯島宗教文化季〉 https://jincheng.kinmen.gov.tw/News_Photo_Content.aspx?n=1B937FEFDA79581C&s=06F73BEE421EF69B&sms=7CFB68D915B5D899",
+            "note": "農曆四月十二日與遷治遶境"
+          }
+        ]
+      },
+      {
+        "text": "迎城隍主日以浯島城隍廟為遶境起點，隊伍包含藝陣與人力蜈蚣座等地方陣頭。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金城鎮公所〈2025年金門迎城隍－浯島宗教文化季〉 https://jincheng.kinmen.gov.tw/News_Photo_Content.aspx?n=1B937FEFDA79581C&s=06F73BEE421EF69B&sms=7CFB68D915B5D899",
+            "note": "遶境起點與陣頭活動"
+          }
+        ]
+      },
+      {
+        "text": "金門迎城隍已由文化部指定為國家重要民俗，是金門年度宗教活動的核心節點。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "金門縣政府〈浯島城隍觀光季〉 https://jincheng.kinmen.gov.tw/cp.aspx?n=B96B483B68F7BEE6",
+            "note": "國家重要民俗與年度祭典"
+          }
+        ]
       }
     ],
     "draft": false,
@@ -2078,6 +2308,38 @@
         "type": "gov",
         "ref": "文化部國家文化資產網〈二結王公過火〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20110209000001",
         "note": "宜蘭縣定民俗；主祀古公三王（無對應 deity id）；武轎掠童乩過萬斤炭火，全台最大過火"
+      }
+    ],
+    "facts": [
+      {
+        "text": "二結王公過火在古公三王聖誕，也就是每年農曆十一月十五日舉行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部〈二結王公過火〉 https://taiwangods.moi.gov.tw/religious_culture/html/landscape/1_0011.aspx?i=23",
+            "note": "祭典日期與地方信仰脈絡"
+          }
+        ]
+      },
+      {
+        "text": "整個儀式以掠童乩與過炭火最受重視，過火是由武轎隊伍通過炭火場地的核心儀式。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國家文化記憶庫〈2011年二結王公過火「過炭火」〉 https://tcmb.culture.tw/zh-tw/detail?id=512825&indexCode=Culture_Invisible",
+            "note": "儀式重點"
+          }
+        ]
+      },
+      {
+        "text": "文化資產登錄資料將二結王公過火列為宜蘭縣定民俗，主祀古公三王。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "文化部國家文化資產網〈二結王公過火〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20110209000001",
+            "note": "宜蘭縣定民俗登錄資料"
+          }
+        ]
       }
     ],
     "draft": false,

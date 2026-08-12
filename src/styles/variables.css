@@ -5,7 +5,7 @@
  * 3. 禁 important 覆寫
  * 4. 字型自託管或系統堆疊，禁外部 CDN
  * 5. src/ 下 .css 只准 src/styles/{variables,global}.css；元件樣式寫 scoped <style>
- * 守門：scripts/check-design.mjs（pnpm build 自動先跑，違規直接 fail）。
+ * 守門：scripts/check-design.mjs（pnpm build:release 自動先跑，違規直接 fail）。
  *
  * 配色：OKLCH（朱紅／暖紙／金，承襲考據氣質）。
  * 字級：標準階梯 --text-xs … --text-3xl（**值一律 ≥1.125rem＝18px 下限**，check-design 第 6 條守）；

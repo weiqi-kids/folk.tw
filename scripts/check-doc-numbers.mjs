@@ -13,7 +13,7 @@
 //   `docs/decisions/*.md` 是**歷史脈絡**（檔頭已聲明「本檔是決策歷史、不是現況規格」），
 //   裡面的數字是「當時的量測」，只要**帶年份**就是正確的事實陳述，不在本 gate 範圍。
 //
-// 用法：`pnpm check:doc-numbers`（已串進 deploy.yml 與 pnpm build 前段）
+// 用法：`pnpm check:doc-numbers`（已串進 deploy.yml 與 pnpm build:release 前段）
 import { readFileSync, existsSync } from 'node:fs';
 
 const CURRENT_DOCS = [

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import LeadVisual from '../components/LeadVisual.astro';
 // 全文檢索（§8）：Pagefind 於 postbuild 對 dist 建索引（package.json）。
-// 索引檔在 build 後才產生，故開發伺服器（pnpm dev）看不到結果，需 pnpm build && pnpm preview。
+// 索引檔在 release build 後才產生，故開發伺服器（pnpm dev）看不到結果，需 pnpm build:release && pnpm preview。
 ---
 
 <!--
@@ -17,7 +17,7 @@ import LeadVisual from '../components/LeadVisual.astro';
   <p class="muted">手上有籤？直接貼上整段籤詩四句就能查解，也可搜尋典故、神明、活動與習俗。</p>
   <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
   <div id="search" class="search-box"></div>
-  {/* 2026-08-08：這裡原本放的是「若在開發模式看不到結果，請以 pnpm build && pnpm preview 檢視」——
+  {/* 2026-08-08：這裡原本放的是「若在開發模式看不到結果，請以 pnpm build:release && pnpm preview 檢視」——
       那是寫給我們自己看的指令，卻一直印在線上給使用者看。換成真的幫得上忙的東西：
       這頁除了輸入框以外沒有任何引導，空得像沒做完。
       🔴 範例做成 <button> 而不是 /search/?q=… 連結：那種網址會被爬，

@@ -125,4 +125,4 @@ for (const { t, rec, how } of fills) {
   });
 }
 writeFileSync(TEMPLES, JSON.stringify(arr, null, 2) + '\n');
-console.log(`\n已回寫 ${fills.length} 間至 temples.json。請跑 pnpm check:integrity && pnpm build，再 push＋notify。`);
+console.log(`\n已回寫 ${fills.length} 間至 temples.json。請跑 pnpm build:changed；正式發佈前跑 pnpm build:release，再 push＋notify。`);

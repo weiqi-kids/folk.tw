@@ -94,11 +94,15 @@ console.log('廟',t.length,'｜有座標',t.filter(x=>x.lat).length,'｜沿革',
 git push origin main            # 之後查：gh run list --workflow deploy.yml --json headSha
 pnpm notify [url...|--all]      # 部署後推 Google Indexing API ＋ IndexNow
 
-# 驗證套件（push 前跑；🔴 pnpm check 是 CI 擋門但不在 pnpm build 裡）
+# 日常變更（依變更檔案挑來源 gate，不產生 dist）
+pnpm build:changed
+pnpm dev                                      # 編輯期間用 HMR 看頁面
+
+# 正式發佈驗證（push 前跑；🔴 pnpm check 是 CI 擋門但不在完整 build 裡）
 pnpm check:integrity && pnpm check && pnpm check:doc-numbers && pnpm check:scoped-styles && pnpm check:design \
   && pnpm check:design-tokens && pnpm check:copy-voice && pnpm check:content \
-  && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build
-pnpm check:canonical && pnpm check:rendered && pnpm check:discover  # build 後掃全站收錄／Discover 前置條件
+  && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build:release
+pnpm check:canonical && pnpm check:rendered && pnpm check:discover  # build:release 後掃全站收錄／Discover 前置條件
 
 # 資料
 node scripts/intake-status.mjs                   # 台灣端管道現況（四段）
@@ -108,7 +112,7 @@ pnpm data:temple-coords <temple.xml>             # 座標回填（乾跑預設�
 pnpm data:weekly                                 # 週報乾跑預覽
 ```
 
-⚠️ **完整 build ≈ 20 分鐘**（每間廟一張 OG 卡，數量隨廟數變）。先定版再開 build，`astro build` 會清空 dist。
+⚠️ **完整 `build:release` ≈ 20 分鐘**（每間廟一張 OG 卡，數量隨廟數變）。編輯期間用 `build:changed`／`dev`；先定版再開 release，`astro build` 會清空 dist。
 
 ---
 

@@ -1,4 +1,4 @@
-// 內容守門（去 AI 味）——與 check-design.mjs 同框架，掛進 pnpm build 前置。
+// 內容守門（去 AI 味）——與 check-design.mjs 同框架，掛進 pnpm build:release 前置。
 // 規則來源：credo audit-ai-tone / appi check-ai-tone / evidence audit-ai-tone / yao style-guide 的跨站交集
 // （見記憶 content-no-ai-flavor 的四層檢查表）。站台特化規則（folk 療癒詩／yao 顧問腔／credo 括號）不放這，各站自行擴充。
 //
