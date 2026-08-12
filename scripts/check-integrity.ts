@@ -134,6 +134,15 @@ for (const id of Object.keys(yijiTerms)) {
     }
     // 事實型頁面必須掛源（與 deities/events/practices 同一鐵則：絕不杜撰）
     if (!(f.sources ?? []).length) hard(`festival ${f.slug}: 無 sources（事實型頁面必須掛源）`);
+    // published/updated → Article schema 的 datePublished/dateModified（Discover 新鮮度訊號）。
+    // 值＝該筆資料實際變動日（初值由 git 歷史回推），不是 build 時間——謊報新鮮度的方向不設防，
+    // 這裡只擋格式錯與時序倒置；忘記 bump updated 是低報、安全方向，不擋。
+    for (const k of ['published', 'updated'] as const) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(f[k] ?? '')) hard(`festival ${f.slug}: ${k}「${f[k]}」須為 YYYY-MM-DD`);
+    }
+    if (f.published && f.updated && f.updated < f.published) {
+      hard(`festival ${f.slug}: updated（${f.updated}）早於 published（${f.published}）`);
+    }
     for (const r of f.practice_refs ?? []) {
       if (!practiceIds.has(r)) hard(`festival ${f.slug}: practice_ref「${r}」不存在`);
     }

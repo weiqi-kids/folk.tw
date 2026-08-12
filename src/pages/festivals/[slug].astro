@@ -347,6 +347,11 @@ const festivalIcsUrl = `/festivals/${f.slug}.ics`;
 
 // 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
 // 因此用 Article，不宣稱 EventScheduled、OfflineEventAttendanceMode 或 folk.tw organizer。
+// datePublished/dateModified 來自 festivals.json 的 published/updated（Google Discover 吃新鮮度訊號，
+// 缺日期的 Article 幾乎不進 Discover）。🔴 這兩個值是「該筆資料實際變動日」（由 git 歷史回推、
+// 之後手動維護），**不可改成 build 時間**——全站每日 cron 重建，掛 build 時間＝天天謊報全站更新
+// （同 astro.config.mjs sitemap lastmod 只給 / 與 /almanac 的取捨）。改內容記得同步 bump updated；
+// 忘了 bump 只是低報（安全方向），check:integrity 驗格式與 updated ≥ published。
 const article = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -357,7 +362,12 @@ const article = {
   inLanguage: 'zh-Hant-TW',
   about: { '@type': 'Thing', name: f.name },
   publisher: ORG,
+  // author 用 Organization（Google 明確接受）。🔴 不掛個人姓名——本站條目是彙整＋逐條掛源，
+  // 沒有具名撰稿者，掛一個人名就是杜撰署名（同廟宇代表圖「查不到署名就不採用」那條）。
+  author: ORG,
   mainEntityOfPage: `https://folk.tw/festivals/${f.slug}/`,
+  ...(f.published ? { datePublished: f.published } : {}),
+  ...(f.updated ? { dateModified: f.updated } : {}),
 };
 const jsonLd = [
   breadcrumb([
@@ -393,6 +403,15 @@ const jsonLd = [
     {
       f.aliases?.length > 0 && (
         <p class="muted small">別稱：{f.aliases.join('、')}</p>
+      )
+    }
+    {
+      /* 可見更新日：Google 對 Article 建議「結構化資料＋頁面上可見」兩者一致，Discover 也吃新鮮度。
+         🔴 標籤必須寫「本頁資料更新」——這頁通篇在講節日日期，只寫一個裸日期會被讀成節日日期。
+         值同 Article 的 dateModified，都來自 festivals.json 的 updated（非 build 時間，見上方註解）。
+         沿用既有 .muted.small，不新增 CSS。 */
+      f.updated && (
+        <p class="muted small">本頁資料更新：<time datetime={f.updated}>{f.updated}</time></p>
       )
     }
   </header>
