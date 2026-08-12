@@ -583,14 +583,7 @@ const jsonLd = [
               {x.sources.length > 0 && (
                 <span class="muted small">
                   　—
-                  {x.sources.map((s, i) => (
-                    <>
-                      {i > 0 && '、'}
-                      <a href={s.ref.slice(s.ref.indexOf('http'))} rel="nofollow">
-                        {s.ref.slice(0, s.ref.indexOf(' http') > 0 ? s.ref.indexOf(' http') : undefined)}
-                      </a>
-                    </>
-                  ))}
+                  <Sources sources={x.sources} prefix="" />
                 </span>
               )}
             </li>
