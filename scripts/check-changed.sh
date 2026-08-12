@@ -14,6 +14,7 @@ mapfile -t files < <(
     git diff --name-only origin/main...HEAD
     git diff --name-only
     git diff --cached --name-only
+    git ls-files --others --exclude-standard
   } | sort -u
 )
 
