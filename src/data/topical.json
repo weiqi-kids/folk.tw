@@ -2741,5 +2741,28 @@
     "detector": "news",
     "since": "2026-08-12",
     "status": "active"
+  },
+  {
+    "id": "news-storm-20260809-6f23ad",
+    "eventType": "storm",
+    "title": "為基隆港風災平安祈福",
+    "event": "颱風白海豚侵襲基隆港，西岸碼頭發生貨櫃連環倒塌意外，造成人員受傷及多處災情。願受影響鄉親平安無虞，港區早日恢復如常。",
+    "sources": [
+      {
+        "ref": "中央社CNA",
+        "url": "https://www.cna.com.tw/news/aloc/202608090152.aspx"
+      },
+      {
+        "ref": "星島日報",
+        "url": "https://www.singtaousa.com/2026/08/09/news/china/typhoon-dolphin-taiwan-damage-containers-collapse/"
+      }
+    ],
+    "place": "基隆港",
+    "time": "2026-08-09",
+    "lat": 25.1462479,
+    "lon": 121.7556113,
+    "detector": "news",
+    "since": "2026-08-12",
+    "status": "active"
   }
 ]
