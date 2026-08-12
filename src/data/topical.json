@@ -231,8 +231,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 0
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -533,8 +533,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 4
+      "last_checked": "2026-08-12",
+      "empty_runs": 5
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -2000,8 +2000,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 0
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
     }
   },
   {
@@ -2054,8 +2054,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 1
+      "last_checked": "2026-08-12",
+      "empty_runs": 2
     }
   },
   {
@@ -2169,11 +2169,27 @@
         ],
         "added": "2026-08-11T12:38:28.061Z",
         "hash": "429fa3ca2a11"
+      },
+      {
+        "date": "2026-08-12",
+        "text": "沖繩縣政府公布颱風過後農林漁業損失初步調查結果，其中甘蔗受損最為嚴重，相關統計與後續補助評估作業持續進行中",
+        "sources": [
+          {
+            "ref": "沖縄タイムス",
+            "url": "https://www.okinawatimes.co.jp/articles/-/1900163"
+          },
+          {
+            "ref": "QAB NEWS Headline",
+            "url": "https://www.qab.co.jp/news/20260812302205.html"
+          }
+        ],
+        "added": "2026-08-12T12:38:39.165Z",
+        "hash": "4a2eab831719"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
+      "last_checked": "2026-08-12",
       "empty_runs": 0
     }
   },
@@ -2219,8 +2235,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 4
+      "last_checked": "2026-08-12",
+      "empty_runs": 5
     }
   },
   {
@@ -2273,8 +2289,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 3
+      "last_checked": "2026-08-12",
+      "empty_runs": 4
     }
   },
   {
@@ -2327,8 +2343,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 0
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
     }
   },
   {
@@ -2393,8 +2409,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 0
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
     }
   },
   {
@@ -2443,12 +2459,28 @@
         ],
         "added": "2026-08-10T12:42:06.316Z",
         "hash": "168b678268cd"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "當地溫泉業者表示，供應溫泉區的引水管因土石流沖斷造成大範圍斷湯，業者已規劃在搶修道路的同時鋪設臨時管線，目標於兩週內完成臨時恢復供應。",
+        "sources": [
+          {
+            "ref": "Yahoo!ニュース（abn長野朝日放送）",
+            "url": "https://news.yahoo.co.jp/articles/8e230c37b97d0fe84261f2d217ee68b3357089f9"
+          },
+          {
+            "ref": "Yahoo!ニュース（NBS長野放送）",
+            "url": "https://news.yahoo.co.jp/articles/fd977392c78eb961b2f03a4d4f854e0913fe299d"
+          }
+        ],
+        "added": "2026-08-12T12:45:53.887Z",
+        "hash": "1626fa328292"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 1
+      "last_checked": "2026-08-12",
+      "empty_runs": 0
     }
   },
   {
@@ -2473,11 +2505,24 @@
     "detector": "news",
     "since": "2026-08-09",
     "status": "active",
-    "updates": [],
+    "updates": [
+      {
+        "date": "2026-08-12",
+        "text": "石垣與周邊離島間的定期船航線已於颱風過後全面恢復正常運航，往來旅客與居民出行逐漸回歸日常。",
+        "sources": [
+          {
+            "ref": "八重山毎日新聞",
+            "url": "https://www.y-mainichi.co.jp/news/42720/"
+          }
+        ],
+        "added": "2026-08-12T12:47:28.281Z",
+        "hash": "bea37c6db47b"
+      }
+    ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 2
+      "last_checked": "2026-08-12",
+      "empty_runs": 0
     }
   },
   {
@@ -2566,8 +2611,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
-      "empty_runs": 0
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
     },
     "bless_snapshot": 1
   },
@@ -2630,11 +2675,39 @@
         ],
         "added": "2026-08-11T12:45:32.433Z",
         "hash": "2b2498015373"
+      },
+      {
+        "date": "2026-08-12",
+        "text": "哥倫比亞總統德拉埃斯普列亞宣布全國進入為期三天的哀悼期，搜救行動持續進入第三天",
+        "sources": [
+          {
+            "ref": "El Tiempo",
+            "url": "https://www.eltiempo.com/colombia/otras-ciudades/terremoto-en-colombia-hoy-12-de-agosto-ultimas-noticias-presidente-de-la-espriella-celebro-rescate-de-daniela-largo-tras-36-horas-bajo-los-escombros-3577781"
+          },
+          {
+            "ref": "NPR",
+            "url": "https://www.npr.org/2026/08/12/g-s1-138315/colombia-earthquake-updates"
+          }
+        ],
+        "added": "2026-08-12T12:49:20.064Z",
+        "hash": "8b21beeea422"
+      },
+      {
+        "date": "2026-08-12",
+        "text": "法醫機構持續為多地送抵的罹難者遺體進行身分確認作業，跨部門救援與後送行動仍在多個受災地區同步展開",
+        "sources": [
+          {
+            "ref": "La Nación",
+            "url": "https://www.lanacion.com.ar/el-mundo/terremoto-en-colombia-ascienden-a-169-los-fallecidos-y-buscan-a-miles-de-sobrevivientes-entre-los-nid11082026/"
+          }
+        ],
+        "added": "2026-08-12T12:49:21.555Z",
+        "hash": "c8aab5f5ca3a"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
+      "last_checked": "2026-08-12",
       "empty_runs": 0
     }
   },
@@ -2669,11 +2742,23 @@
         ],
         "added": "2026-08-11T12:47:26.814Z",
         "hash": "a8fba26f901a"
+      },
+      {
+        "date": "2026-08-11",
+        "text": "陝西省統籌防汛避險與災後重建，已撥款支持受災地區農業生產恢復，並要求加速搶修水電、交通與通訊等基礎設施，協助民眾儘速恢復正常生產生活秩序。",
+        "sources": [
+          {
+            "ref": "西部網（陝西新聞網）",
+            "url": "http://news.cnwest.com/sxxw/a/2026/08/11/23411027.html"
+          }
+        ],
+        "added": "2026-08-12T12:50:37.879Z",
+        "hash": "da39ba00a833"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-11",
+      "last_checked": "2026-08-12",
       "empty_runs": 0
     }
   },
@@ -2696,7 +2781,30 @@
     "time": "2026-08-10",
     "detector": "news",
     "since": "2026-08-11",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-11",
+        "text": "碧瑤市吉沙蘇隆山崩現場的搜救與遺體挖掘工作已於當地時間本週二凌晨結束，受困者已全數尋獲，倖存者送醫觀察。",
+        "sources": [
+          {
+            "ref": "Manila Times",
+            "url": "https://www.manilatimes.net/2026/08/11/regions/10-dead-3-rescued-as-baguio-landslide-search-rescue-operations-end/2402572"
+          },
+          {
+            "ref": "GMA News Online",
+            "url": "https://www.gmanetwork.com/regionaltv/news/115133/10-killed-in-baguio-landslide-as-rescue-operations-end/story/"
+          }
+        ],
+        "added": "2026-08-12T12:51:37.783Z",
+        "hash": "a1d401e6e52c"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-12",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-storm-20260808-53ade0",
@@ -2717,7 +2825,26 @@
     "time": "2026-08-08",
     "detector": "news",
     "since": "2026-08-11",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-11",
+        "text": "沖繩電力公司表示，因第13號颱風造成的停電，除大宜味村部分因倒木清除困難、車輛難以進入而尚未修復外，本島北部其餘地區的高壓輸電線復電作業已於8月11日上午完成。",
+        "sources": [
+          {
+            "ref": "琉球新報",
+            "url": "https://ryukyushimpo.jp/national/entry-5452489.html"
+          }
+        ],
+        "added": "2026-08-12T12:52:25.300Z",
+        "hash": "3267cdd915d7"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-12",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-flood-20260810-b1e0e3",
@@ -2740,7 +2867,13 @@
     "lon": 121.4700152,
     "detector": "news",
     "since": "2026-08-12",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
+    }
   },
   {
     "id": "news-storm-20260809-6f23ad",
@@ -2763,6 +2896,12 @@
     "lon": 121.7556113,
     "detector": "news",
     "since": "2026-08-12",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-12",
+      "empty_runs": 1
+    }
   }
 ]
