@@ -111,14 +111,22 @@ function report(state, urls) {
 const state = loadState();
 const urls = await allPageUrls();
 
+// ⚠️ console.log 後直接 process.exit() 會截斷 pipe 下未 flush 的 stdout
+//   （2026-08-11 實測：--list 3,134 筆只吐出 1,173 行，且無任何錯誤訊息）。
+//   改用 exitCode＋自然結束，Node 會等 stdout 排空。
 if (args.includes('--list')) {
   const want = argVal('--list');
   const hits = urls.filter((u) => state.results[u]?.state === want);
   console.log(`# ${want}：${hits.length} 頁`);
   for (const u of hits) console.log(decodeURI(u));
-  process.exit(0);
+  process.exitCode = 0;
+} else if (args.includes('--report')) {
+  report(state, urls);
+  process.exitCode = 0;
+} else {
+  await scan();
 }
-if (args.includes('--report')) { report(state, urls); process.exit(0); }
+async function scan() {
 
 const { gscSiteUrl } = await loadConfig();
 // 先查沒查過的；全查完後改滾動重查最舊的，讓資料保持新鮮。
@@ -155,3 +163,4 @@ for (const u of queue) {
 saveState(state);
 console.log(`本輪查了 ${done} 頁${quota ? '（配額用盡）' : ''}。`);
 report(state, urls);
+}
