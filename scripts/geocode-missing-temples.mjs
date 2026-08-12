@@ -88,7 +88,7 @@ for (const t of missing) {
 console.log(`\n=== 查 ${done} 間：成功 ${ok}、出界丟棄 ${rejected}、查無 ${notFound} ===`);
 if (WRITE && ok) {
   writeFileSync(FILE, JSON.stringify(raw, null, 2) + '\n');
-  console.log(`已寫回 ${FILE}（只補空值，未覆寫任何既有座標）。接著跑 pnpm check:integrity && pnpm build。`);
+  console.log(`已寫回 ${FILE}（只補空值，未覆寫任何既有座標）。接著跑 pnpm build:changed；正式發佈前跑 pnpm build:release。`);
 } else if (ok) {
   console.log('乾跑未寫檔。確認上面結果後加 --write。');
 }

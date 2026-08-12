@@ -27,7 +27,7 @@ const destIsTemple = e.destination_temple ? templeName.has(e.destination_temple)
 // 這裡補反向連結（/events/[id] → /festivals/[slug]），零新增事實，純衍生自既有欄位。
 // ⚠️ 型別標註不可省：festivals.json 有些條目的 event_refs 是空陣列字面量，TS 推成 never[]，
 // union 後 .includes(string) 會報 ts(2345)。deploy.yml 的「型別檢查」step 會跑 astro check，
-// 但 `pnpm build` 不含它——2026-08-03 的 reflect commit 194e665 因此推上一個 CI 擋門的錯，
+// 但 `pnpm build:release` 不含它——2026-08-03 的 reflect commit 194e665 因此推上一個 CI 擋門的錯，
 // 從 08:24 起所有部署失敗。改動 JSON 衍生欄位時一律顯式標型別（同 temples/[id].astro 的 deity_refs）。
 const linkedFestivals = releasedItems(festivalsData).filter((f) =>
   ((f as { event_refs?: string[] }).event_refs ?? []).includes(event.id),
@@ -47,6 +47,15 @@ const HERITAGE_D: Record<string, string> = { national_important: '國家重要�
 const pageDesc =
   `${e.name}：${e.type.join('、')}${e.main_deity && deityName.has(e.main_deity) ? `，主神${deityName.get(e.main_deity)}` : ''}` +
   `${e.heritage ? `，${HERITAGE_D[e.heritage.level]}` : ''}${e.region.length ? `，${e.region.join('、')}` : ''}。${e.date_note ?? ''}`;
+
+type EventFact = {
+  text: string;
+  sources: { type: string; ref: string; note?: string }[];
+};
+const facts = (e as { facts?: EventFact[] }).facts ?? [];
+const heritageCaseUrl = e.heritage?.case_id
+  ? `https://nchdb.boch.gov.tw/assets/overview/folklore/${e.heritage.case_id}`
+  : '';
 
 // 正文代表圖優先用本活動自己的 Wikimedia Commons 紀實照（資料內含作者／授權／來源）。
 // 僅兩個尚無活動照的頁面退到其主神既有授權圖，且圖說明確寫「非本活動現場紀實」，
@@ -93,7 +102,9 @@ const faq = faqPage([
 // 經緯度僅取首個 lat/lng 俱全的路線節點。
 const firstGeoStop = e.route?.stops.find((s) => s.lat != null && s.lng != null);
 const eventLocation =
-  e.host_temple ?? e.destination_temple ?? e.route?.stops[0]?.name ?? e.region[0];
+  (e.host_temple ? templeName.get(e.host_temple) ?? e.host_temple : undefined) ??
+  (e.destination_temple ? templeName.get(e.destination_temple) ?? e.destination_temple : undefined) ??
+  e.route?.stops[0]?.name ?? e.region[0];
 // startDate 一律省略：本站活動多為 fixed_lunar／divined／undetermined，無真實國曆 ISO 日期，
 // 避免杜撰國曆日期（日期資訊已由頁面內文與 FAQ 承載）。
 const eventLd = eventThing({
@@ -191,11 +202,96 @@ const jsonLd: object[] = [
             {e.heritage.verified
               ? <span class="muted small">　已核</span>
               : <span class="warn small">　待文資網核對</span>}
+            {e.heritage.authority_ref && <span class="muted small">　{e.heritage.authority_ref}</span>}
           </dd>
         </div>
       )
     }
   </dl>
+
+  {
+    facts.length > 0 && (
+      <section class="facts">
+        <h2>活動特色與查證資料</h2>
+        <ul>
+          {facts.map((fact) => (
+            <li>
+              {fact.text}
+              {fact.sources.length > 0 && (
+                <span class="muted small">　— <Sources sources={fact.sources} prefix="" /></span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    e.ceremony_stages.length > 0 && (
+      <section class="stages">
+        <h2>儀式順序</h2>
+        {e.ceremony_stages.map((stage) => (
+          <div class="stage">
+            <h3>{stage.name}</h3>
+            {(stage.schedule || stage.lunar) && (
+              <p class="muted small">
+                {stage.schedule}
+                {stage.lunar && stage.lunar !== stage.schedule && `（${stage.lunar}）`}
+              </p>
+            )}
+            {stage.description && <p>{stage.description}</p>}
+          </div>
+        ))}
+      </section>
+    )
+  }
+
+  {
+    e.heritage && (
+      <section class="heritage-details">
+        <h2>文化資產登錄資料</h2>
+        <dl>
+          {e.heritage.authority && <><dt>主管機關</dt><dd>{e.heritage.authority}</dd></>}
+          {e.heritage.venue && <><dt>登錄地點</dt><dd>{e.heritage.venue}</dd></>}
+          {(e.heritage.preservers ?? []).length > 0 && (
+            <><dt>保存者</dt><dd>{e.heritage.preservers.map((p) => `${p.name}${p.type ? `（${p.type}）` : ''}`).join('、')}</dd></>
+          )}
+          {(e.heritage.criteria ?? []).length > 0 && (
+            <><dt>登錄基準</dt><dd><ul>{e.heritage.criteria.map((criterion) => <li>{criterion}</li>)}</ul></dd></>
+          )}
+          {e.heritage.laws && <><dt>法令依據</dt><dd>{e.heritage.laws}</dd></>}
+          {(e.heritage.announcements ?? []).length > 0 && (
+            <><dt>公告沿革</dt><dd><ul>{e.heritage.announcements.map((a) => <li>{a.date}　{a.doc}{a.note && <span class="muted small">（{a.note}）</span>}</li>)}</ul></dd></>
+          )}
+          {e.heritage.authority_ref && <><dt>公告／文號</dt><dd>{e.heritage.authority_ref}</dd></>}
+        </dl>
+        {e.heritage.register_reason && (
+          <div class="quoted">
+            <h3>登錄理由</h3>
+            {e.heritage.register_reason.split('\n').filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+        {e.heritage.history && (
+          <div class="quoted">
+            <h3>歷史沿革</h3>
+            {e.heritage.history.split('\n').filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+        {(e.heritage.notices ?? []).length > 0 && (
+          <div class="quoted">
+            <h3>參觀注意事項</h3>
+            {e.heritage.notices.flatMap((notice) => notice.split('\n')).filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+        {heritageCaseUrl && (
+          <p class="muted small">
+            登錄資料：<a href={heritageCaseUrl} rel="nofollow noopener" target="_blank">文化部國家文化資產網個案 {e.heritage.case_id}</a>
+          </p>
+        )}
+      </section>
+    )
+  }
 
   {
     e.route_mode === 'undetermined' && (
@@ -263,6 +359,17 @@ const jsonLd: object[] = [
     .rec dd { margin: 0; }
     .warn { color: var(--gold); }
     .small { font-size: var(--text-sm); }
+    .facts ul, .heritage-details ul { padding-left: 1.25rem; }
+    .facts li { line-height: 1.85; margin-bottom: 0.5rem; }
+    .stages .stage { margin: 0 0 1.25rem; }
+    .stages h3 { font-size: var(--text-base); margin: 0 0 0.25rem; }
+    .stages p { line-height: 1.85; }
+    .heritage-details dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; }
+    .heritage-details dt { color: var(--gold); font-size: var(--text-sm); }
+    .heritage-details dd { margin: 0; }
+    .heritage-details .quoted { margin-top: 1rem; }
+    .heritage-details .quoted h3 { color: var(--gold); font-size: var(--text-sm); margin-bottom: 0.35rem; }
+    .heritage-details .quoted p { line-height: 1.85; margin: 0 0 0.6rem; }
     .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .stops { margin: 0.75rem 0; padding-left: 1.75rem; }

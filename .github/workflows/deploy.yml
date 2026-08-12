@@ -44,14 +44,14 @@ jobs:
         run: pnpm check:scoped-styles
       - name: 設計 token 檢查（硬編顏色 / 新增硬編 font-size，阻擋部署）
         run: pnpm check:design-tokens
-      # 設計規範守門 v2（團隊統一，2026-07-20）另由 pnpm build 內建先跑（scripts/check-design.mjs）
+      # 設計規範守門 v2（團隊統一，2026-07-20）另由 pnpm build:release 內建先跑（scripts/check-design.mjs）
       - name: 文案 AI 味檢查（面向使用者的字禁療癒腔／假掰詩意，阻擋部署）
         run: pnpm check:copy-voice
-      - name: 建置（static）
-        run: pnpm build
+      - name: 完整發佈建置（static）
+        run: pnpm build:release
       - name: canonical 連結檢查（dist 內部網址非斜線→301，阻擋部署）
         run: pnpm check:canonical
-      # 送出網址檢查（腳本主動送給 Google/IndexNow 的網址非斜線→301）另由 pnpm build 內建先跑
+      # 送出網址檢查（腳本主動送給 Google/IndexNow 的網址非斜線→301）另由 pnpm build:release 內建先跑
       # （scripts/check-outbound-urls.mjs，2026-07-28 補上 check:canonical 的盲區）
       # 錨文字：<a> 的**可見文字**不得是裸露網址、括號須成對（2026-08-04 用戶指出）。
       # 起因：來源標註整段呈現為「來源：https://www.th.gov.tw/…；https://zh.wikipedia.org/…」

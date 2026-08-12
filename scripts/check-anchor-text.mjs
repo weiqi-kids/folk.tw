@@ -12,7 +12,7 @@
 // 而且**畫面不會壞、build 不會錯**，只有人眼看得出來——正是最容易長期漏掉的那類。
 //
 // 判準（用戶原話）：`<a>` 的內容不能包含 http 字串。
-// 用法：pnpm build 後 `node scripts/check-anchor-text.mjs`（＝ pnpm check:anchor-text）。
+// 用法：pnpm build:release 後 `node scripts/check-anchor-text.mjs`（＝ pnpm check:anchor-text）。
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 

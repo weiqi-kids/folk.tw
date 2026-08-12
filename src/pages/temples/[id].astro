@@ -177,7 +177,7 @@ for (const s of scenarios) {
 // 反查：主祀神 → 該神明對應的求籤煩惱（concerns.json 的 deities[]）。
 const concernsByDeity = new Map<string, { id: string; label: string }[]>();
 // ⚠️ 顯式標型別，不靠 TS 推斷（根 CLAUDE.md 2026-08-03 立：空陣列字面量會被推成 never[]，
-// 之後的 .includes(string)／for-of 就報 ts(2345)，而型別檢查不在 pnpm build 裡＝自動化層看不到）。
+// 之後的 .includes(string)／for-of 就報 ts(2345)，而型別檢查不在 pnpm build:release 裡＝自動化層看不到）。
 for (const c of concernsData as { id: string; label: string; deities?: string[] }[]) {
   for (const d of c.deities ?? []) {
     (concernsByDeity.get(d) ?? concernsByDeity.set(d, []).get(d)!).push({ id: c.id, label: c.label });

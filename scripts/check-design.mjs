@@ -1,5 +1,5 @@
 // 設計規範守門 v2（團隊共用；v1 源自 dreamer868，v2 加 css 白名單＋掃 .svelte）：
-// 掃 src/ 下所有 .css/.astro/.svelte，違規即 exit 1（pnpm build 前自動跑）。
+// 掃 src/ 下所有 .css/.astro/.svelte，違規即 exit 1（pnpm build:release 前自動跑）。
 // 規則（見 src/styles/variables.css 檔頭）：
 // 1. font-size 禁用 px（一律 var(--text-*) 階梯）
 // 2. 顏色（hex / rgb() / hsl()）只准出現在 src/styles/variables.css
