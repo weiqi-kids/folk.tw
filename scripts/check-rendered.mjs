@@ -679,6 +679,26 @@ for (const f of festivals) {
   // 節日知識頁不是本站主辦的線下活動。反向擋住 Event，避免連帶宣稱
   // EventScheduled、OfflineEventAttendanceMode 與 folk.tw organizer。
   if (html.includes('"@type":"Event"')) violations.push(`節日頁 ${f.slug} 不得宣稱 Event 結構化資料`);
+  // 不變量 5g（2026-08-12 加）：Discover 新鮮度訊號必須真的渲染，且與 festivals.json 一致。
+  // 背景：2026-08-12 實測全站 Article 結構化資料 0 個 datePublished，而 Discover 對缺日期的
+  //       Article 幾乎不推；GSC 搜尋類型 discover 當時亦為 0 曝光。這三個欄位一旦被動掉不會有
+  //       任何錯誤訊息，頁面照樣長得一樣——正是「安靜失效」那一類，所以做成不變量而非人工抽驗。
+  // 🔴 日期比對的是 festivals.json 的 published/updated（資料實際變動日），**不是 build 時間**；
+  //    若哪天有人改成 new Date()，這裡會因為對不上 JSON 而擋下來。
+  if (!html.includes(`"datePublished":"${f.published}"`)) {
+    violations.push(`節日頁 ${f.slug} 的 Article 缺 datePublished 或與資料不符（應為 ${f.published}）`);
+  }
+  if (!html.includes(`"dateModified":"${f.updated}"`)) {
+    violations.push(`節日頁 ${f.slug} 的 Article 缺 dateModified 或與資料不符（應為 ${f.updated}）`);
+  }
+  if (!/"author":\{"@type":"Organization"/.test(html)) {
+    violations.push(`節日頁 ${f.slug} 的 Article 缺 author（須為 Organization——本站無具名撰稿者，掛人名即杜撰署名）`);
+  }
+  // 可見更新日：Google 建議結構化資料與頁面可見日期一致。標籤必須是「本頁資料更新」，
+  // 只印裸日期會被讀成節日日期（這頁通篇在講節日的日期）。
+  if (!html.includes(`本頁資料更新：<time datetime="${f.updated}"`)) {
+    violations.push(`節日頁 ${f.slug} 缺可見更新日或標籤／日期不符（應為「本頁資料更新：${f.updated}」）`);
+  }
   // 不變量 5d（2026-08-09 加）：一套儀式的完整內容**只准出現在主場節日頁**。
   // 背景：`pudu` 被 7 個節日頁指到，此前每頁都整組渲染它的步驟／供品／金紙／禁忌／地區差異，
   //       造成站內自我重複（實測與中元節頁的 8 字片段重疊：搶孤 84.4%、雞籠中元祭 71.6%），
