@@ -2718,5 +2718,28 @@
     "detector": "news",
     "since": "2026-08-11",
     "status": "active"
+  },
+  {
+    "id": "news-flood-20260810-b1e0e3",
+    "eventType": "flood",
+    "title": "為中國上海市水災平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "自由時報",
+        "url": "https://news.ltn.com.tw/news/world/breakingnews/5536087"
+      },
+      {
+        "ref": "新唐人電視台",
+        "url": "https://www.ntdtv.com/b5/2026/08/11/a104123102.html"
+      }
+    ],
+    "place": "中國上海市",
+    "time": "2026-08-10",
+    "lat": 31.2312707,
+    "lon": 121.4700152,
+    "detector": "news",
+    "since": "2026-08-12",
+    "status": "active"
   }
 ]
