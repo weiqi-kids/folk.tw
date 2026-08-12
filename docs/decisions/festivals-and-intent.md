@@ -169,6 +169,37 @@
 - [x] 新港奉天宮官網（2026-06-24）：MOI 資料其實有 `moi_4080_財團法人台灣省嘉`＝新港奉天宮（舊註過時），
       已查證官網 `https://www.hsinkangmazu.org.tw/` 並填入 website＋掛源。
 
+- [x] **Article 新鮮度訊號：`datePublished`／`dateModified`／`author`（2026-08-12）**
+      —— 目標是 Google Discover。用戶在盤點後裁示：**不開新 URL、只強化現有節日頁**
+      （明確保留 `docs/topic-articles/README.md` 第 11 行「不把 52 週變成 52 個薄頁或一次送出大量新 URL」的設計）。
+
+      **為什麼做這個**：2026-08-12 實測全站 `Article` schema **零個 `datePublished`**，
+      而 Discover 對缺日期的 Article 幾乎不推。節日頁其餘條件當時已到位：
+      `max-image-preview:large`（全站）、頁內 1200×630 插圖（`loading="eager"`／`fetchpriority="high"`）、
+      `Article`＋`FAQPage` schema。缺的就只有日期與 author。
+
+      🔴 **兩個日期＝該筆資料的實際變動日**（初值由 git 歷史回推，之後手動維護），
+      **不可改成 build 時間**——全站每日 cron 重建，掛 build 時間＝天天謊報全站更新，
+      與 `astro.config.mjs` 只給 `/` 與 `/almanac` lastmod 是同一個取捨。
+      `check:integrity` 驗格式與 `updated ≥ published`；忘記 bump 是低報（安全方向），不擋。
+
+      🔴 **`author` 用既有 `ORG`（Organization），不掛個人姓名。** 本站條目是彙整＋逐條掛源，
+      沒有具名撰稿者，掛人名就是杜撰署名（同廟宇代表圖「查不到署名就不採用那張圖」那條）。
+      Google 明確接受 Organization 當 author。
+
+      可見更新日放在 `<header class="dh">` 末，標籤**必須**寫「本頁資料更新」——
+      這頁通篇在講節日日期，只印一個裸日期會被讀成節日日期。沿用 `.muted.small`，不新增 CSS。
+
+      ⚠️ **這是技術補件，不是內容補件。** 用戶選這條時已被告知「常青頁很少進 Discover」，
+      仍選擇尊重原設計。真正決定 Discover 會不會推的是內容與時效性，而那部分沒有做。
+
+- [ ] **`/festivals/local/` 從未被收錄（2026-08-12 URL Inspection 實測）**
+      —— 狀態 `Discovered - currently not indexed`、`lastCrawlTime` 空。
+      🔴 CLAUDE.md 待辦表排了「2026-08-20 看 `/festivals/local/` 曝光再決定要不要擴縣市頁」，
+      但**它還沒被收錄，8/20 不會有曝光可看**——到期時別把「沒有曝光」讀成「這個題目沒需求」而砍掉方向，
+      那會是拿收錄問題的證據去否定需求假設。同日同批實測：搶孤與九月節氣已從 `Discovered` 翻成
+      `Submitted and indexed`（所以這個狀態會自己好，只是慢）；基隆中元祭、清明、孔子誕仍未收錄。
+
 ## 意圖頁：情境・比較・行業
 
 - [x] 情境頁＋比較頁（2026-07-07 commit `5d1c65a` 上線；AEO/GEO 高意圖突圍試點）：
