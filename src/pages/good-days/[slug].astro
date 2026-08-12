@@ -93,6 +93,9 @@ if (faq) jsonLd.push(faq);
 <Base
   title={title}
   description={`未來九十天內宜${item.lead_verb}的日子共 ${total} 天${soonestLabel ? `，最近一天是 ${soonestLabel.md}（農曆${soonestLabel.lunar}）` : ''}。依《欽定協紀辨方書》卷十一用事推算、逐條掛原文出處，並說明通書吉日與合八字的差別。`}
+  ogImage="/og/discover/calendar-compass.webp"
+  ogImageWidth={1200}
+  ogImageHeight={675}
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.lead']}

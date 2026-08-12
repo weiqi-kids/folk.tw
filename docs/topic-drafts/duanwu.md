@@ -1,6 +1,6 @@
 # 端午節主題草稿（evidence-backed draft）
 
-> 狀態：`review-gate`（可進入內容審稿，尚不可直接加入 `festivals.json`）
+> 狀態：`implemented-local`（已依本 evidence packet 寫入 `src/data/festivals.json`；production deployment 待 release workflow）
 > 研究日期：2026-08-11（Asia/Taipei）
 > 本稿是實際正文初稿與證據包，不是只列題目的規劃卡。2026 年資料可依官方清單使用；2027 年及之後的國曆日期、連假、活動與交通資訊，均保持 `source_required`，不以換算值或往年公告代替。
 
@@ -29,7 +29,7 @@
 
 ### 與現有 canonical 的關係
 
-目前 `src/data/festivals.json` 沒有端午節節日節點，因此日期與文化 guide 有一個明確缺口；但下列內容已有較適合的承接位置：
+`src/data/festivals.json` 已有端午節節日節點，日期與文化 guide 收斂在同一 canonical；下列內容仍有較適合的承接位置：
 
 | 既有頁／資料 | 應承接的內容 | 端午 guide 不應複製的內容 |
 |---|---|---|
@@ -113,13 +113,13 @@
 - **建議釋出月份：每年 5 月。** 對 2027 年度規劃，先排在 `2027-05`，正文與 FAQ 建議在端午前約 21 天完成審稿；實際 `publish_at` 保持 `source_required`，待官方年曆與頁面資料核對後才填。
 - **資料刷新節奏：** 先核對內政部／行政院人事行政總處的年度日期，再核對欲列出的每一場地方活動之主辦公告；日期、報名、路線、封路、安全規則分開掛源。
 - **若 2027 沒有新增活動證據：** 仍可發布 evergreen guide 的日期與文化 facts，但不批量新增龍舟事件頁，也不為了湊週次新增粽子、香包、立蛋副頁。
-- **目前狀態：** `review-gate`；內容已有五條官方來源 facts，可進逐句來源與重複率審稿，但尚未完成圖片、OG、canonical、內鏈、行動版畫面與 2027 年度資料驗證。
+- **目前狀態：** `implemented-local`；內容已有五條官方來源 facts，圖片、OG、canonical、內鏈與行動版由 repo gate 驗證；2027 年度日期與地方活動仍維持 `source_required`。
 
 ## 7. 發布前檢核清單
 
-- [ ] 2026 日期與連假仍以內政部／行政院人事行政總處官方資料核對；2027 日期未公告前不填。
-- [ ] F1–F5 每一條主張保留官方來源連結，並在正文相鄰段落掛源；不把歷史民俗的「驅瘟／治病」描述成現代效果。
-- [ ] 端午 guide 不複製 `/practices/baizuxian/` 的完整祭祖流程與供品清單。
-- [ ] 不建立 `duanwu-date`、`duanwu-zongzi`、`duanwu-sachet`、`duanwu-dragon-boat` 等同義薄頁。
-- [ ] 每一個龍舟／洗港／地方競走活動都取得當年度主辦方或地方政府公告後，才標 `scheduled`，否則維持 `source_required`。
-- [ ] 圖片、OG、canonical、sitemap／內鏈、行動版與分享預覽完成 QA 後，才加入 `festivals.json` 與發布排程。
+- [x] 2026 日期與連假以內政部／行政院人事行政總處官方資料核對；2027 日期未公告前不填。
+- [x] F1–F5 每一條主張保留官方來源連結，並在正文相鄰段落掛源；不把歷史民俗的「驅瘟／治病」描述成現代效果。
+- [x] 端午 guide 不複製 `/practices/baizuxian/` 的完整祭祖流程與供品清單。
+- [x] 不建立 `duanwu-date`、`duanwu-zongzi`、`duanwu-sachet`、`duanwu-dragon-boat` 等同義薄頁。
+- [x] 每一個龍舟／洗港／地方競走活動沒有當年度主辦公告前，維持 `source_required`。
+- [x] 圖片、OG、canonical、sitemap／內鏈、行動版與分享預覽完成 repo QA；production deployment 仍由 release workflow 處理。

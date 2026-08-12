@@ -36,6 +36,17 @@ const items = publicFestivals
   .filter((x): x is NonNullable<typeof x> => x !== null)
   .sort((a, b) => a.iso.localeCompare(b.iso));
 
+const undatedItems = publicFestivals
+  .map((f) => ({ f, next: festivalNextSolar(f, today) }))
+  .filter((x) => x.next.iso === null)
+  .map(({ f }) => ({
+    slug: f.slug,
+    name: f.name,
+    dateNote: f.date_note,
+    season: f.season,
+    question: f.question,
+  }));
+
 // 依季節分組（目前只有「農曆七月」一組；日後加清明/正月自動成組）
 const seasons = [...new Set(items.map((i) => i.season))];
 
@@ -118,6 +129,31 @@ const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? 
         </section>
       ))
   }
+
+  {undatedItems.length > 0 && (
+    <section class="undated">
+      <h2>全年／年度公告主題<span class="count muted">（{undatedItems.length}）</span></h2>
+      <p class="muted small">
+        這些頁面整理全年信仰、詞彙或地方活動脈絡；固定日期、活動檔期與服務時間需依當年度官方來源核對。
+      </p>
+      <div class="grid cols fest-grid">
+        {undatedItems.map((i) => (
+          <a class="card fest-cell" href={'/festivals/' + i.slug + '/'}>
+            <img
+              src={'/og/festivals/' + i.slug + '.png'}
+              alt={i.name + '節俗主視覺'}
+              width="1200"
+              height="630"
+              loading="lazy"
+              decoding="async"
+            />
+            <strong>{i.name}</strong>
+            <span class="muted small">{i.dateNote ?? '年度日期待官方公告'}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section>
     <h2>各地的地方宗教慶典</h2>

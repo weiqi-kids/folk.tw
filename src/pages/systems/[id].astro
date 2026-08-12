@@ -64,7 +64,16 @@ const jsonLd = [
 ];
 ---
 
-<Base title={s.name} description={s.summary} ogType="article" jsonLd={jsonLd} speakable={['h1', '.summary']}>
+<Base
+  title={s.name}
+  description={s.summary}
+  ogType="article"
+  ogImage="/og/discover/qian-slips.webp"
+  ogImageWidth={1200}
+  ogImageHeight={675}
+  jsonLd={jsonLd}
+  speakable={['h1', '.summary']}
+>
   <nav class="crumb"><a href="/poems/">籤詩</a> ／ <a href="/systems/">籤系</a> ／ {s.name}</nav>
   <h1>{s.name}</h1>
   {s.summary && <p class="summary">{s.summary}</p>}

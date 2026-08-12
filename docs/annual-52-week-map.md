@@ -1,12 +1,14 @@
 # 52 週主題呈現盤點
 
-> 這是「編輯週槽」而不是 52 個新網址。每週只選一個主要搜尋意圖；已有
-> canonical 的週次做年度刷新或事件更新，沒有來源的週次停在 `source_required`，
-> 不用 AI 補日期，也不把同義查詢拆成薄頁。實際 `publish_at` 仍要等當年度官方資料核對後才填。
+> 這是「編輯週槽」與 52 個草稿頁的對帳表。每週只選一個主要搜尋意圖；已有
+> canonical 的週次做年度刷新或事件更新，另以固定的 `/festivals/draft-week-XX-*/`
+> 路由承接完整草稿。沒有來源的年度欄位停在 `source_required`，不用 AI 補日期，
+> 也不把同義查詢再拆成年份薄頁。實際 `publish_at` 仍要等當年度官方資料核對後才填。
 >
-> 盤點基準：2026-08-11（Asia/Taipei）。目前已有 14 個節日頁、36 個民俗活動頁、
+> 盤點基準：2026-08-12（Asia/Taipei）。目前 `festivals.json` 有 68 個節日頁（16 個既有頁＋52 個草稿頁）、
+> 另有 36 個民俗活動頁、
 > 12 個習俗頁、8 個情境頁、13 個比較頁與 94 個神明節點；表內的「已發佈」是指可重用
-> 的 canonical，不代表該週的年度資訊已更新。
+> 的 canonical，不代表該週的年度資訊已更新；草稿頁的固定 route 已在 repo build 內實作。
 
 ## 狀態與判讀
 
@@ -15,8 +17,9 @@
 | `published-refresh` | 已有 canonical；本週只更新日期、當年度公告、來源或 FAQ。 | 不新增 URL |
 | `published-merge` | 已有頁型可承接意圖，改用章節、FAQ 或內鏈。 | 不新增 URL |
 | `published-watch` | 已有頁面但要看 GA4/GSC、事件後續或收錄狀態再調整。 | 不新增 URL |
-| `source_required` | 候選值得研究，但缺當年度一手來源或獨有事實。 | 暫不建頁 |
-| `review-gate` | 內容可寫但仍需通過來源、重複率、圖片與視覺審查。 | gate 前不釋出 |
+| `source_required` | 頁面或 packet 已存在，但缺當年度一手來源、地方活動欄位或獨有事實；不能把空缺填成猜測。 | 草稿 route 可建置；年度確定資訊不進 release queue |
+| `review-gate` | 內容仍需通過來源、重複率、圖片與視覺審查。 | 不宣稱 production 已發布；不另造年份 URL |
+| `implemented-local` | `draft-week` 頁面、資料、OG／Discover、canonical 與 repo gate 已完成。 | 可進 build／sitemap；仍須部署後驗證 |
 
 ## 52 個編輯週槽
 
@@ -78,6 +81,65 @@
 ## 盤點結論
 
 - 這次把週次重新分成「真正內容主題」：第 19、25、30、32 週的缺稿已補入 [missing-weeks.md](topic-drafts/missing-weeks.md)；原本被誤列為維護工作的第 33–36、43–52 週，已改成可閱讀、可審稿的主題並寫入 [content-themes-33-52.md](topic-drafts/content-themes-33-52.md)。
-- 目前 52 個週槽都有明確搜尋意圖、承接位置與寫作方向；這不等於 52 個新網址，也不等於已發布。已有 canonical 的主題優先用章節、FAQ 和年度更新承接。
+- 目前 52 個週槽都有明確搜尋意圖、承接位置、寫作方向與一個固定 `draft-week` route；這 52 個 route 是本次需求指定的草稿頁，不是 52 個年份頁，也不取代已有 canonical 的長期主場。
 - 品質 gate 要求新／年度內容有清楚 intent、至少 3 個不重複且逐句掛源 facts、可追溯來源、圖片／OG／授權與跨頁重複審查；當年度日期、路線、服務與公告仍缺一手資料時，維持 `source_required`／`review-gate`。
-- 每週槽不等於每週發布。實際發布以月度小批為單位，單批預設 2–4 個真正不同意圖的 canonical；沒有年度證據的一週可先完成 evergreen 正文，但不得填猜測日期或一次送出大量新 URL。
+- 每週槽不等於每週發布年度活動資訊。實際 release 仍以月度小批更新公告與事件欄位，單批預設 2–4 個真正不同意圖的 canonical；沒有年度證據的一週可先保留草稿頁，但不得填猜測日期或另送出年份新 URL。
+
+## 52 個已實作的草稿路由
+
+以下路由一週一頁，全部由 `draft_week` 對帳；它們是可索引的知識草稿頁，年度日期待公告時仍在同一 slug 更新。
+
+| 週 | 草稿頁 |
+|---:|---|
+| 01 | [`/festivals/draft-week-01-september-solar-terms/`](https://folk.tw/festivals/draft-week-01-september-solar-terms/) |
+| 02 | [`/festivals/draft-week-02-zhongqiu-guide/`](https://folk.tw/festivals/draft-week-02-zhongqiu-guide/) |
+| 03 | [`/festivals/draft-week-03-kinmen-bo-bing-guide/`](https://folk.tw/festivals/draft-week-03-kinmen-bo-bing-guide/) |
+| 04 | [`/festivals/draft-week-04-kongzi-teachers-day/`](https://folk.tw/festivals/draft-week-04-kongzi-teachers-day/) |
+| 05 | [`/festivals/draft-week-05-chongyang-guide/`](https://folk.tw/festivals/draft-week-05-chongyang-guide/) |
+| 06 | [`/festivals/draft-week-06-qingshan-king-festival/`](https://folk.tw/festivals/draft-week-06-qingshan-king-festival/) |
+| 07 | [`/festivals/draft-week-07-xiayuan/`](https://folk.tw/festivals/draft-week-07-xiayuan/) |
+| 08 | [`/festivals/draft-week-08-wangjiao-differences/`](https://folk.tw/festivals/draft-week-08-wangjiao-differences/) |
+| 09 | [`/festivals/draft-week-09-dongshan-yingfozu/`](https://folk.tw/festivals/draft-week-09-dongshan-yingfozu/) |
+| 10 | [`/festivals/draft-week-10-dongzhi-guide/`](https://folk.tw/festivals/draft-week-10-dongzhi-guide/) |
+| 11 | [`/festivals/draft-week-11-songshen-xietaisui/`](https://folk.tw/festivals/draft-week-11-songshen-xietaisui/) |
+| 12 | [`/festivals/draft-week-12-chuxi-ancestors/`](https://folk.tw/festivals/draft-week-12-chuxi-ancestors/) |
+| 13 | [`/festivals/draft-week-13-antaisui-deng/`](https://folk.tw/festivals/draft-week-13-antaisui-deng/) |
+| 14 | [`/festivals/draft-week-14-baitiangong-guide/`](https://folk.tw/festivals/draft-week-14-baitiangong-guide/) |
+| 15 | [`/festivals/draft-week-15-yuanxiao-guide/`](https://folk.tw/festivals/draft-week-15-yuanxiao-guide/) |
+| 16 | [`/festivals/draft-week-16-yanshui-handan/`](https://folk.tw/festivals/draft-week-16-yanshui-handan/) |
+| 17 | [`/festivals/draft-week-17-dajia-baishatun-pilgrimage/`](https://folk.tw/festivals/draft-week-17-dajia-baishatun-pilgrimage/) |
+| 18 | [`/festivals/draft-week-18-beigang-mazu-pilgrimage/`](https://folk.tw/festivals/draft-week-18-beigang-mazu-pilgrimage/) |
+| 19 | [`/festivals/draft-week-19-neimen-songjiang/`](https://folk.tw/festivals/draft-week-19-neimen-songjiang/) |
+| 20 | [`/festivals/draft-week-20-qingming-guide/`](https://folk.tw/festivals/draft-week-20-qingming-guide/) |
+| 21 | [`/festivals/draft-week-21-qingming-tomb-practice/`](https://folk.tw/festivals/draft-week-21-qingming-tomb-practice/) |
+| 22 | [`/festivals/draft-week-22-baosheng-birthday/`](https://folk.tw/festivals/draft-week-22-baosheng-birthday/) |
+| 23 | [`/festivals/draft-week-23-sanxia-qingshui/`](https://folk.tw/festivals/draft-week-23-sanxia-qingshui/) |
+| 24 | [`/festivals/draft-week-24-dadaocheng-chenghuang/`](https://folk.tw/festivals/draft-week-24-dadaocheng-chenghuang/) |
+| 25 | [`/festivals/draft-week-25-xuejia-shangbaijiao/`](https://folk.tw/festivals/draft-week-25-xuejia-shangbaijiao/) |
+| 26 | [`/festivals/draft-week-26-mazu-pilgrimage-differences/`](https://folk.tw/festivals/draft-week-26-mazu-pilgrimage-differences/) |
+| 27 | [`/festivals/draft-week-27-duanwu-guide/`](https://folk.tw/festivals/draft-week-27-duanwu-guide/) |
+| 28 | [`/festivals/draft-week-28-daxi-guangong/`](https://folk.tw/festivals/draft-week-28-daxi-guangong/) |
+| 29 | [`/festivals/draft-week-29-kouhu-qianshuizang/`](https://folk.tw/festivals/draft-week-29-kouhu-qianshuizang/) |
+| 30 | [`/festivals/draft-week-30-donggang-xigang/`](https://folk.tw/festivals/draft-week-30-donggang-xigang/) |
+| 31 | [`/festivals/draft-week-31-nanguanxian-wangjiao/`](https://folk.tw/festivals/draft-week-31-nanguanxian-wangjiao/) |
+| 32 | [`/festivals/draft-week-32-mingjian-xuantian-pilgrimage/`](https://folk.tw/festivals/draft-week-32-mingjian-xuantian-pilgrimage/) |
+| 33 | [`/festivals/draft-week-33-qiu-pingan-shoujing-buyun/`](https://folk.tw/festivals/draft-week-33-qiu-pingan-shoujing-buyun/) |
+| 34 | [`/festivals/draft-week-34-qiu-yinyuan-qiuzi/`](https://folk.tw/festivals/draft-week-34-qiu-yinyuan-qiuzi/) |
+| 35 | [`/festivals/draft-week-35-banjia-ruzhai-anshen/`](https://folk.tw/festivals/draft-week-35-banjia-ruzhai-anshen/) |
+| 36 | [`/festivals/draft-week-36-shoujing-buyun/`](https://folk.tw/festivals/draft-week-36-shoujing-buyun/) |
+| 37 | [`/festivals/draft-week-37-qixi-zuo16/`](https://folk.tw/festivals/draft-week-37-qixi-zuo16/) |
+| 38 | [`/festivals/draft-week-38-guimenkai-guide/`](https://folk.tw/festivals/draft-week-38-guimenkai-guide/) |
+| 39 | [`/festivals/draft-week-39-fangshuideng-guide/`](https://folk.tw/festivals/draft-week-39-fangshuideng-guide/) |
+| 40 | [`/festivals/draft-week-40-zhongyuan-guide/`](https://folk.tw/festivals/draft-week-40-zhongyuan-guide/) |
+| 41 | [`/festivals/draft-week-41-zhongyuan-local-rituals/`](https://folk.tw/festivals/draft-week-41-zhongyuan-local-rituals/) |
+| 42 | [`/festivals/draft-week-42-dizang-ghost-gate/`](https://folk.tw/festivals/draft-week-42-dizang-ghost-gate/) |
+| 43 | [`/festivals/draft-week-43-deity-birthday-variants/`](https://folk.tw/festivals/draft-week-43-deity-birthday-variants/) |
+| 44 | [`/festivals/draft-week-44-deity-comparison/`](https://folk.tw/festivals/draft-week-44-deity-comparison/) |
+| 45 | [`/festivals/draft-week-45-prayer-scenarios/`](https://folk.tw/festivals/draft-week-45-prayer-scenarios/) |
+| 46 | [`/festivals/draft-week-46-almanac-yiji-guide/`](https://folk.tw/festivals/draft-week-46-almanac-yiji-guide/) |
+| 47 | [`/festivals/draft-week-47-temple-selection-guide/`](https://folk.tw/festivals/draft-week-47-temple-selection-guide/) |
+| 48 | [`/festivals/draft-week-48-local-heritage-guide/`](https://folk.tw/festivals/draft-week-48-local-heritage-guide/) |
+| 49 | [`/festivals/draft-week-49-blessing-followup-guide/`](https://folk.tw/festivals/draft-week-49-blessing-followup-guide/) |
+| 50 | [`/festivals/draft-week-50-poem-reading-guide/`](https://folk.tw/festivals/draft-week-50-poem-reading-guide/) |
+| 51 | [`/festivals/draft-week-51-ritual-vocabulary-guide/`](https://folk.tw/festivals/draft-week-51-ritual-vocabulary-guide/) |
+| 52 | [`/festivals/draft-week-52-taiwan-festivals-year/`](https://folk.tw/festivals/draft-week-52-taiwan-festivals-year/) |

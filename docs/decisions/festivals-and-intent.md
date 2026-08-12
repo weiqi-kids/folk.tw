@@ -169,14 +169,18 @@
 - [x] 新港奉天宮官網（2026-06-24）：MOI 資料其實有 `moi_4080_財團法人台灣省嘉`＝新港奉天宮（舊註過時），
       已查證官網 `https://www.hsinkangmazu.org.tw/` 並填入 website＋掛源。
 
-- [x] **Article 新鮮度訊號：`datePublished`／`dateModified`／`author`（2026-08-12）**
-      —— 目標是 Google Discover。用戶在盤點後裁示：**不開新 URL、只強化現有節日頁**
-      （明確保留 `docs/topic-articles/README.md` 第 11 行「不把 52 週變成 52 個薄頁或一次送出大量新 URL」的設計）。
+- [x] **Article／Discover 資料訊號：`datePublished`／`dateModified`／`author`／`image`（2026-08-12）**
+      —— 目標是 Google Discover。初始盤點先強化既有節日頁，後續先補上
+      `/festivals/chongyang/` 與 `/festivals/duanwu/`；在本次需求確認後，52 個草稿週槽全部各自
+      轉成固定的 `/festivals/draft-week-XX-*/` 頁面，節日資料由 16 筆擴為 68 筆。這些草稿頁
+      保留自己的搜尋意圖、facts、FAQ、日期狀態與 Discover 主圖；`merge_only`、`/events/` 或
+      `/practices/` 仍是長期 canonical 的分流規則，不再用來否定草稿頁的存在，也不另造年份薄頁。
 
       **為什麼做這個**：2026-08-12 實測全站 `Article` schema **零個 `datePublished`**，
       而 Discover 對缺日期的 Article 幾乎不推。節日頁其餘條件當時已到位：
       `max-image-preview:large`（全站）、頁內 1200×630 插圖（`loading="eager"`／`fetchpriority="high"`）、
-      `Article`＋`FAQPage` schema。缺的就只有日期與 author。
+      `Article`＋`FAQPage` schema。當時缺的是日期與 author；2026-08-12 追加 Article 的
+      專屬無字 1200×675（16:9）主圖，避免把帶大量文字的社群分享卡當成 Discover 縮圖。
 
       🔴 **兩個日期＝該筆資料的實際變動日**（初值由 git 歷史回推，之後手動維護），
       **不可改成 build 時間**——全站每日 cron 重建，掛 build 時間＝天天謊報全站更新，
@@ -189,6 +193,15 @@
 
       可見更新日放在 `<header class="dh">` 末，標籤**必須**寫「本頁資料更新」——
       這頁通篇在講節日日期，只印一個裸日期會被讀成節日日期。沿用 `.muted.small`，不新增 CSS。
+
+      Article 的 `image` 使用同一份授權背景產生的 `/og/festivals/<slug>-clean.webp`（1200×675、16:9），
+      分享用的 `/og/festivals/<slug>.png` 仍保留節名／日期／提問文字層；`postbuild` 兩者都產生，
+      `check:rendered` 逐節日驗證網址與檔案存在。
+
+      52 個草稿週槽已轉入 `festivals.json`，各自有官方／公立來源 facts、`published`／`updated`、canonical、
+      Article／FAQ 結構化資料與無字 Discover 主視覺；其中 23 筆頁面沒有可安全換算的固定日期，會顯示
+      「日期待官方公告」並隱藏假造的 Calendar／ICS 日期。當年度地方活動與官方日期仍維持 source-required，
+      不把單一地方做法泛化成全臺規則。
 
       ⚠️ **這是技術補件，不是內容補件。** 用戶選這條時已被告知「常青頁很少進 Discover」，
       仍選擇尊重原設計。真正決定 Discover 會不會推的是內容與時效性，而那部分沒有做。

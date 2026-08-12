@@ -14,10 +14,11 @@ import { createRequire } from 'node:module';
 import { num } from '../src/lib/format.ts';
 import { commonTempleName } from '../src/lib/temple-name.ts';
 import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
-import { FESTIVAL_OG_SLUGS } from '../src/lib/festival-og.ts';
+import { FESTIVAL_OG_SLUGS, festivalDiscoverImagePath } from '../src/lib/festival-og.ts';
 import { releasedItems } from '../src/lib/release-schedule.ts';
 import { excerptAtBoundary, stripOuterParens, withoutTerminalPunctuation } from '../src/lib/text.ts';
 const require = createRequire(import.meta.url);
+const sharp = require('sharp');
 
 const DIST = 'dist';
 // 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
@@ -693,6 +694,27 @@ for (const f of festivals) {
   }
   if (!/"author":\{"@type":"Organization"/.test(html)) {
     violations.push(`節日頁 ${f.slug} 的 Article 缺 author（須為 Organization——本站無具名撰稿者，掛人名即杜撰署名）`);
+  }
+  // 不變量 5i（2026-08-12 加）：Article／Discover 主圖必須是該節日自己的乾淨 1200×675（16:9）圖，
+  // 不得退回全站 logo，也不得把社群文字卡當成 Discover 主圖。路徑與頁面共用 festival-og.ts，
+  // 實體檔由 postbuild 的 gen-og-festivals.mjs 產生；兩邊任一缺失都會讓訊號安靜失效。
+  const discoverImagePath = festivalDiscoverImagePath(f.slug);
+  const discoverImageUrl = discoverImagePath ? `https://folk.tw${discoverImagePath}` : '';
+  if (!discoverImageUrl || !html.includes(`"image":"${discoverImageUrl}"`)) {
+    violations.push(`節日頁 ${f.slug} 的 Article 缺 Discover 主圖或網址與資料不符（應為 ${discoverImageUrl || '該節日專屬主圖'}）`);
+  }
+  const discoverImageFile = discoverImagePath ? join(DIST, discoverImagePath.slice(1)) : '';
+  if (!discoverImagePath || !existsSync(discoverImageFile)) {
+    violations.push(`節日頁 ${f.slug} 的 Discover 主圖檔案不存在（${discoverImagePath || '未配置'}）`);
+  } else {
+    try {
+      const metadata = await sharp(discoverImageFile).metadata();
+      if (metadata.width !== 1200 || metadata.height !== 675) {
+        violations.push(`節日頁 ${f.slug} 的 Discover 主圖不是 1200×675（16:9）（實際：${metadata.width ?? '?'}×${metadata.height ?? '?'}）`);
+      }
+    } catch (error) {
+      violations.push(`節日頁 ${f.slug} 的 Discover 主圖無法讀取（${error instanceof Error ? error.message : String(error)}）`);
+    }
   }
   // 可見更新日：Google 建議結構化資料與頁面可見日期一致。標籤必須是「本頁資料更新」，
   // 只印裸日期會被讀成節日日期（這頁通篇在講節日的日期）。

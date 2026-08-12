@@ -1,6 +1,6 @@
 # 2026 年 8 月至 11 月年度主題內容包（實際初稿）
 
-> 狀態：`review-gate`。本檔把現有八月、九月 canonical 的正文刷新，以及十月至十一月的研究稿寫成可審核內容；未核定的年度活動日期一律保留 `source_required`，不直接產生新網址。
+> 狀態：`review-gate`。本檔把現有八月、九月 canonical 的正文刷新，以及十月至十一月的研究稿寫成可審核內容；未核定的年度活動日期一律保留 `source_required`，不直接產生年份新網址。52 個固定 `draft-week` route 另由 `festivals.json` 管理。
 
 ## 搜尋意圖判定
 

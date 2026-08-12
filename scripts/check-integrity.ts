@@ -119,12 +119,18 @@ for (const id of Object.keys(yijiTerms)) {
     // slug 是永久承諾（發佈後不可改、不可 404），重複即為錯誤
     if (seenSlugs.has(f.slug)) hard(`festival: slug「${f.slug}」重複`);
     seenSlugs.add(f.slug);
-    // 節日的日期來源恰須三選一：農曆月日、節氣，或固定國曆月日（如教師節）。
+    // 有固定日期的節日，日期來源恰須三選一：農曆月日、節氣，或固定國曆月日（如教師節）。
+    // 全年比較／選廟／查證與地方活動等待主辦方公告的草稿，明確用 date_status=source_required
+    // 表示沒有可安全換算的日期；不准拿空字串或任意日期偷渡成「有日期」。
     const hasLunar = typeof f.lunar_date === 'string' && f.lunar_date.length > 0;
     const hasTerm = typeof f.solar_term === 'string' && f.solar_term.length > 0;
     const hasSolar = typeof f.solar_date === 'string' && f.solar_date.length > 0;
-    if (Number(hasLunar) + Number(hasTerm) + Number(hasSolar) !== 1) {
+    const hasSourceRequiredDate = f.date_status === 'source_required';
+    const hasNoDate = !hasLunar && !hasTerm && !hasSolar;
+    if (Number(hasLunar) + Number(hasTerm) + Number(hasSolar) !== 1 && !(hasNoDate && hasSourceRequiredDate)) {
       hard(`festival ${f.slug}: 須且僅須其一 lunar_date、solar_term 或 solar_date`);
+    } else if (hasNoDate && hasSourceRequiredDate && f.source_status !== 'source_required') {
+      hard(`festival ${f.slug}: 無日期時 source_status 必須是 source_required`);
     } else if (hasLunar && !/^\d{2}-\d{2}$/.test(f.lunar_date)) {
       hard(`festival ${f.slug}: lunar_date「${f.lunar_date}」須為農曆 MM-DD`);
     } else if (hasTerm && !JIEQI.has(f.solar_term)) {

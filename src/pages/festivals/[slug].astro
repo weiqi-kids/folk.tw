@@ -8,7 +8,7 @@ import PuduChecklist from '../../components/PuduChecklist.astro';
 import SeptemberHolidayStrip from '../../components/SeptemberHolidayStrip.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
 import { breadcrumb, faqPage, ORG } from '../../lib/seo';
-import { festivalNextSolar, lunarDateLabel, solarMd } from '../../lib/lunar-date';
+import { festivalNextSolar, lunarDateLabel, solarMd as formatSolarMd } from '../../lib/lunar-date';
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
@@ -16,7 +16,7 @@ import { todayInTaipei } from '../../lib/daily';
 import { releasedItems } from '../../lib/release-schedule';
 import { num } from '../../lib/format';
 import { excerptAtBoundary } from '../../lib/text';
-import { festivalOgPath } from '../../lib/festival-og';
+import { festivalDiscoverImageUrl, festivalOgPath } from '../../lib/festival-og';
 import festivals from '../../data/festivals.json';
 import vocab from '../../data/vocabulary.json';
 import localCelebrations from '../../data/local-celebrations.json';
@@ -93,13 +93,12 @@ export const getStaticPaths = (async () => {
 
   return publicFestivals
     .map((f) => ({ f, ...festivalNextSolar(f, today) }))
-    .filter((x): x is { f: (typeof festivals)[number]; iso: string; label: string } => x.iso !== null)
     .map(({ f, iso, label }) => ({
       params: { slug: f.slug },
       props: {
         f,
-        iso,
-        dateLabel: label,
+        iso: iso ?? '',
+        dateLabel: label || '日期待官方公告',
         deityById,
         practiceById,
         eventById,
@@ -120,9 +119,11 @@ const {
 } = Astro.props;
 const publicFestivals = releasedItems(festivals, todayInTaipei().iso);
 
-const year = iso.slice(0, 4);
+const year = iso ? iso.slice(0, 4) : '';
 // 農曆節日＝「農曆七月十五」；節氣節日＝「節氣清明」。由 lib 統一產出，頁面不自行判斷型別。
-const lunarLabel = dateLabel;
+const lunarLabel = dateLabel || '日期待官方公告';
+const solarMd = (value: string) => value ? formatSolarMd(value) : '日期待官方公告';
+const solarDisplay = solarMd(iso);
 // 跨多日的節日（目前只有雞籠中元祭，橫跨整個農曆七月）用「起於」。
 // ⚠️ 判定用明確的 multi_day 欄位，**不可用 `Boolean(date_note)` 推斷**——
 // date_note 也用來寫純說明（如地藏王聖誕的短月順延、搶孤的頭城/恆春異地異日），
@@ -132,18 +133,22 @@ const nominalLunarLabel = f.lunar_date ? lunarDateLabel(f.lunar_date) : '';
 const shiftedFromShortMonth = Boolean(nominalLunarLabel && nominalLunarLabel !== lunarLabel);
 const fixedSolar = Boolean((f as { solar_date?: string }).solar_date);
 // answer-first 第一句：直接回答「今年是哪一天」——這是這類查詢唯一想要的答案。
-const dateSentence = multiDay
-  ? fixedSolar
-    ? `${f.name}在 ${year} 年自國曆 ${solarMd(iso)} 起。`
-    : `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarMd(iso)}。`
-  : shiftedFromShortMonth
-    ? `${f.name}傳統日期為${nominalLunarLabel}；${year} 年該農曆月只有廿九日，因此落在${lunarLabel}，國曆 ${solarMd(iso)}。`
-    : fixedSolar
-      ? `${f.name}固定在國曆 ${solarMd(iso)}。`
-    : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarMd(iso)}。`;
-const defaultPageTitle = multiDay
-  ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
-  : `${f.name}${year}是哪一天？${lunarLabel}・國曆${solarMd(iso)}`;
+const dateSentence = !iso
+  ? `${f.name}的年度日期、活動檔期或服務時間，需依當年度官方來源核對。`
+  : multiDay
+    ? fixedSolar
+      ? `${f.name}在 ${year} 年自國曆 ${solarDisplay} 起。`
+      : `${f.name}起於${lunarLabel}，${year} 年為國曆 ${solarDisplay}。`
+    : shiftedFromShortMonth
+      ? `${f.name}傳統日期為${nominalLunarLabel}；${year} 年該農曆月只有廿九日，因此落在${lunarLabel}，國曆 ${solarDisplay}。`
+      : fixedSolar
+        ? `${f.name}固定在國曆 ${solarDisplay}。`
+        : `${f.name}是${lunarLabel}，${year} 年落在國曆 ${solarDisplay}。`;
+const defaultPageTitle = !iso
+  ? `${f.name}｜資料脈絡、來源與年度公告`
+  : multiDay
+    ? `${f.name}${year}｜${lunarLabel}起・儀式順序與日期`
+    : `${f.name}${year}是哪一天？${lunarLabel}・國曆${solarDisplay}`;
 
 const linkedPractices = (f.practice_refs ?? []).map((id) => practiceById.get(id)).filter(Boolean);
 const linkedEvents = (f.event_refs ?? []).map((id) => eventById.get(id)).filter(Boolean);
@@ -285,14 +290,26 @@ const covers = [
   regionals.length > 0 ? '地區差異' : '',
   heritages.length > 0 ? '文化資產登錄層級與公告文號' : '',
 ].filter(Boolean);
-const defaultPageDesc = covers.length
+const defaultPageDescRaw = covers.length
   ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${excerptAtBoundary(f.lead, 40)}`
   : `${dateSentence}${excerptAtBoundary(f.lead, 90)}`;
+
+const defaultPageDesc = /[。！？…]$/u.test(defaultPageDescRaw)
+  ? defaultPageDescRaw
+  : defaultPageDescRaw.replace(/[、，；：,:;]+$/u, '') + '。';
 
 // 2026-08-09 起的節慶搜尋戰役：只重組本頁已掛源、也確實渲染的資料，
 // 把「日期＋這頁真正回答的問題」放進 title/description。其他節日仍走通用模板。
 // ⚠️ 不在這裡補新事實；下列字詞均來自 festivals.json 的 lead/question 或已渲染區塊。
 const campaignSeo: Record<string, { title: string; description: string }> = {
+  chongyang: {
+    title: `${year} 重陽節是 ${solarMd(iso)}｜敬老、祭祖與登高習俗`,
+    description: `${year} 重陽節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理農曆九月九日的節日脈絡、敬老意義，以及各地祭祖、登高與秋祭的差異。`,
+  },
+  duanwu: {
+    title: `${year} 端午節是 ${solarMd(iso)}｜粽子、香包與地方龍舟`,
+    description: `${year} 端午節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理農曆五月初五的節日脈絡、粽子與香包差異，以及地方龍舟活動如何分流。`,
+  },
   guimenkai: {
     title: `${year} 鬼門開是 ${solarMd(iso)}｜開龕門與起燈腳`,
     description: `${year} 鬼門開為國曆 ${solarMd(iso)}（${lunarLabel}）。整理基隆老大公廟開龕門、起燈腳與門口掛燈等現有掛源資料。`,
@@ -341,8 +358,9 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
 const festivalOgImage = festivalOgPath(f.slug);
+const festivalDiscoverImage = festivalDiscoverImageUrl(f.slug);
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
-const addToGoogleCalendar = googleCalendarUrl(f, iso, lunarLabel);
+const addToGoogleCalendar = iso ? googleCalendarUrl(f, iso, lunarLabel) : '';
 const festivalIcsUrl = `/festivals/${f.slug}.ics`;
 
 // 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
@@ -366,6 +384,9 @@ const article = {
   // 沒有具名撰稿者，掛一個人名就是杜撰署名（同廟宇代表圖「查不到署名就不採用」那條）。
   author: ORG,
   mainEntityOfPage: `https://folk.tw/festivals/${f.slug}/`,
+  // 分享卡有文字層，Discover 主圖改用同一主題的無字 1200×675（16:9）背景；兩者都由同一份
+  // 授權資產產生，避免 Google 抓到站徽或與正文無關的通用圖。
+  ...(festivalDiscoverImage ? { image: festivalDiscoverImage } : {}),
   ...(f.published ? { datePublished: f.published } : {}),
   ...(f.updated ? { dateModified: f.updated } : {}),
 };
@@ -395,9 +416,9 @@ const jsonLd = [
   <header class="dh">
     <h1>{f.name}</h1>
     <p class="when">
-      <strong>{year} 年國曆 {solarMd(iso)}</strong>
+      {iso ? <strong>{year} 年國曆 {solarDisplay}</strong> : <strong>年度日期／活動檔期待官方公告</strong>}
       <span class="muted">（{lunarLabel}）</span>
-      <span class="cd" data-fest-date={iso}></span>
+      {iso && <span class="cd" data-fest-date={iso}></span>}
     </p>
     {f.date_note && <p class="muted small">{f.date_note}</p>}
     {
@@ -421,7 +442,8 @@ const jsonLd = [
   {year === '2026' && (f.slug === 'zhongqiu' || f.slug === 'kongzi-birthday') && (
     <SeptemberHolidayStrip current={f.slug} />
   )}
-  <section class="calendar-reminder" aria-labelledby="calendar-reminder-title">
+  {iso && (
+    <section class="calendar-reminder" aria-labelledby="calendar-reminder-title">
     <div>
       <h2 id="calendar-reminder-title">提醒我</h2>
       <p>把 {year} 年國曆 {solarMd(iso)} 加入行事曆；多日或異地日期差異請以本頁說明為準。</p>
@@ -432,7 +454,8 @@ const jsonLd = [
       <a class="btn" href={festivalIcsUrl} download={`folk-tw-${f.slug}-${iso}.ics`}
         data-calendar-add data-calendar-id={f.slug} data-calendar-method="ics">下載 Apple／通用 .ics</a>
     </div>
-  </section>
+    </section>
+  )}
   {f.slug === 'zhongyuan' && (offerings.length > 0 || jossPaper.length > 0) && (
     <PuduChecklist offerings={offerings} jossPaper={jossPaper} shareUrl={canonicalUrl} />
   )}

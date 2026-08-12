@@ -81,7 +81,16 @@ const jsonLd = [
 ];
 ---
 
-<Base title={concern.h1} description={pageDesc} ogType="article" jsonLd={jsonLd} speakable={['h1', '.lead']}>
+<Base
+  title={concern.h1}
+  description={pageDesc}
+  ogType="article"
+  ogImage="/og/discover/qian-slips.webp"
+  ogImageWidth={1200}
+  ogImageHeight={675}
+  jsonLd={jsonLd}
+  speakable={['h1', '.lead']}
+>
   <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤 · 為心裡的那件事</p>
   <h1>{concern.h1}</h1>

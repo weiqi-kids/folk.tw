@@ -4,6 +4,7 @@
 import { readFileSync } from 'node:fs';
 
 const festivals = JSON.parse(readFileSync(new URL('../src/data/festivals.json', import.meta.url), 'utf8'));
+const { FESTIVAL_OG_SLUGS } = await import('../src/lib/festival-og.ts');
 const { festivalNextSolar } = await import('../src/lib/lunar-date.ts');
 const { compactCalendarDate, festivalIcs, googleCalendarUrl, nextCalendarDay } = await import('../src/lib/festival-calendar.ts');
 
@@ -22,7 +23,18 @@ if (fullMonth.iso !== '2025-09-21' || fullMonth.label !== '農曆七月三十') 
   problems.push(`2025 七月三十應保持 2025-09-21／農曆七月三十，實際 ${fullMonth.iso}／${fullMonth.label}`);
 }
 
-if (festivals.length !== 14) problems.push(`festivals.json 應有 14 筆，目前為 ${festivals.length}`);
+if (festivals.length !== 68) problems.push(`festivals.json 應有 68 筆（16 個既有頁＋52 個草稿頁），目前為 ${festivals.length}`);
+const draftWeeks = festivals.filter((festival) => Number.isInteger(festival.draft_week));
+if (draftWeeks.length !== 52 || new Set(draftWeeks.map((festival) => festival.draft_week)).size !== 52) {
+  problems.push(`draft_week 應完整涵蓋 1–52，目前為 ${draftWeeks.length} 筆`);
+}
+const festivalSlugs = new Set(festivals.map((festival) => festival.slug));
+const ogSlugs = new Set(FESTIVAL_OG_SLUGS);
+const missingOgSlugs = festivals.filter((festival) => !ogSlugs.has(festival.slug)).map((festival) => festival.slug);
+const extraOgSlugs = FESTIVAL_OG_SLUGS.filter((slug) => !festivalSlugs.has(slug));
+if (missingOgSlugs.length || extraOgSlugs.length || FESTIVAL_OG_SLUGS.length !== festivals.length) {
+  problems.push(`OG／Discover slug 清單與 festivals.json 不一致（資料缺圖 ${missingOgSlugs.join(', ') || '無'}；清單多出 ${extraOgSlugs.join(', ') || '無'}）`);
+}
 
 for (const [slug, iso, label] of [
   ['september-solar-terms', '2026-09-07', '節氣白露'],
@@ -36,12 +48,21 @@ for (const [slug, iso, label] of [
   }
 }
 
+let datedCount = 0;
+let undatedCount = 0;
 for (const festival of festivals) {
   const next = festivalNextSolar(festival, fromIso);
   if (!next.iso) {
-    problems.push(`${festival.slug} 無法由 festivalNextSolar 換算`);
+    if (festival.date_status !== 'source_required') {
+      problems.push(`${festival.slug} 無法產生日期但未標記 date_status=source_required`);
+    }
+    undatedCount++;
     continue;
   }
+  if (festival.date_status === 'source_required') {
+    problems.push(`${festival.slug} 已標記 date_status=source_required 卻產生了日期`);
+  }
+  datedCount++;
   const start = compactCalendarDate(next.iso);
   const end = compactCalendarDate(nextCalendarDay(next.iso));
   const google = new URL(googleCalendarUrl(festival, next.iso, next.label));
@@ -74,4 +95,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log(`✓ 節日行事曆檢查通過：${festivals.length} 個 Google Calendar 連結與 ${festivals.length} 份 ICS 皆與 festivalNextSolar 同源。`);
+console.log(`✓ 節日行事曆檢查通過：${festivals.length} 筆節日資料（${datedCount} 筆有日期、${undatedCount} 筆待公告）；有日期頁的 Google Calendar／ICS 與 festivalNextSolar 同源。`);

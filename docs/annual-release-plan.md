@@ -1,15 +1,17 @@
 # 2026-09—2027-09 月度發布計畫與編輯生產規格
 
-> 這是一份編輯排程與審核規格，不是路由清單，也不是 sitemap 清單。全年可以先做研究、圖片與草稿，但只有通過來源與重複頁審核、取得 `publish_at` 的條目才可以進入發布 manifest。未到發布日的條目不得出現在 build、sitemap、Pagefind、RSS、站內導覽或 IndexNow。
+> 這是一份編輯排程與審核規格，不是完整路由清單，也不是 sitemap 清單。52 個 `draft-week` 草稿頁已依需求實作並可進 build；本文件的 `publish_at` 管的是年度公告、活動欄位與 release queue，不是把固定草稿 route 隱藏起來。未核定的日期、路線、報名與服務不得寫成確定資訊或送進年度 release queue。
 >
 > 盤點基準：2026-08-11（Asia/Taipei）。本文件只新增規格，不直接新增節日頁；日期、活動檔期與官方連結仍須在每次 release 前重新核對。
 
 52 週的主題呈現與現有 canonical 對照，見 [`annual-52-week-map.md`](annual-52-week-map.md)。
 
 目前 2026-08 至 2027-07 的實際正文與來源證據包已整理在
-[`docs/topic-drafts/`](topic-drafts/README.md)，但仍是 `review-gate`，不代表已發布；
-只有逐月補齊當年度一手公告、圖片授權、重複率與 production QA 後，才可把條目轉為
-`scheduled`。
+[`docs/topic-drafts/`](topic-drafts/README.md)。52 個週槽已各自轉成
+`/festivals/draft-week-XX-*/`，連同 16 個既有節日頁共 68 筆 `festivals.json` 資料，
+並完成 repo 內的 Article／FAQ、canonical、OG／Discover、內鏈與 build gate；這仍不等於
+production deployment。只有逐月補齊當年度一手公告、圖片授權、重複率與 production QA，
+才可把年度條目轉為 `scheduled` 或送入當月 queue。
 
 本計畫的驗收分成兩層，避免把「稿件完成」誤稱為「可發布」：`content-packet-complete`
 表示每個週槽已有正文、facts、FAQ、canonical 與發布注意事項；`scheduled` 則還必須
@@ -22,11 +24,12 @@
 | 狀態 | 意義 | 可否進入 build／sitemap |
 |---|---|---|
 | `idea` | 只有題目與搜尋意圖，尚未完成研究；不可視為承諾要做頁。 | 否 |
-| `source_required` | 已確認值得研究，但缺少日期、儀式或主辦方的一手來源；可做研究卡，不可寫成定稿。 | 否 |
-| `content-packet-complete` | 正文、facts、FAQ、canonical 與圖片／OG 規格已寫完；仍待逐句來源與年度資料核對。 | 否 |
+| `source_required` | 頁面或研究包已存在，但缺少日期、儀式或主辦方的一手來源；年度欄位不可寫成猜測。 | 草稿頁可建置；年度資訊不進 release queue |
+| `content-packet-complete` | 正文、facts、FAQ、canonical 與圖片／OG 規格已寫完；仍待逐句來源與年度資料核對。 | 已實作的草稿頁可建置；不代表年度資料已 `scheduled` |
 | `ready` | 已有 canonical 頁、資料節點或事件頁；本年度只需補核定日期、年度活動資訊或來源更新。 | 既有頁可維持；不因年度刷新新增 URL |
 | `scheduled` | 來源包、正文、圖片授權、重複頁審核與視覺檢查都通過，manifest 已有 `publish_at`。 | `publish_at` 前否，當日後是 |
 | `published` | 已經過 production build 與線上驗證；後續只做年度刷新或事件後續。 | 是 |
+| `implemented-local` | canonical、資料、素材與 repo gate 已完成；尚未宣稱 production deployment。 | 依 repo 的 release workflow |
 | `merge_only` | 不建立新頁；把問題併入現有節日、習俗、神明或民俗活動 canonical。 | 否 |
 
 `ready` 不等於「本月一定發布」，`source_required` 也不等於可以先用 AI 補日期。沒有一手來源時，日期欄保留「待核定」，不換算成看似精確的國曆日。
@@ -37,6 +40,7 @@
 
 - 農曆七月叢集：`guimenkai`、`qixi`、`fangshuideng`、`zhongyuan`、`jilong-zhongyuan`、`qianggu`、`yimin`、`dizang`。
 - 九月與中秋叢集：`september-solar-terms`、`zhongqiu`、`kinmen-bo-bing`、`kongzi-birthday`。
+- 新增的草稿 canonical：`chongyang`、`duanwu`；兩頁已有日期基準、官方來源 facts、Article／FAQ 資料與 Discover 主視覺。
 - 既有年度入口：`baitiangong`、`qingming`。
 
 `src/lib/seasonal-campaigns.ts` 目前是 2026 年 8—9 月首頁與相關頁 CTA 的連續排程，不是全年內容 manifest。下一年度不得把候選議題直接塞進這個檔案；先完成本文件規定的來源包與審核，再由發布流程產生當月 campaign。
@@ -53,10 +57,10 @@
 4. **圖像證據**：活動現場照片要有作者、授權與原始頁；沒有現場照時，只能用明確標示「通用視覺／非活動現場」的授權圖，不得把神像照當成活動紀實。
 5. **寫作證據**：每個獨有主張逐句對應來源；至少三個相互獨立、不是換字重複的事實。來源不足的段落刪除，不用泛用 AI 敘述填長度。
 
-可執行的 manifest 位於 [`annual-release-manifest.json`](annual-release-manifest.json)。它以 52 份週稿與
+可執行的年度 queue manifest 位於 [`annual-release-manifest.json`](annual-release-manifest.json)。它以 52 份週稿與
 [`annual-release-evidence/`](annual-release-evidence/) 的三批來源包為來源；未有單一年度日期的內容仍可標為
 `ready`（既有 canonical merge／常青維護），只有真正需要日期 anchor 的項目才進 `scheduled`。
-因此 manifest 永遠能對帳 52/52，但不會因為週稿存在就假造日期。每月建置會執行
+因此 manifest 永遠能對帳 52/52，但不會因為週稿或草稿頁存在就假造日期。每月建置會執行
 `pnpm check:annual-release`，只有 `scheduled`、`date_status=verified`、`review_status=pass`
 且 `publish_at` 正好是活動日前一個月的 canonical 才能進 queue。
 
@@ -89,7 +93,7 @@ merge_into, image_status, reviewer_status
 
 | 候選議題／canonical | 搜尋意圖 | 窗口 | 類型 | 所需官方來源 | 狀態 |
 |---|---|---|---|---|---|
-| 重陽節／敬老祭祖 | 重陽節哪一天、登高／敬老與祭祖怎麼做 | 農曆日期核定後，節日前 21 天 | `evergreen` + `annual` | 年度年曆；內政部或地方文化資料；敬老活動由主辦機關公告 | `idea` → `source_required` |
+| 重陽節／敬老祭祖（`/festivals/chongyang/`） | 重陽節哪一天、登高／敬老與祭祖怎麼做 | 農曆日期核定後，節日前 21 天 | `evergreen` + `annual` | 年度年曆；內政部或地方文化資料；敬老活動由主辦機關公告 | `implemented-local`／年度活動 `source_required` |
 | 下元節／水官解厄 | 下元節意義、與三官信仰的關係 | 農曆十月十五落點確認後、節日前 14—21 天 | `evergreen` + `annual` | 內政部宗教文化資料；寺廟／道教團體公告 | `idea`／先 `merge_only` 到三官神明與既有習俗頁 |
 | 艋舺青山王祭（`/events/qingshan/`） | 暗訪、正日、活動地點與民俗資產 | 主辦方公告後、活動前 14—21 天 | `event` | 臺北市文化局、萬華區公所、艋舺青山宮當年度公告 | `ready`／年度檔期 `source_required` |
 | 十月神明聖誕彙整 | 查某神明生日 | 全年聖誕曆維護，不另設十月專頁 | `evergreen` | 個別神明的官方／廟方證據；有諸說要並列 | `merge_only` |
@@ -150,7 +154,7 @@ merge_into, image_status, reviewer_status
 
 | 候選議題／canonical | 搜尋意圖 | 窗口 | 類型 | 所需官方來源 | 狀態 |
 |---|---|---|---|---|---|
-| 端午節祭祖／香包與地方民俗 | 端午日期、祭祖與民俗差異 | 年度年曆核定後、節日前 21 天 | `evergreen` + `annual` | 年度年曆；文化部／地方文化資料；活動由主辦方公告 | `idea` → `source_required` |
+| 端午節祭祖／香包與地方民俗（`/festivals/duanwu/`） | 端午日期、祭祖與民俗差異 | 年度年曆核定後、節日前 21 天 | `evergreen` + `annual` | 年度年曆；文化部／地方文化資料；活動由主辦方公告 | `implemented-local`／年度日期與活動 `source_required` |
 | 大稻埕霞海城隍迎城隍（`/events/dadaocheng_chenghuang/`） | 暗訪、正日遶境與交通 | 官方公告後、活動前 14—21 天 | `event` | 臺北市文化局、主辦廟／地方政府公告 | `ready`／年度資訊 `source_required` |
 | 新莊地藏庵文武大眾爺祭典（`/events/xinzhuang_dizangan_dazhongye/`） | 祭典日期、暗訪與民俗脈絡 | 農曆日期／當年度公告後 | `event` | 新北市文化局、廟方公告 | `ready`／年度資訊 `source_required` |
 
@@ -206,17 +210,17 @@ merge_into, image_status, reviewer_status
 
 ## 6. 每月 release 流程（避免一次送大量 URL）
 
-每月只處理一批已通過審核的 canonical；其餘全年草稿留在研究資料夾或未發布 manifest。建議節奏如下：
+每月只處理一批已通過審核的年度更新或新事件 canonical；52 個固定 `draft-week` 頁面已存在，未核定的年度欄位留在頁面中的 `source_required` 狀態。建議節奏如下：
 
 1. **T-42～T-28：研究批次。** 研究 subagent 只產生 evidence packet，不寫可直接上線的正文；確認日期系統、主辦方與來源更新日。
 2. **T-28～T-21：寫作批次。** 寫作 subagent 只能引用 evidence packet；每句主張掛來源，補上搜尋意圖、FAQ、圖片授權與 `merge_into` 判定。
 3. **T-21～T-14：兩道審查。** 獨立 reviewer 檢查日期／來源／安全措辭；另一個 reviewer 檢查跨頁 n-gram 重複、意圖蠶食、孤兒連結與是否誤把地方做法泛化。
-4. **T-14～T-7：視覺與 build。** 確認 mobile／desktop、OG 圖、canonical、JSON-LD、sitemap 與站內入口；未到 `publish_at` 的候選必須在 build 產物中不存在。
-5. **T-7～T+1：小批發布。** 預設每月新增不超過 2—4 個真正不同意圖的 canonical；年度刷新既有頁不算新 URL。首頁只放當月與下個窗口的少數 CTA。
+4. **T-14～T-7：視覺與 build。** 確認 mobile／desktop、OG 圖、canonical、JSON-LD、sitemap 與站內入口；未到 `publish_at` 的草稿頁仍可存在，但不得渲染未核定的年度日期、活動或服務承諾。
+5. **T-7～T+1：小批發布。** 預設每月新增不超過 2—4 個真正不同意圖的 canonical；52 個固定草稿 route 已存在，年度刷新與公告更新不另造年份 URL。首頁只放當月與下個窗口的少數 CTA。
 6. **發布後：只提交已上線 URL。** `annual:release:due` 每日只讀取當月到期、已通過審核的 manifest 條目，最多 4 個去重 canonical；過去月份的 overdue 只報告、不自動追送。部署 workflow 會把這個小批清單送 IndexNow，絕不再把全站 sitemap 一次送出。Google 不吃 IndexNow，GSC 仍靠 sitemap／自然爬取或人工 URL Inspection，不能把 IndexNow 回應當成 GSC 收錄。
 
 目前 manifest 已將 28 個有日期 anchor、來源與獨立複核的刷新槽設為 `scheduled`；另有 24 個既有
-canonical 標為 `ready`，只做合併或常青維護，不進新 URL queue。年度主辦方尚未公告的路線、交通、報名與團次不被捏造，會留在 evidence 的 `event_window`，公告後更新同一 canonical。這仍保留「按月小批、不灌 52 個 URL」的硬閘門。
+canonical 標為 `ready`，只做合併或常青維護，不進新 URL queue。年度主辦方尚未公告的路線、交通、報名與團次不被捏造，會留在 evidence 的 `event_window`，公告後更新同一 canonical。這仍保留「按月小批、不另造 52 個年份 URL」的硬閘門；固定的 52 個 `draft-week` 頁面則維持同一 slug，等待資料更新。
 
 ### Release 完成條件
 

@@ -98,7 +98,7 @@ pnpm notify [url...|--all]      # 部署後推 Google Indexing API ＋ IndexNow
 pnpm check:integrity && pnpm check && pnpm check:doc-numbers && pnpm check:scoped-styles && pnpm check:design \
   && pnpm check:design-tokens && pnpm check:copy-voice && pnpm check:content \
   && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build
-pnpm check:canonical && pnpm check:rendered      # build 後另跑
+pnpm check:canonical && pnpm check:rendered && pnpm check:discover  # build 後掃全站收錄／Discover 前置條件
 
 # 資料
 node scripts/intake-status.mjs                   # 台灣端管道現況（四段）

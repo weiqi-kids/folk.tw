@@ -71,14 +71,14 @@ sessions、PV 或推估月速率替代目標，因此不會悄悄降低門檻。
 - 其餘頁**一律不掛 `lastmod`**：過去封存日期頁／廟宇頁 `priority 0.3`＋`YEARLY`；模組樞紐 `WEEKLY`；獨特詳情頁（神明／籤詩／典故／活動／習俗）`MONTHLY`。
 - **設計取捨（勿改成全站掛 build 時間）**：全站每日 cron 重建，若每頁都掛 build 時間 → 對 Google **誤報「全站每日變動」、浪費爬取預算**，故只掛那兩個「內容真的每天不同」的頁。
 
-⚠️ **關鍵事實：內容 collection／`src/data/*.json` 目前【沒有】per-article 的 `updated`／`lastmod`／`modified` 欄位。**
-（`content.config.ts` 只有農曆聖誕 `date`、`date_resolution`／`date_note` 等，非「文章最後更新時間」。）
-所以每篇文章**沒有各自的更新時間**，sitemap 的 `lastmod` 也就只有 `/` 與 `/almanac` 兩頁、且值是 build 時間而非「該頁內容實際變動時間」。
+⚠️ **一般內容 collection／`src/data/*.json` 仍沒有 per-article 的 `updated`／`lastmod`／`modified` 欄位；例外是節日頁專用的 `festivals.json` `published`／`updated`。**
+這兩個欄位只供節日頁的 Article／Discover 新鮮度訊號使用，**不會**餵給 sitemap `lastmod`，也不代表其他模組已有文章更新時間。
+因此 sitemap 的 `lastmod` 仍只有 `/` 與 `/almanac` 兩頁，且值是 build 時間而非「該頁內容實際變動時間」。
 
 ⚠️ **實務落差（新鮮度取決於有沒有真的部署）**：`lastmod = new Date()` 只在**實際重新 build 部署**那天才更新。
 每日收集層 commit 帶 `[skip ci]` **不部署** → sitemap 不重生；**唯有大腦層那天真的改了內容並 push（觸發 `deploy.yml`）才會重 build**，那兩頁 `lastmod` 才前進。大腦「無動作」的日子 sitemap `lastmod` 停在上次部署日。
 
-> 若要讓「持續更新」訊號更強，正解是**讓真有內容變動時觸發一次部署**（或給實際被改的頁補 per-article `updated` 欄位並據以掛精確 `lastmod`），**而非**對全站假造 `lastmod`。此為待評估項，尚未實作。
+> 若要讓「持續更新」訊號更強，正解是**讓真有內容變動時觸發一次部署**（或給實際被改的頁補 per-article `updated` 欄位並據以掛精確 `lastmod`），**而非**對全站假造 `lastmod`。目前只在節日 Article 結構化資料實作前者的日期訊號；其他頁仍待評估。
 
 ## 回退 / 排錯 / 護欄
 
