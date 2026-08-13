@@ -2981,5 +2981,26 @@
       "last_checked": "2026-08-13",
       "empty_runs": 2
     }
+  },
+  {
+    "id": "news-flood-20260810-f13cd2",
+    "eventType": "flood",
+    "title": "為菲律賓水災平安祈福",
+    "event": "菲律賓呂宋島及本格特省等多省近日受颱風白海豚、鯨魚及西南季風增強影響，連日強降雨引發水患與山崩，造成人員傷亡、多地受災。願受災鄉親平安渡過，家園早日復原。",
+    "sources": [
+      {
+        "ref": "中新網",
+        "url": "https://www.chinanews.com.cn/gj/2026/08-10/10675359.shtml"
+      },
+      {
+        "ref": "堅料網",
+        "url": "https://www.kinliu.hk/news/%E6%A5%B5%E7%AB%AF%E5%A4%A9%E6%B0%A3%E5%B7%B2%E8%87%B4%E8%8F%B2%E5%BE%8B%E8%B3%9313%E4%BA%BA%E6%AD%BB%E4%BA%A1-131%E8%90%AC%E4%BA%BA%E5%8F%97%E7%81%BD/213390.html"
+      }
+    ],
+    "place": "菲律賓（呂宋島及本格特省等33省）",
+    "time": "2026-08-10",
+    "detector": "news",
+    "since": "2026-08-13",
+    "status": "active"
   }
 ]
