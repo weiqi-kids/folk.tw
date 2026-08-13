@@ -2844,7 +2844,7 @@
     "time": "2026-08-10",
     "detector": "news",
     "since": "2026-08-11",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-11",
@@ -2864,10 +2864,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-13",
       "empty_runs": 1
-    }
+    },
+    "archived_at": "2026-08-13",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-storm-20260808-53ade0",
