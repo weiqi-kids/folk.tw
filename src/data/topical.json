@@ -2876,7 +2876,7 @@
     "time": "2026-08-08",
     "detector": "news",
     "since": "2026-08-11",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-11",
@@ -2892,10 +2892,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 0
-    }
+    },
+    "archived_at": "2026-08-13",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-flood-20260810-b1e0e3",
