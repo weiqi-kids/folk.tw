@@ -11,6 +11,18 @@ import { getEvents, getDeities, getTemples, getPractices } from '../lib/queries'
 //    兩者是不同層次的事，不要因為這裡放寬就去動那條。
 //    未來若真的上廣告，這段要補的是**廣告／Cookie 的據實說明**，不是反向再寫一次承諾。
 //
+// 🔴 「資料與統計」段是**站上實際送出什麼的據實清單**，不是安撫性文案（2026-08-13 重寫）。
+//    原文只寫「本身不蒐集個人資料＋GA4 匿名統計」，但實際上 cookie、求籤的 concern／poem_no、
+//    報喜的 outcome、**以及搜尋字詞**都會進 GA4——搜尋那條尤其嚴重，因為它跟上一句
+//    「全文檢索在瀏覽器端運作」擺在一起會被讀成「什麼都不外送」。
+//    ⚠️ **改動任何 gtag 事件的 payload，同一回合要回來改這段**；來源分別是
+//    Base.astro（campaign_click／intent_click／calendar_add／line_add_click）、
+//    qiugian/[slug].astro（qiugian／qifu／baoxi）、qiugian/blessing/[slug].astro（qifu）、
+//    search.astro（view_search_results／search_zero_results／search_result_click，字詞經 analyticsTerm 過濾）、
+//    ShareRow.astro（share）、PuduChecklist.astro。座標不外送由 check-rendered 不變量 13 守著。
+//    🔴 移除了「以上免責、責任限制與使用條款均已定稿」——那是寫給自己看的編輯備註，
+//    對讀者零資訊，且頁面上根本沒有「使用條款」這個段落（後設警語，記憶 no-meta-disclaimers-on-pages）。
+//
 // 圖片來源彙整：逐張標作者·授權·出處。
 // ⚠️ 來源是**複合的**（Wikimedia Commons ＋ 內政部全國宗教資訊網），不要再寫成單一來源——
 //    下方那段引言是清單的全稱斷言，清單多一種授權它就得多提一種（check-rendered 不變量 5 硬擋）。
@@ -96,13 +108,21 @@ const faqLd = {
       使用者就其依本站內容所為之決定與行動<strong>自負全部風險</strong>；於法律許可範圍內，本站及編作者
       對任何直接或間接損害不負賠償責任。資料若有錯誤或爭議，歡迎透過勘誤管道回報更正。
     </p>
+    <h3>資料與統計</h3>
     <p>
-      本站為純靜態網站，本身不蒐集個人資料；全文檢索於使用者瀏覽器端運作。
-      為了解流量與改善內容，本站使用 <strong>Google Analytics 4</strong> 進行匿名統計
-      （已啟用 IP 匿名化）；相關資料由 Google 依其隱私政策處理，您可透過瀏覽器設定或
-      Google 之停用工具拒絕。
+      本站是純靜態網站，沒有後端、沒有帳號、沒有會收個人資料的表單；全站搜尋在你的瀏覽器裡跑。
+      為了解流量與改善內容，本站使用 <strong>Google Analytics 4</strong>：它會在你的瀏覽器放 cookie、
+      記錄你看了哪些頁，本站的設定要求 Google 匿名化 IP。
     </p>
-    <p class="muted small">以上免責、責任限制與使用條款均已定稿。</p>
+    <p>
+      除了瀏覽頁面，這些互動也會送出統計事件：求籤、集氣祈福與報喜會送出<strong>你選的是哪一類煩惱</strong>、
+      抽到第幾支籤與報喜結果；站內搜尋會送出<strong>查詢字詞</strong>，但只有明確屬於民俗領域的詞
+      （廟名、神明、籤、農民曆這類）才照字面送，其餘一律換成分類代碼，看起來像 email、網址或電話的也一樣。
+      「附近的廟」用到的定位座標只在你的裝置上算距離，不會送出。
+    </p>
+    <p>
+      這些資料由 Google 依其隱私政策處理，你可以透過瀏覽器設定或 Google 的停用工具拒絕。
+    </p>
   </section>
 
   <section id="negative">
