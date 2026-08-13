@@ -40,6 +40,27 @@ export const normPlace = (s) => String(s || '').toLowerCase().replace(/\s+/g, ''
 
 const inferType = (e) => e.eventType ?? (e.mag != null || String(e.id).startsWith('eq-') ? 'quake' : 'other');
 
+// ── 行政區名（2026-08-12 加，柞水案）────────────────────────────────────────
+// 把地名拆成行政層級的名字，分「細」「粗」兩層：
+//   細（縣/區/鄉/鎮/村）＝真正指認地點的那一層，兩造有交集才可能是同一件事。
+//   粗（省/市/州）＝只拿來**否決**：兩造的粗層都有值卻毫無交集，就是不同城市，不准併。
+// 🔴 粗層絕不可拿來當併頁的依據——同一個省/直轄市內的兩場不同災害會被誤併。
+//    這也是為什麼「市」被歸在粗層：中國的地級市可以比台灣一個縣還大。
+// ⚠️ 只認中文行政區後綴。日文「県」不在其中（沖繩那批因此不會被本規則碰到），刻意保守。
+const FINE_SUFFIX = '縣區鄉鎮村';
+const COARSE_SUFFIX = '省市州';
+export function adminNames(place) {
+  const fine = new Set(), coarse = new Set();
+  let cur = '';
+  for (const ch of normPlace(place)) {
+    if (FINE_SUFFIX.includes(ch)) { if (cur.length >= 2) fine.add(cur); cur = ''; }
+    else if (COARSE_SUFFIX.includes(ch)) { if (cur.length >= 2) coarse.add(cur); cur = ''; }
+    else cur += ch;
+  }
+  return { fine, coarse };
+}
+const hasIntersection = (a, b) => [...a].some((x) => b.has(x));
+
 /** 兩點距離（km）；任一方缺座標回 Infinity。 */
 export function km(a, b) {
   if (a?.lat == null || b?.lat == null) return Infinity;
@@ -205,6 +226,27 @@ export function findDuplicate(list, cand) {
     }
   }
 
+  // dP 行政區名（2026-08-12 加）：同 eventType、≤3 天，且**細層行政區名有交集**。
+  // 由來（第三次同類漏網，前兩次是彭水與紅霞）：「為陝西柞水山崩祈福」與「為陝西柞水土石流平安祈福」
+  // 是同一場災害開了兩頁——place 寫成「陝西省柞水縣杏坪鎮」與「陝西省商洛市柞水縣」，
+  // 字串不等（place 規則過不了）、引用不同新聞（source-url 過不了）、
+  // 座標相距 **29.6km**（geo 規則門檻 10km，過不了）。但兩邊都指名「柞水縣」。
+  // 🔴 粗層只用來否決：「台北市中正區」與「基隆市中正區」細層都是「中正」，
+  //    但粗層 {台北} 與 {基隆} 無交集 → 不准併。少了這道就會把不同城市的同名區併成一頁。
+  if (inferType(cand) !== 'other') {
+    const c = adminNames(cand.place);
+    if (c.fine.size) {
+      for (const it of list) {
+        if (inferType(it) !== inferType(cand) || !withinDays(it, cand)) continue;
+        const a = adminNames(it.place);
+        if (!hasIntersection(a.fine, c.fine)) continue;
+        // 兩造都有粗層卻互不相干＝不同城市的同名行政區，否決。
+        if (a.coarse.size && c.coarse.size && !hasIntersection(a.coarse, c.coarse)) continue;
+        return { id: it.id, rule: 'admin-place', name: [...c.fine].find((x) => a.fine.has(x)) };
+      }
+    }
+  }
+
   const hitGeo = list.find((it) => sameEvent(it, cand));
   if (hitGeo) return { id: hitGeo.id, rule: 'geo' };
 
@@ -323,6 +365,38 @@ if (process.argv[1]?.endsWith('topical-dedup.mjs') && process.argv.includes('--s
     { id: 'news-landslide-20260717-470423', rule: 'geo' });
   check('非氣旋類不受 dC 影響（不同地不同時）→ 不併',
     findDuplicate([pengshui], { eventType: 'landslide', place: '南投縣仁愛鄉', time: '2026-07-18', lat: 24.0, lon: 121.1 }), null);
+
+  // (7) 2026-08-12 柞水案（dP 行政區名）：同一場山崩開了兩頁，前五道規則全漏。
+  const zhashui = {
+    id: 'news-landslide-20260805-0c8a78', eventType: 'landslide',
+    place: '陝西省柞水縣杏坪鎮', time: '2026-08-05', lat: 33.4870516, lon: 109.4929183,
+    sources: [{ url: 'https://www.thepaper.cn/newSDetail_forward_33729566' }],
+  };
+  check('柞水：兩種寫法、相距 29.6km、來源不同 → 擋（admin-place）',
+    findDuplicate([zhashui], {
+      eventType: 'landslide', place: '陝西省商洛市柞水縣', time: '2026-08-05',
+      lat: 33.681389, lon: 109.275278,
+      sources: [{ url: 'https://www.news.cn/politics/20260806/28f723872fbd41f6a0e0bffe4033eccb/c.html' }],
+    }),
+    { id: 'news-landslide-20260805-0c8a78', rule: 'admin-place', name: '柞水' });
+  check('行政區名拆解：細層取縣/鎮、粗層取省',
+    [[...adminNames('陝西省柞水縣杏坪鎮').fine], [...adminNames('陝西省柞水縣杏坪鎮').coarse]],
+    [['柞水', '杏坪'], ['陝西']]);
+
+  // (7b) 誤併反例：不同城市的同名行政區，粗層必須否決。
+  check('台北市中正區 vs 基隆市中正區 → 不併（粗層無交集）',
+    findDuplicate([{ id: 'a', eventType: 'flood', place: '台北市中正區', time: '2026-08-05' }],
+      { eventType: 'flood', place: '基隆市中正區', time: '2026-08-06' }), null);
+  // (7c) 誤併反例：同縣但事件類型不同，不可併。
+  check('同一縣但不同事件類型 → 不併',
+    findDuplicate([zhashui], { eventType: 'flood', place: '陝西省柞水縣', time: '2026-08-05' }), null);
+  // (7d) 誤併反例：逾 3 天窗，不可併。
+  check('同一縣但差 10 天 → 不併',
+    findDuplicate([zhashui], { eventType: 'landslide', place: '陝西省柞水縣', time: '2026-08-15' }), null);
+  // (7e) 日文地名不觸發本規則（「県」不是中文後綴，且「市」是粗層）。
+  check('沖繩日文地名 → 本規則不發動',
+    findDuplicate([{ id: 'a', eventType: 'storm', place: '沖縄県名護市など沖縄本島北部', time: '2026-08-08' }],
+      { eventType: 'storm', place: '沖縄県石垣市', time: '2026-08-09' }), null);
 
   console.log(fail ? `\n${fail} 項未通過` : '\n全部通過');
   process.exit(fail ? 1 : 0);

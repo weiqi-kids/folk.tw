@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // 時事祈福自動編排：多來源偵測（USGS 地震＋GDACS 全球災害…）→ 統一候選 → 去重
 //   → claude 正向議題閘＋產莊重中文標題 → 開祈福頁(status active)
-//   ＋ 逾 14 天 active 自動歸檔(→noindex) → 寫 src/data/topical.json。
+//   ＋ 逾 14 天 active 自動歸檔(→noindex)
+//   ＋ 集氣排序去留：只留集氣數最高的 KEEP_ACTIVE 頁 active，其餘歸檔（見下方該段註解）
+//   → 寫 src/data/topical.json。
 // 印 PUBLISHED / ARCHIVED 摘要行（tab 分隔）供 cron 包裝決定 commit/push/Slack。自身不碰 git。
 // 只有偵測到「新事件」時才呼叫 claude（顯著事件罕見→平時零 claude 用量、零改動）。
 // 用法：node scripts/topical-orchestrate.mjs [--dry]（--dry 只偵測＋過閘＋印，不寫檔）。
@@ -12,8 +14,13 @@ import { sharedCycloneName, typhoonZhName, findTitleClash, CYCLONE_DAYS } from '
 import { reverseRegion } from './lib/topical-geo.mjs';
 
 const TOPICAL = 'src/data/topical.json';
+const STATS = 'src/data/qiugian-stats.json';
 const DRY = process.argv.includes('--dry');
 const DETECT_DAYS = 3, ARCHIVE_DAYS = 14;
+// 集氣排序去留（用戶 2026-08-12 定案：N=5、寬限 48 小時）。
+// ⚠️ `since` 只有日期沒有時刻，所以 48 小時是以「天」判定：since 是今天或昨天者豁免
+//    （實際落在真實 24～48 小時之間）。要更精細得先給條目補時刻欄位。
+const KEEP_ACTIVE = 5, GRACE_DAYS = 2;
 const today = new Date().toISOString().slice(0, 10);
 
 // 事件類型 → 中文標籤（供 gate 產文案、UI 可用）。新增類型只要在此登記即可。
@@ -299,6 +306,49 @@ for (const c of await detect()) {
   };
   if (!DRY) { list.push(rec); changed = true; }
   console.log(`PUBLISHED\t${c.id}\t${g.title}\thttps://folk.tw/qiugian/blessing/${c.id}/`);
+}
+
+// 3) 集氣排序去留（用戶 2026-08-12 定案）：只保留集氣數最高的 KEEP_ACTIVE 頁 active。
+//
+// 🔴 為什麼不是「N 小時沒人點就下架」：2026-08-12 實測 30 天——全站 9,293 sessions、
+//    /qiugian/ 樞紐 207 views，但祈福頁 6 頁合計只有 10 views、集氣 6 次。這個量級下
+//    任何時間窗門檻的答案永遠是「沒人點」＝全刪（含花蓮大地震等級的事件）。
+//    改問「這幾頁裡哪幾頁相對最被在意」，答案不依賴絕對流量，量再小都能運作。
+//    決策脈絡見 docs/topical-blessing.md §3.10。
+// 排序：主鍵集氣數（高→低）；同分時次鍵 since（新→舊）——同樣 0 集氣，舊的已經有過曝光機會
+//    卻沒人點，先淘汰它。
+// ⚠️ 剛開的頁還沒被人看到就被擠掉是不對的 → GRACE_DAYS 內的新頁豁免，
+//    故 active 可**暫時多於** KEEP_ACTIVE，這是預期行為不是 bug。
+// 🔴 下架＝`archived` ＋ `archived_at` ＋ `followup.sealed`，**網址不 404**（紅線 4）、
+//    P4 不再追蹤（sealed → isTracked 為 false，否則它會掛 updates 又把頁面升回 memorial 重進索引）。
+// 🔴 memorial 不受本段影響——那是已有後續發展的事件記錄頁，本來就該長期可查。
+const blessCounts = (() => {
+  try { return JSON.parse(readFileSync(STATS, 'utf8')).topical ?? {}; } catch { return {}; }
+})();
+// 聚合器寫回時已去掉 GA4 的 `topical:` 前綴，但兩種寫法都認，免得改一邊就安靜歸零。
+const blessOf = (it) => blessCounts[it.id] ?? blessCounts[`topical:${it.id}`] ?? 0;
+
+const ranked = list
+  .filter((it) => it.status === 'active' && !it.mergedInto && !it.example)
+  .map((it) => ({
+    it,
+    n: blessOf(it),
+    ageDays: (Date.parse(today) - Date.parse(it.since || today)) / 864e5,
+  }))
+  .sort((a, b) => b.n - a.n || String(b.it.since ?? '').localeCompare(String(a.it.since ?? '')));
+
+let kept = 0;
+for (const r of ranked) {
+  if (kept < KEEP_ACTIVE) { kept += 1; continue; }
+  if (r.ageDays < GRACE_DAYS) { console.log(`GRACE\t${r.it.id}\t${r.it.title}\t集氣 ${r.n}`); continue; }
+  if (!DRY) {
+    r.it.status = 'archived';
+    r.it.archived_at = today;
+    r.it.followup = { ...(r.it.followup ?? {}), sealed: true };
+    r.it.retracted_reason = `集氣排序未進前 ${KEEP_ACTIVE}（集氣 ${r.n}）`;
+    changed = true;
+  }
+  console.log(`DEMOTED\t${r.it.id}\t${r.it.title}\t集氣 ${r.n}`);
 }
 
 if (changed && !DRY) writeFileSync(TOPICAL, JSON.stringify(list, null, 2) + '\n');

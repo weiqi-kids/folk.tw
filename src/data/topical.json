@@ -1959,7 +1959,7 @@
     "lon": 132.044137,
     "detector": "news",
     "since": "2026-08-05",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-06",
@@ -1999,10 +1999,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 1
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-landslide-20260805-183ff4",
@@ -2025,7 +2027,7 @@
     "lon": 121.1453418,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-06",
@@ -2053,10 +2055,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 2
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-cyclone-20260807-451a68",
@@ -2080,7 +2084,7 @@
     "lon": 128.0255901,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-07",
@@ -2188,10 +2192,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 0
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-flood-20260805-4d7efa",
@@ -2214,7 +2220,7 @@
     "lon": 110.9702926,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-06",
@@ -2234,10 +2240,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 5
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-flood-20260804-d83e56",
@@ -2260,7 +2268,7 @@
     "lon": 126.6276177,
     "detector": "news",
     "since": "2026-08-07",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-05",
@@ -2288,15 +2296,17 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 4
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-landslide-20260805-0c8a78",
     "eventType": "landslide",
-    "title": "為陝西柞水山崩祈福",
+    "title": "為陝西柞水土石流平安祈福",
     "event": "陝西省柞水縣杏坪鎮8月5日遭強降雨引發土石流，造成人員傷亡，多人失聯，願罹難者安息、失聯者早日尋獲、當地民眾平安。",
     "sources": [
       {
@@ -2306,6 +2316,14 @@
       {
         "ref": "人民網",
         "url": "http://society.people.com.cn/n1/2026/0806/c1008-40775142.html"
+      },
+      {
+        "ref": "新華網",
+        "url": "https://www.news.cn/politics/20260806/28f723872fbd41f6a0e0bffe4033eccb/c.html"
+      },
+      {
+        "ref": "中新網",
+        "url": "https://www.chinanews.com.cn/sh/2026/08-06/10673117.shtml"
       }
     ],
     "place": "陝西省柞水縣杏坪鎮",
@@ -2314,7 +2332,7 @@
     "lon": 109.4929183,
     "detector": "news",
     "since": "2026-08-08",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-07",
@@ -2329,6 +2347,18 @@
         "hash": "b38773fe7750"
       },
       {
+        "date": "2026-08-08",
+        "text": "柞水土石流失聯者遺體已尋獲，搜救工作告一段落，當地持續進行災後安置與復原作業。",
+        "sources": [
+          {
+            "ref": "星島頭條",
+            "url": "https://www.stheadline.com/realtime-china/3602332/%E9%99%9D%E8%A5%BF%E6%9F%9E%E6%B0%B4%E6%B3%A5%E7%9F%B3%E6%B5%813%E4%BA%BA%E9%81%87%E9%9B%A3-%E6%9C%80%E5%BE%8C%E4%B8%80%E5%90%8D%E5%A4%B1%E8%81%AF%E8%80%85%E9%81%BA%E9%AB%94%E5%B0%8B%E7%8D%B2"
+          }
+        ],
+        "added": "2026-08-09T12:38:41.494Z",
+        "hash": "6a242711ba09"
+      },
+      {
         "date": "2026-08-09",
         "text": "陝西柞水災區清淤與道路搶修持續進行，災後重建工作已在有序推進。",
         "sources": [
@@ -2339,13 +2369,27 @@
         ],
         "added": "2026-08-11T12:41:01.994Z",
         "hash": "7f3e8204de01"
+      },
+      {
+        "date": "2026-08-10",
+        "text": "商洛市市長率隊實地視察柞水縣受災村落，聽取安置保障與道路搶修進度，並要求加快爭取重建資金與政策支持，及早規劃受災住戶的異地遷建方案。",
+        "sources": [
+          {
+            "ref": "商洛之窗",
+            "url": "https://www.slrbs.com/xqzc/zax/2026-08-10/1933933.html"
+          }
+        ],
+        "added": "2026-08-11T12:41:57.843Z",
+        "hash": "3e42e5d94f77"
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 1
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-landslide-20260805-6fe2ae",
@@ -2408,10 +2452,11 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 1
-    }
+    },
+    "mergedInto": "news-landslide-20260805-0c8a78"
   },
   {
     "id": "news-landslide-20260808-ad486a",
@@ -2434,7 +2479,7 @@
     "lon": 137.9054972,
     "detector": "news",
     "since": "2026-08-09",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-09",
@@ -2478,10 +2523,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 0
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-cyclone-20260809-d46f35",
@@ -2504,7 +2551,7 @@
     "lon": 123.7825564,
     "detector": "news",
     "since": "2026-08-09",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-12",
@@ -2520,10 +2567,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 0
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-flood-20260809-2f6b7f",
@@ -2638,7 +2687,7 @@
     "lon": -76.1885,
     "detector": "usgs",
     "since": "2026-08-10",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-11",
@@ -2706,10 +2755,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-12",
       "empty_runs": 0
-    }
+    },
+    "archived_at": "2026-08-12",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "gdacs-fl-1104081",
