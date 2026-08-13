@@ -231,8 +231,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 1
+      "last_checked": "2026-08-13",
+      "empty_runs": 2
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -533,8 +533,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 5
+      "last_checked": "2026-08-13",
+      "empty_runs": 6
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -2656,12 +2656,24 @@
         ],
         "added": "2026-08-11T12:44:40.100Z",
         "hash": "0c0e0a4adf93"
+      },
+      {
+        "date": "2026-08-13",
+        "text": "基隆市長謝國樑於8月12日晚間巡視廟口商圈與愛六路等低窪地區，確認抽水機與防潮閘門整備到位並要求建立標準作業程序，因應本輪滿潮期持續至8月14日。",
+        "sources": [
+          {
+            "ref": "聯合新聞網",
+            "url": "https://udn.com/news/story/7328/9688521"
+          }
+        ],
+        "added": "2026-08-13T12:32:49.003Z",
+        "hash": "b46674e706f5"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 1
+      "last_checked": "2026-08-13",
+      "empty_runs": 0
     },
     "bless_snapshot": 1
   },
@@ -2809,8 +2821,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 0
+      "last_checked": "2026-08-13",
+      "empty_runs": 1
     }
   },
   {
@@ -2853,8 +2865,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 0
+      "last_checked": "2026-08-13",
+      "empty_runs": 1
     }
   },
   {
@@ -2921,11 +2933,24 @@
     "detector": "news",
     "since": "2026-08-12",
     "status": "active",
-    "updates": [],
+    "updates": [
+      {
+        "date": "2026-08-13",
+        "text": "上海市松江區銀湖別墅社區積水已於8月12日夜間大致排除，供電修復、環境消毒與撤離住戶接返等善後恢復工作已全面展開，官方表示力拚儘速完成。",
+        "sources": [
+          {
+            "ref": "上海松江（百家號轉載）",
+            "url": "https://baijiahao.baidu.com/s?id=1873379692813287627"
+          }
+        ],
+        "added": "2026-08-13T12:35:59.211Z",
+        "hash": "d0b9f9373392"
+      }
+    ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 1
+      "last_checked": "2026-08-13",
+      "empty_runs": 0
     }
   },
   {
@@ -2953,8 +2978,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-12",
-      "empty_runs": 1
+      "last_checked": "2026-08-13",
+      "empty_runs": 2
     }
   }
 ]
