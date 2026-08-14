@@ -206,7 +206,10 @@ const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
 // 年度慶(祭)典（內政部全國宗教資訊網，2,498 間）。這是**該廟向政府登記的自家祭典**，
 // 與「主祀神聖誕」（神明的生日）不同——故可以標「主要祭典」，不算替廟方斷言。
 // 代表筆的挑選與句子生成一律走 lib，頁面不自行判斷（gate 與 OG 卡走同一支）。
-const todayIso = new Date().toISOString().slice(0, 10);
+// 🔴 台北日，勿改回 UTC（2026-08-15 修）：check-rendered 的 TODAY 是台北日，
+// 這裡原本是 UTC——每天台北 00:00–08:00 兩邊差一天，祭典國曆換算撞上「昨天正是祭典日」
+// 就紅（實例：run 31818156766，泉安府廟慶＝農曆七月初二＝國曆 8/14，CI 於台北 00:26 檢查）。
+const todayIso = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
 const publicFestivals = releasedItems(festivalsData);
 const festivalList = sortFestivals(t.festivals ?? []);
 const mainFestival = pickMainFestival(t.festivals);
