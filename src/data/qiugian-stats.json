@@ -20,9 +20,10 @@
     "joys": []
   },
   "ganqing": {
-    "week_draws": 8,
+    "week_draws": 9,
     "baoxi": 0,
     "top": {
+      "14": 1,
       "19": 2,
       "22": 2,
       "23": 2,
