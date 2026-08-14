@@ -15,9 +15,14 @@ const temples = await getTemples();
 const systemHrefOf = await systemHref();
 
 // 每個籤系實際涵蓋多少廟：主祀神掛該籤系者 → 該廟可用此籤。純由既有對映衍生，不補新事實。
+// 廟宇層 divination_systems 覆寫者以覆寫為準（與 temples/[id].astro 同一套判定，2026-08-14）。
 const templeCountOf = (systemId: string) => {
   const deityIds = new Set((bySystem.get(systemId) ?? []).map((d) => d.id));
-  return temples.filter((t) => t.data.main_deity_ref && deityIds.has(t.data.main_deity_ref)).length;
+  return temples.filter((t) => {
+    const override = t.data.divination_systems ?? [];
+    if (override.length > 0) return override.some((s) => s.id === systemId);
+    return t.data.main_deity_ref && deityIds.has(t.data.main_deity_ref);
+  }).length;
 };
 
 // 首數一律取 divination-systems.json 宣告的 count，**不要改回數 poems collection**：

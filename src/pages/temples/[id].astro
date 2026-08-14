@@ -134,8 +134,12 @@ const hasHistory = !!(t.founded || t.history || t.main_festival);
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');
 
 // 求籤入口（主題集群邊）：把廟宇頁流量（全站曝光大宗）以 1 跳導入高 CTR 的籤詩集群。
-// 僅取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
-const lingqianSystems = refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
+// 廟宇層 divination_systems 覆寫優先（有登記＝該廟實際採用的籤版，非推論）；
+// 其次才取主祀神既有的 deity↔籤系 對映（無對映或無籤系則不顯示），不補任何新事實。
+const lingqianOverride = (t.divination_systems ?? []).length > 0;
+const lingqianSystems = lingqianOverride
+  ? t.divination_systems!
+  : refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
 
 // ── 地方宗教慶典（2026-08-06）───────────────────────────────────────────────
 // 內政部「地方宗教慶典」＝**縣市層級**登錄的慶典清單，其中少數幾項的名稱裡有本站廟名
@@ -440,7 +444,12 @@ const faq = faqPage([
   },
   {
     q: `${t.name}可以求籤嗎？`,
-    a: lingqianNames.length > 0 ? `可以。${t.name}主祀${mainDeity}，可線上查閱${lingqianNames.join('、')}與白話解籤。` : '',
+    a:
+      lingqianNames.length > 0
+        ? lingqianOverride
+          ? `可以。${t.name}採用${lingqianNames.join('、')}，可線上查閱籤詩與白話解籤。`
+          : `可以。${t.name}主祀${mainDeity}，可線上查閱${lingqianNames.join('、')}與白話解籤。`
+        : '',
   },
   {
     // 「○○宮怎麼去」是廟名查詢裡少數**沒有地圖包壟斷答案框**的修飾詞（地圖包給的是導航按鈕，
@@ -548,7 +557,8 @@ const jsonLd = [
     lingqianSystems.length > 0 && (
       <section class="temple-lingqian">
         <h2>到{t.name}求籤</h2>
-        <p class="muted small">{mainDeity}的靈籤，可線上查閱籤詩與白話解籤：</p>
+        {/* 覆寫廟不能寫「主祀神的靈籤」——籤版與主祀神對映不同正是覆寫存在的原因 */}
+        <p class="muted small">{lingqianOverride ? `${t.name}採用的靈籤` : `${mainDeity}的靈籤`}，可線上查閱籤詩與白話解籤：</p>
         <ul>
           {lingqianSystems.map((s) => (
             <li><a href={systemHrefOf(s.id)}>{systemName.get(s.id) ?? s.id}</a></li>

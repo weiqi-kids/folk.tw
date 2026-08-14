@@ -227,6 +227,10 @@ const temples = defineCollection({
     name: z.string(),
     main_deity_raw: z.string().optional(), // 原始自由文字主祀神祇
     main_deity_ref: z.string().optional(), // 對映到 deity.id（R5 對映白名單）
+    // 廟宇層籤系覆寫（2026-08-14，首例 moi_10478_碧雲宮：主祀天上聖母、實際採用關帝靈籤）。
+    // 「廟用哪套籤」是廟自己的事實，不是主祀神的推論；有此欄位者，求籤區塊以此為準、
+    // 不再從 main_deity_ref 推（消費點：temples/[id].astro、systems/index.astro、check-rendered.mjs）。
+    divination_systems: z.array(reference('divinationSystems')).optional(),
     district: z.string().optional(),
     lng: z.number().optional(),
     lat: z.number().optional(),

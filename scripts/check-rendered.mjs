@@ -100,6 +100,8 @@ const allConcernIds = concernsData.map((c) => c.id);
 // 與 src/pages/temples/[id].astro 同一套判定：main_deity_ref 需對映到真實神明節點、
 // 該神明有 divination_systems 才顯示求籤區塊，連向其每個籤系。
 function expectedSystems(t) {
+  // 廟宇層 divination_systems 覆寫優先，與 [id].astro 同步（2026-08-14）
+  if ((t.divination_systems ?? []).length > 0) return t.divination_systems;
   if (!t.main_deity_ref || !deityById.has(t.main_deity_ref)) return [];
   return deityById.get(t.main_deity_ref).divination_systems ?? [];
 }

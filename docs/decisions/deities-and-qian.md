@@ -93,6 +93,15 @@
         lead 與 description 不放「藥籤已於民國 88 年…禁止使用」；不寫「醫師審閱完成前不顯示醫療判斷」。
         （FAQ 中回答「可以照著抓藥嗎」的**答案**保留——那是回答問題，不是掛標籤。）
 
+- [x] **廟宇層籤系覆寫（2026-08-14）**：廟宇頁的求籤區塊原本**只從主祀神推**
+      （deity↔籤系對映），但「廟用哪套籤」是廟自己的事實——用戶指正首例
+      `moi_10478_碧雲宮`（南投國姓，主祀天上聖母）實際採用**關帝靈籤**，被推成六十甲子籤。
+      修法：temples schema 新增 `divination_systems`（廟宇層覆寫，有登記者優先於主祀神對映），
+      同步四個消費點：`temples/[id].astro`（區塊＋FAQ 措辭改「○○採用…」，不再寫「主祀神的靈籤」）、
+      `systems/index.astro` 涵蓋廟數、`check-rendered.mjs` 不變量 1 的 expectedSystems、
+      `check-integrity.ts` 新增 temple→籤系 id 硬擋。
+      ⚠️ 此欄是**逐廟查證才填**的覆寫，來源掛在該廟 `sources[]`；沒有覆寫的廟行為完全不變。
+
 ## 全站結構化標記
 
 - [x] speakable schema（2026-06-23 commit `365b78f`＋`b1aff85` 上線）：Base 加 `speakable` prop →

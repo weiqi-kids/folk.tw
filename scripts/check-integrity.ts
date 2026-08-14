@@ -71,6 +71,12 @@ for (const d of deities) {
     if (!systemIds.has(s)) hard(`deity ${d.id}: divination_system「${s}」不存在`);
   }
 }
+// 廟宇層籤系覆寫 → 籤系（2026-08-14 加，比照 deity→籤系 硬擋）
+for (const tp of temples) {
+  for (const s of tp.divination_systems ?? []) {
+    if (!systemIds.has(s)) hard(`temple ${tp.id}: divination_system「${s}」不存在`);
+  }
+}
 // 行業 → 守護神 / 宜忌事項（手工小表，比照 deity→籤系 硬擋）
 const affairIds = new Set(affairs.map((a) => a.id));
 for (const t of trades) {
