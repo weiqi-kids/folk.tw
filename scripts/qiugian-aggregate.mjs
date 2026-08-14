@@ -94,6 +94,17 @@ for (const r of byTemple) {
   t.week_draws += r.n;
   t.top[r.keys[1]] = (t.top[r.keys[1]] ?? 0) + r.n;
 }
+// P1（2026-08-14）：籤詩頁開頁（廟方逐籤 QR 的入口）與祈福籤詩圖生成，各自按廟計數
+const poemOpens = await countBy('poem_open', ['customEvent:temple']);
+for (const r of poemOpens) {
+  if (notSet(r.keys[0])) continue;
+  (temples[r.keys[0]] ??= { week_draws: 0, top: {} }).poem_opens = ((temples[r.keys[0]].poem_opens ?? 0) + r.n);
+}
+const qianCards = await countBy('qian_card', ['customEvent:temple']);
+for (const r of qianCards) {
+  if (notSet(r.keys[0])) continue;
+  (temples[r.keys[0]] ??= { week_draws: 0, top: {} }).qian_cards = ((temples[r.keys[0]].qian_cards ?? 0) + r.n);
+}
 out._temples = temples;
 
 writeFileSync(STATS_FILE, JSON.stringify(out, null, 2) + '\n');

@@ -34,14 +34,35 @@ https://folk.tw/qiugian/qiuzhi/?temple=moi_10478_%E7%A2%A7%E9%9B%B2%E5%AE%AE&utm
 https://folk.tw/qiugian/kaoshi/?temple=moi_10478_%E7%A2%A7%E9%9B%B2%E5%AE%AE&utm_source=temple&utm_medium=offline&utm_campaign=moi_10478
 ```
 
-## 後續分期（尚未做）
+## P1 籤詩頁合作主題（2026-08-14 上線）
 
-- **P1 專屬入口頁**：廟宇範圍求籤頁（繼承籤系覆寫）＋廟方授權背景圖（`qiugian_theme` 欄位構想）＋分享按鈕。
-  🔴 分享 OG 落地頁**每廟一頁**、籤號走 query param、canonical 指回通用籤頁——
-  不要預產「廟×每首籤」頁（會重演節日頁 thin duplicate 的災難；真要逐籤 OG 必 noindex）。
-- **P2 照片合成**：全程瀏覽器內 canvas（照片永不離開瀏覽器＝個資紅線天然滿足，頁面要明講）。
-  不做伺服器儲存版。行動端分享走 Web Share API（IG 無法網頁預填貼文）。
-- **P3 廟方自動報表**：`_temples` 聚合 → 週報。這是 folk-outreach 對廟方的價值主張範本。
+用戶定案（2026-08-14）：入口是**廟方實體籤紙逐籤印 QR** → 落在該首籤頁帶 `?temple=`：
+
+```
+https://folk.tw/poems/<poem_id>/?temple=<temple_id>
+```
+
+- 合作白名單＝`src/data/temple-partners.json`（`active` 者生效；`check:integrity` 硬擋廟/籤系/素材檔）。
+- 命中白名單：籤詩頁換該廟背景（素材路徑在 `theme.bg`，**目前是本站設計的裝飾素材**，
+  廟方授權照片到貨後替換檔案即可、路徑不動）＋落款 banner；前後籤導覽帶著參數走。
+- 不論是否白名單，`?temple=` 合法即送 `poem_open` 事件（temple 維度）；聚合進 `_temples.<id>.poem_opens`。
+- 求籤頁（P0 入口）抽完籤的「看完整籤解」連結會把 temple 參數帶去籤詩頁，兩條入口在籤詩頁匯流。
+- 🔴 主題是 **client script 依參數套用**，靜態輸出完全不變——刻意如此（SEO 中性、
+  不產生「廟×籤」的 thin duplicate 頁）。**不要**改成預產每廟版本的頁面。
+
+## P2 祈福籤詩圖（前端已上線、後端 `api.folk.tw` 建置中）
+
+- 流程：合作廟籤詩頁（帶 `?temple=`）→ 上傳照片 → `POST https://api.folk.tw/v1/qian-card`
+  （multipart：photo/poem/temple）→ OpenAI 生成畫面＋**伺服器端確定性疊字**
+  （🔴 籤詩文字絕不交給圖像模型寫——中文會寫錯字，錯字＝杜撰）→ 回傳 PNG → 下載／Web Share 分享。
+- 前端 UI 只在 `GET https://api.folk.tw/healthz` 通過時出現——DNS／服務未就緒前自動隱藏，不需旗標。
+- 隱私：照片即生即毀不儲存；`/about` 資料與統計段已於同一輪補上據實說明（2026-08-14）。
+- 濫用/成本閘門：每 IP 限流＋每日全站上限（429 → 前端顯示「今日名額已滿」）。上限值見服務 `.env`。
+- 成功生成送 `qian_card` 事件（temple 維度）→ 聚合進 `_temples.<id>.qian_cards`。
+
+## P3 廟方自動報表（尚未做）
+
+- `_temples` 聚合（week_draws／poem_opens／qian_cards）→ 週報。folk-outreach 對廟方的價值主張範本。
 
 ## 誠實界線
 

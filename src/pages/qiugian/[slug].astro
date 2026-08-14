@@ -307,6 +307,8 @@ const jsonLd = [
         return /^[a-z0-9_一-鿿-]{1,80}$/.test(v) ? v : '';
       } catch { return ''; }
     })();
+    // 帶 temple 進來的，籤詩詳情連結也帶著走（P1：籤詩頁讀同一參數換合作主題＋送 poem_open）
+    const tqs = templeRef ? `?temple=${encodeURIComponent(templeRef)}` : '';
     const g = (name: string, params: Record<string, unknown>) => {
       if (templeRef) params = { ...params, temple: templeRef };
       // @ts-ignore
@@ -340,7 +342,7 @@ const jsonLd = [
               : item.slip
                 ? `<p class="slip">${esc(item.slip)}<span class="slip-tag">籤版原印</span></p>`
                 : `<p class="slip-none">這張籤版沒有列這一項。四句與其他項目見完整籤解。</p>`}
-            <a class="more" href="/poems/${esc(item.id)}/">看完整籤解與其他面向 →</a>
+            <a class="more" href="/poems/${esc(item.id)}/${tqs}">看完整籤解與其他面向 →</a>
           </div>
         </div>
         <div class="hearth">

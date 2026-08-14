@@ -17,6 +17,16 @@ export const getStaticPaths = (async () => {
 const { poem, interp } = Astro.props;
 const d = poem.data;
 
+// 宮廟合作主題（2026-08-14，P1）：?temple= 命中合作白名單 → client script 換上該廟專屬背景與落款，
+// 並送 poem_open 歸因事件（與求籤頁 P0 同一套 temple 維度）。一般訪客（無參數）完全不受影響、
+// 頁面靜態輸出不變（SEO 中性）。機制與連結慣例見 docs/temple-partner-links.md。
+import partners from '../../data/temple-partners.json';
+const partnerMap = Object.fromEntries(
+  (partners as { temple: string; name: string; active: boolean; theme: { bg: string; credit: string } }[])
+    .filter((p) => p.active)
+    .map((p) => [p.temple, { name: p.name, bg: p.theme.bg, credit: p.theme.credit }]),
+);
+
 const allusions = await getAllusions();
 const allusionById = new Map(allusions.map((a) => [a.id, a]));
 const allusionName = await allusionNameById(); // 不過濾 draft，供顯示典故名
@@ -254,6 +264,8 @@ if (faq) ld.push(faq);
     <p class="src footer-src">{d.version_source}</p>
   </article>
 
+  <div id="partnerCfg" data-partners={JSON.stringify(partnerMap)} data-poem-no={d.no} data-system={d.system.id} data-lines={d.lines.join('，')} hidden></div>
+
   <style>
     .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .ph h1 { margin: 0.25rem 0 0.75rem; }
@@ -309,6 +321,22 @@ if (faq) ld.push(faq);
     .poem-nav .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
     .footer-src { margin-top: 2.5rem; }
   </style>
+  {/* 宮廟合作主題的樣式：元素由 client script 注入，必須 is:global 才套得到（check:scoped-styles）。
+      背景圖直接設在 body 上（素材透明度內建於 SVG），不另疊 fixed 層——body 有不透明主題底色，
+      z-index:-1 的層會被蓋住看不到。 */}
+  <style is:global>
+    .partner-banner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin: 0 0 1rem; padding: 0.5rem 0.875rem; border: 1px solid var(--accent-soft); border-radius: 0.5rem; background: var(--paper-2); }
+    .partner-banner b { color: var(--accent); }
+    .partner-banner .credit { color: var(--ink-soft); font-size: var(--text-xs); }
+    .qian-card { margin: 1rem 0 1.5rem; padding: 0.875rem; border: 1px dashed var(--accent-soft); border-radius: 0.5rem; background: var(--paper-2); }
+    .qian-card h3 { margin: 0 0 0.5rem; font-size: var(--text-base); }
+    .qian-card .hint { color: var(--ink-soft); font-size: var(--text-xs); margin: 0.375rem 0; }
+    .qian-card .row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin-top: 0.5rem; }
+    .qian-card button, .qian-card a.dl { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.4375rem 1rem; }
+    .qian-card button:disabled { opacity: 0.5; cursor: default; }
+    .qian-card img.result { max-width: 100%; border-radius: 0.5rem; margin-top: 0.75rem; border: 1px solid var(--line); }
+    .qian-card .status { font-size: var(--text-sm); color: var(--ink-soft); }
+  </style>
   <script>
     import { emitPoemEvent, isPoemSaved, rememberPoem, toggleSavedPoem } from '../../lib/poem-shelf';
 
@@ -335,6 +363,117 @@ if (faq) ld.push(faq);
         const saved = toggleSavedPoem(item);
         emitPoemEvent(saved ? 'save_poem' : 'unsave_poem', item.id, 'poem_detail');
         paint(saved);
+      });
+    }
+
+    // ── 宮廟合作主題＋祈福籤詩圖（2026-08-14）────────────────────────────────
+    // ?temple= 合法即送 poem_open 歸因事件（temple 維度，與求籤頁 P0 同套）；
+    // 再命中合作白名單才換主題與顯示生成器。生成器 UI 只在 api.folk.tw 健康檢查
+    // 通過時出現（DNS/服務未就緒前自動隱藏，不需前端旗標）。
+    const QIAN_API = 'https://api.folk.tw';
+    const cfgEl = document.getElementById('partnerCfg');
+    if (cfgEl) {
+      const raw = new URLSearchParams(location.search).get('temple') || '';
+      const tid = /^[a-z0-9_一-鿿-]{1,80}$/.test(raw) ? raw : '';
+      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+      const partnerData = JSON.parse(cfgEl.dataset.partners || '{}') as Record<string, { name: string; bg: string; credit: string }>;
+      const partner = tid ? partnerData[tid] : undefined;
+      if (tid && typeof gtag === 'function')
+        gtag('event', 'poem_open', { temple: tid, poem_no: Number(cfgEl.dataset.poemNo), system: cfgEl.dataset.system });
+      if (partner) {
+        document.body.style.backgroundImage = `url(${partner.bg})`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundAttachment = 'fixed';
+        const banner = document.createElement('p');
+        banner.className = 'partner-banner';
+        const nameEl = document.createElement('b');
+        nameEl.textContent = `${partner.name} 專屬解籤`;
+        const creditEl = document.createElement('span');
+        creditEl.className = 'credit';
+        creditEl.textContent = partner.credit;
+        banner.append(nameEl, creditEl);
+        const article = document.querySelector('article.poem-detail');
+        article?.prepend(banner);
+        // 前後籤與「全部籤」帶著 temple 走，離開籤詩區則不帶（避免全站網址被參數污染）
+        const qs = `?temple=${encodeURIComponent(tid)}`;
+        document.querySelectorAll<HTMLAnchorElement>('.poem-nav a').forEach((a) => {
+          a.setAttribute('href', `${a.getAttribute('href')}${qs}`);
+        });
+        // 祈福籤詩圖生成器（API 健康才顯示）
+        fetch(`${QIAN_API}/healthz`, { method: 'GET' })
+          .then((r) => { if (r.ok) mountQianCard(tid, partner.name); })
+          .catch(() => {});
+      }
+    }
+    function mountQianCard(tid: string, templeName: string) {
+      const poemId = (location.pathname.match(/^\/poems\/([^/]+)\//) || [])[1] || '';
+      if (!poemId) return;
+      const box = document.createElement('section');
+      box.className = 'qian-card';
+      box.innerHTML = `
+        <h3>把這支籤做成你的祈福籤詩圖</h3>
+        <p class="hint">選一張照片，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
+        <p class="hint">照片只用來生成這張圖：會經本站伺服器傳給 OpenAI 產生，完成即刪除、不儲存。</p>
+        <div class="row">
+          <input type="file" accept="image/*" />
+          <button type="button" disabled>生成祈福籤詩圖</button>
+          <span class="status" aria-live="polite"></span>
+        </div>`;
+      document.querySelector('article.poem-detail .lines-block')?.after(box);
+      const input = box.querySelector('input')!;
+      const btn = box.querySelector('button')!;
+      const status = box.querySelector<HTMLElement>('.status')!;
+      input.addEventListener('change', () => { btn.disabled = !input.files?.length; });
+      btn.addEventListener('click', async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        btn.disabled = true;
+        status.textContent = '生成中，約需半分鐘…';
+        try {
+          const fd = new FormData();
+          fd.append('photo', file);
+          fd.append('poem', poemId);
+          fd.append('temple', tid);
+          const res = await fetch(`${QIAN_API}/v1/qian-card`, { method: 'POST', body: fd });
+          if (!res.ok) {
+            status.textContent = res.status === 429 ? '今日生成名額已滿，明天再來。' : '生成失敗，請稍後再試。';
+            btn.disabled = false;
+            return;
+          }
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          box.querySelector('img.result')?.remove();
+          box.querySelector('.row.actions')?.remove();
+          const img = new Image();
+          img.className = 'result';
+          img.alt = '祈福籤詩圖';
+          img.src = url;
+          box.append(img);
+          const actions = document.createElement('div');
+          actions.className = 'row actions';
+          const dl = document.createElement('a');
+          dl.className = 'dl';
+          dl.textContent = '下載圖片';
+          dl.href = url;
+          dl.setAttribute('download', `${templeName}-祈福籤詩.png`);
+          actions.append(dl);
+          const file2 = new File([blob], 'qian-card.png', { type: 'image/png' });
+          if (navigator.canShare?.({ files: [file2] })) {
+            const share = document.createElement('button');
+            share.type = 'button';
+            share.textContent = '分享';
+            share.addEventListener('click', () => navigator.share({ files: [file2] }).catch(() => {}));
+            actions.append(share);
+          }
+          box.append(actions);
+          status.textContent = '';
+          btn.disabled = false;
+          const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+          if (typeof gtag === 'function') gtag('event', 'qian_card', { temple: tid, poem_id: poemId });
+        } catch {
+          status.textContent = '生成失敗，請稍後再試。';
+          btn.disabled = false;
+        }
       });
     }
   </script>

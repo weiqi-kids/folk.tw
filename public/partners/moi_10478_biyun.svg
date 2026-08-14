@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <!-- 碧雲宮合作頁裝飾背景（神酷設計素材，非廟方照片；透明度已內建，疊於任一主題底色上皆可讀） -->
+  <defs>
+    <g id="cloud" fill="none" stroke="#b8863b" stroke-width="6" stroke-linecap="round">
+      <path d="M20 80 q30 -60 90 -38 q18 -34 62 -26 q46 8 44 48 q40 -6 48 30" />
+      <path d="M52 96 q60 -22 150 -10" />
+    </g>
+  </defs>
+  <g opacity="0.10">
+    <use href="#cloud" transform="translate(60,90) scale(1.4)" />
+    <use href="#cloud" transform="translate(820,60) scale(1.9)" />
+    <use href="#cloud" transform="translate(180,560) scale(1.2) scale(-1,1) translate(-260,0)" />
+    <use href="#cloud" transform="translate(900,600) scale(1.5)" />
+    <use href="#cloud" transform="translate(480,320) scale(0.9)" />
+  </g>
+  <g opacity="0.07" fill="#b8863b">
+    <circle cx="1080" cy="180" r="150" fill="none" stroke="#b8863b" stroke-width="10" />
+    <circle cx="1080" cy="180" r="110" fill="none" stroke="#b8863b" stroke-width="4" />
+  </g>
+</svg>

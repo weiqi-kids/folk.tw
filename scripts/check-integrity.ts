@@ -7,7 +7,7 @@
 //
 // 執行：pnpm check:integrity
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -75,6 +75,16 @@ for (const d of deities) {
 for (const tp of temples) {
   for (const s of tp.divination_systems ?? []) {
     if (!systemIds.has(s)) hard(`temple ${tp.id}: divination_system「${s}」不存在`);
+  }
+}
+// 宮廟合作名單（2026-08-14 加）：廟要存在、籤系要存在、背景素材檔要在 public/
+const partners = load('temple-partners.json');
+{
+  const tIds = new Set(temples.map((t: { id: string }) => t.id));
+  for (const p of partners) {
+    if (!tIds.has(p.temple)) hard(`partner「${p.temple}」不存在於 temples.json`);
+    for (const s of p.systems ?? []) if (!systemIds.has(s)) hard(`partner ${p.temple}: 籤系「${s}」不存在`);
+    if (p.theme?.bg && !existsSync(join(root, 'public', p.theme.bg))) hard(`partner ${p.temple}: 背景素材 public${p.theme.bg} 不存在`);
   }
 }
 // 行業 → 守護神 / 宜忌事項（手工小表，比照 deity→籤系 硬擋）

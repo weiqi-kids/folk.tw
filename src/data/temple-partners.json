@@ -1,0 +1,13 @@
+[
+  {
+    "temple": "moi_10478_碧雲宮",
+    "name": "碧雲宮",
+    "since": "2026-08-14",
+    "active": true,
+    "systems": ["guandi_lingqian"],
+    "theme": {
+      "bg": "/partners/moi_10478_biyun.svg",
+      "credit": "合作頁面素材：神酷設計（待廟方提供授權照片後替換）"
+    }
+  }
+]
