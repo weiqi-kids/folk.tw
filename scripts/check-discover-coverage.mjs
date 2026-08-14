@@ -247,9 +247,13 @@ for (const row of indexable) {
   if (!row.canonical) add(errors, row, '缺少 canonical');
   const expectedCanonical = `${ORIGIN}${row.url}`;
   const canonicalPath = row.canonical ? decodedPath(row.canonical) : '';
+  // 「今日鏡像頁」豁免容忍 ±1 天（2026-08-15 修）：build 與本檢查若跨越台北午夜
+  // （CI 於 UTC 16:00 前後起跑＝台北 00:00 正是常態），build 時的「今天」與檢查時差一天，
+  // 只豁免單日會誤紅（實例：run 31816388006，/almanac/2026-08-14/ 在台北 00:08 被判違規）。
+  const taipeiDate = (offsetDays) =>
+    new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date(Date.now() + offsetDays * 86400000));
   const isTodayAlmanacMirror =
-    row.url === `/almanac/${new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date())}/` &&
-    canonicalPath === '/almanac/';
+    [-1, 0, 1].some((d) => row.url === `/almanac/${taipeiDate(d)}/`) && canonicalPath === '/almanac/';
   if (!isTodayAlmanacMirror && canonicalPath !== row.url) {
     add(errors, row, `canonical 不是自我網址（${row.canonical || '空白'}；預期 ${expectedCanonical}）`);
   }
