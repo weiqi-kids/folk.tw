@@ -231,8 +231,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
-      "empty_runs": 2
+      "last_checked": "2026-08-14",
+      "empty_runs": 3
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -533,8 +533,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
-      "empty_runs": 6
+      "last_checked": "2026-08-14",
+      "empty_runs": 7
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -2672,8 +2672,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
-      "empty_runs": 0
+      "last_checked": "2026-08-14",
+      "empty_runs": 1
     },
     "bless_snapshot": 1
   },
@@ -2821,8 +2821,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
-      "empty_runs": 1
+      "last_checked": "2026-08-14",
+      "empty_runs": 2
     }
   },
   {
@@ -2947,11 +2947,35 @@
         ],
         "added": "2026-08-13T12:35:59.211Z",
         "hash": "d0b9f9373392"
+      },
+      {
+        "date": "2026-08-14",
+        "text": "上海松江區、金山區、青浦區已全區排除積水，搶救人力已全數完成處置作業，防汛應變工作轉入收尾階段。",
+        "sources": [
+          {
+            "ref": "中新網",
+            "url": "https://www.chinanews.com.cn/sh/2026/08-14/10677668.shtml"
+          }
+        ],
+        "added": "2026-08-14T12:34:53.074Z",
+        "hash": "5ad46c683913"
+      },
+      {
+        "date": "2026-08-14",
+        "text": "松江區銀湖別墅社區供電已大致修復、路面積水已消退，住戶陸續返家，社區善後恢復工作已近尾聲。",
+        "sources": [
+          {
+            "ref": "鳳凰網",
+            "url": "https://news.ifeng.com/c/8va9S1xmozg"
+          }
+        ],
+        "added": "2026-08-14T12:34:54.684Z",
+        "hash": "fa1f43b55c43"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
+      "last_checked": "2026-08-14",
       "empty_runs": 0
     }
   },
@@ -2980,8 +3004,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-13",
-      "empty_runs": 2
+      "last_checked": "2026-08-14",
+      "empty_runs": 3
     }
   },
   {
@@ -3003,6 +3027,25 @@
     "time": "2026-08-10",
     "detector": "news",
     "since": "2026-08-13",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-11",
+        "text": "碧瑤市山崩案搜救行動已結束，受困住戶已全數尋獲，當局轉為邊坡穩定與善後復原作業。",
+        "sources": [
+          {
+            "ref": "Manila Times",
+            "url": "https://www.manilatimes.net/2026/08/11/regions/10-dead-3-rescued-as-baguio-landslide-search-rescue-operations-end/2402572"
+          }
+        ],
+        "added": "2026-08-14T12:36:34.288Z",
+        "hash": "06c2a2a1f0a5"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-14",
+      "empty_runs": 0
+    }
   }
 ]
