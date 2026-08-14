@@ -83,9 +83,22 @@ for (const r of qifu) {
 }
 out.topical = topical;
 
+// 宮廟歸因（2026-08-14，P0）：廟方專屬連結帶 ?temple=<temples.json 的 id>，求籤事件多帶 temple 維度
+// （自訂維度同日註冊、非追溯）。按廟聚合近 7 天求籤數與同籤分布，供廟方報表與後續專屬頁；
+// 前端無此參數時不送維度，這裡自然為空。連結慣例見 docs/temple-partner-links.md。
+const byTemple = await countBy('qiugian', ['customEvent:temple', 'customEvent:poem_no']);
+const temples = {};
+for (const r of byTemple) {
+  if (notSet(r.keys[0]) || notSet(r.keys[1])) continue;
+  const t = (temples[r.keys[0]] ??= { week_draws: 0, top: {} });
+  t.week_draws += r.n;
+  t.top[r.keys[1]] = (t.top[r.keys[1]] ?? 0) + r.n;
+}
+out._temples = temples;
+
 writeFileSync(STATS_FILE, JSON.stringify(out, null, 2) + '\n');
 const summary = concernIds.map((id) => `${id}:求${out[id].week_draws}/報喜${out[id].baoxi}`).join('  ');
-console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}；時事集氣 ${Object.keys(topical).length} 案`);
+console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}；時事集氣 ${Object.keys(topical).length} 案；宮廟歸因 ${Object.keys(temples).length} 廟`);
 
 // 集氣人數快照（P3）：GA4 近 7 天的集氣數會隨事件老化歸零，故把「峰值集氣數」凍結回寫 topical.json，
 // 供頁面歸檔（archived）／轉記錄（memorial）後顯示「當時共有 N 人一起集氣」。取 max(既有快照, 本次7天數)，

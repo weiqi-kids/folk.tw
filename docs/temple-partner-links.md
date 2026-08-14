@@ -1,0 +1,49 @@
+# 宮廟合作連結（專屬求籤連結＋用量追蹤）
+
+> 2026-08-14 起。首例：碧雲宮（`moi_10478_碧雲宮`，南投國姓，主祀天上聖母、採**關帝靈籤**——
+> 籤系覆寫見 `temples.json` 該廟 `divination_systems` 欄與 `docs/decisions/deities-and-qian.md` 同日條目）。
+> 廟方需求：專屬解籤連結、可追蹤使用量；後續（P1+）專屬背景圖、照片合成籤文、社群分享。
+> 用戶已確認（2026-08-14）：追蹤用 P0 即可；廟方背景圖授權**含公開散布**。
+
+## P0 機制（已上線）
+
+1. **前端**：`/qiugian/<concern>/` 頁帶 `?temple=<temples.json 的 id>` 時，
+   該頁所有 GA4 事件（`qiugian`／`qifu`／`baoxi`）多帶一個 `temple` 維度。
+   實作在 `src/pages/qiugian/[slug].astro` 的 `g()`（白名單字元＋限長，防注入）。
+2. **GA4**：自訂維度 `temple`（EVENT scope）2026-08-14 以 Admin API 註冊。
+   ⚠️ **非追溯**——只有註冊之後的事件查得到。
+3. **聚合**：`scripts/qiugian-aggregate.mjs`（每 3 小時 cron）按廟輸出近 7 天
+   求籤數與同籤分布到 `src/data/qiugian-stats.json` 的 `_temples` 鍵。
+   查現況：`node -e "console.log(JSON.stringify(require('./src/data/qiugian-stats.json')._temples,null,2))"`
+
+## 連結慣例（給廟方印刷品／NFC／QR）
+
+```
+https://folk.tw/qiugian/<concern>/?temple=<temple_id>&utm_source=temple&utm_medium=offline&utm_campaign=<temple_id 前綴>
+```
+
+- `temple` 給求籤事件歸因（進 `_temples` 聚合）；`utm_*` 給 GA4 流量歸因（進管道報表）。兩者互補、都要帶。
+- concern 要選**該廟籤系**對映的情境（查 `src/data/concerns.json` 的 `system` 欄）——
+  頁面上的「在廟裡抽到了？直接查籤號」正好接住實體抽籤→線上解籤的動線。
+- 🔴 slug 與參數格式是對外承諾（印在實體物上收不回來），改法只能加不能改。
+
+碧雲宮（關帝靈籤）可用的兩個入口（2026-08-14 時 `guandi_lingqian` 對映工作／考試兩情境）：
+
+```
+https://folk.tw/qiugian/qiuzhi/?temple=moi_10478_%E7%A2%A7%E9%9B%B2%E5%AE%AE&utm_source=temple&utm_medium=offline&utm_campaign=moi_10478
+https://folk.tw/qiugian/kaoshi/?temple=moi_10478_%E7%A2%A7%E9%9B%B2%E5%AE%AE&utm_source=temple&utm_medium=offline&utm_campaign=moi_10478
+```
+
+## 後續分期（尚未做）
+
+- **P1 專屬入口頁**：廟宇範圍求籤頁（繼承籤系覆寫）＋廟方授權背景圖（`qiugian_theme` 欄位構想）＋分享按鈕。
+  🔴 分享 OG 落地頁**每廟一頁**、籤號走 query param、canonical 指回通用籤頁——
+  不要預產「廟×每首籤」頁（會重演節日頁 thin duplicate 的災難；真要逐籤 OG 必 noindex）。
+- **P2 照片合成**：全程瀏覽器內 canvas（照片永不離開瀏覽器＝個資紅線天然滿足，頁面要明講）。
+  不做伺服器儲存版。行動端分享走 Web Share API（IG 無法網頁預填貼文）。
+- **P3 廟方自動報表**：`_temples` 聚合 → 週報。這是 folk-outreach 對廟方的價值主張範本。
+
+## 誠實界線
+
+- GA4 計數會被廣告攔截器吃掉一部分——對廟方的說法是「趨勢與量級」，不承諾精確計數（用戶已確認 P0 夠用）。
+- 專屬頁措辭：「○○宮採用關帝靈籤」這類**廟的事實**必須有籤系覆寫＋來源才可寫（見紅線 1）。

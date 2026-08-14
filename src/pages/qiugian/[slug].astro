@@ -297,7 +297,18 @@ const jsonLd = [
     const cfg = document.getElementById('cfg')!.dataset;
     const QIAN = JSON.parse(document.getElementById('qiandata')!.textContent || '[]');
     const STAT = JSON.parse(document.getElementById('statsdata')!.textContent || '{}');
+    // 宮廟歸因（2026-08-14，P0）：廟方專屬連結（NFC／QR／印刷品）帶 ?temple=<temples.json 的 id>，
+    // 本頁所有事件（qiugian/qifu/baoxi）多帶一個 temple 維度（GA4 自訂維度已於同日以 Admin API 註冊，
+    // EVENT scope、非追溯）。值走白名單字元＋限長，防任意查詢字串進 GA；無參數時行為完全不變。
+    // 聚合（按廟分組）在 scripts/qiugian-aggregate.mjs；連結慣例見 docs/temple-partner-links.md。
+    const templeRef = (() => {
+      try {
+        const v = new URLSearchParams(location.search).get('temple') || '';
+        return /^[a-z0-9_一-鿿-]{1,80}$/.test(v) ? v : '';
+      } catch { return ''; }
+    })();
     const g = (name: string, params: Record<string, unknown>) => {
+      if (templeRef) params = { ...params, temple: templeRef };
       // @ts-ignore
       if (typeof window.gtag === 'function') window.gtag('event', name, params);
     };
