@@ -336,9 +336,11 @@ if (faq) ld.push(faq);
     .qian-card button:disabled { opacity: 0.5; cursor: default; }
     .qian-card.drag { border-style: solid; border-color: var(--accent); background: var(--paper); }
     .qian-card .styles { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.25rem 0 0.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    .qian-card .stylechip { flex: 0 0 auto; padding: 0; border-width: 2px; border-radius: 0.5rem; overflow: hidden; scroll-snap-align: start; }
+    /* 未選中整張淡出、選中亮起＋粗框（2026-08-15 用戶裁示）；border-width 固定 3px 防切換時位移 */
+    .qian-card .stylechip { flex: 0 0 auto; padding: 0; border-width: 3px; border-radius: 0.5rem; overflow: hidden; scroll-snap-align: start; opacity: 0.4; transition: opacity 0.15s; }
+    .qian-card .stylechip:hover { opacity: 0.75; }
     .qian-card .stylechip img { display: block; width: 4.5rem; height: 6.75rem; object-fit: cover; }
-    .qian-card .stylechip[aria-pressed="true"] { border-color: var(--accent); background: var(--paper); }
+    .qian-card .stylechip[aria-pressed="true"] { border-color: var(--accent); background: var(--paper); opacity: 1; }
     .qian-card .fname { font-size: var(--text-sm); color: var(--ink-soft); overflow-wrap: anywhere; }
     .qian-card .progress { height: 0.5rem; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 0.75rem; }
     .qian-card .progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
