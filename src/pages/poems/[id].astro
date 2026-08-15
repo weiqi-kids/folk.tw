@@ -368,6 +368,17 @@ if (faq) ld.push(faq);
       .qian-card .stylechip:hover { opacity: 0.75; }
       .qian-card .stylechip[aria-pressed="true"] { opacity: 1; }
     }
+    .whispers { margin-top: 2.5rem; }
+    .whispers h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+    .whispers .wnote { color: var(--ink-soft); font-size: var(--text-sm); }
+    .whispers .wlist { list-style: none; padding: 0; margin: 0.875rem 0; display: flex; flex-direction: column; gap: 0.625rem; }
+    .whispers .wlist li { padding: 0.75rem 1rem; border: 1px solid var(--line); border-left: 3px solid var(--accent-soft); border-radius: 0.5rem; background: var(--paper-2); }
+    .whispers .wlist li.wempty { border-left-color: var(--line); color: var(--ink-soft); }
+    .whispers .wform { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .whispers .wform input { flex: 1 1 16rem; font: inherit; font-size: var(--text-sm); padding: 0.5rem 0.75rem; border: 1px solid var(--line); border-radius: 0.5rem; background: var(--paper); color: var(--ink); }
+    .whispers .wform button { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.4375rem 1rem; }
+    .whispers .wform button:disabled { opacity: 0.5; }
+    .whispers .wstatus { font-size: var(--text-sm); color: var(--ink-soft); }
     /* 手機：動作鈕滿版（2026-08-15 用戶裁示）；stylechip 不在 .row 內、不受影響 */
     @media (max-width: 42.5rem) {
       .qian-card .row button, .qian-card .row a.dl { width: 100%; text-align: center; }
@@ -439,6 +450,80 @@ if (faq) ld.push(faq);
         mountQianCard('', '');
       }
     }
+    // 同籤留言（2026-08-15，「同籤同行」最小版）：走過來的人留一句話給後來者。
+    // 定位（顧問＋廟方承辦共識）：個人經驗、不代表神明指示、不是解籤——只此一句、寫在區塊裡。
+    // 全部留言經站方審閱後才刊出；服務不可達時整區不出現。
+    (function mountWhispers() {
+      const poemId = (location.pathname.match(/^\/poems\/([^/]+)\//) || [])[1] || '';
+      if (!poemId) return;
+      fetch(`${QIAN_API}/v1/whispers/${poemId}`)
+        .then((r) => r.json())
+        .then(({ items }: { items: { id: string; stage: string; text: string }[] }) => {
+          const sec = document.createElement('section');
+          sec.className = 'whispers';
+          const h = document.createElement('h2');
+          h.textContent = '同籤的人留下的話';
+          const note = document.createElement('p');
+          note.className = 'wnote';
+          note.textContent = '抽到同一支籤、走過那段路的人，留給後來者的一句話。這裡是個人經驗，不代表神明指示，也不是解籤。';
+          const list = document.createElement('ul');
+          list.className = 'wlist';
+          if (items.length) {
+            for (const w of items) {
+              const li = document.createElement('li');
+              li.textContent = w.text;
+              list.append(li);
+            }
+          } else {
+            const li = document.createElement('li');
+            li.className = 'wempty';
+            li.textContent = '還沒有人留下話——也許第一句就是你的。';
+            list.append(li);
+          }
+          const form = document.createElement('div');
+          form.className = 'wform';
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.maxLength = 80;
+          input.placeholder = '如果你已經走過來了，留一句話給下一個人';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.textContent = '留下這句話';
+          const stat = document.createElement('span');
+          stat.className = 'wstatus';
+          stat.setAttribute('aria-live', 'polite');
+          form.append(input, btn, stat);
+          btn.addEventListener('click', async () => {
+            const text = input.value.trim();
+            if (text.length < 2) { stat.textContent = '再多寫一點。'; return; }
+            btn.disabled = true;
+            try {
+              const res = await fetch(`${QIAN_API}/v1/whispers`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ poem: poemId, stage: 'passed', text }),
+              });
+              if (res.ok) {
+                stat.textContent = '收到了。看過之後，這句話就會出現在這裡。';
+                input.value = '';
+                const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+                if (typeof gtag === 'function') gtag('event', 'whisper_submit', { poem_id: poemId });
+              } else if (res.status === 429) {
+                stat.textContent = '今天先到這裡，明天再來。';
+              } else {
+                stat.textContent = '這句話沒辦法收（別放網址或電話）。';
+              }
+            } catch {
+              stat.textContent = '暫時送不出去，稍後再試。';
+            }
+            btn.disabled = false;
+          });
+          sec.append(h, note, list, form);
+          document.querySelector('.poem-nav')?.before(sec);
+        })
+        .catch(() => {});
+    })();
+
     function mountQianCard(tid: string, templeName: string) {
       const poemId = (location.pathname.match(/^\/poems\/([^/]+)\//) || [])[1] || '';
       if (!poemId) return;

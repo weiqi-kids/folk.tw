@@ -47,6 +47,7 @@
 | [`temple-ctr-cohorts.md`](temple-ctr-cohorts.md) | GSC 宮廟 page×query 全量分頁、意圖／排名帶 CTR cohort 與高曝低 CTR 行動門檻 | **活的**。執行 `pnpm seo:temple-ctr`；不逐廟自動改 title |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
 | [`temple-partner-links.md`](temple-partner-links.md) | 宮廟合作連結：`?temple=` 歸因＋GA4 `temple` 維度＋`_temples` 聚合；P1–P3 分期與紅線 | **活的**。發連結給廟方前必讀 |
+| [`qian-interactive.md`](qian-interactive.md) | 求籤互動迴圈：選擇題／pulse 儀表板／籤詩人格／同籤留言（送審制）＋門檻紅線 | **活的**。改互動機制前必讀 |
 | [`yaoqian-batch-01.md`](yaoqian-batch-01.md) | 藥籤第一批 5 首送審內容（給醫師看的實際文字，非規格） | ✅ **330 首全部審過**（2026-08-06）。🔴 **頁面上不寫審閱狀態、不掛醫師姓名**——授權/來源/典藏警語已由樞紐頁與 `/about/` 統一處理，逐首頁再加就是多餘警語 |
 | [`../contracts/bot-index.schema.json`](../contracts/bot-index.schema.json) | 跨 repo 資料契約：`https://folk.tw/bot-index.json`（build 期由 `src/pages/bot-index.json.ts` 產出）餵給 `/root/my-line-bot-customer/tenants/shenku/`（LINE 官方帳號「神酷」）。改任一輸出欄位前先改這份 schema——消費端對不上不會報錯，只會靜靜降級 | **活的**。產生器 `src/pages/bot-index.json.ts`；不進 sitemap（見 `astro.config.mjs` 的 filter） |
 
