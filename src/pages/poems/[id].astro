@@ -347,6 +347,10 @@ if (faq) ld.push(faq);
       .qian-card .stylechip:hover { opacity: 0.75; }
       .qian-card .stylechip[aria-pressed="true"] { opacity: 1; }
     }
+    /* 手機：動作鈕滿版（2026-08-15 用戶裁示）；stylechip 不在 .row 內、不受影響 */
+    @media (max-width: 42.5rem) {
+      .qian-card .row button, .qian-card .row a.dl { width: 100%; text-align: center; }
+    }
     .qian-card .fname { font-size: var(--text-sm); color: var(--ink-soft); overflow-wrap: anywhere; }
     .qian-card .progress { height: 0.5rem; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 0.75rem; }
     .qian-card .progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
@@ -458,8 +462,10 @@ if (faq) ld.push(faq);
             b.className = 'stylechip';
             b.title = name;
             b.setAttribute('aria-label', name);
+            // 所選即所得（2026-08-15 用戶指正「選的和下載的不同張」）：卡片顯示的是
+            // 「本籤×該風格」的實際成品預覽，與下載端點同一張確定性底圖。
             const img = new Image();
-            img.src = `${QIAN_API}${thumb}`;
+            img.src = `${QIAN_API}/v1/card-preview/${poemId}/${key}`;
             img.alt = name;
             img.loading = 'lazy';
             b.append(img);
