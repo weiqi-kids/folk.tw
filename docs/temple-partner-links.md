@@ -61,6 +61,20 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
 - 濫用/成本閘門：每 IP 限流＋每日全站上限（429 → 前端顯示「今日名額已滿」）。上限值見服務 `.env`。
 - 成功生成送 `qian_card` 事件（temple 維度）→ 聚合進 `_temples.<id>.qian_cards`。
 
+## P2b 預生成籤詩圖（無照片版，2026-08-15）
+
+不上傳照片也能直接下載該籤的現成祈福籤詩圖。分工契約：
+
+- **產圖方（外部，如 codex）**只產「**無文字背景畫**」放
+  `/root/folk-qian-api/cards-bg/<temple_id>/<poem_id>.png|.jpg`
+  （🔴 畫面不得含任何文字/字母/數字；建議 1024×1536 直式，其他尺寸會被 cover 裁切）。
+- 之後跑 `cd /root/folk-qian-api && node compose-cards.mjs`（增量、可重跑）：
+  疊上籤詩文字＋落款 → `cards/<temple_id>/<poem_id>.png` → 由
+  `https://api.folk.tw/cards/…` 靜態對外（快取 1 小時）。
+- 前端籤詩頁以 HEAD 探測該籤有無現成圖，**有才顯示「直接下載籤詩圖」鈕**（列首）；
+  下載送 `qian_card_ready` 事件（temple 維度）。
+- 不合契約的檔（temple 不在合作名單、檔名不是 poem_id）compose 會列出並跳過，不會整批失敗。
+
 ## P3 廟方自動報表（尚未做）
 
 - `_temples` 聚合（week_draws／poem_opens／qian_cards）→ 週報。folk-outreach 對廟方的價值主張範本。

@@ -434,6 +434,28 @@ if (faq) ld.push(faq);
       fetch(`${QIAN_API}/healthz`, { method: 'GET' })
         .then((r) => { if (r.ok) { apiOk = true; status.textContent = ''; refresh(); } else { status.textContent = '生成服務尚未開通。'; } })
         .catch(() => { status.textContent = '生成服務尚未開通。'; });
+      // 現成籤詩圖（無照片版）：cards/ 有這支籤的預生成圖才顯示「直接下載」鈕（HEAD 探測）
+      const readyUrl = `${QIAN_API}/cards/${encodeURIComponent(tid)}/${poemId}.png`;
+      fetch(readyUrl, { method: 'HEAD' })
+        .then((r) => {
+          if (!r.ok) return;
+          const ready = document.createElement('button');
+          ready.type = 'button';
+          ready.textContent = '直接下載籤詩圖';
+          ready.addEventListener('click', async () => {
+            try {
+              const blob = await (await fetch(readyUrl)).blob();
+              const a = document.createElement('a');
+              a.href = URL.createObjectURL(blob);
+              a.download = `${templeName}-祈福籤詩.png`;
+              a.click();
+              const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+              if (typeof gtag === 'function') gtag('event', 'qian_card_ready', { temple: tid, poem_id: poemId });
+            } catch {}
+          });
+          box.querySelector('.row')?.prepend(ready);
+        })
+        .catch(() => {});
       pick.addEventListener('click', () => input.click());
       input.addEventListener('change', () => setFile(input.files?.[0]));
       // 整塊 qian-card 都吃拖曳（2026-08-15 用戶要求）
