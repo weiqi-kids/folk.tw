@@ -336,12 +336,17 @@ if (faq) ld.push(faq);
     .qian-card button:disabled { opacity: 0.5; cursor: default; }
     .qian-card.drag { border-style: solid; border-color: var(--accent); background: var(--paper); }
     .qian-card .styles { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.25rem 0 0.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    /* 未選中整張淡出、選中亮起＋粗框（2026-08-15 用戶裁示）；border-width 固定 3px 防切換時位移。
+    /* 選中亮起＋粗框（2026-08-15 用戶裁示）；border-width 固定 3px 防切換時位移。
        卡片高 67% 螢幕高（svh 避開手機網址列）、2:3 籤卡比例、置中吸附——手機上才看得清楚。 */
-    .qian-card .stylechip { flex: 0 0 auto; padding: 0; border-width: 3px; border-radius: 0.5rem; overflow: hidden; scroll-snap-align: center; opacity: 0.4; transition: opacity 0.15s; }
-    .qian-card .stylechip:hover { opacity: 0.75; }
+    .qian-card .stylechip { flex: 0 0 auto; padding: 0; border-width: 3px; border-radius: 0.5rem; overflow: hidden; scroll-snap-align: center; }
     .qian-card .stylechip img { display: block; height: 67vh; height: 67svh; width: auto; aspect-ratio: 2 / 3; object-fit: cover; }
-    .qian-card .stylechip[aria-pressed="true"] { border-color: var(--accent); background: var(--paper); opacity: 1; }
+    .qian-card .stylechip[aria-pressed="true"] { border-color: var(--accent); background: var(--paper); }
+    /* 未選中淡化只給電腦（可 hover 的精準指標）；手機滑動時全亮、靠粗框辨識（2026-08-15 用戶裁示） */
+    @media (hover: hover) and (pointer: fine) {
+      .qian-card .stylechip { opacity: 0.4; transition: opacity 0.15s; }
+      .qian-card .stylechip:hover { opacity: 0.75; }
+      .qian-card .stylechip[aria-pressed="true"] { opacity: 1; }
+    }
     .qian-card .fname { font-size: var(--text-sm); color: var(--ink-soft); overflow-wrap: anywhere; }
     .qian-card .progress { height: 0.5rem; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 0.75rem; }
     .qian-card .progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
