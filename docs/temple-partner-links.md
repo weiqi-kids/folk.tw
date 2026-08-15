@@ -79,12 +79,17 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
 
 無合作廟的籤詩頁（無 `?temple=`）也有同一個生成器介面：
 
-- **直接下載**：`GET api.folk.tw/v1/qian-card/<poem_id>`——從
-  `/root/folk-qian-api/style-previews/<NN-風格>/backgrounds/` 底圖池隨機抽一張、
-  套 `style-presets.mjs` 對應風格框＋疊正確籤詩文字。純 sharp 合成、不經 OpenAI、
-  不吃每日額度；`no-store`，每次點都重抽（亂數是功能）。
-- **上傳生成**：`POST /v1/qian-card` 不帶 temple → 服務端隨機抽 10 風格之一
-  （prompt 用風格名引導、框面同步套用）；帶了不合法的 temple 仍 400。額度照舊。
+- **風格選擇器**（2026-08-15 加）：`GET /v1/styles` 供前端清單（名稱＋縮圖
+  `/style-thumbs/NN.webp`），預設「隨機」。下載與上傳生成都吃所選風格；
+  合作廟頁的選擇只影響上傳生成，直接下載仍是廟方版。事件多帶 `style` 維度
+  （GA4 已註冊，2026-08-15，非追溯）。
+- **直接下載**：`GET api.folk.tw/v1/qian-card/<poem_id>[?style=NN]`——從
+  `/root/folk-qian-api/style-previews/<NN-風格>/backgrounds/` 底圖池抽一張
+  （指定風格＝只在該風格抽；未指定＝全池隨機）、套 `style-presets.mjs` 對應
+  風格框＋疊正確籤詩文字。純 sharp 合成、不經 OpenAI、不吃每日額度；`no-store`。
+- **上傳生成**：`POST /v1/qian-card` 不帶 temple → 一般頁；`style` 可指定
+  （'01'…'10'，prompt 用風格名引導、框面同步），未指定＝合作廟走 01、一般隨機。
+  帶了不合法的 temple 或 style 皆 400。額度照舊。
 - 風格池目錄對應規則：資料夾名前綴 `NN-` ↔ `STYLE_PRESETS[NN-1]`；
   丟新底圖進 `backgrounds/` 即自動入池（10 分鐘內生效，不需重啟）。
 - 合作廟頁行為不變（固定風格 01＋廟名落款＋cards/ 預生成圖）。
