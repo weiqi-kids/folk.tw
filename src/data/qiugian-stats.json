@@ -22,9 +22,10 @@
     "joys": []
   },
   "ganqing": {
-    "week_draws": 7,
+    "week_draws": 8,
     "baoxi": 0,
     "top": {
+      "11": 1,
       "14": 1,
       "19": 1,
       "22": 2,
@@ -98,5 +99,16 @@
   "topical": {
     "news-flood-20260809-2f6b7f": 1
   },
-  "_temples": {}
+  "_temples": {
+    "moi_10478_碧雲": {
+      "week_draws": 0,
+      "top": {},
+      "poem_opens": 1
+    },
+    "moi_10478_碧雲宮": {
+      "week_draws": 0,
+      "top": {},
+      "poem_opens": 1
+    }
+  }
 }
