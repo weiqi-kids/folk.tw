@@ -116,5 +116,14 @@
       "poem_opens": 3
     }
   },
-  "_styles": {}
+  "_styles": {
+    "1": {
+      "downloads": 1,
+      "generates": 0
+    },
+    "7": {
+      "downloads": 1,
+      "generates": 0
+    }
+  }
 }
