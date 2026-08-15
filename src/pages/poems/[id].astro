@@ -425,6 +425,7 @@ if (faq) ld.push(faq);
       if (!poemId) return;
       const box = document.createElement('section');
       box.className = 'qian-card';
+      box.id = 'qiancard'; // 求籤結果卡的 CTA 以 #qiancard 直達本區塊
       box.innerHTML = `
         <h3>把這支籤做成你的祈福籤詩圖</h3>
         <p class="hint">選一張照片，或直接把照片拖進這一塊，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
@@ -438,6 +439,8 @@ if (faq) ld.push(faq);
         </div>
         <div class="progress" hidden><i></i></div>`;
       document.querySelector('article.poem-detail .lines-block')?.after(box);
+      // 從求籤結果卡的 CTA 進來（#qiancard）＝使用者就是要來做圖的，這次捲動是使用者意圖
+      if (location.hash === '#qiancard') box.scrollIntoView({ behavior: 'smooth', block: 'start' });
       const input = box.querySelector('input')!;
       const pick = box.querySelector<HTMLButtonElement>('.pick')!;
       const fname = box.querySelector<HTMLElement>('.fname')!;

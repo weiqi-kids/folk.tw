@@ -48,6 +48,7 @@ const OUTCOME_LABEL = Object.fromEntries(
 );
 
 const draws = await countBy('qiugian', ['customEvent:concern']); // [{keys:[concern], n}]
+const choices = await countBy('qian_choice', ['customEvent:concern', 'customEvent:choice']); // 籤後選擇題（2026-08-15）
 const drawsByPoem = await countBy('qiugian', ['customEvent:concern', 'customEvent:poem_no']);
 const baoxi = await countBy('baoxi', ['customEvent:concern', 'customEvent:outcome']);
 const qifu = await countBy('qifu', ['customEvent:concern']); // 集氣；時事祈福頁 concern=topical:<id>
@@ -70,7 +71,12 @@ for (const id of concernIds) {
     joys.push({ text: OUTCOME_LABEL[id]?.[r.keys[1]] ?? r.keys[1], meta: `本週 ${r.n} 人` });
   }
   joys.sort((a, b) => Number(b.meta.replace(/\D/g, '')) - Number(a.meta.replace(/\D/g, '')));
-  out[id] = { week_draws, baoxi: baoxiTotal, top, joys };
+  const choiceMap = {};
+  for (const r of choices) {
+    if (r.keys[0] !== id || notSet(r.keys[1])) continue;
+    choiceMap[r.keys[1]] = (choiceMap[r.keys[1]] ?? 0) + r.n;
+  }
+  out[id] = { week_draws, baoxi: baoxiTotal, top, joys, choices: choiceMap };
 }
 
 // 時事祈福頁集氣數（concern=topical:<id>）

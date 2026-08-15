@@ -288,7 +288,19 @@ const jsonLd = [
     #result .qi:hover { background: var(--accent); color: var(--paper); }
     #result .qi.done { background: var(--accent); color: var(--paper); cursor: default; box-shadow: 0 0 1.0625rem 0.0625rem var(--accent-soft); }
 
-    @media (max-width: 37.5rem) { #result .rslip-row { flex-direction: column; } }
+    /* 祈福籤詩圖入口（2026-08-15：從結果卡直達，不用先跳籤詩頁） */
+    #result .cardcta { display: block; width: 100%; margin-top: 1.125rem; text-align: center; font-size: var(--text-base); font-weight: 700;
+      color: var(--paper); background: var(--accent); border-radius: 0.75rem; padding: 0.9375rem; }
+    #result .cardcta:hover { text-decoration: none; background: var(--accent-soft); color: var(--ink); }
+    /* 籤後選擇題：非強制的第二層互動 */
+    #result .choice { margin-top: 1.125rem; border: 1px dashed var(--line); border-radius: 0.75rem; padding: 0.9375rem 1rem; }
+    #result .choice-q { margin: 0 0 0.625rem; font-weight: 700; }
+    #result .choice-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    #result .choice-opts button { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer;
+      color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.625rem; }
+    #result .choice-opts button:hover { border-color: var(--accent-soft); color: var(--accent); }
+    #result .choice-done { margin: 0; color: var(--ink-soft); }
+    @media (max-width: 37.5rem) { #result .rslip-row { flex-direction: column; } #result .choice-opts { grid-template-columns: 1fr; } }
   </style>
 
   <script>
@@ -345,6 +357,17 @@ const jsonLd = [
             <a class="more" href="/poems/${esc(item.id)}/${tqs}">看完整籤解與其他面向 →</a>
           </div>
         </div>
+        <a class="cardcta" href="/poems/${esc(item.id)}/${tqs}#qiancard">🎴 把這支籤做成祈福籤詩圖</a>
+        <div class="choice" id="choiceBlock">
+          <p class="choice-q">解籤看完了——如果是你，接下來會？</p>
+          <div class="choice-opts">
+            <button type="button" data-c="push">繼續向前衝</button>
+            <button type="button" data-c="pause">暫時放一放</button>
+            <button type="button" data-c="ask">找人商量</button>
+            <button type="button" data-c="wait">再等等看</button>
+          </div>
+          <p class="choice-done" hidden></p>
+        </div>
         <div class="hearth">
           <div class="hearth-h"><span class="flame" aria-hidden="true"></span>和你一起的人</div>
           <div class="estat">${e1}</div>
@@ -356,6 +379,25 @@ const jsonLd = [
       document.getElementById('result')!.hidden = false;
       document.getElementById('lineAfterDraw')!.hidden = false;
       document.getElementById('qiInline')!.addEventListener('click', qifuInline);
+      // 籤後選擇題（2026-08-15，顧問方案③⑨的合體）：非強制、放在解籤之後——
+      // 第一層求籤流程保持完整極簡，想互動的人才點（互動深度分層，不做人群分流）。
+      // 選項是中性的行動傾向，不涉籤意詮釋（紅線 1：不替神明加話）。
+      const cb = document.getElementById('choiceBlock');
+      cb?.querySelectorAll<HTMLButtonElement>('.choice-opts button').forEach((b) =>
+        b.addEventListener('click', () => {
+          g('qian_choice', { concern: cfg.concern, poem_no: item.no, choice: b.dataset.c });
+          const done = cb.querySelector<HTMLElement>('.choice-done')!;
+          const opts = (STAT as { choices?: Record<string, number> }).choices ?? {};
+          const total = Object.values(opts).reduce((a, n) => a + n, 0);
+          const same = opts[b.dataset.c!] ?? 0;
+          // 統計句只在量夠時出現（門檻 10，比照祈福頁「數字為真、少算不灌水」）
+          done.textContent = total >= 10 && same > 0
+            ? `你選了「${b.textContent}」——最近有 ${same} 個人，做了一樣的選擇。`
+            : `你選了「${b.textContent}」。`;
+          done.hidden = false;
+          (cb.querySelector('.choice-opts') as HTMLElement).hidden = true;
+        }),
+      );
       rememberPoem({
         id: item.id,
         title: `${cfg.system}第 ${item.no} 籤${item.label ? `「${item.label}」` : ''}`,

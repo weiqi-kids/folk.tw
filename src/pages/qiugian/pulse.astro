@@ -1,0 +1,105 @@
+---
+// 「大家在問什麼」集體儀表板 v1（2026-08-15，顧問方案④的誠實版）。
+// 🔴 數字為真、少算不灌水（與共情層同一鐵則）：
+//    - 全部數字來自 qiugian-stats.json（GA4 近 7 天真實計數，每 3 小時聚合）
+//    - 百分比只在總量 ≥ 30 時顯示（小樣本的百分比會誤導）；人少的時候就顯示「少」
+//    - 「最多人抽到的籤」只在該籤 ≥ 2 人時列出——1 個人不構成「最多人」
+// 頁面隨每日 deploy 重建，站上數字一天一換（repo 內每 3 小時更新，見 qiugian-aggregate.mjs 檔頭）。
+import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
+import { breadcrumb } from '../../lib/seo';
+import concerns from '../../data/concerns.json';
+import stats from '../../data/qiugian-stats.json';
+
+type Agg = { week_draws: number; baoxi: number; top: Record<string, number> };
+const st = stats as unknown as Record<string, Agg>;
+
+const rows = concerns
+  .map((c) => {
+    const s = st[c.id] ?? { week_draws: 0, baoxi: 0, top: {} };
+    const topEntry = Object.entries(s.top ?? {}).sort((a, b) => b[1] - a[1])[0];
+    return {
+      id: c.id,
+      label: c.label,
+      system: c.system,
+      draws: s.week_draws ?? 0,
+      baoxi: s.baoxi ?? 0,
+      topNo: topEntry && topEntry[1] >= 2 ? Number(topEntry[0]) : null,
+      topN: topEntry ? topEntry[1] : 0,
+    };
+  })
+  .sort((a, b) => b.draws - a.draws);
+
+const total = rows.reduce((n, r) => n + r.draws, 0);
+const baoxiTotal = rows.reduce((n, r) => n + r.baoxi, 0);
+const showPct = total >= 30;
+const maxDraws = Math.max(...rows.map((r) => r.draws), 1);
+
+const desc = `近 7 天全站 ${total} 次求籤的真實分布：大家在為什麼求籤、哪支籤最多人抽到。數字是真實計數，不灌水。`;
+---
+
+<Base
+  title="大家在問什麼｜近 7 天求籤分布"
+  description={desc}
+  jsonLd={[breadcrumb([{ name: '求籤', path: '/qiugian/' }, { name: '大家在問什麼', path: '/qiugian/pulse/' }])]}
+>
+  <nav class="crumb"><a href="/qiugian/">求籤</a> ／ 大家在問什麼</nav>
+
+  <h1>大家在問什麼</h1>
+  <LeadVisual compact src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
+
+  <p class="lead">
+    近 7 天，這裡一共有 <b>{total}</b> 次求籤{baoxiTotal > 0 && <>，{baoxiTotal} 個人回來報喜</>}。
+    數字是真實計數——人少的時候，就是少。
+  </p>
+
+  <section>
+    <h2>大家在為什麼求籤</h2>
+    <ul class="pulse">
+      {rows.map((r) => (
+        <li>
+          <a class="plabel" href={`/qiugian/${r.id}/`}>{r.label}</a>
+          <span class="pbar" aria-hidden="true"><i style={`width:${Math.round((r.draws / maxDraws) * 100)}%`}></i></span>
+          <span class="pnum">{r.draws} 人{showPct && total > 0 && <span class="ppct">（{Math.round((r.draws / total) * 100)}%）</span>}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {rows.some((r) => r.topNo != null) && (
+    <section>
+      <h2>這幾天最多人抽到的籤</h2>
+      <ul class="tops">
+        {rows.filter((r) => r.topNo != null).map((r) => (
+          <li>
+            <span class="tlabel">{r.label}</span>
+            <a href={`/poems/${r.system}-${r.topNo}/`}>第 {r.topNo} 籤</a>
+            <span class="muted">{r.topN} 人抽到</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <p class="cta"><a href="/qiugian/">我也求一支 →</a></p>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .lead b { color: var(--accent); font-size: var(--text-lg); }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
+    .pulse { list-style: none; padding: 0; margin: 0.875rem 0; }
+    .pulse li { display: grid; grid-template-columns: 6.5rem 1fr auto; align-items: center; gap: 0.75rem; padding: 0.5rem 0; }
+    .pulse .plabel { font-weight: 700; }
+    .pulse .pbar { display: block; height: 0.625rem; border-radius: 999px; background: var(--paper-2); overflow: hidden; }
+    .pulse .pbar i { display: block; height: 100%; background: var(--accent-soft); border-radius: 999px; }
+    .pulse .pnum { font-variant-numeric: tabular-nums; color: var(--ink); }
+    .pulse .ppct { color: var(--ink-soft); font-size: var(--text-sm); }
+    .tops { list-style: none; padding: 0; margin: 0.875rem 0; }
+    .tops li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.625rem; padding: 0.4375rem 0; border-bottom: 1px dashed var(--line); }
+    .tops .tlabel { font-weight: 700; min-width: 4.5rem; }
+    .muted { color: var(--ink-soft); font-size: var(--text-sm); }
+    .cta { margin-top: 2.25rem; }
+    .cta a { font-weight: 700; }
+    @media (max-width: 37.5rem) { .pulse li { grid-template-columns: 5rem 1fr auto; gap: 0.5rem; } }
+  </style>
+</Base>
