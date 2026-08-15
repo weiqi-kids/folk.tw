@@ -77,6 +77,20 @@ for (const tp of temples) {
     if (!systemIds.has(s)) hard(`temple ${tp.id}: divination_system「${s}」不存在`);
   }
 }
+// 籤詩人格（2026-08-15 加）：非 draft 全覆蓋、type 合法、關鍵字必須為該籤原文連續片段（抽詞不造詞）
+const personas = JSON.parse(readFileSync(join(root, 'src/data', 'poem-personas.json'), 'utf8'));
+{
+  const ptIds = new Set(personas.types.map((t: { id: string }) => t.id));
+  for (const p of poems) {
+    if (p.draft) continue;
+    const a = personas.poems[p.id];
+    if (!a) { hard(`persona 缺 ${p.id}`); continue; }
+    if (!ptIds.has(a.type)) hard(`persona ${p.id}: type「${a.type}」不存在`);
+    const text = (p.lines ?? []).join('');
+    for (const k of a.keywords ?? []) if (!text.includes(k)) hard(`persona ${p.id}: 關鍵字「${k}」不在籤文原文`);
+  }
+}
+
 // 宮廟合作名單（2026-08-14 加）：廟要存在、籤系要存在、背景素材檔要在 public/
 const partners = load('temple-partners.json');
 {

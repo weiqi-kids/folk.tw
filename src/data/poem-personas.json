@@ -1,0 +1,1627 @@
+{
+  "_note": "籤詩人格：本站原創撰寫的文化詮釋層（2026-08-15）。type＝八型之一；keywords 必須是該籤四句原文的連續片段（check:integrity 硬擋，抽詞不造詞）。此為本站的閱讀框架，不是籤意權威解釋。",
+  "types": [
+    {
+      "id": "kaichuang",
+      "name": "開創型",
+      "tagline": "先走的人",
+      "desc": "這一型的籤，畫面多半是日出、雲開、獨步向前。它們共同的語氣是：路已經在了，值得往前走。"
+    },
+    {
+      "id": "xingdong",
+      "name": "行動型",
+      "tagline": "現在就動的人",
+      "desc": "這一型的籤常出現「正當時」「莫遲疑」。它們說的不是保證，而是時機——該做的事，此刻就是做的時候。"
+    },
+    {
+      "id": "dengdai",
+      "name": "等待型",
+      "tagline": "時候未到的人",
+      "desc": "枯木逢春、太公釣渭、雲遮月色——這一型的籤把重點放在「還沒到」。不是不會來，是還沒到。"
+    },
+    {
+      "id": "leiji",
+      "name": "累積型",
+      "tagline": "慢慢來的人",
+      "desc": "積善、耕耘、淘沙見金。這一型的籤不談突然的好運，談的是一點一點堆出來的結果。"
+    },
+    {
+      "id": "fangxia",
+      "name": "放下型",
+      "tagline": "先鬆手的人",
+      "desc": "這一型的籤常勸人「何須」「不須」。越用力越亂的事，它們建議先鬆開手，再看清楚。"
+    },
+    {
+      "id": "yuanfen",
+      "name": "緣分型",
+      "tagline": "有人在路上的人",
+      "desc": "貴人、相逢、水到渠成——這一型的籤把答案放在「人與人的相遇」上，急不來，也擋不住。"
+    },
+    {
+      "id": "shoucheng",
+      "name": "守成型",
+      "tagline": "守得住的人",
+      "desc": "把定、謹守、安分。這一型的籤不叫人衝，叫人把手上的東西顧好——顧得住，就是好局。"
+    },
+    {
+      "id": "zhuanji",
+      "name": "轉機型",
+      "tagline": "正在轉彎的人",
+      "desc": "長蛇變龍、履險如夷、凶事化吉。這一型的籤描述的是「局勢正在變」——轉彎處看不遠，但方向是往好的去。"
+    }
+  ],
+  "poems": {
+    "liushi_jiazi-1": {
+      "type": "kaichuang",
+      "keywords": [
+        "日出",
+        "光明",
+        "前途"
+      ]
+    },
+    "liushi_jiazi-2": {
+      "type": "xingdong",
+      "keywords": [
+        "正當時",
+        "百花魁",
+        "春色"
+      ]
+    },
+    "liushi_jiazi-3": {
+      "type": "dengdai",
+      "keywords": [
+        "把定",
+        "時來",
+        "明珠"
+      ]
+    },
+    "liushi_jiazi-4": {
+      "type": "xingdong",
+      "keywords": [
+        "風恬浪靜",
+        "行舟",
+        "福祿"
+      ]
+    },
+    "liushi_jiazi-5": {
+      "type": "shoucheng",
+      "keywords": [
+        "且守",
+        "長江",
+        "宜先"
+      ]
+    },
+    "liushi_jiazi-6": {
+      "type": "fangxia",
+      "keywords": [
+        "風雲",
+        "難和合"
+      ]
+    },
+    "liushi_jiazi-7": {
+      "type": "yuanfen",
+      "keywords": [
+        "雲開月出",
+        "婚姻",
+        "和合"
+      ]
+    },
+    "liushi_jiazi-8": {
+      "type": "leiji",
+      "keywords": [
+        "結成",
+        "團圓",
+        "兩相全"
+      ]
+    },
+    "liushi_jiazi-9": {
+      "type": "fangxia",
+      "keywords": [
+        "龍虎",
+        "背後看"
+      ]
+    },
+    "liushi_jiazi-10": {
+      "type": "fangxia",
+      "keywords": [
+        "一半枯",
+        "前途"
+      ]
+    },
+    "liushi_jiazi-11": {
+      "type": "dengdai",
+      "keywords": [
+        "漸漸",
+        "分明",
+        "太平"
+      ]
+    },
+    "liushi_jiazi-12": {
+      "type": "zhuanji",
+      "keywords": [
+        "漸漸靜",
+        "貴人",
+        "太平"
+      ]
+    },
+    "liushi_jiazi-13": {
+      "type": "fangxia",
+      "keywords": [
+        "心機",
+        "高灘"
+      ]
+    },
+    "liushi_jiazi-14": {
+      "type": "dengdai",
+      "keywords": [
+        "漸漸",
+        "寬心",
+        "月中桂"
+      ]
+    },
+    "liushi_jiazi-15": {
+      "type": "dengdai",
+      "keywords": [
+        "太公",
+        "晚景",
+        "待運通"
+      ]
+    },
+    "liushi_jiazi-16": {
+      "type": "fangxia",
+      "keywords": [
+        "不須求",
+        "官法如爐"
+      ]
+    },
+    "liushi_jiazi-17": {
+      "type": "shoucheng",
+      "keywords": [
+        "謹防",
+        "作福",
+        "和合"
+      ]
+    },
+    "liushi_jiazi-18": {
+      "type": "yuanfen",
+      "keywords": [
+        "祿馬",
+        "貴人",
+        "前程"
+      ]
+    },
+    "liushi_jiazi-19": {
+      "type": "fangxia",
+      "keywords": [
+        "心高",
+        "依舊路",
+        "雲開"
+      ]
+    },
+    "liushi_jiazi-20": {
+      "type": "fangxia",
+      "keywords": [
+        "且退",
+        "損失"
+      ]
+    },
+    "liushi_jiazi-21": {
+      "type": "zhuanji",
+      "keywords": [
+        "紅日",
+        "貴人",
+        "靈通"
+      ]
+    },
+    "liushi_jiazi-22": {
+      "type": "leiji",
+      "keywords": [
+        "太公",
+        "家業",
+        "大吉"
+      ]
+    },
+    "liushi_jiazi-23": {
+      "type": "dengdai",
+      "keywords": [
+        "運未通",
+        "魚水"
+      ]
+    },
+    "liushi_jiazi-24": {
+      "type": "kaichuang",
+      "keywords": [
+        "月出光輝",
+        "太平",
+        "祿位"
+      ]
+    },
+    "liushi_jiazi-25": {
+      "type": "fangxia",
+      "keywords": [
+        "莫心勞",
+        "雞犬日"
+      ]
+    },
+    "liushi_jiazi-26": {
+      "type": "xingdong",
+      "keywords": [
+        "牡丹",
+        "莫遲疑",
+        "及時"
+      ]
+    },
+    "liushi_jiazi-27": {
+      "type": "shoucheng",
+      "keywords": [
+        "寬心",
+        "自由",
+        "無憂"
+      ]
+    },
+    "liushi_jiazi-28": {
+      "type": "fangxia",
+      "keywords": [
+        "虎落平陽",
+        "遲疑"
+      ]
+    },
+    "liushi_jiazi-29": {
+      "type": "dengdai",
+      "keywords": [
+        "枯木",
+        "且守",
+        "風霜退"
+      ]
+    },
+    "liushi_jiazi-30": {
+      "type": "shoucheng",
+      "keywords": [
+        "須防",
+        "重勞"
+      ]
+    },
+    "liushi_jiazi-31": {
+      "type": "kaichuang",
+      "keywords": [
+        "正當時",
+        "作乾坤",
+        "結實"
+      ]
+    },
+    "liushi_jiazi-32": {
+      "type": "fangxia",
+      "keywords": [
+        "黃金",
+        "變成鐵"
+      ]
+    },
+    "liushi_jiazi-33": {
+      "type": "leiji",
+      "keywords": [
+        "把定",
+        "作福",
+        "相逢"
+      ]
+    },
+    "liushi_jiazi-34": {
+      "type": "zhuanji",
+      "keywords": [
+        "高山",
+        "蘭桂",
+        "成龍"
+      ]
+    },
+    "liushi_jiazi-35": {
+      "type": "fangxia",
+      "keywords": [
+        "心機",
+        "自然知",
+        "太平"
+      ]
+    },
+    "liushi_jiazi-36": {
+      "type": "shoucheng",
+      "keywords": [
+        "福如東海",
+        "平安"
+      ]
+    },
+    "liushi_jiazi-37": {
+      "type": "xingdong",
+      "keywords": [
+        "得意",
+        "決意",
+        "清吉"
+      ]
+    },
+    "liushi_jiazi-38": {
+      "type": "dengdai",
+      "keywords": [
+        "心自安",
+        "得意"
+      ]
+    },
+    "liushi_jiazi-39": {
+      "type": "dengdai",
+      "keywords": [
+        "且守",
+        "貴人扶"
+      ]
+    },
+    "liushi_jiazi-40": {
+      "type": "shoucheng",
+      "keywords": [
+        "祿位",
+        "光輝",
+        "百歲"
+      ]
+    },
+    "liushi_jiazi-41": {
+      "type": "yuanfen",
+      "keywords": [
+        "消息近",
+        "結成雙"
+      ]
+    },
+    "liushi_jiazi-42": {
+      "type": "fangxia",
+      "keywords": [
+        "江水",
+        "路又難"
+      ]
+    },
+    "liushi_jiazi-43": {
+      "type": "dengdai",
+      "keywords": [
+        "寬心",
+        "貴人",
+        "音信"
+      ]
+    },
+    "liushi_jiazi-44": {
+      "type": "xingdong",
+      "keywords": [
+        "得利",
+        "得運時"
+      ]
+    },
+    "liushi_jiazi-45": {
+      "type": "leiji",
+      "keywords": [
+        "結成果",
+        "榮華",
+        "清吉"
+      ]
+    },
+    "liushi_jiazi-46": {
+      "type": "kaichuang",
+      "keywords": [
+        "得意",
+        "團圓",
+        "光滿天"
+      ]
+    },
+    "liushi_jiazi-47": {
+      "type": "zhuanji",
+      "keywords": [
+        "心中",
+        "化成吉"
+      ]
+    },
+    "liushi_jiazi-48": {
+      "type": "dengdai",
+      "keywords": [
+        "雲遮月",
+        "運未通"
+      ]
+    },
+    "liushi_jiazi-49": {
+      "type": "shoucheng",
+      "keywords": [
+        "言語",
+        "消息"
+      ]
+    },
+    "liushi_jiazi-50": {
+      "type": "leiji",
+      "keywords": [
+        "無異心",
+        "成金"
+      ]
+    },
+    "liushi_jiazi-51": {
+      "type": "shoucheng",
+      "keywords": [
+        "把定",
+        "安康"
+      ]
+    },
+    "liushi_jiazi-52": {
+      "type": "zhuanji",
+      "keywords": [
+        "由天",
+        "風雲際會"
+      ]
+    },
+    "liushi_jiazi-53": {
+      "type": "leiji",
+      "keywords": [
+        "積善",
+        "慶有餘",
+        "運亨"
+      ]
+    },
+    "liushi_jiazi-54": {
+      "type": "leiji",
+      "keywords": [
+        "善果",
+        "好香"
+      ]
+    },
+    "liushi_jiazi-55": {
+      "type": "dengdai",
+      "keywords": [
+        "珠玉",
+        "深藏"
+      ]
+    },
+    "liushi_jiazi-56": {
+      "type": "fangxia",
+      "keywords": [
+        "回頭",
+        "消磨"
+      ]
+    },
+    "liushi_jiazi-57": {
+      "type": "shoucheng",
+      "keywords": [
+        "把定",
+        "清吉",
+        "安居"
+      ]
+    },
+    "liushi_jiazi-58": {
+      "type": "dengdai",
+      "keywords": [
+        "成龍",
+        "運未通",
+        "寬心"
+      ]
+    },
+    "liushi_jiazi-59": {
+      "type": "xingdong",
+      "keywords": [
+        "莫遲疑",
+        "正當時",
+        "會合"
+      ]
+    },
+    "liushi_jiazi-60": {
+      "type": "leiji",
+      "keywords": [
+        "光輝",
+        "作福",
+        "有益"
+      ]
+    },
+    "guandi_lingqian-1": {
+      "type": "kaichuang",
+      "keywords": [
+        "獨步",
+        "雲間",
+        "富貴"
+      ]
+    },
+    "guandi_lingqian-2": {
+      "type": "leiji",
+      "keywords": [
+        "天時",
+        "修為",
+        "百事宜"
+      ]
+    },
+    "guandi_lingqian-3": {
+      "type": "shoucheng",
+      "keywords": [
+        "衣食",
+        "孝悌",
+        "忠信"
+      ]
+    },
+    "guandi_lingqian-4": {
+      "type": "shoucheng",
+      "keywords": [
+        "時運",
+        "瓣香"
+      ]
+    },
+    "guandi_lingqian-5": {
+      "type": "dengdai",
+      "keywords": [
+        "蕭索",
+        "回春"
+      ]
+    },
+    "guandi_lingqian-6": {
+      "type": "fangxia",
+      "keywords": [
+        "懷疑",
+        "私意"
+      ]
+    },
+    "guandi_lingqian-7": {
+      "type": "kaichuang",
+      "keywords": [
+        "仙風道骨",
+        "丹成",
+        "向天行"
+      ]
+    },
+    "guandi_lingqian-8": {
+      "type": "leiji",
+      "keywords": [
+        "田疇",
+        "有秋",
+        "無憂"
+      ]
+    },
+    "guandi_lingqian-9": {
+      "type": "zhuanji",
+      "keywords": [
+        "文書",
+        "喜色"
+      ]
+    },
+    "guandi_lingqian-10": {
+      "type": "dengdai",
+      "keywords": [
+        "一陽復",
+        "求神"
+      ]
+    },
+    "guandi_lingqian-11": {
+      "type": "fangxia",
+      "keywords": [
+        "機關",
+        "傷神"
+      ]
+    },
+    "guandi_lingqian-12": {
+      "type": "yuanfen",
+      "keywords": [
+        "貴公子",
+        "安全"
+      ]
+    },
+    "guandi_lingqian-13": {
+      "type": "dengdai",
+      "keywords": [
+        "釣翁",
+        "發跡"
+      ]
+    },
+    "guandi_lingqian-14": {
+      "type": "fangxia",
+      "keywords": [
+        "人情冷暖",
+        "行路難"
+      ]
+    },
+    "guandi_lingqian-15": {
+      "type": "yuanfen",
+      "keywords": [
+        "姻緣",
+        "春風",
+        "消息"
+      ]
+    },
+    "guandi_lingqian-16": {
+      "type": "fangxia",
+      "keywords": [
+        "息了",
+        "歸耕"
+      ]
+    },
+    "guandi_lingqian-17": {
+      "type": "fangxia",
+      "keywords": [
+        "公庭",
+        "商量"
+      ]
+    },
+    "guandi_lingqian-18": {
+      "type": "leiji",
+      "keywords": [
+        "腳根",
+        "踏實地",
+        "善為善應"
+      ]
+    },
+    "guandi_lingqian-19": {
+      "type": "xingdong",
+      "keywords": [
+        "星運",
+        "如意",
+        "和合"
+      ]
+    },
+    "guandi_lingqian-20": {
+      "type": "fangxia",
+      "keywords": [
+        "流水",
+        "浮雲"
+      ]
+    },
+    "guandi_lingqian-21": {
+      "type": "fangxia",
+      "keywords": [
+        "經文",
+        "祈求"
+      ]
+    },
+    "guandi_lingqian-22": {
+      "type": "kaichuang",
+      "keywords": [
+        "白蓮",
+        "超凡",
+        "天然"
+      ]
+    },
+    "guandi_lingqian-23": {
+      "type": "fangxia",
+      "keywords": [
+        "花開花謝",
+        "成空"
+      ]
+    },
+    "guandi_lingqian-24": {
+      "type": "dengdai",
+      "keywords": [
+        "憂煎",
+        "秋成"
+      ]
+    },
+    "guandi_lingqian-25": {
+      "type": "dengdai",
+      "keywords": [
+        "阻滯",
+        "枯木逢春"
+      ]
+    },
+    "guandi_lingqian-26": {
+      "type": "zhuanji",
+      "keywords": [
+        "天數",
+        "滂沱"
+      ]
+    },
+    "guandi_lingqian-27": {
+      "type": "shoucheng",
+      "keywords": [
+        "有主",
+        "規矩"
+      ]
+    },
+    "guandi_lingqian-28": {
+      "type": "leiji",
+      "keywords": [
+        "勤勞",
+        "才高"
+      ]
+    },
+    "guandi_lingqian-29": {
+      "type": "leiji",
+      "keywords": [
+        "積德",
+        "源遠流長"
+      ]
+    },
+    "guandi_lingqian-30": {
+      "type": "shoucheng",
+      "keywords": [
+        "謹守",
+        "佳音"
+      ]
+    },
+    "guandi_lingqian-31": {
+      "type": "dengdai",
+      "keywords": [
+        "春到",
+        "吉昌"
+      ]
+    },
+    "guandi_lingqian-32": {
+      "type": "fangxia",
+      "keywords": [
+        "勞心",
+        "心機"
+      ]
+    },
+    "guandi_lingqian-33": {
+      "type": "leiji",
+      "keywords": [
+        "黃庭經",
+        "窮通"
+      ]
+    },
+    "guandi_lingqian-34": {
+      "type": "yuanfen",
+      "keywords": [
+        "謀慮",
+        "貴人"
+      ]
+    },
+    "guandi_lingqian-35": {
+      "type": "fangxia",
+      "keywords": [
+        "半途",
+        "無語"
+      ]
+    },
+    "guandi_lingqian-36": {
+      "type": "kaichuang",
+      "keywords": [
+        "鵬程",
+        "有分"
+      ]
+    },
+    "guandi_lingqian-37": {
+      "type": "shoucheng",
+      "keywords": [
+        "善惡",
+        "無礙"
+      ]
+    },
+    "guandi_lingqian-38": {
+      "type": "dengdai",
+      "keywords": [
+        "望信",
+        "懸懸"
+      ]
+    },
+    "guandi_lingqian-39": {
+      "type": "shoucheng",
+      "keywords": [
+        "慎厥初",
+        "安居"
+      ]
+    },
+    "guandi_lingqian-40": {
+      "type": "zhuanji",
+      "keywords": [
+        "規模",
+        "亨衢"
+      ]
+    },
+    "guandi_lingqian-41": {
+      "type": "dengdai",
+      "keywords": [
+        "作梯",
+        "榜頭題"
+      ]
+    },
+    "guandi_lingqian-42": {
+      "type": "zhuanji",
+      "keywords": [
+        "改新圖",
+        "稱心"
+      ]
+    },
+    "guandi_lingqian-43": {
+      "type": "xingdong",
+      "keywords": [
+        "火急",
+        "平安"
+      ]
+    },
+    "guandi_lingqian-44": {
+      "type": "shoucheng",
+      "keywords": [
+        "一念",
+        "香願"
+      ]
+    },
+    "guandi_lingqian-45": {
+      "type": "leiji",
+      "keywords": [
+        "心地",
+        "耕耘"
+      ]
+    },
+    "guandi_lingqian-46": {
+      "type": "fangxia",
+      "keywords": [
+        "騎牛",
+        "自由"
+      ]
+    },
+    "guandi_lingqian-47": {
+      "type": "fangxia",
+      "keywords": [
+        "平和",
+        "清夜"
+      ]
+    },
+    "guandi_lingqian-48": {
+      "type": "yuanfen",
+      "keywords": [
+        "天寒",
+        "一喚",
+        "重歡"
+      ]
+    },
+    "guandi_lingqian-49": {
+      "type": "fangxia",
+      "keywords": [
+        "勞碌",
+        "不如閒"
+      ]
+    },
+    "guandi_lingqian-50": {
+      "type": "shoucheng",
+      "keywords": [
+        "和氣",
+        "生福"
+      ]
+    },
+    "guandi_lingqian-51": {
+      "type": "yuanfen",
+      "keywords": [
+        "隨緣",
+        "水到渠成"
+      ]
+    },
+    "guandi_lingqian-52": {
+      "type": "zhuanji",
+      "keywords": [
+        "幽居",
+        "萬金",
+        "秋光"
+      ]
+    },
+    "guandi_lingqian-53": {
+      "type": "dengdai",
+      "keywords": [
+        "險阻",
+        "貴人"
+      ]
+    },
+    "guandi_lingqian-54": {
+      "type": "leiji",
+      "keywords": [
+        "青燈黃卷",
+        "勤勞"
+      ]
+    },
+    "guandi_lingqian-55": {
+      "type": "shoucheng",
+      "keywords": [
+        "勤耕",
+        "安分"
+      ]
+    },
+    "guandi_lingqian-56": {
+      "type": "fangxia",
+      "keywords": [
+        "理曲",
+        "月鏡"
+      ]
+    },
+    "guandi_lingqian-57": {
+      "type": "shoucheng",
+      "keywords": [
+        "自主張",
+        "思量"
+      ]
+    },
+    "guandi_lingqian-58": {
+      "type": "kaichuang",
+      "keywords": [
+        "前程萬里",
+        "通亨"
+      ]
+    },
+    "guandi_lingqian-59": {
+      "type": "leiji",
+      "keywords": [
+        "陰騭",
+        "香煙"
+      ]
+    },
+    "guandi_lingqian-60": {
+      "type": "kaichuang",
+      "keywords": [
+        "名聲",
+        "同登"
+      ]
+    },
+    "guandi_lingqian-61": {
+      "type": "zhuanji",
+      "keywords": [
+        "大笑",
+        "盜賊休"
+      ]
+    },
+    "guandi_lingqian-62": {
+      "type": "xingdong",
+      "keywords": [
+        "用力",
+        "得勝"
+      ]
+    },
+    "guandi_lingqian-63": {
+      "type": "zhuanji",
+      "keywords": [
+        "圖南",
+        "一堪"
+      ]
+    },
+    "guandi_lingqian-64": {
+      "type": "yuanfen",
+      "keywords": [
+        "相遇",
+        "和同",
+        "功倍"
+      ]
+    },
+    "guandi_lingqian-65": {
+      "type": "dengdai",
+      "keywords": [
+        "窮冬",
+        "喜氣",
+        "新春"
+      ]
+    },
+    "guandi_lingqian-66": {
+      "type": "shoucheng",
+      "keywords": [
+        "耕耘",
+        "鄉邦",
+        "喜氣"
+      ]
+    },
+    "guandi_lingqian-67": {
+      "type": "shoucheng",
+      "keywords": [
+        "狐疑",
+        "孝悌"
+      ]
+    },
+    "guandi_lingqian-68": {
+      "type": "shoucheng",
+      "keywords": [
+        "止此",
+        "田舍"
+      ]
+    },
+    "guandi_lingqian-69": {
+      "type": "shoucheng",
+      "keywords": [
+        "慎勿",
+        "遵路"
+      ]
+    },
+    "guandi_lingqian-70": {
+      "type": "dengdai",
+      "keywords": [
+        "至誠",
+        "為霖"
+      ]
+    },
+    "guandi_lingqian-71": {
+      "type": "yuanfen",
+      "keywords": [
+        "喜鵲",
+        "好音",
+        "鴛鴦"
+      ]
+    },
+    "guandi_lingqian-72": {
+      "type": "dengdai",
+      "keywords": [
+        "長途",
+        "金雞"
+      ]
+    },
+    "guandi_lingqian-73": {
+      "type": "fangxia",
+      "keywords": [
+        "痴心",
+        "連理"
+      ]
+    },
+    "guandi_lingqian-74": {
+      "type": "zhuanji",
+      "keywords": [
+        "履險如夷",
+        "菩提",
+        "春回"
+      ]
+    },
+    "guandi_lingqian-75": {
+      "type": "yuanfen",
+      "keywords": [
+        "緣姻",
+        "相逢"
+      ]
+    },
+    "guandi_lingqian-76": {
+      "type": "shoucheng",
+      "keywords": [
+        "善惡",
+        "兩途"
+      ]
+    },
+    "guandi_lingqian-77": {
+      "type": "fangxia",
+      "keywords": [
+        "根荄",
+        "究其原"
+      ]
+    },
+    "guandi_lingqian-78": {
+      "type": "shoucheng",
+      "keywords": [
+        "財多",
+        "當省"
+      ]
+    },
+    "guandi_lingqian-79": {
+      "type": "shoucheng",
+      "keywords": [
+        "仔細",
+        "陰陽"
+      ]
+    },
+    "guandi_lingqian-80": {
+      "type": "zhuanji",
+      "keywords": [
+        "改換",
+        "禍福"
+      ]
+    },
+    "guandi_lingqian-81": {
+      "type": "shoucheng",
+      "keywords": [
+        "自當還",
+        "明月鏡"
+      ]
+    },
+    "guandi_lingqian-82": {
+      "type": "yuanfen",
+      "keywords": [
+        "周旋",
+        "並肩"
+      ]
+    },
+    "guandi_lingqian-83": {
+      "type": "fangxia",
+      "keywords": [
+        "妄想",
+        "安閒"
+      ]
+    },
+    "guandi_lingqian-84": {
+      "type": "xingdong",
+      "keywords": [
+        "一著先",
+        "心堅"
+      ]
+    },
+    "guandi_lingqian-85": {
+      "type": "fangxia",
+      "keywords": [
+        "得計",
+        "歸路"
+      ]
+    },
+    "guandi_lingqian-86": {
+      "type": "leiji",
+      "keywords": [
+        "積少成多",
+        "富饒"
+      ]
+    },
+    "guandi_lingqian-87": {
+      "type": "shoucheng",
+      "keywords": [
+        "笑中刀",
+        "羽毛"
+      ]
+    },
+    "guandi_lingqian-88": {
+      "type": "zhuanji",
+      "keywords": [
+        "新春",
+        "得意",
+        "守己"
+      ]
+    },
+    "guandi_lingqian-89": {
+      "type": "dengdai",
+      "keywords": [
+        "高歌",
+        "時未來"
+      ]
+    },
+    "guandi_lingqian-90": {
+      "type": "fangxia",
+      "keywords": [
+        "無事",
+        "致禱"
+      ]
+    },
+    "guandi_lingqian-91": {
+      "type": "leiji",
+      "keywords": [
+        "淘沙",
+        "見金",
+        "工夫"
+      ]
+    },
+    "guandi_lingqian-92": {
+      "type": "dengdai",
+      "keywords": [
+        "一陽復",
+        "安全"
+      ]
+    },
+    "guandi_lingqian-93": {
+      "type": "dengdai",
+      "keywords": [
+        "三伏",
+        "滂沛"
+      ]
+    },
+    "guandi_lingqian-94": {
+      "type": "yuanfen",
+      "keywords": [
+        "有緣",
+        "隨分",
+        "主人翁"
+      ]
+    },
+    "guandi_lingqian-95": {
+      "type": "yuanfen",
+      "keywords": [
+        "驪珠",
+        "貴人扶"
+      ]
+    },
+    "guandi_lingqian-96": {
+      "type": "dengdai",
+      "keywords": [
+        "莫嫌遲",
+        "功圓行滿"
+      ]
+    },
+    "guandi_lingqian-97": {
+      "type": "zhuanji",
+      "keywords": [
+        "心已灰",
+        "逼人來"
+      ]
+    },
+    "guandi_lingqian-98": {
+      "type": "dengdai",
+      "keywords": [
+        "奔馳",
+        "逢春"
+      ]
+    },
+    "guandi_lingqian-99": {
+      "type": "yuanfen",
+      "keywords": [
+        "貴人",
+        "故客"
+      ]
+    },
+    "guandi_lingqian-100": {
+      "type": "kaichuang",
+      "keywords": [
+        "至誠",
+        "百事宜"
+      ]
+    },
+    "yuelao_lingqian-1": {
+      "type": "shoucheng",
+      "keywords": [
+        "福如東海",
+        "太白"
+      ]
+    },
+    "yuelao_lingqian-2": {
+      "type": "yuanfen",
+      "keywords": [
+        "寶鏡",
+        "琴瑟",
+        "天注定"
+      ]
+    },
+    "yuelao_lingqian-3": {
+      "type": "fangxia",
+      "keywords": [
+        "明珠",
+        "絕糧"
+      ]
+    },
+    "yuelao_lingqian-4": {
+      "type": "shoucheng",
+      "keywords": [
+        "豐登",
+        "太平"
+      ]
+    },
+    "yuelao_lingqian-5": {
+      "type": "dengdai",
+      "keywords": [
+        "枯木逢春",
+        "阻滯"
+      ]
+    },
+    "yuelao_lingqian-6": {
+      "type": "shoucheng",
+      "keywords": [
+        "猛虎",
+        "羅網"
+      ]
+    },
+    "yuelao_lingqian-7": {
+      "type": "fangxia",
+      "keywords": [
+        "水寒",
+        "空載",
+        "明月"
+      ]
+    },
+    "yuelao_lingqian-8": {
+      "type": "zhuanji",
+      "keywords": [
+        "紫微星",
+        "安寧"
+      ]
+    },
+    "yuelao_lingqian-9": {
+      "type": "dengdai",
+      "keywords": [
+        "鯉魚",
+        "運未通",
+        "成龍"
+      ]
+    },
+    "yuelao_lingqian-10": {
+      "type": "xingdong",
+      "keywords": [
+        "風平浪靜",
+        "行舟"
+      ]
+    },
+    "yuelao_lingqian-11": {
+      "type": "dengdai",
+      "keywords": [
+        "太公",
+        "興周"
+      ]
+    },
+    "yuelao_lingqian-12": {
+      "type": "shoucheng",
+      "keywords": [
+        "明燈",
+        "添油"
+      ]
+    },
+    "yuelao_lingqian-13": {
+      "type": "yuanfen",
+      "keywords": [
+        "麒麟",
+        "聖人"
+      ]
+    },
+    "yuelao_lingqian-14": {
+      "type": "fangxia",
+      "keywords": [
+        "淺水",
+        "上灘"
+      ]
+    },
+    "yuelao_lingqian-15": {
+      "type": "yuanfen",
+      "keywords": [
+        "桃園結義",
+        "同心",
+        "成金"
+      ]
+    },
+    "yuelao_lingqian-16": {
+      "type": "shoucheng",
+      "keywords": [
+        "同心",
+        "解心愁"
+      ]
+    },
+    "yuelao_lingqian-17": {
+      "type": "shoucheng",
+      "keywords": [
+        "閉門",
+        "禍福"
+      ]
+    },
+    "yuelao_lingqian-18": {
+      "type": "kaichuang",
+      "keywords": [
+        "日出東方",
+        "光明",
+        "有成"
+      ]
+    },
+    "yuelao_lingqian-19": {
+      "type": "shoucheng",
+      "keywords": [
+        "關門",
+        "無常"
+      ]
+    },
+    "yuelao_lingqian-20": {
+      "type": "zhuanji",
+      "keywords": [
+        "八仙過海",
+        "講和"
+      ]
+    },
+    "yuelao_lingqian-21": {
+      "type": "dengdai",
+      "keywords": [
+        "取經",
+        "馬不前"
+      ]
+    },
+    "yuelao_lingqian-22": {
+      "type": "fangxia",
+      "keywords": [
+        "銀河",
+        "七夕"
+      ]
+    },
+    "yuelao_lingqian-23": {
+      "type": "fangxia",
+      "keywords": [
+        "射月",
+        "虛空",
+        "平心"
+      ]
+    },
+    "yuelao_lingqian-24": {
+      "type": "yuanfen",
+      "keywords": [
+        "有意",
+        "逢春",
+        "不須媒"
+      ]
+    },
+    "yuelao_lingqian-25": {
+      "type": "shoucheng",
+      "keywords": [
+        "舉頭三尺",
+        "神明"
+      ]
+    },
+    "yuelao_lingqian-26": {
+      "type": "leiji",
+      "keywords": [
+        "積善",
+        "有慶"
+      ]
+    },
+    "yuelao_lingqian-27": {
+      "type": "shoucheng",
+      "keywords": [
+        "螳螂",
+        "黃雀",
+        "須防"
+      ]
+    },
+    "zizhusi_guanyin-1": {
+      "type": "shoucheng",
+      "keywords": [
+        "福如東海",
+        "貴人"
+      ]
+    },
+    "zizhusi_guanyin-2": {
+      "type": "yuanfen",
+      "keywords": [
+        "寶鏡",
+        "琴瑟",
+        "如意"
+      ]
+    },
+    "zizhusi_guanyin-3": {
+      "type": "fangxia",
+      "keywords": [
+        "明珠",
+        "絕糧"
+      ]
+    },
+    "zizhusi_guanyin-4": {
+      "type": "shoucheng",
+      "keywords": [
+        "羅網",
+        "害人"
+      ]
+    },
+    "zizhusi_guanyin-5": {
+      "type": "fangxia",
+      "keywords": [
+        "水寒",
+        "空載",
+        "月明"
+      ]
+    },
+    "zizhusi_guanyin-6": {
+      "type": "shoucheng",
+      "keywords": [
+        "豐登",
+        "太平"
+      ]
+    },
+    "zizhusi_guanyin-7": {
+      "type": "dengdai",
+      "keywords": [
+        "鯉魚",
+        "運未通",
+        "成龍"
+      ]
+    },
+    "zizhusi_guanyin-8": {
+      "type": "zhuanji",
+      "keywords": [
+        "紫微星",
+        "安寧"
+      ]
+    },
+    "zizhusi_guanyin-9": {
+      "type": "shoucheng",
+      "keywords": [
+        "鬼門關",
+        "羅網"
+      ]
+    },
+    "zizhusi_guanyin-10": {
+      "type": "dengdai",
+      "keywords": [
+        "取經",
+        "馬不前"
+      ]
+    },
+    "zizhusi_guanyin-11": {
+      "type": "zhuanji",
+      "keywords": [
+        "八仙",
+        "講和"
+      ]
+    },
+    "zizhusi_guanyin-12": {
+      "type": "yuanfen",
+      "keywords": [
+        "有意",
+        "逢春",
+        "姻緣"
+      ]
+    },
+    "zizhusi_guanyin-13": {
+      "type": "shoucheng",
+      "keywords": [
+        "舉頭三尺",
+        "神明"
+      ]
+    },
+    "zizhusi_guanyin-14": {
+      "type": "fangxia",
+      "keywords": [
+        "射月",
+        "虛空"
+      ]
+    },
+    "zizhusi_guanyin-15": {
+      "type": "shoucheng",
+      "keywords": [
+        "螳螂",
+        "黃雀",
+        "須防"
+      ]
+    },
+    "zizhusi_guanyin-16": {
+      "type": "fangxia",
+      "keywords": [
+        "銀河",
+        "榮華"
+      ]
+    },
+    "zizhusi_guanyin-17": {
+      "type": "leiji",
+      "keywords": [
+        "積善",
+        "有慶"
+      ]
+    },
+    "zizhusi_guanyin-18": {
+      "type": "xingdong",
+      "keywords": [
+        "風和浪靜",
+        "行舟"
+      ]
+    },
+    "zizhusi_guanyin-19": {
+      "type": "kaichuang",
+      "keywords": [
+        "日上東方",
+        "清吉",
+        "太平"
+      ]
+    },
+    "zizhusi_guanyin-20": {
+      "type": "shoucheng",
+      "keywords": [
+        "明燈",
+        "添油"
+      ]
+    },
+    "zizhusi_guanyin-21": {
+      "type": "dengdai",
+      "keywords": [
+        "太公",
+        "興周"
+      ]
+    },
+    "zizhusi_guanyin-22": {
+      "type": "shoucheng",
+      "keywords": [
+        "閉戶",
+        "禍福"
+      ]
+    },
+    "zizhusi_guanyin-23": {
+      "type": "fangxia",
+      "keywords": [
+        "長灘",
+        "深處安"
+      ]
+    },
+    "zizhusi_guanyin-24": {
+      "type": "zhuanji",
+      "keywords": [
+        "出獄",
+        "一時氣"
+      ]
+    },
+    "zizhusi_guanyin-25": {
+      "type": "yuanfen",
+      "keywords": [
+        "桃園結義",
+        "成金"
+      ]
+    },
+    "zizhusi_guanyin-26": {
+      "type": "yuanfen",
+      "keywords": [
+        "麒麟",
+        "貴子"
+      ]
+    },
+    "zizhusi_guanyin-27": {
+      "type": "dengdai",
+      "keywords": [
+        "枯木逢春",
+        "進退"
+      ]
+    },
+    "zizhusi_guanyin-28": {
+      "type": "shoucheng",
+      "keywords": [
+        "信心",
+        "得福"
+      ]
+    }
+  }
+}

@@ -20,6 +20,11 @@ const d = poem.data;
 // 並送 poem_open 歸因事件（與求籤頁 P0 同一套 temple 維度）。一般訪客（無參數）完全不受影響、
 // 頁面靜態輸出不變（SEO 中性）。機制與連結慣例見 docs/temple-partner-links.md。
 import partners from '../../data/temple-partners.json';
+// 籤詩人格（2026-08-15，顧問方案「籤詩人格」）：本站原創的文化閱讀框架，
+// 不是籤意權威解釋；關鍵字取自籤文原句（check:integrity 硬擋，抽詞不造詞）。
+import personas from '../../data/poem-personas.json';
+const personaAssign = (personas.poems as Record<string, { type: string; keywords: string[] }>)[poem.id];
+const personaType = personaAssign ? personas.types.find((t) => t.id === personaAssign.type) : undefined;
 const partnerMap = Object.fromEntries(
   (partners as { temple: string; name: string; active: boolean; theme: { bg: string; credit: string } }[])
     .filter((p) => p.active)
@@ -225,6 +230,16 @@ if (faq) ld.push(faq);
       }
     </section>
 
+    {personaType && personaAssign && (
+      <section class="persona" id="persona">
+        <h2>籤詩人格</h2>
+        <p class="ptype"><b>{personaType.name}</b>・{personaType.tagline}</p>
+        <p>{personaType.desc}</p>
+        <p class="pkw">{personaAssign.keywords.map((k) => <span class="kw">{k}</span>)}</p>
+        <p class="src">人格分型是本站原創撰寫的閱讀框架，關鍵字取自籤文原句，不是籤意的權威解釋。<a href="/about/">撰寫原則與授權說明</a></p>
+      </section>
+    )}
+
     {
       deitiesForSystem.length > 0 && (
         <section>
@@ -323,6 +338,10 @@ if (faq) ld.push(faq);
     .poem-nav .nav-btn:hover { text-decoration: none; border-color: var(--accent-soft); }
     .poem-nav .nav-btn.disabled { color: var(--ink-soft); opacity: 0.45; pointer-events: none; }
     .footer-src { margin-top: 2.5rem; }
+    .persona .ptype { font-size: var(--text-lg); margin: 0.625rem 0 0.375rem; }
+    .persona .ptype b { color: var(--accent); }
+    .persona .pkw { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.625rem 0; }
+    .persona .kw { padding: 0.25rem 0.75rem; border: 1px solid var(--accent-soft); border-radius: 999px; font-size: var(--text-sm); color: var(--accent); }
   </style>
   {/* 宮廟合作主題的樣式：元素由 client script 注入，必須 is:global 才套得到（check:scoped-styles）。
       背景圖直接設在 body 上（素材透明度內建於 SVG），不另疊 fixed 層——body 有不透明主題底色，

@@ -7,6 +7,14 @@ import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/
 import { breadcrumb, faqPage } from '../../lib/seo';
 import concerns from '../../data/concerns.json';
 import stats from '../../data/qiugian-stats.json';
+// 籤詩人格（2026-08-15）：結果卡帶一行人格標籤，完整內容在籤詩頁
+import personas from '../../data/poem-personas.json';
+const personaLabel = new Map(
+  Object.entries(personas.poems as Record<string, { type: string }>).map(([pid, a]) => {
+    const t = personas.types.find((x) => x.id === a.type);
+    return [pid, t ? `${t.name}・${t.tagline}` : ''] as const;
+  }),
+);
 
 export const getStaticPaths = (async () => {
   return concerns.map((c) => ({ params: { slug: c.id }, props: { concern: c } }));
@@ -37,6 +45,7 @@ const rows = poems
     fortune: p.data.fortune ?? '',
     lines: p.data.lines,
     aspect: ((interps.get(p.id)?.data ?? {}) as Record<string, string | undefined>)[concern.aspect] ?? '',
+    persona: personaLabel.get(p.id) ?? '',
     slip: slipPrefix ? (p.data.official_interpretation ?? []).filter((t) => t.startsWith(slipPrefix)).join('、') : '',
   }));
 // 🔴 籤版作答的籤系**不濾掉沒有該項的籤**：月老籤第九首的籤版原本就沒有「婚姻」項
@@ -273,6 +282,8 @@ const jsonLd = [
     #result .reading .slip { font-size: var(--text-lg); color: var(--ink); display: flex; align-items: baseline; gap: 0.625rem; flex-wrap: wrap; }
     #result .reading .slip .slip-tag { font-size: var(--text-sm); color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.25rem; padding: 0.125rem 0.5rem; }
     #result .reading .slip-none { color: var(--ink-soft); }
+    #result .reading .rpersona { font-size: var(--text-sm); color: var(--ink-soft); margin: 0.625rem 0 0; }
+    #result .reading .rpersona b { color: var(--accent); }
 
     #result .hearth { margin-top: 1.75rem; border-radius: 1.125rem; padding: 1.375rem 1.375rem 0.625rem;
       background: radial-gradient(120% 90% at 50% -10%, oklch(0.63 0.10 45 / 0.14), transparent 60%), var(--paper-2); border: 1px solid var(--line); }
@@ -354,6 +365,7 @@ const jsonLd = [
               : item.slip
                 ? `<p class="slip">${esc(item.slip)}<span class="slip-tag">籤版原印</span></p>`
                 : `<p class="slip-none">這張籤版沒有列這一項。四句與其他項目見完整籤解。</p>`}
+            ${item.persona ? `<p class="rpersona">這支籤的人格：<b>${esc(item.persona)}</b>　<a href="/poems/${esc(item.id)}/${tqs}#persona">為什麼 →</a></p>` : ''}
             <a class="more" href="/poems/${esc(item.id)}/${tqs}">看完整籤解與其他面向 →</a>
           </div>
         </div>
