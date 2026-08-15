@@ -396,6 +396,10 @@ if (faq) ld.push(faq);
         // 祈福籤詩圖生成器：介面一律顯示（2026-08-15 用戶裁示——藏起來等於沒做），
         // 只有「生成」鈕在 API 未就緒時停用並註明。
         mountQianCard(tid, partner.name);
+      } else {
+        // 無合作廟（2026-08-15）：一般籤詩頁也有生成器——下載走隨機風格端點、
+        // 上傳生成不帶 temple（服務端隨機抽 10 種風格之一）。
+        mountQianCard('', '');
       }
     }
     function mountQianCard(tid: string, templeName: string) {
@@ -405,7 +409,7 @@ if (faq) ld.push(faq);
       box.className = 'qian-card';
       box.innerHTML = `
         <h3>把這支籤做成你的祈福籤詩圖</h3>
-        <p class="hint">選一張照片，或直接把照片拖進這一塊，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
+        <p class="hint">選一張照片，或直接把照片拖進這一塊，生成專屬於你的${templeName}祈福籤詩圖${tid ? '' : '（每次隨機一種風格）'}，可下載或分享。</p>
         <div class="row">
           <input type="file" accept="image/*" hidden />
           <button type="button" class="pick">選擇照片</button>
@@ -432,30 +436,36 @@ if (faq) ld.push(faq);
         refresh();
       };
       fetch(`${QIAN_API}/healthz`, { method: 'GET' })
-        .then((r) => { if (r.ok) { apiOk = true; status.textContent = ''; refresh(); } else { status.textContent = '生成服務尚未開通。'; } })
-        .catch(() => { status.textContent = '生成服務尚未開通。'; });
-      // 現成籤詩圖（無照片版）：cards/ 有這支籤的預生成圖才顯示「直接下載」鈕（HEAD 探測）
-      const readyUrl = `${QIAN_API}/cards/${encodeURIComponent(tid)}/${poemId}.png`;
-      fetch(readyUrl, { method: 'HEAD' })
         .then((r) => {
-          if (!r.ok) return;
-          const ready = document.createElement('button');
-          ready.type = 'button';
-          ready.textContent = '直接下載籤詩圖';
-          ready.addEventListener('click', async () => {
-            try {
-              const blob = await (await fetch(readyUrl)).blob();
-              const a = document.createElement('a');
-              a.href = URL.createObjectURL(blob);
-              a.download = `${templeName}-祈福籤詩.png`;
-              a.click();
-              const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-              if (typeof gtag === 'function') gtag('event', 'qian_card_ready', { temple: tid, poem_id: poemId });
-            } catch {}
-          });
-          box.querySelector('.row')?.prepend(ready);
+          if (r.ok) { apiOk = true; status.textContent = ''; refresh(); }
+          else { status.textContent = '生成服務尚未開通。'; }
+          if (!tid) addReady();
         })
-        .catch(() => {});
+        .catch(() => { status.textContent = '生成服務尚未開通。'; });
+      // 現成籤詩圖（無照片版）「直接下載」鈕：
+      // 合作廟＝cards/ 的預生成圖（HEAD 探測有檔才顯示）；
+      // 一般頁＝隨機風格端點（服務有回應就顯示——下載不吃 OpenAI，healthz 503 也能用）。
+      const readyUrl = tid
+        ? `${QIAN_API}/cards/${encodeURIComponent(tid)}/${poemId}.png`
+        : `${QIAN_API}/v1/qian-card/${poemId}`;
+      const addReady = () => {
+        const ready = document.createElement('button');
+        ready.type = 'button';
+        ready.textContent = '直接下載籤詩圖';
+        ready.addEventListener('click', async () => {
+          try {
+            const blob = await (await fetch(readyUrl)).blob();
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = tid ? `${templeName}-祈福籤詩.png` : `祈福籤詩-${poemId}.png`;
+            a.click();
+            const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+            if (typeof gtag === 'function') gtag('event', 'qian_card_ready', tid ? { temple: tid, poem_id: poemId } : { poem_id: poemId });
+          } catch {}
+        });
+        box.querySelector('.row')?.prepend(ready);
+      };
+      if (tid) fetch(readyUrl, { method: 'HEAD' }).then((r) => { if (r.ok) addReady(); }).catch(() => {});
       pick.addEventListener('click', () => input.click());
       input.addEventListener('change', () => setFile(input.files?.[0]));
       // 整塊 qian-card 都吃拖曳（2026-08-15 用戶要求）
@@ -470,7 +480,7 @@ if (faq) ld.push(faq);
           const fd = new FormData();
           fd.append('photo', file!);
           fd.append('poem', poemId);
-          fd.append('temple', tid);
+          if (tid) fd.append('temple', tid);
           const xhr = new XMLHttpRequest();
           xhr.open('POST', `${QIAN_API}/v1/qian-card`);
           xhr.responseType = 'blob';
@@ -530,7 +540,7 @@ if (faq) ld.push(faq);
           status.textContent = '';
           btn.disabled = false;
           const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-          if (typeof gtag === 'function') gtag('event', 'qian_card', { temple: tid, poem_id: poemId });
+          if (typeof gtag === 'function') gtag('event', 'qian_card', tid ? { temple: tid, poem_id: poemId } : { poem_id: poemId });
         } catch {
           progress.hidden = true;
           progress.classList.remove('busy');

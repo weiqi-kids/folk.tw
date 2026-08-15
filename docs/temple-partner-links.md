@@ -75,6 +75,20 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
   下載送 `qian_card_ready` 事件（temple 維度）。
 - 不合契約的檔（temple 不在合作名單、檔名不是 poem_id）compose 會列出並跳過，不會整批失敗。
 
+## P2c 一般籤詩頁的隨機風格版（2026-08-15）
+
+無合作廟的籤詩頁（無 `?temple=`）也有同一個生成器介面：
+
+- **直接下載**：`GET api.folk.tw/v1/qian-card/<poem_id>`——從
+  `/root/folk-qian-api/style-previews/<NN-風格>/backgrounds/` 底圖池隨機抽一張、
+  套 `style-presets.mjs` 對應風格框＋疊正確籤詩文字。純 sharp 合成、不經 OpenAI、
+  不吃每日額度；`no-store`，每次點都重抽（亂數是功能）。
+- **上傳生成**：`POST /v1/qian-card` 不帶 temple → 服務端隨機抽 10 風格之一
+  （prompt 用風格名引導、框面同步套用）；帶了不合法的 temple 仍 400。額度照舊。
+- 風格池目錄對應規則：資料夾名前綴 `NN-` ↔ `STYLE_PRESETS[NN-1]`；
+  丟新底圖進 `backgrounds/` 即自動入池（10 分鐘內生效，不需重啟）。
+- 合作廟頁行為不變（固定風格 01＋廟名落款＋cards/ 預生成圖）。
+
 ## P3 廟方自動報表（尚未做）
 
 - `_temples` 聚合（week_draws／poem_opens／qian_cards）→ 週報。folk-outreach 對廟方的價值主張範本。
