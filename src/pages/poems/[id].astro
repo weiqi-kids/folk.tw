@@ -334,6 +334,12 @@ if (faq) ld.push(faq);
     .qian-card .row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin-top: 0.5rem; }
     .qian-card button, .qian-card a.dl { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.4375rem 1rem; }
     .qian-card button:disabled { opacity: 0.5; cursor: default; }
+    .qian-card.drag { border-style: solid; border-color: var(--accent); background: var(--paper); }
+    .qian-card .fname { font-size: var(--text-sm); color: var(--ink-soft); overflow-wrap: anywhere; }
+    .qian-card .progress { height: 0.5rem; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 0.75rem; }
+    .qian-card .progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
+    .qian-card .progress.busy i { width: 100%; animation: qian-pulse 1.2s ease-in-out infinite; }
+    @keyframes qian-pulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
     .qian-card img.result { max-width: 100%; border-radius: 0.5rem; margin-top: 0.75rem; border: 1px solid var(--line); }
     .qian-card .status { font-size: var(--text-sm); color: var(--ink-soft); }
   </style>
@@ -399,39 +405,81 @@ if (faq) ld.push(faq);
       box.className = 'qian-card';
       box.innerHTML = `
         <h3>把這支籤做成你的祈福籤詩圖</h3>
-        <p class="hint">選一張照片，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
+        <p class="hint">選一張照片，或直接把照片拖進這一塊，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
         <div class="row">
-          <input type="file" accept="image/*" />
-          <button type="button" disabled>生成祈福籤詩圖</button>
+          <input type="file" accept="image/*" hidden />
+          <button type="button" class="pick">選擇照片</button>
+          <span class="fname"></span>
+          <button type="button" class="go" disabled>生成祈福籤詩圖</button>
           <span class="status" aria-live="polite"></span>
-        </div>`;
+        </div>
+        <div class="progress" hidden><i></i></div>`;
       document.querySelector('article.poem-detail .lines-block')?.after(box);
       const input = box.querySelector('input')!;
-      const btn = box.querySelector('button')!;
+      const pick = box.querySelector<HTMLButtonElement>('.pick')!;
+      const fname = box.querySelector<HTMLElement>('.fname')!;
+      const btn = box.querySelector<HTMLButtonElement>('.go')!;
       const status = box.querySelector<HTMLElement>('.status')!;
+      const progress = box.querySelector<HTMLElement>('.progress')!;
+      const bar = progress.querySelector<HTMLElement>('i')!;
       let apiOk = false;
-      const refresh = () => { btn.disabled = !(apiOk && input.files?.length); };
+      let file: File | null = null;
+      const refresh = () => { btn.disabled = !(apiOk && file); };
+      const setFile = (f: File | undefined | null) => {
+        if (!f || !/^image\//.test(f.type)) return;
+        file = f;
+        fname.textContent = f.name;
+        refresh();
+      };
       fetch(`${QIAN_API}/healthz`, { method: 'GET' })
         .then((r) => { if (r.ok) { apiOk = true; status.textContent = ''; refresh(); } else { status.textContent = '生成服務尚未開通。'; } })
         .catch(() => { status.textContent = '生成服務尚未開通。'; });
-      input.addEventListener('change', refresh);
-      btn.addEventListener('click', async () => {
-        const file = input.files?.[0];
-        if (!file) return;
-        btn.disabled = true;
-        status.textContent = '生成中，約需半分鐘…';
-        try {
+      pick.addEventListener('click', () => input.click());
+      input.addEventListener('change', () => setFile(input.files?.[0]));
+      // 整塊 qian-card 都吃拖曳（2026-08-15 用戶要求）
+      for (const ev of ['dragenter', 'dragover'] as const)
+        box.addEventListener(ev, (e) => { e.preventDefault(); box.classList.add('drag'); });
+      for (const ev of ['dragleave', 'drop'] as const)
+        box.addEventListener(ev, (e) => { e.preventDefault(); box.classList.remove('drag'); });
+      box.addEventListener('drop', (e) => setFile(e.dataTransfer?.files?.[0]));
+      // 上傳走 XHR：fetch 拿不到上傳進度。上傳期間顯示實際 %，上傳完轉「生成中」脈動。
+      const send = () =>
+        new Promise<{ status: number; blob: Blob | null }>((resolve, reject) => {
           const fd = new FormData();
-          fd.append('photo', file);
+          fd.append('photo', file!);
           fd.append('poem', poemId);
           fd.append('temple', tid);
-          const res = await fetch(`${QIAN_API}/v1/qian-card`, { method: 'POST', body: fd });
-          if (!res.ok) {
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', `${QIAN_API}/v1/qian-card`);
+          xhr.responseType = 'blob';
+          xhr.upload.addEventListener('progress', (e) => {
+            if (e.lengthComputable) bar.style.width = `${Math.round((e.loaded / e.total) * 100)}%`;
+          });
+          xhr.upload.addEventListener('load', () => {
+            progress.classList.add('busy');
+            status.textContent = '生成中，約需半分鐘…';
+          });
+          xhr.addEventListener('load', () => resolve({ status: xhr.status, blob: xhr.status === 200 ? xhr.response : null }));
+          xhr.addEventListener('error', reject);
+          xhr.send(fd);
+        });
+      btn.addEventListener('click', async () => {
+        if (!file) return;
+        btn.disabled = true;
+        bar.style.width = '0%';
+        progress.classList.remove('busy');
+        progress.hidden = false;
+        status.textContent = '上傳中…';
+        try {
+          const res = await send();
+          progress.hidden = true;
+          progress.classList.remove('busy');
+          if (res.status !== 200 || !res.blob) {
             status.textContent = res.status === 429 ? '今日生成名額已滿，明天再來。' : '生成失敗，請稍後再試。';
             btn.disabled = false;
             return;
           }
-          const blob = await res.blob();
+          const blob = res.blob;
           const url = URL.createObjectURL(blob);
           box.querySelector('img.result')?.remove();
           box.querySelector('.row.actions')?.remove();
@@ -462,6 +510,8 @@ if (faq) ld.push(faq);
           const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
           if (typeof gtag === 'function') gtag('event', 'qian_card', { temple: tid, poem_id: poemId });
         } catch {
+          progress.hidden = true;
+          progress.classList.remove('busy');
           status.textContent = '生成失敗，請稍後再試。';
           btn.disabled = false;
         }
