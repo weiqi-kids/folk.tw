@@ -231,8 +231,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 3
+      "last_checked": "2026-08-15",
+      "empty_runs": 4
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -533,8 +533,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 7
+      "last_checked": "2026-08-15",
+      "empty_runs": 8
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -2672,8 +2672,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 1
+      "last_checked": "2026-08-15",
+      "empty_runs": 2
     },
     "bless_snapshot": 1
   },
@@ -2821,8 +2821,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 2
+      "last_checked": "2026-08-15",
+      "empty_runs": 3
     }
   },
   {
@@ -2975,8 +2975,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 0
+      "last_checked": "2026-08-15",
+      "empty_runs": 1
     }
   },
   {
@@ -3004,8 +3004,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 3
+      "last_checked": "2026-08-15",
+      "empty_runs": 4
     }
   },
   {
@@ -3044,8 +3044,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-14",
-      "empty_runs": 0
+      "last_checked": "2026-08-15",
+      "empty_runs": 1
     }
   }
 ]
