@@ -1453,6 +1453,10 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
   for (const file of indexFiles) {
     const route = file.slice(DIST.length).replace(/\/index\.html$/, '/') || '/';
     if (route.startsWith('/almanac/') || route.startsWith('/temples/')) continue;
+    // 籤詩詳情頁豁免（2026-08-15 用戶裁示：分享卡只作 og:image、不內嵌正文——
+    // 這批頁原本的正文圖就是內嵌的 /og/poems/ 卡，故 2026-08-09「正式頁都要有圖」
+    // 在此讓位；其他頁的覆蓋要求不變）。
+    if (/^\/poems\/[^/]+\/$/.test(route)) continue;
     const html = readFileSync(file, 'utf8');
     // astro.config 的 mergedInto 舊 slug 是只有跳轉標記的相容網址，沒有正文，也不是內容頁。
     if (!/<html\b/i.test(html)) continue;
