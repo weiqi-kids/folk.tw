@@ -477,7 +477,13 @@ if (faq) ld.push(faq);
             return b;
           };
           for (const st of list) stylesRow.append(mk(st.key, st.name, st.thumb));
-          stylesRow.querySelector('[aria-pressed="true"]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
+          // 只捲橫向列讓選中卡置中——🔴 勿用 scrollIntoView：它會連整頁垂直捲到本區塊，
+          // 重新整理就跳離頁首（2026-08-15 用戶回報實例）。
+          const sel = stylesRow.querySelector<HTMLElement>('[aria-pressed="true"]');
+          if (sel) {
+            const dx = sel.getBoundingClientRect().left - stylesRow.getBoundingClientRect().left;
+            stylesRow.scrollLeft += dx - (stylesRow.clientWidth - sel.clientWidth) / 2;
+          }
         })
         .catch(() => {});
       const setFile = (f: File | undefined | null) => {
