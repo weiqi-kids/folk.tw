@@ -325,9 +325,6 @@ if (faq) ld.push(faq);
       背景圖直接設在 body 上（素材透明度內建於 SVG），不另疊 fixed 層——body 有不透明主題底色，
       z-index:-1 的層會被蓋住看不到。 */}
   <style is:global>
-    .partner-banner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin: 0 0 1rem; padding: 0.5rem 0.875rem; border: 1px solid var(--accent-soft); border-radius: 0.5rem; background: var(--paper-2); }
-    .partner-banner b { color: var(--accent); }
-    .partner-banner .credit { color: var(--ink-soft); font-size: var(--text-xs); }
     .qian-card { margin: 1rem 0 1.5rem; padding: 0.875rem; border: 1px dashed var(--accent-soft); border-radius: 0.5rem; background: var(--paper-2); }
     .qian-card h3 { margin: 0 0 0.5rem; font-size: var(--text-base); }
     .qian-card .hint { color: var(--ink-soft); font-size: var(--text-xs); margin: 0.375rem 0; }
@@ -381,19 +378,10 @@ if (faq) ld.push(faq);
       if (tid && typeof gtag === 'function')
         gtag('event', 'poem_open', { temple: tid, poem_no: Number(cfgEl.dataset.poemNo), system: cfgEl.dataset.system });
       if (partner) {
+        // 只換背景、不放落款 banner（2026-08-15 用戶裁示：授權已確認，不需頁面聲明）
         document.body.style.backgroundImage = `url(${partner.bg})`;
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundAttachment = 'fixed';
-        const banner = document.createElement('p');
-        banner.className = 'partner-banner';
-        const nameEl = document.createElement('b');
-        nameEl.textContent = `${partner.name} 專屬解籤`;
-        const creditEl = document.createElement('span');
-        creditEl.className = 'credit';
-        creditEl.textContent = partner.credit;
-        banner.append(nameEl, creditEl);
-        const article = document.querySelector('article.poem-detail');
-        article?.prepend(banner);
         // 前後籤與「全部籤」帶著 temple 走，離開籤詩區則不帶（避免全站網址被參數污染）
         const qs = `?temple=${encodeURIComponent(tid)}`;
         document.querySelectorAll<HTMLAnchorElement>('.poem-nav a').forEach((a) => {
