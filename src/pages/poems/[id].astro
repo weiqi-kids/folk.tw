@@ -2,7 +2,6 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import LeadVisual from '../../components/LeadVisual.astro';
 import Sources from '../../components/Sources.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem, systemHref } from '../../lib/queries';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
@@ -121,16 +120,22 @@ if (faq) ld.push(faq);
         {d.wuxing && <span class="tag">{d.wuxing.element}·{d.wuxing.season}·{d.wuxing.direction}</span>}
         {/* 吉凶輔標：小、次級；本系統多無原生定級（A.3-1） */}
         {d.fortune && <span class="tag fortune">{d.fortune}</span>}
+        {/* 收藏鈕放標籤列右側（2026-08-15 用戶裁示）；本機性說明歸 /about，不放頁面警語 */}
+        <button
+          class="save-btn"
+          type="button"
+          aria-pressed="false"
+          data-poem-save
+          data-id={poem.id}
+          data-title={shelfTitle}
+          data-system={sysName}
+          data-href={`/poems/${poem.id}/`}
+        >收藏這首</button>
       </div>
       {/* answer-first 一行摘要（P1-5）：可被引用為直接答案，仍保克制（小、次於四句主角） */}
       <p class="lead muted">{leadAnswer}</p>
-      <div class="save-poem" data-poem-save data-id={poem.id} data-title={shelfTitle} data-system={sysName} data-href={`/poems/${poem.id}/`}>
-        <button type="button" aria-pressed="false">收藏這首</button>
-        <span class="muted small" aria-live="polite">收藏只存在這台裝置。</span>
-      </div>
     </header>
-    {/* 與 og:image 共用同一張本籤專屬卡；卡面文字由本籤資料產生，不混用其他人物或事件。 */}
-    <LeadVisual src={`/og/poems/${poem.id}.png`} alt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`} />
+    {/* 分享卡（/og/poems/*.png）只作 og:image 用，不內嵌正文（2026-08-15 用戶裁示） */}
 
     {/* 主角：四句直書 */}
     <section class="lines-block">
@@ -271,10 +276,8 @@ if (faq) ld.push(faq);
     .ph h1 { margin: 0.25rem 0 0.75rem; }
     .ph .meta { margin-bottom: 0.625rem; }
     .ph .lead { font-size: var(--text-sm); margin: 0.25rem 0 0; }
-    .save-poem { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin-top: 0.875rem; }
-    .save-poem button { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper-2); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.4375rem 1rem; }
-    .save-poem button:hover { color: var(--paper); background: var(--accent); border-color: var(--accent); }
-    .save-poem button[aria-pressed="true"] { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+    .meta .save-btn { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper-2); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.25rem 0.875rem; }
+    .meta .save-btn:hover, .meta .save-btn[aria-pressed="true"] { color: var(--paper); background: var(--accent); border-color: var(--accent); }
     .lines-block { margin: 2.25rem 0 2.75rem; display: flex; justify-content: center; }
     /* 四句直書（直排・右起），§0.5 四句直書
        🔴 flex-direction 一定要是 column，不可省略（2026-08-08 修）：
@@ -337,21 +340,18 @@ if (faq) ld.push(faq);
   <script>
     import { emitPoemEvent, isPoemSaved, rememberPoem, toggleSavedPoem } from '../../lib/poem-shelf';
 
-    const root = document.querySelector<HTMLElement>('[data-poem-save]');
-    if (root) {
+    const button = document.querySelector<HTMLButtonElement>('button[data-poem-save]');
+    if (button) {
       const item = {
-        id: root.dataset.id!,
-        title: root.dataset.title!,
-        system: root.dataset.system!,
-        href: root.dataset.href!,
+        id: button.dataset.id!,
+        title: button.dataset.title!,
+        system: button.dataset.system!,
+        href: button.dataset.href!,
       };
-      const button = root.querySelector<HTMLButtonElement>('button')!;
-      const status = root.querySelector<HTMLElement>('span')!;
       const wasSaved = isPoemSaved(item.id);
       const paint = (saved: boolean) => {
         button.setAttribute('aria-pressed', String(saved));
         button.textContent = saved ? '已收藏 · 取消收藏' : '收藏這首';
-        status.textContent = saved ? '下次可從「我的籤詩」找回來。' : '收藏只存在這台裝置。';
       };
       rememberPoem(item);
       if (wasSaved) emitPoemEvent('revisit_saved_poem', item.id, 'poem_detail');
@@ -387,10 +387,9 @@ if (faq) ld.push(faq);
         document.querySelectorAll<HTMLAnchorElement>('.poem-nav a').forEach((a) => {
           a.setAttribute('href', `${a.getAttribute('href')}${qs}`);
         });
-        // 祈福籤詩圖生成器（API 健康才顯示）
-        fetch(`${QIAN_API}/healthz`, { method: 'GET' })
-          .then((r) => { if (r.ok) mountQianCard(tid, partner.name); })
-          .catch(() => {});
+        // 祈福籤詩圖生成器：介面一律顯示（2026-08-15 用戶裁示——藏起來等於沒做），
+        // 只有「生成」鈕在 API 未就緒時停用並註明。
+        mountQianCard(tid, partner.name);
       }
     }
     function mountQianCard(tid: string, templeName: string) {
@@ -401,7 +400,6 @@ if (faq) ld.push(faq);
       box.innerHTML = `
         <h3>把這支籤做成你的祈福籤詩圖</h3>
         <p class="hint">選一張照片，生成專屬於你的${templeName}祈福籤詩圖，可下載或分享。</p>
-        <p class="hint">照片只用來生成這張圖：會經本站伺服器傳給 OpenAI 產生，完成即刪除、不儲存。</p>
         <div class="row">
           <input type="file" accept="image/*" />
           <button type="button" disabled>生成祈福籤詩圖</button>
@@ -411,7 +409,12 @@ if (faq) ld.push(faq);
       const input = box.querySelector('input')!;
       const btn = box.querySelector('button')!;
       const status = box.querySelector<HTMLElement>('.status')!;
-      input.addEventListener('change', () => { btn.disabled = !input.files?.length; });
+      let apiOk = false;
+      const refresh = () => { btn.disabled = !(apiOk && input.files?.length); };
+      fetch(`${QIAN_API}/healthz`, { method: 'GET' })
+        .then((r) => { if (r.ok) { apiOk = true; status.textContent = ''; refresh(); } else { status.textContent = '生成服務尚未開通。'; } })
+        .catch(() => { status.textContent = '生成服務尚未開通。'; });
+      input.addEventListener('change', refresh);
       btn.addEventListener('click', async () => {
         const file = input.files?.[0];
         if (!file) return;
