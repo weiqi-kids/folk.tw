@@ -107,6 +107,15 @@ for (const r of qianCards) {
 }
 out._temples = temples;
 
+// 風格偏好統計（2026-08-15）：祈福籤詩圖的下載（qian_card_ready）與生成（qian_card）
+// 各自按 style（'01'…'10'，GA4 同日註冊、非追溯）分組——回答「大家喜歡哪種風格」。
+const readyByStyle = await countBy('qian_card_ready', ['customEvent:style']);
+const genByStyle = await countBy('qian_card', ['customEvent:style']);
+const styles = {};
+for (const r of readyByStyle) if (!notSet(r.keys[0])) (styles[r.keys[0]] ??= { downloads: 0, generates: 0 }).downloads += r.n;
+for (const r of genByStyle) if (!notSet(r.keys[0])) (styles[r.keys[0]] ??= { downloads: 0, generates: 0 }).generates += r.n;
+out._styles = styles;
+
 writeFileSync(STATS_FILE, JSON.stringify(out, null, 2) + '\n');
 const summary = concernIds.map((id) => `${id}:求${out[id].week_draws}/報喜${out[id].baoxi}`).join('  ');
 console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}；時事集氣 ${Object.keys(topical).length} 案；宮廟歸因 ${Object.keys(temples).length} 廟`);
