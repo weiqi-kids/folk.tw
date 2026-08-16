@@ -1495,11 +1495,26 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
     violations.push('首屏版面：/qiugian/ 主視覺必須維持 compact，不得把求籤選項推離首屏');
   }
   // 煩惱籤各頁同理（2026-08-16 用戶裁示：插圖是配角）：滿版主視覺會把「求一支籤」推離首屏。
+  // 同批也驗鼓勵語資料（2026-08-16）：encdata 要在頁上、且 8 型人格×4 選擇的矩陣一格都不能缺——
+  // 缺格時客戶端會靜默退回無鼓勵語的舊句，沒有東西會報錯。
+  const encRows = require('../src/data/qian-encourage.json').filter((e) => e.text);
+  const personaTypes = require('../src/data/poem-personas.json').types.map((t) => t.id);
+  for (const pt of personaTypes) {
+    for (const ch of ['push', 'pause', 'ask', 'wait']) {
+      if (!encRows.some((e) => e.persona === pt && e.choice === ch)) {
+        violations.push(`鼓勵語矩陣缺格：${pt}×${ch}（qian-encourage.json）`);
+      }
+    }
+  }
   for (const cid of allConcernIds) {
     const f = join(DIST, 'qiugian', cid, 'index.html');
     if (!existsSync(f)) { violations.push(`首屏版面：煩惱籤頁 /qiugian/${cid}/ 未建置`); continue; }
-    if (!/class="lead-visual compact"/.test(readFileSync(f, 'utf8'))) {
+    const html = readFileSync(f, 'utf8');
+    if (!/class="lead-visual compact"/.test(html)) {
       violations.push(`首屏版面：/qiugian/${cid}/ 主視覺必須維持 compact，不得把求籤按鈕推離首屏`);
+    }
+    if (!/id="encdata"/.test(html)) {
+      violations.push(`鼓勵語：/qiugian/${cid}/ 缺 encdata 資料塊（選擇題點了會退回無鼓勵語）`);
     }
   }
 

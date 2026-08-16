@@ -36,6 +36,8 @@ const PROSE_JSON = [
   { file: 'src/data/temples.json', fields: ['intro'] },
   // 2026-08-09：節日頁「逐句掛源的補充事實」。同樣是存在 JSON 裡、直接渲染給讀者看的散文。
   { file: 'src/data/festivals.json', fields: ['facts.text'] },
+  // 2026-08-16：籤後選擇題的鼓勵語（人格×選擇 64 段原創文案，直接渲染給使用者）。
+  { file: 'src/data/qian-encourage.json', fields: ['text'] },
 ];
 
 // Markdown 殘留（2026-08-09 加）。這些欄位**渲染時是純文字**，不會過 Markdown ——

@@ -9,12 +9,22 @@ import concerns from '../../data/concerns.json';
 import stats from '../../data/qiugian-stats.json';
 // 籤詩人格（2026-08-15）：結果卡帶一行人格標籤，完整內容在籤詩頁
 import personas from '../../data/poem-personas.json';
+// 鼓勵語（2026-08-16 用戶交辦）：人格×選擇的原創文案，點選擇題後組出「這支籤×你問的事×你的選擇」
+// 專屬段落。🔴 這是站方依人格框架給的話，不是籤意——組句時不可寫成「這支籤要你…」。
+import encourage from '../../data/qian-encourage.json';
+const personaPoems = personas.poems as Record<string, { type: string; keywords?: string[] }>;
 const personaLabel = new Map(
-  Object.entries(personas.poems as Record<string, { type: string }>).map(([pid, a]) => {
+  Object.entries(personaPoems).map(([pid, a]) => {
     const t = personas.types.find((x) => x.id === a.type);
     return [pid, t ? `${t.name}・${t.tagline}` : ''] as const;
   }),
 );
+// persona:choice → [變體…]，客戶端依籤號選定（確定性，同一支籤每次看到同一段）
+const encMap: Record<string, string[]> = {};
+for (const e of encourage as { persona: string; choice: string; text: string }[]) {
+  if (!e.text) continue;
+  (encMap[`${e.persona}:${e.choice}`] ??= []).push(e.text);
+}
 
 export const getStaticPaths = (async () => {
   return concerns.map((c) => ({ params: { slug: c.id }, props: { concern: c } }));
@@ -46,6 +56,8 @@ const rows = poems
     lines: p.data.lines,
     aspect: ((interps.get(p.id)?.data ?? {}) as Record<string, string | undefined>)[concern.aspect] ?? '',
     persona: personaLabel.get(p.id) ?? '',
+    ptype: personaPoems[p.id]?.type ?? '',
+    pkw: personaPoems[p.id]?.keywords ?? [],
     slip: slipPrefix ? (p.data.official_interpretation ?? []).filter((t) => t.startsWith(slipPrefix)).join('、') : '',
   }));
 // 🔴 籤版作答的籤系**不濾掉沒有該項的籤**：月老籤第九首的籤版原本就沒有「婚姻」項
@@ -189,6 +201,7 @@ const jsonLd = [
 
   <script type="application/json" id="qiandata" set:html={JSON.stringify(qianData)} />
   <script type="application/json" id="statsdata" set:html={JSON.stringify(st)} />
+  <script type="application/json" id="encdata" set:html={JSON.stringify(encMap)} />
   <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
 
   <style>
@@ -335,6 +348,7 @@ const jsonLd = [
     const cfg = document.getElementById('cfg')!.dataset;
     const QIAN = JSON.parse(document.getElementById('qiandata')!.textContent || '[]');
     const STAT = JSON.parse(document.getElementById('statsdata')!.textContent || '{}');
+    const ENC: Record<string, string[]> = JSON.parse(document.getElementById('encdata')!.textContent || '{}');
     // 宮廟歸因（2026-08-14，P0）：廟方專屬連結（NFC／QR／印刷品）帶 ?temple=<temples.json 的 id>，
     // 本頁所有事件（qiugian/qifu/baoxi）多帶一個 temple 維度（GA4 自訂維度已於同日以 Admin API 註冊，
     // EVENT scope、非追溯）。值走白名單字元＋限長，防任意查詢字串進 GA；無參數時行為完全不變。
@@ -422,12 +436,20 @@ const jsonLd = [
           const opts = (STAT as { choices?: Record<string, number> }).choices ?? {};
           const total = Object.values(opts).reduce((a, n) => a + n, 0);
           const same = opts[b.dataset.c!] ?? 0;
+          // 鼓勵語（2026-08-16 用戶交辦）：這支籤的人格×你的選擇 → 專屬段落，
+          // 帶入該籤的關鍵詞與你問的事；變體由籤號選定（確定性，同一支籤永遠同一段）。
+          // 🔴 話是站方依人格框架給的，不是籤意——文案在 qian-encourage.json，受 copy-voice gate 管。
+          const variants = ENC[`${item.ptype}:${b.dataset.c}`] ?? [];
+          const encText = variants.length
+            ? variants[item.no % variants.length].replaceAll('{c}', cfg.label!)
+            : '';
+          const kw = (item.pkw ?? []).join('、');
           // 統計句只在量夠時出現（門檻 10，比照祈福頁「數字為真、少算不灌水」）。
-          // 未達門檻不能只回「你選了X」——看起來像功能壞掉（2026-08-16 用戶實測回報），
-          // 要誠實說「還在累積」；數字是 build 時烤入，聚合後最多延遲一天。
-          done.textContent = total >= 10 && same > 0
-            ? `你選了「${b.textContent}」——最近有 ${same} 個人，做了一樣的選擇。`
-            : `你選了「${b.textContent}」。這一題才剛開始統計，等更多人選過，這裡會顯示大家怎麼選。`;
+          // 數字是 build 時烤入，聚合後最多延遲一天。
+          const statLine = total >= 10 && same > 0 ? `最近有 ${same} 個人，做了一樣的選擇。` : '';
+          done.textContent = encText
+            ? `你選了「${b.textContent}」。${kw ? `這支籤的關鍵詞是「${kw}」——` : ''}${encText}${statLine ? `　${statLine}` : ''}`
+            : `你選了「${b.textContent}」。${statLine || '這一題才剛開始統計，等更多人選過，這裡會顯示大家怎麼選。'}`;
           done.hidden = false;
           (cb.querySelector('.choice-opts') as HTMLElement).hidden = true;
         }),
