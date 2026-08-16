@@ -77,6 +77,28 @@
             "format": "uri",
             "pattern": "^https://folk\\.tw/poems/[^/]+/$",
             "description": "= https://folk.tw/poems/<id>/，必須是已產出的靜態頁。"
+          },
+          "qian_type": {
+            "type": "string",
+            "description": "可選：籤型標籤（八型分類的「名稱・tagline」，如「轉機型・正在轉彎的人」）。站方原創閱讀框架，非籤意權威解釋。來源＝folk.tw 的 src/data/poem-personas.json。"
+          },
+          "keywords": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "description": "可選：籤型關鍵詞，必為該籤四句原文的連續片段（生產端 check:integrity 硬擋，抽詞不造詞）。"
+          },
+          "choices": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["push", "pause", "ask", "wait"],
+            "description": "可選：籤後選擇題的完整回話（每選項一段，站方原創鼓勵語）。生產端 build 期組好整句（含「你選了…」前綴與關鍵詞句），bot 端只查表回話、零組句邏輯——兩個表面共用同一份文案來源（qian-encourage.json），避免措辭漂移。LINE 端沒有煩惱情境，煩惱佔位一律已代成「這件事」。四鍵對應站上選擇題四顆鈕：push=繼續向前衝、pause=暫時放一放、ask=找人商量、wait=再等等看——bot 端按鈕文字必須與此對照表一致（2026-08-16 用戶裁示：LINE 流程貼合網站、統計進同一個 GA4 資源，bot 端以 Measurement Protocol 送 qian_choice／qiugian 事件、concern=line_daily）。",
+            "properties": {
+              "push": { "type": "string" },
+              "pause": { "type": "string" },
+              "ask": { "type": "string" },
+              "wait": { "type": "string" }
+            }
           }
         }
       }

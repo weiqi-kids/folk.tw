@@ -27,6 +27,10 @@ import { todayInTaipei } from '../lib/daily';
 import { releasedItems } from '../lib/release-schedule';
 import festivalsData from '../data/festivals.json';
 import goodDaysData from '../data/good-days.json';
+// 籤型＋籤後選擇題鼓勵語（2026-08-16 用戶裁示：LINE 流程貼合網站）。整句在這裡組好，
+// bot 端只查表——文案單一來源＝qian-encourage.json，變體選定規則（籤號取模）與站上相同。
+import personasData from '../data/poem-personas.json';
+import encourageData from '../data/qian-encourage.json';
 
 const SITE = 'https://folk.tw';
 const WINDOW_DAYS = 365;
@@ -96,6 +100,34 @@ export const GET: APIRoute = async () => {
     .filter((s) => systemCounts.has(s.id))
     .map((s) => ({ slug: s.id, name: systemName.get(s.id) ?? s.id, count: systemCounts.get(s.id)! }));
 
+  // 籤後選擇題（契約 poems[].choices）：站上四顆鈕的對照表，bot 端按鈕文字必須一致。
+  const CHOICE_LABELS: Record<string, string> = {
+    push: '繼續向前衝',
+    pause: '暫時放一放',
+    ask: '找人商量',
+    wait: '再等等看',
+  };
+  const encMap: Record<string, string[]> = {};
+  for (const e of encourageData as { persona: string; choice: string; text: string }[]) {
+    if (e.text) (encMap[`${e.persona}:${e.choice}`] ??= []).push(e.text);
+  }
+  const personaTypeById = new Map(personasData.types.map((t) => [t.id, t]));
+  const personaPoems = personasData.poems as Record<string, { type: string; keywords: string[] }>;
+
+  /** LINE 端整句回話。LINE 沒有煩惱情境，{c} 一律代「這件事」（先收「{c}這件事」防黏字）。 */
+  const lineChoices = (pid: string, no: number): Record<string, string> | undefined => {
+    const a = personaPoems[pid];
+    if (!a) return undefined;
+    const out: Record<string, string> = {};
+    for (const c of Object.keys(CHOICE_LABELS)) {
+      const vs = encMap[`${a.type}:${c}`];
+      if (!vs?.length) return undefined; // 矩陣缺格＝整組不輸出，不給半套
+      const core = vs[no % vs.length].replaceAll('{c}這件事', '這件事').replaceAll('{c}', '這件事');
+      out[c] = `你選了「${CHOICE_LABELS[c]}」。這支籤的關鍵詞是「${a.keywords.join('、')}」。${core}`;
+    }
+    return out;
+  };
+
   const poems = [...poemEntries]
     .sort((a, b) =>
       a.data.system.id === b.data.system.id ? a.data.no - b.data.no : a.data.system.id.localeCompare(b.data.system.id),
@@ -103,6 +135,9 @@ export const GET: APIRoute = async () => {
     .map((p) => {
       const d = p.data;
       const summary = poemSummary(interps.get(p.id)?.body);
+      const pa = personaPoems[p.id];
+      const ptype = pa ? personaTypeById.get(pa.type) : undefined;
+      const choices = lineChoices(p.id, d.no);
       return {
         id: p.id,
         system: d.system.id,
@@ -112,6 +147,9 @@ export const GET: APIRoute = async () => {
         lines: d.lines,
         ...(summary ? { summary } : {}),
         url: `${SITE}/poems/${p.id}/`,
+        ...(ptype ? { qian_type: `${ptype.name}・${ptype.tagline}` } : {}),
+        ...(pa?.keywords?.length ? { keywords: pa.keywords } : {}),
+        ...(choices ? { choices } : {}),
       };
     });
 
