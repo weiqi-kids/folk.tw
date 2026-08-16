@@ -1500,8 +1500,14 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
   const encRows = require('../src/data/qian-encourage.json').filter((e) => e.text);
   // 「——」硬擋（2026-08-16 用戶抓到）：初版 64 段幾乎每段拿破折號當轉折，是句型級 AI 腔。
   // 這條只管本檔——站上其他散文合法用「——」，所以不進 copy-voice 的全域清單。
+  const encHeads = new Map();
   for (const e of encRows) {
     if (e.text.includes('——')) violations.push(`鼓勵語 AI 腔：${e.persona}×${e.choice} 含「——」（qian-encourage.json 禁用破折號轉折）`);
+    // 前 6 字撞句檢查（2026-08-16 審稿建議）：擋模板感回潮——兩段同開頭，連抽兩支就穿幫。
+    // 實證有效：上線當天就抓到兩輪人工審稿都漏掉的「你選再等等，」×2。
+    const head = e.text.slice(0, 6);
+    if (encHeads.has(head)) violations.push(`鼓勵語模板感：${encHeads.get(head)} 與 ${e.persona}×${e.choice} 同以「${head}」開頭`);
+    encHeads.set(head, `${e.persona}×${e.choice}`);
   }
   const personaTypes = require('../src/data/poem-personas.json').types.map((t) => t.id);
   for (const pt of personaTypes) {
