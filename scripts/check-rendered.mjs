@@ -1498,6 +1498,11 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
   // 同批也驗鼓勵語資料（2026-08-16）：encdata 要在頁上、且 8 型人格×4 選擇的矩陣一格都不能缺——
   // 缺格時客戶端會靜默退回無鼓勵語的舊句，沒有東西會報錯。
   const encRows = require('../src/data/qian-encourage.json').filter((e) => e.text);
+  // 「——」硬擋（2026-08-16 用戶抓到）：初版 64 段幾乎每段拿破折號當轉折，是句型級 AI 腔。
+  // 這條只管本檔——站上其他散文合法用「——」，所以不進 copy-voice 的全域清單。
+  for (const e of encRows) {
+    if (e.text.includes('——')) violations.push(`鼓勵語 AI 腔：${e.persona}×${e.choice} 含「——」（qian-encourage.json 禁用破折號轉折）`);
+  }
   const personaTypes = require('../src/data/poem-personas.json').types.map((t) => t.id);
   for (const pt of personaTypes) {
     for (const ch of ['push', 'pause', 'ask', 'wait']) {

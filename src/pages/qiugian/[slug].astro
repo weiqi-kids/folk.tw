@@ -448,7 +448,7 @@ const jsonLd = [
           // 數字是 build 時烤入，聚合後最多延遲一天。
           const statLine = total >= 10 && same > 0 ? `最近有 ${same} 個人，做了一樣的選擇。` : '';
           done.textContent = encText
-            ? `你選了「${b.textContent}」。${kw ? `這支籤的關鍵詞是「${kw}」——` : ''}${encText}${statLine ? `　${statLine}` : ''}`
+            ? `你選了「${b.textContent}」。${kw ? `這支籤的關鍵詞是「${kw}」。` : ''}${encText}${statLine ? `　${statLine}` : ''}`
             : `你選了「${b.textContent}」。${statLine || '這一題才剛開始統計，等更多人選過，這裡會顯示大家怎麼選。'}`;
           done.hidden = false;
           (cb.querySelector('.choice-opts') as HTMLElement).hidden = true;
