@@ -26,15 +26,24 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
   {/* 2026-08-08：導言原本把籤系用「與」串成「A與B與C與D」，四個「與」讀起來卡；
       而且那句同時兼著「跳到某個籤系」的導覽功能，可是它長得就是一句話。
       拆成兩件事：句子只講這頁有什麼，跳轉獨立成一排看得出可以點的按鈕。 */}
-  <p class="muted">共 {systems.filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0).length} 套籤系：四句本文、卦頭故事典故、白話賞析與分項解。</p>
+  {/* 套數＝全站有籤的籤系（2026-08-16 用戶抓錯）：原本只數本頁陳列的（poems 集合），
+      有自有樞紐的籤系（藥籤住 /medicine-slips/，籤文不進 poems 集合）被漏數成 4。
+      正確母體是 systems 資料本身；樞紐型籤系不在本頁攤開，但要列在跳轉列（連去它的樞紐），
+      句子和按鈕才對得上「共 N 套」。 */}
+  <p class="muted">共 {systems.filter((s) => s.data.count > 0).length} 套籤系：四句本文、卦頭故事典故、白話賞析與分項解。</p>
   <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的籤詩通用插圖" />
   <PoemShelf />
   <nav class="sys-jumps" aria-label="跳到籤系">
     {systems
-      .filter((s) => (bySystem.get(s.id)?.length ?? 0) > 0)
-      .map((s) => (
-        <a class="sys-jump" href={`#${s.id}`}>{s.data.name}<span class="n">{bySystem.get(s.id)!.length}</span></a>
-      ))}
+      .filter((s) => s.data.count > 0)
+      .map((s) => {
+        const shelved = (bySystem.get(s.id)?.length ?? 0) > 0;
+        return (
+          <a class="sys-jump" href={shelved ? `#${s.id}` : systemHrefOf(s.id)}>
+            {s.data.name}<span class="n">{shelved ? bySystem.get(s.id)!.length : s.data.count}</span>
+          </a>
+        );
+      })}
   </nav>
   <p class="allusion-link"><a href="/allusions/">看全部卦頭典故總覽 →</a></p>
   {

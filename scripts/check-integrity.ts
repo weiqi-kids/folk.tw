@@ -492,6 +492,21 @@ for (const d of deities) {
 }
 softReport.push(`神明宗教知識+ 引文：${dMoi} 尊（逐字引用，各掛條目網址）`);
 
+// 籤系 count 對帳（2026-08-16 用戶抓錯：/poems/ 曾把五套寫成四套）。
+// divination-systems.json 的 count 是宣告值，頁面現在拿它當「共 N 套」與樞紐型籤系的
+// 首數來源——宣告值必須等於實際資料筆數，否則會再次靜默漂移。
+// 實際筆數來源：一般籤系＝poems.json；自有樞紐（hub）籤系＝該樞紐自己的資料檔。
+{
+  const HUB_DATA: Record<string, string> = { baosheng_yaoqian: 'yaoqian.import.json' };
+  for (const s of systems) {
+    const actual = s.hub
+      ? (load(HUB_DATA[s.id] ?? '') as unknown[])?.length
+      : poems.filter((p) => p.system === s.id).length;
+    if (actual === undefined) hard(`籤系 ${s.id}：有 hub 但 HUB_DATA 沒登記其資料檔，count 無從對帳`);
+    else if (actual !== s.count) hard(`籤系 ${s.id}：count 宣告 ${s.count}，實際資料 ${actual} 首`);
+  }
+}
+
 // 待查 / draft 統計（§5 無源不發佈）
 const draftDe = deities.filter((d) => d.draft).map((d) => d.id);
 const draftPr = practices.filter((p) => p.draft).length;
