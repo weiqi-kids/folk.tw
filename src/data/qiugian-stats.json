@@ -84,7 +84,7 @@
     "choices": {}
   },
   "yunshi": {
-    "week_draws": 22,
+    "week_draws": 23,
     "baoxi": 0,
     "top": {
       "2": 1,
@@ -96,6 +96,7 @@
       "24": 3,
       "25": 3,
       "26": 2,
+      "27": 1,
       "29": 1,
       "34": 3,
       "36": 1,
@@ -143,7 +144,11 @@
       "generates": 0
     },
     "7": {
-      "downloads": 1,
+      "downloads": 2,
+      "generates": 0
+    },
+    "8": {
+      "downloads": 5,
       "generates": 0
     }
   }
