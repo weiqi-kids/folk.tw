@@ -109,8 +109,14 @@ const jsonLd = [
   ) : (
     <p class="lead">在為{concern.label}煩惱的，不只你。這裡才剛開張——你可能是最早來為{concern.label}求籤的人之一。</p>
   )}
-  <p class="muted small blurb">{concern.blurb}</p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt={`為${concern.label}求籤的站內通用插圖`} />
+  {/* 插圖是配角（2026-08-16 用戶裁示）：滿版主視覺會把「求一支籤」推離首屏，
+      這頁的主角是抽籤動作。沿用樞紐頁 2026-08-03 定案的 compact 模式：
+      縮圖靠導言旁、行動版直接隱藏（img 仍在 DOM，Discover 圖片檢查不受影響）。
+      check-rendered.mjs 的「首屏版面」不變量會擋住改回滿版。 */}
+  <div class="intro">
+    <p class="muted small blurb">{concern.blurb}</p>
+    <LeadVisual compact src="/visuals/qian-slips.svg" alt={`為${concern.label}求籤的站內通用插圖`} />
+  </div>
 
   <div class="actions">
     <button class="btn btn-primary" id="drawBtn" type="button">求一支籤<small>靜下心，想著這件事</small></button>
@@ -191,6 +197,12 @@ const jsonLd = [
     .lead { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .lead b { color: var(--accent); font-variant-numeric: tabular-nums; }
     .blurb { margin: 0.375rem 0 0; }
+    .intro { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 2rem; align-items: center; }
+    @media (max-width: 47.99rem) {
+      .intro { grid-template-columns: 1fr; gap: 0; }
+      /* 行動版首屏高度有限，裝飾圖不應把「求一支籤」推到下一屏（同樞紐頁裁示）。 */
+      .intro :global(.lead-visual.compact) { display: none; }
+    }
 
     .actions { display: flex; gap: 0.875rem; margin: 1.75rem 0 0.625rem; }
     .btn { font-family: inherit; font-size: var(--text-base); font-weight: 700; cursor: pointer;
@@ -303,6 +315,9 @@ const jsonLd = [
     #result .cardcta { display: block; width: 100%; margin-top: 1.125rem; text-align: center; font-size: var(--text-base); font-weight: 700;
       color: var(--paper); background: var(--accent); border-radius: 0.75rem; padding: 0.9375rem; }
     #result .cardcta:hover { text-decoration: none; background: var(--accent-soft); color: var(--ink); }
+    /* 結果後動作列（2026-08-16）：做圖＋集氣並排，比照頁首 .actions 的雙鈕型式 */
+    #result .next-acts { display: flex; gap: 0.875rem; margin-top: 1.125rem; }
+    #result .next-acts .cardcta, #result .next-acts .qi { flex: 1; margin: 0; }
     /* 籤後選擇題：非強制的第二層互動 */
     #result .choice { margin-top: 1.125rem; border: 1px dashed var(--line); border-radius: 0.75rem; padding: 0.9375rem 1rem; }
     #result .choice-q { margin: 0 0 0.625rem; font-weight: 700; }
@@ -311,7 +326,7 @@ const jsonLd = [
       color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.625rem; }
     #result .choice-opts button:hover { border-color: var(--accent-soft); color: var(--accent); }
     #result .choice-done { margin: 0; color: var(--ink-soft); }
-    @media (max-width: 37.5rem) { #result .rslip-row { flex-direction: column; } #result .choice-opts { grid-template-columns: 1fr; } }
+    @media (max-width: 37.5rem) { #result .rslip-row, #result .next-acts { flex-direction: column; } #result .choice-opts { grid-template-columns: 1fr; } }
   </style>
 
   <script>
@@ -369,7 +384,19 @@ const jsonLd = [
             <a class="more" href="/poems/${esc(item.id)}/${tqs}">看完整籤解與其他面向 →</a>
           </div>
         </div>
-        <a class="cardcta" href="/poems/${esc(item.id)}/${tqs}#qiancard">🎴 把這支籤做成祈福籤詩圖</a>
+        ${/* 結果區順序（2026-08-16 用戶裁示重排）：籤與解籤（主角）→ 動作列（做圖＋集氣，
+            比照頁首雙鈕）→ 和你一起的人（純統計；集氣鈕是個人動作、與統計無關，不得放回框內）
+            → 選擇題（點了才回「其他人怎麼選」）→ 收尾提示。 */ ''}
+        <div class="next-acts">
+          <a class="cardcta" href="/poems/${esc(item.id)}/${tqs}#qiancard">🎴 把這支籤做成祈福籤詩圖</a>
+          <button class="qi" id="qiInline" type="button">🙏 為自己的${esc(cfg.label!)}集氣</button>
+        </div>
+        <div class="hearth">
+          <div class="hearth-h"><span class="flame" aria-hidden="true"></span>和你一起的人</div>
+          <div class="estat">${e1}</div>
+          ${e2}
+          ${e3}
+        </div>
         <div class="choice" id="choiceBlock">
           <p class="choice-q">解籤看完了——如果是你，接下來會？</p>
           <div class="choice-opts">
@@ -379,13 +406,6 @@ const jsonLd = [
             <button type="button" data-c="wait">再等等看</button>
           </div>
           <p class="choice-done" hidden></p>
-        </div>
-        <div class="hearth">
-          <div class="hearth-h"><span class="flame" aria-hidden="true"></span>和你一起的人</div>
-          <div class="estat">${e1}</div>
-          ${e2}
-          ${e3}
-          <button class="qi" id="qiInline" type="button">🙏 為自己的${esc(cfg.label!)}集氣</button>
         </div>
         <p class="note small caption-time">為明天的事求的？把這頁存起來，有結果再回來回報。</p>`;
       document.getElementById('result')!.hidden = false;

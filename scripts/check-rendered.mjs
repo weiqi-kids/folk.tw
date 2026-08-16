@@ -1494,6 +1494,14 @@ if (withoutTerminalPunctuation('典故說明。') !== '典故說明') {
   else if (!/class="lead-visual compact"/.test(qiugianHubHtml)) {
     violations.push('首屏版面：/qiugian/ 主視覺必須維持 compact，不得把求籤選項推離首屏');
   }
+  // 煩惱籤各頁同理（2026-08-16 用戶裁示：插圖是配角）：滿版主視覺會把「求一支籤」推離首屏。
+  for (const cid of allConcernIds) {
+    const f = join(DIST, 'qiugian', cid, 'index.html');
+    if (!existsSync(f)) { violations.push(`首屏版面：煩惱籤頁 /qiugian/${cid}/ 未建置`); continue; }
+    if (!/class="lead-visual compact"/.test(readFileSync(f, 'utf8'))) {
+      violations.push(`首屏版面：/qiugian/${cid}/ 主視覺必須維持 compact，不得把求籤按鈕推離首屏`);
+    }
+  }
 
   // 中元普渡清單是依 pudu 的掛源 offerings／joss_paper 欄位產生；
   // 雙向驗證可防清單與頁面資料漂移，也鎖住複製、分享與 attribution 埋點。
