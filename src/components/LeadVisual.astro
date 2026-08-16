@@ -1,6 +1,10 @@
 ---
 // 正文主視覺的共用入口：資料型照片沿用 image-credit 的授權標示；站內自製 SVG 不需署名。
 // 這裡只負責呈現，不把圖片升格為 og:image（分享卡仍由 Base 的 ogImage 決定）。
+// 🔴 尺寸是配角（2026-08-16 用戶裁示，全站統一）：一律 min(100%, 20rem)，不得滿版——
+// 滿版主視覺會把正文與行動按鈕推離首屏（qiugian 先被抓，後確認 good-days／systems
+// 等 30 個使用點同病）。`compact` 現在只差在 margin（供 qiugian 樞紐的並排格用），
+// 尺寸兩者相同；要恢復滿版是設計決策，先問用戶。
 import { imageCredit, imageCreditTitle, type ImageMeta } from '../lib/image-credit';
 
 interface Props {
@@ -38,6 +42,7 @@ const credit = image ? imageCredit(image) : null;
 
 <style>
   .lead-visual {
+    width: min(100%, 20rem);
     margin: 1rem 0 1.5rem;
     overflow: hidden;
     border: 1px solid var(--line);
@@ -57,5 +62,5 @@ const credit = image ? imageCredit(image) : null;
     font-size: var(--text-xs);
   }
   .lead-visual figcaption a { color: inherit; }
-  .lead-visual.compact { width: min(100%, 20rem); margin: 0; }
+  .lead-visual.compact { margin: 0; }
 </style>
