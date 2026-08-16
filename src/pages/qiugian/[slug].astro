@@ -422,10 +422,12 @@ const jsonLd = [
           const opts = (STAT as { choices?: Record<string, number> }).choices ?? {};
           const total = Object.values(opts).reduce((a, n) => a + n, 0);
           const same = opts[b.dataset.c!] ?? 0;
-          // 統計句只在量夠時出現（門檻 10，比照祈福頁「數字為真、少算不灌水」）
+          // 統計句只在量夠時出現（門檻 10，比照祈福頁「數字為真、少算不灌水」）。
+          // 未達門檻不能只回「你選了X」——看起來像功能壞掉（2026-08-16 用戶實測回報），
+          // 要誠實說「還在累積」；數字是 build 時烤入，聚合後最多延遲一天。
           done.textContent = total >= 10 && same > 0
             ? `你選了「${b.textContent}」——最近有 ${same} 個人，做了一樣的選擇。`
-            : `你選了「${b.textContent}」。`;
+            : `你選了「${b.textContent}」。這一題才剛開始統計，等更多人選過，這裡會顯示大家怎麼選。`;
           done.hidden = false;
           (cb.querySelector('.choice-opts') as HTMLElement).hidden = true;
         }),
