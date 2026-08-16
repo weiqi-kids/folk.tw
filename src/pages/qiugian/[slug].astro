@@ -394,7 +394,7 @@ const jsonLd = [
               : item.slip
                 ? `<p class="slip">${esc(item.slip)}<span class="slip-tag">籤版原印</span></p>`
                 : `<p class="slip-none">這張籤版沒有列這一項。四句與其他項目見完整籤解。</p>`}
-            ${item.persona ? `<p class="rpersona">這支籤的人格：<b>${esc(item.persona)}</b>　<a href="/poems/${esc(item.id)}/${tqs}#persona">為什麼 →</a></p>` : ''}
+            ${item.persona ? `<p class="rpersona">籤型：<b>${esc(item.persona)}</b>　<a href="/poems/${esc(item.id)}/${tqs}#persona">為什麼 →</a></p>` : ''}
             <a class="more" href="/poems/${esc(item.id)}/${tqs}">看完整籤解與其他面向 →</a>
           </div>
         </div>

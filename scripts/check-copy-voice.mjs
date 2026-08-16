@@ -36,8 +36,11 @@ const PROSE_JSON = [
   { file: 'src/data/temples.json', fields: ['intro'] },
   // 2026-08-09：節日頁「逐句掛源的補充事實」。同樣是存在 JSON 裡、直接渲染給讀者看的散文。
   { file: 'src/data/festivals.json', fields: ['facts.text'] },
-  // 2026-08-16：籤後選擇題的鼓勵語（人格×選擇 64 段原創文案，直接渲染給使用者）。
+  // 2026-08-16：籤後選擇題的鼓勵語（籤型×選擇 64 段原創文案，直接渲染給使用者）。
   { file: 'src/data/qian-encourage.json', fields: ['text'] },
+  // 2026-08-16：籤型（八型）的描述散文，渲染於籤詩頁。根是物件不是陣列，
+  // 靠下方 scanProseJson 的物件包裝支援；用 types.desc 路徑穿進去。
+  { file: 'src/data/poem-personas.json', fields: ['types.desc'] },
 ];
 
 // Markdown 殘留（2026-08-09 加）。這些欄位**渲染時是純文字**，不會過 Markdown ——
@@ -139,7 +142,9 @@ function scanProseJson(hits) {
     if (!existsSync(file)) continue;
     let rows;
     try { rows = JSON.parse(readFileSync(file, 'utf8')); } catch { continue; }
-    if (!Array.isArray(rows)) continue;
+    // 根是物件的檔（如 poem-personas.json）包成單列，讓 a.b 路徑穿進去掃；
+    // 原本 !Array.isArray 直接 continue 會把整檔靜默跳過——正是上面警告過的「加了白名單卻沒掃」。
+    if (!Array.isArray(rows)) rows = [rows];
     for (const row of rows) {
       for (const k of fields) {
         // 支援 `a.b` 路徑穿進物件陣列（如 scenarios 的 patrons[].why）。

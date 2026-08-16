@@ -20,8 +20,10 @@ const d = poem.data;
 // 並送 poem_open 歸因事件（與求籤頁 P0 同一套 temple 維度）。一般訪客（無參數）完全不受影響、
 // 頁面靜態輸出不變（SEO 中性）。機制與連結慣例見 docs/temple-partner-links.md。
 import partners from '../../data/temple-partners.json';
-// 籤詩人格（2026-08-15，顧問方案「籤詩人格」）：本站原創的文化閱讀框架，
-// 不是籤意權威解釋；關鍵字取自籤文原句（check:integrity 硬擋，抽詞不造詞）。
+// 籤型（2026-08-15 以「籤詩人格」上線；2026-08-16 用戶裁示改名——「人格」沒人看得懂，
+// 且區塊尾那行「本站原創撰寫…授權說明」是被多次裁示禁止的內容頁後設警語，已刪，
+// 撰寫原則只放 /about/）。本站原創的分型閱讀框架，不是籤意權威解釋；
+// 關鍵字取自籤文原句（check:integrity 硬擋，抽詞不造詞）。
 import personas from '../../data/poem-personas.json';
 const personaAssign = (personas.poems as Record<string, { type: string; keywords: string[] }>)[poem.id];
 const personaType = personaAssign ? personas.types.find((t) => t.id === personaAssign.type) : undefined;
@@ -222,7 +224,6 @@ if (faq) ld.push(faq);
                 </div>
               ))}
             </dl>
-            <p class="src interp-src">本站原創撰寫，<a href="/about/">撰寫原則與授權說明</a></p>
           </>
         ) : (
           <p class="pending">八項分項解待撰。</p>
@@ -232,11 +233,10 @@ if (faq) ld.push(faq);
 
     {personaType && personaAssign && (
       <section class="persona" id="persona">
-        <h2>籤詩人格</h2>
+        <h2>籤型</h2>
         <p class="ptype"><b>{personaType.name}</b>・{personaType.tagline}</p>
         <p>{personaType.desc}</p>
         <p class="pkw">{personaAssign.keywords.map((k) => <span class="kw">{k}</span>)}</p>
-        <p class="src">人格分型是本站原創撰寫的閱讀框架，關鍵字取自籤文原句，不是籤意的權威解釋。<a href="/about/">撰寫原則與授權說明</a></p>
       </section>
     )}
 
