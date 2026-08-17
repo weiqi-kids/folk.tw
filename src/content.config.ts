@@ -20,6 +20,14 @@ const source = z.object({
   note: z.string().optional(),
 });
 
+/** 自動主題文章的可點擊來源（文章正文以此為事實查證邊界）。 */
+const articleSource = z.object({
+  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other']),
+  ref: z.string().min(1),
+  url: z.string().url(),
+  note: z.string().optional(),
+});
+
 /** 神明七大類（§4，可引用之既有分類學，不自創） */
 export const DEITY_CATEGORIES = [
   '海神信仰',
@@ -151,6 +159,27 @@ const allusions = defineCollection({
     source: z.string().optional(), // 故事所本（史記/演義/戲文）
     people: z.array(z.string()).default([]),
     seoDesc: z.string().optional(), // 覆寫 meta description（僅供 SEO 微調，不改事實內容）
+    draft: z.boolean().default(false),
+  }),
+});
+
+// 外部搜尋趨勢驅動的主題文章。這是獨立內容邊界：
+// 文章可自動新增，但必須帶趨勢證據、至少兩筆可回查來源與站內關聯，
+// 不直接改寫籤詩、神明、廟宇等事實資料。
+const seoArticles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/seo-articles' }),
+  schema: z.object({
+    title: z.string().min(2).max(100),
+    description: z.string().min(20).max(180),
+    datePublished: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    dateModified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    query: z.string().min(2).max(120),
+    trendSources: z.array(z.string().url()).min(1),
+    sources: z.array(articleSource).min(2),
+    faq: z
+      .array(z.object({ q: z.string().min(2), a: z.string().min(2) }))
+      .default([]),
+    related: z.array(z.string().regex(/^\/[a-z0-9][a-z0-9/_-]*\/?$/)).default([]),
     draft: z.boolean().default(false),
   }),
 });
@@ -549,6 +578,7 @@ export const collections = {
   deityRelations,
   divinationSystems,
   allusions,
+  seoArticles,
   poems,
   interpretations,
   temples,

@@ -1,0 +1,88 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
+import { articleThing, breadcrumb, faqPage } from '../../lib/seo';
+
+export const getStaticPaths = (async () => {
+  const articles = await getCollection('seoArticles', ({ data }) => !data.draft);
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}) satisfies GetStaticPaths;
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const a = article.data;
+const faq = faqPage(a.faq);
+const ld: object[] = [
+  breadcrumb([
+    { name: '節慶習俗', path: '/festivals' },
+    { name: '主題文章', path: '/guides' },
+    { name: a.title, path: `/guides/${article.id}` },
+  ]),
+  articleThing({
+    slug: article.id,
+    title: a.title,
+    description: a.description,
+    datePublished: a.datePublished,
+    dateModified: a.dateModified,
+    sources: a.sources,
+  }),
+];
+if (faq) ld.push(faq);
+---
+
+<Base
+  title={a.title}
+  description={a.description}
+  jsonLd={ld}
+  ogType="article"
+  ogImage="/og/discover/qian-slips.webp"
+  ogImageWidth={1200}
+  ogImageHeight={675}
+  speakable={['h1', '.article-summary']}
+>
+  <nav class="crumb"><a href="/festivals/">節慶習俗</a> ／ <a href="/guides/">主題文章</a> ／ {a.title}</nav>
+  <article>
+    <h1>{a.title}</h1>
+    <p class="article-summary lead">{a.description}</p>
+    <p class="muted small">發布於 {a.datePublished} · 更新於 {a.dateModified}</p>
+    <LeadVisual src="/visuals/qian-slips.svg" alt={`${a.title}的民俗主題文章通用插圖`} />
+
+    <div class="prose"><Content /></div>
+
+    <section class="sources">
+      <h2>資料來源</h2>
+      <ul>
+        {a.sources.map((source) => (
+          <li>
+            <a href={source.url} rel="noopener noreferrer">{source.ref}</a>
+            <span class="muted">（{source.type}）</span>
+            {source.note && <span>：{source.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {a.related.length > 0 && (
+      <section>
+        <h2>延伸閱讀</h2>
+        <ul>
+          {a.related.map((path) => <li><a href={path}>{path}</a></li>)}
+        </ul>
+      </section>
+    )}
+  </article>
+
+  <style>
+    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
+    .article-summary { margin: 1rem 0 0.5rem; }
+    .small { font-size: var(--text-sm); }
+    article > .prose { margin-top: 1.5rem; }
+    .sources { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1rem; }
+    h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
+  </style>
+</Base>

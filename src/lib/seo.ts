@@ -167,6 +167,37 @@ export function eventThing(e: {
   };
 }
 
+/** 自動主題文章（Article）JSON-LD。來源只進 citation，不把搜尋趨勢誤標成事實來源。 */
+export function articleThing(a: {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  sources?: { url?: string }[];
+}) {
+  const url = `${SITE}/guides/${a.slug}/`;
+  const citation = [...new Set((a.sources ?? []).map((source) => source.url).filter(Boolean))].map((url) => ({
+    '@type': 'CreativeWork',
+    url,
+  }));
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    headline: a.title,
+    description: a.description,
+    inLanguage: 'zh-Hant-TW',
+    datePublished: a.datePublished,
+    dateModified: a.dateModified,
+    author: ORG,
+    publisher: ORG,
+    ...(citation.length ? { citation } : {}),
+  };
+}
+
 /** 時事祈福「事件記錄頁」（Article）JSON-LD（P3 歷史記錄態）。
  *  刻意用保守的一般 Article（非 NewsArticle/LiveBlogPosting）：本站為民俗祈福站、非新聞機構，
  *  不宜宣稱新聞屬性；只做事實記錄。有值才帶欄位；citation 收斂事件出處與各後續發展來源之 url（去重去空）。 */
