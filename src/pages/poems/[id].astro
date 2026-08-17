@@ -6,6 +6,7 @@ import Sources from '../../components/Sources.astro';
 import PoemLocaleTabs from '../../components/PoemLocaleTabs.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem, systemHref } from '../../lib/queries';
 import { getPoemLocaleViews } from '../../lib/poem-locales';
+import { poemAudioPath } from '../../lib/poem-audio';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
 import { stripOuterParens, withoutTerminalPunctuation } from '../../lib/text';
 
@@ -18,6 +19,7 @@ export const getStaticPaths = (async () => {
 const { poem, interp } = Astro.props;
 const d = poem.data;
 const localeEntries = getPoemLocaleViews(d.system.id, poem.id);
+const chineseAudioSrc = poemAudioPath(poem.id, 'zh-TW');
 
 // 宮廟合作主題（2026-08-14，P1）：?temple= 命中合作白名單 → client script 換上該廟專屬背景與落款，
 // 並送 poem_open 歸因事件（與求籤頁 P0 同一套 temple 維度）。一般訪客（無參數）完全不受影響、
@@ -142,19 +144,31 @@ if (faq) ld.push(faq);
           data-href={`/poems/${poem.id}/`}
         >收藏這首</button>
       </div>
+      <div
+        class="poem-audio"
+        data-poem-audio
+        data-audio-src={chineseAudioSrc}
+        data-audio-label="中文"
+      >
+        <button type="button" class="audio-play" data-audio-play>▶ 播放中文</button>
+        <span class="audio-status muted" data-audio-status aria-live="polite"></span>
+        <audio data-audio-element preload="none" aria-hidden="true"></audio>
+      </div>
       {/* answer-first 一行摘要（P1-5）：可被引用為直接答案，仍保克制（小、次於四句主角） */}
       <p class="lead muted">{leadAnswer}</p>
     </header>
     {/* 分享卡（/og/poems/*.png）只作 og:image 用，不內嵌正文（2026-08-15 用戶裁示） */}
 
-    {/* 主角：四句直書 */}
-    <section class="lines-block">
-      <div class="lines-zhi">
-        {d.lines.map((l) => <p class="line">{l}</p>)}
-      </div>
-    </section>
+    <div class="poem-reading-grid">
+      {/* 主角：四句直書 */}
+      <section class="lines-block">
+        <div class="lines-zhi">
+          {d.lines.map((l) => <p class="line">{l}</p>)}
+        </div>
+      </section>
 
-    <PoemLocaleTabs entries={localeEntries} />
+      <PoemLocaleTabs entries={localeEntries} />
+    </div>
 
     {/* 籤版原印的分項解：**照抄籤版、不改寫**，與本站自撰的九項分項解分開陳列。
         各籤版項目名稱與數量都不同（月老籤有福祿/生意/風水），硬套本站九項會變成我們的詮釋。 */}
@@ -296,9 +310,20 @@ if (faq) ld.push(faq);
     .ph h1 { margin: 0.25rem 0 0.75rem; }
     .ph .meta { margin-bottom: 0.625rem; }
     .ph .lead { font-size: var(--text-sm); margin: 0.25rem 0 0; }
+    .poem-audio { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.75rem; margin: 0.75rem 0 0.25rem; }
+    .audio-play {
+      font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer;
+      color: var(--accent); background: var(--paper-2); border: 1px solid var(--accent-soft);
+      border-radius: 999px; padding: 0.375rem 0.875rem;
+    }
+    .audio-play:hover, .audio-play:focus-visible { color: var(--paper); background: var(--accent); outline: none; }
+    .audio-play:disabled { opacity: 0.55; cursor: default; }
+    .audio-status { font-size: var(--text-xs); }
     .meta .save-btn { font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; color: var(--accent); background: var(--paper-2); border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.25rem 0.875rem; }
     .meta .save-btn:hover, .meta .save-btn[aria-pressed="true"] { color: var(--paper); background: var(--accent); border-color: var(--accent); }
-    .lines-block { margin: 2.25rem 0 2.75rem; display: flex; justify-content: center; }
+    .poem-reading-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1rem, 4vw, 3rem); align-items: start; margin: 2.25rem 0 2.75rem; }
+    .poem-reading-grid :global(.poem-locale-tabs) { margin: 0; }
+    .lines-block { min-width: 0; display: flex; justify-content: center; align-items: flex-start; }
     /* 四句直書（直排・右起），§0.5 四句直書
        🔴 flex-direction 一定要是 column，不可省略（2026-08-08 修）：
           在 writing-mode: vertical-rl 之下，flex 的 row＝沿**行內軸**排＝由上往下，
@@ -320,6 +345,7 @@ if (faq) ld.push(faq);
     }
     .lines-zhi .line { margin: 0; }
     @media (max-width: 42.5rem) {
+      .poem-reading-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 1.5rem; }
       .lines-zhi { font-size: var(--text-lg); max-height: 18.75rem; }
     }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.5rem; }

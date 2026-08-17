@@ -1,5 +1,6 @@
 ---
 import type { PoemLocaleView } from '../lib/poem-locales';
+import { poemAudioPath } from '../lib/poem-audio';
 
 interface Props {
   entries: PoemLocaleView[];
@@ -18,6 +19,8 @@ const tabId = `poem-locale-${entries[0]?.sourceId ?? 'empty'}`;
           role="tab"
           class="locale-tab"
           data-locale-tab={entry.code}
+          data-audio-src={poemAudioPath(entry.sourceId, entry.code)}
+          data-audio-label={entry.label}
           aria-controls={`${tabId}-${entry.code}`}
           aria-selected={index === 0 ? 'true' : 'false'}
           tabindex={index === 0 ? 0 : -1}
@@ -102,8 +105,63 @@ const tabId = `poem-locale-${entries[0]?.sourceId ?? 'empty'}`;
   document.querySelectorAll<HTMLElement>('[data-locale-tabs]').forEach((root) => {
     const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-locale-tab]')];
     const panels = [...root.querySelectorAll<HTMLElement>('[data-locale-panel]')];
+    const audioRoot = document.querySelector<HTMLElement>('[data-poem-audio]');
+    const audio = audioRoot?.querySelector<HTMLAudioElement>('[data-audio-element]');
+    const audioPlay = audioRoot?.querySelector<HTMLButtonElement>('[data-audio-play]');
+    const audioStatus = audioRoot?.querySelector<HTMLElement>('[data-audio-status]');
+    let audioSrc = audioRoot?.dataset.audioSrc ?? '';
+    let audioLabel = audioRoot?.dataset.audioLabel ?? '中文';
 
-    const select = (code: string) => {
+    const setAudioButton = (playing: boolean) => {
+      if (!audioPlay) return;
+      audioPlay.textContent = `${playing ? '❚❚ 暫停' : '▶ 播放'}${audioLabel}`;
+    };
+
+    const useAudio = (src: string, label: string, autoplay: boolean) => {
+      if (!audioRoot || !audio || !audioPlay) return;
+      audioSrc = src;
+      audioLabel = label;
+      audioRoot.dataset.audioSrc = src;
+      audioRoot.dataset.audioLabel = label;
+      audioPlay.disabled = false;
+      audioStatus && (audioStatus.textContent = '');
+      setAudioButton(false);
+      if (audio.src !== new URL(src, location.href).href) {
+        audio.pause();
+        audio.src = src;
+        audio.load();
+      }
+      if (autoplay) {
+        audio.play().then(() => setAudioButton(true)).catch(() => {
+          audioStatus && (audioStatus.textContent = '按播放鍵開始');
+        });
+      }
+    };
+
+    if (audioRoot && audio && audioPlay) {
+      audioPlay.addEventListener('click', () => {
+        if (!audioSrc) return;
+        if (audio.paused) {
+          useAudio(audioSrc, audioLabel, false);
+          audio.play().then(() => setAudioButton(true)).catch(() => {
+            audioStatus && (audioStatus.textContent = '此語系尚無可播放音檔');
+          });
+        } else {
+          audio.pause();
+          setAudioButton(false);
+        }
+      });
+      audio.addEventListener('play', () => setAudioButton(true));
+      audio.addEventListener('pause', () => setAudioButton(false));
+      audio.addEventListener('ended', () => setAudioButton(false));
+      audio.addEventListener('error', () => {
+        audioPlay.disabled = true;
+        setAudioButton(false);
+        audioStatus && (audioStatus.textContent = '此語系尚無可播放音檔');
+      });
+    }
+
+    const select = (code: string, autoplay = false) => {
       tabs.forEach((tab) => {
         const active = tab.dataset.localeTab === code;
         tab.setAttribute('aria-selected', String(active));
@@ -112,10 +170,12 @@ const tabId = `poem-locale-${entries[0]?.sourceId ?? 'empty'}`;
       panels.forEach((panel) => {
         panel.hidden = panel.dataset.localePanel !== code;
       });
+      const tab = tabs.find((item) => item.dataset.localeTab === code);
+      if (tab?.dataset.audioSrc) useAudio(tab.dataset.audioSrc, tab.dataset.audioLabel ?? code, autoplay);
     };
 
     tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => select(tab.dataset.localeTab ?? ''));
+      tab.addEventListener('click', () => select(tab.dataset.localeTab ?? '', true));
       tab.addEventListener('keydown', (event) => {
         if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
         event.preventDefault();
@@ -123,7 +183,7 @@ const tabId = `poem-locale-${entries[0]?.sourceId ?? 'empty'}`;
           ? (index + 1) % tabs.length
           : (index - 1 + tabs.length) % tabs.length;
         tabs[next].focus();
-        select(tabs[next].dataset.localeTab ?? '');
+        select(tabs[next].dataset.localeTab ?? '', true);
       });
     });
   });
