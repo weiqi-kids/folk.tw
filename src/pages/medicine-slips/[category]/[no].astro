@@ -1,9 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
+import PoemLocaleTabs from '../../../components/PoemLocaleTabs.astro';
 import slipsData from '../../../data/yaoqian.import.json';
 import notesData from '../../../data/yaoqian-notes.json';
 import { breadcrumb, faqPage } from '../../../lib/seo';
+import { getPoemLocaleViews } from '../../../lib/poem-locales';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
 // 醫師層四段（依藥方組成推估科別後，以「該科＋中醫科雙主修醫師」人格撰寫）。
@@ -35,6 +37,7 @@ const { category, no } = Astro.params;
 const catName = CATS[category!];
 const all = (slipsData as Slip[]).filter((s) => s.category === catName).sort((a, b) => a.no - b.no);
 const slip = all.find((s) => s.no === Number(no))!;
+const localeEntries = getPoemLocaleViews('baosheng_yaoqian', slip.id);
 const idx = all.findIndex((s) => s.no === Number(no));
 const prev = idx > 0 ? all[idx - 1] : null;
 const next = idx < all.length - 1 ? all[idx + 1] : null;
@@ -137,6 +140,8 @@ const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[
       <p>{note.physician_note}</p>
     </section>
   )}
+
+  <PoemLocaleTabs entries={localeEntries} />
 
   <nav class="ms-nav" aria-label="前後籤">
     {prev ? <a href={`/medicine-slips/${category}/${prev.no}/`}>← {catName}第 {prev.no} 首</a> : <span></span>}

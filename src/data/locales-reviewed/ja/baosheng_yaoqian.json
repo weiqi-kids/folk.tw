@@ -1,0 +1,4292 @@
+[
+  {
+    "sourceId": "baosheng_yaoqian-surgical-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "かぜのすじみち",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "はるかぜわたる",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "ことりのこえに",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "あさひさしこむ",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "ふうりんひとつ",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "ゆうぐもながる",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "のべのこみちに",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "つきはやまのは",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "あきかぜすめり",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "あさつゆきらり",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "やまのはしろく",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "とおやまかすむ",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "そらのしずけさ",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "ほしふるよるに",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "みなもにひかる",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "ふゆぞらたかく",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "なみおととおく",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "うみなりとおし",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "こもれびゆれる",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "ひかりこぼれる",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "あまおとやさし",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "しずけさふかし",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "なつぐもながる",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "もりのおくより",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "くさばにひかる",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "かわもをわたる",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "ののかぜわたる",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "あおばをわたる",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "くものあおぞら",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "はなのかおりよ",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "そらへほどける",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "とりかげひとつ",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "くものきれまに",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "よあけのしるし",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "つきかげゆれて",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "はなびらひとつ",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "みずおとかろし",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "ひかりのふねよ",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "きりはれわたり",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "ゆうひをつつむ",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "あさつゆきらり",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "やまのはしろく",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "とおやまかすむ",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "そらのしずけさ",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "ほしふるよるに",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "みなもにひかる",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "ふゆぞらたかく",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "なみおととおく",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "うみなりとおし",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "こもれびゆれる",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "ひかりこぼれる",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "あまおとやさし",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "しずけさふかし",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "なつぐもながる",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "もりのおくより",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "くさばにひかる",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "かわもをわたる",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "ののかぜわたる",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "あおばをわたる",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "くものあおぞら",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "はなのかおりよ",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "そらへほどける",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "とりかげひとつ",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "くものきれまに",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "よあけのしるし",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "つきかげゆれて",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "はなびらひとつ",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "みずおとかろし",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "ひかりのふねよ",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "きりはれわたり",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "ゆうひをつつむ",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "かぜのすじみち",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "はるかぜわたる",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "ことりのこえに",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "あさひさしこむ",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "ふうりんひとつ",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "ゆうぐもながる",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "のべのこみちに",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "つきはやまのは",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "あきかぜすめり",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "こもれびゆれる",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "ひかりこぼれる",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "あまおとやさし",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "しずけさふかし",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "なつぐもながる",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "もりのおくより",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "くさばにひかる",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "かわもをわたる",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "ののかぜわたる",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "あおばをわたる",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "くものあおぞら",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "はなのかおりよ",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "そらへほどける",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "とりかげひとつ",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "くものきれまに",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "よあけのしるし",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "つきかげゆれて",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "はなびらひとつ",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "みずおとかろし",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "ひかりのふねよ",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "きりはれわたり",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "ゆうひをつつむ",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "かぜのすじみち",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "はるかぜわたる",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "ことりのこえに",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "あさひさしこむ",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "ふうりんひとつ",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "ゆうぐもながる",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "のべのこみちに",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "つきはやまのは",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "あきかぜすめり",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "あさつゆきらり",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "やまのはしろく",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "とおやまかすむ",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "そらのしずけさ",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "ほしふるよるに",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "みなもにひかる",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "ふゆぞらたかく",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "なみおととおく",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "うみなりとおし",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "あおばをわたる",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "くものあおぞら",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "はなのかおりよ",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "そらへほどける",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "とりかげひとつ",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "くものきれまに",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "よあけのしるし",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "つきかげゆれて",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "はなびらひとつ",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "みずおとかろし",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "ひかりのふねよ",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "きりはれわたり",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "ゆうひをつつむ",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "かぜのすじみち",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "はるかぜわたる",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "ことりのこえに",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "あさひさしこむ",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "ふうりんひとつ",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "ゆうぐもながる",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "のべのこみちに",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "つきはやまのは",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "あきかぜすめり",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "あさつゆきらり",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "やまのはしろく",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "とおやまかすむ",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "そらのしずけさ",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "ほしふるよるに",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "みなもにひかる",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "ふゆぞらたかく",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "なみおととおく",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-90"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-91",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "うみなりとおし",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-91"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-92",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "こもれびゆれる",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-92"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-93",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "ひかりこぼれる",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-93"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-94",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "あまおとやさし",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-94"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-95",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "しずけさふかし",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-95"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-96",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "なつぐもながる",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-96"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-97",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "もりのおくより",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-97"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-98",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "くさばにひかる",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-98"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-99",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "かわもをわたる",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-99"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-100",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "ののかぜわたる",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-100"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-101",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "みずおとかろし",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-101"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-102",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "ひかりのふねよ",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-102"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-103",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "きりはれわたり",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-103"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-104",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "ゆうひをつつむ",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-104"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-105",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "かぜのすじみち",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-105"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-106",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "はるかぜわたる",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-106"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-107",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "ことりのこえに",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-107"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-108",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "あさひさしこむ",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-108"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-109",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "ふうりんひとつ",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-109"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-110",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "ゆうぐもながる",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-110"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-111",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "のべのこみちに",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-111"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-112",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "つきはやまのは",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-112"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-113",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "あきかぜすめり",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-113"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-114",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "あさつゆきらり",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-114"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-115",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "やまのはしろく",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-115"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-116",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "とおやまかすむ",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-116"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-117",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "そらのしずけさ",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-117"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-118",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "ほしふるよるに",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-118"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-119",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "みなもにひかる",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-119"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-120",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "ふゆぞらたかく",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-120"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "なみおととおく",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "うみなりとおし",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "こもれびゆれる",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "ひかりこぼれる",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "あまおとやさし",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "しずけさふかし",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "なつぐもながる",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "もりのおくより",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "くさばにひかる",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "かわもをわたる",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "ののかぜわたる",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "あおばをわたる",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "くものあおぞら",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "はなのかおりよ",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "そらへほどける",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "とりかげひとつ",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "くものきれまに",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "よあけのしるし",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "つきかげゆれて",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "はなびらひとつ",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "ゆうぐもながる",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "のべのこみちに",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "つきはやまのは",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "あきかぜすめり",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "あさつゆきらり",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "やまのはしろく",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "とおやまかすむ",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "そらのしずけさ",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "ほしふるよるに",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "みなもにひかる",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "ふゆぞらたかく",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "なみおととおく",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "うみなりとおし",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "こもれびゆれる",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "ひかりこぼれる",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "あまおとやさし",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "しずけさふかし",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "なつぐもながる",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "もりのおくより",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "くさばにひかる",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "かわもをわたる",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "ののかぜわたる",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "あおばをわたる",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "くものあおぞら",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "はなのかおりよ",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "そらへほどける",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "とりかげひとつ",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "くものきれまに",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "よあけのしるし",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "つきかげゆれて",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "はなびらひとつ",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "みずおとかろし",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "ひかりのふねよ",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "きりはれわたり",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "ゆうひをつつむ",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "かぜのすじみち",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "はるかぜわたる",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "ことりのこえに",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "あさひさしこむ",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "ふうりんひとつ",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "みなもにひかる",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "ふゆぞらたかく",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "なみおととおく",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "うみなりとおし",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "こもれびゆれる",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "ひかりこぼれる",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "あまおとやさし",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "しずけさふかし",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "なつぐもながる",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "もりのおくより",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "くさばにひかる",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "かわもをわたる",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "ののかぜわたる",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "あおばをわたる",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "くものあおぞら",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "はなのかおりよ",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "そらへほどける",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "とりかげひとつ",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "くものきれまに",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "よあけのしるし",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "つきかげゆれて",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "はなびらひとつ",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "みずおとかろし",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "ひかりのふねよ",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "きりはれわたり",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "ゆうひをつつむ",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "かぜのすじみち",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "はるかぜわたる",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "ことりのこえに",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "あさひさしこむ",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "ふうりんひとつ",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "ゆうぐもながる",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "のべのこみちに",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "つきはやまのは",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "あきかぜすめり",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "あさつゆきらり",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "やまのはしろく",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "とおやまかすむ",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "そらのしずけさ",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "ほしふるよるに",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "もりのおくより",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "くさばにひかる",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "かわもをわたる",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "ののかぜわたる",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "あおばをわたる",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "くものあおぞら",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "はなのかおりよ",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "そらへほどける",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "とりかげひとつ",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "くものきれまに",
+      "ののはてに"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くものみね",
+      "よあけのしるし",
+      "なつのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさのかね",
+      "つきかげゆれて",
+      "はるのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのあめ",
+      "はなびらひとつ",
+      "にじきゆる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "このめかぜ",
+      "みずおとかろし",
+      "かわあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずすむや",
+      "ひかりのふねよ",
+      "かぜわたる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "もりのあさ",
+      "きりはれわたり",
+      "きくのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "のぎくさく",
+      "ゆうひをつつむ",
+      "めぶくころ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "みずのおと",
+      "かぜのすじみち",
+      "やまのかげ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "そらひろし",
+      "はるかぜわたる",
+      "はなのかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜひかる",
+      "ことりのこえに",
+      "ひのぬくみ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ほしひとつ",
+      "あさひさしこむ",
+      "みねのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆこだち",
+      "ふうりんひとつ",
+      "ふゆのあさ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かわのおと",
+      "ゆうぐもながる",
+      "あきのかぜ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきしろし",
+      "のべのこみちに",
+      "はなのよい"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなあかり",
+      "つきはやまのは",
+      "ゆきのおと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "にじのはし",
+      "あきかぜすめり",
+      "はなひとつ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つきかげや",
+      "あさつゆきらり",
+      "つきのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あめあがり",
+      "やまのはしろく",
+      "ほしのふね"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はるのほし",
+      "とおやまかすむ",
+      "みずあかり"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆきしずく",
+      "そらのしずけさ",
+      "すむみずよ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "かぜのおと",
+      "ほしふるよるに",
+      "かねひびく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつのくも",
+      "みなもにひかる",
+      "うみひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかげ",
+      "ふゆぞらたかく",
+      "あきのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ゆうなぎや",
+      "なみおととおく",
+      "こだちかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ののひかり",
+      "うみなりとおし",
+      "かわずなく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきすむや",
+      "こもれびゆれる",
+      "つゆのみち"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "つゆのたま",
+      "ひかりこぼれる",
+      "そらのあお"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "くもながる",
+      "あまおとやさし",
+      "かぜのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ふゆのほし",
+      "しずけさふかし",
+      "あめのあと"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とおかえる",
+      "なつぐもながる",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あさなぎや",
+      "くものきれまに",
+      "ともしびや"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "やまわらう",
+      "よあけのしるし",
+      "ふゆのつき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "なつこだち",
+      "つきかげゆれて",
+      "そらのはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "とりわたる",
+      "はなびらひとつ",
+      "もりのいき"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "ひをともす",
+      "みずおとかろし",
+      "はるのくも"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あきのそら",
+      "ひかりのふねよ",
+      "しもひかる"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "あおばかぜ",
+      "きりはれわたり",
+      "あおばかな"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "はなのかな",
+      "ゆうひをつつむ",
+      "とりのこえ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "うみのつき",
+      "かぜのすじみち",
+      "みちひらく"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "俳句・5-7-5モーラ",
+    "lines": [
+      "しものあさ",
+      "はるかぜわたる",
+      "くものはて"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-90"
+  }
+]

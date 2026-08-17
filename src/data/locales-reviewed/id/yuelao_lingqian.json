@@ -1,0 +1,353 @@
+[
+  {
+    "sourceId": "yuelao_lingqian-1",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Ombak berkejar di tanjung karang",
+      "Burung camar hinggap di muara",
+      "Jodoh baik datang tanpa bimbang",
+      "Membawa bahagia sepanjang usia"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-2",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Cermin bundar diseka pagi",
+      "Bunga kenanga mekar di halaman",
+      "Dua hati kembali sehati",
+      "Cita dan cinta tumbuh beriringan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-3",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Burung malam hinggap di batu",
+      "Jarum tersangkut pada kain",
+      "Kata tertahan sukar menyatu",
+      "Jangan dipaksa sebelum yakin"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-4",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Padi menguning di sawah basah",
+      "Lumbung penuh menghadap halaman",
+      "Berkah keluarga tumbuh melimpah",
+      "Damai dirawat dalam kebersamaan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-5",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Daun tua gugur ke tanah",
+      "Pucuk jati tumbuh kembali",
+      "Rintangan surut, tetap tabah",
+      "Rezeki pun terkumpul pasti"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-6",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Harimau minum di tepi telaga",
+      "Lentera padam ditiup angin",
+      "Luka dibalas hanya menambah murka",
+      "Niat jahat berbalik merusak batin"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-7",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Melati putih di tepi kali",
+      "Nelayan menambatkan perahu",
+      "Menanti bukan berarti berhenti",
+      "Hati tabah menemukan yang dituju"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-8",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bintang berkilau di langit tinggi",
+      "Pintu tua menghadap taman",
+      "Janji dijaga dengan budi",
+      "Damai bersemi lewat kesetiaan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-9",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Ikan mas berenang di lubuk tenang",
+      "Awan putih berarak di angkasa",
+      "Bakat besar menunggu saat gemilang",
+      "Bertemu jodoh, berubah nasib bahagia"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-10",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Layar putih melaju ke pantai",
+      "Gendang bertalu di tengah desa",
+      "Langkah seiring, hati pun damai",
+      "Tawa bersama menumbuhkan bahagia"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-11",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kail tua tergantung di dinding",
+      "Pohon mangga tumbuh di pekarangan",
+      "Sabar menanti hasil bening",
+      "Kasih menuntun masa depan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-12",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pelita kecil di dalam gua",
+      "Minyak kelapa tersimpan rapi",
+      "Satu dukungan menguatkan jiwa",
+      "Dalam bahaya, saling menjaga hati"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-13",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kuda batu berdiri gagah",
+      "Kain sutra tersusun di beranda",
+      "Anugerah datang membawa amanah",
+      "Keluarga dirawat dengan kasih nyata"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-14",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Ikan kecil melawan arus",
+      "Batu sungai berkilau berseri",
+      "Tempat sempit membuat langkah putus",
+      "Carilah ruang yang menenteramkan diri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-15",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Tiga burung hinggap di dahan",
+      "Madu manis tersimpan di kendi",
+      "Sahabat tulus menyalakan harapan",
+      "Kesempatan mengubah susah menjadi berarti"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-16",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Empat kursi berjajar rapi",
+      "Cangkir hangat dekat jendela",
+      "Bicarakan resah dengan rendah hati",
+      "Jangan campuri urusan mereka"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-17",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Koin lama berkilau di kali",
+      "Pagar bambu mengitari halaman",
+      "Jangan mengejar harta karena iri",
+      "Jaga batas demi ketenteraman"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-18",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Surya terbit di ufuk pagi",
+      "Kabut tipis lenyap perlahan",
+      "Pintu rezeki terbuka sendiri",
+      "Kerja tekun menumbuhkan keberhasilan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-19",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pintu tua menghadap sunyi",
+      "Perahu kecil dihantam badai",
+      "Waspadai ikatan yang melukai",
+      "Jangan menjemput bahaya dengan lalai"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-20",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Delapan burung terbang beriringan",
+      "Bola warna jatuh ke muara",
+      "Perbedaan dapat dipertemukan",
+      "Bicara lembut memulihkan saudara"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-21",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Biksu berjalan menyusuri kali",
+      "Kuda putih berhenti di jalan",
+      "Teman tulus hadir kala sepi",
+      "Bersama menembus kabut keraguan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-22",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bintang dan bulan berselimut malam",
+      "Jembatan kayu melintang lautan",
+      "Rindu boleh tersimpan dalam diam",
+      "Jangan gantungkan hidup pada khayalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-23",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Busur kayu tergantung di dinding",
+      "Tiang lapuk berdiri di beranda",
+      "Tenang lebih tajam daripada bising",
+      "Luruskan hati, tinggalkan angkara"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-24",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Dua bunga menghadap pagi",
+      "Benang sutra terurai di taman",
+      "Niat sejalan bertemu kembali",
+      "Cinta matang tumbuh tanpa paksaan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-25",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Papan catur tersusun rapi",
+      "Enam puluh batu di pinggir jalan",
+      "Renungkan akibat sebelum beraksi",
+      "Nurani menjadi saksi perbuatan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-26",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Guntur menggelegar di balik bukit",
+      "Hujan deras membasahi halaman",
+      "Kebaikan berbuah, harapan bangkit",
+      "Kejahatan kembali menjadi beban"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "yuelao_lingqian-27",
+    "system": "yuelao_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Belalang hinggap di atas dahan",
+      "Burung kuning terbang ke rawa",
+      "Jangan terlena oleh pujian",
+      "Ada niat tersembunyi di balik kata"
+    ],
+    "status": "draft"
+  }
+]

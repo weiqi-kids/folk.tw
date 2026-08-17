@@ -1,0 +1,782 @@
+[
+  {
+    "sourceId": "liushi_jiazi-1",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Nắng lên mây tạnh sáng an",
+      "Mở đường sáng lối, bình an thảnh thơi",
+      "Giữ tâm thanh sạch thảnh thơi",
+      "Mai sau việc đến, thảnh thơi bước đường"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-2",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Nụ non hé cửa đón xuân",
+      "Cành mai ấp nụ, chờ xuân nở đầy",
+      "Gặp khi gió ấm về đây",
+      "Hoa tươi kết trái, tháng ngày sạch trong"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-3",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Giữ lòng chớ để nghi ngờ",
+      "Trời ban cơm áo, đợi chờ chẳng vơi",
+      "Hòa thân, chung sức thảnh thơi",
+      "Đến khi vận mở, ngọc ngời trong tay"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-4",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Gió yên nước lặng thuyền xuôi",
+      "Trăng thu tròn sáng, ngậm ngùi hóa vui",
+      "Việc đời chớ để ngậm ngùi",
+      "Phúc nhà tự đến, niềm vui cửa nhà"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-5",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Đường xa e đổi vận mình",
+      "Lời khuyên gấp bước, giữ mình đi trước",
+      "Ven sông tạm giữ cho tốt",
+      "Sao Mai hộ mệnh, qua tốt bình yên"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-6",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Mây dồn mưa đổ mênh mang",
+      "Thời tai chợt đến, xóm làng chịu đau",
+      "Việc nhà khó hợp cùng nhau",
+      "Một chân xa xứ, bạc màu quê hương"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-7",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Mây tan trăng tỏ sáng ngời",
+      "Chẳng cần lui tới hỏi đời trước sau",
+      "Duyên đôi trời đã kết nhau",
+      "Hòa vui việc đến, bền nhau nên thành"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-8",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Lúa đồng trổ hạt đầy bông",
+      "Việc làm đôi phía, cùng trông vẹn toàn",
+      "Về nhà thư thái bình an",
+      "Vợ con múa hát, họ hàng sum vầy"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-9",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Rồng hùm gặp giữa non sâu",
+      "Sau lưng chớ ngó, mặc nhau đổi dời",
+      "Đường tình xin giữ thảnh thơi",
+      "Mai sau gặp lại, người đời cách xa"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-10",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Hoa tàn hạt kết nửa thôi",
+      "Tiếc cho năm tháng, lỡ rồi mùa sang",
+      "Chiều buông khuất núi mơ màng",
+      "Khuyên người đừng bước, đừng mang nợ đời"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-11",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Gà linh dần hiện rõ ràng",
+      "Việc nên xét kỹ thời gian trước sau",
+      "Mây tan trăng chiếu trời cao",
+      "Chàng trai sắp gặp, thái bình về tay"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-12",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Sông dài sóng lặng dần yên",
+      "Nay đường tiến bước, bình yên trong lòng",
+      "Quý nhân nâng đỡ qua sông",
+      "Việc hung thoát khỏi, ruộng đồng thái bình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-13",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Vận vương gặp ải khó qua",
+      "Mưu sâu tính đủ, vẫn là chưa xong",
+      "Cầu thần cũng tựa chèo sông",
+      "Thuyền lên bãi dốc, long đong giữa dòng"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-14",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Tiền tài dần tỏ đường đi",
+      "Hoa tàn rồi kết, đến kỳ trổ bông",
+      "An tâm đợi ánh trăng trong",
+      "Chàng trai gặp vận, trời hồng thái bình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-15",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Tám mươi mới gặp minh quân",
+      "Cuối đời Khương Tử Nha, quân Văn Vương",
+      "Việc gấp nay chớ vấn vương",
+      "Giữ mình chờ vận, mở đường hanh thông"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-16",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Chẳng cần cầu phúc xa xôi",
+      "Mưu toan cạn sức, đứng ngồi chẳng yên",
+      "Dương gian đâu biết âm miền",
+      "Phép quan như lửa, chẳng yên tự do"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-17",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Hận xưa chồng chất chưa nguôi",
+      "Trong nhà tai họa, thân người vẫn an",
+      "Nên tu phúc, giữ tâm an",
+      "Rồng rắn gặp hội, đôi bên hòa bình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-18",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Hỏi duyên cớ giữa lời bàn",
+      "Lộc ngựa chầu trước, mở đường công danh",
+      "Gặp người nâng đỡ lợi lành",
+      "Hai bên hòa hợp, phân minh rõ ràng"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-19",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Giàu sang do số trời trao",
+      "Lòng cao quá mức, lỡ vào hẹn xưa",
+      "Nếu không, quay lại đường xưa",
+      "Mây tan trăng tỏ, sớm vừa sáng trong"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-20",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Công danh trước mắt chưa thành",
+      "Chỉ e vận số, duyên lành rối ren",
+      "Hai nhà giữ chặt chớ quên",
+      "Lui chân dưỡng chí, đừng nên thở dài"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-21",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Mười phương Phật pháp thông linh",
+      "Tai ương mỗi nẻo, chẳng tình cờ đâu",
+      "Mặt trời soi thẳng trời cao",
+      "Quý nhân sẽ đến, cửa vào thêm vui"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-22",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Tám mươi Khương Tử dựng nhà",
+      "Trăng lên soi tỏ, bốn xa sáng ngời",
+      "Vận lành tự đến đúng thời",
+      "Mái tranh cũng được, việc đời hanh thông"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-23",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Muốn qua sông rộng mịt mù",
+      "Đường đi chưa thuận, vận chưa tới kỳ",
+      "Tay còn giữ sợi tơ kia",
+      "Chỉ e cá nước chưa về gặp nhau"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-24",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Trăng soi bốn bể sáng trong",
+      "Đường công lộc vị, thong dong thái bình",
+      "Mây tan chẳng vướng sự tình",
+      "Tai ương tránh khỏi, gia đình bình an"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-25",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Đường xa chớ nhọc tâm can",
+      "Cầu thần nhiều lượt, cũng tan công cầu",
+      "Qua ngày gà chó về sau",
+      "Không cần làm phúc, hỏi nhau thế nào"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-26",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Mẫu đơn đứng nhất vườn hoa",
+      "Gặp thời nên hái, chớ mà chậm chân",
+      "Ai tìm tri kỷ xa gần",
+      "Muôn điều gặp hội mùa xuân đúng kỳ"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-27",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "An lòng tự tại thong dong",
+      "Cửa nhà thanh tịnh, trong lòng hết lo",
+      "Của tiền tự đến đầy kho",
+      "Việc chi chẳng hại, khỏi lo cầu tìm"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-28",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Nay đừng tưởng việc đã rồi",
+      "Hổ sa đồng vắng, chó cười lấn thân",
+      "Việc đời khó định xa gần",
+      "Núi sông cách trở, bước chân ngập ngừng"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-29",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Cây khô tiếc chẳng gặp xuân",
+      "Nay còn ẩn khuất, âm thầm trong cây",
+      "An tâm chờ gió đổi thay",
+      "Trở về tạo dựng cơ đồ như xưa"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-30",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Trăng non dần sáng giữa trời",
+      "Qua rồi còn phải đợi thời vươn cao",
+      "Đổi thay sắc mặt bước vào",
+      "Việc đời lặp lại, lao đao nhiều lần"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-31",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Liễu xanh gặp buổi đang thì",
+      "Đường đi tùy chí, dựng gì cũng nên",
+      "Hoa đầy trái chín tự nhiên",
+      "Phúc lộc về cửa, bình yên mái nhà"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-32",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Rồng hùm gặp cửa liên can",
+      "Việc đôi bên ấy, buộc ràng với nhau",
+      "Vàng kia thoắt hóa sắt màu",
+      "Cầu chi thần thánh, trước sau ích gì"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-33",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Muốn sang sông rộng mịt mờ",
+      "Giữ tay lái vững, sóng chờ chẳng lay",
+      "Trong nhà chăm việc thiện ngay",
+      "Cá cùng nước gặp, từ nay nên thành"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-34",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Núi cao hiểm trở đã qua",
+      "Đường còn nhiều nấc, chớ mà ngại chi",
+      "Thấy lan quế nở xuân thì",
+      "Rắn dài hóa rồng, vận kỳ đổi thay"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-35",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Việc này chớ dụng cơ mưu",
+      "Đường sau biến đổi, tự lưu dấu mình",
+      "Dần dần gặp được hòa bình",
+      "Thoát vòng khốn khó, thái bình hiện ra"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-36",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Phúc như biển rộng núi cao",
+      "Cớ sao còn thở lời đau khổ hoài",
+      "Trong mệnh tự gặp vận may",
+      "Cầu xin rõ rệt, bình an đến nhà"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-37",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Vận thông danh phận đổi thay",
+      "Thân tâm gặp lợi, đường này có duyên",
+      "Một mai phía trước bình yên",
+      "Quyết lòng thì giữ, thanh yên mọi bề"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-38",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Danh vang rạng khắp trung châu",
+      "Chẳng cần cầu khấn, lòng sâu tự lành",
+      "Sớm hôm chờ hết ngày nhanh",
+      "Đến khi đắc ý, công thành trong tay"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-39",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Muốn tìm tiên lộ xa xăm",
+      "Khuyên lui, nhìn vọng lầu thâm phía ngoài",
+      "An tâm ngồi đợi ngày mai",
+      "Ắt người quý trọng dang tay đỡ mình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-40",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Một đời phú quý công danh",
+      "Cửa nhà rạng rỡ, tiếng lành gần xa",
+      "Việc này chẳng mất của nhà",
+      "Vợ chồng trăm tuổi, chan hòa bên nhau"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-41",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Đến đây khó đoán đường đi",
+      "Rượu ca thong thả, chờ tin đến nhà",
+      "Gà kêu chó sủa gần nhà",
+      "Duyên xưa kết mối, đôi ta nên tình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-42",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Một tầng sông núi lại xa",
+      "Ai hay đi nữa, đường qua nhọc nhằn",
+      "Đổi cầu bao lượt chẳng thành",
+      "Đúng sai kéo mãi, chưa lành bình an"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-43",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Một năm việc gấp như bay",
+      "Khuyên người thư thả, chớ thay lòng mình",
+      "Quý nhân còn cách nghìn trình",
+      "Trăng lên tin đến, tỏ tình gần xa"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-44",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Khách sang mở lối lợi về",
+      "Cớ sao đôi phía còn ngờ vực nhau",
+      "Giữa đường gặp lúc trước sau",
+      "Trăng soi vận đến, cơ đồ sáng lên"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-45",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Hoa tươi đã kết quả lành",
+      "Giàu sang vinh hiển, tuổi xanh đến già",
+      "Người hiền kẻ xấu giao hòa",
+      "Muôn điều thanh cát, cửa nhà thảnh thơi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-46",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Công danh đắc ý rạng ngời",
+      "Đường đi phú quý, thảnh thơi an lành",
+      "Trăng tròn soi tỏ duyên thành",
+      "Ngày rằm sum họp, trời xanh sáng đầy"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-47",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Cớ chi hỏi dấu thánh hiền",
+      "Lợi lành vốn ở trong miền tâm ta",
+      "Đợi khi trăng giữa tuần qua",
+      "Việc hung thoát khỏi, hóa ra việc lành"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-48",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Dương gian làm việc chưa hòa",
+      "Mây che ánh nguyệt, nhạt nhòa trước sau",
+      "Lòng mong tiến bước đường cao",
+      "Chỉ e vận số chưa vào hanh thông"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-49",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Lời nhiều chớ vội tin theo",
+      "Gió yên rồng ngủ, chưa neo giữa trời",
+      "Trong đêm rồi sẽ có lời",
+      "Cớ chi hỏi mãi, rối đời thêm chi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-50",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Trước Phật thề giữ một lòng",
+      "Đường sau ắt gặp tin hồng báo sang",
+      "Sắt kia rồi cũng hóa vàng",
+      "Đổi dời vận số, huy hoàng trong tay"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-51",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Đông tây nam bắc khó đi",
+      "Việc này trước mắt, cứ gìn giữ tâm",
+      "Khuyên người chớ để âm thầm",
+      "Cửa nhà tự có bình an hộ trì"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-52",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Công danh vốn bởi trời trao",
+      "Đừng đem lo nghĩ buộc vào tâm can",
+      "Hỏi nhanh hỏi chậm làm gì",
+      "Mây rồng gặp hội, cơ thì trước sau"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-53",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Hỏi điều chất chứa trong tim",
+      "Nhà lành tích đức, phúc thêm có thừa",
+      "Vận hanh tài lộc đón đưa",
+      "Ngày vui sắp đến, cửa vừa tràn hương"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-54",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Đèn đơn lặng giữa đêm sâu",
+      "Muôn điều thanh cát, trước sau nên thành",
+      "Nếu trong âm thầm gieo lành",
+      "Nén hương thơm thấu, thần minh chứng lòng"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-55",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Biết rằng tiến thoái hư không",
+      "Dấu cơ chưa tỏ, chớ mong vẹn toàn",
+      "Ngọc châu còn giấu chưa tan",
+      "Trong lòng cầu vọng, chỉ mang u hoài"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-56",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Trong cơn bệnh khổ nhọc lòng",
+      "Sau cùng tai ách cũng không đến mình",
+      "Việc qua chớ hỏi lại mình",
+      "Tâm tư rồi sẽ nhẹ tình tiêu tan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-57",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Khuyên người giữ vững lòng son",
+      "Đường đi thanh cát, gặp cơn vận lành",
+      "Sau cùng chẳng có việc kinh",
+      "Thần tiên che chở, mái tranh yên bình"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-58",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Thân rắn muốn hóa thành long",
+      "Chỉ e vận số chưa thông giữa đời",
+      "Bệnh lâu hãy nghỉ thảnh thơi",
+      "Lời nhiều chớ vội nghe lời mà theo"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-59",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Có lòng làm phúc chớ ngừng",
+      "Cầu danh gặp buổi thuận từng bước chân",
+      "Việc này ắt được hợp phần",
+      "Của tiền theo đến, niềm thân cùng về"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-60",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "lục bát 6-8-6-8",
+    "lines": [
+      "Trăng lên vốn sáng thanh bình",
+      "Mây che nhất thời, sắc hình âm u",
+      "Trong nhà chăm việc nhân từ",
+      "Làm quan phân xử, lợi phù đến tay"
+    ],
+    "status": "draft"
+  }
+]

@@ -1,0 +1,1302 @@
+[
+  {
+    "sourceId": "guandi_lingqian-1",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Puncak tinggi menyentuh awan",
+      "Lentera giok bersinar di pagi",
+      "Martabat tumbuh bersama keteguhan kawan",
+      "Berkah panjang menaungi lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-2",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pasang surut meninggalkan buih",
+      "Perahu tua berlabuh di muara",
+      "Terima perubahan dengan hati bersih",
+      "Perbaiki diri, jalan pun sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-3",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Padi muda menghijau di ladang",
+      "Burung pipit mandi di diri",
+      "Cukupkan hati, jangan tenang",
+      "Bakti dan setia menjemput negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-4",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Musim lalu harum melati",
+      "Bulan baru naik perlahan",
+      "Jaga ibadah dalam sehati",
+      "Jangan biarkan berkah harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-5",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Daun gugur di halaman",
+      "Ranting sunyi menunggu pagi",
+      "Rumah terasa sepi dalam tekanan",
+      "Kabar baik datang kemudian lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-6",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Seruling bambu berbunyi sumbang",
+      "Dua perahu berpapasan di kali",
+      "Jangan biarkan curiga berkembang",
+      "Redakan hati, hindari sengketa sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-7",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Angin gunung membawa wangi",
+      "Batu putih berkilau di telaga",
+      "Bakat luhur bersinar tinggi",
+      "Tekad tekun mengantar keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-8",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Cangkul tua berkilau di pagi",
+      "Lumbung sunyi menghadap halaman",
+      "Kerja tekun mengubah lagi",
+      "Musim baik mengisi kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-9",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kaca bundar diseka bukit",
+      "Surat jauh melintasi dahan",
+      "Kabar yang dinanti mendekat sulit",
+      "Wajah cerah menyambut ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-10",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kabut turun di atas berseri",
+      "Burung malam diam di tanah",
+      "Pulihkan sabar sebelum melangkah sendiri",
+      "Jangan menggantungkan nasib pada lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-11",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bunga baru merekah awan",
+      "Buah ranum jatuh ke pagi",
+      "Peluang datang dengan wajah kawan",
+      "Berdirilah teguh, jangan lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-12",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Benih padi disimpan buih",
+      "Awan hujan menjauh ke muara",
+      "Rencana lama belum tentu bersih",
+      "Bantuan jernih membuka jalan sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-13",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kail perak berayun ke ladang",
+      "Kelinci putih bersembunyi di diri",
+      "Tunda langkah sampai waktu tenang",
+      "Saat datang, keberanianmu akan negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-14",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bunga kenanga harum melati",
+      "Pasar ramai dekat perlahan",
+      "Pesona awal jangan menipu sehati",
+      "Kenali jalan sebelum harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-15",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Dua merpati terbang halaman",
+      "Dua kendi berdampingan di pagi",
+      "Kesetaraan menguatkan tekanan",
+      "Tunggulah waktu untuk lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-16",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Benang merah kusut di sumbang",
+      "Gendang jauh terdengar kali",
+      "Damai lebih baik daripada berkembang",
+      "Mintalah nasihat keluarga yang sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-17",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Sawah luas dibatasi wangi",
+      "Batu sungai berkilau di telaga",
+      "Jangan menambah luka lewat sengketa tinggi",
+      "Kemenangan semu membawa keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-18",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Akar beringin mencengkeram pagi",
+      "Kupu-kupu hinggap di halaman",
+      "Pijakkan niat pada kenyataan lagi",
+      "Kebaikan kembali lewat kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-19",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bulan muda muncul bukit",
+      "Kuda belang minum di dahan",
+      "Musim yang baik sulit",
+      "Kerja dan cinta menemukan ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-20",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Arus sungai membawa berseri",
+      "Kabut tipis menggantung di tanah",
+      "Lepaskan keluh, biarkan sendiri",
+      "Kejar makna, bukan kilau yang lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-21",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Benang lama tersimpan di awan",
+      "Pintu kuil menghadap pagi",
+      "Maafkan luka, jernihkan kawan",
+      "Doa lembut menjaga lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-22",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Teratai putih mekar buih",
+      "Embun bening turun muara",
+      "Keindahan lahir dari bersih",
+      "Hati luhur memancarkan sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-23",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kelopak jatuh di pagi ladang",
+      "Roda musim berputar diri",
+      "Jangan melekat pada tenang",
+      "Semua kemilau kembali ke negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-24",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Hujan awal mengetuk melati",
+      "Padi muda berbaris di perlahan",
+      "Sabar menunggu musim yang sehati",
+      "Hasil tiba setelah harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-25",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kelinci berlari di halaman",
+      "Ayam emas mencari pagi",
+      "Hambatan surut sedikit demi sedikit tekanan",
+      "Bunga tumbuh pada waktunya lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-26",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Awan berat menutup sumbang",
+      "Sawah retak menunggu kali",
+      "Jangan takut pada musim berkembang",
+      "Langit akan mengirim sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-27",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Biji kecil jatuh ke wangi",
+      "Rusa melintas dekat telaga",
+      "Hormati batas dalam mencari tinggi",
+      "Keberanian tunduk pada tata keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-28",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pohon besar berakar pagi",
+      "Palu pandai besi halaman",
+      "Kemuliaan lahir dari lagi",
+      "Bakat tumbuh bila terus kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-29",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Mata air keluar dari bukit",
+      "Pucuk bambu menjulang dahan",
+      "Warisan baik mengalir sulit",
+      "Rawat kebajikan setiap ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-30",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Buku tua terbuka di berseri",
+      "Lonceng pagi berbunyi tanah",
+      "Jujur menjaga langkah sendiri",
+      "Kabar baik datang di lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-31",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Angin dingin menyusuri awan",
+      "Bunga musim semi tumbuh di pagi",
+      "Sabar, keberuntungan datang kawan",
+      "Kabar keluarga menghangatkan lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-32",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Lampu kecil padam buih",
+      "Daun kering berputar di muara",
+      "Jangan habiskan hati untuk bersih",
+      "Istirahat memulihkan sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-33",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Utara selatan bertemu ladang",
+      "Burung hantu diam di diri",
+      "Carilah terang lewat belajar tenang",
+      "Budi menjembatani negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-34",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Empat musim berganti melati",
+      "Awan putih berarak ke perlahan",
+      "Saat bantuan tulus tiba sehati",
+      "Jangan hanyut oleh rasa harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-35",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bukit hijau menghadap halaman",
+      "Lampu minyak redup di pagi",
+      "Persatuan indah dijaga tekanan",
+      "Terimalah perpisahan dengan lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-36",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Burung rajawali terbang sumbang",
+      "Puncak jauh diselimuti kali",
+      "Bakat besar menanti berkembang",
+      "Jangan takut mengejar sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-37",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Asap dupa naik wangi",
+      "Cermin bening di dalam telaga",
+      "Nilai baik terlihat dalam tinggi",
+      "Jalan terbuka bagi hati keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-38",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Jangkrik bernyanyi di malam pagi",
+      "Surat lama terselip di halaman",
+      "Tunggu kabar tanpa menyiksa lagi",
+      "Musim bertukar membawa kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-39",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pagar utara teduh oleh bukit",
+      "Benih mungil tumbuh di dahan",
+      "Mulai dengan tertib setiap sulit",
+      "Rahasia jangan diumbar ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-40",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Rumah baru dicat berseri",
+      "Jalan batu berbelok ke tanah",
+      "Perubahan memberi arah yang sendiri",
+      "Setelah sulit terbentang lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-41",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Angin timur membawa awan",
+      "Kapal dagang berlabuh di pagi",
+      "Ke mana pun pergi, jaga kawan",
+      "Nama baik mengantar lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-42",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kain robek dijahit buih",
+      "Lampion tua bergoyang di muara",
+      "Ubahlah rencana dengan bersih",
+      "Usaha baru menyenangkan sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-43",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kertas merah dibawa ladang",
+      "Perahu cepat menembus diri",
+      "Pesan mendesak menuntut tenang",
+      "Berani melangkah, pulanglah negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-44",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Embun bening di daun melati",
+      "Batu cermin disimpan di perlahan",
+      "Jangan sia-siakan niat yang sehati",
+      "Tekad kukuh mendatangkan harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-45",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Cangkul tajam membelah halaman",
+      "Benih disusun dekat pagi",
+      "Rawat batin, bukan sekadar tekanan",
+      "Kebajikan menjauhkan lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-46",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kerbau putih turun ke sumbang",
+      "Rumput basah disinari kali",
+      "Kesederhanaan membebaskan berkembang",
+      "Jangan menukar damai dengan sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-47",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pena bambu menari di wangi",
+      "Lonceng kecil berdentang di telaga",
+      "Sengketa akan berakhir pahit dan tinggi",
+      "Sentuh nurani sebelum membalas keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-48",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pendaki naik saat pagi",
+      "Kabut menggantung di halaman",
+      "Keluarga menjadi tempat lagi",
+      "Saling menjaga menumbuhkan kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-49",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Satu bukit tampak dari bukit",
+      "Jam pasir jatuh dahan",
+      "Jarak dekat pun terasa sulit",
+      "Gunakan waktu untuk ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-50",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Tahun baru membawa berseri",
+      "Kendi tanah diletakkan di tanah",
+      "Jaga rukun setiap sendiri",
+      "Tutup telinga dari fitnah dan lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-51",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Air mengalir mencari awan",
+      "Benih kecil menunggu pagi",
+      "Percaya proses, tenangkan kawan",
+      "Yang sempat tertunda menjadi lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-52",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Lampu tunggal menjaga buih",
+      "Perahu kecil berayun di muara",
+      "Kesunyian dapat menata pikiran bersih",
+      "Kabar rezeki tiba lewat sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-53",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Burung selatan mencari ladang",
+      "Batu jalan basah oleh diri",
+      "Rintangan terlewati bila hati tenang",
+      "Pertolongan datang pada negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-54",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Elang muda mengepak melati",
+      "Buku tua terbuka di perlahan",
+      "Cita-cita tumbuh lewat belajar sehati",
+      "Tekun bekerja menuju harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-55",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Petani bangun sebelum halaman",
+      "Lumbung jagung harum di pagi",
+      "Kerja cukup mencukupi tekanan",
+      "Jangan dikuasai tamak lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-56",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kain putih dicuci di sumbang",
+      "Pagar miring menutup kali",
+      "Kebenaran tak dapat disamarkan berkembang",
+      "Kecurangan kembali sebagai sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-57",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Guntur jauh mengguncang wangi",
+      "Benang kusut mengikat telaga",
+      "Jangan ikut suara tinggi",
+      "Pertimbangkan hati sebelum bertindak keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-58",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pena merah menari di pagi",
+      "Kuda berlari di halaman",
+      "Kecakapan tumbuh dari lagi",
+      "Budi baik melapangkan masa kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-59",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Rumah tua sunyi bukit",
+      "Asap dupa naik dahan",
+      "Warisan baik masih menjaga sulit",
+      "Kasih keluarga memanjangkan ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-60",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Dua burung hinggap di berseri",
+      "Bunga kuning mekar di tanah",
+      "Rendah hati membawa sendiri",
+      "Keberhasilan tumbuh bersama lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-61",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Serigala bersembunyi di awan",
+      "Pagar bambu berdiri di pagi",
+      "Jangan takut pada kawan",
+      "Keteguhan menjaga lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-62",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Harimau loreng turun ke buih",
+      "Tombak tua tersandar di muara",
+      "Hadapi bahaya dengan bersih",
+      "Setelah menang, pulanglah sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-63",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Perahu mundur diterpa ladang",
+      "Kaki tua meniti diri",
+      "Jatuh bukan akhir, bangkit tenang",
+      "Hitung pengalaman, lalu bangkit negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-64",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Dua arus bertemu melati",
+      "Nelayan berbagi perlahan",
+      "Kerja bersama meringankan sehati",
+      "Musyawarah menumbuhkan hasil harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-65",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Angin utara menusuk halaman",
+      "Salju embun jatuh ke pagi",
+      "Musim baru membawa tekanan",
+      "Kata jujur membuka lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-66",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Cangkul berkilat di sumbang",
+      "Sawah hijau menghadap kali",
+      "Bangun dari tanah berkembang",
+      "Rumahmu disinari sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-67",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Burung kecil belajar terbang wangi",
+      "Pohon ara tumbuh di telaga",
+      "Niat baik sudah terlihat di tinggi",
+      "Perbaiki sikap, hadirkan keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-68",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Mutiara laut berkilau pagi",
+      "Karung garam tersusun di halaman",
+      "Cukupkan hasrat agar damai lagi",
+      "Jangan menukar tenang dengan kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-69",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Sampan menepi di bukit",
+      "Jalan tanah mengarah ke dahan",
+      "Pilih sahabat dengan sulit",
+      "Canda semalam jangan berubah ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-70",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Petir membelah berseri",
+      "Hujan jatuh ke tanah tanah",
+      "Ketulusan mengundang sendiri",
+      "Sabar menanti musim yang lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-71",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Burung murai bernyanyi awan",
+      "Daun merah jatuh ke pagi",
+      "Kabar baik mendekat kawan",
+      "Rindu terbalas dalam lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-72",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Parit kecil membelah buih",
+      "Matahari condong ke muara",
+      "Jalan jauh memerlukan bersih",
+      "Tunggu giliran sebelum sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-73",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pita sutra disimpan di ladang",
+      "Bunga mawar layu di diri",
+      "Harapan cinta jangan dipaksa tenang",
+      "Kejujuran lebih baik daripada negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-74",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Tebing batu menjulang melati",
+      "Bunga liar tumbuh di perlahan",
+      "Hati jernih melewati sehati",
+      "Pulang membawa musim harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-75",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Dua burung berbagi halaman",
+      "Kain batik terbentang di pagi",
+      "Pasangan setara saling tekanan",
+      "Bahagia tak diukur lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-76",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Buku hukum berdebu di sumbang",
+      "Lilin kecil menyala di kali",
+      "Setiap pilihan kembali ke berkembang",
+      "Rawat budi agar hidup sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-77",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Akar pohon menyusur wangi",
+      "Mata air berkilau di telaga",
+      "Cari sebab sebelum tinggi",
+      "Hindari sengketa, pilih keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-78",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Lumbung penuh di tepi pagi",
+      "Padi kering tersusun di halaman",
+      "Kaya tak berarti tanpa lagi",
+      "Berkah dan bencana tumbuh dari kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-79",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Naga awan melingkar bukit",
+      "Kompas tua terletak di dahan",
+      "Teliti arah sebelum sulit",
+      "Rumah tenteram lahir dari ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-80",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pintu tertutup menjelang berseri",
+      "Batu nisan basah oleh tanah",
+      "Jangan abaikan tanda yang sendiri",
+      "Benahi akar sebelum lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-81",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Cermin besar memantulkan awan",
+      "Koin tua berkilau di pagi",
+      "Kembalikan hak dengan rendah kawan",
+      "Kebenaran membongkar tipu daya lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-82",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pohon randu berbunga buih",
+      "Dua kursi menunggu di muara",
+      "Sahabat baik layak bersih",
+      "Kerja sama mengantar sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-83",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Nasi hangat mengepul ladang",
+      "Piring tanah tersusun di diri",
+      "Syukuri bagian sepenuh tenang",
+      "Hidup tenteram tak selalu negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-84",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Benang panjang kusut di melati",
+      "Lonceng angin berbunyi di perlahan",
+      "Pikirkan langkah sebelum sehati",
+      "Tegakkan adab agar hati tak harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-85",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Hujan musim mengetuk halaman",
+      "Burung jauh terbang ke pagi",
+      "Ubahlah beban menjadi tekanan",
+      "Pulang perlahan mencari lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-86",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Perahu dagang berlayar sumbang",
+      "Keranjang rotan penuh di kali",
+      "Sedikit demi sedikit mencukupi berkembang",
+      "Bandingkan diri hanya untuk sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-87",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Bambu rapat menutup wangi",
+      "Pisau kecil berkilau di telaga",
+      "Waspada pada senyum yang tinggi",
+      "Jaga batas agar damai keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-88",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Benih lama tumbuh pagi",
+      "Pagi baru membuka halaman",
+      "Usaha berbuah setelah lagi",
+      "Rendah hati menjaga kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-89",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Guci tanah menunggu bukit",
+      "Kuda putih meringkik di dahan",
+      "Nyanyikan sabar sebelum sulit",
+      "Waktu matang membawa ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-90",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kota batu diliputi berseri",
+      "Pintu kayu berderit tanah",
+      "Jangan menambah kusut dengan sendiri",
+      "Pilih diam, rawat lengah"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-91",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pasir pantai berkilau awan",
+      "Ayakan bambu tersandar di pagi",
+      "Ilmu menyingkap nilai kawan",
+      "Tekun membaca memperluas lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-92",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Padi pendek menguning buih",
+      "Pasar ramai oleh muara",
+      "Masa sulit perlu hati bersih",
+      "Setelah gelap datang sejahtera"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-93",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Hujan panjang membasahi ladang",
+      "Awan gelap bergeser diri",
+      "Simpan sabar hingga langit tenang",
+      "Tanah subur menyambut negeri"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-94",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Papan kayu dipahat melati",
+      "Roda tua berputar di perlahan",
+      "Karya baik tumbuh dari sehati",
+      "Kesempatan hadir pada harapan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-95",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Mutiara kecil tersembunyi di halaman",
+      "Orang tua menunggu di pagi",
+      "Bakatmu tetap hidup dalam tekanan",
+      "Bantuan datang membawa lagi"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-96",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kuncup mawar tertutup sumbang",
+      "Ayunan bambu bergoyang di kali",
+      "Jangan ukur kasih dengan tergesa berkembang",
+      "Keluarga tumbuh dari sekali"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-97",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Pohon tua tetap wangi",
+      "Gunung biru tampak dari telaga",
+      "Berkah datang setelah rendah tinggi",
+      "Kebaikan memanjangkan keluarga"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-98",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Kapal lelah pulang pagi",
+      "Dahan kering menunggu halaman",
+      "Musim baru menghidupkan lagi",
+      "Kerja sabar membuka kehidupan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-99",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Awan tipis melayang bukit",
+      "Mata air jernih turun ke dahan",
+      "Pertemuan baik memberi sulit",
+      "Kasih sederhana bertahan ramalan"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "guandi_lingqian-100",
+    "system": "guandi_lingqian",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": [
+      "Petir terang membelah berseri",
+      "Dupa harum naik ke tanah",
+      "Niat tulus menuntun sendiri",
+      "Kejujuran mengantar urusan lengah"
+    ],
+    "status": "draft"
+  }
+]

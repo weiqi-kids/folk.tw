@@ -1,0 +1,5282 @@
+[
+  {
+    "sourceId": "baosheng_yaoqian-surgical-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 1,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mực cũ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-1",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 2,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu trăng non qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-2",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 3,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mây trắng qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-3",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 4,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu lá biếc qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-4",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 5,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu chuông sớm qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-5",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 6,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu đèn khuya qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-6",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 7,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu bến cũ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-7",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 8,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu cánh én qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-8",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 9,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hoa rụng qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-9",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 10,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu tiếng mõ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-10",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 11,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mưa bụi qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-11",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 12,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu nắng nhạt qua buổi xưa",
+      "Bên liếp tre nghe chuyện xưa về thưa",
+      "Bóng gió đưa soi về thưa",
+      "Giữ liếp tre trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-12",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 13,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sóng vỗ qua buổi xưa",
+      "Bên vạt cát nghe chuyện xưa về thưa",
+      "Bóng bờ xa soi về thưa",
+      "Giữ vạt cát trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-13",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 14,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sen nở qua buổi xưa",
+      "Bên bóng nước nghe chuyện xưa về thưa",
+      "Bóng hồ thu soi về thưa",
+      "Giữ bóng nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-14",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 15,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu chim gọi qua buổi xưa",
+      "Bên lối núi nghe chuyện xưa về thưa",
+      "Bóng rừng xanh soi về thưa",
+      "Giữ lối núi trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-15",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 16,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu bếp ấm qua buổi xưa",
+      "Bên mùi rơm nghe chuyện xưa về thưa",
+      "Bóng tối yên soi về thưa",
+      "Giữ mùi rơm trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-16",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 17,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu áo vải qua buổi xưa",
+      "Bên gian nhà nghe chuyện xưa về thưa",
+      "Bóng tay hiền soi về thưa",
+      "Giữ gian nhà trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-17",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 18,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mẹ ngồi qua buổi xưa",
+      "Bên mắt trong nghe chuyện xưa về thưa",
+      "Bóng con cười soi về thưa",
+      "Giữ mắt trong trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-18",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 19,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu lời ru qua buổi xưa",
+      "Bên võng đưa nghe chuyện xưa về thưa",
+      "Bóng đêm sâu soi về thưa",
+      "Giữ võng đưa trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-19",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 20,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sáo trúc qua buổi xưa",
+      "Bên bờ giậu nghe chuyện xưa về thưa",
+      "Bóng chiều thanh soi về thưa",
+      "Giữ bờ giậu trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-20",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 21,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mùi đất qua buổi xưa",
+      "Bên luống rau nghe chuyện xưa về thưa",
+      "Bóng sau mưa soi về thưa",
+      "Giữ luống rau trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-21",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 22,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu cành liễu qua buổi xưa",
+      "Bên đáy nước nghe chuyện xưa về thưa",
+      "Bóng ven hồ soi về thưa",
+      "Giữ đáy nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-22",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 23,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hạt nắng qua buổi xưa",
+      "Ven lối vườn người gọi xưa về thưa",
+      "Hương trên vai vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-23",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 24,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu dòng chữ qua buổi xưa",
+      "Ven trang sách người gọi xưa về thưa",
+      "Hương nghiêng nghiêng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-24",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 25,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu màu giấy qua buổi xưa",
+      "Ven góc tủ người gọi xưa về thưa",
+      "Hương phai dần vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-25",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 26,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu vệt khói qua buổi xưa",
+      "Ven chiều vắng người gọi xưa về thưa",
+      "Hương lưng đồi vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-26",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 27,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mây núi qua buổi xưa",
+      "Ven đèo cao người gọi xưa về thưa",
+      "Hương che ngang vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-27",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 28,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu vầng nguyệt qua buổi xưa",
+      "Ven sân gạch người gọi xưa về thưa",
+      "Hương soi đầy vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-28",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 29,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu gió biển qua buổi xưa",
+      "Ven cửa nhà người gọi xưa về thưa",
+      "Hương lồng lộng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-29",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 30,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hương cỏ qua buổi xưa",
+      "Ven bóng cây người gọi xưa về thưa",
+      "Hương ven đường vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-30",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 31,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mực cũ qua buổi lành",
+      "Ven hiên vắng người gọi lành về xanh",
+      "Hương bóng chiều vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-31",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 32,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu trăng non qua buổi lành",
+      "Ven bờ tre người gọi lành về xanh",
+      "Hương gió lành vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-32",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 33,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mây trắng qua buổi lành",
+      "Ven đường quê người gọi lành về xanh",
+      "Hương nắng mai vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-33",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 34,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu lá biếc qua buổi lành",
+      "Bên vườn cau còn vọng lành rồi xanh",
+      "Lối sương trong dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-34",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 35,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu chuông sớm qua buổi lành",
+      "Bên mái ngói còn vọng lành rồi xanh",
+      "Lối khói lam dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-35",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 36,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu đèn khuya qua buổi lành",
+      "Bên bậc đá còn vọng lành rồi xanh",
+      "Lối song thưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-36",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 37,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu bến cũ qua buổi lành",
+      "Bên con đò còn vọng lành rồi xanh",
+      "Lối nước xanh dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-37",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 38,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu cánh én qua buổi lành",
+      "Bên ruộng đồng còn vọng lành rồi xanh",
+      "Lối mùa sang dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-38",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 39,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hoa rụng qua buổi lành",
+      "Bên thềm rêu còn vọng lành rồi xanh",
+      "Lối hương bay dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-39",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 40,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu tiếng mõ qua buổi lành",
+      "Bên cổng chùa còn vọng lành rồi xanh",
+      "Lối chiều buông dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-40",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 41,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mưa bụi qua buổi lành",
+      "Bên ngõ nhỏ còn vọng lành rồi xanh",
+      "Lối ngày êm dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-41",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 42,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu nắng nhạt qua buổi lành",
+      "Bên liếp tre còn vọng lành rồi xanh",
+      "Lối gió đưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-42",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 43,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sóng vỗ qua buổi lành",
+      "Bên vạt cát còn vọng lành rồi xanh",
+      "Lối bờ xa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-43",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 44,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sen nở qua buổi lành",
+      "Bên bóng nước còn vọng lành rồi xanh",
+      "Lối hồ thu dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-44",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 45,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu chim gọi qua buổi lành",
+      "Qua lối núi ai giữ lành trong xanh",
+      "Gió rừng xanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-45",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 46,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu bếp ấm qua buổi lành",
+      "Qua mùi rơm ai giữ lành trong xanh",
+      "Gió tối yên về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-46",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 47,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu áo vải qua buổi lành",
+      "Qua gian nhà ai giữ lành trong xanh",
+      "Gió tay hiền về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-47",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 48,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mẹ ngồi qua buổi lành",
+      "Qua mắt trong ai giữ lành trong xanh",
+      "Gió con cười về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-48",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 49,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu lời ru qua buổi lành",
+      "Qua võng đưa ai giữ lành trong xanh",
+      "Gió đêm sâu về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-49",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 50,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu sáo trúc qua buổi lành",
+      "Qua bờ giậu ai giữ lành trong xanh",
+      "Gió chiều thanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-50",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 51,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mùi đất qua buổi lành",
+      "Qua luống rau ai giữ lành trong xanh",
+      "Gió sau mưa về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-51",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 52,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu cành liễu qua buổi lành",
+      "Qua đáy nước ai giữ lành trong xanh",
+      "Gió ven hồ về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-52",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 53,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hạt nắng qua buổi lành",
+      "Qua lối vườn ai giữ lành trong xanh",
+      "Gió trên vai về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-53",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 54,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu dòng chữ qua buổi lành",
+      "Qua trang sách ai giữ lành trong xanh",
+      "Gió nghiêng nghiêng về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-54",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 55,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu màu giấy qua buổi lành",
+      "Qua góc tủ ai giữ lành trong xanh",
+      "Gió phai dần về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-55",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 56,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu vệt khói qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-56",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 57,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu mây núi qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-57",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 58,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu vầng nguyệt qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-58",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 59,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu gió biển qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-59",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "ngoại khoa",
+    "no": 60,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Dấu hương cỏ qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-surgical-60",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 1,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mực cũ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-1",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 2,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người trăng non qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-2",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 3,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây trắng qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-3",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 4,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lá biếc qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-4",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 5,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chuông sớm qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-5",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 6,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người đèn khuya qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-6",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 7,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bến cũ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-7",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 8,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cánh én qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-8",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 9,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hoa rụng qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-9",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 10,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người tiếng mõ qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-10",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 11,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mưa bụi qua buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-11",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 12,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người nắng nhạt qua buổi xưa",
+      "Bên liếp tre nghe chuyện xưa về thưa",
+      "Bóng gió đưa soi về thưa",
+      "Giữ liếp tre trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-12",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 13,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sóng vỗ qua buổi xưa",
+      "Bên vạt cát nghe chuyện xưa về thưa",
+      "Bóng bờ xa soi về thưa",
+      "Giữ vạt cát trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-13",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 14,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sen nở qua buổi xưa",
+      "Bên bóng nước nghe chuyện xưa về thưa",
+      "Bóng hồ thu soi về thưa",
+      "Giữ bóng nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-14",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 15,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chim gọi qua buổi xưa",
+      "Bên lối núi nghe chuyện xưa về thưa",
+      "Bóng rừng xanh soi về thưa",
+      "Giữ lối núi trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-15",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 16,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bếp ấm qua buổi xưa",
+      "Bên mùi rơm nghe chuyện xưa về thưa",
+      "Bóng tối yên soi về thưa",
+      "Giữ mùi rơm trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-16",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 17,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người áo vải qua buổi xưa",
+      "Bên gian nhà nghe chuyện xưa về thưa",
+      "Bóng tay hiền soi về thưa",
+      "Giữ gian nhà trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-17",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 18,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mẹ ngồi qua buổi xưa",
+      "Bên mắt trong nghe chuyện xưa về thưa",
+      "Bóng con cười soi về thưa",
+      "Giữ mắt trong trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-18",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 19,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lời ru qua buổi xưa",
+      "Bên võng đưa nghe chuyện xưa về thưa",
+      "Bóng đêm sâu soi về thưa",
+      "Giữ võng đưa trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-19",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 20,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sáo trúc qua buổi xưa",
+      "Bên bờ giậu nghe chuyện xưa về thưa",
+      "Bóng chiều thanh soi về thưa",
+      "Giữ bờ giậu trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-20",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 21,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mùi đất qua buổi xưa",
+      "Bên luống rau nghe chuyện xưa về thưa",
+      "Bóng sau mưa soi về thưa",
+      "Giữ luống rau trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-21",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 22,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cành liễu qua buổi xưa",
+      "Bên đáy nước nghe chuyện xưa về thưa",
+      "Bóng ven hồ soi về thưa",
+      "Giữ đáy nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-22",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 23,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hạt nắng qua buổi xưa",
+      "Ven lối vườn người gọi xưa về thưa",
+      "Hương trên vai vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-23",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 24,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người dòng chữ qua buổi xưa",
+      "Ven trang sách người gọi xưa về thưa",
+      "Hương nghiêng nghiêng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-24",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 25,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người màu giấy qua buổi xưa",
+      "Ven góc tủ người gọi xưa về thưa",
+      "Hương phai dần vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-25",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 26,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vệt khói qua buổi xưa",
+      "Ven chiều vắng người gọi xưa về thưa",
+      "Hương lưng đồi vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-26",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 27,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây núi qua buổi xưa",
+      "Ven đèo cao người gọi xưa về thưa",
+      "Hương che ngang vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-27",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 28,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vầng nguyệt qua buổi xưa",
+      "Ven sân gạch người gọi xưa về thưa",
+      "Hương soi đầy vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-28",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 29,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người gió biển qua buổi xưa",
+      "Ven cửa nhà người gọi xưa về thưa",
+      "Hương lồng lộng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-29",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 30,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hương cỏ qua buổi xưa",
+      "Ven bóng cây người gọi xưa về thưa",
+      "Hương ven đường vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-30",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 31,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mực cũ qua buổi lành",
+      "Ven hiên vắng người gọi lành về xanh",
+      "Hương bóng chiều vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-31",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 32,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người trăng non qua buổi lành",
+      "Ven bờ tre người gọi lành về xanh",
+      "Hương gió lành vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-32",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 33,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây trắng qua buổi lành",
+      "Ven đường quê người gọi lành về xanh",
+      "Hương nắng mai vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-33",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 34,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lá biếc qua buổi lành",
+      "Bên vườn cau còn vọng lành rồi xanh",
+      "Lối sương trong dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-34",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 35,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chuông sớm qua buổi lành",
+      "Bên mái ngói còn vọng lành rồi xanh",
+      "Lối khói lam dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-35",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 36,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người đèn khuya qua buổi lành",
+      "Bên bậc đá còn vọng lành rồi xanh",
+      "Lối song thưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-36",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 37,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bến cũ qua buổi lành",
+      "Bên con đò còn vọng lành rồi xanh",
+      "Lối nước xanh dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-37",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 38,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cánh én qua buổi lành",
+      "Bên ruộng đồng còn vọng lành rồi xanh",
+      "Lối mùa sang dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-38",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 39,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hoa rụng qua buổi lành",
+      "Bên thềm rêu còn vọng lành rồi xanh",
+      "Lối hương bay dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-39",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 40,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người tiếng mõ qua buổi lành",
+      "Bên cổng chùa còn vọng lành rồi xanh",
+      "Lối chiều buông dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-40",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 41,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mưa bụi qua buổi lành",
+      "Bên ngõ nhỏ còn vọng lành rồi xanh",
+      "Lối ngày êm dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-41",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 42,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người nắng nhạt qua buổi lành",
+      "Bên liếp tre còn vọng lành rồi xanh",
+      "Lối gió đưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-42",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 43,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sóng vỗ qua buổi lành",
+      "Bên vạt cát còn vọng lành rồi xanh",
+      "Lối bờ xa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-43",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 44,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sen nở qua buổi lành",
+      "Bên bóng nước còn vọng lành rồi xanh",
+      "Lối hồ thu dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-44",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 45,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chim gọi qua buổi lành",
+      "Qua lối núi ai giữ lành trong xanh",
+      "Gió rừng xanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-45",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 46,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bếp ấm qua buổi lành",
+      "Qua mùi rơm ai giữ lành trong xanh",
+      "Gió tối yên về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-46",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 47,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người áo vải qua buổi lành",
+      "Qua gian nhà ai giữ lành trong xanh",
+      "Gió tay hiền về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-47",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 48,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mẹ ngồi qua buổi lành",
+      "Qua mắt trong ai giữ lành trong xanh",
+      "Gió con cười về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-48",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 49,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lời ru qua buổi lành",
+      "Qua võng đưa ai giữ lành trong xanh",
+      "Gió đêm sâu về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-49",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 50,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sáo trúc qua buổi lành",
+      "Qua bờ giậu ai giữ lành trong xanh",
+      "Gió chiều thanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-50",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 51,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mùi đất qua buổi lành",
+      "Qua luống rau ai giữ lành trong xanh",
+      "Gió sau mưa về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-51",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 52,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cành liễu qua buổi lành",
+      "Qua đáy nước ai giữ lành trong xanh",
+      "Gió ven hồ về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-52",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 53,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hạt nắng qua buổi lành",
+      "Qua lối vườn ai giữ lành trong xanh",
+      "Gió trên vai về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-53",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 54,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người dòng chữ qua buổi lành",
+      "Qua trang sách ai giữ lành trong xanh",
+      "Gió nghiêng nghiêng về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-54",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 55,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người màu giấy qua buổi lành",
+      "Qua góc tủ ai giữ lành trong xanh",
+      "Gió phai dần về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-55",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 56,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vệt khói qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-56",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 57,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây núi qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-57",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 58,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vầng nguyệt qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-58",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 59,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người gió biển qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-59",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 60,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hương cỏ qua buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-60",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 61,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mực cũ qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-61",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 62,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người trăng non qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-62",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 63,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây trắng qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-63",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 64,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lá biếc qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-64",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 65,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chuông sớm qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-65",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 66,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người đèn khuya qua buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-66",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 67,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bến cũ qua buổi trong",
+      "Bên con đò nghe chuyện trong về sông",
+      "Bóng nước xanh soi về sông",
+      "Giữ con đò trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-67",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 68,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cánh én qua buổi trong",
+      "Bên ruộng đồng nghe chuyện trong về sông",
+      "Bóng mùa sang soi về sông",
+      "Giữ ruộng đồng trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-68",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 69,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hoa rụng qua buổi trong",
+      "Bên thềm rêu nghe chuyện trong về sông",
+      "Bóng hương bay soi về sông",
+      "Giữ thềm rêu trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-69",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 70,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người tiếng mõ qua buổi trong",
+      "Bên cổng chùa nghe chuyện trong về sông",
+      "Bóng chiều buông soi về sông",
+      "Giữ cổng chùa trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-70",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 71,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mưa bụi qua buổi trong",
+      "Bên ngõ nhỏ nghe chuyện trong về sông",
+      "Bóng ngày êm soi về sông",
+      "Giữ ngõ nhỏ trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-71",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 72,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người nắng nhạt qua buổi trong",
+      "Bên liếp tre nghe chuyện trong về sông",
+      "Bóng gió đưa soi về sông",
+      "Giữ liếp tre trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-72",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 73,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sóng vỗ qua buổi trong",
+      "Bên vạt cát nghe chuyện trong về sông",
+      "Bóng bờ xa soi về sông",
+      "Giữ vạt cát trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-73",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 74,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sen nở qua buổi trong",
+      "Bên bóng nước nghe chuyện trong về sông",
+      "Bóng hồ thu soi về sông",
+      "Giữ bóng nước trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-74",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 75,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chim gọi qua buổi trong",
+      "Bên lối núi nghe chuyện trong về sông",
+      "Bóng rừng xanh soi về sông",
+      "Giữ lối núi trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-75",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 76,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bếp ấm qua buổi trong",
+      "Bên mùi rơm nghe chuyện trong về sông",
+      "Bóng tối yên soi về sông",
+      "Giữ mùi rơm trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-76",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 77,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người áo vải qua buổi trong",
+      "Bên gian nhà nghe chuyện trong về sông",
+      "Bóng tay hiền soi về sông",
+      "Giữ gian nhà trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-77",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 78,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mẹ ngồi qua buổi trong",
+      "Ven mắt trong người gọi trong về sông",
+      "Hương con cười vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-78",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 79,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lời ru qua buổi trong",
+      "Ven võng đưa người gọi trong về sông",
+      "Hương đêm sâu vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-79",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 80,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sáo trúc qua buổi trong",
+      "Ven bờ giậu người gọi trong về sông",
+      "Hương chiều thanh vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-80",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 81,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mùi đất qua buổi trong",
+      "Ven luống rau người gọi trong về sông",
+      "Hương sau mưa vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-81",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 82,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cành liễu qua buổi trong",
+      "Ven đáy nước người gọi trong về sông",
+      "Hương ven hồ vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-82",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 83,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hạt nắng qua buổi trong",
+      "Ven lối vườn người gọi trong về sông",
+      "Hương trên vai vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-83",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 84,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người dòng chữ qua buổi trong",
+      "Ven trang sách người gọi trong về sông",
+      "Hương nghiêng nghiêng vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-84",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 85,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người màu giấy qua buổi trong",
+      "Ven góc tủ người gọi trong về sông",
+      "Hương phai dần vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-85",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 86,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vệt khói qua buổi trong",
+      "Ven chiều vắng người gọi trong về sông",
+      "Hương lưng đồi vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-86",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 87,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây núi qua buổi trong",
+      "Ven đèo cao người gọi trong về sông",
+      "Hương che ngang vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-87",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 88,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vầng nguyệt qua buổi trong",
+      "Ven sân gạch người gọi trong về sông",
+      "Hương soi đầy vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-88",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 89,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người gió biển qua buổi trong",
+      "Bên cửa nhà còn vọng trong rồi sông",
+      "Lối lồng lộng dẫn tới sông",
+      "Đời quê lặng gửi lại sông cùng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-89",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 90,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hương cỏ qua buổi trong",
+      "Bên bóng cây còn vọng trong rồi sông",
+      "Lối ven đường dẫn tới sông",
+      "Đời quê lặng gửi lại sông cùng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-90",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-91",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 91,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mực cũ qua buổi về",
+      "Bên hiên vắng còn vọng về rồi quê",
+      "Lối bóng chiều dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-91",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-92",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 92,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người trăng non qua buổi về",
+      "Bên bờ tre còn vọng về rồi quê",
+      "Lối gió lành dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-92",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-93",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 93,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây trắng qua buổi về",
+      "Bên đường quê còn vọng về rồi quê",
+      "Lối nắng mai dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-93",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-94",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 94,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lá biếc qua buổi về",
+      "Bên vườn cau còn vọng về rồi quê",
+      "Lối sương trong dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-94",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-95",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 95,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chuông sớm qua buổi về",
+      "Bên mái ngói còn vọng về rồi quê",
+      "Lối khói lam dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-95",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-96",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 96,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người đèn khuya qua buổi về",
+      "Bên bậc đá còn vọng về rồi quê",
+      "Lối song thưa dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-96",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-97",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 97,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bến cũ qua buổi về",
+      "Bên con đò còn vọng về rồi quê",
+      "Lối nước xanh dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-97",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-98",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 98,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cánh én qua buổi về",
+      "Bên ruộng đồng còn vọng về rồi quê",
+      "Lối mùa sang dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-98",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-99",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 99,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hoa rụng qua buổi về",
+      "Bên thềm rêu còn vọng về rồi quê",
+      "Lối hương bay dẫn tới quê",
+      "Đời quê lặng gửi lại quê cùng bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-99",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-100",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 100,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người tiếng mõ qua buổi về",
+      "Qua cổng chùa ai giữ về trong quê",
+      "Gió chiều buông về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-100",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-101",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 101,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mưa bụi qua buổi về",
+      "Qua ngõ nhỏ ai giữ về trong quê",
+      "Gió ngày êm về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-101",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-102",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 102,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người nắng nhạt qua buổi về",
+      "Qua liếp tre ai giữ về trong quê",
+      "Gió gió đưa về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-102",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-103",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 103,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sóng vỗ qua buổi về",
+      "Qua vạt cát ai giữ về trong quê",
+      "Gió bờ xa về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-103",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-104",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 104,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sen nở qua buổi về",
+      "Qua bóng nước ai giữ về trong quê",
+      "Gió hồ thu về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-104",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-105",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 105,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người chim gọi qua buổi về",
+      "Qua lối núi ai giữ về trong quê",
+      "Gió rừng xanh về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-105",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-106",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 106,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người bếp ấm qua buổi về",
+      "Qua mùi rơm ai giữ về trong quê",
+      "Gió tối yên về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-106",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-107",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 107,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người áo vải qua buổi về",
+      "Qua gian nhà ai giữ về trong quê",
+      "Gió tay hiền về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-107",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-108",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 108,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mẹ ngồi qua buổi về",
+      "Qua mắt trong ai giữ về trong quê",
+      "Gió con cười về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-108",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-109",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 109,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người lời ru qua buổi về",
+      "Qua võng đưa ai giữ về trong quê",
+      "Gió đêm sâu về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-109",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-110",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 110,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người sáo trúc qua buổi về",
+      "Qua bờ giậu ai giữ về trong quê",
+      "Gió chiều thanh về tận quê",
+      "Chút tình còn neo lại quê bên bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-110",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-111",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 111,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mùi đất qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-111",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-112",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 112,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người cành liễu qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-112",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-113",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 113,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hạt nắng qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-113",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-114",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 114,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người dòng chữ qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-114",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-115",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 115,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người màu giấy qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-115",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-116",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 116,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vệt khói qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-116",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-117",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 117,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người mây núi qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-117",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-118",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 118,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người vầng nguyệt qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-118",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-119",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 119,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người gió biển qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-119",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-120",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "đại nhân",
+    "no": 120,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Người hương cỏ qua buổi về",
+      "Bên hiên ai nhắc chuyện về miền quê",
+      "Lối xưa tìm lại miền quê",
+      "Để hồn ở lại miền quê thanh bình"
+    ],
+    "safetyLink": "baosheng_yaoqian-adult-120",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 1,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mực cũ trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-1",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 2,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt trăng non trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-2",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 3,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mây trắng trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-3",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 4,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt lá biếc trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-4",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 5,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt chuông sớm trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-5",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 6,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt đèn khuya trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-6",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 7,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt bến cũ trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-7",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 8,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt cánh én trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-8",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 9,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hoa rụng trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-9",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 10,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt tiếng mõ trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-10",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 11,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mưa bụi trong buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-11",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 12,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt nắng nhạt trong buổi xưa",
+      "Bên liếp tre nghe chuyện xưa về thưa",
+      "Bóng gió đưa soi về thưa",
+      "Giữ liếp tre trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-12",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 13,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sóng vỗ trong buổi xưa",
+      "Bên vạt cát nghe chuyện xưa về thưa",
+      "Bóng bờ xa soi về thưa",
+      "Giữ vạt cát trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-13",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 14,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sen nở trong buổi xưa",
+      "Bên bóng nước nghe chuyện xưa về thưa",
+      "Bóng hồ thu soi về thưa",
+      "Giữ bóng nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-14",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 15,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt chim gọi trong buổi xưa",
+      "Bên lối núi nghe chuyện xưa về thưa",
+      "Bóng rừng xanh soi về thưa",
+      "Giữ lối núi trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-15",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 16,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt bếp ấm trong buổi xưa",
+      "Bên mùi rơm nghe chuyện xưa về thưa",
+      "Bóng tối yên soi về thưa",
+      "Giữ mùi rơm trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-16",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 17,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt áo vải trong buổi xưa",
+      "Bên gian nhà nghe chuyện xưa về thưa",
+      "Bóng tay hiền soi về thưa",
+      "Giữ gian nhà trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-17",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 18,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mẹ ngồi trong buổi xưa",
+      "Bên mắt trong nghe chuyện xưa về thưa",
+      "Bóng con cười soi về thưa",
+      "Giữ mắt trong trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-18",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 19,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt lời ru trong buổi xưa",
+      "Bên võng đưa nghe chuyện xưa về thưa",
+      "Bóng đêm sâu soi về thưa",
+      "Giữ võng đưa trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-19",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 20,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sáo trúc trong buổi xưa",
+      "Bên bờ giậu nghe chuyện xưa về thưa",
+      "Bóng chiều thanh soi về thưa",
+      "Giữ bờ giậu trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-20",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 21,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mùi đất trong buổi xưa",
+      "Bên luống rau nghe chuyện xưa về thưa",
+      "Bóng sau mưa soi về thưa",
+      "Giữ luống rau trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-21",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 22,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt cành liễu trong buổi xưa",
+      "Bên đáy nước nghe chuyện xưa về thưa",
+      "Bóng ven hồ soi về thưa",
+      "Giữ đáy nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-22",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 23,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hạt nắng trong buổi xưa",
+      "Ven lối vườn người gọi xưa về thưa",
+      "Hương trên vai vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-23",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 24,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt dòng chữ trong buổi xưa",
+      "Ven trang sách người gọi xưa về thưa",
+      "Hương nghiêng nghiêng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-24",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 25,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt màu giấy trong buổi xưa",
+      "Ven góc tủ người gọi xưa về thưa",
+      "Hương phai dần vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-25",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 26,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt vệt khói trong buổi xưa",
+      "Ven chiều vắng người gọi xưa về thưa",
+      "Hương lưng đồi vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-26",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 27,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mây núi trong buổi xưa",
+      "Ven đèo cao người gọi xưa về thưa",
+      "Hương che ngang vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-27",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 28,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt vầng nguyệt trong buổi xưa",
+      "Ven sân gạch người gọi xưa về thưa",
+      "Hương soi đầy vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-28",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 29,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt gió biển trong buổi xưa",
+      "Ven cửa nhà người gọi xưa về thưa",
+      "Hương lồng lộng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-29",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 30,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hương cỏ trong buổi xưa",
+      "Ven bóng cây người gọi xưa về thưa",
+      "Hương ven đường vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-30",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 31,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mực cũ trong buổi lành",
+      "Ven hiên vắng người gọi lành về xanh",
+      "Hương bóng chiều vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-31",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 32,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt trăng non trong buổi lành",
+      "Ven bờ tre người gọi lành về xanh",
+      "Hương gió lành vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-32",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 33,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mây trắng trong buổi lành",
+      "Ven đường quê người gọi lành về xanh",
+      "Hương nắng mai vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-33",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 34,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt lá biếc trong buổi lành",
+      "Bên vườn cau còn vọng lành rồi xanh",
+      "Lối sương trong dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-34",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 35,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt chuông sớm trong buổi lành",
+      "Bên mái ngói còn vọng lành rồi xanh",
+      "Lối khói lam dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-35",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 36,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt đèn khuya trong buổi lành",
+      "Bên bậc đá còn vọng lành rồi xanh",
+      "Lối song thưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-36",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 37,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt bến cũ trong buổi lành",
+      "Bên con đò còn vọng lành rồi xanh",
+      "Lối nước xanh dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-37",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 38,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt cánh én trong buổi lành",
+      "Bên ruộng đồng còn vọng lành rồi xanh",
+      "Lối mùa sang dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-38",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 39,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hoa rụng trong buổi lành",
+      "Bên thềm rêu còn vọng lành rồi xanh",
+      "Lối hương bay dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-39",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 40,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt tiếng mõ trong buổi lành",
+      "Bên cổng chùa còn vọng lành rồi xanh",
+      "Lối chiều buông dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-40",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 41,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mưa bụi trong buổi lành",
+      "Bên ngõ nhỏ còn vọng lành rồi xanh",
+      "Lối ngày êm dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-41",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 42,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt nắng nhạt trong buổi lành",
+      "Bên liếp tre còn vọng lành rồi xanh",
+      "Lối gió đưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-42",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 43,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sóng vỗ trong buổi lành",
+      "Bên vạt cát còn vọng lành rồi xanh",
+      "Lối bờ xa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-43",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 44,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sen nở trong buổi lành",
+      "Bên bóng nước còn vọng lành rồi xanh",
+      "Lối hồ thu dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-44",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 45,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt chim gọi trong buổi lành",
+      "Qua lối núi ai giữ lành trong xanh",
+      "Gió rừng xanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-45",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 46,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt bếp ấm trong buổi lành",
+      "Qua mùi rơm ai giữ lành trong xanh",
+      "Gió tối yên về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-46",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 47,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt áo vải trong buổi lành",
+      "Qua gian nhà ai giữ lành trong xanh",
+      "Gió tay hiền về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-47",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 48,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mẹ ngồi trong buổi lành",
+      "Qua mắt trong ai giữ lành trong xanh",
+      "Gió con cười về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-48",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 49,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt lời ru trong buổi lành",
+      "Qua võng đưa ai giữ lành trong xanh",
+      "Gió đêm sâu về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-49",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 50,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt sáo trúc trong buổi lành",
+      "Qua bờ giậu ai giữ lành trong xanh",
+      "Gió chiều thanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-50",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 51,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mùi đất trong buổi lành",
+      "Qua luống rau ai giữ lành trong xanh",
+      "Gió sau mưa về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-51",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 52,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt cành liễu trong buổi lành",
+      "Qua đáy nước ai giữ lành trong xanh",
+      "Gió ven hồ về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-52",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 53,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hạt nắng trong buổi lành",
+      "Qua lối vườn ai giữ lành trong xanh",
+      "Gió trên vai về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-53",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 54,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt dòng chữ trong buổi lành",
+      "Qua trang sách ai giữ lành trong xanh",
+      "Gió nghiêng nghiêng về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-54",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 55,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt màu giấy trong buổi lành",
+      "Qua góc tủ ai giữ lành trong xanh",
+      "Gió phai dần về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-55",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 56,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt vệt khói trong buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-56",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 57,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt mây núi trong buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-57",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 58,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt vầng nguyệt trong buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-58",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 59,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt gió biển trong buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-59",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhi khoa",
+    "no": 60,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Mắt hương cỏ trong buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-pediatric-60",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 1,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mực cũ soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-1",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 2,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh trăng non soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-2",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 3,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây trắng soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-3",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 4,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lá biếc soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-4",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 5,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chuông sớm soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-5",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 6,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh đèn khuya soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-6",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 7,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bến cũ soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-7",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 8,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cánh én soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-8",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 9,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hoa rụng soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-9",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 10,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh tiếng mõ soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-10",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 11,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mưa bụi soi buổi xưa",
+      "Bên hiên ai nhắc chuyện xưa gió đưa",
+      "Mùa sang qua lối ngõ thưa",
+      "Giữ hồn quê giữa lối thưa nắng vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-11",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 12,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh nắng nhạt soi buổi xưa",
+      "Bên liếp tre nghe chuyện xưa về thưa",
+      "Bóng gió đưa soi về thưa",
+      "Giữ liếp tre trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-12",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 13,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sóng vỗ soi buổi xưa",
+      "Bên vạt cát nghe chuyện xưa về thưa",
+      "Bóng bờ xa soi về thưa",
+      "Giữ vạt cát trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-13",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 14,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sen nở soi buổi xưa",
+      "Bên bóng nước nghe chuyện xưa về thưa",
+      "Bóng hồ thu soi về thưa",
+      "Giữ bóng nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-14",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 15,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chim gọi soi buổi xưa",
+      "Bên lối núi nghe chuyện xưa về thưa",
+      "Bóng rừng xanh soi về thưa",
+      "Giữ lối núi trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-15",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 16,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bếp ấm soi buổi xưa",
+      "Bên mùi rơm nghe chuyện xưa về thưa",
+      "Bóng tối yên soi về thưa",
+      "Giữ mùi rơm trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-16",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 17,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh áo vải soi buổi xưa",
+      "Bên gian nhà nghe chuyện xưa về thưa",
+      "Bóng tay hiền soi về thưa",
+      "Giữ gian nhà trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-17",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 18,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mẹ ngồi soi buổi xưa",
+      "Bên mắt trong nghe chuyện xưa về thưa",
+      "Bóng con cười soi về thưa",
+      "Giữ mắt trong trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-18",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 19,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lời ru soi buổi xưa",
+      "Bên võng đưa nghe chuyện xưa về thưa",
+      "Bóng đêm sâu soi về thưa",
+      "Giữ võng đưa trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-19",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 20,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sáo trúc soi buổi xưa",
+      "Bên bờ giậu nghe chuyện xưa về thưa",
+      "Bóng chiều thanh soi về thưa",
+      "Giữ bờ giậu trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-20",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 21,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mùi đất soi buổi xưa",
+      "Bên luống rau nghe chuyện xưa về thưa",
+      "Bóng sau mưa soi về thưa",
+      "Giữ luống rau trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-21",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 22,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cành liễu soi buổi xưa",
+      "Bên đáy nước nghe chuyện xưa về thưa",
+      "Bóng ven hồ soi về thưa",
+      "Giữ đáy nước trong câu thưa cuối vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-22",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 23,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hạt nắng soi buổi xưa",
+      "Ven lối vườn người gọi xưa về thưa",
+      "Hương trên vai vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-23",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 24,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh dòng chữ soi buổi xưa",
+      "Ven trang sách người gọi xưa về thưa",
+      "Hương nghiêng nghiêng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-24",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 25,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh màu giấy soi buổi xưa",
+      "Ven góc tủ người gọi xưa về thưa",
+      "Hương phai dần vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-25",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 26,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vệt khói soi buổi xưa",
+      "Ven chiều vắng người gọi xưa về thưa",
+      "Hương lưng đồi vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-26",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 27,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây núi soi buổi xưa",
+      "Ven đèo cao người gọi xưa về thưa",
+      "Hương che ngang vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-27",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 28,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vầng nguyệt soi buổi xưa",
+      "Ven sân gạch người gọi xưa về thưa",
+      "Hương soi đầy vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-28",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 29,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh gió biển soi buổi xưa",
+      "Ven cửa nhà người gọi xưa về thưa",
+      "Hương lồng lộng vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-29",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 30,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hương cỏ soi buổi xưa",
+      "Ven bóng cây người gọi xưa về thưa",
+      "Hương ven đường vương cuối thưa",
+      "Trang quê lưu giữ bóng thưa bên vàng"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-30",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 31,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mực cũ soi buổi lành",
+      "Ven hiên vắng người gọi lành về xanh",
+      "Hương bóng chiều vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-31",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 32,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh trăng non soi buổi lành",
+      "Ven bờ tre người gọi lành về xanh",
+      "Hương gió lành vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-32",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 33,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây trắng soi buổi lành",
+      "Ven đường quê người gọi lành về xanh",
+      "Hương nắng mai vương cuối xanh",
+      "Trang quê lưu giữ bóng xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-33",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 34,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lá biếc soi buổi lành",
+      "Bên vườn cau còn vọng lành rồi xanh",
+      "Lối sương trong dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-34",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 35,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chuông sớm soi buổi lành",
+      "Bên mái ngói còn vọng lành rồi xanh",
+      "Lối khói lam dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-35",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 36,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh đèn khuya soi buổi lành",
+      "Bên bậc đá còn vọng lành rồi xanh",
+      "Lối song thưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-36",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 37,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bến cũ soi buổi lành",
+      "Bên con đò còn vọng lành rồi xanh",
+      "Lối nước xanh dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-37",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 38,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cánh én soi buổi lành",
+      "Bên ruộng đồng còn vọng lành rồi xanh",
+      "Lối mùa sang dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-38",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 39,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hoa rụng soi buổi lành",
+      "Bên thềm rêu còn vọng lành rồi xanh",
+      "Lối hương bay dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-39",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 40,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh tiếng mõ soi buổi lành",
+      "Bên cổng chùa còn vọng lành rồi xanh",
+      "Lối chiều buông dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-40",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 41,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mưa bụi soi buổi lành",
+      "Bên ngõ nhỏ còn vọng lành rồi xanh",
+      "Lối ngày êm dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-41",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 42,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh nắng nhạt soi buổi lành",
+      "Bên liếp tre còn vọng lành rồi xanh",
+      "Lối gió đưa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-42",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 43,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sóng vỗ soi buổi lành",
+      "Bên vạt cát còn vọng lành rồi xanh",
+      "Lối bờ xa dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-43",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 44,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sen nở soi buổi lành",
+      "Bên bóng nước còn vọng lành rồi xanh",
+      "Lối hồ thu dẫn tới xanh",
+      "Đời quê lặng gửi lại xanh cùng thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-44",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 45,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chim gọi soi buổi lành",
+      "Qua lối núi ai giữ lành trong xanh",
+      "Gió rừng xanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-45",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 46,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bếp ấm soi buổi lành",
+      "Qua mùi rơm ai giữ lành trong xanh",
+      "Gió tối yên về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-46",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 47,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh áo vải soi buổi lành",
+      "Qua gian nhà ai giữ lành trong xanh",
+      "Gió tay hiền về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-47",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 48,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mẹ ngồi soi buổi lành",
+      "Qua mắt trong ai giữ lành trong xanh",
+      "Gió con cười về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-48",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 49,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lời ru soi buổi lành",
+      "Qua võng đưa ai giữ lành trong xanh",
+      "Gió đêm sâu về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-49",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 50,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sáo trúc soi buổi lành",
+      "Qua bờ giậu ai giữ lành trong xanh",
+      "Gió chiều thanh về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-50",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 51,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mùi đất soi buổi lành",
+      "Qua luống rau ai giữ lành trong xanh",
+      "Gió sau mưa về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-51",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 52,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cành liễu soi buổi lành",
+      "Qua đáy nước ai giữ lành trong xanh",
+      "Gió ven hồ về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-52",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 53,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hạt nắng soi buổi lành",
+      "Qua lối vườn ai giữ lành trong xanh",
+      "Gió trên vai về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-53",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 54,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh dòng chữ soi buổi lành",
+      "Qua trang sách ai giữ lành trong xanh",
+      "Gió nghiêng nghiêng về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-54",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 55,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh màu giấy soi buổi lành",
+      "Qua góc tủ ai giữ lành trong xanh",
+      "Gió phai dần về tận xanh",
+      "Chút tình còn neo lại xanh bên thanh"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-55",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 56,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vệt khói soi buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-56",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 57,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây núi soi buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-57",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 58,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vầng nguyệt soi buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-58",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 59,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh gió biển soi buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-59",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 60,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hương cỏ soi buổi lành",
+      "Bên hiên ai nhắc chuyện lành trời xanh",
+      "Mùa gió qua trời màu xanh",
+      "Giữ câu xưa giữa trời xanh dịu lành"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-60",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 61,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mực cũ soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-61",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 62,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh trăng non soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-62",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 63,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây trắng soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-63",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 64,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lá biếc soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-64",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 65,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chuông sớm soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-65",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 66,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh đèn khuya soi buổi trong",
+      "Bên hiên ai nhắc chuyện trong ven sông",
+      "Bóng chiều soi tận dòng sông",
+      "Câu quê neo giữa dòng sông trăng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-66",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 67,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bến cũ soi buổi trong",
+      "Bên con đò nghe chuyện trong về sông",
+      "Bóng nước xanh soi về sông",
+      "Giữ con đò trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-67",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 68,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cánh én soi buổi trong",
+      "Bên ruộng đồng nghe chuyện trong về sông",
+      "Bóng mùa sang soi về sông",
+      "Giữ ruộng đồng trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-68",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 69,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hoa rụng soi buổi trong",
+      "Bên thềm rêu nghe chuyện trong về sông",
+      "Bóng hương bay soi về sông",
+      "Giữ thềm rêu trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-69",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 70,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh tiếng mõ soi buổi trong",
+      "Bên cổng chùa nghe chuyện trong về sông",
+      "Bóng chiều buông soi về sông",
+      "Giữ cổng chùa trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-70",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 71,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mưa bụi soi buổi trong",
+      "Bên ngõ nhỏ nghe chuyện trong về sông",
+      "Bóng ngày êm soi về sông",
+      "Giữ ngõ nhỏ trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-71",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 72,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh nắng nhạt soi buổi trong",
+      "Bên liếp tre nghe chuyện trong về sông",
+      "Bóng gió đưa soi về sông",
+      "Giữ liếp tre trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-72",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 73,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sóng vỗ soi buổi trong",
+      "Bên vạt cát nghe chuyện trong về sông",
+      "Bóng bờ xa soi về sông",
+      "Giữ vạt cát trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-73",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 74,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sen nở soi buổi trong",
+      "Bên bóng nước nghe chuyện trong về sông",
+      "Bóng hồ thu soi về sông",
+      "Giữ bóng nước trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-74",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 75,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh chim gọi soi buổi trong",
+      "Bên lối núi nghe chuyện trong về sông",
+      "Bóng rừng xanh soi về sông",
+      "Giữ lối núi trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-75",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 76,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh bếp ấm soi buổi trong",
+      "Bên mùi rơm nghe chuyện trong về sông",
+      "Bóng tối yên soi về sông",
+      "Giữ mùi rơm trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-76",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 77,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh áo vải soi buổi trong",
+      "Bên gian nhà nghe chuyện trong về sông",
+      "Bóng tay hiền soi về sông",
+      "Giữ gian nhà trong câu sông cuối ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-77",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 78,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mẹ ngồi soi buổi trong",
+      "Ven mắt trong người gọi trong về sông",
+      "Hương con cười vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-78",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 79,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh lời ru soi buổi trong",
+      "Ven võng đưa người gọi trong về sông",
+      "Hương đêm sâu vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-79",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 80,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh sáo trúc soi buổi trong",
+      "Ven bờ giậu người gọi trong về sông",
+      "Hương chiều thanh vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-80",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 81,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mùi đất soi buổi trong",
+      "Ven luống rau người gọi trong về sông",
+      "Hương sau mưa vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-81",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 82,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh cành liễu soi buổi trong",
+      "Ven đáy nước người gọi trong về sông",
+      "Hương ven hồ vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-82",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 83,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hạt nắng soi buổi trong",
+      "Ven lối vườn người gọi trong về sông",
+      "Hương trên vai vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-83",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 84,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh dòng chữ soi buổi trong",
+      "Ven trang sách người gọi trong về sông",
+      "Hương nghiêng nghiêng vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-84",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 85,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh màu giấy soi buổi trong",
+      "Ven góc tủ người gọi trong về sông",
+      "Hương phai dần vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-85",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 86,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vệt khói soi buổi trong",
+      "Ven chiều vắng người gọi trong về sông",
+      "Hương lưng đồi vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-86",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 87,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh mây núi soi buổi trong",
+      "Ven đèo cao người gọi trong về sông",
+      "Hương che ngang vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-87",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 88,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh vầng nguyệt soi buổi trong",
+      "Ven sân gạch người gọi trong về sông",
+      "Hương soi đầy vương cuối sông",
+      "Trang quê lưu giữ bóng sông bên ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-88",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 89,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh gió biển soi buổi trong",
+      "Bên cửa nhà còn vọng trong rồi sông",
+      "Lối lồng lộng dẫn tới sông",
+      "Đời quê lặng gửi lại sông cùng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-89",
+    "status": "draft"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "category": "nhãn khoa",
+    "no": 90,
+    "form": "lục bát 6-8-6-8; ghi chép văn hóa, không phải hướng dẫn y khoa",
+    "lines": [
+      "Ánh hương cỏ soi buổi trong",
+      "Bên bóng cây còn vọng trong rồi sông",
+      "Lối ven đường dẫn tới sông",
+      "Đời quê lặng gửi lại sông cùng ngần"
+    ],
+    "safetyLink": "baosheng_yaoqian-ophthalmic-90",
+    "status": "draft"
+  }
+]

@@ -1,0 +1,4622 @@
+[
+  {
+    "sourceId": "baosheng_yaoqian-surgical-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Folio bedah menyimpan warna pudar",
+      "Serat tua berbisik menjelang senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas kekuningan berbau tanah basah",
+      "Bayang tungku melintas di jendela",
+      "Catatan bedah lama di bawah rumah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lempeng kayu berkilau di balik kaca",
+      "Tinta merah mengendap dekat meja",
+      "Catatan bedah lama membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu warna berdiam di sudut lemari",
+      "Batu pucat menadah cahaya senja",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gunung digambar di pinggir kertas",
+      "lembar wangi mengharumkan udara",
+      "Catatan bedah lama terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya pahit jatuh di halaman pudar",
+      "halaman hijau terlipat di antara aksara",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kebun berkilau di atas tikar",
+      "bayang merah menjadi bayang senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak kelabu berdiam di laci kayu",
+      "kilau tua memantulkan cahaya",
+      "Catatan bedah lama menyusun kalbu",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kenangan bening menguning di lukisan pudar",
+      "kilau merah disimpan dekat jendela",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya putih terbayang di kertas lebar",
+      "senja gelap mengendap menjelang senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Wangi wangi tertahan di peti tua",
+      "jejak harum melintas dalam aksara",
+      "Catatan bedah lama menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kayu menutup tinta pudar",
+      "warna merah berkilau di senja",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir gelap jatuh ke lantai kasar",
+      "lembar kayu berbayang di jendela",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kering melayang di pagar",
+      "Batu kecil tidur di atas meja",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak pucat menunggu debu pudar",
+      "butir hitam berkilau di senja",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain tua berlipat di laci kayu",
+      "Guci kecil memantulkan cahaya",
+      "Catatan bedah lama mencatat laku",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah digores pada kertas kasar",
+      "kilau bening berkilau di jendela",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk hijau jatuh di halaman",
+      "debu putih diam di bawah lentera",
+      "Catatan bedah lama menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu merah tersimpan di kotak pagar",
+      "halaman wangi bergetar menjelang senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Piring tanah memantulkan warna pudar",
+      "butir bulat menunggu cahaya",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak kecil melingkar di kertas lebar",
+      "kenangan tua mengilap dekat beranda",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pahit berbaring di tikar",
+      "Batu putih berkilau di senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak dan lembar kisah hadir di lemari",
+      "cahaya kering menunggu udara",
+      "Catatan bedah lama tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serpih jejak bersanding dengan jejak",
+      "Tinta biru meredup menjelang senja",
+      "Catatan bedah lama menjadi bijak",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir manis berkilau di dalam peti",
+      "halaman panjang terlipat di jendela",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lingkar putih menghadap cahaya pagar",
+      "kilau gelap mengendap di meja",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak harum tersusun dalam gambar",
+      "lembar wangi menyala saat senja",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya liar tumbuh di tepi pagar",
+      "Papan kayu menyerap cahaya",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau tua berkilau pada kaca",
+      "halaman kecil bergetar diterpa senja",
+      "Catatan bedah lama menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna putih jatuh ke lantai kasar",
+      "butir warna menghadap beranda",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas tipis menguning dekat pagar",
+      "warna kering berbau senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk kayu disusun di atas tikar",
+      "Batu halus memantulkan cahaya",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau pekat membentuk noda pudar",
+      "cahaya kecil menghadap jendela",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar pohon menunggu di pagar",
+      "Tinta hitam berkilau di senja",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir wangi berbaris di meja",
+      "halaman lebar menari menjelang fajar",
+      "Catatan bedah lama menyimpan warta",
+      "dalam tutur sabar"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kenangan dan senja tergambar pada kertas",
+      "Guci tanah berdiri di beranda",
+      "Catatan bedah lama tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kelabu terletak di laci",
+      "Serat kayu berbisik di udara",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak tua menggenggam tanah pagar",
+      "kilau gelap memantulkan senja",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kering melingkar di bawah lemari",
+      "cahaya merah terselip di antara kata",
+      "Catatan bedah lama menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lingkar kecil berkilau di pasir",
+      "Kain kusam tergantung di jendela",
+      "Catatan bedah lama menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir pahit berbaring di lantai kasar",
+      "Batu bening menahan cahaya senja",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk halaman tercetak pada kertas",
+      "jejak merah terbayang di beranda",
+      "Catatan bedah lama tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu tanah mengendap di peti kayu",
+      "butir bulat diam menunggu senja",
+      "Catatan bedah lama mencatat laku",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya gunung tumbuh di tepi pagar",
+      "lembar kisah berkilau di jendela",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna dan arang menodai tikar",
+      "halaman wangi menghadap cahaya",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak kering terikat di laci",
+      "kilau kemiri berkilau senja",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna jatuh di atas kertas",
+      "kenangan kuning tersimpan di beranda",
+      "Catatan bedah lama terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu pucat bersandar pada pagar",
+      "Pucuk hijau tertimpa embun senja",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kayu mengering dekat peti",
+      "butir hitam terpantul di jendela",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman tipis berputar di halaman",
+      "Serat kasar bersandar di meja",
+      "Catatan bedah lama dalam ingatan",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau bening membeku di pagar",
+      "cahaya putih terdiam di senja",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci tua tertutup kain kasar",
+      "jejak wangi menunggu di beranda",
+      "Catatan bedah lama dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kebun berjatuhan di halaman",
+      "Tinta pudar menghadap cahaya",
+      "Catatan bedah lama dalam ingatan",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu merah bersembunyi di laci",
+      "halaman kering bergoyang di udara",
+      "Catatan bedah lama menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna halus menempel pada kertas",
+      "lembar wangi harum menjelang senja",
+      "Catatan bedah lama terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan tua berderit di pagar",
+      "butir manis tersimpan di meja",
+      "Catatan bedah lama dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya pahit mengering di tikar",
+      "Batu kelabu menyerap cahaya",
+      "Catatan bedah lama menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak panjang terlipat di lemari",
+      "kilau wangi mengilap di beranda",
+      "Catatan bedah lama menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kayu melingkar di kertas",
+      "lingkar putih menatap senja",
+      "Catatan bedah lama terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman dan cahaya terlukis di pagar",
+      "butir tua diam di dalam peti",
+      "Catatan bedah lama menjadi benar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Folio dewasa dibuka di pagi terang",
+      "Kertas kapas berdesir dekat jendela",
+      "Riwayat orang dewasa menjelang petang",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Tinta sepia mengalir di buku lama",
+      "butir kecil berkilau di meja",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pohon tua menaungi halaman",
+      "Guci keramik menunggu senja",
+      "Riwayat orang dewasa menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna halus bertengger di pagar",
+      "halaman wangi bergetar ditiup udara",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak putih terselip di kertas",
+      "Kain merah memantulkan cahaya",
+      "Riwayat orang dewasa terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Cangkir tanah berdiri di beranda",
+      "Pucuk muda basah oleh embun pagi",
+      "Riwayat orang dewasa membuka makna",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam jatuh ke tikar",
+      "Buku tipis terbuka di senja",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman wangi mengering di pagar",
+      "Batu bening menyala di jendela",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau harum menempel di kertas",
+      "Kotak kayu menutup cahaya",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Padi kering ditata di lumbung",
+      "Tali rami tergantung di beranda",
+      "Riwayat orang dewasa menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak tipis merayap di tanah",
+      "cahaya ungu menunduk di taman",
+      "Riwayat orang dewasa di bawah rumah",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kayu tersusun di peti",
+      "kenangan gelap berkilau di senja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu merah tinggal di laci",
+      "Papan tua berderit diterpa udara",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain biru terlipat rapi",
+      "Lilin kecil menyala di meja",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pahit menari di pagar",
+      "Batu kelam menghadap jendela",
+      "Riwayat orang dewasa menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir gema terlukis di kertas",
+      "Guci bulat memantulkan senja",
+      "Riwayat orang dewasa terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak manis berdiam di peti kayu",
+      "Serat putih berkilau di beranda",
+      "Riwayat orang dewasa menyusun kalbu",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kering diletakkan di meja",
+      "lembar wangi harum menjelang pagi",
+      "Riwayat orang dewasa membuka makna",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Piring batu tergores di pagar",
+      "halaman hijau bergoyang di udara",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lembaran lebar menunggu pembaca",
+      "Kotak kayu terikat di jendela",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Tebu kering tergambar di kertas",
+      "Kendi tua berkilau di senja",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu putih diletakkan di laci",
+      "cahaya merah menghadap halaman",
+      "Riwayat orang dewasa menjaga janji",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman panjang mengering di pagar",
+      "jejak halus berkilau di meja",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gunung bersembunyi di kertas",
+      "kilau butir menangkap cahaya",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Benang kusam melingkar di peti",
+      "cahaya kecil terdiam di senja",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna kuning menodai tikar",
+      "lembar pohon terletak di beranda",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir bulat berbaris di pagar",
+      "Kertas tua berkilau disinari senja",
+      "Riwayat orang dewasa menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk wangi dibayangkan di buku",
+      "Guci tanah berdiri di meja",
+      "Riwayat orang dewasa mencatat laku",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman putih jatuh ke halaman",
+      "Batu merah menahan cahaya",
+      "Riwayat orang dewasa dalam ingatan",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gelap menunggu di laci",
+      "Kain tua bergoyang menjelang senja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir wangi tersimpan di peti kayu",
+      "Cangkir tanah menatap beranda",
+      "Riwayat orang dewasa mencatat laku",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya padang menguning di pagar",
+      "Serat kayu menari di udara",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah menempel di kertas",
+      "jejak kasar berkilau di senja",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau butir membasahi lukisan pudar",
+      "halaman panjang menunggu cahaya",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan kayu tersandar di pagar",
+      "jejak kecil terlipat di jendela",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir keras mengetuk lantai",
+      "Kain merah menyala di beranda",
+      "Riwayat orang dewasa menjadi lantai",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kering berserak di meja",
+      "Peti tua berdebu di senja",
+      "Riwayat orang dewasa menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu sungai mengilap di pagar",
+      "cahaya wangi menunduk di halaman",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak serabut menempel di kertas",
+      "Lilin putih padam menjelang senja",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kayu dibingkai di meja",
+      "butir kecil jatuh ke tanah",
+      "Riwayat orang dewasa menjadi cerita",
+      "di balik sawah"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci biru tersimpan di peti",
+      "halaman merah bergoyang di udara",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu tanah menempel pada pagar",
+      "Kain linen berkilau di senja",
+      "Riwayat orang dewasa menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kuning menghadap pagi",
+      "jejak pahit terlipat di beranda",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Piring kecil berdebu di laci",
+      "butir merah terlihat di meja",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman lebar jatuh ke tikar",
+      "Batu kelabu diam di jendela",
+      "Riwayat orang dewasa menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak wangi tergantung di pagar",
+      "Guci hitam memantulkan cahaya",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas kasar berlipat di peti",
+      "Pucuk hijau basah oleh senja",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir bundar terletak di beranda",
+      "halaman halus berdesir di udara",
+      "Riwayat orang dewasa membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu warna menguning di pagar",
+      "lembar kisah tersusun di meja",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat tua menutup tinta pudar",
+      "cahaya kering menghadap senja",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak merah melingkar di laci",
+      "Kendi tanah menunggu pagi",
+      "Riwayat orang dewasa menyertai diri",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kebun jatuh ke tanah",
+      "Batu halus berkilau di jendela",
+      "Riwayat orang dewasa di tepi sawah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam berbaris di pagar",
+      "Papan kayu menua di beranda",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna tipis terselip di kertas",
+      "Kain cokelat bergoyang di udara",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kecil mengering di tikar",
+      "jejak putih menghadap senja",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "kilau gelap berkilau di laci",
+      "halaman wangi menari di halaman",
+      "Riwayat orang dewasa tetap berdiri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Peti kayu terbuka pagi",
+      "Batu merah tersandar di meja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas tipis menunggu di pagar",
+      "butir kuning memantulkan cahaya",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak pahit berbaring di kertas",
+      "Serat rami menjelang senja",
+      "Riwayat orang dewasa terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman tua melayang di udara",
+      "Guci putih diam di beranda",
+      "Riwayat orang dewasa membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya merah tertahan di laci",
+      "Kain tua berkilau di pagi",
+      "Riwayat orang dewasa menjaga janji",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Peta tua terbentang di meja",
+      "jejak kering berbaris di pagar",
+      "Riwayat orang dewasa menyimpan warta",
+      "dalam tutur sabar"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lonceng kecil berdentang di pagi",
+      "Batu sungai ditata di halaman",
+      "Riwayat orang dewasa menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk kayu terukir pada papan",
+      "Kain putih menunggu di jendela",
+      "Riwayat orang dewasa sepanjang zaman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir panjang tersebar di tikar",
+      "kenangan tua memantulkan cahaya",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman teduh melambai di udara",
+      "Guci kecil berdebu di meja",
+      "Riwayat orang dewasa membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu hitam terletak di peti",
+      "cahaya kuning muncul di senja",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak kecil menempel pada kertas",
+      "Tali rami melingkar di beranda",
+      "Riwayat orang dewasa terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu putih jatuh ke tanah",
+      "Papan tua berderit di pagi",
+      "Riwayat orang dewasa menyusuri jejak basah",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain batik tergantung di pagar",
+      "butir hitam berkilau di meja",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman lebar terlipat di laci",
+      "jejak wangi menghadap jendela",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kayu menguning di kertas",
+      "cahaya putih jatuh menjelang senja",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak tua tersimpan di peti",
+      "Kendi tanah bersinar di halaman",
+      "Riwayat orang dewasa menjaga janji",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir bulat bergerak di tikar",
+      "Serat kayu menghadap udara",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk cahaya disimpan di meja",
+      "Batu bening memandang senja",
+      "Riwayat orang dewasa membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gelap berbaring di pagar",
+      "Kertas kapas berdesir pagi",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pahit menunggu di laci",
+      "Lilin merah menyala di beranda",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Peti rotan tersandar di dinding",
+      "cahaya kering terapung di air",
+      "Riwayat orang dewasa membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kecil berkilau di kali",
+      "Kain kusam menutup jendela",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah mengering di tikar",
+      "butir wangi tersimpan di peti",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak panjang membelah tanah",
+      "Papan kayu menghadap senja",
+      "Riwayat orang dewasa menyusuri jejak basah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna merah menodai kertas",
+      "halaman hijau berayun di udara",
+      "Riwayat orang dewasa terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci kecil berkilau di pagar",
+      "Serat putih menguning di jendela",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir manis jatuh ke lantai",
+      "cahaya liar tumbuh di beranda",
+      "Riwayat orang dewasa menjadi lantai",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kering bersarang di peti",
+      "Batu kelabu menunggu senja",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak merah terlukis di kertas",
+      "Kain panjang terlipat di meja",
+      "Riwayat orang dewasa terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Piring keramik menahan debu pagi",
+      "butir hitam berjajar di pagar",
+      "Riwayat orang dewasa menyertai diri",
+      "dalam tutur sabar"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman harum mengambang di udara",
+      "Guci tanah berdiri di jendela",
+      "Riwayat orang dewasa menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar jejak terselip di laci",
+      "cahaya merah menunggu senja",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pohon tua bercabang di halaman",
+      "Tali kayu berayun di pagar",
+      "Riwayat orang dewasa menjadi pedoman",
+      "dalam tutur sabar"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-90"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-91",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu kelabu menempel di tikar",
+      "Kertas biru memantulkan cahaya",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-91"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-92",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kecil terguling di meja",
+      "halaman panjang jatuh menjelang senja",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-92"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-93",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak wangi berdampingan di peti",
+      "Kain merah bergerak di udara",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-93"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-94",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu putih tertulis pada papan",
+      "cahaya ungu menghadap halaman",
+      "Riwayat orang dewasa sepanjang zaman",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-94"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-95",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah berkilau di kertas",
+      "Guci gelap berdiri di senja",
+      "Riwayat orang dewasa terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-95"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-96",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman muda jatuh di pagar",
+      "Tinta tua mengering di jendela",
+      "Riwayat orang dewasa menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-96"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-97",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna putih terlipat di laci",
+      "butir pahit menunggu cahaya",
+      "Riwayat orang dewasa menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-97"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-98",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kasar berbaring di meja",
+      "cahaya kering menghadap udara",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-98"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-99",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak halus melingkar di peti",
+      "halaman lebar memantulkan senja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-99"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-100",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain cokelat bergoyang di pagar",
+      "Batu merah berkilau di pagi",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-100"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-101",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir bulat tersusun di tikar",
+      "Pucuk hijau menari di halaman",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-101"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-102",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Piring tanah menunggu di laci",
+      "lembar kayu menghadap senja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-102"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-103",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya padang jatuh ke kertas",
+      "Guci biru terdiam di meja",
+      "Riwayat orang dewasa terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-103"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-104",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kecil terbang di udara",
+      "jejak tua berbaris di beranda",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-104"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-105",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu halus tersimpan di peti",
+      "Kain putih berkilau di senja",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-105"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-106",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu jejak mengendap di pagar",
+      "butir manis terpantul di jendela",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-106"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-107",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk halaman menunggu di tikar",
+      "Papan kayu berderit menjelang pagi",
+      "Riwayat orang dewasa dalam jejak pudar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-107"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-108",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna kasar berdiam di laci",
+      "cahaya wangi menatap halaman",
+      "Riwayat orang dewasa menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-108"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-109",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak putih berkilau pada kertas",
+      "Guci tanah memantulkan senja",
+      "Riwayat orang dewasa terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-109"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-110",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pahit tersusun di meja",
+      "Serat kayu menghadap udara",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-110"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-111",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam jatuh di beranda",
+      "Kain tua bergetar di pagi",
+      "Riwayat orang dewasa membuka makna",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-111"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-112",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar wangi menguning di pagar",
+      "Batu kelam diam di jendela",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-112"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-113",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya merah tertinggal di peti",
+      "jejak panjang menghadap senja",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-113"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-114",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas tipis menguning di meja",
+      "halaman kering berputar di halaman",
+      "Riwayat orang dewasa membuka makna",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-114"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-115",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan kayu tersandar di pagar",
+      "butir kecil berkilau menjelang pagi",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-115"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-116",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci putih tertutup kain",
+      "cahaya kuning menatap udara",
+      "Riwayat orang dewasa menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-116"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-117",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak pahit berbaring di laci",
+      "Kertas merah menyerap cahaya",
+      "Riwayat orang dewasa menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-117"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-118",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman lebar mengering di tikar",
+      "Batu putih menunggu senja",
+      "Riwayat orang dewasa dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-118"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-119",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kasar terselip di peti",
+      "butir wangi tersusun di beranda",
+      "Riwayat orang dewasa tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-119"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-120",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kayu menutup kertas",
+      "Lilin tipis menyala di jendela",
+      "Riwayat orang dewasa tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-120"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kering jatuh ke pagar",
+      "Guci tua terdiam di senja",
+      "Kisah masa kanak dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Folio anak bergambar di pagi",
+      "Layang-layang menari di udara",
+      "Kisah masa kanak tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas mungil terselip di peti",
+      "Kelereng bening berkilau di halaman",
+      "Kisah masa kanak menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kertas jatuh ke tanah",
+      "Boneka kain duduk di beranda",
+      "Kisah masa kanak di tepi sawah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk kayu bergoyang pagi",
+      "Bola rotan menggelinding di jalan",
+      "Kisah masa kanak tetap berdiri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman jambu menghadap cahaya",
+      "Kapal kertas berlayar di kali",
+      "Kisah masa kanak membuka makna",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Krayon patah di atas tikar",
+      "butir saga berkilau di jendela",
+      "Kisah masa kanak dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pita merah tergantung di pagar",
+      "Kincir kayu berputar di udara",
+      "Kisah masa kanak dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lonceng kecil berbunyi pagi",
+      "Kain selimut terlipat di meja",
+      "Kisah masa kanak menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kuncup melati menunduk di taman",
+      "Gasing kayu berputar di halaman",
+      "Kisah masa kanak sepanjang zaman",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kecil tertumpah di laci",
+      "Papan gambar menghadap cahaya",
+      "Kisah masa kanak tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pisang berkilau setelah hujan",
+      "Kereta kayu tersandar di beranda",
+      "Kisah masa kanak menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu pipih disusun di kali",
+      "Burung kertas terbang ke udara",
+      "Kisah masa kanak menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya liar tumbuh di pagar",
+      "Kendi kecil berdiri di jendela",
+      "Kisah masa kanak dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna warna jatuh ke lantai",
+      "Layang-layang merah menghadap senja",
+      "Kisah masa kanak menjadi lantai",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman ketapang bergoyang pagi",
+      "Boneka kayu duduk di beranda",
+      "Kisah masa kanak menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk teduh melambai di halaman",
+      "Kelereng biru memantulkan cahaya",
+      "Kisah masa kanak dalam ingatan",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kisah berbaris di tikar",
+      "Bola kain bergulir di jalan",
+      "Kisah masa kanak menjadi benar",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas lipat menunggu di meja",
+      "Pita kuning berkibar di udara",
+      "Kisah masa kanak menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kuncup kenanga harum pagi",
+      "Mainan kayu tersimpan di peti",
+      "Kisah masa kanak tetap berdiri",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman halaman jatuh ke tanah",
+      "Kincir kecil berputar di taman",
+      "Kisah masa kanak menyusuri jejak basah",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan tulis terletak di pagar",
+      "Batu warna berkilau di kali",
+      "Kisah masa kanak dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya putih tertinggal di laci",
+      "Kapal halaman melaju di air",
+      "Kisah masa kanak tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kayu menari di udara",
+      "Boneka kain memandang jendela",
+      "Kisah masa kanak membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pita kusam tersimpan di peti",
+      "Gasing tua berputar di halaman",
+      "Kisah masa kanak menjaga janji",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk halaman menunggu embun pagi",
+      "Layang-layang biru melintas awan",
+      "Kisah masa kanak tetap berdiri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu bulat tersusun di pagar",
+      "Krayon hijau tergeletak di meja",
+      "Kisah masa kanak menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain bayi terlipat di beranda",
+      "cahaya kertas bergoyang di udara",
+      "Kisah masa kanak menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kelereng jatuh ke lantai",
+      "halaman mangga berkilau di senja",
+      "Kisah masa kanak menyimpan sampai",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci kecil menghadap pagi",
+      "Papan kayu menunggu di jalan",
+      "Kisah masa kanak menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya taman tumbuh di tanah",
+      "Burung kertas melayang di udara",
+      "Kisah masa kanak di tepi sawah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pita biru berayun di pagar",
+      "Kapal kertas menepi di kali",
+      "Kisah masa kanak dalam jejak pudar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman jati jatuh menjelang pagi",
+      "Bola kayu tersimpan di peti",
+      "Kisah masa kanak menyertai diri",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna putih terhapus di papan",
+      "Boneka kain duduk di taman",
+      "Kisah masa kanak sepanjang zaman",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kuncup mawar menghadap cahaya",
+      "Gasing kayu berputar di halaman",
+      "Kisah masa kanak menyimpan warta",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir merah ditata di laci",
+      "Pucuk teduh bergoyang di udara",
+      "Kisah masa kanak menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain selendang terlipat di meja",
+      "Kelereng hijau jatuh ke jalan",
+      "Kisah masa kanak menjadi cerita",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Burung pipit hinggap pagi",
+      "Papan gambar bersandar di beranda",
+      "Kisah masa kanak tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kali basah oleh hujan",
+      "Pita merah berkilau di jendela",
+      "Kisah masa kanak menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman sirih tersusun di pagar",
+      "Kapal kayu menunggu di muara",
+      "Kisah masa kanak dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Layang-layang putus di udara",
+      "cahaya kecil menghadap senja",
+      "Kisah masa kanak menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk pisang berkilau pagi",
+      "Bola kain bergulir di halaman",
+      "Kisah masa kanak menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna kuning terjatuh ke laci",
+      "Boneka kayu menatap cahaya",
+      "Kisah masa kanak menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir saga tersimpan di peti",
+      "halaman lebar menari di taman",
+      "Kisah masa kanak tetap berdiri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya melati jatuh ke tanah",
+      "Gasing merah berputar di jalan",
+      "Kisah masa kanak menyusuri jejak basah",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pita kain menunggu di pagar",
+      "Kertas lipat berlayar di kali",
+      "Kisah masa kanak dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kelereng putih memantulkan pagi",
+      "kayu kecil bergoyang di udara",
+      "Kisah masa kanak tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kemuning harum di halaman",
+      "Papan mainan tersandar di meja",
+      "Kisah masa kanak menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kapal kertas berhenti di kali",
+      "cahaya merah mekar di jendela",
+      "Kisah masa kanak menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Krayon biru tergeletak di pagar",
+      "Kain lembut terlipat di beranda",
+      "Kisah masa kanak dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kecil menunggu pagi",
+      "Layang-layang kuning melintas taman",
+      "Kisah masa kanak menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk jambu basah oleh hujan",
+      "Boneka tua duduk di kursi",
+      "Kisah masa kanak sepanjang zaman",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman ketapang berputar di udara",
+      "Bola rotan tersimpan di peti",
+      "Kisah masa kanak menyimpan warta",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kertas menunduk pagi",
+      "Pita hijau berkibar di halaman",
+      "Kisah masa kanak menyertai diri",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam jatuh ke tikar",
+      "Kincir kayu menghadap senja",
+      "Kisah masa kanak dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain batik bergoyang di pagar",
+      "Papan gambar bersinar di meja",
+      "Kisah masa kanak dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu pipih berkilau di kali",
+      "Pucuk kayu menari di udara",
+      "Kisah masa kanak menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kuncup cahaya menunggu pagi",
+      "Kereta kayu berhenti di beranda",
+      "Kisah masa kanak menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pisang jatuh ke tanah",
+      "Kelereng merah berkilau di jendela",
+      "Kisah masa kanak di bawah rumah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Layang-layang tinggi di awan",
+      "Pita putih tertinggal di peti",
+      "Kisah masa kanak menjadi pedoman",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna warna tersapu pagi",
+      "Boneka kain menghadap taman",
+      "Lembar tentang pandangan menjaga janji",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Folio penglihatan memantulkan fajar",
+      "cahaya putih berkilau di jendela",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas mata bergambar awan",
+      "butir kecil berbaris di meja",
+      "Lembar tentang pandangan menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lensa kaca terletak di peti",
+      "Kain biru bergerak di udara",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kelopak cahaya jatuh di halaman",
+      "Batu bening menatap senja",
+      "Lembar tentang pandangan dalam ingatan",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman hijau berkilau setelah hujan",
+      "Guci putih berdiri di beranda",
+      "Lembar tentang pandangan menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam terselip di kertas",
+      "Pucuk melati menghadap fajar",
+      "Lembar tentang pandangan terbaca jelas",
+      "dalam tutur sabar"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kembang telang menghadap pagi",
+      "Tinta biru mengalir di meja",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak wangi tersusun di pagar",
+      "Kain putih berkilau di udara",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kelabu menghadap cahaya",
+      "halaman tipis berdesir di senja",
+      "Lembar tentang pandangan menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk kayu menari di halaman",
+      "Guci kecil memantulkan pagi",
+      "Lembar tentang pandangan dalam ingatan",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kuning jatuh ke peti",
+      "jejak panjang menunggu udara",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah terlukis di kertas",
+      "Serat putih menghadap jendela",
+      "Lembar tentang pandangan terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna merah berkilau di meja",
+      "halaman kering berputar di halaman",
+      "Lembar tentang pandangan menyimpan warta",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir wangi tersimpan di laci",
+      "Batu biru menatap senja",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kuncup kecil basah oleh hujan",
+      "Kain hijau berkibar di udara",
+      "Lembar tentang pandangan sepanjang zaman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya seroja mengapung di kali",
+      "Guci tanah terdiam di meja",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak pucat terlipat di kertas",
+      "Papan tua terkena cahaya",
+      "Lembar tentang pandangan tersimpan jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman lebar menguning di pagar",
+      "Batu bening bersinar di senja",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya ungu bergetar pagi",
+      "Kendi putih menunggu di beranda",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "debu jejak jatuh ke tikar",
+      "Pucuk hijau menatap jendela",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir merah berbaris di peti",
+      "halaman panjang bergoyang di udara",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kelopak putih terhampar di meja",
+      "Kain kusam menghadap senja",
+      "Lembar tentang pandangan menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gelap tertinggal di pagar",
+      "cahaya kecil mengilap di pagi",
+      "Lembar tentang pandangan menjadi benar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu merah berkilau di halaman",
+      "Serat kayu terdiam di jendela",
+      "Lembar tentang pandangan sepanjang zaman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman pahit terselip di kertas",
+      "Guci biru berdiri di beranda",
+      "Lembar tentang pandangan terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk cahaya tumbuh di tanah",
+      "warna putih menghadap senja",
+      "Lembar tentang pandangan menyusuri jejak basah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kembang merah mengambang di kali",
+      "Batu kecil memantulkan cahaya",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar wangi berkilau di meja",
+      "jejak wangi berdesir di udara",
+      "Lembar tentang pandangan menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir halus jatuh ke laci",
+      "halaman hijau menunggu senja",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Lensa kaca beristirahat di peti",
+      "cahaya putih menghadap cahaya pagi",
+      "Lembar tentang pandangan menjaga janji",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas biru terhampar di meja",
+      "jejak wangi berdesir di halaman",
+      "Lembar tentang pandangan menyimpan warta",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kecil menunggu di pagar",
+      "Kain sutra berkilau menjelang senja",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman lebar jatuh ke tanah",
+      "Guci bening memantulkan udara",
+      "Lembar tentang pandangan di tepi sawah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk cahaya tersimpan di laci",
+      "Batu merah berkilau di meja",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kasar menutup kertas",
+      "butir kuning menunggu pagi",
+      "Lembar tentang pandangan tersimpan jelas",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna putih tertinggal di pagar",
+      "halaman ungu bergoyang di udara",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kecil mengapung di kali",
+      "jejak pucat terlipat di peti",
+      "Lembar tentang pandangan tetap berdiri",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu hitam berbaris di meja",
+      "Kain putih menghadap jendela",
+      "Lembar tentang pandangan membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman wangi tertinggal di kertas",
+      "Guci biru menunggu senja",
+      "Lembar tentang pandangan terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir merah jatuh ke tikar",
+      "cahaya kuning menyala di pagi",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak panjang menjulur ke pagar",
+      "Batu bening diam di beranda",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan kayu menghadap cahaya",
+      "halaman hijau berputar di udara",
+      "Lembar tentang pandangan menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "lembar kisah menguning di meja",
+      "warna merah tertinggal di laci",
+      "Lembar tentang pandangan menyimpan warta",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya seruni menunduk di halaman",
+      "Serat putih menunggu senja",
+      "Lembar tentang pandangan menjadi pedoman",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kelabu terselip di kertas",
+      "Pucuk merah berkilau di jendela",
+      "Lembar tentang pandangan terbaca jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci tanah berdiri di rak",
+      "halaman panjang bergoyang di pagi",
+      "Lembar tentang pandangan menyusun pijak",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam terlipat di peti",
+      "cahaya putih menatap udara",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak merah berkilau di pagar",
+      "Kain biru bergerak menjelang malam",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "berteduh dalam malam"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kertas tipis menunggu pembaca",
+      "Batu putih menghadap pagi",
+      "Lembar tentang pandangan menyimpan warta",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman merah mengering di meja",
+      "Guci kecil memantulkan senja",
+      "Lembar tentang pandangan membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya ungu terselip di laci",
+      "jejak gelap menunggu udara",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu biru terhampar di tikar",
+      "halaman wangi berkilau di halaman",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk putih jatuh ke pagar",
+      "Kain merah menatap cahaya",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir kecil menunggu di meja",
+      "cahaya kuning menghadap senja",
+      "Lembar tentang pandangan menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak pucat menempel pada kertas",
+      "Guci hitam berdiri di jendela",
+      "Lembar tentang pandangan terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kayu berkilau di laci",
+      "halaman hijau menari di udara",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu merah tersimpan di peti",
+      "cahaya putih menunggu pagi",
+      "Lembar tentang pandangan menjaga janji",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna kuning berdiam di pagar",
+      "jejak wangi menghadap senja",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman panjang terlipat di meja",
+      "Kain putih berdesir di jendela",
+      "Lembar tentang pandangan membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya merah jatuh ke tanah",
+      "Batu bening menunggu udara",
+      "Lembar tentang pandangan di tepi sawah",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir wangi berbaris di laci",
+      "Guci biru menghadap pagi",
+      "Lembar tentang pandangan tetap berdiri",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak putih mengering di peti",
+      "halaman ungu bergoyang di senja",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Papan tua bersandar di pagar",
+      "cahaya kecil menunggu cahaya",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu kelam terlipat di kertas",
+      "Kain hijau menghadap halaman",
+      "Lembar tentang pandangan terdengar jelas",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman kuning berkilau di meja",
+      "jejak merah menunggu udara",
+      "Lembar tentang pandangan membuka makna",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci putih tersimpan di laci",
+      "Pucuk biru menatap senja",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam jatuh di beranda",
+      "cahaya merah berdesir di pagi",
+      "Lembar tentang pandangan menyimpan warta",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak panjang terlipat di kain",
+      "Batu putih menunggu halaman",
+      "Lembar tentang pandangan membuka makna",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman wangi berbaris di pagar",
+      "warna merah menghadap udara",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya kuning menunduk di peti",
+      "Serat kayu berkilau di senja",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu biru terselip di meja",
+      "jejak putih menunggu pagi",
+      "Lembar tentang pandangan membuka makna",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Kain merah terlipat di laci",
+      "halaman hijau menghadap jendela",
+      "Lembar tentang pandangan menjaga janji",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk cahaya berbaris di kertas",
+      "Guci tanah menunggu udara",
+      "Lembar tentang pandangan terdengar jelas",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir merah berkilau di pagar",
+      "Batu kelabu menatap senja",
+      "Lembar tentang pandangan menjadi benar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak gelap jatuh ke tikar",
+      "cahaya putih menunggu pagi",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman panjang tersimpan di peti",
+      "Kain biru berdesir di udara",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu bening terlipat di kertas",
+      "Pucuk merah menghadap halaman",
+      "Lembar tentang pandangan tersimpan jelas",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Guci hitam menunggu di meja",
+      "halaman wangi menguning menjelang senja",
+      "Lembar tentang pandangan menjadi cerita",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya ungu jatuh ke pagar",
+      "jejak putih berkilau di pagi",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Serat kasar berbaris di laci",
+      "Batu merah menghadap udara",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "warna putih menempel pada peti",
+      "cahaya kuning menunggu halaman",
+      "Lembar tentang pandangan menjaga janji",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman merah terlipat di meja",
+      "Guci biru memantulkan senja",
+      "Lembar tentang pandangan menyimpan warta",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir wangi terselip di kertas",
+      "jejak gelap menunggu pagi",
+      "Lembar tentang pandangan tersimpan jelas",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Batu putih berbaris di pagar",
+      "Kain hijau menghadap jendela",
+      "Lembar tentang pandangan dengan tutur sabar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "Pucuk hijau berkilau di laci",
+      "cahaya merah berdesir di udara",
+      "Lembar tentang pandangan tetap berdiri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "jejak merah tersusun di peti",
+      "halaman panjang menunggu senja",
+      "Lembar tentang pandangan menyertai diri",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "butir hitam berbaris di meja",
+      "Guci putih menatap pagi",
+      "Lembar tentang pandangan menjadi cerita",
+      "teguh berdiri"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "cahaya putih terlipat di pagar",
+      "Batu bening menghadap udara",
+      "Lembar tentang pandangan dalam jejak pudar",
+      "hidup dalam cerita"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "Catatan sastra sejarah; bukan panduan medis",
+    "lines": [
+      "halaman ungu jatuh ke kertas",
+      "Kain merah menunggu halaman",
+      "Lembar tentang pandangan tersimpan jelas",
+      "dikenang sepanjang zaman"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-90"
+  }
+]

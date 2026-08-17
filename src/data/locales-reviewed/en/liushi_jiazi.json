@@ -1,0 +1,782 @@
+[
+  {
+    "sourceId": "liushi_jiazi-1",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "At dawn, the dark clouds loosen from the sky",
+      "Clear light falls on every field and stone",
+      "Step forward on the open road before you",
+      "And turn the life you have into your own"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-2",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The season turns; the first flowers stir",
+      "The peony gathers color at the root",
+      "When spring arrives, let its clear winds find you",
+      "What frost held down will rise and flower anew"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-3",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Steady your heart; let empty fears depart",
+      "Your share of bread and clothing will endure",
+      "When hands join hands, good fortune fills the house",
+      "In time, a hidden pearl will reach the shore"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-4",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The wind is calm; the river lies at rest",
+      "A harvest moon hangs round above the prow",
+      "Let anxious thoughts drift past like fallen leaves",
+      "Blessing has already reached your household now"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-5",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The road ahead may change where its turns lie",
+      "Move early, before the rising waters swell",
+      "Stay by the long river till its storms pass by",
+      "And guard yourself wherever you may dwell"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-6",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Rain pours in sheets across the restless plain",
+      "A troubled season can wound what once was strong",
+      "If you must leave your home and travel far",
+      "Carry your courage with you all along"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-7",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The clouds draw back; the bright moon clears the way",
+      "No need to question where your footsteps lead",
+      "A destined bond is written in the heart",
+      "When two hearts join, good fortune follows them"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-8",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The rice bends low beneath its ripened grain",
+      "The work is whole; its promise has come true",
+      "Go home and rest among the smiling faces",
+      "Your household's joy is the harvest waiting there"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-9",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A dragon and a tiger meet in mountain shade",
+      "Do not look back to read what lies behind",
+      "Some paths cross only for a little while",
+      "Release the parting, and keep peace of mind"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-10",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Half of the blossom has already set fruit",
+      "Half has withered before the summer's heat",
+      "The setting sun has shortened this year's light",
+      "Do not pursue a road that leads nowhere"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-11",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The rooster's call grows clearer through the mist",
+      "Let time reveal what waiting hours conceal",
+      "The clouds divide; the moon shines over all",
+      "And peace arrives when truth is made clear"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-12",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The long river settles, wave by wave, at last",
+      "A helping hand appears beyond the bend",
+      "Move forward now; the danger has passed by",
+      "The farther bank opens like a trusted friend"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-13",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your boat has reached a shallow, rocky bar",
+      "No skillful oar can make the current yield",
+      "Lay frantic schemes aside and read the water",
+      "The wiser course will soon reveal itself"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-14",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The ledgers clear as spring flowers fade",
+      "Fruit forms where blossoms once adorned the tree",
+      "Wait beneath the moon; let osmanthus scent the air",
+      "Patient work will bring its harvest there"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-15",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The old fisherman waits through eighty years",
+      "Then King Wen comes walking to the shore",
+      "Do not force the hour with anxious questions",
+      "Keep hold of hope; your season is not over"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-16",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "No incense tower can make a closed door yield",
+      "The law of heaven is not a thing to buy",
+      "Lay down the schemes that wear your daylight thin",
+      "Walk upright beneath the unrelenting sky"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-17",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Old grievances still gather in the home",
+      "Yet no misfortune has crossed the eaves",
+      "Do good with care, and keep watch at the gate",
+      "When dragon meets snake, old hatred loosens"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-18",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A fortunate star is rising on your road",
+      "A noble helper may unlock the gate",
+      "Speak plainly, and let both sides understand",
+      "Joined hands can turn delay to good fortune"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-19",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your fortune follows paths no pride can bend",
+      "High hopes can stumble when they outrun sense",
+      "Return to roads your wiser steps remember",
+      "The moon will light them, and your heart find rest"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-20",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The road to honor meets a tangled snare",
+      "Two families risk a loss they cannot bear",
+      "Step back before a spark becomes a flame",
+      "A prudent retreat can keep the household safe"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-21",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The Buddha's light shines through the troubled sky",
+      "The red sun reaches every waiting door",
+      "A gracious helper comes with open hands",
+      "And fear that lived within is there no more"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-22",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Tai-gong found success at eighty years",
+      "The moon then lit the four seas, broad and bright",
+      "Great fortune can enter a thatched-roof home",
+      "When patient work has kept the spirit right"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-23",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The river runs wide, but the road is not yet clear",
+      "Your fishing line still rests within your hand",
+      "Do not despair because the waters seem empty",
+      "The fish will meet you when the tide is right"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-24",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Moonlight shines across the four seas tonight",
+      "The cloud that hid your road is thinning fast",
+      "A peaceful place and honor wait ahead",
+      "Keep faith; the hardship will not last"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-25",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Do not exhaust yourself by asking signs",
+      "Let dogs bark at the gate; let days pass by",
+      "The answer comes when needless questions cease",
+      "A quiet heart can read the open sky"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-26",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The finest peony opens in the sun",
+      "Take its bright chance before the season turns",
+      "A fated meeting may begin with one glance",
+      "Spring favors the heart that dares to love"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-27",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A clear wind circles gently round the gate",
+      "The household rests in peace, untouched by care",
+      "Let honest wealth gather within the home",
+      "No louder prayer is stronger than a peaceful home"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-28",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The fallen tiger hears the village dogs bark",
+      "The mountain road winds slowly through the rain",
+      "Do not let this low hour define your life",
+      "Beyond the ridges, sunlight comes again"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-29",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The withered tree still shelters spring within",
+      "For now it sleeps beneath the winter frost",
+      "Wait till the bitter winds have spent their force",
+      "Then green shoots show that nothing has been lost"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-30",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The moon grows brighter through the drifting haze",
+      "Yet changing light warns that the climb goes on",
+      "Do not mistake one shining night for dawn",
+      "Prepare your hands; hard work will earn its praise"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-31",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Green willows flourish beside the flowing stream",
+      "The orchard sets its fruit in quiet grace",
+      "Let your household share the harvest patiently grown",
+      "And pass its blessing from hand to hand"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-32",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A dragon and a tiger meet beside the gate",
+      "What looked like gold may turn to iron soon",
+      "Do not trust charms to change the turn of fate",
+      "Keep honest hands beneath the changing moon"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-33",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The river spreads wide, yet your boat holds true",
+      "No sudden wind has troubled oar or sail",
+      "Renew the quiet good within your household",
+      "The fish will meet your line when tides prevail"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-34",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The dangerous mountain road is almost passed",
+      "Do not resent the ridges climbed with pain",
+      "When orchids and laurels bloom along the trail",
+      "The little snake will rise and turn into a dragon"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-35",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "No need to force the turns that lie ahead",
+      "A stubborn knot gives way when hearts agree",
+      "Make room for peace to enter through your door",
+      "And trouble will recede like the morning sea"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-36",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your blessings stretch as far as the eastern sea",
+      "May your long years stand firm as mountains stand",
+      "Why dwell on hardship when good fortune comes",
+      "Keep faith beneath the shelter of your home"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-37",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A turn of fortune brings a brighter name",
+      "The road ahead is open, free of harm",
+      "Choose firmly now and seize the favorable hour",
+      "A steadfast heart will keep the future calm"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-38",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your name is rising in the morning light",
+      "No need to pray for proof when fortune nears",
+      "The hours move quickly through the eastern trees",
+      "Act in your good time and quiet all fears"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-39",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "If the immortal's road is hidden, climb the tower",
+      "A higher view can make the tangled path clear",
+      "Wait calmly while a worthy helper draws near",
+      "Patience will meet the helping hand in time"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-40",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Good fortune fills your household through the years",
+      "Your family gate shines with enduring light",
+      "Let husband and wife share joy through every season",
+      "Together, grow old in peace and delight"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-41",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The road is hard, yet songs arise nearby",
+      "A barking dog announces news at hand",
+      "Some bonds were joined before this lifetime began",
+      "A lasting pair will meet and understand"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-42",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "One river crossing leads to one more hill",
+      "The road is hard, whatever path you try",
+      "Do not let disputes disturb the household peace",
+      "Peace begins when angry words run dry"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-43",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "This year's affairs have flown by in haste",
+      "The noble helper waits a thousand miles away",
+      "Be patient; news will come beneath the moon",
+      "And bring good tidings to your home one day"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-44",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A visitor may bring you gain and cheer",
+      "Why meet a friendly guest with needless doubt",
+      "The moon will rise and clear the road ahead",
+      "When light appears, all hesitation fades out"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-45",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The blossom has matured into its fruit",
+      "Prosperity will stay with you through age",
+      "Let wise and foolish meet without disdain",
+      "A calm heart welcomes blessings year by year"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-46",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your name and honor rise beneath the moon",
+      "The road to wealth now opens clear and bright",
+      "When the full moon crowns the fifteenth night",
+      "Joy and reunion fill your home with light"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-47",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Why ask the gods when wisdom lives within",
+      "Wait till the moon reaches its middle course",
+      "The trouble will retreat and turn to good",
+      "And fortune will return with gentle force"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-48",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The moon is dim behind a veil of cloud",
+      "The wish to move is strong, but fortune lags",
+      "Do not force the gate before it opens wide",
+      "When time is ripe, the road will lift its flags"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-49",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Many words are spoken; do not heed them all",
+      "The dragon rests where quiet waters lie",
+      "A message hidden now will soon grow clear",
+      "Ask no more; the truth will meet your eye"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-50",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Before the shrine, keep faith with your vow",
+      "Good news lies waiting on the road ahead",
+      "What once was iron may become bright gold",
+      "Stay true, and fortune will turn iron to gold"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-51",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "No road to east or west is safe today",
+      "Yet your household stands protected and secure",
+      "Hold steady; do not let your heart grow troubled",
+      "Within your home, peace and health endure"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-52",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Your work and rank depend on time and fate",
+      "The winds converge; a meeting point is near",
+      "Release your anxious thoughts and ready both hands",
+      "A timely chance will soon appear"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-53",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "You come to ask about the matters of your heart",
+      "A home that does good gathers lasting grace",
+      "Good fortune and wealth arrive together soon",
+      "Joy will overflow the doorway of your place"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-54",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "A lonely lamp burns through the silent night",
+      "Yet every matter moves toward a fortunate end",
+      "Good deeds bear fruit even when no one sees",
+      "And incense carried heavenward will reach the gods"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-55",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The road ahead is dim, and signs are hard to read",
+      "A pearl deep underground still keeps its worth",
+      "Do not mistake delay for failure's final word",
+      "Guard what you hold till fortune brings it forth"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-56",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Though illness tests you with exhausting pain",
+      "The worst will pass and leave no lasting scar",
+      "Do not look back once you have gone your way",
+      "The troubles in your heart will fade afar"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-57",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Steady your heart; let needless fear depart",
+      "The road ahead is clear and free of harm",
+      "A guardian spirit watches o'er your home",
+      "Good fortune keeps your household safe and calm"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-58",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The serpent longs to rise and become a dragon",
+      "But blocked roads keep its fortune from advancing",
+      "Do not follow every word that fills the air",
+      "Wait through the long illness; better days are coming"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-59",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "Do good without delay when chance appears",
+      "This is the season to seek a worthy name",
+      "The matter will be joined and brought to fruit",
+      "Wealth and gladness will follow in its wake"
+    ],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-60",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "English Inspirational Verse",
+    "lines": [
+      "The moon shines clear beyond the drifting cloud",
+      "Keep doing good within your household walls",
+      "In public duty, careful judgment brings reward",
+      "And hidden trouble fades as brighter fortune calls"
+    ],
+    "status": "draft"
+  }
+]

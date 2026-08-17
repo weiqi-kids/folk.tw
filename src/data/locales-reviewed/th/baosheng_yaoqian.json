@@ -1,0 +1,6915 @@
+[
+  {
+    "sourceId": "baosheng_yaoqian-surgical-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 1,
+    "historicalMaterials": [
+      "ผงเปลือกหอย",
+      "ชิงไต้",
+      "กุยช่าย",
+      "น้ำมันงา"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 2,
+    "historicalMaterials": [
+      "ลูกแพร์หอม",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 3,
+    "historicalMaterials": [
+      "หัวใจหมู",
+      "ชาดแดง"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 4,
+    "historicalMaterials": [
+      "ชิงไต้",
+      "ยิปซัม",
+      "ชาดแดง",
+      "อำพัน"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 5,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "เปลือกส้มเก่า",
+      "ปั้นเซี่ย",
+      "ไป๋จู๋"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 6,
+    "historicalMaterials": [
+      "ดอกห้วย",
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "รอยพับพาใจย้อนคืนวัน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 7,
+    "historicalMaterials": [
+      "กุยช่าย",
+      "ถั่วเขียว",
+      "น้ำขิง"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "ลายมือสานความทรงจำไว้",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 8,
+    "historicalMaterials": [
+      "แร่กานซือ"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 9,
+    "historicalMaterials": [
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "เงาอักษรทอดยาวตามกาล",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 10,
+    "historicalMaterials": [
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 11,
+    "historicalMaterials": [
+      "เกล็ดตัวนิ่ม"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 12,
+    "historicalMaterials": [
+      "ถั่วเขียว"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 13,
+    "historicalMaterials": [
+      "สารส้มขาว",
+      "ขมิ้นอ้อย"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "รอยหมึกบ่มความหมายในกาล",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 14,
+    "historicalMaterials": [
+      "ไม้หอมใต้",
+      "น้ำส้มข้าว"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 15,
+    "historicalMaterials": [
+      "ขิง"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "คำจารเคียงความเชื่อของคน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 16,
+    "historicalMaterials": [
+      "เกล็ดเหมย"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 17,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 18,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "ความหลังเรียงแถวตามลายมือ",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 19,
+    "historicalMaterials": [
+      "กานพลู",
+      "กำยาน",
+      "ไม้หอมใต้",
+      "ฝักหู"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 20,
+    "historicalMaterials": [
+      "ยางสนขาว",
+      "ชาดแดง"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "ชุมชนก้องอยู่ในอักษร",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 21,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ตี้หวงสด",
+      "ไป๋เสา",
+      "เปลือกส้มเก่า"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 22,
+    "historicalMaterials": [
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 23,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 24,
+    "historicalMaterials": [
+      "ไป๋เสา",
+      "สะระแหน่ป่า",
+      "ชะเอม",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "กาลเก่าค่อยคลี่ความหมายงาม",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 25,
+    "historicalMaterials": [
+      "น้ำมันชา"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 26,
+    "historicalMaterials": [
+      "ขิง",
+      "ชางจู๋",
+      "ชะเอม",
+      "เชียนเฉียน"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "รอยหมึกบ่มความหมายในกาล",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 27,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 28,
+    "historicalMaterials": [
+      "กำมะถัน",
+      "ดีบุกเหล็ก",
+      "น้ำมันชา"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "คำจารเคียงความเชื่อของคน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 29,
+    "historicalMaterials": [
+      "สารส้มขาว"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 30,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 31,
+    "historicalMaterials": [
+      "ชะเอม"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "ความหลังเรียงแถวตามลายมือ",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 32,
+    "historicalMaterials": [
+      "ชาดแดง"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 33,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "อำพัน"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "ชุมชนก้องอยู่ในอักษร",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 34,
+    "historicalMaterials": [
+      "กานพลูขาว",
+      "ดีปลาจีน"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 35,
+    "historicalMaterials": [
+      "ชะเอม",
+      "เสาแดง",
+      "ตังกุย",
+      "ชวนซี"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 36,
+    "historicalMaterials": [
+      "ชะเอม",
+      "ไป๋เสา",
+      "จิงเจี้ย",
+      "แร่กานซือ"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 37,
+    "historicalMaterials": [
+      "น้ำส้มข้าว"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 38,
+    "historicalMaterials": [
+      "น้ำขิง"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 39,
+    "historicalMaterials": [
+      "ปั้นเซี่ย",
+      "ชะเอม"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 40,
+    "historicalMaterials": [
+      "อบเชยจีน",
+      "ชะเอม"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 41,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 42,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ชางจู๋"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 43,
+    "historicalMaterials": [
+      "น้ำผึ้งขาว"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "รอยพับพาใจย้อนคืนวัน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 44,
+    "historicalMaterials": [
+      "ถั่วดำ"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "ลายมือสานความทรงจำไว้",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 45,
+    "historicalMaterials": [
+      "เถาทะลุภูผา"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 46,
+    "historicalMaterials": [
+      "ขิง"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "เงาอักษรทอดยาวตามกาล",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 47,
+    "historicalMaterials": [
+      "กระเพาะหมู"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 48,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "รอยอดีตเชื่อมใจคนวันนี้",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 49,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ฝูหลิง",
+      "ไป๋จู๋",
+      "ชะเอม"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "อดีตเดินเคียงปัจจุบัน",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 50,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "อดีตเดินเคียงปัจจุบัน",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 51,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "อดีตเดินเคียงปัจจุบัน",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 52,
+    "historicalMaterials": [
+      "ไผ่ขูด",
+      "ขิงสด",
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 53,
+    "historicalMaterials": [
+      "ฝางเฟิง",
+      "ชวนซี",
+      "จี๋เกิ่ง",
+      "ตังกุย"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 54,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "ปั้นเซี่ย",
+      "น้ำขิง",
+      "ถั่วเขียว"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 55,
+    "historicalMaterials": [
+      "ตาหวง"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 56,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "รอยพับพาใจย้อนคืนวัน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 57,
+    "historicalMaterials": [
+      "ถั่วดำ",
+      "ขิง"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "ลายมือสานความทรงจำไว้",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 58,
+    "historicalMaterials": [
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 59,
+    "historicalMaterials": [
+      "ไก่ดำ",
+      "ขิง",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "เงาอักษรทอดยาวตามกาล",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-surgical-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดนอกกาย",
+    "no": 60,
+    "historicalMaterials": [
+      "ยางสนขาว"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-surgical-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 1,
+    "historicalMaterials": [
+      "ขนหางนก"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 2,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "ทูฝูหลิง",
+      "มันหวยซาน",
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "อดีตเดินเคียงปัจจุบัน",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 3,
+    "historicalMaterials": [
+      "เมล็ดบัว",
+      "มันหวยซาน",
+      "ทูฝูหลิง",
+      "ดอกจินอิง"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "รอยหมึกบ่มความหมายในกาล",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 4,
+    "historicalMaterials": [
+      "ดอกจินอิง"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 5,
+    "historicalMaterials": [
+      "มู่ทง"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "คำจารเคียงความเชื่อของคน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 6,
+    "historicalMaterials": [
+      "กระดองตะพาบ",
+      "สนหิน",
+      "ขนหางนก"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "อดีตเดินเคียงปัจจุบัน",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 7,
+    "historicalMaterials": [
+      "มันหวยซาน",
+      "อินเฉิน"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "อดีตเดินเคียงปัจจุบัน",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 8,
+    "historicalMaterials": [
+      "คราบจักจั่น",
+      "เสินฉวี่",
+      "มันหวยซาน",
+      "ดอกจินอิง"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "ความหลังเรียงแถวตามลายมือ",
+      "อดีตเดินเคียงปัจจุบัน",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 9,
+    "historicalMaterials": [
+      "มอลต์ข้าว",
+      "คราบจักจั่น",
+      "ม่ายตง"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 10,
+    "historicalMaterials": [
+      "เหลียนเฉียว",
+      "ทูฝูหลิง",
+      "ไป๋จู๋",
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "ชุมชนก้องอยู่ในอักษร",
+      "อดีตเดินเคียงปัจจุบัน",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 11,
+    "historicalMaterials": [
+      "มันหวยซาน",
+      "หนิวซี",
+      "มู่ทง",
+      "ดอกจินอิง"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "อดีตเดินเคียงปัจจุบัน",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 12,
+    "historicalMaterials": [
+      "เก๊กฮวยขาว",
+      "เมล็ดบัว",
+      "มันหวยซาน",
+      "ชะเอม"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "อดีตเดินเคียงปัจจุบัน",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 13,
+    "historicalMaterials": [
+      "ดอกจินอิง",
+      "ผู่เซียว",
+      "จือจื่อ",
+      "เสอกาน"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 14,
+    "historicalMaterials": [
+      "เกล็ดตัวนิ่ม",
+      "หนามฝักสบู่",
+      "เสอกาน",
+      "กระดองตะพาบ"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 15,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "มันหวยซาน",
+      "หนิวซี",
+      "มู่ทง"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 16,
+    "historicalMaterials": [
+      "ถั่วเขียว",
+      "มันหวยซาน",
+      "จือหมู่",
+      "ต้าหวงหมัก"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "รอยหมึกบ่มความหมายในกาล",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 17,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "เก๊กฮวยขาว",
+      "มันหวยซาน",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 18,
+    "historicalMaterials": [
+      "สนหิน",
+      "กระดองตะพาบ",
+      "มอลต์ข้าว",
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "คำจารเคียงความเชื่อของคน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 19,
+    "historicalMaterials": [
+      "อี้หมู่เฉ่า",
+      "จื่อเค่อ",
+      "ดอกจินอิง"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 20,
+    "historicalMaterials": [
+      "ต้าหวงหมัก",
+      "มันหวยซาน",
+      "หนิวซี"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 21,
+    "historicalMaterials": [
+      "ฟักเขียว"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "ความหลังเรียงแถวตามลายมือ",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 22,
+    "historicalMaterials": [
+      "ลิ่วเว่ย",
+      "คราบจักจั่น",
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 23,
+    "historicalMaterials": [
+      "มู่ทง",
+      "มู่เจ๋ย",
+      "จื่อเค่อ",
+      "จือจื่อ"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ชุมชนก้องอยู่ในอักษร",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 24,
+    "historicalMaterials": [
+      "ฉางซาน",
+      "หมาก",
+      "ถั่วดำ"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 25,
+    "historicalMaterials": [
+      "ถั่วดำเมล็ดเขียว",
+      "ขิงดำ",
+      "มันหวยซาน",
+      "อินเฉิน"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 26,
+    "historicalMaterials": [
+      "จื่อเค่อ",
+      "ไป๋จู๋",
+      "จี๋เกิ่ง",
+      "ชะเอม"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 27,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "เก๋อเกิน",
+      "ไผ่ขูด",
+      "ชวนซี"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 28,
+    "historicalMaterials": [
+      "เสินฉวี่",
+      "ลิ่วเว่ย",
+      "ชะเอม"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 29,
+    "historicalMaterials": [
+      "มู่ทง",
+      "เก๊กฮวยหวาน",
+      "จื่อเค่อ",
+      "มันหวยซาน"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 30,
+    "historicalMaterials": [
+      "กู่จิง",
+      "กระดองตะพาบ",
+      "ชะเอม"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 31,
+    "historicalMaterials": [
+      "หวงฉิน",
+      "เก๊กฮวยหวาน",
+      "เก๊กฮวยขาว",
+      "ไฉหู"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 32,
+    "historicalMaterials": [
+      "จื่อซู",
+      "สะระแหน่ป่า",
+      "ขิงสด",
+      "น้ำตาลดำ"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 33,
+    "historicalMaterials": [
+      "ไผ่ขูด",
+      "ดอกห้วย",
+      "มู่เจ๋ย",
+      "ตับหญ้าขม"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "รอยพับพาใจย้อนคืนวัน",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 34,
+    "historicalMaterials": [
+      "จื่อเค่อ",
+      "เสินฉวี่",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "ลายมือสานความทรงจำไว้",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 35,
+    "historicalMaterials": [
+      "จือจื่อดำ",
+      "ชะเอม",
+      "ชวนเป้ย์"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 36,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ชวนเป้ย์",
+      "ชวนอู",
+      "หนิวซี"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "เงาอักษรทอดยาวตามกาล",
+      "เรื่องราวไหลผ่านคนหลายรุ่น",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 37,
+    "historicalMaterials": [
+      "สนหิน",
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "ไม้หอมใต้"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 38,
+    "historicalMaterials": [
+      "ขิง",
+      "พุทรา"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 39,
+    "historicalMaterials": [
+      "เมล็ดบัว",
+      "หนิวซี"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 40,
+    "historicalMaterials": [
+      "มอลต์ข้าว",
+      "คราบจักจั่น",
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 41,
+    "historicalMaterials": [
+      "ชวนเป้ย์",
+      "ปั้นเซี่ย",
+      "มู่ทง",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 42,
+    "historicalMaterials": [
+      "ตาหวง"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 43,
+    "historicalMaterials": [
+      "สนหิน",
+      "ซีซิน",
+      "ฝูหลิงแดง",
+      "ปั้นเซี่ย"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 44,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "เหลียนเฉียว",
+      "มู่เจ๋ย",
+      "กู่จิง"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 45,
+    "historicalMaterials": [
+      "เก๋ากี้"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 46,
+    "historicalMaterials": [
+      "ชะเอม"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 47,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "สนหิน"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ลายมือสานความทรงจำไว้",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 48,
+    "historicalMaterials": [
+      "เก๊กฮวยหวาน",
+      "ฟักเขียว"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 49,
+    "historicalMaterials": [
+      "แผ่นส้มจี๊ด",
+      "แกลบหยาบ"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "เงาอักษรทอดยาวตามกาล",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 50,
+    "historicalMaterials": [
+      "ถั่วดำเมล็ดเขียว",
+      "พุทรา"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 51,
+    "historicalMaterials": [
+      "จื่อเค่อ",
+      "มู่เจ๋ย",
+      "ดอกห้วย",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 52,
+    "historicalMaterials": [
+      "ตี้หวงสด",
+      "เหลียนเฉียว",
+      "เกล็ดตัวนิ่ม",
+      "ทูฝูหลิง"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 53,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "น้ำตาลดำ"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 54,
+    "historicalMaterials": [
+      "มู่ทง",
+      "พุทรา",
+      "มู่เจ๋ย"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 55,
+    "historicalMaterials": [
+      "ฉางซาน",
+      "หมาก",
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "คำจารเคียงความเชื่อของคน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 56,
+    "historicalMaterials": [
+      "ฟักเขียว",
+      "ลิ่วเว่ย"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 57,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ชวนเป้ย์",
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 58,
+    "historicalMaterials": [
+      "ขนหางนก",
+      "จื่อซู"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 59,
+    "historicalMaterials": [
+      "ซื่อเสิน",
+      "เกสรสน"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 60,
+    "historicalMaterials": [
+      "ฟู่จื่อ",
+      "อบเชยจีน",
+      "โสมฝรั่ง"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ความเชื่อเผยรอยทางของชุมชน",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 61,
+    "historicalMaterials": [
+      "จี๋เกิ่ง",
+      "เสอกาน"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 62,
+    "historicalMaterials": [
+      "กำยาน"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "เงาอักษรทอดยาวตามกาล",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 63,
+    "historicalMaterials": [
+      "เสินฉวี่"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 64,
+    "historicalMaterials": [
+      "สนหิน",
+      "เมล็ดบัว",
+      "ขิง",
+      "ปั้นเซี่ย"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 65,
+    "historicalMaterials": [
+      "ขั้วพลับ"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 66,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "ชวนเป้ย์"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 67,
+    "historicalMaterials": [
+      "เก๋ากี้",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 68,
+    "historicalMaterials": [
+      "ฝูหลิงแดง",
+      "ขิงสด"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "คำจารเคียงความเชื่อของคน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 69,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "อำพัน",
+      "จักจั่นทอง"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 70,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ไป๋จู๋",
+      "ไม้หอมเขากวาง",
+      "ชาดอำพัน"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 71,
+    "historicalMaterials": [
+      "จี๋เกิ่ง",
+      "เปลือกส้มเก่า",
+      "เสาแดง",
+      "ขิงสด"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 72,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "ฉางซาน",
+      "เหลียนเฉียว",
+      "ชวนเป้ย์"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 73,
+    "historicalMaterials": [
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 74,
+    "historicalMaterials": [
+      "อำพัน",
+      "ชาดแดง"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 75,
+    "historicalMaterials": [
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 76,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 77,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "เปลือกโบตั๋น",
+      "ชะเอม"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 78,
+    "historicalMaterials": [
+      "เหลียนเฉียว",
+      "ชะเอม",
+      "จือหมู่"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 79,
+    "historicalMaterials": [
+      "หวงฉิน",
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 80,
+    "historicalMaterials": [
+      "ไป๋เสา",
+      "หวงฉิน",
+      "จื่อเค่อ",
+      "หมาก"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 81,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 82,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "เก๋ากี้"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 83,
+    "historicalMaterials": [
+      "ชวนซี",
+      "เซิงหมา"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 84,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "เปลือกส้มเก่า",
+      "จักจั่นทอง",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "ลายมือสานความทรงจำไว้",
+      "ชุมชนฝากแสงไว้ในถ้อยคำ",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 85,
+    "historicalMaterials": [
+      "อำพัน",
+      "ชาดแดง",
+      "เปลือกส้มเก่า",
+      "จักจั่นทอง"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 86,
+    "historicalMaterials": [
+      "เสินฉวี่",
+      "เปลือกส้มเก่า",
+      "มอลต์ข้าว",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 87,
+    "historicalMaterials": [
+      "เก๋ากี้",
+      "เก๊กฮวยหวาน",
+      "ฝูหลิง"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 88,
+    "historicalMaterials": [
+      "เมล็ดบัว",
+      "ขิงสด"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 89,
+    "historicalMaterials": [
+      "จักจั่นทอง"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 90,
+    "historicalMaterials": [
+      "ถั่วเขียว"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-90"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-91",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 91,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "มอลต์ข้าว"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-91"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-92",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 92,
+    "historicalMaterials": [
+      "ไฉหู",
+      "หวงฉิน",
+      "ชวนเป้ย์",
+      "จือหมู่"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-92"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-93",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 93,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-93"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-94",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 94,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-94"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-95",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 95,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "เสาแดง"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-95"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-96",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 96,
+    "historicalMaterials": [
+      "เสาแดง",
+      "พุทรา"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-96"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-97",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 97,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "ลายมือสานความทรงจำไว้",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-97"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-98",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 98,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "ชวนเป้ย์",
+      "กู่จิง",
+      "ฝูหลิง"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-98"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-99",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 99,
+    "historicalMaterials": [
+      "กุยช่าย"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "เงาอักษรทอดยาวตามกาล",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-99"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-100",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 100,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "มอลต์ข้าว",
+      "เมล็ดแอปริคอต",
+      "ไป๋จู๋"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-100"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-101",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 101,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-101"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-102",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 102,
+    "historicalMaterials": [
+      "สนหิน",
+      "ฝูหลิง",
+      "ชวนเป้ย์",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-102"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-103",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 103,
+    "historicalMaterials": [
+      "ใบหม่อน",
+      "เมล็ดแอปริคอต",
+      "จี๋เกิ่ง",
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-103"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-104",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 104,
+    "historicalMaterials": [
+      "รากเก๋อกิน",
+      "หวงฉิน",
+      "ชะเอม"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-104"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-105",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 105,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ขิง",
+      "ชะเอม",
+      "พุทรา"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "คำจารเคียงความเชื่อของคน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-105"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-106",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 106,
+    "historicalMaterials": [
+      "เหลียนเฉียว",
+      "เกล็ดตัวนิ่ม",
+      "จี๋หลี"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-106"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-107",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 107,
+    "historicalMaterials": [
+      "น้ำผึ้ง",
+      "เหลียนเฉียว",
+      "จี๋เกิ่ง",
+      "จื่อซู"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-107"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-108",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 108,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ถ้อยเก่าพาเห็นใจมนุษย์",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-108"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-109",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 109,
+    "historicalMaterials": [
+      "จื่อซู",
+      "ขิงสด"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-109"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-110",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 110,
+    "historicalMaterials": [
+      "รากเก๋อกิน",
+      "เซิงหมา"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "ลายมือสานความทรงจำไว้",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-110"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-111",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 111,
+    "historicalMaterials": [
+      "ขิงสด"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-111"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-112",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 112,
+    "historicalMaterials": [
+      "พุทรา"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "เงาอักษรทอดยาวตามกาล",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-112"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-113",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 113,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "ฟู่จื่อ",
+      "อบเชยน้ำมัน",
+      "เปลือกโบตั๋น"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-113"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-114",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 114,
+    "historicalMaterials": [
+      "เฉียนหู",
+      "จื่อเค่อ",
+      "เมล็ดแอปริคอต"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-114"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-115",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 115,
+    "historicalMaterials": [
+      "ชิงไต้",
+      "ชาดแดง"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-115"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-116",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 116,
+    "historicalMaterials": [
+      "โกฐขี้แมว"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-116"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-117",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 117,
+    "historicalMaterials": [
+      "น้ำผึ้ง",
+      "เหลียนเฉียว",
+      "สะระแหน่ป่า",
+      "จิงเจี้ย"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-117"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-118",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 118,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "เมล็ดแอปริคอต",
+      "ชวนเป้ย์",
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "คำจารเคียงความเชื่อของคน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-118"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-119",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 119,
+    "historicalMaterials": [
+      "ชวนเป้ย์",
+      "ชิงไต้",
+      "ชาดแดง",
+      "ชะเอม"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-119"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-adult-120",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดผู้ใหญ่",
+    "no": 120,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "พุทรา",
+      "โสมฝรั่ง"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-adult-120"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 1,
+    "historicalMaterials": [
+      "ตาหวง",
+      "โสมฝรั่ง",
+      "หมาก",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 2,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "จี๋เกิ่ง",
+      "น้ำผึ้ง",
+      "พุทรา"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 3,
+    "historicalMaterials": [
+      "ตังกุย",
+      "อบเชยจีน",
+      "ชวนซี",
+      "กานพลู"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 4,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "น้ำผึ้ง",
+      "จื่อซู"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 5,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 6,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ชะเอม",
+      "เปลือกส้มเก่า"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 7,
+    "historicalMaterials": [
+      "น้ำผึ้ง",
+      "สะระแหน่ป่า",
+      "ชะเอม",
+      "จือจื่อ"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 8,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ไป๋เสา",
+      "ไป๋จู๋",
+      "เปลือกส้มเก่า"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 9,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ไป๋จู๋",
+      "ชะเอม",
+      "ปั้นเซี่ย"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 10,
+    "historicalMaterials": [
+      "หมาก",
+      "ชะเอม",
+      "เปลือกส้มเก่า",
+      "มอลต์ข้าว"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 11,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "ไป๋จู๋",
+      "มันหวยซาน",
+      "เมล็ดบัว"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 12,
+    "historicalMaterials": [
+      "เปลือกหม่อน",
+      "ตี้หวงสด",
+      "ฝางเฟิง",
+      "เฉียนหู"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ภาพวันวานสอนใจให้ระวัง",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 13,
+    "historicalMaterials": [
+      "กระดองตะพาบ",
+      "ชะเอม",
+      "เสาแดง",
+      "จือหมู่"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 14,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "น้ำผึ้ง",
+      "กระดองตะพาบ",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "ความหลังเรียงแถวตามลายมือ",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 15,
+    "historicalMaterials": [
+      "ชิงไต้"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 16,
+    "historicalMaterials": [
+      "ชะเอม"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "ชุมชนก้องอยู่ในอักษร",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 17,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ปั้นเซี่ย",
+      "จี๋เกิ่ง",
+      "ชะเอม"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 18,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "น้ำผึ้ง",
+      "พุทรา"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 19,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "น้ำผึ้ง",
+      "ชาดแดง",
+      "ไป๋จู๋"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 20,
+    "historicalMaterials": [
+      "เฉียนหู",
+      "ซีซิน",
+      "ปั้นเซี่ย",
+      "จิงเจี้ย"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 21,
+    "historicalMaterials": [
+      "ฝางเฟิง",
+      "ชางจู๋",
+      "ชวนซี",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 22,
+    "historicalMaterials": [
+      "จื่อซู",
+      "ฝูหลิง",
+      "เปลือกส้มเก่า",
+      "ปั้นเซี่ย"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 23,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ขิง",
+      "น้ำผึ้ง",
+      "ไป๋จู๋"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 24,
+    "historicalMaterials": [
+      "รากเก๋อกิน",
+      "ชวนซี",
+      "เปลือกส้มเก่า",
+      "เสาแดง"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 25,
+    "historicalMaterials": [
+      "เปลือกโบตั๋น",
+      "ไป๋เสา",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 26,
+    "historicalMaterials": [
+      "สะระแหน่ป่า",
+      "จี๋เกิ่ง",
+      "ชะเอม",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "รอยพับพาใจย้อนคืนวัน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 27,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "จี๋เกิ่ง",
+      "ฝูหลิง",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "ลายมือสานความทรงจำไว้",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 28,
+    "historicalMaterials": [
+      "โกฐขี้แมว",
+      "เหลียนเฉียว",
+      "ฝางเฟิง",
+      "มู่ทง"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 29,
+    "historicalMaterials": [
+      "เซิงหมา",
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "เงาอักษรทอดยาวตามกาล",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 30,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "เซิงหมา",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 31,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "เซิงหมา",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 32,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "เหลียนเฉียว",
+      "สะระแหน่ป่า"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 33,
+    "historicalMaterials": [
+      "เซิงหมา",
+      "รากเก๋อกิน",
+      "ชะเอม",
+      "จิงเจี้ย"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "รอยหมึกบ่มความหมายในกาล",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 34,
+    "historicalMaterials": [
+      "ตู๋หัว",
+      "จี๋เกิ่ง",
+      "จื่อเค่อ",
+      "โสมฝรั่ง"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 35,
+    "historicalMaterials": [
+      "ตังกุย",
+      "โสมฝรั่ง",
+      "โกฐขี้แมว",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "คำจารเคียงความเชื่อของคน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 36,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "ตู๋หัว",
+      "ไฉหู"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "เรื่องเล่าเก็บรอยของกาล",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 37,
+    "historicalMaterials": [
+      "ยิปซัม",
+      "ชะเอม",
+      "จือหมู่",
+      "พุทรา"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ภาพเก่าบอกวิถีของคน",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 38,
+    "historicalMaterials": [
+      "หมาหวง",
+      "หวงฉิน",
+      "จือจื่อ",
+      "ยิปซัม"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ภาพเก่าบอกวิถีของคน",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 39,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "ชะเอม",
+      "รากป่านหลาน",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ภาพเก่าบอกวิถีของคน",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 40,
+    "historicalMaterials": [
+      "ยิปซัม",
+      "ชะเอม",
+      "ตาหวง",
+      "เสวียนเซิน"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "ลายมือสานความทรงจำไว้",
+      "ภาพเก่าบอกวิถีของคน",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 41,
+    "historicalMaterials": [
+      "เหลียนเฉียว",
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "ใบต้าชิง"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ภาพเก่าบอกวิถีของคน",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 42,
+    "historicalMaterials": [
+      "ไฉหู",
+      "ตี้หวงสด",
+      "หวงฉิน",
+      "ม่ายตง"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "เงาอักษรทอดยาวตามกาล",
+      "ภาพเก่าบอกวิถีของคน",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 43,
+    "historicalMaterials": [
+      "ยิปซัม",
+      "ชะเอม",
+      "จือหมู่",
+      "ขิง"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ภาพเก่าบอกวิถีของคน",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 44,
+    "historicalMaterials": [
+      "เปลือกโบตั๋น",
+      "เหลียนเฉียว",
+      "หวงฉิน",
+      "จือจื่อ"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ภาพเก่าบอกวิถีของคน",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 45,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ม่ายตง",
+      "ยิปซัม",
+      "จือหมู่"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ภาพเก่าบอกวิถีของคน",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 46,
+    "historicalMaterials": [
+      "หวงฉิน",
+      "เสวียนเซิน",
+      "โกฐขี้แมว",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ภาพเก่าบอกวิถีของคน",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 47,
+    "historicalMaterials": [
+      "หมาหวง",
+      "น้ำผึ้ง",
+      "เมล็ดแอปริคอต",
+      "ชะเอม"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ภาพเก่าบอกวิถีของคน",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 48,
+    "historicalMaterials": [
+      "รากอ้อ",
+      "เสวียนเซิน",
+      "เปลือกหม่อน",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "คำจารเคียงความเชื่อของคน",
+      "ภาพเก่าบอกวิถีของคน",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 49,
+    "historicalMaterials": [
+      "เปลือกหม่อน",
+      "เมล็ดแอปริคอต",
+      "กวาโหลว",
+      "จี๋เกิ่ง"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ภาพเก่าบอกวิถีของคน",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 50,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "ฝางเฟิง",
+      "เซิงหมา",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ภาพเก่าบอกวิถีของคน",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 51,
+    "historicalMaterials": [
+      "จิงเจี้ย",
+      "จือจื่อ",
+      "หวงฉิน",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ภาพเก่าบอกวิถีของคน",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 52,
+    "historicalMaterials": [
+      "จือจื่อ",
+      "จี๋เกิ่ง",
+      "ม่ายตง",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ภาพเก่าบอกวิถีของคน",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 53,
+    "historicalMaterials": [
+      "ปั้นเซี่ย",
+      "ไผ่ขูด",
+      "ชะเอม",
+      "เปลือกส้มเก่า"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ภาพเก่าบอกวิถีของคน",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 54,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ไป๋เสา",
+      "หวงฉิน",
+      "จื่อเค่อ"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ภาพเก่าบอกวิถีของคน",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 55,
+    "historicalMaterials": [
+      "ฝางเฟิง",
+      "มอลต์ข้าว",
+      "ชางจู๋",
+      "เซิงหมา"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ภาพเก่าบอกวิถีของคน",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 56,
+    "historicalMaterials": [
+      "ขิง",
+      "เฉียนหู",
+      "ชวนซี",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ภาพเก่าบอกวิถีของคน",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 57,
+    "historicalMaterials": [
+      "ไป๋จู๋",
+      "อบเชยจีน"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ภาพเก่าบอกวิถีของคน",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 58,
+    "historicalMaterials": [
+      "ตี้หวงสด",
+      "อินเฉิน",
+      "มู่ทง",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ภาพเก่าบอกวิถีของคน",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 59,
+    "historicalMaterials": [
+      "อินเฉิน",
+      "ไป๋จู๋",
+      "อบเชยจีน"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ภาพเก่าบอกวิถีของคน",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-pediatric-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดเด็ก",
+    "no": 60,
+    "historicalMaterials": [
+      "อินเฉิน",
+      "ตาหวง"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ภาพเก่าบอกวิถีของคน",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-pediatric-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-1",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 1,
+    "historicalMaterials": [
+      "ตาหวง",
+      "เสาแดง",
+      "จิงเจี้ย",
+      "หมาหวง"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "คำจารเคียงความเชื่อของคน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-1"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-2",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 2,
+    "historicalMaterials": [
+      "เสวียนเซิน",
+      "จี๋หลี",
+      "เขาเลียงผา",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-2"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-3",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 3,
+    "historicalMaterials": [
+      "ตังกุย",
+      "เปลือกหม่อน",
+      "เสวียนเซิน",
+      "โกฐขี้แมว"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-3"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-4",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 4,
+    "historicalMaterials": [
+      "ตี้หวงสด",
+      "ตาหวง",
+      "หวงฉิน",
+      "เชียนเฉียน"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "ความหลังเรียงแถวตามลายมือ",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-4"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-5",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 5,
+    "historicalMaterials": [
+      "ตาหวง",
+      "ผู่เซียว",
+      "จี๋เกิ่ง",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-5"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-6",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 6,
+    "historicalMaterials": [
+      "เชียนเฉียน",
+      "มู่ทง"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ชุมชนก้องอยู่ในอักษร",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-6"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-7",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 7,
+    "historicalMaterials": [
+      "เซี่ยคูเฉ่า",
+      "เหมิงฮวา",
+      "ตี้หวงสุก",
+      "ชวนซี"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-7"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-8",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 8,
+    "historicalMaterials": [
+      "ฝางเฟิง",
+      "ชวนซี",
+      "เก๊กฮวยขาว",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-8"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-9",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 9,
+    "historicalMaterials": [
+      "เสาแดง",
+      "ตังกุย",
+      "จือหมู่",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-9"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-10",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 10,
+    "historicalMaterials": [
+      "ม่านจิง",
+      "เสวียนเซิน",
+      "เก๊กฮวยขาว",
+      "ตี้หวงสด"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-10"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-11",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 11,
+    "historicalMaterials": [
+      "เหลียนเฉียว",
+      "ขมิ้นอ้อย",
+      "เชียนเฉียน",
+      "มู่ทง"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-11"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-12",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 12,
+    "historicalMaterials": [
+      "ดอกคำฝอย",
+      "ชวนซี",
+      "ชะเอม",
+      "เสาแดง"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-12"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-13",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 13,
+    "historicalMaterials": [
+      "จือหมู่",
+      "ตี้หวงสด",
+      "เชียนเฉียน",
+      "เสวียนเซิน"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-13"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-14",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 14,
+    "historicalMaterials": [
+      "จักจั่นทอง",
+      "ตังกุย",
+      "เชียนเฉียน",
+      "เมล็ดแอปริคอต"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-14"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-15",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 15,
+    "historicalMaterials": [
+      "ชวนซี",
+      "เหมิงฮวา",
+      "เก๊กฮวยขาว",
+      "ฝางเฟิง"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-15"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-16",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 16,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "เก๋ากี้",
+      "ชวนซี",
+      "ฟู่จื่อ"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "รอยพับพาใจย้อนคืนวัน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-16"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-17",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 17,
+    "historicalMaterials": [
+      "จื่อเฉ่า",
+      "เก๊กฮวยขาว",
+      "เหลียนเฉียว",
+      "หญ้าเจ้าชู้"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ลายมือสานความทรงจำไว้",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-17"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-18",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 18,
+    "historicalMaterials": [
+      "สือหู",
+      "เหลียนเฉียว",
+      "เชียนเฉียน",
+      "เสวียนเซิน"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-18"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-19",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 19,
+    "historicalMaterials": [
+      "โกฐขี้แมว",
+      "ตาหวง",
+      "ผู่เซียว",
+      "เสวียนเซิน"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "เงาอักษรทอดยาวตามกาล",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-19"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-20",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 20,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "ตาหวง",
+      "ชะเอม",
+      "ชาพันธุ์เล็ก"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-20"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-21",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 21,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ตาหวง",
+      "หมาหวง",
+      "ชางจู๋"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-21"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-22",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 22,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "เถ้าหอย",
+      "น้ำส้มข้าว"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-22"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-23",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 23,
+    "historicalMaterials": [
+      "หมึกจิง",
+      "เลือดไก่"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "รอยหมึกบ่มความหมายในกาล",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-23"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-24",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 24,
+    "historicalMaterials": [
+      "ตังกุย",
+      "เก๊กฮวยขาว",
+      "จิงเจี้ย",
+      "ฝางเฟิง"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "เสียงอดีตพาใจกลับบ้าน",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-24"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-25",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 25,
+    "historicalMaterials": [
+      "เก๊กฮวยขาว",
+      "ถั่วเขียว"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-25"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-26",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 26,
+    "historicalMaterials": [
+      "ตับไก่"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-26"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-27",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 27,
+    "historicalMaterials": [
+      "ตับแกะ",
+      "น้ำซาวข้าว"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-27"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-28",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 28,
+    "historicalMaterials": [
+      "จักจั่นทอง",
+      "เหมิงฮวา",
+      "ตับหมู"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-28"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-29",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 29,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "เหมิงฮวา",
+      "เก๊กฮวยหวาน",
+      "เก๋ากี้"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "รอยพับพาใจย้อนคืนวัน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-29"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-30",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 30,
+    "historicalMaterials": [
+      "ตาหวง",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ลายมือสานความทรงจำไว้",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-30"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-31",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 31,
+    "historicalMaterials": [
+      "ชะเอม",
+      "ขิงสด",
+      "พุทรา"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-31"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-32",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 32,
+    "historicalMaterials": [
+      "น้ำตาลดำ"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "เงาอักษรทอดยาวตามกาล",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-32"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-33",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 33,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-33"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-34",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 34,
+    "historicalMaterials": [
+      "ตับหมู"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-34"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-35",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 35,
+    "historicalMaterials": [
+      "เหมิงฮวา",
+      "เชียนเฉียน",
+      "เก๊กฮวยหวาน",
+      "ทู่ซือจื่อ"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-35"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-36",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 36,
+    "historicalMaterials": [
+      "จักจั่นทอง",
+      "เก๊กฮวยขาว",
+      "ใบหม่อน"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "รอยหมึกบ่มความหมายในกาล",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-36"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-37",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 37,
+    "historicalMaterials": [
+      "เก๊กฮวยขาว",
+      "หวงฉิน",
+      "ใบหม่อน",
+      "ชะเอม"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-37"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-38",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 38,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ชวนซี",
+      "ตี้หวงสุก",
+      "เซี่ยคูเฉ่า"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "คำจารเคียงความเชื่อของคน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-38"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-39",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 39,
+    "historicalMaterials": [
+      "ใบหม่อน",
+      "เก๊กฮวยขาว",
+      "เซี่ยคูเฉ่า",
+      "มู่เจ๋ย"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-39"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-40",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 40,
+    "historicalMaterials": [
+      "แร่กานซือ",
+      "ชาดแดง",
+      "พิมเสน"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-40"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-41",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 41,
+    "historicalMaterials": [
+      "ตี้หวงสด",
+      "พุทรา",
+      "จี๋หลี",
+      "เหมิงฮวา"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "ความหลังเรียงแถวตามลายมือ",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-41"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-42",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 42,
+    "historicalMaterials": [
+      "ไข่มุก",
+      "ชาดแดง",
+      "แร่กานซือ",
+      "เกล็ดเหมย"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-42"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-43",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 43,
+    "historicalMaterials": [
+      "ตังกุย",
+      "ขิง",
+      "จี๋หลี",
+      "จักจั่นทอง"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "ชุมชนก้องอยู่ในอักษร",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-43"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-44",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 44,
+    "historicalMaterials": [
+      "ทู่ซือจื่อ",
+      "เก๋ากี้",
+      "เชียนเฉียน",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-44"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-45",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 45,
+    "historicalMaterials": [
+      "ฝูหลิง",
+      "ไป๋จู๋",
+      "อาเจียว",
+      "ชวนซี"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-45"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-46",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 46,
+    "historicalMaterials": [
+      "เสาแดง",
+      "หวงฉิน",
+      "ขิง",
+      "เหลียนเฉียว"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-46"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-47",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 47,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "ฉางผู่",
+      "เก๋ากี้",
+      "อู่เว่ย"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-47"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-48",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 48,
+    "historicalMaterials": [
+      "เชียนเฉียน",
+      "สือหู",
+      "ชาดแดง",
+      "ทู่ซือจื่อ"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "ถ้อยเดิมมีหลายชั้นให้ตรอง",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-48"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-49",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 49,
+    "historicalMaterials": [
+      "เปลือกส้มเก่า",
+      "ชะเอม",
+      "ผู่เซียว",
+      "กานพลู"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "รอยหมึกบ่มความหมายในกาล",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-49"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-50",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 50,
+    "historicalMaterials": [
+      "จักจั่นทอง",
+      "ขิง",
+      "ตังกุย",
+      "ชวนซี"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-50"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-51",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 51,
+    "historicalMaterials": [
+      "เก๊กฮวยหวาน",
+      "เก๋ากี้",
+      "อู่เว่ย"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "คำจารเคียงความเชื่อของคน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-51"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-52",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 52,
+    "historicalMaterials": [
+      "สะระแหน่ป่า",
+      "ฝางเฟิง",
+      "ขิง",
+      "ชะเอม"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-52"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-53",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 53,
+    "historicalMaterials": [
+      "ชวนอู",
+      "ชวนซี",
+      "ซีซิน",
+      "ฝางเฟิง"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-53"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-54",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 54,
+    "historicalMaterials": [
+      "ตังกุย",
+      "มู่เจ๋ย",
+      "จี๋หลี",
+      "เสาแดง"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "ความหลังเรียงแถวตามลายมือ",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-54"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-55",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 55,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ม่านจิง",
+      "ขิง",
+      "ชะเอม"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "เรื่องเล่าพักพิงอยู่ในหีบ",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-55"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-56",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 56,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "ชุมชนก้องอยู่ในอักษร",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-56"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-57",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 57,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ตังกุย",
+      "จี๋หลี",
+      "ชวนซี"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "สมุดเงียบเก็บน้ำใจผู้จด",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-57"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-58",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 58,
+    "historicalMaterials": [
+      "ผงเปลือกหอย",
+      "ตับหมู",
+      "น้ำซาวข้าว"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "รอยมือเชื่อมคนต่างเวลา",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-58"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-59",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 59,
+    "historicalMaterials": [
+      "ตี้หวงสด",
+      "จี๋หลี",
+      "ฝางเฟิง",
+      "ขิง"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ความหมายซ่อนในถ้อยคำสั้น",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-59"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-60",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 60,
+    "historicalMaterials": [
+      "ทู่ซือจื่อ",
+      "เก๋ากี้",
+      "ตี้หวงสุก",
+      "พุทรา"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "พินิจด้วยสติ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-60"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-61",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 61,
+    "historicalMaterials": [
+      "ถั่วดำ",
+      "เหมิงฮวา",
+      "หวงฉิน",
+      "ชะเอม"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เรียนรู้กาลก่อน มิใช่การทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-61"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-62",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 62,
+    "historicalMaterials": [
+      "หุยเหริน"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ชมเป็นวรรณศิลป์ มิใช่คำแนะนำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-62"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-63",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 63,
+    "historicalMaterials": [
+      "เซิงหมา",
+      "ชะเอม",
+      "รากเก๋อกิน"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "วางไว้ในกาล มิใช่ใช้ชี้ทาง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-63"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-64",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 64,
+    "historicalMaterials": [
+      "เชียนเฉียน",
+      "ทู่ซือจื่อ",
+      "จื่อเค่อ",
+      "ตังกุย"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "เป็นหลักฐาน มิใช่คำชวนทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-64"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-65",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 65,
+    "historicalMaterials": [
+      "ชาดแดง",
+      "หัวใจหมู"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "จารไว้ศึกษา มิใช่คำชี้นำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-65"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-66",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 66,
+    "historicalMaterials": [
+      "โสมฝรั่ง",
+      "ตังกุย",
+      "เขากวางอ่อน",
+      "เขาเลียงผา"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "รอยพับพาใจย้อนคืนวัน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-66"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-67",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 67,
+    "historicalMaterials": [
+      "เก๋ากี้",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "รุ่งสางคลี่ผืนกระดาษ",
+      "ลายมือสานความทรงจำไว้",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-67"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-68",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 68,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "เงาโคมเคลื่อนผ่านลายจาร",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-68"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-69",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 69,
+    "historicalMaterials": [
+      "อวี้โฉว"
+    ],
+    "lines": [
+      "ลมเย็นเลียขอบใบลาน",
+      "เงาอักษรทอดยาวตามกาล",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-69"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-70",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 70,
+    "historicalMaterials": [
+      "ไตแกะ"
+    ],
+    "lines": [
+      "แดดบ่ายอุ่นรอยมือครู",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-70"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-71",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 71,
+    "historicalMaterials": [
+      "ดอกคำฝอย",
+      "ตี้หวงสด",
+      "น้ำผึ้ง"
+    ],
+    "lines": [
+      "คืนสงบห่มตำราด้วยดาว",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-71"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-72",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 72,
+    "historicalMaterials": [
+      "ถั่งเช่า",
+      "โสมฝรั่ง",
+      "ตังกุย",
+      "เป็ดตัวเมีย"
+    ],
+    "lines": [
+      "ธูปจางลอยเหนือชานเก่า",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "เสียงครูยังอุ่นอยู่ในใจ",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-72"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-73",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 73,
+    "historicalMaterials": [
+      "ตี้หวงสุก",
+      "ตังกุย",
+      "ชวนซี",
+      "เก๊กฮวยหวาน"
+    ],
+    "lines": [
+      "แสงจันทร์ทาบใบลานยามค่ำ",
+      "ตำราเก่าพบสายตาคนใหม่",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "อ่านอย่างรอบคอบ มิใช่ทำตามใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-73"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-74",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 74,
+    "historicalMaterials": [
+      "ใบบัว",
+      "น้ำตาลดำ"
+    ],
+    "lines": [
+      "ลมรุ่งลูบกระดาษเก่าเบา",
+      "รอยครูร้อยความหลังเป็นถ้อย",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "ถอดความด้วยใจ มิใช่การลงมือ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-74"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-75",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 75,
+    "historicalMaterials": [
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "โคมค่ำส่องรอยหมึกริมฝา",
+      "หมึกเก่าบอกเรื่องราวชุมชน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "ศึกษาด้วยเมตตา มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-75"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-76",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 76,
+    "historicalMaterials": [
+      "อวี้โฉว",
+      "เข็มโบราณ"
+    ],
+    "lines": [
+      "เงาไม้พาดตำราใต้เดือน",
+      "เสียงวัดแว่วผ่านลานเงียบพลัน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "อ่านด้วยความรู้ มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-76"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-77",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 77,
+    "historicalMaterials": [
+      "ถ้อยวัตถุจากหีบโบราณ",
+      "สมุนไพรในใบลาน"
+    ],
+    "lines": [
+      "รุ่งเช้าคลี่ใบลานอย่างเบา",
+      "มือครูฝากเรื่องราวแก่ชน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "มรดกเพื่อคิด มิใช่สิ่งให้ทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-77"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-78",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 78,
+    "historicalMaterials": [
+      "ฟักเขียว",
+      "ถั่วเขียว",
+      "ถั่วดำ",
+      "เก๊กฮวยขาว"
+    ],
+    "lines": [
+      "ฝนพรำแตะชายคาเหนือหีบ",
+      "คำเก่าค่อยเปิดทางให้คิด",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "จดเป็นมรดก มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-78"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-79",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 79,
+    "historicalMaterials": [
+      "ลิ่วเว่ย",
+      "ฟักเขียว"
+    ],
+    "lines": [
+      "แสงทองอาบสมุดริมบาน",
+      "รอยพับพาใจย้อนคืนวัน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "มองเป็นอดีต มิใช่แบบอย่างใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-79"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-80",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 80,
+    "historicalMaterials": [
+      "จักจั่นทอง",
+      "ฝางเฟิง",
+      "จี๋หลี",
+      "หมาหวง"
+    ],
+    "lines": [
+      "เสียงระฆังปลุกความหลังพลัน",
+      "ลายมือสานความทรงจำไว้",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "รับรู้เรื่องราว มิใช่คำสั่งใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-80"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-81",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 81,
+    "historicalMaterials": [
+      "ถั่วดำ",
+      "ตังกุย",
+      "เก๋ากี้",
+      "หวงฉิน"
+    ],
+    "lines": [
+      "หมอกเช้าคลุมลานวัดเงียบ",
+      "หีบไม้เก็บเสียงครูอยู่เงียบ",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "รำลึกอย่างปลอดภัย มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-81"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-82",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 82,
+    "historicalMaterials": [
+      "เก๋ากี้",
+      "ตับไก่"
+    ],
+    "lines": [
+      "ดาวค่ำเฝ้าหน้าตำราเก่า",
+      "เงาอักษรทอดยาวตามกาล",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "เรียนรู้บริบท มิใช่เลือกทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-82"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-83",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 83,
+    "historicalMaterials": [
+      "พิมเสน"
+    ],
+    "lines": [
+      "กลิ่นไม้หอมลอยตามลม",
+      "ถ้อยโบราณวางคู่ความฝัน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "เก็บเป็นความรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-83"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-84",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 84,
+    "historicalMaterials": [
+      "คราบจักจั่น",
+      "จิงเจี้ย",
+      "เกล็ดตัวนิ่ม",
+      "ชวนอู"
+    ],
+    "lines": [
+      "ใบไผ่ไหวข้างห้องจด",
+      "ลานวัดรับเรื่องเล่าจากครู",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "เคารพความต่าง มิใช่ด่วนตัดสิน"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-84"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-85",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 85,
+    "historicalMaterials": [
+      "อวี้โฉว"
+    ],
+    "lines": [
+      "แสงเทียนแต้มรอยพับเก่า",
+      "สมุดเก่าชวนใจให้ตรอง",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "ถ้อยนี้เตือนใจ มิใช่ทางทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-85"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-86",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 86,
+    "historicalMaterials": [
+      "บวบ"
+    ],
+    "lines": [
+      "เงาน้ำวาบผ่านกำแพงวัด",
+      "รอยหมึกบ่มความหมายในกาล",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "ฟังอดีตอย่างนอบน้อม มิใช่ทำตาม"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-86"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-87",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 87,
+    "historicalMaterials": [
+      "เก๊กฮวยหวาน",
+      "เหมิงฮวา",
+      "อู่เว่ย"
+    ],
+    "lines": [
+      "ลมหนาวพัดรอยหมึกนิ่ง",
+      "เสียงผู้เฒ่าแผ่วผ่านชายคา",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "เรื่องเก่าเพื่อรู้ มิใช่ทางปฏิบัติ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-87"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-88",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 88,
+    "historicalMaterials": [
+      "ทู่ซือจื่อ",
+      "เชียนเฉียน",
+      "กู่จิง"
+    ],
+    "lines": [
+      "ยามสายแดดทาบพื้นไม้",
+      "คำจารเคียงความเชื่อของคน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "ฟังด้วยสติ มิใช่ถ้อยชี้นำใด"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-88"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-89",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 89,
+    "historicalMaterials": [
+      "กู่จิง",
+      "ชะเอม",
+      "จี๋หลี",
+      "ฝางเฟิง"
+    ],
+    "lines": [
+      "เดือนเพ็ญเด่นเหนือศาลา",
+      "หน้ากระดาษเฝ้ารอยวันวาน",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "อ่านเพื่อเข้าใจ มิใช่ลงมือทำ"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-89"
+  },
+  {
+    "sourceId": "baosheng_yaoqian-ophthalmic-90",
+    "system": "baosheng_yaoqian",
+    "kind": "medicine",
+    "form": "โคลงสี่สุภาพเชิงบันทึกวรรณศิลป์ ๗/๗/๗/๙",
+    "category": "หมวดดวงตา",
+    "no": 90,
+    "historicalMaterials": [
+      "กล้วย",
+      "น้ำมันชา"
+    ],
+    "lines": [
+      "เสียงฝนกล่อมหีบความหลัง",
+      "ครูเก่าฝากถ้อยไว้ในหมึก",
+      "เรื่องราวฝากรอยคิดแก่คน",
+      "เก็บไว้ถามครู มิใช่ลองเอง"
+    ],
+    "status": "draft",
+    "safetyLink": "baosheng_yaoqian-ophthalmic-90"
+  }
+]

@@ -1,0 +1,482 @@
+[
+  {
+    "sourceId": "liushi_jiazi-1",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Mentari naik menyibak awan", "Perahu kecil melintas lautan", "Jalan terbuka, hati pun aman", "Segala urusan membawa harapan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-2",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Melati mekar dekat telaga", "Burung prenjak hinggap di rawa", "Musim bersemi membuka bunga", "Sabar membawa damai bahagia"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-3",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bambu muda tumbuh di ladang", "Layang-layang menari di udara", "Teguhkan hati, jangan bimbang", "Rezeki tiba pada waktunya"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-4",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bulan purnama di atas taman", "Perahu berlabuh membawa berita", "Hadapi hari dengan tenteram", "Pintu rumah dipenuhi sukacita"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-5",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Ranting patah diterpa badai", "Kuda putih berlari ke desa", "Cepat berubah sebelum tercerai", "Waspada menjaga diri dan usaha"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-6",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Hujan turun membasahi batu", "Daun pisang bergetar di halaman", "Tunda langkah saat hati ragu", "Merantau jauh perlu kewaspadaan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-7",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bintang timbul di balik awan", "Ikan belanak bermain di rawa", "Saat terang, tebarkan kebaikan", "Jodoh dan damai datang bersama"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-8",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Padi menguning di tepi kali", "Kupu-kupu hinggap di bunga", "Hasil sempurna mendekat kembali", "Pulang disambut damai bahagia"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-9",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Harimau teduh di bawah pinang", "Naga berenang dekat muara", "Tak usah menoleh ke belakang", "Kasih yang tulus tumbuh bicara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-10",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bunga gugur jatuh ke batu", "Senja kemerah-merahan di jendela", "Jangan memaksa saat tak tentu", "Berhenti sejenak memulihkan tenaga"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-11",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Ayam jantan berkokok pagi", "Embun bening menetes ke batu", "Kabar cerah datang kembali", "Sabar mengantar damai di kalbu"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-12",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Ombak surut di pantai sepi", "Layar putih menuju dermaga", "Badai reda, hati pun harmoni", "Tangan penolong membawa lega"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-13",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Sampan kandas di pasir merah", "Karang teguh menghadang gelombang", "Tak mudah lepas dari masalah", "Doa perlu disertai perjuangan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-14",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Biji saga jatuh ke bumi", "Mawar merah mekar di halaman", "Hasil baik mendekat nanti", "Tenang membaca waktu dan keadaan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-15",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Kakek menanam pohon kenari", "Burung tua kembali ke sarang", "Buah matang hadir setelah dinanti", "Simpan tenaga, jangan mengejar terang"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-16",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Tungku padam menyisakan abu", "Pintu kayu tertutup perlahan", "Tak semua dapat dipaksa maju", "Hormati hukum serta batas aturan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-17",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Ular sawah melintas pelan", "Naga air berkilau di kali", "Luka lama jangan dipendam, kawan", "Rawat rumah agar tenteram kembali"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-18",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Kuda berlari di padang terang", "Lentera bergoyang dekat muara", "Peluang baik datang menjelang", "Sahabat menolong membuka bicara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-19",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Awan pekat menutup bukit", "Rusa berteduh di bawah cemara", "Jangan meninggi sebelum sulit", "Jalan lama kembali membawa cahaya"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-20",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Benang kusut tersimpan di peti", "Lonceng kecil berbunyi di jalan", "Jangan memaksa hasil hari ini", "Mundur sejenak meringankan beban"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-21",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Matahari terbit dari timur", "Burung camar melintas lautan", "Tangan penolong datang saat hati jujur", "Berani melangkah menghalau kecemasan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-22",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Pondok bambu di tepi kali", "Bulan sabit muncul dari awan", "Harta tumbuh sedikit demi sedikit", "Berkah singgah di rumah yang aman"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-23",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Jala nelayan tersangkut batu", "Arus panjang menuju lautan", "Jangan memaksa langkah yang belum tentu", "Sabar menanti temu dan kesempatan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-24",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bulan bening di atas bukit", "Awan tipis berarak ke utara", "Kesulitan surut sedikit demi sedikit", "Jalan terbuka bagi yang sabar"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-25",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Anjing berbaring di bawah jati", "Ayam mematuk padi di halaman", "Tak perlu cemas menebak nanti", "Berbuat baik tanpa mengharap pujian"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-26",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Mawar merah mekar berseri", "Kumbang hijau terbang ke taman", "Petik peluang saat menghampiri", "Musim baik menunggu keberanian"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-27",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Pohon rindang menaungi desa", "Burung tekukur bersiul pelan", "Lapangkan dada menjaga keluarga", "Rezeki tumbuh dalam ketenangan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-28",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Anak rusa meniti batu", "Anjing berjaga dekat pagar", "Langkah tertahan bukan akhir tentu", "Jangan menyerah walau kabar samar"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-29",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Dahan kering menunggu hujan", "Benih terlelap di dalam tanah", "Bertahanlah melewati musim rawan", "Harapan lama tumbuh kembali cerah"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-30",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bulan condong di balik awan", "Jam tua berdetak di beranda", "Perubahan menuntut ketekunan", "Tuntaskan beban dengan kepala waspada"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-31",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Daun willow melambai di kali", "Buah ranum jatuh ke tanah", "Saat bekerja, hasil menghampiri", "Rumah bersuka karena usaha terarah"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-32",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Naga kertas terbang ke langit", "Harimau kayu diam di muara", "Nilai sejati jangan pergi sedikit", "Emas menjadi besi bila hati alpa"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-33",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Sampan kecil melawan arus", "Jala dijemur dekat dermaga", "Pegang kemudi, jangan cemas terus", "Tekun berusaha bertemu hasilnya"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-34",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Tebing tinggi diselimuti kabut", "Anggrek liar tumbuh di rawa", "Rintangan runtuh oleh tekad padu", "Nasib berbalik membawa cahaya"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-35",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Batu sungai licin tersiram hujan", "Daun kelapa melambai di udara", "Tak perlu memaksa siasat berlebihan", "Selaras tercapai tanpa banyak bicara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-36",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Laut biru memeluk karang", "Pohon tua tumbuh di halaman", "Berkah panjang menguatkan langkah tenang", "Syukur menjaga damai dan kesehatan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-37",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Burung elang menembus kabut", "Kuda cokelat berlari ke padang", "Pintu peluang terbuka bagimu", "Bertindak bijak, hasilnya terang"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-38",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bendera merah berkibar tinggi", "Lentera emas menyala di jalan", "Nama baik tumbuh setiap hari", "Kerja tulus menumbuhkan kepercayaan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-39",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Menara tua di atas bukit", "Burung bangau pulang ke rawa", "Jangan mengejar puncak yang sulit", "Sabar mengundang tangan penolong setia"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-40",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Lumbung penuh dekat perigi", "Bulan hangat menyinari halaman", "Cukup tumbuh bersama harmoni", "Pasangan sehati menjaga kebahagiaan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-41",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Gendang tua berbunyi lagi", "Padi kering tersusun di lumbung", "Kabar dekat membawa janji", "Temu lama berbuah beruntung"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-42",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bukit pertama bersambung bukit", "Arus deras berpusar di muara", "Jalan berliku perlu hati-hati", "Jangan memaksa sengketa bicara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-43",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Burung merpati terbang tinggi", "Bulan terpantul di telaga tenang", "Pesan jauh terdengar kembali", "Tunggulah dengan hati lapang"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-44",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Pedagang datang menuju pasar", "Bintang pertama menyala di senja", "Peluang tiba setelah bersabar", "Rezeki terang menyertai kerja"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-45",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Buah delima tampak berseri", "Bunga kenanga harum di taman", "Yang ditanam berbuah kembali", "Jaga damai, jangan mengejar angan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-46",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bulan purnama di atas bukit", "Bunga seroja mengapung di rawa", "Nama baik naik setapak sedikit", "Sukses bersinar tanpa tinggi suara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-47",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Cermin bundar memantulkan pagi", "Kain sutra berkibar di taman", "Jawaban jernih tumbuh dari diri", "Kesulitan luruh oleh ketekunan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-48",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Mendung rendah menutup kota", "Lilin kecil bergetar di jendela", "Jangan berangkat sebelum siap semua", "Bila arah kabur, tahan langkah sementara"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-49",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Naga batu bersembunyi di awan", "Seruling bambu berbunyi di rawa", "Banyak bicara bukan jawaban", "Kabar terang datang tanpa dipaksa"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-50",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Besi tua tersimpan di gudang", "Emas senja menyentuh muara", "Janji teguh mengubah keadaan", "Setia mengubah besi menjadi emas"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-51",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Empat penjuru disapu angin", "Pintu rumah dihias bunga", "Jangan bimbang memilih diri", "Keluarga teguh menjadi penjaga"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-52",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Puncak gunung diselimuti kabut", "Rajawali berputar di angkasa", "Saat bertemu membawa maksud", "Simpan tekad, peluang segera terbuka"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-53",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Lebah hinggap di bunga melati", "Mangga ranum di ujung dahan", "Kebaikan berlipat dalam hati", "Rezeki dan suka memenuhi halaman"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-54",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Lampu minyak berpendar seri", "Malam hening dekat halaman", "Niat baik tak hilang sendiri", "Doa tulus menemukan jalan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-55",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Mutiara berkilau di pasir", "Kapal kecil menunggu laut", "Jangan tergesa menilai diri", "Sabar menuntun langkah maju"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-56",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Batu kali dipoles hujan", "Daun kering berputar di jalan", "Beban lama luruh perlahan", "Hati ringan setelah melepaskan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-57",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Pintu kayu terbuka menjelang pagi", "Burung perkutut turun ke taman", "Tetapkan hati, jangan ragu lagi", "Langkah terjaga menyambut keberuntungan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-58",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Ular kecil melingkar di batu", "Awan tebal menuju utara", "Perubahan tumbuh tak menentu", "Jangan percaya semua kabar"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-59",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bunga bakung mekar berseri", "Koin tua berkilau di halaman", "Berbuat baik, bukalah diri", "Temu dan rezeki datang beriringan"],
+    "status": "draft"
+  },
+  {
+    "sourceId": "liushi_jiazi-60",
+    "system": "liushi_jiazi",
+    "kind": "literary",
+    "form": "Pantun Bahasa Indonesia",
+    "lines": ["Bulan pucat tertutup kabut", "Pohon pinus bergoyang di udara", "Singkirkan ragu, tetaplah teguh", "Kerja tertib membawa manfaat nyata"],
+    "status": "draft"
+  }
+]

@@ -3,7 +3,9 @@ import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import PoemLocaleTabs from '../../components/PoemLocaleTabs.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem, systemHref } from '../../lib/queries';
+import { getPoemLocaleViews } from '../../lib/poem-locales';
 import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
 import { stripOuterParens, withoutTerminalPunctuation } from '../../lib/text';
 
@@ -15,6 +17,7 @@ export const getStaticPaths = (async () => {
 
 const { poem, interp } = Astro.props;
 const d = poem.data;
+const localeEntries = getPoemLocaleViews(d.system.id, poem.id);
 
 // 宮廟合作主題（2026-08-14，P1）：?temple= 命中合作白名單 → client script 換上該廟專屬背景與落款，
 // 並送 poem_open 歸因事件（與求籤頁 P0 同一套 temple 維度）。一般訪客（無參數）完全不受影響、
@@ -150,6 +153,8 @@ if (faq) ld.push(faq);
         {d.lines.map((l) => <p class="line">{l}</p>)}
       </div>
     </section>
+
+    <PoemLocaleTabs entries={localeEntries} />
 
     {/* 籤版原印的分項解：**照抄籤版、不改寫**，與本站自撰的九項分項解分開陳列。
         各籤版項目名稱與數量都不同（月老籤有福祿/生意/風水），硬套本站九項會變成我們的詮釋。 */}
