@@ -573,7 +573,8 @@ if (faq) ld.push(faq);
           <span class="status" aria-live="polite"></span>
         </div>
         <div class="progress" hidden><i></i></div>`;
-      document.querySelector('article.poem-detail .lines-block')?.after(box);
+      // 祈福卡片要放在整個閱讀區塊之後，避免佔用語系欄位的 grid 位置。
+      document.querySelector('article.poem-detail .poem-reading-grid')?.after(box);
       // 從求籤結果卡的 CTA 進來（#qiancard）＝使用者就是要來做圖的，這次捲動是使用者意圖
       if (location.hash === '#qiancard') box.scrollIntoView({ behavior: 'smooth', block: 'start' });
       const input = box.querySelector('input')!;
