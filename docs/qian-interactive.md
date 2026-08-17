@@ -16,8 +16,8 @@
 
 ## 同籤留言的運作（站方要做的事）
 
-- 待審佇列：`/root/folk-qian-api/whispers/pending.jsonl`
-- 審核：`cd /root/folk-qian-api && node review-whispers.mjs list`，
+- 待審佇列：`/root/folk.tw-api/whispers/pending.jsonl`
+- 審核：`cd /root/folk.tw-api && node review-whispers.mjs list`，
   `approve <id…>`／`reject <id…>`；核准即時刊出（前端 5 分鐘快取）。
 - 伺服器端硬擋：2–80 字、含網址/email/電話樣式拒收；每 IP 每日 5 則；
   IP 只存 sha256 前 16 碼。`/about` 已載明審閱與匿名原則。

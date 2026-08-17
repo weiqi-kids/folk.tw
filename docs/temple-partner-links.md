@@ -66,9 +66,9 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
 不上傳照片也能直接下載該籤的現成祈福籤詩圖。分工契約：
 
 - **產圖方（外部，如 codex）**只產「**無文字背景畫**」放
-  `/root/folk-qian-api/cards-bg/<temple_id>/<poem_id>.png|.jpg`
+  `/root/folk.tw-api/cards-bg/<temple_id>/<poem_id>.png|.jpg`
   （🔴 畫面不得含任何文字/字母/數字；建議 1024×1536 直式，其他尺寸會被 cover 裁切）。
-- 之後跑 `cd /root/folk-qian-api && node compose-cards.mjs`（增量、可重跑）：
+- 之後跑 `cd /root/folk.tw-api && node compose-cards.mjs`（增量、可重跑）：
   疊上籤詩文字＋落款 → `cards/<temple_id>/<poem_id>.png` → 由
   `https://api.folk.tw/cards/…` 靜態對外（快取 1 小時）。
 - 前端籤詩頁以 HEAD 探測該籤有無現成圖，**有才顯示「直接下載籤詩圖」鈕**（列首）；
@@ -84,7 +84,7 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
   合作廟頁的選擇只影響上傳生成，直接下載仍是廟方版。事件多帶 `style` 維度
   （GA4 已註冊，2026-08-15，非追溯）。
 - **直接下載**：`GET api.folk.tw/v1/qian-card/<poem_id>[?style=NN]`——從
-  `/root/folk-qian-api/style-previews/<NN-風格>/backgrounds/` 底圖池抽一張
+  `/root/folk.tw-api/style-previews/<NN-風格>/backgrounds/` 底圖池抽一張
   （指定風格＝只在該風格抽；未指定＝全池隨機）、套 `style-presets.mjs` 對應
   風格框＋疊正確籤詩文字。純 sharp 合成、不經 OpenAI、不吃每日額度；`no-store`。
 - **上傳生成**：`POST /v1/qian-card` 不帶 temple → 一般頁；`style` 可指定
