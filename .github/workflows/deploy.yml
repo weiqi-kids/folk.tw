@@ -23,6 +23,15 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # 🔴 沒有 timeout 的 job 會一路掛到 GitHub 的 6 小時上限才被強制中止，期間線上停在舊版且無告警。
+    # （2026-08-18 實例：run 32164545310 卡在下方 apt 安裝步驟，掛滿 6 小時才被強制 cancelled、
+    #  deploy 被 skip，全程零通知——因為 cancelled 不觸發 notify-failure 的 if: failure()，那條一併修了。）
+    #
+    # 數字依據＝2026-08-18 統計最近 10 次**成功** run 的 build job 實際執行時間（不含排隊）：
+    #   12m12s / 15m32s / 15m36s / 15m56s / 19m23s / 19m31s / 19m47s / 20m01s / 20m05s / 22m19s
+    #   → 最大 22m19s，取約 1.5 倍 ≈ 35 分鐘，替日後廟數成長（OG 卡張數隨廟數線性增加）留餘裕。
+    # ⚠️ 改這個值前先重跑一次上面那個統計，不要憑感覺調。
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v6
@@ -35,7 +44,26 @@ jobs:
       # runner 沒有 CJK 字型時，卡面會整片變成空框（且檔案照樣產出、不會報錯）→ 明確安裝。
       # 產生器本身另有 fc-match 前置檢查，缺字型會直接失敗而不是默默出空框。
       - name: 安裝中文字型（分享卡光柵化用）
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+        # 🔴 真正的修法是「單次 apt 呼叫不可能無限等待」，step timeout 只是最後一道網。
+        #    2026-08-18 這一步對 mirror 的連線無限等待，拖垮整個部署 6 小時。
+        # 數字依據＝最近 10 次成功 run 本步驟耗時：10s/11s/11s/11s/12s/15s/17s/35s/36s/2m23s
+        #   → 單次 apt 呼叫給 120s（已是那個 2m23s 離群值整步耗時的量級），連三次失敗才放棄；
+        #     step 上限 12 分鐘 ≒ 三輪重試的最壞情況，純粹當兜底。
+        timeout-minutes: 12
+        run: |
+          set -euo pipefail
+          # apt 偶發卡在 mirror 連線；每次呼叫都限時，避免單次暫時性故障變成無限等待。
+          for i in 1 2 3; do
+            if sudo timeout 120 apt-get update -qq \
+               && sudo timeout 120 apt-get install -y -qq fonts-noto-cjk; then
+              echo "字型安裝成功（第 $i 次嘗試）"
+              exit 0
+            fi
+            echo "::warning::字型安裝第 $i 次失敗，5 秒後重試"
+            sleep 5
+          done
+          echo "::error::字型安裝連續三次失敗，中止部署（缺 CJK 字型會讓分享卡整片空框）"
+          exit 1
       - name: 完整性檢查（dangling ref 阻擋部署）
         run: pnpm check:integrity
       - name: 型別檢查
@@ -71,6 +99,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # 依據＝最近 10 次成功 run 的 deploy job 耗時：11s/11s/24s/26s/31s/31s/42s/1m46s/2m16s
+    #   → 最大 2m16s；Pages 偶有慢的時候，取寬鬆的 10 分鐘（仍遠早於 6 小時上限）。
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -86,6 +117,9 @@ jobs:
   indexnow:
     needs: deploy
     runs-on: ubuntu-latest
+    # 依據＝最近 10 次成功 run 的 indexnow job 耗時：7s/8s/8s/8s/11s/11s/12s/12s/14s/18s
+    #   → 最大 18s；取 5 分鐘。
+    timeout-minutes: 5
     env:
       SITE_URL: https://folk.tw
       INDEXNOW_KEY: 70b5e40d2e314f4a126b322cc2bd0672
@@ -107,8 +141,13 @@ jobs:
   # secrets（SLACK_BOT_TOKEN / SLACK_CHANNEL_ID）未設定時自動靜默略過。
   notify-failure:
     needs: [build, deploy]
-    if: failure()
+    # 🔴 這裡原本只有 failure()，而**逾時／被取消算 cancelled、不算 failure** →
+    #    2026-08-18 run 32164545310 卡死 6 小時、deploy 被 skip，卻一封告警都沒發出去。
+    #    加上 timeout-minutes 之後，逾時中止走的正是 cancelled 這條路，所以這行非補不可，
+    #    否則新加的 timeout 只會讓它「早點安靜地死」，一樣沒人知道。
+    if: failure() || cancelled()
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Notify Slack
         env:
@@ -120,7 +159,13 @@ jobs:
             exit 0
           fi
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          TEXT="🚨 ${{ github.repository }} 部署被守門擋下（commit ${GITHUB_SHA::7}）。請修正設計規範/建置錯誤後 push，workflow 會自動重審。詳情： $RUN_URL"
+          # 區分兩種死法：被 gate 擋下（要改碼）vs 逾時／被取消（多半是 runner 暫時性故障，重跑即可）。
+          # 混為一談會讓人拿錯處方——2026-08-18 那次若照舊文案會被讀成「守門擋下」而去找不存在的違規。
+          if [ "${{ contains(needs.*.result, 'cancelled') }}" = "true" ]; then
+            TEXT="⏱️ ${{ github.repository }} 部署逾時或被取消（commit ${GITHUB_SHA::7}），**線上仍停在舊版**。不是守門擋下，通常是 runner 暫時性故障；確認後重跑即可。詳情： $RUN_URL"
+          else
+            TEXT="🚨 ${{ github.repository }} 部署被守門擋下（commit ${GITHUB_SHA::7}）。請修正設計規範/建置錯誤後 push，workflow 會自動重審。詳情： $RUN_URL"
+          fi
           curl -sf -X POST https://slack.com/api/chat.postMessage \
             -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
             -H 'Content-type: application/json; charset=utf-8' \
