@@ -227,12 +227,36 @@
         ],
         "added": "2026-08-04T12:33:34.523Z",
         "hash": "f52ad83a8922"
+      },
+      {
+        "date": "2026-08-14",
+        "text": "足利市將部分災害垃圾委託鄰近的群馬縣桐生市代為焚化處理，作業已展開，預計九月底前完成清運。",
+        "sources": [
+          {
+            "ref": "下野新聞",
+            "url": "https://www.shimotsuke.co.jp/articles/-/1403335"
+          }
+        ],
+        "added": "2026-08-18T12:31:43.383Z",
+        "hash": "3c84c9854fc0"
+      },
+      {
+        "date": "2026-08-17",
+        "text": "豪雨屆滿一個月，足利市災後清運與復原工作仍在進行，當地商家與住戶持續整理受損家具物品，居民對近年天災頻傳感到不安。",
+        "sources": [
+          {
+            "ref": "とちぎテレビ（Yahoo News）",
+            "url": "https://news.yahoo.co.jp/articles/5623ee9ce3ba6c9d23d41d4311dd8a28bbce8a02"
+          }
+        ],
+        "added": "2026-08-18T12:31:43.588Z",
+        "hash": "c91e6c20cadb"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-17",
-      "empty_runs": 6
+      "last_checked": "2026-08-18",
+      "empty_runs": 0
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -533,8 +557,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-17",
-      "empty_runs": 10
+      "last_checked": "2026-08-18",
+      "empty_runs": 11
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -2979,8 +3003,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-17",
-      "empty_runs": 3
+      "last_checked": "2026-08-18",
+      "empty_runs": 4
     }
   },
   {
@@ -3046,12 +3070,36 @@
         ],
         "added": "2026-08-14T12:36:34.288Z",
         "hash": "06c2a2a1f0a5"
+      },
+      {
+        "date": "2026-08-18",
+        "text": "菲律賓國家警察最新通報，西南季風豪雨相關罹難與失聯人數仍在持續盤點與更新中，搜救與道路搶通作業持續進行，多處疏散中心仍安置受災民眾，政府已撥款投入救助與基礎設施搶修。",
+        "sources": [
+          {
+            "ref": "Philstar",
+            "url": "https://www.philstar.com/headlines/2026/08/18/2550015/monsoon-death-toll-now-27-pnp"
+          }
+        ],
+        "added": "2026-08-18T12:34:50.259Z",
+        "hash": "6cfa6c6aa22c"
+      },
+      {
+        "date": "2026-08-18",
+        "text": "碧瑤市政府正推動將先前發生嚴重山崩的現場劃為禁建區，市府將與地質與公共工程主管機關合作評估邊坡穩定與復原工程，暫不規劃讓居民遷回原地重建。",
+        "sources": [
+          {
+            "ref": "Philstar",
+            "url": "https://www.philstar.com/nation/2026/08/18/2549970/baguio-pursues-no-build-zone-landslide-site"
+          }
+        ],
+        "added": "2026-08-18T12:34:51.030Z",
+        "hash": "35f30f357eba"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-17",
-      "empty_runs": 3
+      "last_checked": "2026-08-18",
+      "empty_runs": 0
     }
   },
   {
@@ -3076,7 +3124,26 @@
     "lon": 99.015,
     "detector": "usgs",
     "since": "2026-08-18",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-16",
+        "text": "北蘇門答臘省災害應變單位表示，此次地震震波雖廣泛有感，但轄內並未傳出災損，氣象氣候地球物理局也已確認此次地震無引發海嘯之虞。",
+        "sources": [
+          {
+            "ref": "Kompas.com",
+            "url": "https://medan.kompas.com/read/2026/08/16/215515978/gempa-m-64-simalungun-dirasakan-di-28-kabupaten-kota-bpbd-sebut-tak-ada?page=all"
+          }
+        ],
+        "added": "2026-08-18T12:35:45.283Z",
+        "hash": "6399d6892b68"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-18",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-flood-20260813-e50a38",
@@ -3099,7 +3166,38 @@
     "lon": 140.2647303,
     "detector": "news",
     "since": "2026-08-18",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-17",
+        "text": "警方在千葉市與市原市原先通報有人失聯的地點附近尋獲遺體，正進行身分確認，以釐清是否為先前通報失聯的民眾。",
+        "sources": [
+          {
+            "ref": "FNNプライムオンライン",
+            "url": "https://news.yahoo.co.jp/articles/459caedab78e7f9bbce50bce7646a165163b40a5"
+          }
+        ],
+        "added": "2026-08-18T12:37:11.332Z",
+        "hash": "1e4813a9dc27"
+      },
+      {
+        "date": "2026-08-17",
+        "text": "千葉縣已依災害救助法擴大適用範圍，並在自衛隊協助下持續進行道路搶通、住宅淹水善後與災民臨時安置等復原工作。",
+        "sources": [
+          {
+            "ref": "國土交通省",
+            "url": "https://www.mlit.go.jp/saigai/saigai_260813.html"
+          }
+        ],
+        "added": "2026-08-18T12:37:11.553Z",
+        "hash": "a5fec0ccb840"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-18",
+      "empty_runs": 0
+    }
   },
   {
     "id": "news-landslide-20260814-e5ba9a",
@@ -3122,6 +3220,12 @@
     "lon": 119.8980675,
     "detector": "news",
     "since": "2026-08-18",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-18",
+      "empty_runs": 1
+    }
   }
 ]
