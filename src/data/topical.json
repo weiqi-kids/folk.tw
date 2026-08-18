@@ -2595,7 +2595,7 @@
     "lon": 121.7428504,
     "detector": "news",
     "since": "2026-08-10",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-09",
@@ -2671,11 +2671,13 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-17",
       "empty_runs": 4
     },
-    "bless_snapshot": 1
+    "bless_snapshot": 1,
+    "archived_at": "2026-08-18",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "eq-us6000tjl2",
@@ -3047,5 +3049,29 @@
       "last_checked": "2026-08-17",
       "empty_runs": 3
     }
+  },
+  {
+    "id": "eq-us6000tkyk",
+    "eventType": "quake",
+    "title": "為印尼地震平安祈福",
+    "event": "印尼於8月15日發生規模6.9強震，願當地居民平安無虞，早日恢復如常生活。",
+    "sources": [
+      {
+        "ref": "USGS 地震資訊",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk"
+      },
+      {
+        "ref": "交通部中央氣象署地震測報中心",
+        "url": "https://scweb.cwa.gov.tw/zh-tw/earthquake/data"
+      }
+    ],
+    "place": "15 km NNW of Pematangsiantar, Indonesia",
+    "time": "2026-08-15",
+    "mag": 6.9,
+    "lat": 3.0856,
+    "lon": 99.015,
+    "detector": "usgs",
+    "since": "2026-08-18",
+    "status": "active"
   }
 ]
