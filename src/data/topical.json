@@ -3073,5 +3073,51 @@
     "detector": "usgs",
     "since": "2026-08-18",
     "status": "active"
+  },
+  {
+    "id": "news-flood-20260813-e50a38",
+    "eventType": "flood",
+    "title": "為千葉縣水災平安祈福",
+    "event": "千葉縣自8月13日晚間起遭遇線狀降水帶引發的破紀錄豪雨，造成人員傷亡，多處住宅淹水受損，祈願當地民眾平安，早日恢復家園。",
+    "sources": [
+      {
+        "ref": "千葉日報オンライン",
+        "url": "https://www.chibanippo.co.jp/articles/1654763"
+      },
+      {
+        "ref": "Yahoo!ニュース（読売テレビ）",
+        "url": "https://news.yahoo.co.jp/articles/16af77cbd924a8693650ca22fe68e47bd5f6d476"
+      }
+    ],
+    "place": "千葉縣",
+    "time": "2026-08-13",
+    "lat": 35.549399,
+    "lon": 140.2647303,
+    "detector": "news",
+    "since": "2026-08-18",
+    "status": "active"
+  },
+  {
+    "id": "news-landslide-20260814-e5ba9a",
+    "eventType": "landslide",
+    "title": "為浙江長興山崩平安祈福",
+    "event": "颱風「白海豚」殘餘環流挾帶強降雨，浙江省湖州市長興縣和平鎮發生山洪土石流，造成人員傷亡與多人失聯。願罹難者安息、失聯者早日尋獲，當地鄉親平安。",
+    "sources": [
+      {
+        "ref": "中國新聞網",
+        "url": "https://www.chinanews.com.cn/sh/2026/08-14/10677796.shtml"
+      },
+      {
+        "ref": "新唐人電視台",
+        "url": "https://www.ntdtv.com/b5/2026/08/14/a104124149.html"
+      }
+    ],
+    "place": "浙江省湖州市長興縣和平鎮",
+    "time": "2026-08-14",
+    "lat": 30.8301149,
+    "lon": 119.8980675,
+    "detector": "news",
+    "since": "2026-08-18",
+    "status": "active"
   }
 ]
