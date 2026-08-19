@@ -1,0 +1,92 @@
+---
+// 一項慶典的「歷年舉辦紀錄」時間軸，由新到舊。
+//
+// 🔴 用在**算不出下一次日期**的慶典（數年一科／不定期／日期每年擲筊決定）。
+//    原本那些項目只顯示一句「日期以主辦單位公告為準」，那是免責不是內容；
+//    改成列出實際辦過哪幾次，讀者才拿得到東西（2026-08-19 站主裁示）。
+//
+// 🔴 措辭界線：
+//    ・每一筆都是**已發生的紀錄**，不是預告，所以用過去式的陳述，不寫「將於」。
+//    ・下一次沒公告就明說沒公告，**不要寫「預計」或「約在」**——那是替主辦方
+//      宣稱一個他們沒說過的時間（總紅線第 1 條）。
+//    ・`weak`（僅新聞報導）的筆數要看得出來與一手來源不同，不可混為一談。
+import type { Occurrence } from '../lib/celebration-occurrences';
+
+interface Props {
+  /** 由新到舊。 */
+  occurrences: Occurrence[];
+  /** 下一次已公告的話傳進來；沒公告就不要傳。 */
+  nextAnnounced?: { date_start: string; date_end?: string | null; source_ref: string } | null;
+  /** 下一次未公告時顯示的那一行。頁面自己決定措辭（年度活動與數年一科說法不同）。 */
+  pendingLabel?: string;
+}
+const { occurrences, nextAnnounced = null, pendingLabel = '下一次日期尚未公告' } = Astro.props;
+
+const md = (iso: string) => `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}`;
+const span = (o: { date_start: string | null; date_end?: string | null }) => {
+  if (!o.date_start) return null;
+  const a = md(o.date_start);
+  if (!o.date_end || o.date_end === o.date_start) return a;
+  return `${a}–${md(o.date_end)}`;
+};
+---
+
+<ol class="octl">
+  <li class="oct-next">
+    <span class="oct-year">{nextAnnounced ? new Date(nextAnnounced.date_start).getFullYear() : '下一次'}</span>
+    <span class="oct-body">
+      {
+        nextAnnounced ? (
+          <>
+            <strong>{span(nextAnnounced)}</strong>
+            <a class="oct-src" href={nextAnnounced.source_ref} rel="nofollow noopener" target="_blank">
+              主辦方公告
+            </a>
+          </>
+        ) : (
+          <span class="oct-pending">{pendingLabel}</span>
+        )
+      }
+    </span>
+  </li>
+  {
+    occurrences.map((o) => (
+      <li>
+        <span class="oct-year">{o.year}</span>
+        <span class="oct-body">
+          {span(o) && <strong>{span(o)}</strong>}
+          <span class="oct-label">{o.label}</span>
+          {o.venue && <span class="oct-venue">{o.venue}</span>}
+          {o.lunar && <span class="oct-lunar">農曆{o.lunar}</span>}
+          <a class="oct-src" href={o.source_ref} rel="nofollow noopener" target="_blank">
+            {o.confidence === 'weak' ? '來源（報導）' : '來源'}
+          </a>
+        </span>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .octl { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .octl li {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .oct-year { font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .oct-body { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; }
+  .oct-label { font-size: var(--text-sm); }
+  .oct-venue { font-size: var(--text-sm); color: var(--ink); }
+  .oct-lunar { font-size: var(--text-xs); color: var(--ink-soft); white-space: nowrap; }
+  .oct-src { font-size: var(--text-xs); color: var(--accent); }
+  /* 「下一次」那列刻意與歷年紀錄長得不同：它是狀態、不是紀錄，混在一起會讀成已經辦過。 */
+  .oct-next .oct-year { color: var(--gold); }
+  .oct-pending { font-size: var(--text-sm); color: var(--ink-soft); }
+  @media (max-width: 480px) {
+    .octl li { grid-template-columns: 3.5rem 1fr; }
+  }
+</style>

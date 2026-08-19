@@ -29,6 +29,8 @@ import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
 import { celebrationCycle } from '../../../lib/local-celebration-cycle';
+import { hasTimeline, timelineItems } from '../../../lib/celebration-occurrences';
+import OccurrenceTimeline from '../../../components/OccurrenceTimeline.astro';
 import { todayInTaipei } from '../../../lib/daily';
 import { getEvents, getTemples } from '../../../lib/queries';
 import lc from '../../../data/local-celebrations.json';
@@ -44,7 +46,11 @@ const localVisual = (await getEvents()).find((e) => e.id === 'jilong')?.data.ima
 const items = lc.items.map((x) => {
   // 舉辦週期先問 lib：非每年的一律不算國曆日（理由見檔頭）。
   const cycle = celebrationCycle(x.id);
-  const iso = !cycle.annual
+  // 🔴 有歷年紀錄＝我們已經查到它的日期**逐年不同**（數年一科、擲筊定日、或來源
+  //    彼此矛盾），那就不要再算一個年度日期出來，改把讀者帶去下方的歷年紀錄。
+  //    這比原本那句「以主辦單位公告為準」有用：免責換成內容（2026-08-19 站主裁示）。
+  const tl = hasTimeline(x.id);
+  const iso = !cycle.annual || tl
     ? null
     : x.calendar === 'lunar'
       ? lunarToNextSolar(x.date, today)
@@ -60,7 +66,10 @@ const items = lc.items.map((x) => {
         ? `國曆 ${m}/${d}`
         : `回曆 ${m} 月 ${d} 日`;
   const temple = x.temple_ref ? templeById.get(x.temple_ref) : undefined;
-  return { ...x, iso, dateLabel, month: m, temple, cycle };
+  // 有時間軸就用短版：長版那句「以主辦單位公告為準」的用途是把讀者導去主辦方，
+  // 但我們自己就列了歷年紀錄，留著只會讓同一行擠兩個訊息。
+  const note = tl ? (cycle.shortNote ?? '日期逐年不同') : cycle.note;
+  return { ...x, iso, dateLabel, month: m, temple, cycle, tl, note };
 });
 
 // 依縣市分組：縣市內用「曆別→月日」排，與資料檔的排序一致。
@@ -171,7 +180,8 @@ const faq = faqPage([
                   <span class="ldate">{i.dateLabel}</span>
                   <span class="lname">{i.name}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
-                  {i.cycle.note && <span class="lsolar">{i.cycle.note}</span>}
+                  {i.note && <span class="lsolar">{i.note}</span>}
+                  {i.tl && <a class="lsolar ltl" href={`#tl-${i.id}`}>歷年舉辦紀錄</a>}
                   {i.calendar === 'hijri' && <span class="lsolar">國曆日期逐年不同，本站不換算</span>}
                   {i.temple && (
                     <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple.name}</a>
@@ -196,7 +206,8 @@ const faq = faqPage([
                   <span class="lname">{i.name}</span>
                   <span class="muted small">{i.county}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
-                  {i.cycle.note && <span class="lsolar">{i.cycle.note}</span>}
+                  {i.note && <span class="lsolar">{i.note}</span>}
+                  {i.tl && <a class="lsolar ltl" href={`#tl-${i.id}`}>歷年舉辦紀錄</a>}
                 </li>
               ))}
             </ul>
@@ -224,6 +235,29 @@ const faq = faqPage([
             </li>
           ))}
         </ul>
+      </section>
+    )
+  }
+
+  {
+    timelineItems().length > 0 && (
+      <section class="tlsec">
+        <h2>歷年舉辦紀錄</h2>
+        <p>
+          下面這些慶典的日期<strong>不是每年固定</strong>——有的數年一科，有的由主辦廟擲筊決定當年日期，
+          有的登錄資料與活動慣例記載不同。算一個年度日期出來會是錯的，所以這裡改列實際辦過哪幾次，
+          每一筆都連回它自己的來源。
+        </p>
+        {timelineItems().map((row) => (
+          <section class="tlone" id={`tl-${row.lc_id}`}>
+            <h3>{row.name}</h3>
+            <OccurrenceTimeline
+              occurrences={row.occurrences}
+              nextAnnounced={row.next_announced}
+              pendingLabel="下一次日期尚未公告"
+            />
+          </section>
+        ))}
       </section>
     )
   }
@@ -262,6 +296,11 @@ const faq = faqPage([
   </script>
 
   <style>
+  .tlsec { margin-top: 2rem; }
+  .tlone { margin-top: 1.25rem; }
+  .tlone h3 { margin-bottom: 0.25rem; }
+  .ltl { color: var(--accent); }
+
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
     .cnt { color: var(--ink-soft); font-size: var(--text-sm); margin-left: 0.5rem; font-weight: 400; }

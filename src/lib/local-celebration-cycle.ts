@@ -57,6 +57,12 @@ export type CelebrationCycle = {
   periodText: string | null;
   /** 頁面要顯示的一句話（僅 `annual === false` 時有值）。 */
   note: string | null;
+  /**
+   * 短版：只講週期這個事實，不帶「日期以主辦單位公告為準」那條尾巴。
+   * 🔴 用在**下面接得到歷年紀錄**的項目：那句尾巴的用途是告訴讀者「去看主辦方公告」，
+   *    但當我們自己就列出歷年紀錄時，它只是噪音，而且會讓一行擠兩個訊息。
+   */
+  shortNote: string | null;
   /** 對到的 nchdb 個案編號，供掛源用。 */
   caseId: string | null;
   /** 判定依據，寫給人看的（不渲染到頁面，供維護時追溯）。 */
@@ -71,7 +77,7 @@ export type CelebrationCycle = {
  */
 export function celebrationCycle(lcId: string): CelebrationCycle {
   const row = caseByLcId.get(lcId);
-  if (!row) return { annual: true, periodText: null, note: null, caseId: null, basis: null };
+  if (!row) return { annual: true, periodText: null, note: null, shortNote: null, caseId: null, basis: null };
 
   const periodText = row.case_id ? (periodByCaseId.get(row.case_id) ?? null) : null;
 
@@ -85,12 +91,13 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
     const contradicts =
       periodText !== null && /(每逢|不定期)/.test(periodText) && !ANNUAL_PERIOD.test(periodText);
     if (!contradicts) {
-      return { annual: true, periodText, note: null, caseId: row.case_id, basis: row.basis };
+      return { annual: true, periodText, note: null, shortNote: null, caseId: row.case_id, basis: row.basis };
     }
     return {
       annual: false,
       periodText,
       note: `舉辦週期的登錄資料記為「${periodText}」，日期以主辦單位公告為準`,
+      shortNote: `登錄資料記為「${periodText}」`,
       caseId: row.case_id,
       basis: `${row.basis}（⚠️ 與官方 hold_period 矛盾，已保守不換算）`,
     };
@@ -100,7 +107,7 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
   //    這 30 筆沒有任何反向證據，維持既有算法（照來源月日算）——把「查不到」
   //    當成「不是每年」會反過來製造另一種錯誤陳述。
   if (row.verdict === 'no_case') {
-    return { annual: true, periodText, note: null, caseId: row.case_id, basis: row.basis };
+    return { annual: true, periodText, note: null, shortNote: null, caseId: row.case_id, basis: row.basis };
   }
 
   // 措辭刻意分兩種，因為兩者的事實強度不同（本 repo 踩過「有這個殿」被寫成「有在辦」的坑）：
@@ -120,7 +127,16 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
         ? `舉辦週期的登錄資料記為「${periodText}」，日期以主辦單位公告為準`
         : '舉辦週期的登錄資料未記為每年，日期以主辦單位公告為準';
 
-  return { annual: false, periodText, note, caseId: row.case_id, basis: row.basis };
+  const shortNote =
+    row.verdict === 'n_year'
+      ? quotable
+        ? `數年一科（${periodText}）`
+        : '數年一科'
+      : quotable
+        ? `登錄資料記為「${periodText}」`
+        : '登錄資料未記為每年';
+
+  return { annual: false, periodText, note, shortNote, caseId: row.case_id, basis: row.basis };
 }
 
 /**

@@ -1,0 +1,623 @@
+{
+  "_readme": "算不出下一次國曆日期的慶典（數年一科／不定期／日期每年擲筊決定／來源日期互相矛盾），改列歷年實際舉辦紀錄。🔴 每一筆都必須是查到的紀錄不是推算——不可用『每三年一科』反推科期。confidence 只有 verified（政府公告／新聞稿、廟方官網、nchdb 逐字）與 weak（媒體報導）兩種。⚠️ nchdb 的 activities 欄位**不可當歷年紀錄用**：全庫 32 筆全是 2018/2019 的單次快照，西港刈香那筆 note 逐字寫「系統測試」，大甲媽那筆起訖顛倒（holdStart 2019-04-17 > holdEnd 2019-04-16），且西港與東港的 2019 都不是科年。讀取入口 src/lib/celebration-occurrences.ts，渲染 src/components/OccurrenceTimeline.astro。",
+  "source": "逐筆各自掛源，見每筆的 source_ref",
+  "verified_on": "2026-08-19",
+  "items": [
+    {
+      "lc_id": "lc_66",
+      "name": "蕭壟香",
+      "case_id": "20090115000003",
+      "occurrences": [
+        {
+          "year": 2026,
+          "label": "2026 丙午科（遶境三天；3/5 蜈蚣陣開館暨請王、3/11 送王燒王船）",
+          "date_start": "2026-03-06",
+          "date_end": "2026-03-08",
+          "source_ref": "https://tw.news.yahoo.com/%E9%87%91%E6%B0%8F%E7%B4%80%E9%8C%84-%E7%99%BE%E8%B6%B3%E7%9C%9F%E4%BA%BA-%E5%86%8D%E7%8F%BE%E4%BD%B3%E9%87%8C-%E4%B8%99%E5%8D%88%E8%95%AD%E5%A3%A0%E9%A6%99%E7%A7%91%E8%9C%88%E8%9A%A3%E9%99%A3%E9%96%8B%E9%A4%A8%E5%89%AA%E7%B6%B5-141642370.html",
+          "source_note": "台灣好報 2026-03-05 報導（Yahoo 轉載）：3/5 蜈蚣陣開館暨請王、3/6–3/8 千歲爺遶境、3/11 送王燒王船。另 tainanoutlook.com 列同一組日程。臺南市政府文化局蕭壠文化園區公告 https://soulangh.tnc.gov.tw/index.php?inter=news&id=12&did=340 確認 2026 年舉辦本科，但該頁只列園區展演日期、未列科儀日期。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2023,
+          "label": "2023 癸卯科（遶境三天；2/16 送王燒王船）",
+          "date_start": "2023-02-11",
+          "date_end": "2023-02-13",
+          "source_ref": "https://news.ltn.com.tw/news/life/breakingnews/4175934",
+          "source_note": "自由時報〈南瀛五大香科「蕭壠香」2/11起遶境3天 2/16送王燒王船〉；中時 2023-02-16 https://www.chinatimes.com/realtimenews/20230216001746-260405 報導當日送王燒王船，兩源互相印證。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2020,
+          "label": "2020 庚子科（遶境三天；2/13 旗牌官就職、2/14 請王、2/20 送王燒王船）",
+          "date_start": "2020-02-15",
+          "date_end": "2020-02-17",
+          "source_ref": "https://www.tainan.gov.tw/News_Content.aspx?n=13371&s=7636976",
+          "source_note": "臺南市政府新聞稿〈2020年蕭壠香科熱鬧登場─GPS定位王轎不迷航〉（發布 109-02-13）逐字：「三年一科的蕭壠香瘟王醮典，將於國曆2月15、16、17日熱鬧登場」。請王 2/14、送王 2/20 出自自由時報 https://news.ltn.com.tw/news/life/breakingnews/3067273 與 https://news.ltn.com.tw/news/life/breakingnews/3065615（weak）。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1987,
+          "label": "1987（民國七十六年）全面恢復舉行三年一科（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "國家文化資產網「佳里金唐殿蕭壠香」historyDevelopment 逐字：「而後才有1987年（民國七十六年）全面恢復舉行3年1科、1科3天的「蕭壠香」之決定」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1984,
+          "label": "1984（民國七十三年）再辦 1 次遶境（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上 historyDevelopment 逐字：「先於1982年（民國七十一年）舉辦17角頭24村庄的小型遶境，續於1984年（民國七十三年）再辦1次」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1982,
+          "label": "1982（民國七十一年）17 角頭 24 村庄小型遶境（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上 historyDevelopment 逐字。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1906,
+          "label": "1906（明治三十九年）曾舉行 1 次小型刈香活動（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上 historyDevelopment 逐字：「這之後， 1906年（明治三十九年）曾舉行1次小型刈香活動，以後就再也沒有任何大型遶境的訊息了」。",
+          "confidence": "verified"
+        }
+      ],
+      "next_announced": null,
+      "notes": "科期逢農曆子、卯、午、酉年正月中旬，一科三天。nchdb 逐字另記：「日香」約在 1895 年（乙未抗日蕭壠大屠殺）暫停、「暗香」在 1937 年（昭和十二年）被日本政府強制禁止後結束。2014 甲午科、2017 丁酉科的確切日期查無指名日期的可用來源（僅維基百科提及年份，依紅線未收）。2029 己酉科尚無公告。"
+    },
+    {
+      "lc_id": "lc_64",
+      "name": "土城香",
+      "case_id": "20130128000002",
+      "occurrences": [
+        {
+          "year": 2024,
+          "label": "2024 甲辰科（刈香遶境三天；4/11 起鼓）",
+          "date_start": "2024-04-12",
+          "date_end": "2024-04-14",
+          "source_ref": "https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8630407",
+          "source_note": "臺南市政府新聞稿（發布 113-04-12）逐字：「今(12)日起至14日期間展開刈香遶境活動」，並記 4/11 起鼓。另一則市府新聞稿 https://www.tainan.gov.tw/News_Content.aspx?n=13370&s=8630608 記 4/13「貳日香」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2021,
+          "label": "2021 辛丑科（僅查得 5/1 當日有遶境報導，完整起訖未確認）",
+          "date_start": "2021-05-01",
+          "date_end": null,
+          "source_ref": "https://www.ettoday.net/news/20210501/1972106.htm",
+          "source_note": "ETtoday 2021-05-01〈台南「土城仔香登場」鹿耳門媽出巡廟會遶境黃偉哲扶轎〉。頁面本身多次連線失敗，僅有標題與發布日可證，未取得逐字內文；三天遶境的起訖日未查得。",
+          "confidence": "weak"
+        },
+        {
+          "year": 1961,
+          "label": "1961（民國五十年）首辦辛丑年土城仔香科（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "國家文化資產網「鹿耳門聖母廟土城仔香」historyDevelopment 逐字：「1961年（民國五十年）首辦辛丑年土城仔香科…而聖母廟至1961年（民國五十年）首辦辛丑香科後，便訂於每逢丑、辰、未、戍年之3月中下旬舉辦，每科刈香繞境3日」。",
+          "confidence": "verified"
+        }
+      ],
+      "next_announced": null,
+      "notes": "nchdb 逐字另記其分香緣由：1958 年（民國四十七年）西港仔戊戌香科因迎請北港媽作客事件，土城仔及鄰近角頭退出西港仔刈香，連續兩年以鹿耳門媽祖聖誕名義辦理媽祖出巡，1961 年首辦自己的香科。2015 乙未科、2018 戊戌科的確切日期查無指名日期的來源。2027 丁未科尚無公告。"
+    },
+    {
+      "lc_id": "lc_65",
+      "name": "西港香",
+      "case_id": "20080627000001",
+      "occurrences": [
+        {
+          "year": 2024,
+          "label": "2024 甲辰科（第 81 科；遶境三天，5/27 送王）",
+          "date_start": "2024-05-24",
+          "date_end": "2024-05-26",
+          "source_ref": "https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8631462",
+          "source_note": "臺南市政府新聞稿〈錯過再等三年！眾神之都臺南400甲辰香科年〉逐字：「西港慶安宮西港香（5/24-26遶境、5/27送王）」。廟方公告另列 5/19 千歲爺南巡、5/23 請媽祖、5/29 謝燈篙。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2021,
+          "label": "2021 辛丑科（原訂 5/22–5/31 因疫情取消，延至年底；12/23 請媽祖、12/24–12/26 遶境）",
+          "date_start": "2021-12-24",
+          "date_end": "2021-12-26",
+          "source_ref": "https://www.cna.com.tw/news/aloc/202111040119.aspx",
+          "source_note": "中央社 2021-11-04 報導逐字：「12月23日請媽祖，12月24日到26日進行3天遶境」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2018,
+          "label": "2018 戊戌科（第 79 科；遶境三天，6/4 燒王船）",
+          "date_start": "2018-06-01",
+          "date_end": "2018-06-03",
+          "source_ref": "https://news.ltn.com.tw/news/life/breakingnews/2446870",
+          "source_note": "自由時報報導：「戊戌香科醮典在6月1日到6月3日進行『三日香』的3天遶境後，壓軸的燒王船在6月4日上午8點…」。另一則 https://news.ltn.com.tw/news/life/breakingnews/2445007 為遶境首日報導。原文頁對本工具回 403，僅取得搜尋引擎索引之片段。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "科期逢農曆丑、辰、未、戌年，遶境三天。nchdb 逐字：起源於乾隆49年（1784）八份姑媽宮甲辰科，道光3年（1823）第14科起由慶安宮接辦，道光27年（1847）首科王醮。🔴 nchdb activities 欄有一筆「2019西港刈香 2019-02-12~2019-03-10」，其 note 欄逐字為「系統測試」，且 2019 己亥年不是科年——那是測試資料，不可採用（同一筆在 20090217000006 重複登錄也是一樣的內容）。2027 丁未科尚無公告。"
+    },
+    {
+      "lc_id": "lc_60",
+      "name": "麻豆香",
+      "case_id": null,
+      "occurrences": [
+        {
+          "year": 2024,
+          "label": "2024 甲辰香科（遶境三天）",
+          "date_start": "2024-05-03",
+          "date_end": "2024-05-05",
+          "lunar": "農曆三月廿五至廿七",
+          "source_ref": "https://www.5god.com.tw/news-detail-2836141.html",
+          "source_note": "麻豆代天府官網公告（發布 2023-04-04）逐字：「本府訂于（甲辰年 龍年）麻豆香遶境時間國曆113年 5月3．4．5日（農曆3月25．26．27日）舉辦南瀛五大香之一的『麻豆香』活動。」臺南市政府新聞稿 https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8631462 逐字亦記「麻豆代天府麻豆香(5/3-5遶境)」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2018,
+          "label": "2018 戊戌香科（遶境三天）",
+          "date_start": "2018-05-11",
+          "date_end": "2018-05-13",
+          "source_ref": "https://news.ltn.com.tw/news/life/breakingnews/2415966",
+          "source_note": "自由時報〈錯開會考日期！麻豆香11日起遶境3天〉。原文頁對本工具回 403，僅取得標題與搜尋引擎索引片段。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": {
+        "date_start": "2027-04-30",
+        "date_end": "2027-05-02",
+        "source_ref": "https://www.5god.com.tw/news-detail-4040027.html",
+        "source_note": "麻豆代天府官網〈116年歲次丁未年五府千歲遶境活動 百足真人報名登記〉（發布 2026-03-19）逐字：「國曆：4月30日至5月2日／農曆：3月24日至3月26日（星期五至星期日）」，並徵求 38 位 6–12 歲童子。"
+      },
+      "notes": "無 nchdb 個案（nchdb 民俗類 266 筆中查無「麻豆香」）。2021 辛丑科查無任何舉行紀錄，也查無取消或延期的公告——依紅線不做推論，只記「查無」。"
+    },
+    {
+      "lc_id": "lc_61",
+      "name": "學甲香",
+      "case_id": "20080627000002",
+      "occurrences": [
+        {
+          "year": 2024,
+          "label": "2024 甲辰科（刈香遶境三天）",
+          "date_start": "2024-04-17",
+          "date_end": "2024-04-19",
+          "source_ref": "https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8631462",
+          "source_note": "臺南市政府新聞稿逐字：「學甲上白礁暨刈香（4/17-19）」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2022,
+          "label": "2022（2020 庚子科延兩年後復辦；刈香遶境三天）",
+          "date_start": "2022-04-09",
+          "date_end": "2022-04-11",
+          "source_ref": "https://news.ltn.com.tw/news/life/breakingnews/3834210",
+          "source_note": "自由時報〈「學甲香」復辦！ 4/9~4/11遶境3天〉：慈濟宮董事長王文宗說明董事會決議於 4 月 9、10、11 日舉行三天學甲香遶境。中時 2022-03-29 https://www.chinatimes.com/realtimenews/20220329004839-260421〈學甲上白礁謁祖遶境祭典4／9登場 真人藝閣重出江湖〉互相印證。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2004,
+          "label": "2004 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "國家文化資產網「學甲上白礁暨刈香」ceremonyFeature 逐字：「戰後曾於1971年、1978年、1984年、1988年、1992年、1996年、2000年、2004年舉行刈香。」",
+          "confidence": "verified"
+        },
+        {
+          "year": 2000,
+          "label": "2000 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1996,
+          "label": "1996 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1992,
+          "label": "1992 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1988,
+          "label": "1988 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。另一筆較新的登錄（20220926000003「學甲上白礁」）逐字：「早期刈香為不定期舉行，1988年後漸漸形成四年一科，固定於子、辰、申年舉行。」",
+          "confidence": "verified"
+        },
+        {
+          "year": 1984,
+          "label": "1984 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1978,
+          "label": "1978 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。",
+          "confidence": "verified"
+        },
+        {
+          "year": 1971,
+          "label": "1971 年舉行刈香（月份未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+          "source_note": "同上逐字年份清單。1987 年以前於保生大帝神前擲筊決定舉辦時間，之後改由慈濟宮信徒代表大會決議。",
+          "confidence": "verified"
+        }
+      ],
+      "next_announced": null,
+      "notes": "🔴 「上白礁謁祖」與「學甲香」不是同一件事：上白礁謁祖每年農曆三月十一日辦（nchdb 另有一筆 20220926000003「學甲上白礁」holdPeriod=每年），學甲香刈香才是四年一科。2020 庚子科的下場已查證：原訂 2020 順延至 2021，2021-01-27 慈濟宮董事會為防疫決定停辦（中時 https://www.chinatimes.com/realtimenews/20210127004358-260421 逐字：「『學甲香』也決定停辦」），最後於 2022-04-09 復辦。2008、2012、2016 三科只查到維基百科提及年份、無一手來源，依紅線未收。2026 年上白礁謁祖遶境為 4/24–4/25（tainanoutlook 轉載廟方公告，weak），非刈香。"
+    },
+    {
+      "lc_id": "lc_56",
+      "name": "東隆宮迎王平安祭典",
+      "case_id": "20190515000004",
+      "occurrences": [
+        {
+          "year": 2024,
+          "label": "2024 甲辰正科（9/28 請水、9/29–10/2 四區遶境、10/3–10/4 王船法會與遷船、10/5 凌晨送王）",
+          "date_start": "2024-09-28",
+          "date_end": "2024-10-05",
+          "source_ref": "https://www.66.org.tw/m1_file/detail.php?id=1&mid=2&category=x&nid=121",
+          "source_note": "東港東隆宮官網公告，逐日列出：9/28(六) 請水、9/29(日) 北區遶境、9/30(一) 南區遶境、10/1(二) 中區遶境、10/2(三) 農區遶境、10/3(四) 王船法會敬王、10/4(五) 遷船遶境、10/5(六) 凌晨送王。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2021,
+          "label": "2021 辛丑正科（10/24 請水；送王日未由一手來源證實）",
+          "date_start": "2021-10-24",
+          "date_end": null,
+          "source_ref": "https://www.pthg.gov.tw/plantou/News_Content.aspx?n=3D7FE3A6F999D6C2&sms=6B402F30807E7BB3&s=0ADAEDDBD762B3AA",
+          "source_note": "屏東縣政府新聞稿（發布 110-10-24）：辛丑正科代天巡狩「封」府大千歲於當日下午 16 時 16 分在鎮海公園駕臨（請水）。該新聞稿未載遶境與送王日期。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2018,
+          "label": "2018 戊戌正科（10/28 請水、11/3 遷船、11/4 燒王船）",
+          "date_start": "2018-10-28",
+          "date_end": "2018-11-04",
+          "source_ref": "https://www.chinatimes.com/realtimenews/20181028002229-260405",
+          "source_note": "中時 2018-10-28〈東港迎王「請水」擠爆萬人朝聖 戊戌正科大千歲「盧」〉；PeoPo 公民新聞 https://www.peopo.org/news/383153 記「11月3日遷王船、11月4日【日】燒王船」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2015,
+          "label": "2015 乙未正科（10/4 請水、10/11 送王燒王船）",
+          "date_start": "2015-10-04",
+          "date_end": "2015-10-11",
+          "lunar": "八月廿二至八月廿九",
+          "source_ref": "https://www.peopo.org/news/287441",
+          "source_note": "PeoPo 公民新聞刊出的祭典日程逐字：「國曆:十月初四、農曆:八月二十二日(日):恭請王駕(請水)」「國曆:十月十一、農曆:八月二十九日(日):恭送王駕(燒王船)」。公民新聞非機構媒體，列為 weak。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "科期逢農曆丑、辰、未、戌年，日期由東隆宮擲筊決定，核心時程前後八天。nchdb（另一筆登錄 20100618000011）historyDevelopment 逐字：「日昭和 12年（ 1937）丁丑科後中斷 14年未辦，直至 1952年春天始恢復舉行，至翌科（ 1955）因戒嚴時期申請許可問題改以利用雙十節慶典名義舉辦迎王祭典，此後即固定在 10月底前後（農曆 8 9月）舉行」。🔴 nchdb activities 那筆「2019東港迎王 2019-02-13~2019-02-16」是錯的（2019 非科年、且只有 4 天而祭典為 8 天），不可採用。2027 丁未科尚無官方公告日期（2024-10-08 已抽定 2027 丁未科職務，但日期未定）。"
+    },
+    {
+      "lc_id": "lc_51",
+      "name": "頭城搶孤",
+      "case_id": "20061227000002",
+      "occurrences": [
+        {
+          "year": 2025,
+          "label": "2025（傳統孤棚搶孤因經費短缺取消，改辦「搶飯棚個人技藝競賽」；9/20–9/21 系列活動）",
+          "date_start": "2025-09-21",
+          "date_end": "2025-09-21",
+          "source_ref": "https://www.taoismmedia.com/2025%E9%A0%AD%E5%9F%8E%E6%90%B6%E5%AD%A4%E5%89%B5%E6%96%B0%E8%BD%89%E5%9E%8B-9-21%E6%90%B6%E9%A3%AF%E6%A3%9A%E6%8B%9A%E5%80%8B%E4%BA%BA%E6%8A%80%E8%97%9D/",
+          "source_note": "中華道教傳媒 2025-09-19 報導：9/20–9/21 系列活動、9/21 晚間「搶飯棚個人技藝競賽」；逐字：「今年適逢頭城搶孤200週年，知名的『孤棚搶孤』傳統賽事因經費短缺取消，而宜蘭縣頭城鎮中元祭典協會決議創新轉型，改以『搶飯棚個人技藝競賽』取代傳統團體搶孤」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2024,
+          "label": "2024（農曆七月最後一天深夜 23:16 開始）",
+          "date_start": "2024-09-02",
+          "date_end": "2024-09-02",
+          "lunar": "七月三十",
+          "source_ref": "https://www.cna.com.tw/news/aloc/202409030005.aspx",
+          "source_note": "中央社 2024-09-03 報導：活動於 2024-09-02 深夜 11 時 16 分開始，松欣營造隊奪冠。另 https://www.cna.com.tw/news/aloc/202408280245.aspx（2024-08-28）預告 9/2 攻頂。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2023,
+          "label": "2023（停辦 3 年後復辦；農曆七月最後一天深夜 23:25 開始）",
+          "date_start": "2023-09-14",
+          "date_end": "2023-09-14",
+          "lunar": "七月三十",
+          "source_ref": "https://www.cna.com.tw/news/ahel/202309150009.aspx",
+          "source_note": "中央社 2023-09-15 報導逐字：「受COVID-19疫情影響，停辦3年的頭城搶孤民俗活動昨天深夜再度於當地舉辦」，昨晚 11 時 25 分開始，杏輝藥品A隊奪冠。",
+          "confidence": "weak"
+        },
+        {
+          "year": 1991,
+          "label": "1991（中斷 43 年後復辦，於開蘭東路與沙成路交叉處國小預定地舉行；月日未查得）",
+          "date_start": null,
+          "date_end": null,
+          "source_ref": "https://www.lym.gov.tw/ch/collection/epaper/epaper-detail/dc7093c7-c257-11ea-94d3-2760f1289ae7/",
+          "source_note": "宜蘭縣立蘭陽博物館電子報逐字：「1991年中斷43年的搶孤活動，在開蘭東路與沙成路交叉處的國小預定地舉行」。",
+          "confidence": "verified"
+        }
+      ],
+      "next_announced": null,
+      "notes": "nchdb holdPeriod 逐字：「不定期 由頭城搶孤中元祭典協會會員大會決定」。停辦／復辦沿革（宜蘭縣立蘭陽博物館電子報，同上網址）：1949 年舉辦前夕台北縣政府宜蘭區署行文頭城鎮代表會，以戒嚴時期迎神賽會影響治安為由禁止；1991 年復辦；該電子報另列 1994–1995、1998–2003、2011–2012、2014 等停辦年段，以及 2004 年起由縣政府共同主辦、2006 年登錄無形文化資產——⚠️ 這段年段清單是抓取工具摘出的整理，**未逐字覆核**，維護者若要上站請先回該頁核對原文。2020–2022 因 COVID-19 停辦 3 年（中央社 2023-09-15 逐字，見上）。2016–2019、2021–2022 逐年是否舉辦未逐年查證。"
+    },
+    {
+      "lc_id": "lc_59",
+      "name": "「嘉義市鞦韆節」活動",
+      "case_id": "20081209000001",
+      "occurrences": [
+        {
+          "year": 2025,
+          "label": "2025 嘉義市鞦韆節（市府版）",
+          "date_start": "2025-03-30",
+          "date_end": "2025-03-30",
+          "venue": "嘉義市光路里武當山玄天上帝廟廟埕",
+          "source_ref": "https://www.epochtimes.com/b5/25/3/30/n14470718.htm",
+          "source_note": "大紀元 2025-03-30 報導逐字：「傳承超過200年的嘉義市鞦韆節於今（30）日在嘉義市光路里武當山玄天上帝廟廟埕熱鬧登場」。同頁另逐字記：「至民國97年，市府為發展地方宗教觀光，經擲筊獲玄天上帝同意，改為每年辦理」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2024,
+          "label": "2024 嘉義市鞦韆節（市府版；36 名選手，分單人組與雙人組）",
+          "date_start": "2024-04-07",
+          "date_end": "2024-04-07",
+          "venue": "嘉義市光路里武當山玄天上帝廟廟埕",
+          "source_ref": "https://www.epochtimes.com/b5/24/4/7/n14220125.htm",
+          "source_note": "大紀元 2024-04-07 報導：當日在光路里武當山玄天上帝廟廟埕舉行，市長黃敏惠到場。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2020,
+          "label": "109 年嘉義市鞦韆節（光路里高空盪鞦韆競技）",
+          "date_start": "2020-03-29",
+          "date_end": "2020-03-29",
+          "venue": "嘉義市光路里武當山玄天上帝廟",
+          "source_ref": "https://iyochiayi.ouorange.com/new-content/53265a80-61ac-11ea-814b-45648bc22ee8",
+          "source_note": "「iYO 愛遊嘉義」（嘉義市政府指導之地方旅遊平台）活動頁：活動名稱「109 年嘉義市鞦韆節（光路里高空盪鞦韆競技）」，開始／結束日期均為 2020-03-29；主辦為市政府結合光路社區發展協會、武當山玄天上帝廟及光路里里長辦公處。非市府新聞稿本體，列為 weak。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2015,
+          "label": "104 年嘉義市鞦韆節（市府版）",
+          "date_start": "2015-04-18",
+          "date_end": "2015-04-18",
+          "venue": "嘉義市光路里武當山玄天上帝廟前（新民路555巷8號）",
+          "source_ref": "https://www.shu.edu.tw/News.aspx?sID=19483",
+          "source_note": "世新大學學務處課外組 2015-03-31 轉發之嘉義市政府活動公告，逐字：「今（104）年定於4月18日在本市光路里武當山玄天上帝廟前（嘉義市新民路555巷8號）舉辦」。是官方公告的轉載而非原文頁，列為 weak。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "🔴 兩源不是互斥，是**兩件不同的事**——nchdb 登錄公告自己就寫明了。20081209000001 的 registerReason 逐字：「本項民俗與下路頭庄早年疫病叢生息息相關…每五年二閏，農曆3月6日玄天上帝聖誕時，於廟前幌韆鞦以掃除災厄。原公告名稱『下路頭鞦韆賽會』係指西元2008年（民國97年）起，每年辦理之鞦韆節活動，與本項民俗有別，故予以修正。」也就是說：登錄的民俗是「下路頭玄天上帝廟盪鞦韆」（每逢閏年閏月的農曆3月6日前後，holdPeriod 逐字「不定期 5年2閏」），而 2008 年起市府每年辦的「鞦韆節」是另一個活動，nchdb 已把名稱從「下路頭鞦韆賽會」改掉以示區別。上面 occurrences 全部是**市府版鞦韆節**。🔴 登錄民俗那一支（每五年二閏）近十年實際辦過哪幾年，查無任何一手來源逐年列出——媒體幾乎只報市府版，故此段留白，不推算。另：110 年（2021）鞦韆節疑因防疫停辦（搜尋索引到嘉義市政府頁面標題「110 年嘉義市鞦韆節(配合衛生福利部防疫專案，110年4月17日停止舉辦)」，該頁已改版無法取得逐字內文，僅記為線索）。2023-04-22 一筆只查到搜尋摘要、無法覆核，依紅線未收。"
+    },
+    {
+      "lc_id": "lc_3",
+      "name": "大甲媽祖遶境進香",
+      "case_id": "20100618000008",
+      "occurrences": [
+        {
+          "year": 2026,
+          "label": "2026 丙午年（起駕 4/17 晚間 10:45、回鑾安座 4/26）",
+          "date_start": "2026-04-17",
+          "date_end": "2026-04-26",
+          "source_ref": "https://www.taichung.gov.tw/8868/8872/9962/3254930",
+          "source_note": "臺中市政府市政新聞（發布 2026-04-15）逐字：「『2026丙午年大甲媽祖遶境進香』將於17日晚間10時45分自大甲鎮瀾宮盛大起駕」「於4月17日（起駕日）及4月26日（回鑾日）兩大重要時點」。⚠️ 部分媒體報起駕時刻為 22:05，與市府新聞稿的 22:45 有分鐘級落差；建議只寫到「日」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2025,
+          "label": "2025 乙巳年（起駕 4/4 晚間 10:45、回鑾安座 4/13；4/8 新港奉天宮祝壽）",
+          "date_start": "2025-04-04",
+          "date_end": "2025-04-13",
+          "source_ref": "https://www.taichung.gov.tw/2950860/post",
+          "source_note": "臺中市政府市政新聞（發布 2025-04-01）逐字：「4月4日晚間10時45分起駕」，4 月 13 日返回大甲鎮瀾宮安座。回鑾另見 https://www.taichung.gov.tw/2959200/post。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2024,
+          "label": "2024 甲辰年（起駕 4/5 晚間 11:00、回鑾安座 4/14）",
+          "date_start": "2024-04-05",
+          "date_end": "2024-04-14",
+          "source_ref": "https://www.taichung.gov.tw/2606088/post",
+          "source_note": "臺中市政府市政新聞（發布 2024-04-06）：4 月 5 日晚間 11 時正式起駕，預計 4 月 14 日晚間回鑾安座。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2023,
+          "label": "2023 癸卯年（起駕 4/21 晚間 11:05、回鑾安座 4/30）",
+          "date_start": "2023-04-21",
+          "date_end": "2023-04-30",
+          "source_ref": "https://www.taichung.gov.tw/2337393/post",
+          "source_note": "臺中市政府市政新聞（發布 2023-04-22）逐字：「今(21)晚11時5分正式起駕」「4月30日晚間回鑾安座」。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2022,
+          "label": "2022 壬寅年（起駕 4/8 晚間 11:00；回鑾日未由查得之來源指明）",
+          "date_start": "2022-04-08",
+          "date_end": null,
+          "source_ref": "https://www.cna.com.tw/news/ahel/202202150283.aspx",
+          "source_note": "中央社 2022-02-15 報導：元宵擲筊確定「4月8日晚間11時起駕」，九天八夜。該報導未載回鑾日。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2021,
+          "label": "2021 辛丑年（起駕 4/9 晚間 11:05、回鑾 4/18）",
+          "date_start": "2021-04-09",
+          "date_end": "2021-04-18",
+          "source_ref": "https://www.cna.com.tw/news/firstnews/202102260268.aspx",
+          "source_note": "中央社 2021-02-26 報導逐字：元宵「筊筶典禮」「第二筊擇定4月9日起駕，18日回鑾」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2020,
+          "label": "2020 庚子年（原訂 3/19 起駕，因 COVID-19 延期；實際起駕 6/11 晚間 11:00、回鑾 6/20，規模縮小、隨隊限 800 人）",
+          "date_start": "2020-06-11",
+          "date_end": "2020-06-20",
+          "source_ref": "https://www.cna.com.tw/news/firstnews/202006085002.aspx",
+          "source_note": "中央社 2020-06-08 報導：6 月 11 日晚間 11 時起駕、6 月 20 日回鑾，全程戴口罩、隨隊不超過 800 人。延期決定見中央社 2020-02-27 https://www.cna.com.tw/news/firstnews/202002275004.aspx。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2016,
+          "label": "2016 丙申年（起駕 4/8、回鑾 4/17）",
+          "date_start": "2016-04-08",
+          "date_end": "2016-04-17",
+          "source_ref": "https://www.taichung.gov.tw/8868/8872/976788/post",
+          "source_note": "臺中市政府市政新聞〈大甲媽8日起駕17日回鑾 交通局提供接駁服務〉（發布 2016-04-01）逐字：「市府交通局在大甲媽祖遶境起駕(4月8日)、回鑾(4月17日)兩天闢駛免費『台中媽祖國際觀光文化節接駁車』」。",
+          "confidence": "verified"
+        }
+      ],
+      "next_announced": null,
+      "notes": "每年舉辦，但起駕日期時辰由每年元宵夜（農曆正月十五）在鎮瀾宮大殿的「筊筶（跋桮）典禮」擲筊決定，逐年不同——nchdb ceremonies 逐字：「董事長主持『跋桮』，桮選遶境進香起駕日期時辰」「每年固定農曆1月15日」。全程九天八夜。2017、2018、2019 的起駕／回鑾日期未查到可覆核的一手來源（自由時報站對本工具一律回 403），依紅線未收。🔴 nchdb activities 那筆「2019大甲媽祖遶境進香 holdStart 2019-04-17 / holdEnd 2019-04-16」起訖顛倒，不可採用。"
+    },
+    {
+      "lc_id": "lc_49",
+      "name": "宜蘭放水燈節",
+      "case_id": "20090121000002",
+      "occurrences": [
+        {
+          "year": 2026,
+          "label": "2026（8/12 農曆6/30 發表科儀、遶境巡舊城與宜蘭河畔放水燈；8/13 農曆7/1 普施法會；8/14 農曆7/2 平安米佈施）",
+          "date_start": "2026-08-12",
+          "date_end": "2026-08-14",
+          "lunar": "六月三十至七月初二",
+          "source_ref": "https://yilan.e-land.gov.tw/News_Content.aspx?n=18782&s=405649",
+          "source_note": "宜蘭市公所／宜蘭縣宜蘭市中元民俗文化推展協進會公告逐字：「已有二百多年歷史的宜蘭水燈節系列活動，將於8月12日(農曆6月30日)起跑」「8月13日(農曆7月1日)光復路上『普施法會』」「8月14日(農曆7月2日)宜蘭城隍廟的『平安米佈施』」。前置場次另有 8/6（農曆6/24）置天臺、8/10（農曆6/28）會場灑淨城隍爺出巡。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2024,
+          "label": "2024（8/2 農曆6/28 起至 8/5 農曆7/2；8/3 晚遶境巡舊城，放水燈在接近農曆7/1 子時開鬼門前）",
+          "date_start": "2024-08-02",
+          "date_end": "2024-08-05",
+          "lunar": "六月廿八至七月初二",
+          "source_ref": "https://www.kamalan-news.com/local/4/15503",
+          "source_note": "葛瑪蘭新聞網〈2024宜蘭水燈節～近萬人遊街遶境．放水燈祈安〉；宜蘭有線新聞網 https://ynn.com.tw/blog/archives/8383 同期報導。地方媒體，列為 weak。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "🔴 **repo 目前記的農曆 7/15 應該是錯的。** nchdb holdPeriod 為農曆 6/28～7/2，其 ceremonies 逐字：「開斗燈火…每年固定農曆6月29日」「燃放水燈〈河濱〉…每年固定農曆6月29日」「誦彌陀經、大悲咒…每年固定農曆7月1日」「送佛神歸宮醮事完滿…每年固定農曆7月1日」。實查 2024、2026 兩年的官方／媒體公告，放水燈都落在農曆六月底、緊鄰七月初一子時「開鬼門」，沒有任何一年辦在農曆七月十五。建議改採 nchdb 版本。⚠️ 只逐年驗證了 2024 與 2026，2018–2023 未逐年查證。"
+    },
+    {
+      "lc_id": "lc_55",
+      "name": "南投縣名間鄉受天宮—元宵節米糕桃祈福活動及玄天上帝聖誕活動",
+      "case_id": "20120913000001",
+      "occurrences": [
+        {
+          "year": 2026,
+          "label": "2026 元宵米糕桃（農曆正月十五；8888 台斤主桃揭桃、團拜獻禮）",
+          "date_start": "2026-03-03",
+          "date_end": "2026-03-03",
+          "lunar": "正月十五",
+          "source_ref": "https://www.cna.com.tw/news/aloc/202603030283.aspx",
+          "source_note": "中央社 2026-03-03 報導：「松柏嶺受天宮今天辦理『元宵米糕桃』活動」，信眾以扁擔挑米糕桃自停車場步行至廟埕，縣長許淑華等揭桃；並記此活動「開啟受天宮玄天上帝的進香期」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2025,
+          "label": "2025 元宵米糕桃（農曆正月十五；約 300 名信眾與志工）",
+          "date_start": "2025-02-12",
+          "date_end": "2025-02-12",
+          "lunar": "正月十五",
+          "source_ref": "https://www.cna.com.tw/news/aloc/202502120315.aspx",
+          "source_note": "中央社 2025-02-12 報導：「松柏嶺受天宮今天辦理『元宵米糕桃』活動」，8888 台斤主桃揭桃祝壽、團拜獻禮。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "🔴 這一項的「香期」不是單一天。nchdb historyDevelopment 逐字：「自農曆正月底便開始有進香團前來朝拜，延續至農曆三月底左右，每天幾乎都有進香團，而農曆三月初三前後，更有近百團的香陣前來進香。」時間軸能給的是**固定農曆正月十五的元宵米糕桃**這一個場次。玄天上帝聖誕（農曆三月初三）法會逐年的官方公告日期查不到（官網只列固定流程：農曆3月2日晚上 11:15 祝壽宴、農曆3月3日聖誕祝壽大典），2025 年對應國曆日在網路上查到兩個互相矛盾的說法且無一手來源可判，依紅線未收。2018–2024 逐年米糕桃的國曆日期亦未逐年查證（2022-02-16 有一則自由時報報導的線索但無法覆核，未收）。"
+    },
+    {
+      "lc_id": "lc_16",
+      "name": "三山國王客家文化節活動",
+      "case_id": null,
+      "occurrences": [
+        {
+          "year": 2025,
+          "label": "2025（39 間宮廟共 117 尊神尊齊聚）",
+          "date_start": "2025-10-25",
+          "date_end": "2025-10-26",
+          "venue": "同霖宮（彰化縣永靖鄉）",
+          "source_ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=418771",
+          "source_note": "彰化縣政府新聞稿（發布 2025-10-20）：10 月 25、26 日於永靖鄉同霖宮辦理，「今年由永靖鄉同霖宮辦理」，39 座三山國王宮廟共 117 尊神尊齊聚。中央社 2025-10-20 https://www.cna.com.tw/news/aloc/202510200187.aspx 同期報導。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2024,
+          "label": "2024（39 間宮廟共 117 尊神尊齊聚）",
+          "date_start": "2024-10-19",
+          "date_end": "2024-10-20",
+          "venue": "舜天宮（彰化縣永靖鄉）",
+          "source_ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=398873",
+          "source_note": "彰化縣政府新聞稿（發布 2024-10-14）：10 月 19–20 日於永靖鄉舜天宮辦理；舜天宮主祀天上聖母、玄天上帝，陪祀三山國王，建於民國 61 年。",
+          "confidence": "verified"
+        },
+        {
+          "year": 2023,
+          "label": "2023（輪由埔心霖震宮舉辦）",
+          "date_start": "2023-10-28",
+          "date_end": "2023-10-28",
+          "venue": "霖震宮（彰化縣埔心鄉）",
+          "source_ref": "https://hakkanews.tw/2023/10/25/festival-of-king-of-the-three-mountains/",
+          "source_note": "客新聞 HakkaNews 2023-10-25 逐字：「彰化縣三山國王客底文化節，將於10月28日在霖震宮（三山國王廟）熱鬧登場」「輪由埔心霖震宮舉辦」。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2022,
+          "label": "2022「永靖好客饒神氣」",
+          "date_start": "2022-10-22",
+          "date_end": "2022-10-23",
+          "venue": "永安宮（彰化縣永靖鄉）",
+          "source_ref": "https://www.bocach.gov.tw/News_Content.aspx?n=20&s=44850",
+          "source_note": "彰化縣文化局公告標題逐字：「2022年『永靖好客饒神氣』 彰化縣三山國王客底文化節 10/22-23永安宮登場」。⚠️ 該頁本次無法取得逐字內文，僅有標題可證，維護者上站前建議再開一次確認。",
+          "confidence": "weak"
+        },
+        {
+          "year": 2018,
+          "label": "2018（一連兩天）",
+          "date_start": "2018-10-27",
+          "date_end": "2018-10-28",
+          "venue": "明聖宮（彰化縣員林市）",
+          "source_ref": "https://www.peopo.org/news/382035",
+          "source_note": "PeoPo 公民新聞逐字：「10月27日至28日一連2天」「在員林市明聖宮舉辦」。公民新聞，列為 weak。",
+          "confidence": "weak"
+        }
+      ],
+      "next_announced": null,
+      "notes": "無 nchdb 個案（nchdb 民俗類 266 筆中查無「三山國王」相關登錄）。主辦宮廟每年在縣內 39 間三山國王廟之間輪替，日期逐年漂移，所以 venue 是這一項時間軸的必要欄位。彰化縣政府 2025 新聞稿逐字：「彰化縣三山國王客家文化協會自91年開始整合縣內三山國王廟…至今已邁入第24年」，即活動起自民國 91 年（2002）。2015–2017、2019–2021 的主辦宮廟與日期查無可覆核來源（2019 只查到花絮、無主辦宮廟與確切日期），依紅線未收。官方名稱已由「三山國王客家文化節」改為「三山國王客底文化節」。"
+    }
+  ]
+}
