@@ -25,6 +25,7 @@ import { releasedItems } from '../../lib/release-schedule';
 import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../lib/text-width.ts';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
+import { celebrationDateDisowned } from '../../lib/local-celebration-cycle';
 import imagePriority from '../../data/image-priority.json';
 
 export const getStaticPaths = (async () => {
@@ -703,16 +704,23 @@ const jsonLd = [
         <ul class="local-celebration-list">
           {templeLocalCelebrations.map((x) => (
             <li>
-              <span class="lcdate">
-                {/* date 是 "MM-DD"：月取 slice(0,2)、日取 slice(3)。
-                    ⚠️ 別寫成 slice(0,3)——那會取到 "01-" → Number() 得 NaN，
-                    而目前這幾筆全是農曆、走不到後兩支，錯了也不會有人發現。 */}
-                {x.calendar === 'lunar'
-                  ? lunarDateLabel(x.date)
-                  : x.calendar === 'solar'
-                    ? `國曆 ${Number(x.date.slice(0, 2))}/${Number(x.date.slice(3))}`
-                    : `回曆 ${Number(x.date.slice(0, 2))} 月 ${Number(x.date.slice(3))} 日`}
-              </span>
+              {/* 🔴 月日不屬於這一筆的（date_disown）就不印——來源把另一件事的日期掛了上來，
+                  印在廟名旁邊等於替本廟宣稱一個沒公告過的日子。判定入口＝
+                  lib/local-celebration-cycle.ts，本檔不自己認定。
+                  ⚠️ 目前 disown 的那一筆 temple_ref 是 null、走不到這裡，但判準是綁在
+                  「這一筆」而不是「這一頁」，所以三個消費端都要問過同一支。 */}
+              {!celebrationDateDisowned(x.id) && (
+                <span class="lcdate">
+                  {/* date 是 "MM-DD"：月取 slice(0,2)、日取 slice(3)。
+                      ⚠️ 別寫成 slice(0,3)——那會取到 "01-" → Number() 得 NaN，
+                      而目前這幾筆全是農曆、走不到後兩支，錯了也不會有人發現。 */}
+                  {x.calendar === 'lunar'
+                    ? lunarDateLabel(x.date)
+                    : x.calendar === 'solar'
+                      ? `國曆 ${Number(x.date.slice(0, 2))}/${Number(x.date.slice(3))}`
+                      : `回曆 ${Number(x.date.slice(0, 2))} 月 ${Number(x.date.slice(3))} 日`}
+                </span>
+              )}
               <span class="lcname">{x.name}</span>
               <span class="muted small">{x.county}</span>
             </li>

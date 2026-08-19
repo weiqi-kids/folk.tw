@@ -108,6 +108,10 @@ export function resolveOgImage(spec?: OgImageSpec): ResolvedOgImage {
  *    （本輪是純重構，紅線禁止），故保留為明確選項並在此註記。
  *  - `lineLead`（line/index）⚠️ **判定為漂移**：`.line-lead` 就是該頁的 lead，只是換了名字
  *    （dist 實測該頁沒有 `.lead`）。同上凍結；哪天要動 markup 再一起收。
+ *
+ * 🅤 **2026-08-19 站主追認：這兩個維持不收斂，不要再列成待辦。** 各只有 1 個檔用到，
+ *    是各自頁面的直答段落、不是複製貼上的漂移；收斂會改渲染輸出而沒有實益。
+ *    真的要收，時機是那兩頁的 markup 本來就要改的時候，順手一起做。
  */
 export const ANSWER_BLOCKS = {
   lead: ['h1', '.lead'],

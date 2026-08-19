@@ -15,6 +15,7 @@ import { festivalNextSolar, lunarDateLabel, solarMd as formatSolarMd } from '../
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
+import { celebrationDateDisowned } from '../../lib/local-celebration-cycle';
 import { todayInTaipei } from '../../lib/daily';
 import { releasedItems } from '../../lib/release-schedule';
 import { num } from '../../lib/format';
@@ -84,6 +85,10 @@ export const getStaticPaths = (async () => {
   const localByFestival = new Map<string, { name: string; county: string }[]>();
   for (const x of localCelebrations.items) {
     if (x.calendar !== 'lunar') continue;
+    // 🔴 月日不屬於這一筆的（date_disown），也不得拿去做「同一天」歸屬——
+    //    印在清單頁與掛進節日頁是同一個錯誤，只是錯在不同頁上。
+    //    ⚠️ 這段的鏡像在 scripts/lib/render-context.mjs（gate 用），兩邊要一起改。
+    if (celebrationDateDisowned(x.id)) continue;
     const slug = listOwner.get(x.date);
     if (!slug) continue;
     if (!localByFestival.has(slug)) localByFestival.set(slug, []);

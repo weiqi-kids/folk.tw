@@ -61,12 +61,14 @@ export const festivalIndexVisuals = {
 /**
  * 原不變量 7①（2026-08-06 加）：《/festivals/local/》必須列出**每一項**的名稱、
  * 項數敘述與資料相符，且回曆項刻意不換算國曆（換算就是杜撰）。
+ * 2026-08-19 加：`date_disown` 的項目不得被拿來做日期陳述或月份分類（同一條原則的第三個應用：
+ * 回曆是「換不出來」、數年一科是「算了也不會發生」、date_disown 是「這個日期根本不是它的」）。
  * ⚠️ 不驗「該有幾筆 temple_ref」——消歧是寧缺勿假，留空是正確行為（見匯入器）。
  */
 export const localCelebrationOverview = {
   id: 'local-celebration/overview',
   legacyIds: ['7'],
-  title: '地方宗教慶典總覽逐項列出、項數敘述相符、回曆項不得被換算國曆',
+  title: '地方宗教慶典總覽逐項列出、項數敘述相符、回曆項不得被換算國曆、月日歸屬錯誤者不得被陳述日期',
   source: 'singleton',
   singletons: ['dist/festivals/local/index.html'],
   onMissing: (_file, acc) => acc.violate('地方宗教慶典頁未建置：/festivals/local/'),
@@ -88,10 +90,39 @@ export const localCelebrationOverview = {
         acc.violate(`/festivals/local/ 回曆項「${x.name}」缺「不換算」說明（不得替它算國曆）`);
       }
     }
+    // 🔴 月日**歸屬**錯誤的項目（date_disown）：來源把另一件事的日期掛在它身上，
+    //    所以本頁不得以任何形式拿那個月日陳述它——不是只有「不換算國曆」而已：
+    //    ① 名稱旁不得印出日期（.ldate）
+    //    ② 不得被分進任何月份組（排進「農曆三月」就是用那個日期做了一次分類陳述）
+    //    實例＝lc_59：登錄民俗那一支的聖誕日期被掛在市府版活動上，兩者已拆開
+    //    （登錄民俗＝/events/xialutou_qiuqian/）。判定唯一入口＝lib/local-celebration-cycle.ts。
+    const monthViewAt = page.html.indexOf('id="lc-month"');
+    for (const x of items.filter((i) => ctx.derived.disownedLcIds.has(i.id))) {
+      const name = escText(x.name);
+      for (const seg of page.html.split('<li')) {
+        if (!seg.includes(name)) continue;
+        const end = seg.indexOf('</li>');
+        if (/class="ldate"/.test(end === -1 ? seg : seg.slice(0, end))) {
+          acc.violate(`/festivals/local/「${x.name}」印出了不屬於它的月日（date_disown 的項目不得做日期陳述）`);
+          break;
+        }
+      }
+      if (monthViewAt !== -1) {
+        // 依月份那份清單裡，它必須落在「日期逐年不同」組（＝不冒充任何一個月份）。
+        const secs = page.html.slice(monthViewAt).split('<section class="grp"');
+        const own = secs.find((sec) => sec.includes(name));
+        if (!own) acc.violate(`/festivals/local/ 依月份清單未列出「${x.name}」`);
+        else if (!/<h2[^>]*>日期逐年不同/.test(own)) {
+          const h2 = own.match(/<h2[^>]*>([^<]*)/);
+          acc.violate(`/festivals/local/「${x.name}」被分進月份組「${h2 ? h2[1] : '?'}」（date_disown 的項目不得以那個月日分類）`);
+        }
+      }
+      acc.count('disowned');
+    }
   },
   // 三層（總覽／廟頁／節日頁）原本就共用同一句摘要，故在這裡一起組。
   summary: (acc, ctx) =>
     `另地方宗教慶典 ${acc.get('listed')}/${ctx.data.localCelebrations.items.length} 項逐項在 /festivals/local/ 出現、`
-    + `項數敘述相符、回曆項未被擅自換算，`
+    + `項數敘述相符、回曆項未被擅自換算、${acc.get('disowned')} 項月日歸屬錯誤者未被拿來陳述日期或分類，`
     + `${ctx.accOf('temple/local-celebration').get('sections')} 間廟頁與相關節日頁的名單皆雙向比對（該有的都在、不該有的都不在）`,
 };

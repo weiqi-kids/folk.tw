@@ -46,6 +46,7 @@ type CaseRow = {
   alt_cases?: unknown[];
   date_conflict?: string;
   date_override?: { calendar: string; date: string; basis: string };
+  date_disown?: { belongs_to_event?: string; basis: string };
   display_note?: string;
 };
 
@@ -168,6 +169,33 @@ export function celebrationDateOverride(
   lcId: string,
 ): { calendar: string; date: string; basis: string } | null {
   return caseByLcId.get(lcId)?.date_override ?? null;
+}
+
+/**
+ * 這一筆的**月日根本不屬於它**時，回傳依據；否則回 null。
+ *
+ * 🔴 與 `date_override` 的差別（別混用，兩者的錯法不同）：
+ *    ・`date_override`＝月日是這一筆的屬性，但**數值錯了** → 用附依據的正確值蓋掉。
+ *    ・`date_disown`  ＝月日**根本是別件事的屬性**（歸屬錯誤） → 沒有正確值可換，
+ *      只能整個不陳述。硬換一個好看的日期就是杜撰。
+ *    實例（2026-08-19 站主裁示「拆」）：lc_59「嘉義市鞦韆節」是市府版活動，
+ *    來源給的農曆03-06 是登錄民俗「下路頭玄天上帝廟盪鞦韆」的聖誕日期，
+ *    那一支已另立 /events/xialutou_qiuqian/ 陳述它自己的日期。
+ *
+ * 🔴 **每一個會印出或使用這個月日的地方都要問過本函式**，不只清單頁：
+ *    印在名稱旁邊是替主辦方宣稱日期；拿去做「同一天的節日」歸屬也是同一個錯誤，
+ *    只是錯在另一頁上。目前的消費端＝/festivals/local/、/festivals/<slug>/、
+ *    /temples/<id>/，以及 gate 的鏡像（scripts/lib/render-context.mjs）。
+ */
+export function celebrationDateDisowned(
+  lcId: string,
+): { belongs_to_event?: string; basis: string } | null {
+  return caseByLcId.get(lcId)?.date_disown ?? null;
+}
+
+/** 月日不屬於自己、因此不得做日期陳述的項目 id（gate 與頁面共用，避免各自維護一份名單）。 */
+export function disownedDateIds(): string[] {
+  return (cases.items as CaseRow[]).filter((x) => x.date_disown).map((x) => x.lc_id);
 }
 
 /**

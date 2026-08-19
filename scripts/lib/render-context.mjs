@@ -169,9 +169,18 @@ export async function buildContext() {
     if (!localByTemple.has(x.temple_ref)) localByTemple.set(x.temple_ref, []);
     localByTemple.get(x.temple_ref).push(x);
   }
+  // ⚠️ 這一段是 src/pages/festivals/[slug].astro 的鏡像，判準要一模一樣，否則 gate 會
+  //    拿一份與頁面不同的期望值去驗（過與不過都沒有意義）。
+  const disownedLcIds = new Set(
+    require('../../src/data/local-celebration-cases.json').items
+      .filter((x) => x.date_disown)
+      .map((x) => x.lc_id),
+  );
   const localByFestival = new Map();
   for (const x of localCelebrations.items) {
     if (x.calendar !== 'lunar') continue;
+    // 月日不屬於這一筆的，不做同日歸屬（判定入口＝src/lib/local-celebration-cycle.ts）。
+    if (disownedLcIds.has(x.id)) continue;
     const slug = festivalOwnerByLunarDate.get(x.date);
     if (!slug) continue;
     if (!localByFestival.has(slug)) localByFestival.set(slug, []);
@@ -191,6 +200,8 @@ export async function buildContext() {
     },
     derived: {
       deityById, systemHrefOf, expectedSystems, publishableEntry, publishableDeityOf,
+      // 月日歸屬錯誤、全站不得做日期陳述的地方慶典（判定來源＝local-celebration-cases.json 的 date_disown）。
+      disownedLcIds,
       scenariosByDeity, concernsByDeity, allScenarioIds, allConcernIds,
       townBySlug, townByName, townOf,
       festivalOwnerByLunarDate, ownsLunarDateList, localByTemple, localByFestival,

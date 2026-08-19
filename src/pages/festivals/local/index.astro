@@ -28,7 +28,7 @@ import LeadVisual from '../../../components/LeadVisual.astro';
 import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
-import { celebrationCycle, celebrationDateOverride } from '../../../lib/local-celebration-cycle';
+import { celebrationCycle, celebrationDateDisowned, celebrationDateOverride } from '../../../lib/local-celebration-cycle';
 import { hasTimeline, timelineItems } from '../../../lib/celebration-occurrences';
 import OccurrenceTimeline from '../../../components/OccurrenceTimeline.astro';
 import { todayInTaipei } from '../../../lib/daily';
@@ -63,8 +63,13 @@ const items = lc.items.map((raw) => {
         : null;
   const m = Number(x.date.slice(0, 2));
   const d = Number(x.date.slice(3));
-  const dateLabel =
-    x.calendar === 'lunar'
+  // 🔴 月日的**歸屬**錯了（來源把另一件事的日期掛在這一筆上）就整個不陳述——
+  //    沒有正確值可以換，印出來等於替主辦方宣稱一個它沒公告過的日期。
+  //    判定在 lib（date_disown），本檔不自己認定。實例＝lc_59 市府版鞦韆節。
+  const disowned = celebrationDateDisowned(x.id) !== null;
+  const dateLabel = disowned
+    ? null
+    : x.calendar === 'lunar'
       ? lunarDateLabel(x.date)
       : x.calendar === 'solar'
         ? `國曆 ${m}/${d}`
@@ -73,7 +78,7 @@ const items = lc.items.map((raw) => {
   // 有時間軸就用短版：長版那句「以主辦單位公告為準」的用途是把讀者導去主辦方，
   // 但我們自己就列了歷年紀錄，留著只會讓同一行擠兩個訊息。
   const note = tl ? (cycle.shortNote ?? '日期逐年不同') : cycle.note;
-  return { ...x, iso, dateLabel, month: m, temple, cycle, tl, note };
+  return { ...x, iso, dateLabel, disowned, month: m, temple, cycle, tl, note };
 });
 
 // 依縣市分組：縣市內用「曆別→月日」排，與資料檔的排序一致。
@@ -82,16 +87,20 @@ const byCounty = counties.map((c) => ({ county: c, list: items.filter((i) => i.c
 
 // 依月份分組：只分農曆月（多數），國曆與回曆各自成組——把三種曆別混在同一個「一月」底下
 // 會讓讀者以為它們是同一天，那是我們自己製造的誤導。
-const lunarMonths = [...new Set(items.filter((i) => i.calendar === 'lunar').map((i) => i.month))].sort(
+// 🔴 月日歸屬錯誤的（disowned）不進任何月份組——把它排進農曆三月，就是拿那個不屬於它的
+//    日期做了一次分類陳述，跟印在名稱旁邊是同一個錯誤。另立一組收容。
+const datedItems = items.filter((i) => !i.disowned);
+const lunarMonths = [...new Set(datedItems.filter((i) => i.calendar === 'lunar').map((i) => i.month))].sort(
   (a, b) => a - b,
 );
 const byMonth = [
   ...lunarMonths.map((m) => ({
     label: `農曆${['', '正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'][m]}月`,
-    list: items.filter((i) => i.calendar === 'lunar' && i.month === m),
+    list: datedItems.filter((i) => i.calendar === 'lunar' && i.month === m),
   })),
-  { label: '國曆日期', list: items.filter((i) => i.calendar === 'solar') },
-  { label: '回曆日期', list: items.filter((i) => i.calendar === 'hijri') },
+  { label: '國曆日期', list: datedItems.filter((i) => i.calendar === 'solar') },
+  { label: '回曆日期', list: datedItems.filter((i) => i.calendar === 'hijri') },
+  { label: '日期逐年不同', list: items.filter((i) => i.disowned) },
 ].filter((g) => g.list.length > 0);
 
 // 近期：只有算得出國曆日的（農曆＋國曆）進榜，取最近 8 筆。
@@ -106,7 +115,7 @@ const faq = faqPage([
   {
     q: '全台有哪些地方宗教慶典？',
     a: `內政部全國宗教資訊網登錄的地方宗教慶典共 ${items.length} 項，分布於 ${counties.length} 個縣市，其中 ${
-      items.filter((i) => i.calendar === 'lunar').length
+      datedItems.filter((i) => i.calendar === 'lunar').length
     } 項採農曆日期。`,
   },
   ...(upcoming[0]
@@ -181,7 +190,7 @@ const faq = faqPage([
             <ul class="lc-list">
               {g.list.map((i) => (
                 <li>
-                  <span class="ldate">{i.dateLabel}</span>
+                  {i.dateLabel && <span class="ldate">{i.dateLabel}</span>}
                   <span class="lname">{i.name}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
                   {i.note && <span class="lsolar">{i.note}</span>}
@@ -206,7 +215,7 @@ const faq = faqPage([
             <ul class="lc-list">
               {g.list.map((i) => (
                 <li>
-                  <span class="ldate">{i.dateLabel}</span>
+                  {i.dateLabel && <span class="ldate">{i.dateLabel}</span>}
                   <span class="lname">{i.name}</span>
                   <span class="muted small">{i.county}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
@@ -232,7 +241,7 @@ const faq = faqPage([
         <ul class="lc-list">
           {linked.map((i) => (
             <li>
-              <span class="ldate">{i.dateLabel}</span>
+              {i.dateLabel && <span class="ldate">{i.dateLabel}</span>}
               <span class="lname">{i.name}</span>
               <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple!.name}</a>
               <span class="muted small">{i.temple!.district}</span>

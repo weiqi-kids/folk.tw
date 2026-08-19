@@ -67,24 +67,33 @@
 `src/data/local-celebration-cases.json` 的 `date_conflict` 欄位記著哪些項目的來源日期
 互相矛盾。多數已被歷年時間軸繞過（頁面本來就不宣稱年度日期），仍待處理的：
 
-- 🔴 **`lc_59` 嘉義市鞦韆節**：已依裁示拆成兩件事（登錄民俗獨立為
-  `/events/xialutou_qiuqian/`），但 `local-celebrations.json` 那一筆的曆別仍是登錄民俗
-  那一支的農曆三月初六，而項目名稱是市府版。資料層還沒真的分開。
 - ⚠️ `lc_3` 大甲媽起駕日由元宵擲筊決定，卻被記成固定農曆日期；時間軸已擋住錯誤陳述，
   但資料本身仍錯。`lc_46` 保安宮是差一日、兩者都指向同一活動，**刻意不覆蓋**。
+
+> ✅ `lc_59` 嘉義市鞦韆節已於 2026-08-19 依站主裁示「拆」完成：那個農曆三月初六是
+> 登錄民俗（`/events/xialutou_qiuqian/`）的屬性，市府版不再以它做任何日期陳述或月份分類。
+> 作法是對帳檔新增 `date_disown`（**與 `date_override` 的差別＝歸屬錯誤 vs 數值錯誤，
+> 前者沒有正確值可換、只能整個不陳述**），判定入口 `src/lib/local-celebration-cycle.ts`，
+> 三個消費端與 gate 鏡像都問過同一支，並補了不變量擋回歸。
 
 ---
 
 ## ⏳ E. 授權與內容風險（剩餘）
 
 - ✅ taiwangods 已於 2026-08-19 取得內政部確認授權，去函那件不必做了。
-- ⏳ **國史館臺灣文獻館（`th.gov.tw`）未查到明示授權**：維持只能摘述、不可逐字大段引用，
-  grandfather 上限仍在（數字看 `scripts/check-source-refs.mjs` 的 `BASELINE`）。
+- ✅ **國史館臺灣文獻館（`th.gov.tw`）2026-08-19 經站主確認亦已授權**，條件比照前述＝
+  標示資料來源連結。`check-source-refs.mjs` 的 `UNLICENSED`／`BASELINE` 因此清空
+  （機制留著備用），該網域已進 `VERBATIM_ALLOW`。
+  ⚠️ 授權事實**只寫在 `/about/` 的版權段**，各條目頁不另掛授權說明（站主 2026-08-19
+  明示「不要又到處加」）——逐筆的來源連結本身就是履行條件。
+  ⚠️ 站主未逐字轉述條款，本 repo 依前兩次的一致條件辦理；若實際更嚴，改
+  `check-source-refs.mjs` 的 `VERBATIM_ALLOW` 註解並同步 `/about/`。
 
 ---
 
-## ⏳ F. 待站主追認
+## 🅤 F. 站主已追認（別再列成待辦）
 
-上一輪自陳「判定不做」的三件，2026-08-19 已查清現況並在該次 commit 說明：
-`speakable` 的兩個 selector（判定不收斂）、description 的兩個單位（判定不修）、
-`/qiugian/` 頁型（已修）。前兩件仍待追認。
+2026-08-19 站主追認：`speakable` 的兩個 selector **維持不收斂**、description 的兩個單位
+**不修**（`/qiugian/` 頁型當時已修）。判定理由與追認都寫進了程式碼註解——
+`src/lib/page-head.ts` 的 `ANSWER_BLOCKS` 檔頭、`src/lib/text-width.ts` 的
+`SERP_DESC_TRUNCATION_WIDTH` 檔頭。要重開這兩件之前先讀那兩段。
