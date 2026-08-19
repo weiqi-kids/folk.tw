@@ -19,6 +19,36 @@ const publicFestivals = releasedItems(festivalsData, iso);
 // 結構化資料（P0-1）：與 AlmanacDay 共用同一引擎計算，不重造曆算。
 const [y, m, dd] = iso.split('-').map(Number);
 const rec = computeDayRecord(y, m, dd, { astro: lunarProvider });
+
+// ── 樞紐獨有：接下來七天 ────────────────────────────────────────────────
+// 🔴 為什麼加（2026-08-19）：`/almanac/` 在 GSC 被判成與當日日頁重複——實測樞紐與
+//    `/almanac/<今天>/` 的 <main> 內文重疊 94.8%，因為樞紐渲染的就是同一個
+//    <AlmanacDay>（`hub` 參數只改樣式與「回今天」按鈕，內容一模一樣）。
+//    根因是「樞紐＝今日頁的複本」，光調 canonical 宣告只是搬移症狀：
+//    `[date].astro` 的 `canonical={date === today ? '/almanac/' : undefined}` 會隨 build
+//    日期變動，Google 記到的關聯不會自己散掉（2026-08-07 被折進樞紐後 12 天仍未回復）。
+// 🔴 零新增事實：全部由同一個 computeDayRecord 引擎算出，與日頁同源，不引入任何新資料。
+const nextSeven = Array.from({ length: 7 }, (_, i) => {
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + i + 1);
+  const s = d.toISOString().slice(0, 10);
+  const [ny, nm, nd] = s.split('-').map(Number);
+  const r = computeDayRecord(ny, nm, nd, { astro: lunarProvider });
+  const lu = r.lunar.value;
+  const dayGz = r.pillars.day.value;
+  // 沖生肖＝日支對沖（相隔六位）。欄位名是 stem/branch，不是 gan/zhi（型別在 lib/almanac/types.ts）。
+  const chongIdx = dayGz
+    ? (BRANCHES.indexOf(dayGz.branch as (typeof BRANCHES)[number]) + 6) % 12
+    : -1;
+  return {
+    iso: s,
+    md: `${nm}/${nd}`,
+    lunarLabel: lu ? `農曆${lu.isLeap ? '閏' : ''}${lu.month}月${lu.day}日` : '',
+    ganzhi: dayGz ? `${dayGz.stem}${dayGz.branch}日` : '',
+    chong: chongIdx >= 0 ? `沖${ZODIACS[chongIdx]}` : '',
+    term: r.solarTerm.value?.name ?? '',
+  };
+});
 const lunar = rec.lunar.value;
 // /festivals/ 節日模組與本日的對映，與 AlmanacDay.astro 同一寫法：有對映時取代泛用節日清單，
 // 讓 FAQPage 的答案與畫面上「節日」那一列一致（同一份 festivals.json，零新增事實）。
@@ -89,6 +119,26 @@ const faq = faqPage([
        故導向今日的 dated 鏡像頁（網址帶日期→卡片帶當日宜忌且永不過期）。 -->
   <p class="almanac-share"><a href={`/almanac/${iso}/`}>分享今日黃道吉日（固定連結）→</a></p>
 
+  <section class="next7">
+    <h2>接下來七天</h2>
+    <ul>
+      {
+        nextSeven.map((d) => (
+          <li>
+            <a href={`/almanac/${d.iso}/`}>
+              <span class="n7-md">{d.md}</span>
+              <span class="n7-lunar">{d.lunarLabel}</span>
+            </a>
+            <span class="n7-gz">{d.ganzhi}</span>
+            {d.chong && <span class="n7-chong">{d.chong}</span>}
+            {d.term && <span class="n7-term">{d.term}</span>}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="muted small">干支、沖生肖與節氣由本站曆算引擎計算，與各日頁同一份結果。</p>
+  </section>
+
   {/* 2026-08-03：農曆七月四頁（鬼門開 8/13、七夕 8/19、放水燈 8/26、中元 8/27）在 GSC
       仍是「已發現／已檢索－未建立索引」、曝光 0，而搜尋尖峰就在那幾天。
       /almanac/ 是本站 priority 僅次於首頁的樞紐（0.8）且主題相鄰，從這裡再給一條高權重內鏈。
@@ -120,6 +170,17 @@ const faq = faqPage([
 </Base>
 
 <style>
+  .next7 { margin-top: 1.5rem; }
+  .next7 ul { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .next7 li {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline;
+    padding: 0.4rem 0; border-bottom: 1px dashed var(--line);
+  }
+  .n7-md { font-weight: 700; color: var(--accent); }
+  .n7-lunar { font-size: var(--text-sm); }
+  .n7-gz, .n7-chong { font-size: var(--text-sm); color: var(--ink-soft); }
+  .n7-term { font-size: var(--text-xs); color: var(--gold); }
+
   .almanac-more {
     margin-top: 2rem;
     padding-top: 1.25rem;

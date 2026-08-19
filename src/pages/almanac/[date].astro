@@ -46,7 +46,13 @@ const yearBranch = rec.pillars.year.value?.branch;
 const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
 
 // FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
-// 今天那一頁 canonical 指回 /almanac/，麵包屑末層跟著只到農民曆（否則末層會指向被 canonical 掉的網址）。
+// 🔴 2026-08-19 移除「今天那一頁 canonical 指回 /almanac/」：那個宣告**會隨 build 日期翻轉**
+//    （今天是自己→隔天變成別人），Google 記到的關聯不會自己散掉——實測 /almanac/2026-08-07/
+//    被折進樞紐後 12 天仍是「Google 選擇的標準網頁和使用者的選擇不同」。
+//    原本讓出 canonical 是為了避免與樞紐重複，同一天已改由「樞紐加獨有內容」解決
+//    （index.astro 的「接下來七天」區塊）。日頁一律自我 canonical，宣告從此穩定不變。
+//
+// 麵包屑：今天那一頁末層仍只到農民曆（樞紐就是今天的入口，末層再指自己是贅字）。
 const crumbs = almanacCrumbs(date!, date === today);
 const faq = faqPage([
   {
@@ -84,7 +90,6 @@ const metaDescription = yiV.length
 <Base
   title={`農民曆 · ${date}`}
   description={metaDescription}
-  canonical={date === today ? '/almanac/' : undefined}
   faq={faq}
   crumbs={crumbs}
   kind="detail"
