@@ -88,3 +88,50 @@
       6 尊旗艦神明、liushi_jiazi-1/45、suitang_qinshubao）送出，成功 11/失敗 0。
 
 - ⚙️ **（活的設定入口，不是已完成動作）**稀釋開關：`astro.config.mjs` `EXCLUDE_TUDIGONG_FROM_SITEMAP`（changefreq 須用 `ChangeFreqEnum.*` 列舉）。
+
+---
+
+## GSC「網頁未編入索引的原因」逐項判讀（2026-08-19 全量查證）
+
+站主貼出後台報告：頁面會重新導向 3,390／noindex 12／404 1／替代頁面 1／
+已找到未索引 1,970／已檢索未索引 350／重複網頁 1。逐項查完的結論如下，
+**不要再從頭查一次**。
+
+### 🔴 三個大桶子主要是「我們自己送出去的無尾斜線網址」，不是正規頁面出問題
+
+決定性證據（2026-08-19 逐一跑 URL Inspection）：
+
+| 網址 | Google 的狀態 |
+|---|---|
+| `https://folk.tw/almanac`（無尾斜線） | 頁面會重新導向 |
+| `https://folk.tw/poems`（無尾斜線） | 已檢索 - 目前尚未建立索引 |
+| `https://folk.tw/systems`、`/deities/birthdays`（無尾斜線） | 尚未被抓取 |
+
+根因與 `scripts/check-outbound-urls.mjs` 檔頭記載的是同一個：`pnpm notify` 曾送
+無尾斜線網址（2026-07-28 修 scripts/ 時 GSC 累積 2,304），而**那次沒修到
+`public/llms.txt`**——它一直在送 18 個無尾斜線的站內網址，數字因此長到 3,390。
+2026-08-19 修掉並把 gate 的掃描範圍擴到 `public/*.txt`（新增 R3 抓純文字檔的裸網址；
+光加目錄無效，R1 要求網址包在引號裡）。
+
+⚠️ **已被收進去的不會因此消失**，它們本來就正確 301 到 canonical，會隨重抓自然汰除。
+這次修的是不要再產生新的。
+
+### 正規網址其實幾乎全收錄了——不要拿 index-audit.json 回答這種問題
+
+2026-08-19 隨機抽 20 個廟宇頁（不從任何桶子挑）＋8 個刻意排除在 sitemap 外的
+農民曆頁，**28/28 全部 Submitted and indexed**。
+
+🔴 同日踩過的坑：我拿 `index-audit.json` 回答「哪些頁沒收錄」，得到「藥籤 100% 未收錄、
+全站三成未收錄」的結論並報給站主；接著對 16 個「快照標為未收錄」的網址重跑
+URL Inspection，**15 個是已收錄**。成因是稽核的滾動重查沒在跑（`pending.length ? pending : 滾動`
+的三元前半一旦非空就只跑 pending，每天只查幾頁），資料凍在半個月前。已修。
+
+### 其餘小項
+
+- **noindex 12**：`/qiugian/blessing/` 的既定政策（active 恆收、memorial 要有後續發展、
+  archived 與範例頁 noindex），見 `src/pages/qiugian/blessing/[slug].astro`。**不是缺陷。**
+- **404 一個**：2026-08-19 從各樞紐蒐集 589 個站內連結全量測試，**全部回 200**。
+  那個 404 是外部或歷史網址，站上沒有東西指向它。
+- **重複網頁一個**：`/almanac/<某日>/` 被 Google 折進 `/almanac/`。實測樞紐與當日日頁的
+  `<main>` 內文重疊 **94.8%**——因為樞紐顯示的就是「今天」。這是設計使然，
+  要真正解除得改樞紐的定位（那是產品決定，不是 SEO 修補），目前只中 2 頁。
