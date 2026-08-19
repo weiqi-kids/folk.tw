@@ -79,6 +79,7 @@ export const REGISTRY = [
   festival.festivalTitleDate,       // 5（日期往返）
   festival.festivalCrossLinks,      // （原本無編號）
   festival.festivalLocalCelebration,// 7③
+  festival.festivalVerbatimSourceLink, // 逐字引用的來源連結必須在頁面上（授權條件）
   hubs.homeSeasonalCampaign,        // 5g（首頁戰役卡）
   hubs.festivalIndexVisuals,        // 5h
   share.shareRowNotOn404,           // 11（404 反向）

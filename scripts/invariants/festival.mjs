@@ -395,3 +395,38 @@ export const festivalLocalCelebration = {
   },
   summary: false,
 };
+
+/**
+ * 2026-08-19 加：節日頁 `facts` 裡標為**逐字引用**的來源，其網址必須真的渲染在同一頁。
+ *
+ * 🔴 為什麼要驗這個：逐字引用的授權條件就是「標示資料來源連結」（內政部 2026-08-06、
+ *    文化部 2026-08-09、國史館臺灣文獻館 2026-08-19 三次都是同一條）。連結沒渲染出來
+ *    ＝違反授權，而那是**不會有任何錯誤訊息的違反**——同 5f 對內政部那批的理由。
+ * ⚠️ 只驗「宣稱逐字」的那些：摘述本來就不受這條授權條件約束（判準與
+ *    scripts/check-source-refs.mjs 的 claimsVerbatim 一致，改一邊要改兩邊）。
+ */
+const claimsVerbatim = (note) => note.includes('逐字') && !/非逐字|不逐字|未逐字|不可逐字|摘述/.test(note);
+
+export const festivalVerbatimSourceLink = {
+  id: 'festival/verbatim-source-link',
+  title: '節日頁標為逐字引用的來源連結必須渲染在同一頁（授權條件）',
+  source: 'festivals',
+  check(f, page, _ctx, acc) {
+    for (const fact of f.facts ?? []) {
+      for (const src of fact.sources ?? []) {
+        if (!claimsVerbatim(String(src.note ?? ''))) continue;
+        const url = String(src.ref ?? '').match(/https?:\/\/\S+/)?.[0];
+        if (!url) {
+          acc.violate(`節日頁 ${f.slug} 的逐字來源「${src.note}」沒有可掛的網址`);
+          continue;
+        }
+        if (!page.html.includes(escAttr(url))) {
+          acc.violate(`節日頁 ${f.slug} 逐字引用了 ${url}，但該連結沒有渲染在頁面上（違反授權條件）`);
+          continue;
+        }
+        acc.count('verbatim');
+      }
+    }
+  },
+  summary: (acc) => `另節日頁 ${acc.get('verbatim')} 處逐字引用的來源連結皆確實渲染在同一頁（授權條件）`,
+};
