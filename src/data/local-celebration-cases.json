@@ -1,0 +1,53 @@
+{
+  "_readme": "把 local-celebrations.json 的 65 項（內政部『地方宗教慶典』，每筆只有縣市／曆別／月日／名稱）對到國家文化資產網的民俗登錄個案。用途＝取得『這個慶典是不是每年舉辦』的權威依據；判定邏輯的唯一入口是 src/lib/local-celebration-cycle.ts。名稱比對必須看實質不能比字面（repo 寫『蕭壟』而官方寫『蕭壠』；『土城香』官方名是『鹿耳門聖母廟土城仔香』；『西港香』官方名是『西港刈香』），所以這份對帳是人工判斷的結果、不是程式產生的，改動要附依據。",
+  "source": "src/data/nchdb-folklore-index.json（hold_period 逐字照抄官方原文）",
+  "verified_on": "2026-08-19",
+  "items": [
+    {
+      "lc_id": "lc_66",
+      "name": "蕭壟香",
+      "case_id": "20090115000003",
+      "case_name": "佳里金唐殿蕭壠香",
+      "verdict": "n_year",
+      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」；科年為子卯午酉，2026 丙午科已於 2026-03 辦畢，下一科 2029",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_64",
+      "name": "土城香",
+      "case_id": "20130128000002",
+      "case_name": "鹿耳門聖母廟土城仔香",
+      "verdict": "n_year",
+      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」；2027 丁未為科年但精確日期未公告",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_65",
+      "name": "西港香",
+      "case_id": "20080627000001",
+      "case_name": "西港刈香",
+      "verdict": "n_year",
+      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_60",
+      "name": "麻豆香",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "n_year",
+      "basis": "nchdb 民俗類 266 筆內查無此案（麻豆／代天府／南巡／五府千歲／香科／刈香 全掃過）。改由廟方官網 5god.com.tw 年度公告與臺南市政府新聞稿「1967 年開始固定每三年一科」互驗；lc 原始欄位 solar 04-25 推不出任一實際科期，不可用",
+      "next_known": "2027-04-30~05-02（丁未科，麻豆代天府官網公告：國曆4月30日~5月2日／農曆3月24日~3月26日）"
+    },
+    {
+      "lc_id": "lc_61",
+      "name": "學甲香",
+      "case_id": "20080627000002",
+      "case_name": "學甲上白礁暨刈香",
+      "verdict": "unknown",
+      "basis": "同一場活動有兩筆登錄且週期記載矛盾：20080627000002「其他」、20220926000003「每年」。上白礁謁祖是每年、香科是數年一科，而 lc 這一筆的名稱『學甲香』無法判定指哪一個 → 不推定",
+      "next_known": null,
+      "alt_cases": ["20220926000003"]
+    }
+  ]
+}

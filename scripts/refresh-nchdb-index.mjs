@@ -23,7 +23,9 @@
 //    那是可以等的；而 gate 紅燈擋的是所有部署。新鮮度由本檔的 `fetched_on` 記錄，
 //    gate 只 WARN 不擋（見 check-source-refs.mjs 規則 ④）。
 //
-// **為什麼只留四個欄位**：白名錄的用途是回答「這個 id 存不存在、是哪一件」。
+// **為什麼只留六個欄位**：白名錄要回答的只有兩件事——「這個 id 存不存在、是哪一件」
+//    （case_id／name／classify／authority），以及「它是不是每年舉辦」
+//    （hold_period／hold_calendar，2026-08-19 加，理由見下方那兩欄的行內註解）。
 //    完整 33 欄的原始 JSON 有 2.7 MB，全部進 repo 只會讓每次刷新產生巨大 diff，
 //    而 `registerReason`／`historyDevelopment` 這些**逐字引用素材要用時現抓**
 //    （文化部 2026-08-09 授權的條件是逐字引用＋掛個案網址，不是把整份敘述存進 repo）。
@@ -60,6 +62,14 @@ async function main() {
       //  20110825000009）。掛源時選哪一個會影響 note 的寫法，所以要留這欄。
       classify: String(r.assetsClassifyName ?? ''),
       authority: String(r.govInstitutionName ?? ''),
+      // 🔴 `hold_period` 是「這個慶典是不是每年辦」的唯一權威依據，2026-08-19 加。
+      //    起因：/festivals/local/ 拿內政部那份只有月日的資料算「下一次國曆日期」，
+      //    對數年一科的慶典就會算出一個**根本不會發生的日期**（線上實測蕭壟香、
+      //    土城香、西港香三筆全錯，蕭壟香 2027 年根本不辦）。來源原文照抄不改寫
+      //    （「每逢(隔)3年舉行一次」「其他」「不定期 平均約每十年舉行一科王船醮典」…），
+      //    判定邏輯放 src/lib/local-celebration-cycle.ts，不在這裡預先分類。
+      hold_period: String(r.holdPeriod ?? ''),
+      hold_calendar: String(r.holdCalendarType ?? ''),
     }))
     .filter((x) => /^\d{14}$/.test(x.case_id))
     .sort((a, b) => a.case_id.localeCompare(b.case_id));

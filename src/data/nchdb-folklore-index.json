@@ -7,1597 +7,2129 @@
       "case_id": "20061227000002",
       "name": "頭城搶孤",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "不定期 由頭城搶孤中元祭典協會會員大會決定",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20061227000003",
       "name": "礁溪二龍競渡",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20061227000004",
       "name": "利澤簡走尪",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20061227000005",
       "name": "冬山八寶捾絭",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20070123000003",
       "name": "炮炸肉身寒單爺活動",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20071008000004",
       "name": "鷄籠中元祭",
       "classify": "民俗",
-      "authority": "基隆市政府"
+      "authority": "基隆市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080129000001",
       "name": "鷄籠中元祭",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080415000002",
       "name": "花壇白沙坑迎花燈",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080415000003",
       "name": "鹿港魯班公宴",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080528000001",
       "name": "平溪天燈節",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080618000001",
       "name": "七娘媽生，做十六歲",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080627000001",
       "name": "西港刈香",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20080627000002",
       "name": "學甲上白礁暨刈香",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080627000003",
       "name": "東山吉貝耍夜祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080627000004",
       "name": "鹽水蜂炮",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080627000005",
       "name": "大內頭社太祖夜祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080704000002",
       "name": "大甲媽祖遶境進香",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080711000001",
       "name": "北港朝天宮迎媽祖",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080804000002",
       "name": "白沙屯媽祖進香",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20080812000001",
       "name": "旱溪媽祖遶境十八庄",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080812000002",
       "name": "犁頭店穿木屐躦鯪鯉",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20080917000003",
       "name": "野柳神明淨港",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20081009000001",
       "name": "澎湖傳統蒙面",
       "classify": "民俗",
-      "authority": "澎湖縣政府"
+      "authority": "澎湖縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20081112000001",
       "name": "大路關石獅公信仰",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20081112000003",
       "name": "恆春搶孤及爬孤棚",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20081125000001",
       "name": "口湖牽水車藏（狀）",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20081209000001",
       "name": "下路頭玄天上帝廟盪鞦韆",
       "classify": "民俗",
-      "authority": "嘉義市政府"
+      "authority": "嘉義市政府",
+      "hold_period": "不定期 5年2閏",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090109000002",
       "name": "中港慈裕宮洗港",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年舉辦1次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090109000003",
       "name": "賽夏族巴斯達隘（矮靈祭）",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090109000004",
       "name": "後龍慈雲宮攻炮城",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090115000001",
       "name": "永康廣興宮境內擔餅節",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090115000002",
       "name": "關廟山西宮遶境暨王醮祭典",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)12年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090115000003",
       "name": "佳里金唐殿蕭壠香",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090115000004",
       "name": "東山碧軒寺迎佛祖暨遶境",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090121000002",
       "name": "宜蘭放水燈",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090203000001",
       "name": "府城迎媽祖",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20090217000006",
       "name": "西港刈香",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090220000003",
       "name": "臺東縣排灣族Maljeveq(五年祭)",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20090220000013",
       "name": "卑南族mangayaw大獵祭（含猴祭、除喪）",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20090423000007",
       "name": "竹山社寮紫南宮借金",
       "classify": "民俗",
-      "authority": "南投縣政府"
+      "authority": "南投縣政府",
+      "hold_period": "不定期 不定時，持續進行中。 每年農曆正月、新年假期期間，為高峰期，大量香客蜂擁回廟借、還金。",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20090511000007",
       "name": "新社九庄媽遶境",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090608000002",
       "name": "褒忠亭義民節祭典",
       "classify": "民俗",
-      "authority": "新竹縣政府"
+      "authority": "新竹縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090618000001",
       "name": "鄒族戰祭mayasvi",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每逢(隔)0年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20090619000002",
       "name": "民雄大士爺祭典",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090619000003",
       "name": "新塭嘉應廟「衝水路、迎客王」",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20090902000002",
       "name": "竹山社寮紫南宮吃丁酒",
       "classify": "民俗",
-      "authority": "南投縣政府"
+      "authority": "南投縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091002000001",
       "name": "安定真護宮王船祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091008000001",
       "name": "歸仁仁壽宮王船醮典暨遶境",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091008000002",
       "name": "佳里北頭洋平埔夜祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091009000001",
       "name": "大目降十八嬈",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091106000008",
       "name": "竹塹中元城隍祭典",
       "classify": "民俗",
-      "authority": "新竹市政府"
+      "authority": "新竹市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20091209000004",
       "name": "紋面傳統",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20091209000005",
       "name": "花蓮縣吉安鄉東昌村阿美族里漏部落巫師祭儀",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20091209000006",
       "name": "花蓮縣豐濱鄉豐濱部落阿美族傳統製陶",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20091230000001",
       "name": "馬祖擺暝祭",
       "classify": "民俗",
-      "authority": "連江縣政府"
+      "authority": "連江縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100108000001",
       "name": "新竹縣賽夏族矮靈祭（pasta'ay）",
       "classify": "民俗",
-      "authority": "新竹縣政府"
+      "authority": "新竹縣政府",
+      "hold_period": "每逢(隔)2年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100303000002",
       "name": "南鯤鯓代天府五府千歲進香期",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年舉辦4次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100303000003",
       "name": "安定長興宮瘟王祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100403000001",
       "name": "傀儡戲謝土及拜天公儀式",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20100506000001",
       "name": "小琉球三隆宮迎王平安祭典",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20100618000007",
       "name": "白沙屯媽祖進香",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20100618000008",
       "name": "大甲媽祖遶境進香",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20100618000009",
       "name": "北港朝天宮迎媽祖",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100618000010",
       "name": "口湖牽水車藏（狀）",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100618000011",
       "name": "東港迎王平安祭典",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20100726000001",
       "name": "台北霞海城隍廟五月十三迎城隍",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100726000002",
       "name": "艋舺青山宮暗訪暨遶境",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20100823000002",
       "name": "新港奉天宮天上聖母元宵遶境",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20101012000002",
       "name": "新莊地藏庵文武大眾爺祭典",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20101012000003",
       "name": "淡水三芝九庄輪祀保生大帝",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110124000001",
       "name": "屏東縣萬巒鄉加匏朗夜祭趒戲",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110209000001",
       "name": "二結王公過火",
       "classify": "民俗",
-      "authority": "宜蘭縣政府"
+      "authority": "宜蘭縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110315000001",
       "name": "大成至聖先師釋奠典禮",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年舉辦2次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110510000004",
       "name": "雅美(達悟)族大船下水祭",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20110530000002",
       "name": "花蓮縣豐濱鄉Makotaay(港口)部落阿美族ilisin豐年祭",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20110718000001",
       "name": "三峽長福巖清水祖師聖誕祭典",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110825000008",
       "name": "鄒族mayasvi",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "不定期 依前一年小米收穫祭部落決定",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20110825000009",
       "name": "東山碧軒寺迎佛祖暨遶境",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20110825000010",
       "name": "花蓮縣豐濱鄉Makotaay(港口)部落阿美族ilisin豐年祭",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20111007000001",
       "name": "過溝建德宮火燈夜巡",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111101000001",
       "name": "萬和宮字姓戲",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20111207000002",
       "name": "台北靈安社神將陣頭",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111213000001",
       "name": "雅美(達悟)族飛魚祭",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20111215000001",
       "name": "金門風獅爺",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20111215000002",
       "name": "普渡燈",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111215000003",
       "name": "中秋搏餅",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111215000004",
       "name": "瓊林蔡氏家廟祭祖儀典",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111215000005",
       "name": "后湖卯年海醮",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每逢(隔)12年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111215000006",
       "name": "四月十二日迎城隍",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20111229000001",
       "name": "大溪普濟堂關聖帝君聖誕慶典",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年舉辦1次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20120105000004",
       "name": "大武壠阿里關太祖祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20120210000001",
       "name": "土城大墓公中元祭典",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20120426000002",
       "name": "加蚋埔平埔夜祭",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20120426000003",
       "name": "排灣族古樓社maljeveq（迎祖靈）及pusau（送祖靈）祭典",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20120426000004",
       "name": "天主教萬金聖母遊行",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20120615000001",
       "name": "萬和宮老二媽西屯省親遶境",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "每逢(隔)1年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20120615000002",
       "name": "梧棲走大轎",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "其他",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20120806000001",
       "name": "臺東縣元宵神明遶境活動",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20120814000001",
       "name": "下茄萣金鑾宮王醮大典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "不定期 平均約每十年舉行一科王船醮典",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20120913000001",
       "name": "南投縣名間鄉受天宮玄天上帝香期",
       "classify": "民俗",
-      "authority": "南投縣政府"
+      "authority": "南投縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20121226000004",
       "name": "大武壠小林平埔夜祭",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20121226000005",
       "name": "卑南族婦女工團小米祭",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130118000007",
       "name": "雲林六房媽過爐",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130128000001",
       "name": "鹿耳門天后宮送迎神儀典",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20130128000002",
       "name": "鹿耳門聖母廟土城仔香",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20130130000002",
       "name": "淡水清水巖清水祖師遶境",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20130207000006",
       "name": "新莊保元宮弄過火",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20130318000002",
       "name": "澎湖小法祭祀科儀",
       "classify": "民俗",
-      "authority": "澎湖縣政府"
+      "authority": "澎湖縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130709000001",
       "name": "大庄西拉雅族夜祭",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130710000001",
       "name": "聖地慈惠堂總堂開堂紀念日",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130717000001",
       "name": "花蓮勝安宮王母娘娘遶境活動",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20130927000001",
       "name": "竹圍福海宮飛輦轎、過金火",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131004000002",
       "name": "賽夏族paSta'ay",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每逢(隔)2年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131004000003",
       "name": "南鯤鯓代天府五府千歲進香期",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131004000004",
       "name": "東山吉貝耍西拉雅族夜祭",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131004000005",
       "name": "金門迎城隍",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131021000001",
       "name": "太陽公生及九豬十六羊祭品",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131225000003",
       "name": "跳鍾馗",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20131225000004",
       "name": "艋舺龍山寺中元盂蘭盆勝會",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20131225000005",
       "name": "請關渡媽",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20140213000001",
       "name": "林園鳳芸宮媽祖海巡",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每逢(隔)4年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20140213000002",
       "name": "羅漢門迎佛祖",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20140306000001",
       "name": "同安寮十二庄請媽祖",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20140306000002",
       "name": "社頭枋橋頭七十二庄迓媽祖",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每逢(隔)10年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20140428000003",
       "name": "大陳新村阮弼真君祭典",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20140428000004",
       "name": "阿美族Fakong部落ilisin（豐年祭)",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20140912000006",
       "name": "九如王爺奶轉後頭",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20140924000003",
       "name": "新營太子宮太子爺生進香祭典",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20140924000004",
       "name": "新營鹽水學甲放粉鳥(紅腳)笭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20140926000001",
       "name": "羅漢門迎佛祖",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20141029000002",
       "name": "三角湧迎尪公",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20141111000001",
       "name": "馬鳴山五年千歲吃飯擔",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150116000002",
       "name": "大路關四孤搶粄(高樹)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150123000003",
       "name": "大庄媽北港進香回鑾遶境",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150309000002",
       "name": "彰化南瑤媽笨港進香",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150326000001",
       "name": "褒忠亭義民節祭典",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150326000002",
       "name": "邵族Tungkariri Lus'an（祖靈祭）",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150708000001",
       "name": "安平迎媽祖上香山",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "不定期 每逢寅、午、戌年舉辦",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150708000002",
       "name": "將軍苓仔寮保濟宮冬至送火王",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20150708000003",
       "name": "六甲大丘三角頭請佛踅庄",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)6年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20150916000001",
       "name": "金山磺火捕魚蹦火仔 ",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20151221000002",
       "name": "新港奉天宮迎南瑤宮媽祖請火 ",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每逢(隔)1年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20160203000003",
       "name": "大社荖葉宅公愿祭典",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)10年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20160203000004",
       "name": "忠順聖王會食祖佛酒迎陳聖祖",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20160203000005",
       "name": "榴陽王郭氏宗親祭祖大典",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20160317000011",
       "name": "布農族malahtangia射耳祭",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20160318000002",
       "name": "排灣族祖靈信仰",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20161012000003",
       "name": "拉阿魯哇族Miatungusu（聖貝祭）",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20161206000002",
       "name": "廿四庄林祖姑天上聖母過爐",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20171025000001",
       "name": "大武壠頂荖濃太祖祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20171123000001",
       "name": "雲林六房媽過爐",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20171229000002",
       "name": "安平靈濟殿孤棚祭",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180102000001",
       "name": "新化大坑尾擔飯擔",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180102000002",
       "name": "土城仔迎春牛",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180102000004",
       "name": "安定保安宮直加弄香",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180214000001",
       "name": "峰上天后宮祭蜂鄉俗",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180214000002",
       "name": "蓮庵金府王爺聖誕建醮遶境",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180214000003",
       "name": "金門黃氏恭迎紫雲始祖守恭公巡安",
       "classify": "民俗",
-      "authority": "金門縣政府"
+      "authority": "金門縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180606000001",
       "name": "馬鳴山五年千歲五年大科",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每逢(隔)4年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180606000003",
       "name": "五股開臺尊王過爐",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180606000004",
       "name": "北港進香",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180628000001",
       "name": "港口宮十一角頭中元祭",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180719000003",
       "name": "萬巒五溝水殲炮城",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180723000004",
       "name": "枋寮北勢寮保安宮放白鶴",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180723000007",
       "name": "來義白鷺maljeveq(祖靈祭)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180723000008",
       "name": "來義高見maljeveq(祖靈祭)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180723000009",
       "name": "排灣族Vunglid-maljeveq望嘉人神盟約祭",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20180726000001",
       "name": "新園鄉五房洲庄澄瀛宮宋江陣",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20180726000005",
       "name": "屏東林仔內紙炮篙",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180726000006",
       "name": "海豐迓男孫燈",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20180822000001",
       "name": "來義望嘉pusau(送祖靈)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20181109000005",
       "name": "瀰濃永安庄伯公福廠入年駕祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190115000003",
       "name": "震安宮振祐堂八家將",
       "classify": "民俗",
-      "authority": "嘉義市政府"
+      "authority": "嘉義市政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190128000003",
       "name": "竹林山寺巡迴觀音媽過頭",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190128000004",
       "name": "金包里二媽回野柳媽祖洞祭典",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190510000001",
       "name": "東港鳳邑二十四司",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190510000002",
       "name": "下淡水溪六庄頭義勇公做大功",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年舉辦1次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190513000001",
       "name": "溪頂寮保安宮火王科醮",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190513000002",
       "name": "安平鎮城隍廟公普",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190513000003",
       "name": "西港玉勅慶安宮王府行儀",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190513000004",
       "name": "保西代天府王醮暨遶境",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)12年舉行一次",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20190515000004",
       "name": "東港迎王平安祭典",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190620000001",
       "name": "鄒族yoifo（巫師）文化",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190807000001",
       "name": "馬祖擺暝",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20190807000002",
       "name": "南關線三大廟王醮暨遊社",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20190807000003",
       "name": "馬鳴山五年千歲大科",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每逢(隔)4年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20200304000001",
       "name": "蘆洲國姓醮",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20200323000002",
       "name": "萬丹下蚶傳古宋江陣",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "不定期 重要廟會活動",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20200323000003",
       "name": "小琉球水仙宮欽點五毒大神陣",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20200414000002",
       "name": "內門中埔頭宋江獅陣",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "不定期 內門紫竹寺主辦「羅漢門迎佛祖」時出陣(輪3年、休3年)",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20200414000003",
       "name": "鼓山地嶽殿吉勝堂八家將",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "不定期 主公出巡時才會出陣",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20200514000001",
       "name": "土城蚵寮角宋江白鶴陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20200514000002",
       "name": "八份開基姑媽宮宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20200514000004",
       "name": "西勢仔黃府王爺壇拍面宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20200514000005",
       "name": "保東埤仔頭關帝廟拍面宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "不定期 有交陪境廟宇邀請、關帝廟落成及建醮才出動",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20200723000002",
       "name": "彰化新港十八庄送大爐",
       "classify": "民俗",
-      "authority": "彰化縣政府"
+      "authority": "彰化縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20201204000004",
       "name": "鳳邑鸞堂扶鸞著書儀典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20201204000005",
       "name": "白杞寮迎觀音請媽祖",
       "classify": "民俗",
-      "authority": "嘉義縣政府"
+      "authority": "嘉義縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20201210000002",
       "name": "美濃廣善堂送字紙灰祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20201210000003",
       "name": "新威勸善堂祭河江敬義塚祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20201210000004",
       "name": "鳳邑舊城城隍出巡",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "不定期 視神意",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20210401000003",
       "name": "後壁崁頂放火馬",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20210401000004",
       "name": "喜樹萬皇宮龜醮",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20210604000002",
       "name": "嘉義城隍廟中元祭典",
       "classify": "民俗",
-      "authority": "嘉義市政府"
+      "authority": "嘉義市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20210604000003",
       "name": "嘉義九華山地藏庵過爐",
       "classify": "民俗",
-      "authority": "嘉義市政府"
+      "authority": "嘉義市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20210805000001",
       "name": "白砂崙萬福宮王醮大典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20210809000001",
       "name": "下淡水溪六庄頭義勇公做大小功祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "不定期 每年(六大村庄輪流舉辦)、每逢鼠年、馬年各舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20210907000001",
       "name": "客家九獻禮",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20211014000001",
       "name": "大龍峒保安宮保生大帝聖誕慶典",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "每年舉辦1次",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20211201000003",
       "name": "大屯十八庄迎媽祖",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220110000001",
       "name": "卡那卡那富族Mikongu（米貢祭）",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220110000002",
       "name": "卡那卡那富族Pasika’arai（河祭）",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220302000003",
       "name": "埔里祈安清醮",
       "classify": "民俗",
-      "authority": "南投縣政府"
+      "authority": "南投縣政府",
+      "hold_period": "每逢(隔)12年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220413000001",
       "name": "水林番薯寮媽元宵夜巡",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20220413000002",
       "name": "崙背水汴頭跌(跋)米籮",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20220417000001",
       "name": "北港莊儀團千耳眼爺公",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20220623000001",
       "name": "邵族年祭",
       "classify": "民俗",
-      "authority": "南投縣政府"
+      "authority": "南投縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20220902000001",
       "name": "東港共明堂欽點五毒大神",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220902000002",
       "name": "東港共和堂欽點五毒大神",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20220926000003",
       "name": "學甲上白礁",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20221101000003",
       "name": "賽夏族’a’owaz祈天祭",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20221107000002",
       "name": "馬祖鼓板樂",
       "classify": "民俗",
-      "authority": "連江縣政府"
+      "authority": "連江縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20230420000001",
       "name": "排灣族來義鄉tjiljuvekan a vecik(手紋、身紋)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20230509000001",
       "name": "Puljetji佳興部落手紋",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "不定期 手紋非活動類型民俗,無辦理週期",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20230509000003",
       "name": "排灣族來義鄉傳統手紋(veci’nua lima)文化",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "不定期 文手無辦理週期",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20230620000001",
       "name": "柳營王醮",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20230620000002",
       "name": "府城縣城隍夜巡",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20230814000001",
       "name": "東港朝隆聖堂湄洲朝天閣天后元君駕前護衛聖將",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20230923000004",
       "name": "屏東縣魯凱族手紋",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20231018000001",
       "name": "竹仔港麻豆寮南平社德安宮金獅陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)2年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20231018000002",
       "name": "本淵寮朝興宮金獅陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20231018000003",
       "name": "埔頂東勢寮通興宮宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240103000001",
       "name": "元保宮大道公出巡",
       "classify": "民俗",
-      "authority": "臺中市政府"
+      "authority": "臺中市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20240116000001",
       "name": "鹽埕埔文武聖殿聖諭宣講",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20240116000002",
       "name": "Palunan nu Lidaw",
       "classify": "民俗",
-      "authority": "花蓮縣政府"
+      "authority": "花蓮縣政府",
+      "hold_period": "每逢(隔)7年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240116000003",
       "name": "小港龍湖廟大士爺祭典",
       "classify": "民俗",
-      "authority": "高雄市政府"
+      "authority": "高雄市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20240119000001",
       "name": "笨港如性振玄堂八家將",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240122000001",
       "name": "東港聖德宮姚府四千歲駕前十二家司",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240122000002",
       "name": "東港開基共善堂福州白龍庵五福大帝駕前什家將",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "",
+      "hold_calendar": "不定期"
     },
     {
       "case_id": "20240507000001",
       "name": "和平島王爺海上遊江",
       "classify": "民俗",
-      "authority": "基隆市政府"
+      "authority": "基隆市政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20240522000001",
       "name": "鎮北宮駕前隍義堂什家將",
       "classify": "民俗",
-      "authority": "嘉義市政府"
+      "authority": "嘉義市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240530000001",
       "name": "全臺白龍庵如性慈敬堂八家將",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240530000002",
       "name": "下營濟中壇忠義堂八家將",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240530000003",
       "name": "佳里佛天宮吉安堂八家將",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240618000001",
       "name": "北港進香",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20240912000002",
       "name": "Ilisin no Fakong",
       "classify": "重要民俗",
-      "authority": "文化部"
+      "authority": "文化部",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250113000001",
       "name": "新化頂山仔腳朝天宮拍面宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "不定期 (該廟或交陪境廟宇慶典時出陣)",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250123000001",
       "name": "西港檨仔林鳳安宮宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250123000002",
       "name": "海尾朝皇宮宋江陣",
       "classify": "民俗",
-      "authority": "臺南市政府"
+      "authority": "臺南市政府",
+      "hold_period": "每逢(隔)3年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250213000001",
       "name": "林口迓老祖",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250213000002",
       "name": "大坪林聯合放軍遶境",
       "classify": "民俗",
-      "authority": "新北市政府"
+      "authority": "新北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250509000001",
       "name": "大溪百吉復興宮開漳聖王慶典暨石門水庫媽祖水上遶境",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250519000001",
       "name": "太麻里香蘭福農宮土地公石牌信仰",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "其他",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20250526000001",
       "name": "排灣族力里系 maljeveq (五年祭)",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每逢(隔)5年舉行一次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250716000001",
       "name": "澎湖上元乞龜",
       "classify": "民俗",
-      "authority": "澎湖縣政府"
+      "authority": "澎湖縣政府",
+      "hold_period": "每年舉辦1次",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250730000005",
       "name": "佳冬六根莊作福拜新丁新枝",
       "classify": "民俗",
-      "authority": "屏東縣政府"
+      "authority": "屏東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20250805000001",
       "name": "崙背詔安客庄迎暗境",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20250811000004",
       "name": "忠合宮什家將",
       "classify": "民俗",
-      "authority": "臺東縣政府"
+      "authority": "臺東縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20251211000001",
       "name": "新竹牽血(車藏)",
       "classify": "民俗",
-      "authority": "新竹市政府"
+      "authority": "新竹市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20260128000001",
       "name": "葉五美宗族清明掃墓",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20260128000002",
       "name": "東勢建安宮六保輪值開漳聖王聖誕慶典",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20260302000001",
       "name": "道卡斯族（Taukat）新港社牽田",
       "classify": "民俗",
-      "authority": "苗栗縣政府"
+      "authority": "苗栗縣政府",
+      "hold_period": "每年",
+      "hold_calendar": "國曆"
     },
     {
       "case_id": "20260302000004",
       "name": "臺北迎尪公",
       "classify": "民俗",
-      "authority": "臺北市政府"
+      "authority": "臺北市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20260402000002",
       "name": "北港武財公扶鸞儀典",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "不定期 公壇每逢農曆一、四、七、十一、十四、十七、廿一、廿四、廿七 內壇每逢農曆九、十九、廿九",
+      "hold_calendar": "農曆"
     },
     {
       "case_id": "20260407000001",
       "name": "南崁五福宮五大庄聯合中元普度",
       "classify": "民俗",
-      "authority": "桃園市政府"
+      "authority": "桃園市政府",
+      "hold_period": "每年",
+      "hold_calendar": "其他"
     },
     {
       "case_id": "20260522000002",
       "name": "龍陣",
       "classify": "民俗",
-      "authority": "雲林縣政府"
+      "authority": "雲林縣政府",
+      "hold_period": "不定期 （北港朝天宮發文接駕北港進香團體，如：白沙屯媽祖、梧棲大庄媽祖）",
+      "hold_calendar": "其他"
     }
   ]
 }

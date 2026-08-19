@@ -15,6 +15,10 @@
 // 倒數由頁尾同一套前端腳本依台灣時區即時算，故 [skip ci] 的日子也不會過期。
 // ⚠️ **回曆 2 筆（開齋節）刻意不換算**：伊斯蘭曆與國曆的對應每年前移約 11 天，
 //    我們沒有可信的換算來源，硬算就是杜撰。這兩筆只照抄來源寫法並明說不換算。
+// ⚠️ **數年一科的慶典也不換算**（2026-08-19 加，同一條原則的第二個應用）：來源只給月日、
+//    沒給舉辦週期，照算就會替主辦廟宣稱一個不會發生的日期（線上實測蕭壟香／土城香／
+//    西港香三筆全錯，蕭壟香 2027 年根本不辦）。判定唯一入口＝lib/local-celebration-cycle.ts，
+//    權威依據是國家文化資產網的 holdPeriod。**別把那個判定搬進本檔或另寫一份。**
 //
 // 兩種分組（依縣市／依月份）**都在 build 時渲染好**，切換只切 CSS class。
 // 刻意不用 JS 注入 DOM——那會踩到 scoped <style> 套不到注入節點的坑（見 check:scoped-styles）。
@@ -24,6 +28,7 @@ import LeadVisual from '../../../components/LeadVisual.astro';
 import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
+import { celebrationCycle } from '../../../lib/local-celebration-cycle';
 import { todayInTaipei } from '../../../lib/daily';
 import { getEvents, getTemples } from '../../../lib/queries';
 import lc from '../../../data/local-celebrations.json';
@@ -37,8 +42,11 @@ const localVisual = (await getEvents()).find((e) => e.id === 'jilong')?.data.ima
 // 每筆算「下一次國曆日期」。回曆無法換算 → iso 為 null，仍然要列出（資料本身是事實），
 // 只是不進「近期」排序、也不顯示國曆。
 const items = lc.items.map((x) => {
-  const iso =
-    x.calendar === 'lunar'
+  // 舉辦週期先問 lib：非每年的一律不算國曆日（理由見檔頭）。
+  const cycle = celebrationCycle(x.id);
+  const iso = !cycle.annual
+    ? null
+    : x.calendar === 'lunar'
       ? lunarToNextSolar(x.date, today)
       : x.calendar === 'solar'
         ? solarMdToNext(x.date, today)
@@ -52,7 +60,7 @@ const items = lc.items.map((x) => {
         ? `國曆 ${m}/${d}`
         : `回曆 ${m} 月 ${d} 日`;
   const temple = x.temple_ref ? templeById.get(x.temple_ref) : undefined;
-  return { ...x, iso, dateLabel, month: m, temple };
+  return { ...x, iso, dateLabel, month: m, temple, cycle };
 });
 
 // 依縣市分組：縣市內用「曆別→月日」排，與資料檔的排序一致。
@@ -106,7 +114,7 @@ const faq = faqPage([
 
 <Base
   title={`全台地方宗教慶典一覽｜${counties.length} 縣市的登錄慶典與日期`}
-  description={`內政部登錄的地方宗教慶典完整清單：鹽水蜂炮、大甲媽祖遶境進香、頭城搶孤、東港迎王、鷄籠中元祭等 ${items.length} 項，含所在縣市與農曆／國曆日期，農曆日期已換算成下一次的國曆日。`}
+  description={`內政部登錄的地方宗教慶典完整清單：鹽水蜂炮、大甲媽祖遶境進香、頭城搶孤、東港迎王、鷄籠中元祭等 ${items.length} 項，含所在縣市與農曆／國曆日期。每年舉辦的已換算成下一次的國曆日，數年一科的不換算。`}
   og={{ family: 'visual', stem: 'prayer-light' }}
   faq={faq}
   answer="lead"
@@ -116,7 +124,8 @@ const faq = faqPage([
   <h1>全台地方宗教慶典</h1>
   <p class="lead">
     內政部全國宗教資訊網登錄的地方宗教慶典共 {items.length} 項，分布在 {counties.length} 個縣市。
-    農曆日期已換算成下一次的國曆日期，可依縣市或依月份查看。
+    每年舉辦的慶典，農曆日期已換算成下一次的國曆日期；<strong>數年一科的不換算</strong>——
+    那類慶典的日期由主辦廟逐科公告，算出一個年度日期會是錯的。可依縣市或依月份查看。
     這份清單記的是<strong>縣市登錄了哪些慶典</strong>，與各宮廟自己登記的<a href="/festivals/">年度祭典</a>是兩份不同的資料。
   </p>
 
@@ -162,6 +171,7 @@ const faq = faqPage([
                   <span class="ldate">{i.dateLabel}</span>
                   <span class="lname">{i.name}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
+                  {i.cycle.note && <span class="lsolar">{i.cycle.note}</span>}
                   {i.calendar === 'hijri' && <span class="lsolar">國曆日期逐年不同，本站不換算</span>}
                   {i.temple && (
                     <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple.name}</a>
@@ -186,6 +196,7 @@ const faq = faqPage([
                   <span class="lname">{i.name}</span>
                   <span class="muted small">{i.county}</span>
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
+                  {i.cycle.note && <span class="lsolar">{i.cycle.note}</span>}
                 </li>
               ))}
             </ul>
