@@ -30,6 +30,10 @@ const CURRENT_DOCS = [
   'docs/yaoqian-physician-spec.md',
   'docs/yaoqian-batch-01.md',
   'docs/nmtl-guanyin-qianpu-request.md',
+  // 2026-08-19：待撰寫清單。它天生就是**現況型**（還沒寫的東西有哪些），而我第一版
+  // 就在裡面寫死「19 產頁／11 不產／0 卡住」——站主當場指出違反第一鐵則。
+  // 數量一律留查法，逐項的表格列不受影響（gate 本來就跳過表格列與引用區塊）。
+  'docs/writing-queue.md',
 ];
 
 // 🔴 `docs/decisions/**` 刻意**不**納入：那些是決策的歷史脈絡、原文一字未改（見 CLAUDE.md §4），

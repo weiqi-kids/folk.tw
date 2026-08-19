@@ -233,6 +233,17 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
         + 'check:anchor-text 會把它判成裸露網址（那道吃 dist，要等完整 build 才報）。把網址與實測備註拿掉，只留來源單位名稱。');
     }
     if (fullWidthLen(o.note) > NOTE_WIDTH_MAX) wideNotes += 1;
+    // 括號必須成對——check:anchor-text 也擋這個，但它吃 dist、要 20 分鐘才報。
+    // 🔴 2026-08-19 實際發生：我為了收短 note 而截字，把「（」「「」切成單邊，
+    //    自己製造出這種標籤。所以收短之後一定要重新平衡括號。
+    for (const [open, close] of [['（', '）'], ['(', ')'], ['「', '」'], ['〈', '〉']]) {
+      const a = (o.note.split(open).length - 1);
+      const b = (o.note.split(close).length - 1);
+      if (a !== b) {
+        errors.push(`${file}：來源 note「${o.note.slice(0, 26)}…」的 ${open}${close} 括號不成對`
+          + '（開 ' + a + ' 收 ' + b + '）。note 會被拿去當 <a> 的可見文字，check:anchor-text 會擋。');
+      }
+    }
   });
 }
 // 🔴 寬度只能降不能升（grandfather）：2026-08-19 實測全 repo 有 41 筆既有 note 超寬
