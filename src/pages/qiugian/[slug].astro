@@ -94,20 +94,16 @@ const faq = faqPage([
   { q: `為${concern.label}適合求哪種籤？`, a: `可求${sysLabel}，就「${concern.aspect}」面向看解籤。` },
 ]);
 
-const jsonLd = [
-  ...(faq ? [faq] : []),
-];
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={concern.h1}
   description={pageDesc}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
   crumbs={[HUB.qiugian, { name: concern.h1, path: `/qiugian/${concern.id}/` }]}
 >
   <p class="eyebrow">求籤 · 為心裡的那件事</p>
@@ -124,7 +120,7 @@ const jsonLd = [
       check-rendered.mjs 的「首屏版面」不變量會擋住改回滿版。 */}
   <div class="intro">
     <p class="muted small blurb">{concern.blurb}</p>
-    <LeadVisual compact src="/visuals/qian-slips.svg" alt={`為${concern.label}求籤的站內通用插圖`} />
+    <LeadVisual compact visual={visual} alt={`為${concern.label}求籤的站內通用插圖`} />
   </div>
 
   <div class="actions">

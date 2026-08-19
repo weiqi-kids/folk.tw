@@ -27,25 +27,20 @@ const pageDesc =
   (`${a.name}${a.source ? `（出典：${stripOuterParens(a.source)}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
   `${poems.length ? `出現於第 ${poems.map((p) => p.data.no).join('、')} 籤（跨文本反查）。` : ''}`);
 
-// GEO：BreadcrumbList ＋（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
-const ld: object[] = [
-];
-if (hasStory) {
-  const storySummary = (allusion.body ?? '').trim().split(/(?<=[。！？])/)[0]?.trim() ?? '';
-  const faq = faqPage([{ q: `「${a.name}」的故事是什麼？`, a: storySummary }]);
-  if (faq) ld.push(faq);
-}
+// GEO：（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
+const storySummary = (allusion.body ?? '').trim().split(/(?<=[。！？])/)[0]?.trim() ?? '';
+const faq = hasStory ? faqPage([{ q: `「${a.name}」的故事是什麼？`, a: storySummary }]) : null;
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={`典故 · ${a.name}`}
   description={pageDesc}
-  jsonLd={ld}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  speakable={['h1', '.story']}
+  faq={faq}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
+  answer="story"
   crumbs={[HUB.poems, HUB.allusions, { name: a.name, path: `/allusions/${allusion.id}/` }]}
 >
   <h1>{a.name}</h1>
@@ -54,7 +49,7 @@ if (hasStory) {
     <p>關聯人物：{a.people.map((p) => <span class="tag">{p}</span>)}</p>
   )}
   {/* 通用抽象視覺不描繪人物或場景，避免把錯誤歷史人物配給典故。 */}
-  <LeadVisual src="/visuals/qian-slips.svg" alt={`${a.name}典故的站內通用籤詩插圖`} />
+  <LeadVisual visual={visual} alt={`${a.name}典故的站內通用籤詩插圖`} />
 
   {
     hasStory ? (

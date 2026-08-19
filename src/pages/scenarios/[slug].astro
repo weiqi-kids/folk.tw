@@ -76,20 +76,14 @@ const faqItems: { q: string; a: string }[] = [
   },
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  ...(faq ? [faq] : []),
-];
 ---
 
 <Base
   title={`${s.name}要拜什麼神？守護神與吉日`}
   description={`${s.description}守護神：${patrons.map((p) => p.deity!.data.name).join('、')}。`}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
+  faq={faq}
   crumbs={[HUB.scenarios, { name: s.name, path: `/scenarios/${scenario.id}/` }]}
 >
 

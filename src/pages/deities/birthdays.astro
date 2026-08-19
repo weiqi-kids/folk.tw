@@ -31,21 +31,16 @@ const faqItems = [
     : []),
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  ...(faq ? [faq] : []),
-];
 ---
 
 <Base
   title="神明生日一覽—台灣神明聖誕曆（農曆對國曆）"
   description={`台灣 ${totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依日期排序、逐尊掛來源。媽祖、關聖帝君、月老、土地公等聖誕是哪一天，一頁查。`}
-  ogType="article"
-  ogImage="/og/discover/calendar-compass.webp"
+  kind="detail"
+  og={{ family: 'visual', stem: 'calendar-compass' }}
   ogImageAlt="神明聖誕曆與農曆國曆日期對照"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.bd-answer']}
+  faq={faq}
+  answer="bdAnswer"
   crumbs={[HUB.deities, { name: '神明聖誕曆', path: '/deities/birthdays/' }]}
 >
 

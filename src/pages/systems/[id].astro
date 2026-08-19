@@ -57,22 +57,22 @@ const seriesLd = {
 const jsonLd = [
   seriesLd,
 ];
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={s.name}
   description={s.summary}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
   jsonLd={jsonLd}
-  speakable={['h1', '.summary']}
+  answer="summary"
   crumbs={[HUB.poems, HUB.systems, { name: s.name, path: `/systems/${system.id}/` }]}
 >
   <h1>{s.name}</h1>
   {s.summary && <p class="summary">{s.summary}</p>}
-  <LeadVisual src="/visuals/qian-slips.svg" alt={`${s.name}的站內通用籤詩插圖`} />
+  <LeadVisual visual={visual} alt={`${s.name}的站內通用籤詩插圖`} />
 
   {/* 接回線上求籤——見 frontmatter 註解。有對映的煩惱就直接指過去，否則連樞紐。 */}
   <p class="qiugian-cta">

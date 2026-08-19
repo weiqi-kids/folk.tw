@@ -19,8 +19,6 @@ for (const a of affairs) {
   g.items.push({ id: a.id, name: a.name, def: t.def });
 }
 
-const jsonLd: object[] = [
-];
 const faq = faqPage([
   {
     q: '農民曆的「宜」和「忌」是什麼意思？',
@@ -31,15 +29,13 @@ const faq = faqPage([
     a: '嫁娶是正式完婚、納采是婚前下聘；入宅偏指遷入新落成的宅第、移徙則是一般搬家。四者雖相近，擇日時分屬不同用事。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="農民曆宜忌事項一覽 · 用事白話解釋"
   description="嫁娶、動土、安床、入宅、開市、祭祀、安葬…農民曆上的「宜忌用事」是什麼意思？逐項白話解釋，並附近期宜此事的日子。"
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.lead']}
+  faq={faq}
+  kind="detail"
   crumbs={[HUB.almanac, HUB.yiji]}
 >
 

@@ -93,6 +93,8 @@ const faq = faqPage([
   },
 ]);
 
+// ⚠️ 這一頁的 FAQPage 排在 HowTo **之前**（歷史寫法），與 Base 的 `faq` prop（一律接在最後）
+// 位置不同，改用它會動到線上輸出，故維持自組陣列。
 const jsonLd: object[] = [
   ...(faq ? [faq] : []),
   ...(howToLd ? [howToLd] : []),
@@ -102,12 +104,10 @@ const jsonLd: object[] = [
 <Base
   title={p.title}
   description={p.occasion ? `${p.summary}｜${p.occasion}` : p.summary}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
   jsonLd={jsonLd}
-  speakable={['h1', '.summary']}
+  answer="summary"
   crumbs={[HUB.practices, { name: p.title, path: `/practices/${practice.id}/` }]}
 >
   <h1>{p.title}</h1>

@@ -39,7 +39,6 @@ const yearBranch = rec.pillars.year.value?.branch;
 const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
 
 // FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
-const jsonLd: object[] = [];
 // /almanac/ 是「今天」的正本（今日日期頁 canonical 指回這裡），麵包屑只到農民曆本身。
 const crumbs = almanacCrumbs(iso, true);
 // 近期節日：與首頁、/festivals/ 共用同一份資料與同一個換算函式，本頁不自行換算農曆。
@@ -71,13 +70,12 @@ const faq = faqPage([
       : '',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="農民曆"
   description="每日農曆、節氣、干支、建除、廿八宿、沖煞與神明聖誕，可瀏覽任一日期。"
-  jsonLd={jsonLd}
+  faq={faq}
   crumbs={crumbs}
 >
   <AlmanacDay iso={iso} today={iso} hub />

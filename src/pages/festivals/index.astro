@@ -77,15 +77,14 @@ const faq = faqPage([
   },
 ]);
 
-const jsonLd = [...(faq ? [faq] : [])];
 ---
 
 <Base
   title="民俗節日曆—農曆節日、節氣與祭典日期"
   description="中元節、中秋節、教師節祭孔、白露秋分與金門博餅——換算今年國曆日期，整理祭拜、供品、儀式與地方節俗，資料逐條掛來源。"
-  jsonLd={jsonLd}
+  faq={faq}
   crumbs={[HUB.festivals]}
-  speakable={['h1', '.lead']}
+  answer="lead"
 >
   <h1>民俗節日曆</h1>
   <p class="lead">

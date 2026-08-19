@@ -102,17 +102,16 @@ const faqItems = ASPECTS.filter((a) => interpVals[a]?.trim()).map((a) => ({
   a: interpVals[a]!,
 }));
 const faq = faqPage(faqItems);
-if (faq) ld.push(faq);
 ---
 
 <Base
   title={`${d.lines[0] ? `${d.lines[0]}｜` : ''}${sysName}第 ${d.no} 籤${label ? `（${label}）` : ''}`}
   description={pageDesc}
   jsonLd={ld}
-  ogType="article"
-  ogImage={`/og/poems/${poem.id}.png`}
+  faq={faq}
+  kind="detail"
+  og={{ family: 'poem', id: poem.id }}
   ogImageAlt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`}
-  speakable={['h1', '.lead']}
   crumbs={[HUB.poems, { name: sysName, path: systemHrefOf(d.system.id) }, { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}/` }]}
 >
 

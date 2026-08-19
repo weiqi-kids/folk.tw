@@ -17,7 +17,6 @@ const CATS = [
 const counts = Object.fromEntries(CATS.map((c) => [c.name, slips.filter((s) => s.category === c.name).length]));
 const warned = slips.filter((s) => /請勿使用|毒劇|有毒/.test(s.formula + s.institute_note)).length;
 
-const jsonLd: object[] = [];
 const faq = faqPage([
   {
     q: '藥籤還可以使用嗎？',
@@ -36,14 +35,13 @@ const faq = faqPage([
     a: '請就醫。中醫需要當面辨證論治，西醫需要檢查與診斷，兩者都不是一張籤紙能取代的。如果想走中醫，請掛合格中醫師門診。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="保生大帝藥籤：330 首全文"
   description="臺南興濟宮保生大帝藥籤 330 首全文，含大人科 120、小兒科 60、外科 60、眼科 90。每首附藥方原文與藥材說明，引自衛生福利部國家中醫藥研究所典藏。"
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  faq={faq}
+  answer="lead"
   crumbs={[HUB.medicineSlips]}
 >
 
@@ -53,7 +51,7 @@ if (faq) jsonLd.push(faq);
     臺南興濟宮保生大帝藥籤共 <strong>330 首</strong>，分大人科 120、小兒科 60、外科 60、眼科 90。
     藥材說明引自衛生福利部國家中醫藥研究所的數位典藏，以公眾領域標章（PDM）公開。
   </p>
-  <LeadVisual src="/visuals/medicine-manuscript.svg" alt="藥籤文獻、藥櫃與葉片構成的站內通用插圖" />
+  <LeadVisual visual="medicine-manuscript" alt="藥籤文獻、藥櫃與葉片構成的站內通用插圖" />
 
   <section class="ms-alert">
     <h2>先講清楚三件事</h2>

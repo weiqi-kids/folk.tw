@@ -8,20 +8,18 @@ const articles = (await getCollection('seoArticles', ({ data }) => !data.draft))
   const dateOrder = b.data.dateModified.localeCompare(a.data.dateModified);
   return dateOrder || a.data.title.localeCompare(b.data.title, 'zh-Hant');
 });
-const ld: object[] = [];
 ---
 
 <Base
   title="民俗主題文章"
   description="以可查來源整理台灣民俗信仰、節慶習俗與籤詩文化的主題文章；每篇標示更新日期與延伸閱讀。"
-  jsonLd={ld}
   crumbs={[HUB.festivals, HUB.guides]}
 >
   <h1>主題文章</h1>
   <p class="muted">
     文章從公開搜尋訊號發現題目，再以可回查資料整理；搜尋熱度本身不是民俗事實，來源與日期才是。
   </p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的民俗主題文章通用插圖" />
+  <LeadVisual visual="qian-slips" alt="竹籤、紙卷與印記構成的民俗主題文章通用插圖" />
 
   {
     articles.length ? (

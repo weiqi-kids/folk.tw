@@ -69,8 +69,6 @@ const soonest = groups.flatMap((g) => g.days).map((d) => d.iso).sort()[0];
 const soonestLabel = soonest ? decorate(soonest) : null;
 
 const title = `${item.intent}｜近期宜${item.name}的日子`;
-const jsonLd: object[] = [
-];
 const faq = faqPage([
   {
     q: `近期哪幾天宜${item.name}？`,
@@ -84,24 +82,22 @@ const faq = faqPage([
   },
   { q: `看了這個日子就可以直接用嗎？`, a: `${item.note}通書吉日不含個人生辰，傳統擇日還要合當事人的八字。` },
 ]);
-if (faq) jsonLd.push(faq);
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'calendar-compass';
 ---
 
 <Base
   title={title}
   description={`未來九十天內宜${item.lead_verb}的日子共 ${total} 天${soonestLabel ? `，最近一天是 ${soonestLabel.md}（農曆${soonestLabel.lunar}）` : ''}。依《欽定協紀辨方書》卷十一用事推算、逐條掛原文出處，並說明通書吉日與合八字的差別。`}
-  ogImage="/og/discover/calendar-compass.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.lead']}
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
+  kind="detail"
   crumbs={[HUB.goodDays, { name: item.nav_label, path: `/good-days/${item.slug}/` }]}
 >
 
   <h1>{item.nav_label}</h1>
 
-  <LeadVisual src="/visuals/calendar-compass.svg" alt={`${item.name}看日子的曆書與擇日羅盤`} />
+  <LeadVisual visual={visual} alt={`${item.name}看日子的曆書與擇日羅盤`} />
 
   <p class="lead">
     {soonestLabel ? (

@@ -59,21 +59,15 @@ const faqItems = [
   },
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  ...(faq ? [faq] : []),
-];
 const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
 ---
 
 <Base
   title={cmp.question}
   description={cmp.contrast}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
+  faq={faq}
   crumbs={[HUB.compare, { name: `${A.name}與${B.name}`, path: `/compare/${cmp.slug}/` }]}
 >
 

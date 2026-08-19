@@ -26,8 +26,6 @@ for (let i = 0; i < 30; i++) {
 }
 const heroDay = rows[0]; // build 期今日；前端會依台灣當下日期改寫為正確今日。
 
-const jsonLd: object[] = [
-];
 const faq = faqPage([
   {
     q: '今天沖什麼生肖？',
@@ -38,15 +36,14 @@ const faq = faqPage([
     a: '「沖」指當日相沖的生肖，該生肖的人遇重要場合（如嫁娶、出殯）宜暫避；「煞方」指當日的凶方位，行事盡量避免朝該方向。沖煞是干支曆算，逐日推定。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="今日沖什麼生肖？農民曆沖煞查詢"
   description="今日沖生肖、煞方即時查詢，附近 30 天每日沖煞一覽。沖煞為干支曆算：沖指相沖生肖，煞指當日凶方位。"
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.hero-answer']}
+  faq={faq}
+  kind="detail"
+  answer="heroAnswer"
   crumbs={[HUB.almanac, { name: '今日沖煞', path: '/almanac/chongsha/' }]}
 >
 

@@ -1,17 +1,35 @@
 ---
 // 全站共用版面。設計：考據領銜、克制；四句/典故/白話為主角，吉凶輔標小（§0.5）。
+// 🔴 head 參數面的設計原則（2026-08-19 重構）：**呼叫端只描述「這是哪種頁、實體是什麼」**，
+// 其餘（og:type、speakable、og:image 路徑與尺寸）一律由 src/lib/page-head.ts 推導。
+// 重構前這裡收 13 個各自獨立的 head 欄位，而彼此的相依關係沒有任何東西保證——
+// 尤其「圖族 ↔ 尺寸」（675 vs 630）與「正文視覺檔名 ↔ OG 檔名」全靠手抄。緣由見該模組檔頭。
 interface Props {
   title?: string;
   description?: string;
   ogTitle?: string; // 社群分享專用標題（不給則同 fullTitle）。廟宇頁傳「廟名・縣市鄉鎮」＝不帶站名。
-  ogImage?: string; // 社群分享圖（相對路徑，如 '/og/temples/<id>.png'）；不給則用全站預設 og.png
+  /** 頁型：`hub`（樞紐／列表／工具頁）或 `detail`（內容詳情頁）。og:type 與 speakable 由它推導。 */
+  kind?: PageKind;
+  /**
+   * og:image 的**圖族**（不是路徑）。族別自帶尺寸——`visual` 是 1200×675，
+   * build 產生的分享卡族是 1200×630，呼叫端拆不開，也就配不錯。
+   */
+  og?: OgImageSpec;
   ogImageAlt?: string; // 分享圖替代文字；不給則用全站預設
-  ogImageWidth?: number; // OG／Discover 圖片實際寬度；一般分享卡 1200，乾淨主視覺可用 1200×675
-  ogImageHeight?: number; // OG／Discover 圖片實際高度
-  jsonLd?: object | object[]; // 每頁實體結構化資料（BreadcrumbList / Thing / CreativeWork…）
+  jsonLd?: object | object[]; // 每頁實體結構化資料（Thing / CreativeWork / Article…）
+  /**
+   * 本頁的 FAQPage 節點（`lib/seo.ts` 的 `faqPage()` 回傳值，無題目時為 undefined）。
+   * 由 Base 併到 jsonLd **最後面**——重構前 29 個頁面各自寫 `...(faq ? [faq] : [])`
+   * 或 `if (faq) jsonLd.push(faq)`，同一件事有兩種寫法、兩種位置。
+   */
+  faq?: object | null;
   noindex?: boolean; // 對搜尋引擎不索引（如農民曆滾動日期頁，避免視窗滾動後 404 與薄內容稀釋）
-  ogType?: string; // Open Graph 類型；列表／首頁用 'website'，內容／詳情頁傳 'article'
-  speakable?: string[]; // AEO：可朗讀／可被語音助理與 AI 答案引擎擷取為直接答案的元素 CSS 選擇器（如 ['h1', '.summary']）
+  /** speakable 指向的答案區塊；不給則由 `kind` 推導（detail ⇒ `['h1','.lead']`）。 */
+  answer?: AnswerBlock | 'none';
+  /** 🔴 逃生口：頁型推導不對時才用（目前全站 0 處）。一般情況請改 `kind`／`answer`。 */
+  ogType?: string;
+  /** 🔴 逃生口：答案區塊不在 ANSWER_BLOCKS 裡時才用（目前全站 0 處）。優先把它加進那張表。 */
+  speakable?: string[];
   canonical?: string; // canonical override（相對路徑，如 '/almanac/'）；不給則以本頁路徑自我 canonical。用於鏡像頁指回正本。
   share?: boolean; // 頁尾分享列（預設開，全站鋪滿）；404 這類沒有分享意義的頁傳 false
   // 麵包屑：**畫面 <nav> 與 BreadcrumbList 的共同唯一來源**（見 src/lib/breadcrumbs.ts 檔頭）。
@@ -26,26 +44,41 @@ import concernsData from '../data/concerns.json'; // nav「線上求籤」小段
 import systemsData from '../data/divination-systems.json'; // nav「解籤」小段
 import { excerptAtBoundary } from '../lib/text';
 import { crumbHref, crumbLd, type Crumb } from '../lib/breadcrumbs'; // 麵包屑唯一入口
+import {
+  ogTypeFor,
+  resolveOgImage,
+  speakableFor,
+  type AnswerBlock,
+  type OgImageSpec,
+  type PageKind,
+} from '../lib/page-head'; // head 參數推導唯一入口（頁型／圖族→尺寸／視覺同源）
 import ShareRow from '../components/ShareRow.astro'; // 全站分享列（版位理由見下方 main 之後的註解）
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
-// ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
 const {
   title,
   description,
   ogTitle,
-  ogImage,
+  kind = 'hub',
+  og,
   ogImageAlt,
-  ogImageWidth = 1200,
-  ogImageHeight = 630,
   jsonLd: pageJsonLd,
+  faq,
   noindex,
-  ogType = 'website',
-  speakable,
+  answer,
+  ogType: ogTypeOverride,
+  speakable: speakableOverride,
   canonical: canonicalOverride,
   share = true,
   crumbs,
 } = Astro.props;
-const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
+// 頁型 → og:type／speakable（推導；逃生口只在明確傳入時勝出）。
+const ogType = ogTypeOverride ?? ogTypeFor(kind);
+const speakable = speakableOverride ?? speakableFor(kind, answer);
+// 圖族 → 路徑＋尺寸（成對取出，呼叫端拆不開）。
+const { path: ogImage, width: ogImageWidth, height: ogImageHeight } = resolveOgImage(og);
+// FAQPage 一律接在實體結構化資料**之後**（與重構前 29 個呼叫端的位置相同）。
+const entityLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
+const pageLd = faq ? [...entityLd, faq] : entityLd;
 // 麵包屑：同一個 crumbs 陣列同時餵 BreadcrumbList 與畫面 <nav>（單一來源，見 lib/breadcrumbs.ts）。
 const crumbTrail = crumbs ?? [];
 const crumbListLd = crumbTrail.length ? crumbLd(crumbTrail) : null;

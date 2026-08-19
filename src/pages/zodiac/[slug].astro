@@ -63,8 +63,6 @@ const shrineByCounty = (() => {
   return [...m.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
 })();
 
-const jsonLd: object[] = [
-];
 const faq = faqPage([
   {
     q: `屬${z.name}的人${solarYear}年犯太歲嗎？`,
@@ -77,7 +75,6 @@ const faq = faqPage([
     a: `農民曆每日有一相沖生肖，由當日地支對沖推得。${todayIso}（台灣）沖${heroDay.zodiac}。本頁列出近 30 天沖${z.name}的日期。`,
   },
 ]);
-if (faq) jsonLd.push(faq);
 
 const relSentence =
   rel === 'zhi'
@@ -85,23 +82,23 @@ const relSentence =
     : rel === 'chong'
       ? `與年支相沖（${z.branch}${yp.branch}相沖），是「沖太歲」。`
       : `與年支既不相同、也不對沖。`;
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'zodiac-wheel';
 ---
 
 <Base
   title={`屬${z.name}｜${solarYear}年太歲關係與今日沖煞`}
   description={`屬${z.name}（${z.branch}）在${solarYear}年（${yearGanzhi}年）是否值太歲、沖太歲，以及近 30 天哪幾天沖${z.name}。純干支曆算，非吉凶預測。`}
-  ogImage="/og/discover/zodiac-wheel.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.hero-answer']}
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
+  kind="detail"
+  answer="heroAnswer"
   crumbs={[HUB.almanac, HUB.zodiac, { name: `屬${z.name}`, path: `/zodiac/${z.slug}/` }]}
 >
 
   <h1>屬{z.name}（{z.branch}）：{solarYear}年太歲關係與今日沖煞</h1>
 
-  <LeadVisual src="/visuals/zodiac-wheel.svg" alt={`屬${z.name}的生肖、地支與太歲關係輪盤`} />
+  <LeadVisual visual={visual} alt={`屬${z.name}的生肖、地支與太歲關係輪盤`} />
 
   <section class="hero">
     <p class="hero-answer">

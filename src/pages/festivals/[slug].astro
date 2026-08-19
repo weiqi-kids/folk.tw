@@ -391,21 +391,18 @@ const article = {
   ...(f.published ? { datePublished: f.published } : {}),
   ...(f.updated ? { dateModified: f.updated } : {}),
 };
-const jsonLd = [
-  article,
-  ...(faq ? [faq] : []),
-].filter(Boolean);
+const jsonLd = [article];
 
 ---
 
 <Base
   title={pageTitle}
   description={pageDesc}
-  ogType="article"
-  ogImage={festivalOgImage}
+  kind="detail"
+  og={{ family: 'festival', path: festivalOgImage }}
   ogImageAlt={festivalOgImage ? `${f.name}｜${year} 日期與節俗整理` : undefined}
   jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  faq={faq}
   share={false}
   crumbs={[HUB.festivals, { name: f.name, path: `/festivals/${f.slug}/` }]}
 >

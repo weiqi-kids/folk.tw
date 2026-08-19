@@ -346,8 +346,6 @@ const townContext = townLabel && townTotal > 1
     (mainDeity && sameDeityInTown > 1 ? `，其中主祀${mainDeity}者 ${sameDeityInTown} 間。` : '。')
   : '';
 
-// speakable 對全體廟頁生效：以頁首 .summary 直答區塊為主（不再只限有沿革者）。
-const speakable = ['h1', '.summary'];
 
 // 廟宇頁 meta description（原本無此 prop、全站落回首頁通用文案，
 // 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
@@ -487,7 +485,6 @@ const jsonLd = [
     lng: t.lng,
     website: t.website,
   }),
-  ...(faq ? [faq] : []),
 ];
 ---
 
@@ -495,11 +492,12 @@ const jsonLd = [
   title={templeTitle}
   description={templeDesc}
   ogTitle={templeTitle}
-  ogImage={`/og/temples/${encodeURIComponent(t.id)}.png`}
+  og={{ family: 'temple', id: t.id }}
   ogImageAlt={`${t.name}${regionLabel ? `・${regionLabel}` : ''}`}
-  ogType="article"
+  kind="detail"
   jsonLd={jsonLd}
-  speakable={speakable}
+  faq={faq}
+  answer="summary"
   crumbs={templeCrumbs(county, township, { id: temple.id, name: t.name })}
 >
   <h1>{t.name}</h1>

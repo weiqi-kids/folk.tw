@@ -19,8 +19,6 @@ const today = chongDays(todayIso, 1)[0];
 
 const items = ZODIAC_LIST.map((z) => ({ ...z, rel: taisuiRelation(z.branch, yp.branch) }));
 
-const jsonLd: object[] = [
-];
 const faq = faqPage([
   {
     q: `${solarYear}年犯太歲的生肖有哪些？`,
@@ -31,20 +29,19 @@ const faq = faqPage([
     a: '以立春分年（與年柱一致），不是元旦、也不是農曆正月初一。立春之前出生者，生肖算前一年。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title={`十二生肖｜${solarYear}年太歲關係與今日沖煞`}
   description={`${solarYear}年（${yearGanzhi}年）值太歲屬${zhiZodiac}、沖太歲屬${chongZodiacName}。十二生肖各自的年支關係與每日沖煞，純干支曆算。`}
-  jsonLd={jsonLd}
-  speakable={['h1', '.hero-answer']}
+  faq={faq}
+  answer="heroAnswer"
   crumbs={[HUB.almanac, HUB.zodiac]}
 >
 
   <h1>十二生肖：{solarYear}年太歲關係與今日沖煞</h1>
 
-  <LeadVisual src="/visuals/zodiac-wheel.svg" alt="十二生肖、地支與太歲關係輪盤" />
+  <LeadVisual visual="zodiac-wheel" alt="十二生肖、地支與太歲關係輪盤" />
 
   <section class="hero">
     <p class="hero-answer">

@@ -19,7 +19,6 @@ const faq = faqPage([
   { q: '已經在廟裡抽到籤或擲筊擲到第幾首，可以直接查嗎？', a: '可以，每個煩惱頁面都有「查籤號」欄位，輸入籤號或首數就能直接看解籤內容，不用重新抽。' },
 ]);
 
-const jsonLd = [...(faq ? [faq] : [])];
 // 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
 // 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
 // `mergedInto`＝同事件重複開頁併頁後的舊網址（僅保留 redirect），不可出現在清單裡（否則同一事件列多次）。
@@ -52,9 +51,8 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
 <Base
   title="求籤 · 為心裡的那件事"
   description="在為工作、感情、考試這些事煩惱嗎？選一件煩惱，求一支籤，看白話解籤。另可為此刻的平安集氣。"
-  ogType="article"
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  faq={faq}
   crumbs={[HUB.qiugian]}
 >
   <p class="eyebrow">求籤</p>
@@ -64,7 +62,7 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
       選一件煩惱，求一支籤，看白話解籤；不用註冊或付費。若已在廟裡抽到籤，
       也能到各煩惱頁輸入籤號直接查解籤。
     </p>
-    <LeadVisual compact src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
+    <LeadVisual compact visual="qian-slips" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
   </div>
   <p class="saved-link"><a href="/poems/#my-poems">查看收藏與最近查過的籤詩 →</a>　<a href="/qiugian/pulse/">大家在問什麼 →</a></p>
 
