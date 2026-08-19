@@ -45,6 +45,7 @@ type CaseRow = {
   next_known?: string | null;
   alt_cases?: unknown[];
   date_conflict?: string;
+  date_override?: { calendar: string; date: string; basis: string };
 };
 
 const caseByLcId = new Map<string, CaseRow>((cases.items as CaseRow[]).map((x) => [x.lc_id, x]));
@@ -137,6 +138,20 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
         : '登錄資料未記為每年';
 
   return { annual: false, periodText, note, shortNote, caseId: row.case_id, basis: row.basis };
+}
+
+/**
+ * 來源的月日被權威資料證實有誤時的修正值。沒有這個欄位就回 null，**頁面一律照來源**。
+ *
+ * 🔴 為什麼要有這一層：`local-celebrations.json` 由 import-local-celebrations.mjs 從內政部
+ *    資料產生，直接改那個檔會在下次匯入時被蓋回去。修正值連同依據放在對帳檔裡，
+ *    匯入器動不到，而且「為什麼改」跟「改成什麼」永遠在一起。
+ * ⚠️ 加任何一筆之前，依據要寫到能被別人複驗的程度——這是在覆蓋官方來源，門檻要高。
+ */
+export function celebrationDateOverride(
+  lcId: string,
+): { calendar: string; date: string; basis: string } | null {
+  return caseByLcId.get(lcId)?.date_override ?? null;
 }
 
 /**

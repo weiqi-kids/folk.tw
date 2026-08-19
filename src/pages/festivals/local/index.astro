@@ -28,7 +28,7 @@ import LeadVisual from '../../../components/LeadVisual.astro';
 import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
-import { celebrationCycle } from '../../../lib/local-celebration-cycle';
+import { celebrationCycle, celebrationDateOverride } from '../../../lib/local-celebration-cycle';
 import { hasTimeline, timelineItems } from '../../../lib/celebration-occurrences';
 import OccurrenceTimeline from '../../../components/OccurrenceTimeline.astro';
 import { todayInTaipei } from '../../../lib/daily';
@@ -43,7 +43,11 @@ const localVisual = (await getEvents()).find((e) => e.id === 'jilong')?.data.ima
 
 // 每筆算「下一次國曆日期」。回曆無法換算 → iso 為 null，仍然要列出（資料本身是事實），
 // 只是不進「近期」排序、也不顯示國曆。
-const items = lc.items.map((x) => {
+const items = lc.items.map((raw) => {
+  // 🔴 來源的月日被權威資料證實有誤時，用對帳檔裡的修正值（附依據）。沒有修正值就照來源。
+  //    直接改 local-celebrations.json 會被下次匯入蓋回去，所以修正住在對帳檔。
+  const ov = celebrationDateOverride(raw.id);
+  const x = ov ? { ...raw, calendar: ov.calendar, date: ov.date } : raw;
   // 舉辦週期先問 lib：非每年的一律不算國曆日（理由見檔頭）。
   const cycle = celebrationCycle(x.id);
   // 🔴 有歷年紀錄＝我們已經查到它的日期**逐年不同**（數年一科、擲筊定日、或來源

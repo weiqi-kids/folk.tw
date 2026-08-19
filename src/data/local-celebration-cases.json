@@ -1,5 +1,5 @@
 {
-  "_readme": "把 local-celebrations.json 的 65 項（內政部『地方宗教慶典』，每筆只有縣市／曆別／月日／名稱）逐項對到國家文化資產網的民俗登錄個案，取得『是不是每年舉辦』的權威依據。判定唯一入口＝src/lib/local-celebration-cycle.ts。verdict：annual＝官方記為每年｜n_year＝有權威記載說不是每年｜unknown＝來源記載不定期或兩源互斥｜no_case＝nchdb 查無此案（未裁決，維持照算）。名稱比對必須看實質不能比字面（repo 寫『蕭壟』官方寫『蕭壠』；『土城香』官方名『鹿耳門聖母廟土城仔香』；『西港香』官方名『西港刈香』），所以這是人工判斷的結果，改動要附依據。",
+  "_readme": "把 local-celebrations.json 的 65 項（內政部『地方宗教慶典』，每筆只有縣市／曆別／月日／名稱）逐項對到國家文化資產網的民俗登錄個案，取得『是不是每年舉辦』的權威依據。判定唯一入口＝src/lib/local-celebration-cycle.ts。verdict：annual＝官方記為每年｜n_year＝有權威記載說不是每年｜unknown＝來源記載不定期或兩源互斥｜no_case＝nchdb 查無此案（未裁決，維持照算）。名稱比對必須看實質不能比字面（repo 寫『蕭壟』官方寫『蕭壠』；『土城香』官方名『鹿耳門聖母廟土城仔香』；『西港香』官方名『西港刈香』），所以這是人工判斷的結果，改動要附依據。 date_override＝來源的月日經權威資料證實有誤時的修正值（附依據）；沒有這個欄位就一律照來源，不得自行更動。",
   "source": "src/data/nchdb-folklore-index.json 的 hold_period（逐字照抄官方原文）；查無個案者另註外部來源",
   "verified_on": "2026-08-19",
   "items": [
@@ -454,7 +454,12 @@
       "verdict": "annual",
       "basis": "nchdb 20090121000002「宜蘭放水燈」holdPeriod 為「每年」。",
       "next_known": null,
-      "date_conflict": "nchdb 記農曆 6/28~7/2，repo 記農曆 07-15，日期不在來源區間內。"
+      "date_conflict": "nchdb 記農曆 6/28~7/2，repo 記農曆 07-15，日期不在來源區間內。",
+      "date_override": {
+        "calendar": "lunar",
+        "date": "06-29",
+        "basis": "nchdb 20090121000002「宜蘭放水燈」ceremonies 逐字記「每年固定農曆6月29日」，holdPeriod 窗口為農曆 6/28~7/2；實查 2024（8/2–8/5）與 2026（8/12–8/14）皆落在農曆六月底、緊鄰七月初一子時開鬼門。內政部來源記的農曆 07-15 不在該窗口內，也與任一年的實際日期不符。"
+      }
     },
     {
       "lc_id": "lc_50",
