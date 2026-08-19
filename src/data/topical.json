@@ -255,8 +255,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
-      "empty_runs": 0
+      "last_checked": "2026-08-19",
+      "empty_runs": 1
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -557,8 +557,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
-      "empty_runs": 11
+      "last_checked": "2026-08-19",
+      "empty_runs": 12
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -3100,8 +3100,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
-      "empty_runs": 0
+      "last_checked": "2026-08-19",
+      "empty_runs": 1
     }
   },
   {
@@ -3139,11 +3139,23 @@
         ],
         "added": "2026-08-18T12:35:45.283Z",
         "hash": "6399d6892b68"
+      },
+      {
+        "date": "2026-08-18",
+        "text": "錫馬魯恩縣政府防災單位完成轄內三十二個鄉鎮、三百八十六個村里的全面勘查，確認此次地震未造成任何危害性損毀，並持續提醒地方單位留意餘震、保持警戒。",
+        "sources": [
+          {
+            "ref": "錫馬魯恩縣政府",
+            "url": "https://web.simalungunkab.go.id/2026/08/18/bpbd-pastikan-kabupaten-simalungun-tidak-terdampak-gempa-bumi/"
+          }
+        ],
+        "added": "2026-08-19T12:34:16.880Z",
+        "hash": "13d931821766"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
+      "last_checked": "2026-08-19",
       "empty_runs": 0
     }
   },
@@ -3193,11 +3205,23 @@
         ],
         "added": "2026-08-18T12:37:11.553Z",
         "hash": "a5fec0ccb840"
+      },
+      {
+        "date": "2026-08-18",
+        "text": "千葉市區因豪雨滯留路面的車輛清運作業已完成，市區交通動線逐步恢復正常。",
+        "sources": [
+          {
+            "ref": "NHK",
+            "url": "https://news.web.nhk/newsweb/na/nd-20260818de44911"
+          }
+        ],
+        "added": "2026-08-19T12:36:14.500Z",
+        "hash": "1e4c4f3d1373"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
+      "last_checked": "2026-08-19",
       "empty_runs": 0
     }
   },
@@ -3226,8 +3250,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-18",
-      "empty_runs": 1
+      "last_checked": "2026-08-19",
+      "empty_runs": 2
     }
   },
   {
@@ -3249,6 +3273,37 @@
     "time": "2026-08-17",
     "detector": "news",
     "since": "2026-08-19",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-18",
+        "text": "搶救現場道路土方清運已完成，搜救工作持續進行中",
+        "sources": [
+          {
+            "ref": "廣西新聞網",
+            "url": "http://hc.gxnews.com.cn/staticpages/20260818/newgx6a83c1d3-21982186.shtml"
+          }
+        ],
+        "added": "2026-08-19T12:37:27.794Z",
+        "hash": "9db75c213627"
+      },
+      {
+        "date": "2026-08-19",
+        "text": "受困人員已全數尋獲，均確認罹難，善後處置與事故原因調查持續進行中",
+        "sources": [
+          {
+            "ref": "新華網",
+            "url": "https://www.news.cn/local/20260819/d676f135b13b4c60bb124fae16abae5c/c.html"
+          }
+        ],
+        "added": "2026-08-19T12:37:30.127Z",
+        "hash": "4941177c7091"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-19",
+      "empty_runs": 0
+    }
   }
 ]
