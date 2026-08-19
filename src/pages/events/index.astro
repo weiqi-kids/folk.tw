@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getEvents, getDeities } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { imageCreditTitle } from '../../lib/image-credit';
 
 const events = await getEvents();
@@ -30,7 +30,7 @@ const groups = LEVELS.map((level) => ({
 <Base
   title="民俗活動／繞境"
   description="遶境進香、迎王、中元普渡等民俗活動：主神、文資身分、路線型態。"
-  jsonLd={breadcrumb([{ name: '民俗活動', path: '/events' }])}
+  crumbs={[HUB.events]}
 >
   <h1>民俗活動／繞境</h1>
   <p class="muted">

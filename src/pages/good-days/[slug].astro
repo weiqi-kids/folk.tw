@@ -4,7 +4,8 @@ import { todayInTaipei } from '../../lib/daily';
 import { addDays } from '../../lib/almanac/dates';
 import { verifiedYiDays, dayRecordCached, affairNameOf } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import LeadVisual from '../../components/LeadVisual.astro';
 import LineCta from '../../components/LineCta.astro';
 
@@ -69,10 +70,6 @@ const soonestLabel = soonest ? decorate(soonest) : null;
 
 const title = `${item.intent}｜近期宜${item.name}的日子`;
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '看日子', path: '/good-days/' },
-    { name: item.nav_label, path: `/good-days/${item.slug}/` },
-  ]),
 ];
 const faq = faqPage([
   {
@@ -99,10 +96,8 @@ if (faq) jsonLd.push(faq);
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.lead']}
+  crumbs={[HUB.goodDays, { name: item.nav_label, path: `/good-days/${item.slug}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/good-days/">看日子</a> ／ {item.nav_label}
-  </nav>
 
   <h1>{item.nav_label}</h1>
 

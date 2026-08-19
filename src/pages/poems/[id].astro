@@ -7,7 +7,8 @@ import PoemLocaleTabs from '../../components/PoemLocaleTabs.astro';
 import { getPoems, getAllusions, getSystems, interpretationById, allusionNameById, deitiesBySystem, poemsBySystem, systemHref } from '../../lib/queries';
 import { getPoemLocaleViews } from '../../lib/poem-locales';
 import { poemAudioPath } from '../../lib/poem-audio';
-import { breadcrumb, poemWork, faqPage } from '../../lib/seo';
+import { poemWork, faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { stripOuterParens, withoutTerminalPunctuation } from '../../lib/text';
 
 export const getStaticPaths = (async () => {
@@ -73,11 +74,6 @@ const pageDesc =
   `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${withoutTerminalPunctuation(firstAllusionNote)}` : ''}。` : ''}白話賞析與八項分項解。`;
 const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
-  breadcrumb([
-    { name: '籤詩', path: '/poems/' },
-    { name: sysName, path: systemHrefOf(d.system.id) },
-    { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}/` },
-  ]),
 ];
 
 // answer-first 一行摘要（P1-5）：系統＋第N籤＋干支/題＋吉凶，可被引用為直接答案
@@ -117,8 +113,8 @@ if (faq) ld.push(faq);
   ogImage={`/og/poems/${poem.id}.png`}
   ogImageAlt={`${sysName}第 ${d.no} 籤：${d.lines.join('，')}`}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.poems, { name: sysName, path: systemHrefOf(d.system.id) }, { name: `第 ${d.no} 籤`, path: `/poems/${poem.id}/` }]}
 >
-  <nav class="crumb"><a href="/poems/">籤詩</a> ／ 第 {d.no} 籤</nav>
 
   <article class="poem-detail">
     <header class="ph">
@@ -306,7 +302,6 @@ if (faq) ld.push(faq);
   <div id="partnerCfg" data-partners={JSON.stringify(partnerMap)} data-poem-no={d.no} data-system={d.system.id} data-lines={d.lines.join('，')} hidden></div>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .ph h1 { margin: 0.25rem 0 0.75rem; }
     .ph .meta { margin-bottom: 0.625rem; }
     .ph .lead { font-size: var(--text-sm); margin: 0.25rem 0 0; }

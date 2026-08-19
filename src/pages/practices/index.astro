@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getPractices } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { imageCreditTitle } from '../../lib/image-credit';
 
 const practices = await getPractices();
@@ -15,7 +15,7 @@ for (const p of practices) {
 <Base
   title="拜拜習俗／科儀"
   description="安太歲、點光明燈、普渡、做十六歲等習俗：步驟、金紙供品、諸說並陳。"
-  jsonLd={breadcrumb([{ name: '拜拜習俗', path: '/practices' }])}
+  crumbs={[HUB.practices]}
 >
   <h1>拜拜習俗／科儀</h1>
   <p class="muted">

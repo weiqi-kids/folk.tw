@@ -14,12 +14,18 @@ interface Props {
   speakable?: string[]; // AEO：可朗讀／可被語音助理與 AI 答案引擎擷取為直接答案的元素 CSS 選擇器（如 ['h1', '.summary']）
   canonical?: string; // canonical override（相對路徑，如 '/almanac/'）；不給則以本頁路徑自我 canonical。用於鏡像頁指回正本。
   share?: boolean; // 頁尾分享列（預設開，全站鋪滿）；404 這類沒有分享意義的頁傳 false
+  // 麵包屑：**畫面 <nav> 與 BreadcrumbList 的共同唯一來源**（見 src/lib/breadcrumbs.ts 檔頭）。
+  // 每頁只描述一次自己的 ancestry，兩種呈現都由這裡產生，不可能再不一致。
+  // 末項＝當頁本身（畫面不加連結）；只有一項時不畫 <nav>（只有當頁的麵包屑沒有導覽作用），
+  // 但 BreadcrumbList 仍照發。
+  crumbs?: Crumb[];
 }
 import { GA4_ID } from '../consts';
 import goodDaysData from '../data/good-days.json'; // nav「看日子」小段由資料驅動，勿硬編（見下方 nav 註解）
 import concernsData from '../data/concerns.json'; // nav「線上求籤」小段（依 GA 流量排序，見下方 nav 註解）
 import systemsData from '../data/divination-systems.json'; // nav「解籤」小段
 import { excerptAtBoundary } from '../lib/text';
+import { crumbHref, crumbLd, type Crumb } from '../lib/breadcrumbs'; // 麵包屑唯一入口
 import ShareRow from '../components/ShareRow.astro'; // 全站分享列（版位理由見下方 main 之後的註解）
 import '../styles/global.css'; // 統一設計 token（OKLCH 配色＋字級階梯＋放大基準字）
 // ogType 預設 'website'；內容／詳情頁（如籤詩、神明、農民曆日期頁）請傳 'article'
@@ -37,8 +43,12 @@ const {
   speakable,
   canonical: canonicalOverride,
   share = true,
+  crumbs,
 } = Astro.props;
 const pageLd = pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : [];
+// 麵包屑：同一個 crumbs 陣列同時餵 BreadcrumbList 與畫面 <nav>（單一來源，見 lib/breadcrumbs.ts）。
+const crumbTrail = crumbs ?? [];
+const crumbListLd = crumbTrail.length ? crumbLd(crumbTrail) : null;
 const siteName = '神酷';
 // 瀏覽器標題（SEO）：首頁用品牌＋三大核心；內頁用「頁名｜神酷」
 const fullTitle = title
@@ -308,6 +318,7 @@ const groupActive = (sections: NavSection[]) =>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(webSite)} />
     {speakablePage && <script type="application/ld+json" is:inline set:html={JSON.stringify(speakablePage)} />}
+    {crumbListLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbListLd)} />}
     {pageLd.map((ld) => <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />)}
     {/* Google Analytics 4（GA4_ID 留空則不載入；見 src/consts.ts）
         延後載入 gtag.js：指令先入 dataLayer 佇列（不漏 page_view），實際下載等
@@ -451,6 +462,20 @@ const groupActive = (sections: NavSection[]) =>
       </script>
     </header>
     <main class="site-main" data-pagefind-body>
+      {/* 麵包屑：與上面的 BreadcrumbList 同源（crumbs prop）。版位固定在 <main> 第一個元素，
+          與重構前 37 個頁面手寫的位置完全相同（皆為 slot 的第一個節點）。 */}
+      {crumbTrail.length > 1 && (
+        <nav class="crumbs" aria-label="麵包屑">
+          {crumbTrail.map((c, i) => (
+            <>
+              {i > 0 && <span class="sep" aria-hidden="true">／</span>}
+              {i === crumbTrail.length - 1
+                ? <span aria-current="page">{c.name}</span>
+                : <a href={crumbHref(c.path)}>{c.name}</a>}
+            </>
+          ))}
+        </nav>
+      )}
       <slot />
     </main>
     {/* 🔴 分享列仍在 <main data-pagefind-body> **外面**＋data-pagefind-ignore：

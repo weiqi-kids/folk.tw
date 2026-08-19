@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getScenarios, getDeities } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { affairNameOf } from '../../lib/almanac/select';
 import { imageCreditTitle } from '../../lib/image-credit';
 import LeadVisual from '../../components/LeadVisual.astro';
@@ -18,7 +18,7 @@ const hubImage = scenarios.map(scenImg).find(Boolean);
 <Base
   title="拜什麼神？求姻緣、考試、開店、搬家的守護神與吉日"
   description="求姻緣拜月老、考試拜文昌、開店求財拜關公與趙公明、搬家入厝拜土地公——按人生情境聚合守護神、聖誕日與農民曆吉日，逐條掛來源。"
-  jsonLd={[breadcrumb([{ name: '拜什麼神', path: '/scenarios' }])]}
+  crumbs={[HUB.scenarios]}
 >
   <h1>拜什麼神？（依情境）</h1>
   {hubImage && <LeadVisual image={hubImage} />}

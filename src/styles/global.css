@@ -120,6 +120,12 @@ p { margin: 0.875rem 0; }
   .nav-sub { padding: 0.5rem 0 0.25rem 1rem; border-left: 2px solid var(--line); }
 }
 .site-main { max-width: var(--max); margin: 0 auto; padding: 2rem 1.5625rem 3.75rem; }
+/* 麵包屑（唯一樣式定義）。2026-08-19 前這段 CSS 被複製在 37 個頁面的 scoped <style> 裡，
+   還分岔成 .crumb 與 .crumbs 兩種 class、margin 三種值；markup 現由 Base.astro 統一產生
+   （見 src/lib/breadcrumbs.ts 檔頭），樣式也就只留這一份。 */
+.crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 0.75rem; }
+.crumbs a { color: var(--accent); }
+.crumbs .sep { margin: 0 0.25em; }
 /* 頁尾＝分享列＋關於，一個區塊、一條分隔線（2026-08-08，見 Base.astro 的註解）。
    桌機左右分置、手機上下堆疊；分享列與關於之間留一條淡淡的內線做分隔，不再用第二條 border-top。 */
 .site-footer {

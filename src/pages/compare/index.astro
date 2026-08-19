@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getDeities } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import comparisons from '../../data/comparisons.json';
 import { imageCreditTitle } from '../../lib/image-credit';
 import LeadVisual from '../../components/LeadVisual.astro';
@@ -16,7 +16,7 @@ const hubImage = comparisons.map((c) => imgById.get(c.a) ?? imgById.get(c.b)).fi
 <Base
   title="神明比較—職司相近的神明差在哪？"
   description="月老與註生娘娘、城隍爺與土地公、文昌帝君與魁星——職司相近、常被混淆的神明，逐項對照別稱、信仰類別、職司與聖誕，資料衍生自逐條掛源的神明圖譜。"
-  jsonLd={[breadcrumb([{ name: '神明比較', path: '/compare' }])]}
+  crumbs={[HUB.compare]}
 >
   <h1>神明比較</h1>
   {hubImage && <LeadVisual image={hubImage} />}

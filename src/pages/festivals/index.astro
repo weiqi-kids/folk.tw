@@ -3,7 +3,8 @@
 // 聚合成一個節日模組。日期一律由 lunarToNextSolar 在 build 時算，倒數由前端即時算。
 import Base from '../../layouts/Base.astro';
 import FestivalCountdown from '../../components/FestivalCountdown.astro';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { festivalNextSolar, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import { releasedItems } from '../../lib/release-schedule';
@@ -76,13 +77,14 @@ const faq = faqPage([
   },
 ]);
 
-const jsonLd = [breadcrumb([{ name: '節日', path: '/festivals' }]), ...(faq ? [faq] : [])];
+const jsonLd = [...(faq ? [faq] : [])];
 ---
 
 <Base
   title="民俗節日曆—農曆節日、節氣與祭典日期"
   description="中元節、中秋節、教師節祭孔、白露秋分與金門博餅——換算今年國曆日期，整理祭拜、供品、儀式與地方節俗，資料逐條掛來源。"
   jsonLd={jsonLd}
+  crumbs={[HUB.festivals]}
   speakable={['h1', '.lead']}
 >
   <h1>民俗節日曆</h1>

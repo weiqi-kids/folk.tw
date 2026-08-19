@@ -9,7 +9,8 @@
 //    這句 caveat 必須留在頁面上——拿掉就等於給了會出錯的答案。
 import Base from '../../layouts/Base.astro';
 import { todayInTaipei } from '../../lib/daily';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { getTemples } from '../../lib/queries';
 import { templeCounty } from '../../lib/temple-region';
 import { num } from '../../lib/format';
@@ -63,11 +64,6 @@ const shrineByCounty = (() => {
 })();
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: '生肖', path: '/zodiac' },
-    { name: `屬${z.name}`, path: `/zodiac/${z.slug}` },
-  ]),
 ];
 const faq = faqPage([
   {
@@ -100,10 +96,8 @@ const relSentence =
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.hero-answer']}
+  crumbs={[HUB.almanac, HUB.zodiac, { name: `屬${z.name}`, path: `/zodiac/${z.slug}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/almanac/">農民曆</a> ／ <a href="/zodiac/">生肖</a> ／ 屬{z.name}
-  </nav>
 
   <h1>屬{z.name}（{z.branch}）：{solarYear}年太歲關係與今日沖煞</h1>
 
@@ -282,8 +276,6 @@ const relSentence =
 
   .caveat { border-left: 3px solid var(--accent-soft); padding-left: 0.875rem; margin-top: 0.75rem; }
 
-  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
-  .crumbs a { color: var(--accent); }
   .hero { margin: 1.5rem 0 2rem; }
   .hero-answer { font-size: var(--text-lg); line-height: 1.7; }
   .muted { color: var(--ink-soft); }

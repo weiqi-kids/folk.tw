@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import concerns from '../../data/concerns.json';
 import topical from '../../data/topical.json';
 import stats from '../../data/qiugian-stats.json';
@@ -18,7 +19,7 @@ const faq = faqPage([
   { q: '已經在廟裡抽到籤或擲筊擲到第幾首，可以直接查嗎？', a: '可以，每個煩惱頁面都有「查籤號」欄位，輸入籤號或首數就能直接看解籤內容，不用重新抽。' },
 ]);
 
-const jsonLd = [breadcrumb([{ name: '求籤', path: '/qiugian/' }]), ...(faq ? [faq] : [])];
+const jsonLd = [...(faq ? [faq] : [])];
 // 時事祈福頁全靠自動管線即時生出、原本零內鏈（sitemap-only、發生當下不利收錄），這裡補一個常駐入口；
 // 目前 topical.json 僅有 archived 範例、預期不顯示，等真實事件觸發 active 才會出現。
 // `mergedInto`＝同事件重複開頁併頁後的舊網址（僅保留 redirect），不可出現在清單裡（否則同一事件列多次）。
@@ -54,8 +55,8 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
   ogType="article"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.qiugian]}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤</p>
   <h1>你在為什麼煩惱？</h1>
   <div class="qiugian-intro">
@@ -131,7 +132,6 @@ const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
     /* 卡片內容只有「四個字＋一行小字」，原本上下留白過大，七張卡看起來特別鬆。 */
     .concern-grid .concern { padding: 1.0625rem 1.25rem; }
     .qcols .qsec { margin-top: 0; }
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .lead { font-size: var(--text-base); margin: 0 0 1.75rem; }
     .jiqi-jump { font-size: var(--text-sm); margin: -1rem 0 1.5rem; }

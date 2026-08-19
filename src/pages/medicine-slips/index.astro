@@ -2,7 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import slipsData from '../../data/yaoqian.import.json';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
 const slips = slipsData as Slip[];
@@ -16,7 +17,7 @@ const CATS = [
 const counts = Object.fromEntries(CATS.map((c) => [c.name, slips.filter((s) => s.category === c.name).length]));
 const warned = slips.filter((s) => /請勿使用|毒劇|有毒/.test(s.formula + s.institute_note)).length;
 
-const jsonLd: object[] = [breadcrumb([{ name: '保生大帝藥籤', path: '/medicine-slips/' }])];
+const jsonLd: object[] = [];
 const faq = faqPage([
   {
     q: '藥籤還可以使用嗎？',
@@ -43,8 +44,8 @@ if (faq) jsonLd.push(faq);
   description="臺南興濟宮保生大帝藥籤 330 首全文，含大人科 120、小兒科 60、外科 60、眼科 90。每首附藥方原文與藥材說明，引自衛生福利部國家中醫藥研究所典藏。"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.medicineSlips]}
 >
-  <nav class="crumbs" aria-label="麵包屑">保生大帝藥籤</nav>
 
   <h1>保生大帝藥籤</h1>
 

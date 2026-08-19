@@ -4,7 +4,8 @@ import { todayInTaipei } from '../../lib/daily';
 import { addDays } from '../../lib/almanac/dates';
 import { verifiedYiDays } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import LeadVisual from '../../components/LeadVisual.astro';
 import LineCta from '../../components/LineCta.astro';
 
@@ -24,7 +25,7 @@ const rows = items.map((it) => {
   return { ...it, days };
 });
 
-const jsonLd: object[] = [breadcrumb([{ name: '看日子', path: '/good-days/' }])];
+const jsonLd: object[] = [];
 const faq = faqPage([
   {
     q: '這些日子是怎麼算出來的？',
@@ -47,8 +48,8 @@ if (faq) jsonLd.push(faq);
   description="依《欽定協紀辨方書》卷十一用事推算，逐條掛原文出處。列出近六十天宜結婚、搬家入厝、動土、安葬、拜拜的日子，並說明通書吉日與合八字的差別。"
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.goodDays]}
 >
-  <nav class="crumbs" aria-label="麵包屑">看日子</nav>
 
   <h1>看日子</h1>
   <LeadVisual src="/visuals/calendar-compass.svg" alt="曆書、日期格與擇日羅盤" />

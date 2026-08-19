@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import LineCta from '../../components/LineCta.astro';
 import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import concerns from '../../data/concerns.json';
 import stats from '../../data/qiugian-stats.json';
 // 籤詩人格（2026-08-15）：結果卡帶一行人格標籤，完整內容在籤詩頁
@@ -94,10 +95,6 @@ const faq = faqPage([
 ]);
 
 const jsonLd = [
-  breadcrumb([
-    { name: '求籤', path: '/qiugian/' },
-    { name: concern.h1, path: `/qiugian/${concern.id}/` },
-  ]),
   ...(faq ? [faq] : []),
 ];
 ---
@@ -111,8 +108,8 @@ const jsonLd = [
   ogImageHeight={675}
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.qiugian, { name: concern.h1, path: `/qiugian/${concern.id}/` }]}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤 · 為心裡的那件事</p>
   <h1>{concern.h1}</h1>
 
@@ -205,7 +202,6 @@ const jsonLd = [
   <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .lead { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .lead b { color: var(--accent); font-variant-numeric: tabular-nums; }

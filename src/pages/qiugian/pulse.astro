@@ -7,7 +7,7 @@
 // 頁面隨每日 deploy 重建，站上數字一天一換（repo 內每 3 小時更新，見 qiugian-aggregate.mjs 檔頭）。
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import concerns from '../../data/concerns.json';
 import stats from '../../data/qiugian-stats.json';
 
@@ -41,9 +41,8 @@ const desc = `近 7 天全站 ${total} 次求籤的真實分布：大家在為�
 <Base
   title="大家在問什麼｜近 7 天求籤分布"
   description={desc}
-  jsonLd={[breadcrumb([{ name: '求籤', path: '/qiugian/' }, { name: '大家在問什麼', path: '/qiugian/pulse/' }])]}
+  crumbs={[HUB.qiugian, { name: '大家在問什麼', path: '/qiugian/pulse/' }]}
 >
-  <nav class="crumb"><a href="/qiugian/">求籤</a> ／ 大家在問什麼</nav>
 
   <h1>大家在問什麼</h1>
   <LeadVisual compact src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
@@ -84,7 +83,6 @@ const desc = `近 7 天全站 ${total} 次求籤的真實分布：大家在為�
   <p class="cta"><a href="/qiugian/">我也求一支 →</a></p>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .lead b { color: var(--accent); font-size: var(--text-lg); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .pulse { list-style: none; padding: 0; margin: 0.875rem 0; }

@@ -2,7 +2,8 @@
 import Base from '../../../layouts/Base.astro';
 import affairsData from '../../../lib/almanac/rules/affairs.json';
 import termsData from '../../../data/yiji-terms.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 
 // 宜忌事項總覽（樞紐）：把農民曆「宜／忌」後面那些用事術語逐一白話解釋，各連到詞義頁。
 const affairs = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
@@ -19,10 +20,6 @@ for (const a of affairs) {
 }
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: '宜忌事項', path: '/almanac/yiji' },
-  ]),
 ];
 const faq = faqPage([
   {
@@ -43,10 +40,8 @@ if (faq) jsonLd.push(faq);
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.lead']}
+  crumbs={[HUB.almanac, HUB.yiji]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/almanac/">農民曆</a> ／ 宜忌事項
-  </nav>
 
   <h1>農民曆宜忌事項一覽</h1>
   <p class="lead">
@@ -83,8 +78,6 @@ if (faq) jsonLd.push(faq);
 </Base>
 
 <style>
-  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
-  .crumbs a { color: var(--accent); }
   .lead { font-size: var(--text-base); line-height: 1.9; margin: 0.5rem 0 2rem; }
   .grp { margin-top: 2rem; }
   .grp h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; font-size: var(--text-lg); }

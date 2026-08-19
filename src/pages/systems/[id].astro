@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getSystems, getPoems, deitiesBySystem, allusionNameById } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import concernsData from '../../data/concerns.json';
 
 export const getStaticPaths = (async () => {
@@ -45,7 +45,7 @@ const qiugianTargets = [...new Map(
 ).values()];
 
 // 籤系樞紐頁原本無 description / jsonLd / speakable（全站最弱模板）：補上結構型 SEO/AEO 元件，
-// 資料全取自 divination-systems.json 既有欄位（免查證），並讓 breadcrumb 指入 /poems 樞紐。
+// 資料全取自 divination-systems.json 既有欄位（免查證），並讓麵包屑指入 /poems 樞紐。
 const seriesLd = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWorkSeries',
@@ -55,11 +55,6 @@ const seriesLd = {
   numberOfItems: s.count ?? poems.length,
 };
 const jsonLd = [
-  breadcrumb([
-    { name: '籤詩', path: '/poems/' },
-    { name: '籤系', path: '/systems/' },
-    { name: s.name, path: `/systems/${system.id}/` },
-  ]),
   seriesLd,
 ];
 ---
@@ -73,8 +68,8 @@ const jsonLd = [
   ogImageHeight={675}
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
+  crumbs={[HUB.poems, HUB.systems, { name: s.name, path: `/systems/${system.id}/` }]}
 >
-  <nav class="crumb"><a href="/poems/">籤詩</a> ／ <a href="/systems/">籤系</a> ／ {s.name}</nav>
   <h1>{s.name}</h1>
   {s.summary && <p class="summary">{s.summary}</p>}
   <LeadVisual src="/visuals/qian-slips.svg" alt={`${s.name}的站內通用籤詩插圖`} />
@@ -129,7 +124,6 @@ const jsonLd = [
   </section>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
     .qiugian-cta { font-size: var(--text-sm); margin-top: 0.75rem; }
     .qiugian-cta a { font-weight: 600; }

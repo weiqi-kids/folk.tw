@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
-import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
+import { faqPage, eventThing } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import festivalsData from '../../data/festivals.json';
 
@@ -119,7 +120,6 @@ const eventLd = eventThing({
 });
 
 const jsonLd: object[] = [
-  breadcrumb([{ name: '民俗活動', path: '/events' }, { name: e.name, path: `/events/${event.id}` }]),
   ...(faq ? [faq] : []),
   eventLd,
 ];
@@ -134,8 +134,8 @@ const jsonLd: object[] = [
   ogImageHeight={675}
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
+  crumbs={[HUB.events, { name: e.name, path: `/events/${event.id}/` }]}
 >
-  <nav class="crumb"><a href="/events/">民俗活動</a></nav>
   <h1>{e.name}</h1>
   <p class="summary">{pageDesc}</p>
   <RelatedSeasonalCampaign festivalSlugs={linkedFestivals.map((f) => f.slug)} />
@@ -348,7 +348,6 @@ const jsonLd: object[] = [
   {e.sources.length > 0 && <p class="src"><Sources sources={e.sources} /></p>}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
     .entry-photo { margin: 1.25rem 0; }
     .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }

@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
-import { breadcrumb, faqPage, howTo } from '../../lib/seo';
+import { faqPage, howTo } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import festivals from '../../data/festivals.json';
 
@@ -93,10 +94,6 @@ const faq = faqPage([
 ]);
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '拜拜習俗', path: '/practices' },
-    { name: p.title, path: `/practices/${practice.id}` },
-  ]),
   ...(faq ? [faq] : []),
   ...(howToLd ? [howToLd] : []),
 ];
@@ -111,8 +108,8 @@ const jsonLd: object[] = [
   ogImageHeight={675}
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
+  crumbs={[HUB.practices, { name: p.title, path: `/practices/${practice.id}/` }]}
 >
-  <nav class="crumb"><a href="/practices/">拜拜習俗</a> ／ {p.category}</nav>
   <h1>{p.title}</h1>
   {p.summary && <p class="summary">{p.summary}</p>}
   <RelatedSeasonalCampaign festivalSlugs={relatedFestivals.map((f) => f.slug)} />
@@ -228,7 +225,6 @@ const jsonLd: object[] = [
   {p.sources.length > 0 && <p class="src footer-src"><Sources sources={p.sources} /></p>}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
     .entry-photo { margin: 1.25rem 0; }
     .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }

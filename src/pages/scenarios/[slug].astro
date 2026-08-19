@@ -3,7 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getScenarios, getDeities, templesByDeity, getSystems, systemHref } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { todayInTaipei } from '../../lib/daily';
 import { addDays, almanacHref } from '../../lib/almanac/dates';
 import { verifiedYiDays, affairNameOf } from '../../lib/almanac/select';
@@ -76,10 +77,6 @@ const faqItems: { q: string; a: string }[] = [
 ];
 const faq = faqPage(faqItems);
 const jsonLd = [
-  breadcrumb([
-    { name: '拜什麼神', path: '/scenarios' },
-    { name: s.name, path: `/scenarios/${scenario.id}` },
-  ]),
   ...(faq ? [faq] : []),
 ];
 ---
@@ -93,8 +90,8 @@ const jsonLd = [
   ogImageHeight={675}
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
+  crumbs={[HUB.scenarios, { name: s.name, path: `/scenarios/${scenario.id}/` }]}
 >
-  <nav class="crumb"><a href="/scenarios/">拜什麼神</a> ／ {s.name}</nav>
 
   <header class="dh">
     <h1>{s.name}要拜什麼神？</h1>
@@ -195,7 +192,6 @@ const jsonLd = [
   {s.sources.length > 0 && <p class="src footer-src"><Sources sources={s.sources} /></p>}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }

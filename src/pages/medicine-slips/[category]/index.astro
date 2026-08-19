@@ -2,7 +2,8 @@
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
 import slipsData from '../../../data/yaoqian.import.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
 
@@ -26,10 +27,6 @@ const isWarned = (s: Slip) => /請勿使用|毒劇|有毒/.test(s.formula + s.in
 const warned = list.filter(isWarned);
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '保生大帝藥籤', path: '/medicine-slips/' },
-    { name: meta.name, path: `/medicine-slips/${category}/` },
-  ]),
 ];
 const faq = faqPage([
   { q: `保生大帝藥籤${meta.name}有幾首？`, a: `臺南興濟宮版共 ${list.length} 首。` },
@@ -56,10 +53,8 @@ if (faq) jsonLd.push(faq);
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.lead']}
+  crumbs={[HUB.medicineSlips, { name: meta.name, path: `/medicine-slips/${category}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/medicine-slips/">保生大帝藥籤</a> ／ {meta.name}
-  </nav>
 
   <h1>保生大帝藥籤・{meta.name}</h1>
 

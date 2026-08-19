@@ -4,7 +4,8 @@ import LeadVisual from '../../../components/LeadVisual.astro';
 import PoemLocaleTabs from '../../../components/PoemLocaleTabs.astro';
 import slipsData from '../../../data/yaoqian.import.json';
 import notesData from '../../../data/yaoqian-notes.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 import { getPoemLocaleViews } from '../../../lib/poem-locales';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
@@ -48,11 +49,6 @@ const warned = /請勿使用|毒劇|有毒/.test(slip.formula + slip.institute_n
 const note = noteById.get(slip.id) ?? null;
 const label = `${catName}第 ${slip.no} 首`;
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '保生大帝藥籤', path: '/medicine-slips/' },
-    { name: catName, path: `/medicine-slips/${category}/` },
-    { name: label, path: `/medicine-slips/${category}/${no}/` },
-  ]),
 ];
 const faq = faqPage([
   { q: `保生大帝藥籤${label}的藥方是什麼？`, a: slip.formula },
@@ -83,11 +79,8 @@ const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[
   jsonLd={jsonLd}
   ogType="article"
   speakable={['h1', '.lead']}
+  crumbs={[HUB.medicineSlips, { name: catName, path: `/medicine-slips/${category}/` }, { name: `第 ${slip.no} 首`, path: `/medicine-slips/${category}/${no}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/medicine-slips/">保生大帝藥籤</a> ／
-    <a href={`/medicine-slips/${category}/`}>{catName}</a> ／ 第 {slip.no} 首
-  </nav>
 
   <h1>保生大帝藥籤{catName}第 {slip.no} 首</h1>
 

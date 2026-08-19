@@ -5,7 +5,8 @@ import Sources from '../../components/Sources.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity, systemHref } from '../../lib/queries';
-import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
+import { deityThing, faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import { releasedItems } from '../../lib/release-schedule';
@@ -148,10 +149,6 @@ const jsonLd = [
     summary: d.summary,
     sameAs: d.sameAs,
   }),
-  breadcrumb([
-    { name: '神明圖譜', path: '/deities/' },
-    { name: d.name, path: `/deities/${deity.id}/` },
-  ]),
   ...(faq ? [faq] : []),
 ];
 const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
@@ -167,8 +164,8 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
   ogImageAlt={`${d.name}—${d.category}${d.office.length ? `，職司${d.office.join('、')}` : ''}`}
   jsonLd={jsonLd}
   speakable={['h1', '.summary']}
+  crumbs={[HUB.deities, { name: d.name, path: `/deities/${deity.id}/` }]}
 >
-  <nav class="crumb"><a href="/deities/">神明圖譜</a> ／ {d.category}</nav>
 
   <header class="dh">
     <h1>{d.name}</h1>
@@ -438,7 +435,6 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
   {d.sources.length > 0 && <p class="src footer-src"><Sources sources={d.sources} /></p>}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .summary { font-size: var(--text-base); }
     /* 神像照片限高（同廟宇頁）：直式神像原本 width:100%/height:auto，桌機約 1000px 高，

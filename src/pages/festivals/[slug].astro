@@ -7,7 +7,8 @@ import LineCta from '../../components/LineCta.astro';
 import PuduChecklist from '../../components/PuduChecklist.astro';
 import SeptemberHolidayStrip from '../../components/SeptemberHolidayStrip.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
-import { breadcrumb, faqPage, ORG } from '../../lib/seo';
+import { faqPage, ORG } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { festivalNextSolar, lunarDateLabel, solarMd as formatSolarMd } from '../../lib/lunar-date';
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
@@ -391,10 +392,6 @@ const article = {
   ...(f.updated ? { dateModified: f.updated } : {}),
 };
 const jsonLd = [
-  breadcrumb([
-    { name: '節日', path: '/festivals' },
-    { name: f.name, path: `/festivals/${f.slug}` },
-  ]),
   article,
   ...(faq ? [faq] : []),
 ].filter(Boolean);
@@ -410,8 +407,8 @@ const jsonLd = [
   jsonLd={jsonLd}
   speakable={['h1', '.lead']}
   share={false}
+  crumbs={[HUB.festivals, { name: f.name, path: `/festivals/${f.slug}/` }]}
 >
-  <nav class="crumb"><a href="/festivals/">節日</a> ／ {f.name}</nav>
 
   <header class="dh">
     <h1>{f.name}</h1>
@@ -835,7 +832,6 @@ const jsonLd = [
   </script>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .when { margin: 0 0 0.375rem; }
     .when strong { color: var(--accent); font-size: var(--text-lg); }

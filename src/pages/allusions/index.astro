@@ -2,20 +2,20 @@
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 const allusions = (await getAllusions()).sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-Hant'));
 const poemIndex = await poemsByAllusion();
 
-const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
+const ld: object[] = [];
 ---
 
 <Base
   title="卦頭典故總覽"
   description={`籤詩卦頭典故總覽：${allusions.length} 則公有領域故事，逐則標出典並反查出現於哪些籤。`}
   jsonLd={ld}
+  crumbs={[HUB.poems, HUB.allusions]}
 >
-  <nav class="crumb"><a href="/poems/">籤詩</a> ／ 典故</nav>
   <h1>卦頭典故總覽</h1>
   <p class="muted">
     籤詩四句之外的卦頭故事，共 {allusions.length} 則；同一典故可能橫跨多支籤，這裡也能反查出現於哪些籤。
@@ -85,7 +85,6 @@ const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
     })();
   </script>
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
     .filter-label { font-size: var(--text-sm); color: var(--ink-soft); letter-spacing: 0.08em; }
     .filter-input {

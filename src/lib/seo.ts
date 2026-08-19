@@ -27,7 +27,10 @@ export function orgNode() {
   };
 }
 
-/** BreadcrumbList JSON-LD。items：[{name, path}]，path 為站內路徑（如 /poems）。 */
+/** BreadcrumbList JSON-LD。items：[{name, path}]，path 為站內路徑（如 /poems）。
+ *  🔴 **頁面不要直接呼叫這支**——麵包屑的唯一入口是 `lib/breadcrumbs.ts` 的 `crumbLd()`／
+ *  `Base.astro` 的 `crumbs` prop。頁面自己組 BreadcrumbList 正是 2026-08-19 那次漂移的成因
+ *  （畫面 <nav> 與 BreadcrumbList 各寫一份、廟宇頁少了縣市與鄉鎮兩層）。 */
 export function breadcrumb(items: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -57,14 +60,6 @@ export function faqPage(items: { q: string; a: string }[]) {
     '@type': 'FAQPage',
     mainEntity,
   };
-}
-
-/** 農民曆日期頁 BreadcrumbList（P0-1）：農民曆 → 該日期。 */
-export function almanacBreadcrumb(date: string) {
-  return breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: date, path: `/almanac/${date}` },
-  ]);
 }
 
 /** 神明實體（Thing）JSON-LD。 */

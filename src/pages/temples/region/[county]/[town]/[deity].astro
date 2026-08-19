@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../../../layouts/Base.astro';
 import { getDeities, getTemples } from '../../../../../lib/queries';
-import { breadcrumb } from '../../../../../lib/seo';
+import { HUB } from '../../../../../lib/breadcrumbs';
 import { countyName, templeCounty, templeTownship } from '../../../../../lib/temple-region';
 import { festivalDateLabel, sortFestivals } from '../../../../../lib/temple-festival.ts';
 import { TEMPLE_DEMAND_PAGES, templeDemandHref } from '../../../../../lib/temple-demand-pages';
@@ -44,18 +44,8 @@ const description = `整理${cName}${demand.town}主祀${deityName}的 ${temples
 <Base
   title={title}
   description={description}
-  jsonLd={breadcrumb([
-    { name: '廟宇', path: '/temples/' },
-    { name: cName, path: `/temples/region/${demand.county}/` },
-    { name: demand.town, path: `/temples/region/${demand.county}/${demand.town}/` },
-    { name: deityName, path: href },
-  ])}
+  crumbs={[HUB.temples, { name: cName, path: `/temples/region/${demand.county}/` }, { name: demand.town, path: `/temples/region/${demand.county}/${demand.town}/` }, { name: deityName, path: href }]}
 >
-  <nav class="crumb">
-    <a href="/temples/">廟宇</a> ／
-    <a href={`/temples/region/${demand.county}/`}>{cName}</a> ／
-    <a href={`/temples/region/${demand.county}/${demand.town}/`}>{demand.town}</a> ／ {deityName}
-  </nav>
   <h1>{demand.query}</h1>
   <p class="lead">
     本站目前收錄 {cName}{demand.town} <strong>{temples.length} 間</strong>主祀
@@ -106,7 +96,6 @@ const description = `整理${cName}${demand.town}主祀${deityName}的 ${temples
   <p class="src small">宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。</p>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .lead { line-height: 1.8; margin-bottom: 1.75rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
     .temple-list { list-style-position: outside; padding-left: 1.5rem; display: grid; gap: 0.625rem; }

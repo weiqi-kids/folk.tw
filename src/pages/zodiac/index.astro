@@ -3,7 +3,8 @@
 // 🔴 判定一律走 src/lib/zodiac.ts，本檔不重算；只陳述地支關係，不做吉凶預測。
 import Base from '../../layouts/Base.astro';
 import { todayInTaipei } from '../../lib/daily';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import {
   ZODIAC_LIST, yearPillarOf, taisuiRelation, taisuiZodiacs, RELATION_LABEL, chongDays,
 } from '../../lib/zodiac';
@@ -19,10 +20,6 @@ const today = chongDays(todayIso, 1)[0];
 const items = ZODIAC_LIST.map((z) => ({ ...z, rel: taisuiRelation(z.branch, yp.branch) }));
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: '生肖', path: '/zodiac' },
-  ]),
 ];
 const faq = faqPage([
   {
@@ -42,10 +39,8 @@ if (faq) jsonLd.push(faq);
   description={`${solarYear}年（${yearGanzhi}年）值太歲屬${zhiZodiac}、沖太歲屬${chongZodiacName}。十二生肖各自的年支關係與每日沖煞，純干支曆算。`}
   jsonLd={jsonLd}
   speakable={['h1', '.hero-answer']}
+  crumbs={[HUB.almanac, HUB.zodiac]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/almanac/">農民曆</a> ／ 生肖
-  </nav>
 
   <h1>十二生肖：{solarYear}年太歲關係與今日沖煞</h1>
 
@@ -97,8 +92,6 @@ if (faq) jsonLd.push(faq);
 </Base>
 
 <style>
-  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
-  .crumbs a { color: var(--accent); }
   .hero { margin: 1.5rem 0 2rem; }
   .hero-answer { font-size: var(--text-lg); line-height: 1.7; }
   .muted { color: var(--ink-soft); }
