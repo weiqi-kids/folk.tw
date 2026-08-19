@@ -2826,7 +2826,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
-        "note": "國家文化資產網「臺北迎尪公」（臺北市登錄民俗，2026-02-13 登錄）；登錄理由與歷史沿革逐字引用"
+        "note": "國家文化資產網「臺北迎尪公」（臺北市登錄民俗，2026-02-13 登錄）"
       },
       {
         "type": "gov",
@@ -2836,7 +2836,7 @@
       {
         "type": "gov",
         "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
-        "note": "內政部慶(祭)典（dataset 8209，OGDL 1.0）：木柵忠順廟 農曆4/7遶境、4/10聖誕千秋；木柵集應廟 農曆2/1 保儀尊王誕辰"
+        "note": "內政部慶(祭)典（dataset 8209，OGDL 1.0）：木柵忠順廟 農曆4/7遶境、4/10聖誕千秋"
       },
       {
         "type": "gov",
@@ -2852,7 +2852,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
-            "note": "nchdb 民俗開放資料 announcementList 逐字：classification「指定/登錄」、officialDocNo「北市文化藝術字第11530090092號」、registerDate「2026-02-13 17:26:31.487」；addresses 為臺北市文山區"
+            "note": "nchdb 民俗開放資料 announcementList 逐字"
           }
         ]
       },
@@ -2892,7 +2892,7 @@
           {
             "type": "gov",
             "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
-            "note": "內政部全國宗教資訊網・慶(祭)典查詢（OGDL 1.0，dataset 8209）；已落在 temples.json moi_6637_財團法人台北市木 的 festivals[]，抓取日 2026-07-30"
+            "note": "內政部全國宗教資訊網・慶(祭)典查詢（OGDL 1.0，dataset 8209）"
           }
         ]
       },
@@ -2902,7 +2902,7 @@
           {
             "type": "gov",
             "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=68272&IndexID=2&_t=0",
-            "note": "內政部全國宗教資訊網·歷史沿革（2026-08-06 經內政部同意使用，條件為標示資料來源連結）；已在 temples.json moi_6637 的 history"
+            "note": "內政部全國宗教資訊網·歷史沿革"
           }
         ]
       }
@@ -2929,7 +2929,7 @@
       {
         "type": "temple",
         "ref": "https://www.dht.org.tw/?act=menuinfo&cmd=detail&ml_id=20251125008&mi_id=20260422001",
-        "note": "草屯敦和宮官網 2026 年聖誕慶典暨遶境公告（本次查證 2026-08-19 實抓，HTTP 200）"
+        "note": "草屯敦和宮官網 2026 年聖誕慶典暨遶境公告"
       },
       {
         "type": "temple",
@@ -2960,7 +2960,7 @@
           {
             "type": "gov",
             "ref": "https://www.dht.org.tw/?act=menuinfo&cmd=detail&ml_id=20251125008&mi_id=20260422001",
-            "note": "草屯敦和宮官網最新消息公告的年度檔期：2026 歲次丙午年農曆三月十五日，遶境起駕時辰國曆 5 月 1 日中午 12 時 30 分，遶境草屯市區（日期與時辰屬事實陳述）"
+            "note": "草屯敦和宮官網最新消息公告的年度檔期"
           }
         ]
       },
@@ -2970,7 +2970,7 @@
           {
             "type": "gov",
             "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=71417&IndexID=3&_t=0",
-            "note": "內政部全國宗教資訊網·建築特色（逐字，2026-08-06 經內政部同意使用，條件為標示資料來源連結）；已在 temples.json moi_9088_敦和宮 的 architecture"
+            "note": "內政部全國宗教資訊網·建築特色"
           }
         ]
       },
@@ -2980,7 +2980,7 @@
           {
             "type": "gov",
             "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65160&IndexID=2&_t=0",
-            "note": "內政部全國宗教資訊網·歷史沿革（逐字，2026-08-06 經內政部同意使用）；已在 temples.json moi_9088_敦和宮 的 history"
+            "note": "內政部全國宗教資訊網·歷史沿革（逐字，2026-08-06 經內政部同意使用）"
           }
         ]
       },
@@ -2990,7 +2990,7 @@
           {
             "type": "gov",
             "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-            "note": "nchdb 民俗類開放資料全量比對：搜「敦和」0 筆、搜「財神」3 筆（竹山社寮紫南宮借金／炮炸肉身寒單爺活動／北港武財公扶鸞儀典），皆非本案"
+            "note": "nchdb 民俗類開放資料全量比對"
           }
         ]
       }
@@ -3032,22 +3032,22 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
-        "note": "國家文化資產網「彰化南瑤媽笨港進香」（彰化縣登錄民俗，2015-03-09，府授文演字第1040074515號）；登錄理由／歷史沿革／13 段儀式／8 個陣頭／6 項特徵皆逐字可引"
+        "note": "國家文化資產網「彰化南瑤媽笨港進香」"
       },
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20151221000002",
-        "note": "國家文化資產網「新港奉天宮迎南瑤宮媽祖請火」（嘉義縣登錄民俗）＝同一趟進香的接待方，週期欄位與彰化端不一致，需並陳"
+        "note": "國家文化資產網「新港奉天宮迎南瑤宮媽祖請火」"
       },
       {
         "type": "gov",
         "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-        "note": "nchdb 民俗類開放資料 266 筆，caseId 20150309000002 與 20151221000002 皆已逐筆驗證存在"
+        "note": "nchdb 民俗類開放資料 266 筆，caseId 20150309000002 與 20151221000002 皆已逐筆"
       },
       {
         "type": "gov",
         "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=64276&IndexID=2&_t=0",
-        "note": "內政部·南瑤宮歷史沿革（逐字，2026-08-06 經內政部同意使用）；已在 temples.json moi_5961_南瑤宮"
+        "note": "內政部·南瑤宮歷史沿革（逐字，2026-08-06 經內政部同意使用）"
       },
       {
         "type": "gov",
@@ -3073,7 +3073,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
-            "note": "nchdb ceremonyFeature 第 7 項與 features「潦溪」description 逐字：「作為台灣唯一常態性『潦溪』的進香活動」"
+            "note": "nchdb ceremonyFeature 第 7 項與 features「潦溪」description 逐字"
           }
         ]
       },
@@ -3093,7 +3093,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
-            "note": "nchdb ceremonyFeature 第 4 項逐字「恭請祖家媽出龕、獻禮、換龍袍儀式(皆由女性負責)、恭請祖家媽回神龕」＋registerReason 第 4 點"
+            "note": "nchdb ceremonyFeature 第 4 項逐字「恭請祖家媽出龕、獻禮、換龍袍儀式(皆由女性負"
           }
         ]
       },
@@ -3133,7 +3133,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20151221000002",
-            "note": "nchdb 20151221000002（嘉義縣政府登錄）registerReason 第 3 點與 holdPeriod 逐字；已驗證存在於 266 筆內"
+            "note": "nchdb 20151221000002（嘉義縣政府登錄）registerReason 第 3 點與 holdPeriod 逐字"
           }
         ]
       }
@@ -3184,7 +3184,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
-        "note": "國家文化資產網「冬山八寶捾絭」（宜蘭縣登錄民俗，登錄類別 5.1.1 民俗／風俗）；登錄理由、歷史沿革、儀式過程逐字引用"
+        "note": "國家文化資產網「冬山八寶捾絭」（宜蘭縣登錄民俗，登錄類別 5.1.1 民俗／風俗）"
       },
       {
         "type": "gov",
@@ -3194,7 +3194,7 @@
       {
         "type": "web",
         "ref": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E8%81%96%E7%88%BA%E5%BB%9F.jpg",
-        "note": "Wikimedia Commons 石聖爺廟外觀（作者 Outlookxp，CC BY-SA 4.0）；⚠️ 是廟貌不是儀式現場"
+        "note": "Wikimedia Commons 石聖爺廟外觀（作者 Outlookxp，CC BY-SA 4.0）"
       }
     ],
     "draft": false,
@@ -3205,7 +3205,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
-            "note": "nchdb 20061227000005 historyDevelopment 逐字；貫的材質三階段演變（石塊→古錢幣→廟鑄平安貫）是本案獨有"
+            "note": "nchdb 20061227000005 historyDevelopment 逐字"
           }
         ]
       },
@@ -3225,7 +3225,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
-            "note": "nchdb ceremonyFeature 逐字（原文為 \\r\\n 換行）；「鑽過神橋下」「廟方贈送紀念品並宣布成年」為本案獨有"
+            "note": "nchdb ceremonyFeature 逐字（原文為 \\r\\n 換行）"
           }
         ]
       },
@@ -3272,7 +3272,7 @@
       {
         "type": "temple",
         "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429014",
-        "note": "主辦廟官網「城隍夜巡諸羅城」專頁（實測 HTTP 200，內文可取得）"
+        "note": "主辦廟官網「城隍夜巡諸羅城」專頁"
       },
       {
         "type": "temple",
@@ -3287,7 +3287,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20210604000002",
-        "note": "國家文化資產網「嘉義城隍廟中元祭典」（嘉義市登錄民俗，府授文資字第1105100525號，2021-02-02）；⚠️ 是中元祭典不是夜巡"
+        "note": "國家文化資產網「嘉義城隍廟中元祭典」"
       },
       {
         "type": "web",
@@ -3303,7 +3303,7 @@
           {
             "type": "gov",
             "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429013",
-            "note": "摘述自主辦廟官網「城隍中元祭」頁；⚠️ 非逐字引用授權來源（授權白名單只有 religion.moi.gov.tw／nchdb・data.boch.gov.tw／taiwangods.moi.gov.tw），本站只能摘述"
+            "note": "摘述自主辦廟官網「城隍中元祭」頁"
           }
         ]
       },
@@ -3313,7 +3313,7 @@
           {
             "type": "gov",
             "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429013",
-            "note": "摘述自主辦廟官網；「九大柱」制度同時也是 nchdb 20210604000002 登錄理由第 3 點的內容"
+            "note": "摘述自主辦廟官網"
           }
         ]
       },
@@ -3323,7 +3323,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20210604000002",
-            "note": "nchdb 20210604000002 registerReason 第 3 點逐字（可逐字引用）；⚠️ 這是「中元祭典」的登錄理由，敘述時不可寫成夜巡的登錄理由"
+            "note": "nchdb 20210604000002 registerReason 第 3 點逐字（可逐字引用）"
           }
         ]
       },
@@ -3371,7 +3371,7 @@
       {
         "type": "gov",
         "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
-        "note": "基隆市政府市政新聞 2025-09-25：「護國城隍安座大典登場 邱佩琳讚雞籠城隍文化祭結合反詐新力量」；夜巡／日巡農曆日期出處"
+        "note": "基隆市政府市政新聞 2025-09-25"
       },
       {
         "type": "gov",
@@ -3391,7 +3391,7 @@
       {
         "type": "gov",
         "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-        "note": "nchdb 民俗類 266 筆全數比對：基隆市僅 20071008000004／20080129000001（鷄籠中元祭）與 20240507000001（和平島王爺海上遊江），查無雞籠城隍文化祭"
+        "note": "nchdb 民俗類 266 筆全數比對"
       },
       {
         "type": "web",
@@ -3407,7 +3407,7 @@
           {
             "type": "gov",
             "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
-            "note": "摘述自基隆市政府市政新聞（2025-09-25，綜合發展處新聞科）；⚠️ klcg.gov.tw 不在逐字引用授權白名單，只可摘述。這條同時是與 /events/jilong/ 切割的關鍵依據"
+            "note": "摘述自基隆市政府市政新聞（2025-09-25，綜合發展處新聞科）"
           }
         ]
       },
@@ -3427,7 +3427,7 @@
           {
             "type": "gov",
             "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
-            "note": "摘述自基隆市政府市政新聞 2025-09-25、2025-10-05（3168-307519）與 2023-09-30（3168-277394）"
+            "note": "摘述自基隆市政府市政新聞 2025-09-25、2025-10-05"
           }
         ]
       },
@@ -3447,7 +3447,7 @@
           {
             "type": "gov",
             "ref": "https://zh.wikipedia.org/wiki/%E5%9F%BA%E9%9A%86%E8%AD%B7%E5%9C%8B%E5%9F%8E%E9%9A%8D%E5%BB%9F",
-            "note": "⚠️ 來源為中文維基百科，非權威源。要用這條必須另找廟方或文獻複驗，否則不要放進頁面"
+            "note": "⚠️ 來源為中文維基百科，非權威源"
           }
         ]
       }
@@ -3473,12 +3473,12 @@
       {
         "type": "gov",
         "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
-        "note": "彰化縣政府新聞訊息 2026-02-12「『2026彰化縣媽祖祈福文化節』媽祖聖筊擇定10月9日至11日辦理」（發布單位：文化局，發布期間 2026-02-12～2026-03-12）；擲筊決日、爐主輪值、13 廟名單全部出自此稿"
+        "note": "彰化縣政府新聞訊息 2026-02-12「『2026彰化縣媽祖祈福文化節』媽祖聖筊擇定10月9日"
       },
       {
         "type": "gov",
         "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-        "note": "nchdb 民俗類 266 筆比對：彰化縣 7 筆中無「媽祖祈福文化節」；全庫搜「媽祖」61 筆亦無"
+        "note": "nchdb 民俗類 266 筆比對：彰化縣 7 筆中無「媽祖祈福文化節」"
       },
       {
         "type": "gov",
@@ -3499,7 +3499,7 @@
           {
             "type": "gov",
             "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
-            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（發布單位：文化局）；⚠️ chcg.gov.tw 不在逐字引用授權白名單，只可摘述"
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（發布單位：文化局）"
           }
         ]
       },
@@ -3529,7 +3529,7 @@
           {
             "type": "gov",
             "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
-            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（文化局說明）；⚠️ 這是當年度爐主廟的屬性，不是活動本身的屬性，寫頁時要標明年度"
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（文化局說明）"
           }
         ]
       },
@@ -3539,7 +3539,7 @@
           {
             "type": "gov",
             "ref": "https://www.chcg.gov.tw/ch2/news_01.aspx?schtxt=%E5%AA%BD%E7%A5%96%E7%A5%88%E7%A6%8F%E6%96%87%E5%8C%96%E7%AF%80",
-            "note": "2024 年那筆有彰化縣政府新聞稿標題可佐（「2024彰化縣媽祖祈福文化節」9月27-29日 13尊媽祖齊聚員林福寧宮）；2023 年為 ctrl.chcg.gov.tw 縣府稿、2025 年僅有媒體報導【部分待補權威源】"
+            "note": "2024 年那筆有彰化縣政府新聞稿標題可佐"
           }
         ]
       }
@@ -3588,7 +3588,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
-        "note": "國家文化資產網「竹山社寮紫南宮吃丁酒」（南投縣登錄民俗）；登錄理由、發展源流、儀式特色皆逐字引用。caseId 已在 5.1 快照中驗證存在"
+        "note": "國家文化資產網「竹山社寮紫南宮吃丁酒」（南投縣登錄民俗）"
       },
       {
         "type": "gov",
@@ -3598,12 +3598,12 @@
       {
         "type": "temple",
         "ref": "https://www.zinan.org.tw/about/about06.htm",
-        "note": "竹山紫南宮官方網站〈吃丁酒由來〉；廟址 南投縣竹山鎮社寮里大公街40號、Tel 049-2623722（2026-08-19 實抓）"
+        "note": "竹山紫南宮官方網站〈吃丁酒由來〉"
       },
       {
         "type": "gov",
         "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=54",
-        "note": "內政部地方宗教慶典來源條目（本機不可達；Wayback 亦查無此 cid 的快照，故本項未取用 MOI 詳情頁文字）"
+        "note": "內政部地方宗教慶典來源條目（本機不可達"
       }
     ],
     "draft": false,
@@ -3614,7 +3614,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
-            "note": "nchdb ceremonyFeature 逐字（貢品規則五類，含「一擔」與「許千金」——只有這一項有）"
+            "note": "nchdb ceremonyFeature 逐字"
           }
         ]
       },
@@ -3634,7 +3634,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
-            "note": "nchdb historyDevelopment 逐字。🔴 這是帶年份的歷史量測（民國90／91／97年），引用時必須連年份一起寫，不可當現況數字。"
+            "note": "nchdb historyDevelopment 逐字"
           }
         ]
       },
@@ -3654,7 +3654,7 @@
           {
             "type": "gov",
             "ref": "https://www.zinan.org.tw/about/about06.htm",
-            "note": "紫南宮官網〈關於紫南宮：吃丁酒由來〉；本站改寫敘述、不逐字轉載（該站未取得逐字引用同意）"
+            "note": "紫南宮官網〈關於紫南宮：吃丁酒由來〉"
           }
         ]
       },
@@ -3689,17 +3689,17 @@
       {
         "type": "gov",
         "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29",
-        "note": "內政部地方宗教慶典詳情頁（含鄉鎮＝頭城鎮，repo 內 local-celebrations.json 只存到縣市）。本機不可達，經 Wayback 2021-04-23 快照取得"
+        "note": "內政部地方宗教慶典詳情頁"
       },
       {
         "type": "gov",
         "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
-        "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉；千龜來朝的起始年、辦法、獎項、緣起皆逐字引用"
+        "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉"
       },
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/monument/20061215000002",
-        "note": "國家文化資產網〈頭城鎮南北門福德祠〉（宜蘭縣定**古蹟**）；caseId 已在古蹟 1.1 快照中驗證存在。🔴 這是建築的登錄，不是活動的登錄——不可寫成「千龜來朝是登錄民俗」"
+        "note": "國家文化資產網〈頭城鎮南北門福德祠〉（宜蘭縣定**古蹟**）"
       },
       {
         "type": "gov",
@@ -3715,7 +3715,7 @@
           {
             "type": "gov",
             "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29",
-            "note": "內政部全國宗教資訊網「地方宗教慶典行政成果」詳情頁全文逐字（該頁只有這一句）。本機不可達，取自 Internet Archive 快照 http://web.archive.org/web/20210423000929/https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29 ；同頁另標「宜蘭縣 頭城鎮／農曆 02月02日」與圖說「「福神弄龜」活動」。"
+            "note": "內政部全國宗教資訊網「地方宗教慶典行政成果」詳情頁全文逐字（該頁只有這一句）"
           }
         ]
       },
@@ -3725,7 +3725,7 @@
           {
             "type": "gov",
             "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
-            "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉逐字（2026-08-19 實抓 HTTP 200）。這是「每年舉辦」與起始年份的唯一權威依據。"
+            "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉逐字"
           }
         ]
       },
@@ -3775,7 +3775,7 @@
           {
             "type": "gov",
             "ref": "https://toucheng.e-land.gov.tw/cp.aspx?n=7068",
-            "note": "宜蘭縣頭城鎮公所〈悠遊頭城・廟宇巡禮〉北門福德祠條；本站改寫敘述、不逐字轉載。這是獨立於內政部的第二個政府來源，佐證農曆二月初二"
+            "note": "宜蘭縣頭城鎮公所〈悠遊頭城・廟宇巡禮〉北門福德祠條"
           }
         ]
       }
@@ -3812,7 +3812,7 @@
       {
         "type": "gov",
         "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-        "note": "國家文化資產網民俗類開放資料 266 筆全數比對：連江縣僅 20091230000001 馬祖擺暝祭、20190807000001 馬祖擺暝、20221107000002 馬祖鼓板樂，查無媽祖聖誕慶典個案"
+        "note": "國家文化資產網民俗類開放資料 266 筆全數比對"
       },
       {
         "type": "gov",
@@ -3828,7 +3828,7 @@
           {
             "type": "gov",
             "ref": "https://www.matsu-news.gov.tw/news/article/240991",
-            "note": "馬祖日報（連江縣政府所屬）2026-05-10 報導；⚠️ 非逐字引用白名單來源，頁面只能敘述事實並掛連結，不可整段照抄"
+            "note": "馬祖日報（連江縣政府所屬）2026-05-10 報導"
           }
         ]
       },
@@ -3890,12 +3890,12 @@
       {
         "type": "gov",
         "ref": "https://www.religiouscarnival.com/edcontent.php?lang=tw&tb=3",
-        "note": "臺北市政府民政局「與神同遊護台北」・錫口文化節頁（指導單位 臺北市政府、主辦 財團法人台北市松山慈祐宮、協辦 民政局／觀傳局／松山區公所）"
+        "note": "臺北市政府民政局「與神同遊護台北」・錫口文化節頁"
       },
       {
         "type": "gov",
         "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
-        "note": "nchdb 民俗類 266 筆全數比對：臺北市 8 筆（靈安社神將陣頭／跳鍾馗／霞海城隍五月十三／艋舺青山宮暗訪／龍山寺盂蘭盆／請關渡媽／保安宮保生大帝／臺北迎尪公），查無本項"
+        "note": "nchdb 民俗類 266 筆全數比對"
       },
       {
         "type": "gov",
@@ -3991,12 +3991,12 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190128000004",
-        "note": "國家文化資產網「金包里二媽回野柳媽祖洞祭典」（新北市登錄民俗，公告文號 新北府文資字第10720592881號，登錄日 2018-11-06）；登錄理由、沿革、儀式特色逐字引用"
+        "note": "國家文化資產網「金包里二媽回野柳媽祖洞祭典」"
       },
       {
         "type": "gov",
         "ref": "https://data.gov.tw/dataset/7778",
-        "note": "交通部觀光署活動開放資料（dataset 7778）Event_382000000A_003847「2026北海岸傳奇媽祖文化祭」，地點金包里慈護宮、期間 2026-05-15～2026-06-01"
+        "note": "交通部觀光署活動開放資料"
       },
       {
         "type": "gov",
@@ -4052,7 +4052,7 @@
           {
             "type": "gov",
             "ref": "https://data.gov.tw/dataset/7778",
-            "note": "交通部觀光署活動開放資料 Event_382000000A_003847「2026北海岸傳奇媽祖文化祭」；OGDL 1.0"
+            "note": "交通部觀光署活動開放資料 Event_382000000A_003847「2026北海岸傳奇媽祖文化祭」"
           }
         ]
       }
@@ -4099,7 +4099,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120426000004",
-        "note": "國家文化資產網「天主教萬金聖母遊行」（屏東縣登錄民俗，屏府文推字第1010114737號 2012-04-26，屏府文保字第10830216500號 2019-05-24 變更）；登錄理由、歷史沿革、儀式過程逐字引用"
+        "note": "國家文化資產網「天主教萬金聖母遊行」"
       },
       {
         "type": "gov",
@@ -4109,7 +4109,7 @@
       {
         "type": "gov",
         "ref": "https://data.gov.tw/dataset/7778",
-        "note": "交通部觀光署活動開放資料 948 筆比對：屏東縣 8 筆中查無本活動，無法由此取得 2026 年檔期"
+        "note": "交通部觀光署活動開放資料 948 筆比對"
       },
       {
         "type": "web",
@@ -4125,7 +4125,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120426000004",
-            "note": "nchdb 20120426000004 historyDevelopment 逐字（原文句末有一個全形空格）；1865／1870 兩個年份是本案獨有"
+            "note": "nchdb 20120426000004 historyDevelopment 逐字（原文句末有一個全形空格）"
           }
         ]
       },
@@ -4135,7 +4135,7 @@
           {
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120426000004",
-            "note": "nchdb historyDevelopment 逐字；天主教遊行裡出現宋江陣的緣由，是本案最具辨識度的事實"
+            "note": "nchdb historyDevelopment 逐字"
           }
         ]
       },

@@ -208,6 +208,47 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
 }
 console.log(`規則②：${verbatimChecked} 處逐字來源，網域皆須屬於 ${[...VERBATIM_ALLOW].join('／')}`);
 
+// ── 規則 ⑤：`note` 是錨文字，不能塞查證備註 ───────────────────────────────
+//   🔴 2026-08-19 加，成因是燒掉一輪 CI：`sources[].note` 會被 src/lib/sources.ts 拿去當
+//   `<a>` 的可見文字，而 check:anchor-text 的判準是 `/\bhttp/i`——我在 note 裡寫
+//   「（實測 HTTP 200）」就被判成裸露網址，**而那道 gate 吃 dist、要等 20 分鐘 build 才報**。
+//   同一批還有 57 筆 note 超過 SOURCE_LABEL_MAX_WIDTH（40 全形字）而會退化成截斷標籤。
+//   這條在來源層跑，秒級回饋。
+const NOTE_WIDTH_MAX = 40;
+const fullWidthLen = (s) => [...s].reduce((n, c) => n + (/[\x00-\x7F]/.test(c) ? 0.5 : 1), 0);
+let noteChecked = 0;
+let wideNotes = 0;
+for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith('.json'))) {
+  let data;
+  try { data = JSON.parse(readFileSync(file, 'utf8')); } catch { continue; }
+  walk(data, (o) => {
+    if (typeof o.ref !== 'string' || typeof o.note !== 'string' || !o.note) return;
+    // ⚠️ `note` 只有在 `ref` 是**純網址**時才會被 parseSourceRef 拿去當錨文字；
+    //    `ref` 本身帶名稱（「文化部國家文化資產網 https://…」）時，錨文字用的是那個名稱，
+    //    note 只是補充。第一版沒分這兩種，誤擋了 temples.json 兩筆本來不會渲染成錨文字的。
+    if (!/^https?:\/\/\S+$/.test(o.ref.trim())) return;
+    noteChecked += 1;
+    if (/\bhttp/i.test(o.note)) {
+      errors.push(`${file}：來源 note「${o.note.slice(0, 30)}…」含 http 字樣。note 會被拿去當 <a> 的可見文字，`
+        + 'check:anchor-text 會把它判成裸露網址（那道吃 dist，要等完整 build 才報）。把網址與實測備註拿掉，只留來源單位名稱。');
+    }
+    if (fullWidthLen(o.note) > NOTE_WIDTH_MAX) wideNotes += 1;
+  });
+}
+// 🔴 寬度只能降不能升（grandfather）：2026-08-19 實測全 repo 有 41 筆既有 note 超寬
+//    （收窄成「ref 是純網址」後為 41 筆）。硬擋會讓所有部署紅燈——那不是擋錯誤、
+//    是擋工作，同 taiwangods 那條的理由。含 http 的則是硬擋，因為那會真的讓
+//    check:anchor-text 紅燈，且目前是 0 筆、沒有既存包袱。
+const WIDE_NOTE_BASELINE = 41;
+if (wideNotes > WIDE_NOTE_BASELINE) {
+  errors.push(`來源 note 超過 ${NOTE_WIDTH_MAX} 全形字的有 ${wideNotes} 筆，超過基準 ${WIDE_NOTE_BASELINE}`
+    + `（+${wideNotes - WIDE_NOTE_BASELINE}）。note 是 <a> 的可見文字，太長會被截斷；`
+    + '查證備註不該放在 note。改短了就把基準往下調。');
+} else if (wideNotes < WIDE_NOTE_BASELINE) {
+  warnings.push(`來源 note 超寬數已降到 ${wideNotes}（基準 ${WIDE_NOTE_BASELINE}）→ 請把 WIDE_NOTE_BASELINE 調降，鎖住成果`);
+}
+console.log(`規則⑤：${noteChecked} 筆來源 note（錨文字）皆不含網址；超寬 ${wideNotes}/${WIDE_NOTE_BASELINE}`);
+
 // ── 規則 ③：未授權來源的引用數只能降不能升 ────────────────────────────────
 const counts = Object.fromEntries(Object.keys(UNLICENSED).map((h) => [h, 0]));
 // 🔴 只數**網址形式**（真正的引用），不數散文裡的 bare 提及。
