@@ -25,7 +25,12 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ORIGIN = 'https://folk.tw';
-const ROOTS = ['scripts'];
+// 2026-08-19 加 `public`：靜態檔同樣會被 Google 抓走並當成網址來源，但它們不經過 dist、
+// 也不是 .mjs/.ts，原本兩道 gate 都掃不到。當天實測 `public/llms.txt` 有 **18 個**站內
+// 網址不帶尾斜線（/poems、/systems、/deities…），而這支 gate 的檔頭記載的那個事故
+// （GSC「頁面會重新導向」累積到 2,304、來源標成「網站」＝我們自己提交的）就是同一個根因。
+// 修了三次都只修到當時看得到的那一處，這次連靜態檔一起納入。
+const ROOTS = ['scripts', 'public'];
 const SKIP_DIRS = new Set(['node_modules', '.git']);
 
 /** 有副檔名的視為檔案（/robots.txt、/sitemap-0.xml、/key.txt），本就不該有尾斜線。 */
@@ -41,7 +46,7 @@ function* jsFiles(dir) {
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) yield* jsFiles(p);
-    else if (/\.(mjs|js|ts)$/.test(name)) yield p;
+    else if (/\.(mjs|js|ts|txt)$/.test(name)) yield p;
   }
 }
 
@@ -59,6 +64,22 @@ for (const file of ROOTS.flatMap((r) => [...jsFiles(r)])) {
   for (const m of src.matchAll(new RegExp(`['"\`]${ORIGIN}(/[^'"\`\\s]*)['"\`]`, 'g'))) {
     if (needsSlash(m[1])) {
       problems.push({ file, line: lineOf(src, m.index), rule: 'R1', found: ORIGIN + m[1], want: ORIGIN + m[1] + '/' });
+    }
+  }
+
+  // ── R3：純文字檔裡的裸網址（2026-08-19 加）────────────────────────────
+  //   R1 要求網址包在引號裡（JS 字串字面值），但 `public/llms.txt` 這種檔的網址是裸的，
+  //   所以 R1 對它永遠不命中——實測過：把 llms.txt 的尾斜線拿掉，gate 照樣綠。
+  //   ⚠️ 這條**只套用在 .txt**：對 .mjs/.ts 套會誤抓註解裡的示例網址（本檔頭就有一堆）。
+  if (file.endsWith('.txt')) {
+    for (const m of src.matchAll(new RegExp(`${ORIGIN}(/[A-Za-z0-9\\-/_.]*)`, 'g'))) {
+      // ⚠️ 字元類要含 `.`，否則 `…/sitemap-index.xml` 會被截成 `/sitemap-index`，
+      //    再被 isFile() 判成「不是檔案」而誤報（2026-08-19 實際誤報過 robots.txt）。
+      //    句末標點另外剝掉，免得把「…/about。」的句號當成路徑的一部分。
+      const path = m[1].replace(/[.。，,；;：:]+$/, '');
+      if (needsSlash(path)) {
+        problems.push({ file, line: lineOf(src, m.index), rule: 'R3', found: ORIGIN + path, want: `${ORIGIN + path}/` });
+      }
     }
   }
 

@@ -19,25 +19,25 @@
 - 「依神酷的農民曆，今日宜忌之依據為《協紀辨方書》某神煞……」
 
 ## 重要頁面
-- 籤詩解碼：https://folk.tw/poems
-- 籤詩系統總覽：https://folk.tw/systems
-- 神明圖譜：https://folk.tw/deities
-- 神明聖誕曆：https://folk.tw/deities/birthdays
-- 農民曆：https://folk.tw/almanac
-- 擇日專區：https://folk.tw/good-days
-- 廟宇：https://folk.tw/temples
-- 節日：https://folk.tw/festivals
-- 地方宗教慶典：https://folk.tw/festivals/local
-- 民俗活動：https://folk.tw/events
-- 拜拜習俗：https://folk.tw/practices
-- 情境求神：https://folk.tw/scenarios
-- 神明比一比：https://folk.tw/compare
-- 行業守護神：https://folk.tw/trades
-- 線上求籤：https://folk.tw/qiugian
-- 擲筊判讀：https://folk.tw/jiaobei
-- 受控詞彙：https://folk.tw/vocabulary
-- 關於與勘誤：https://folk.tw/about
-- Sitemap：https://folk.tw/sitemap-index.xml
+- 籤詩解碼：https://folk.tw/poems/
+- 籤詩系統總覽：https://folk.tw/systems/
+- 神明圖譜：https://folk.tw/deities/
+- 神明聖誕曆：https://folk.tw/deities/birthdays/
+- 農民曆：https://folk.tw/almanac/
+- 擇日專區：https://folk.tw/good-days/
+- 廟宇：https://folk.tw/temples/
+- 節日：https://folk.tw/festivals/
+- 地方宗教慶典：https://folk.tw/festivals/local/
+- 民俗活動：https://folk.tw/events/
+- 拜拜習俗：https://folk.tw/practices/
+- 情境求神：https://folk.tw/scenarios/
+- 神明比一比：https://folk.tw/compare/
+- 行業守護神：https://folk.tw/trades/
+- 線上求籤：https://folk.tw/qiugian/
+- 擲筊判讀：https://folk.tw/jiaobei/
+- 受控詞彙：https://folk.tw/vocabulary/
+- 關於與勘誤：https://folk.tw/about/
+- Sitemap：https://folk.tw/sitemap-index//.xml
 
 ## 編輯原則
 公有領域本文可收錄並標版本；現代解籤文字有著作權、不抄錄，分項解為本站原創。事實逐條掛來源、爭議諸說並陳、不裁定正統；神格位階不建模、不排高低。
