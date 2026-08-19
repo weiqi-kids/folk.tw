@@ -3,6 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
+import OccurrenceTimeline from '../../components/OccurrenceTimeline.astro';
+import { occurrencesForPage } from '../../lib/celebration-occurrences';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { faqPage, eventThing } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
@@ -243,6 +245,22 @@ const jsonLd: object[] = [
             {stage.description && <p>{stage.description}</p>}
           </div>
         ))}
+      </section>
+    )
+  }
+
+  {
+    occurrencesForPage('event', e.id) && (
+      <section class="occurrences">
+        <h2>歷年舉辦紀錄</h2>
+        {/* 🔴 這段不要寫成「日期不是每年固定」——同一頁可能同時涵蓋每年舉辦與數年一科的
+            兩種活動（學甲慈濟宮的上白礁是每年、學甲香是四年一科），一句話會說錯其中一個。 */}
+        <p>下面是實際辦過哪幾次的紀錄，每一筆都連回它自己的來源。年度日期以主辦單位公告為準。</p>
+        <OccurrenceTimeline
+          occurrences={occurrencesForPage('event', e.id)!.occurrences}
+          nextAnnounced={occurrencesForPage('event', e.id)!.next_announced}
+          pendingLabel="下一次日期尚未公告"
+        />
       </section>
     )
   }

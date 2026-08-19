@@ -41,6 +41,8 @@ export type CelebrationOccurrences = {
   occurrences: Occurrence[];
   next_announced: { date_start: string; date_end?: string | null; source_ref: string } | null;
   notes?: string | null;
+  /** 這一項在站上對應的既有頁面（人工判斷：官方名與俗名常不同，不能靠字面比對）。 */
+  page_ref?: { type: 'event' | 'festival'; id: string } | null;
 };
 
 const byLcId = new Map<string, CelebrationOccurrences>(
@@ -59,6 +61,21 @@ export function occurrencesFor(lcId: string): CelebrationOccurrences | null {
 export function hasTimeline(lcId: string): boolean {
   const row = byLcId.get(lcId);
   return Boolean(row && row.occurrences.length >= 2);
+}
+
+/**
+ * 某個既有頁面（活動頁／節日頁）要不要顯示歷年紀錄。
+ * 🔴 用 `page_ref` 查，**不要用名稱比對**——repo 寫「蕭壟」而官方寫「蕭壠」、
+ *    「土城香」官方名是「鹿耳門聖母廟土城仔香」，字面比對一定會漏。
+ */
+export function occurrencesForPage(
+  type: 'event' | 'festival',
+  id: string,
+): CelebrationOccurrences | null {
+  const row = (data.items as CelebrationOccurrences[]).find(
+    (x) => x.page_ref?.type === type && x.page_ref?.id === id,
+  );
+  return row && row.occurrences.length >= 2 ? row : null;
 }
 
 /** 有可渲染時間軸的項目（給頁面列區塊用，不要在頁面寫死清單）。 */
