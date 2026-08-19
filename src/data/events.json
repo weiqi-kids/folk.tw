@@ -3138,5 +3138,647 @@
         ]
       }
     ]
+  },
+  {
+    "id": "dongshan_babao_guanjuan",
+    "name": "冬山八寶綰絭",
+    "host_temple": "moi_187_石聖爺廟",
+    "main_deity": "shitougong",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "nchdb holdPeriod 逐字「每年」、holdCalendarType「農曆」，登錄資料明記於七夕舉行（「供民眾在七夕帶著孩子前來祈求佩帶」「每年七夕時再到石頭公前『換貫』」），與 repo 的 lunar 07-07 一致。⚠️ 未查得廟方逐年公告時刻表，頁面只寫「每年七夕」不要寫時段。",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "nchdb 20061227000005",
+      "verified": true,
+      "case_id": "20061227000005",
+      "authority": "宜蘭縣政府",
+      "announcements": [
+        {
+          "date": "2020-01-21",
+          "doc": "府文資字第1090000639B號",
+          "note": "重新登錄類別"
+        },
+        {
+          "date": "2010-05-26",
+          "doc": "府文資字第0990003691號",
+          "note": "補登保存團體"
+        },
+        {
+          "date": "2006-12-27",
+          "doc": "府文資字第0950007040",
+          "note": "指定/登錄"
+        }
+      ],
+      "register_reason": "七夕掛貫習俗早在臺灣社會是眾多孩童必經的歷程，是父母祈求神明保佑孩童平安長大的方式。然而在醫療相當進步的現代社會，孩童夭折比率已相當低，加上現代化社會對習俗信仰多半斥為迷信，使得傳統掛貫習俗逐漸式微。因之宜蘭冬山鄉石聖爺廟所傳續下來的綰絭活動更加彌足珍貴。",
+      "history": "清末大陸居民移民到宜蘭時，因恐遭原住民出草，多求助於當地石聖爺廟所奉祀的石頭公保佑。當地民眾有感於石頭公相當靈驗，加以舊時人民有將較為體弱多病的小孩給神明當義子，希望神明保佑小孩順利長大的做法，於是開始有信徒將石頭公旁的石頭磨平並繫上紅線佩帶於小孩身上，希望藉以得到石頭公庇佑，孩童也因此得以順利長大，故而有「掛貫」儀式的出現。\r\n最早的「掛貫」是從石頭公旁的石頭取得石塊磨平打洞再穿上紅繩而成，後來，石塊銳減，改用「古錢幣」，清朝、日本的銅幣都有。近來，則由廟方鑄造圓型「石聖爺公保佑平安貫」，正面刻有「石聖王爺公」，背面刻有「保佑平安」，供民眾在七夕帶著孩子前來祈求佩帶，守護兒童平安長大。"
+    },
+    "region": [
+      "宜蘭"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+        "note": "國家文化資產網「冬山八寶捾絭」（宜蘭縣登錄民俗，登錄類別 5.1.1 民俗／風俗）；登錄理由、歷史沿革、儀式過程逐字引用"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類開放資料 266 筆，caseId 20061227000005 已驗證存在"
+      },
+      {
+        "type": "web",
+        "ref": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E8%81%96%E7%88%BA%E5%BB%9F.jpg",
+        "note": "Wikimedia Commons 石聖爺廟外觀（作者 Outlookxp，CC BY-SA 4.0）；⚠️ 是廟貌不是儀式現場"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "最早的「掛貫」是從石頭公旁的石頭取得石塊磨平打洞再穿上紅繩而成，後來，石塊銳減，改用「古錢幣」，清朝、日本的銅幣都有。近來，則由廟方鑄造圓型「石聖爺公保佑平安貫」，正面刻有「石聖王爺公」，背面刻有「保佑平安」，供民眾在七夕帶著孩子前來祈求佩帶，守護兒童平安長大。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+            "note": "nchdb 20061227000005 historyDevelopment 逐字；貫的材質三階段演變（石塊→古錢幣→廟鑄平安貫）是本案獨有"
+          }
+        ]
+      },
+      {
+        "text": "「掛貫」就是小孩出生滿月後，帶到石頭公前祈求保佑及一條紅繩串著銅錢的貫讓小孩掛在身上，每年七夕時再到石頭公前「換貫」換紅繩，到十六歲時才正式「退貫」成為大人。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+            "note": "nchdb ceremonyFeature 逐字；求貫→每年換貫→十六歲退貫的三段制"
+          }
+        ]
+      },
+      {
+        "text": "退貫－指年滿十六歲\n1.送上紅龜糕和米糕\n2.拜拜，禱念自我資訊\n3.持有人將「貫」的紅線加金紙拿去燒掉\n4.持有人將「貫」給廟方\n5.持有人鑽過神橋下，廟方將拜拜過「貫」還給持有人保存\n6.儀式中廟方贈送紀念品一份，宣布持有人成年",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+            "note": "nchdb ceremonyFeature 逐字（原文為 \\r\\n 換行）；「鑽過神橋下」「廟方贈送紀念品並宣布成年」為本案獨有"
+          }
+        ]
+      },
+      {
+        "text": "清末大陸居民移民到宜蘭時，因恐遭原住民出草，多求助於當地石聖爺廟所奉祀的石頭公保佑。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+            "note": "nchdb historyDevelopment 逐字；把掛貫起源綁在宜蘭拓墾史，非通用敘述"
+          }
+        ]
+      },
+      {
+        "text": "七夕掛貫習俗早在臺灣社會是眾多孩童必經的歷程，是父母祈求神明保佑孩童平安長大的方式。然而在醫療相當進步的現代社會，孩童夭折比率已相當低，加上現代化社會對習俗信仰多半斥為迷信，使得傳統掛貫習俗逐漸式微。因之宜蘭冬山鄉石聖爺廟所傳續下來的綰絭活動更加彌足珍貴。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000005",
+            "note": "nchdb registerReason 逐字（登錄理由本身）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chiayi_chenghuang_yexun",
+    "name": "「城隍夜巡諸羅城」活動",
+    "host_temple": "moi_10154_財團法人台灣省嘉",
+    "main_deity": "chenghuang",
+    "type": [
+      "夜巡"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆八月初一（城隍聖誕農曆八月初二的前夕），與 repo 的 lunar 08-01 一致。三年獨立交叉驗證：交通部觀光署活動開放資料「2026城隍夜巡夯枷解厄」StartDateTime 2026-09-11（＝丙午年農曆八月初一）；Wikimedia Commons 總統府照片「09.03 總統出席『嘉義城隍廟城隍夜巡諸羅城遶境活動』」＝2024-09-03（甲辰年農曆八月初一）；「09.17 副總統出席『城隍夜巡消災祈福夯枷活動』」＝2020-09-17（庚子年農曆八月初一）。",
+    "route_mode": "undetermined",
+    "region": [
+      "嘉義"
+    ],
+    "sources": [
+      {
+        "type": "temple",
+        "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429014",
+        "note": "主辦廟官網「城隍夜巡諸羅城」專頁（實測 HTTP 200，內文可取得）"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429013",
+        "note": "主辦廟官網「城隍中元祭」專頁；九大柱、開普收普俗諺出處"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.gov.tw/dataset/7778",
+        "note": "交通部觀光署活動開放資料；「2026城隍夜巡夯枷解厄」2026-09-11，OGDL 1.0"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20210604000002",
+        "note": "國家文化資產網「嘉義城隍廟中元祭典」（嘉義市登錄民俗，府授文資字第1105100525號，2021-02-02）；⚠️ 是中元祭典不是夜巡"
+      },
+      {
+        "type": "web",
+        "ref": "https://commons.wikimedia.org/wiki/File:09.03_%E7%B8%BD%E7%B5%B1%E5%87%BA%E5%B8%AD%E3%80%8C%E5%98%89%E7%BE%A9%E5%9F%8E%E9%9A%8D%E5%BB%9F%E5%9F%8E%E9%9A%8D%E5%A4%9C%E5%B7%A1%E8%AB%B8%E7%BE%85%E5%9F%8E%E9%81%B6%E5%A2%83%E6%B4%BB%E5%8B%95%E3%80%8D.jpg",
+        "note": "Commons 現場照，檔名即本活動全名"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "嘉義市有「城隍廟開普、地藏庵收普」的俗諺：農曆七月初一由城隍廟開普揭開序幕，各庄頭與境內廟宇依序輪普，月底再由地藏庵收普。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429013",
+            "note": "摘述自主辦廟官網「城隍中元祭」頁；⚠️ 非逐字引用授權來源（授權白名單只有 religion.moi.gov.tw／nchdb・data.boch.gov.tw／taiwangods.moi.gov.tw），本站只能摘述"
+          }
+        ]
+      },
+      {
+        "text": "嘉義城隍廟由「九大柱」信徒共同襄贊祭典，每年以擲桮方式選出首事與爐主，負責統籌籌備、祭祀安排與地方協調。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cycht.org.tw/?act=menuinfo&ml_id=20260429013",
+            "note": "摘述自主辦廟官網；「九大柱」制度同時也是 nchdb 20210604000002 登錄理由第 3 點的內容"
+          }
+        ]
+      },
+      {
+        "text": "九大柱輪普制度保存良好，乃廟普結合市場普與街普的普度文化特色。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20210604000002",
+            "note": "nchdb 20210604000002 registerReason 第 3 點逐字（可逐字引用）；⚠️ 這是「中元祭典」的登錄理由，敘述時不可寫成夜巡的登錄理由"
+          }
+        ]
+      },
+      {
+        "text": "嘉義市輪普有一說法「起於城隍廟、終於地藏庵」，嘉義人認為城隍廟的城隍爺在農曆7月1日當天會大開地獄之門，讓陰間好兄弟來到人間，接受一個月的施食。月底則由地藏庵的地藏王菩薩負責關鬼門 。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20210604000002",
+            "note": "nchdb ceremonyFeature 逐字（可逐字引用）；同上，屬中元祭典脈絡"
+          }
+        ]
+      },
+      {
+        "text": "2026 年的活動名稱為「2026城隍夜巡夯枷解厄」，日期 2026-09-11，地點嘉義市東區吳鳳北路168號；官方活動說明提到與阮劇團合作把在地靈異傳奇拍成微電影，並邀請金門的公背婆、打花草及大陸、新加坡的大爺二爺參加。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://data.gov.tw/dataset/7778（交通部觀光署活動開放資料，EventID Event_A15010000H_081696，UpdateTime 2026-08-19）",
+            "note": "摘述自觀光署開放資料 Description 欄；OGDL 1.0 可商用"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jilong_chenghuang",
+    "name": "雞籠城隍文化祭",
+    "host_temple": "moi_2839_基隆護國城隍廟",
+    "main_deity": "chenghuang",
+    "type": [
+      "夜巡",
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "夜巡＝農曆八月十四，日巡＝農曆八月十六（日巡同時是護國城隍安座大典紀念日）。兩年份政府新聞稿交叉驗證：2025 年基隆市政府新聞稿明寫「本次盛典將於農曆八月十四日舉行『夜巡』、八月十六日舉行『日巡』」，當年實際落在 2025-10-05（夜巡）與 2025-10-07（日巡）；2023 年新聞稿記夜巡國曆 9/28、日巡 9/30，同樣是農曆八月十四／十六。repo 的 lunar 08-14 對應夜巡，正確。⛔ 但**查核日 2026-08-19 為止，基隆市政府尚未發布 2026 年檔期公告**（該站含「城隍」的市政新聞最新一則是 2026-04-12 的「雞籠文化藝術節」），所以 2026-09-24 只能標為依固定農曆日推得、待公告確認，頁面不可寫成已公告日期。",
+    "route_mode": "undetermined",
+    "region": [
+      "基隆"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
+        "note": "基隆市政府市政新聞 2025-09-25：「護國城隍安座大典登場 邱佩琳讚雞籠城隍文化祭結合反詐新力量」；夜巡／日巡農曆日期出處"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307519.html",
+        "note": "基隆市政府市政新聞 2025-10-05：夜巡遶境流程、參與友廟、遶境路線"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-277394.html",
+        "note": "基隆市政府市政新聞 2023-09-30：2023 年（206 年安座大典）日巡"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-315112.html",
+        "note": "基隆市政府市政新聞 2026-04-12：護國城隍廟 209 年祝壽大典「雞籠文化藝術節」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類 266 筆全數比對：基隆市僅 20071008000004／20080129000001（鷄籠中元祭）與 20240507000001（和平島王爺海上遊江），查無雞籠城隍文化祭"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/wiki/%E5%9F%BA%E9%9A%86%E8%AD%B7%E5%9C%8B%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+        "note": "中文維基百科：廟址、農曆八月十四夜巡／八月十六日巡；僅供線索，非權威源"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "雞籠城隍文化祭接在雞籠中元祭之後：2025 年的官方說法是乙巳年雞籠中元祭在農曆八月初一「關龕門」後圓滿落幕，緊接著才迎來「2025雞籠城隍文化祭暨護國城隍208年安座大典」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
+            "note": "摘述自基隆市政府市政新聞（2025-09-25，綜合發展處新聞科）；⚠️ klcg.gov.tw 不在逐字引用授權白名單，只可摘述。這條同時是與 /events/jilong/ 切割的關鍵依據"
+          }
+        ]
+      },
+      {
+        "text": "活動全名逐年帶「護國城隍◯◯◯年安座大典」的年份序號：2023 年為 206 年、2025 年為 208 年，2026 年 4 月市府新聞稿已出現「護國城隍廟209年祝壽大典」的寫法。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-277394.html",
+            "note": "摘述自基隆市政府市政新聞 2023-09-30 與 2026-04-12（3168-315112）兩則"
+          }
+        ]
+      },
+      {
+        "text": "市府與廟方把儀式歸納成「四招保平安」──隨香燈、領鹹光餅、夯枷、鑽轎腳；2025 年發放 6,000 份鹹光餅，2023 年為 4,000 個。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307190.html",
+            "note": "摘述自基隆市政府市政新聞 2025-09-25、2025-10-05（3168-307519）與 2023-09-30（3168-277394）"
+          }
+        ]
+      },
+      {
+        "text": "遶境會邀外縣市城隍系統友廟共同出巡：2025 年為松山霞海城隍廟、台北府城隍廟、豐原城隍爺廟、台南正統鹿耳門聖母廟；2023 年為松山霞海城隍廟、台灣省城隍廟、南投草屯惠德宮城隍爺。路線行經慶安宮、奠濟宮、銅陵關聖帝君廟等基隆市區重要廟宇。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.klcg.gov.tw/tw/klcg1/3168-307519.html",
+            "note": "摘述自基隆市政府市政新聞 2025-10-05 與 2023-09-30"
+          }
+        ]
+      },
+      {
+        "text": "基隆護國城隍廟供奉的西秦王爺是北管福祿派樂神，雞籠中元祭中迎斗燈或放水燈的隊伍都要經過城隍廟祭拜西秦王爺；廟方祭典日期曾在 1952 年改到三月二十三日，1976 年才恢復為八月十六日。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://zh.wikipedia.org/wiki/%E5%9F%BA%E9%9A%86%E8%AD%B7%E5%9C%8B%E5%9F%8E%E9%9A%8D%E5%BB%9F",
+            "note": "⚠️ 來源為中文維基百科，非權威源。要用這條必須另找廟方或文獻複驗，否則不要放進頁面"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "changhua_mazu_qifu",
+    "name": "彰化縣媽祖祈福文化節",
+    "main_deity": "mazu",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "divined",
+    "date_note": "🔴 repo 的 lunar 09-09 已被官方公告推翻，且本活動根本沒有固定農曆日。日期每年由彰化縣長在爐主宮廟擲筊請示媽祖決定：彰化縣政府 2026-02-12 公告「媽祖賜予2聖杯，正式擇定國曆10月9日至11日（農曆8月29日至9月2日）連續3日舉辦」。歷年落點差距極大：2023 年 10/20–10/22（二林仁和宮）、2024 年 9/27–9/29（員林福寧宮）、2025 年 11/21–11/23（社頭枋橋頭天門宮）、2026 年 10/9–10/11（芳苑普天宮）。⛔ 依 lunar 09-09 推出的 2026-10-18 是錯的，正確是 2026-10-09～11。",
+    "route_mode": "undetermined",
+    "region": [
+      "彰化"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
+        "note": "彰化縣政府新聞訊息 2026-02-12「『2026彰化縣媽祖祈福文化節』媽祖聖筊擇定10月9日至11日辦理」（發布單位：文化局，發布期間 2026-02-12～2026-03-12）；擲筊決日、爐主輪值、13 廟名單全部出自此稿"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類 266 筆比對：彰化縣 7 筆中無「媽祖祈福文化節」；全庫搜「媽祖」61 筆亦無"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.gov.tw/dataset/7778",
+        "note": "交通部觀光署活動開放資料 948 筆比對：查無本活動"
+      },
+      {
+        "type": "web",
+        "ref": "https://commons.wikimedia.org/wiki/File:%E8%8A%B3%E8%8B%91%E7%99%BD%E9%A6%AC%E5%B3%B0%E6%99%AE%E5%A4%A9%E5%AE%AE%E6%AD%A3%E9%9D%A2%E7%85%A7.jpg",
+        "note": "Commons 芳苑白馬峰普天宮正面照（Outlookxp，CC BY-SA 4.0）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "活動日期由彰化縣長在當年度爐主宮廟擲筊請示媽祖決定：2026 年在芳苑普天宮擲出 2 聖杯，擇定國曆 10 月 9 日至 11 日（農曆 8 月 29 日至 9 月 2 日）連續 3 日舉辦。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（發布單位：文化局）；⚠️ chcg.gov.tw 不在逐字引用授權白名單，只可摘述"
+          }
+        ]
+      },
+      {
+        "text": "爐主宮廟同樣由擲筊決定並逐年輪替：前一年擲筊選出下一年爐主，2026 年由芳苑普天宮接任。參與的是彰化縣內 13 間媽祖宮廟——員林福寧宮、二林仁和宮、王功福海宮、鹿港台灣護聖宮、伸港福安宮、彰化南瑤宮、芬園寶藏寺、社頭枋橋頭天門宮、田中乾德宮、北斗奠安宮、埤頭合興宮、溪湖福安宮，加上爐主宮廟。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12；13 廟名單是本活動最具辨識度的獨有事實"
+          }
+        ]
+      },
+      {
+        "text": "活動期間 13 間宮廟的媽祖神尊會集結到當年度爐主宮廟，供信眾一次參拜 13 尊媽祖，並由爐主宮廟依循傳統辦理宗教科儀與遶境賜福。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12"
+          }
+        ]
+      },
+      {
+        "text": "2026 年爐主宮廟芳苑普天宮創建於西元1697年，宮內「凌霄寶殿」有「白馬峰」地理傳說，以及民國90年間顯現的「浮壁觀音」；2026 年為丙午馬年，官方新聞稿以此連結白馬傳說。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.chcg.gov.tw/ch2/newsdetail.aspx?bull_id=425726",
+            "note": "摘述自彰化縣政府新聞訊息 2026-02-12（文化局說明）；⚠️ 這是當年度爐主廟的屬性，不是活動本身的屬性，寫頁時要標明年度"
+          }
+        ]
+      },
+      {
+        "text": "歷年爐主宮廟與檔期：2023 年二林仁和宮 10/20–10/22、2024 年員林福寧宮 9/27–9/29、2025 年社頭枋橋頭天門宮 11/21–11/23（適逢建廟270週年、13 尊媽祖齊聚）。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.chcg.gov.tw/ch2/news_01.aspx?schtxt=%E5%AA%BD%E7%A5%96%E7%A5%88%E7%A6%8F%E6%96%87%E5%8C%96%E7%AF%80",
+            "note": "2024 年那筆有彰化縣政府新聞稿標題可佐（「2024彰化縣媽祖祈福文化節」9月27-29日 13尊媽祖齊聚員林福寧宮）；2023 年為 ctrl.chcg.gov.tw 縣府稿、2025 年僅有媒體報導【部分待補權威源】"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zhushan_zinangong_chidingjiu",
+    "name": "南投縣竹山鎮紫南宮「土地公吃丁酒」活動",
+    "host_temple": "moi_5552_紫南宮",
+    "main_deity": "tudigong",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "nchdb holdCalendarType「農曆」、holdPeriod「每年」；ceremonyFeature 逐字「每年農曆一月十六日紫南宮『吃丁酒』」。廟方官網〈吃丁酒由來〉亦逐字寫「農曆正月16日盛大舉辦」。以 lunar-javascript 換算：2026 已於 2026-03-04 辦畢，下一次為 2027-02-21（農曆正月十六）。⚠️ 換算日期只能當「預估落點」，正式日程仍以廟方公告為準。",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "nchdb 20090902000002",
+      "verified": true,
+      "case_id": "20090902000002",
+      "authority": "南投縣政府",
+      "announcements": [
+        {
+          "date": "2009-09-02",
+          "doc": "府授文資字第09801854362號",
+          "note": "指定/登錄"
+        },
+        {
+          "date": "2018-12-19",
+          "doc": "府授文資字第10702778111號",
+          "note": "變更/修正"
+        }
+      ],
+      "register_reason": "不僅深具地方文化歷史意義，並能將之活化，形成規模龐大、蓬勃發展的民俗活動。\n登錄保存團體紫南宮管理委員會制度完善，發揚取之於大眾、用之於大眾的精神，不僅妥善推動廟務，並致力辦理社區各項福利及建設工作。",
+      "history": "淵源概況：\n「丁」是指男丁，在社寮自古就流傳吃丁酒的民間習俗活動。吃丁酒活動每年的農曆元月十六日在紫南宮廣場舉行。吃丁酒原本意思是說，在去年元宵節到今年元宵一年當中，如果社寮紫南宮轄區之五鄰人家有出生男丁的話，在元月十五日的元宵節，必須以閹雞整隻祭拜土地公，祭拜閹雞不限於一隻，拜到十六日早上時，廟祝會將雞頭冠及尾椎部份肉切下，由出丁的人帶回。其餘大部份的雞肉仍留在廟裡，以供社寮信徒吃雞酒饗用。由於一年中總會有好多家出丁，因此雞肉是不少的，而如果生女就以豬肉塊祭拜，一併連同雞肉烹食。",
+      "notices": [
+        "此五鄰每戶至少抽籤一位人手擔任十六日那天的義工，工作是將雞肉烹煮或清洗煮菜等是廚事的工作，也有抽中正月丁就負責十六日廟口登記借金或書寫等工作，也有是作搭棚架、打掃廟埕等不一，但就是一戶至少一人於當日協助元宵吃丁酒工作。"
+      ]
+    },
+    "region": [
+      "南投"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+        "note": "國家文化資產網「竹山社寮紫南宮吃丁酒」（南投縣登錄民俗）；登錄理由、發展源流、儀式特色皆逐字引用。caseId 已在 5.1 快照中驗證存在"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "民俗類開放資料快照（266 筆），holdPeriod「每年」、holdCalendarType「農曆」出處"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.zinan.org.tw/about/about06.htm",
+        "note": "竹山紫南宮官方網站〈吃丁酒由來〉；廟址 南投縣竹山鎮社寮里大公街40號、Tel 049-2623722（2026-08-19 實抓）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=54",
+        "note": "內政部地方宗教慶典來源條目（本機不可達；Wayback 亦查無此 cid 的快照，故本項未取用 MOI 詳情頁文字）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "1.『新婚』的人家會準備「豬頭」一付和米酒一瓶。2.續弦的人家會準備掛腿「豬後腳」一付和米酒兩瓶（民國八十年則改為「掛腿豬前腳」一付及米酒）。3.『添丁』的人家會準備「閹雞」一付和米酒一瓶。4.『新婚』又『添丁』，就必須同時準備新婚祭品及添丁祭品，俗稱『一擔』。5.『許千金』 的人家會準備「母雞」一付和一些「雞蛋」及米酒一瓶。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+            "note": "nchdb ceremonyFeature 逐字（貢品規則五類，含「一擔」與「許千金」——只有這一項有）"
+          }
+        ]
+      },
+      {
+        "text": "（所謂四點金指的是“雞頭”“雞翅”“雞腳”“雞尾錐”，傳統上取四點金是雞頭連龍船骨及雞翅、雞腿、雞尾錐）。此一民俗意謂，「肉給人吃，骨頭不讓人家啃」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+            "note": "nchdb ceremonyFeature 逐字（「四點金」定義與那句俗諺是本案獨有）"
+          }
+        ]
+      },
+      {
+        "text": "據廟委員告知，民國九十年所購買之丁雞有六千斤，九十一年更高達八千斤。九十七年預估高達12000斤雞酒及2200斤的素食，參與吃丁酒人數將突破單日五萬人次。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+            "note": "nchdb historyDevelopment 逐字。🔴 這是帶年份的歷史量測（民國90／91／97年），引用時必須連年份一起寫，不可當現況數字。"
+          }
+        ]
+      },
+      {
+        "text": "當日將配合社寮紫南宮文化特色由本地居民將象徵金雞的竹工藝大竹雞及竹藝大元寶踩繞社寮大公街，象徵社寮年慶大節日，共同為紫南宮土地神祈福敬意一年來福澤地方保佑居家平安。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+            "note": "nchdb historyDevelopment「民俗精神」段逐字（竹工藝大竹雞＋竹藝大元寶踩繞大公街）"
+          }
+        ]
+      },
+      {
+        "text": "廟方把吃丁酒與北部天燈、南部蜂炮並列，稱「北天燈．南蜂炮．中丁酒」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.zinan.org.tw/about/about06.htm",
+            "note": "紫南宮官網〈關於紫南宮：吃丁酒由來〉；本站改寫敘述、不逐字轉載（該站未取得逐字引用同意）"
+          }
+        ]
+      },
+      {
+        "text": "廟方請專業報喜人，以敲鑼打鼓之方式為民眾報喜。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090902000002",
+            "note": "nchdb ceremonyFeature「二、報喜」段逐字"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "toucheng_qianggui_laichao",
+    "name": "千龜來朝（頭城南北門福德祠）",
+    "host_temple": "moi_6748_城南里福德廟",
+    "main_deity": "tudigong",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "內政部地方宗教慶典記農曆 02-02（土地公聖誕）；頭城鎮公所〈廟宇巡禮〉北門福德祠條逐字「每年農曆二月二日福德正神誕辰，里民每以外臺戲慶祝」。以 lunar-javascript 換算下一次為 2027-03-09。⚠️ 這是換算落點，非公告日期；查無 2027 年度公告。",
+    "route_mode": "undetermined",
+    "region": [
+      "宜蘭"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29",
+        "note": "內政部地方宗教慶典詳情頁（含鄉鎮＝頭城鎮，repo 內 local-celebrations.json 只存到縣市）。本機不可達，經 Wayback 2021-04-23 快照取得"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+        "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉；千龜來朝的起始年、辦法、獎項、緣起皆逐字引用"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/monument/20061215000002",
+        "note": "國家文化資產網〈頭城鎮南北門福德祠〉（宜蘭縣定**古蹟**）；caseId 已在古蹟 1.1 快照中驗證存在。🔴 這是建築的登錄，不是活動的登錄——不可寫成「千龜來朝是登錄民俗」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://toucheng.e-land.gov.tw/cp.aspx?n=7068",
+        "note": "頭城鎮公所〈廟宇巡禮〉北門／南門福德祠條"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "宜蘭縣頭城鎮「福神弄龜」活動—延續千龜來朝精神，土地公誕辰保佑賜福。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29",
+            "note": "內政部全國宗教資訊網「地方宗教慶典行政成果」詳情頁全文逐字（該頁只有這一句）。本機不可達，取自 Internet Archive 快照 http://web.archive.org/web/20210423000929/https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=29 ；同頁另標「宜蘭縣 頭城鎮／農曆 02月02日」與圖說「「福神弄龜」活動」。"
+          }
+        ]
+      },
+      {
+        "text": "當地居民為延續良好信仰，並遙想早年重建時消失的神龜石，自民國96年(公元2007年)起每年於土地公聖誕時舉辦「千龜來朝」的活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+            "note": "內政部臺灣宗教文化地圖〈頭城鎮南北門福德祠〉逐字（2026-08-19 實抓 HTTP 200）。這是「每年舉辦」與起始年份的唯一權威依據。"
+          }
+        ]
+      },
+      {
+        "text": "據說南門福德祠在早期經重建過程中將座落土地公廟旁的神龜石雕搬移，從此消失神踪，常引發居民們的想念，因此南門福德祠管委會於民國100年(公元2011年)重建財神龜於廟旁，讓居民勾起過往回憶。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+            "note": "同上，逐字。神龜石消失→2011 重建財神龜，是本項獨有的起源敘事。"
+          }
+        ]
+      },
+      {
+        "text": "另每年舉辦的「千龜來朝」活動是1種以各式食材製作神龜以敬拜土地公的競賽。會選擇以龜來做為主題，其中主要取幾個吉祥意涵：一、烏龜代表長壽，適合祝壽，二、烏龜重心低，走路四平八穩，代表平安，三、龜屬於五行中的「北玄武」，北方屬水，水代表財，拜烏龜除了祝壽求平安，也代表求財。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+            "note": "同上，逐字。三個吉祥意涵的說法是本項獨有。"
+          }
+        ]
+      },
+      {
+        "text": "「千龜來朝」的活動獎項包括由學者專家評選出的「最佳造型獎」、由所有參觀民眾票選的「最佳人氣獎」，以及透過「擲筊」，由土地公欽定的「土地公賞」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+            "note": "同上，逐字。三個獎項（尤其擲筊決定的「土地公賞」）全站沒有第二個活動有。"
+          }
+        ]
+      },
+      {
+        "text": "北門福德祠廟外屋簷下設有清同治年間的1對石獅，保存完整，不常見於其他土地公廟，主因該廟為漢人墾殖宜蘭、在頭圍地區所蓋的第1間土地公廟，所以特別裝飾2隻石獅子，以象徵不同於一般土地公廟的地位。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=56",
+            "note": "同上，逐字（場地背景，非活動本身）"
+          }
+        ]
+      },
+      {
+        "text": "頭城鎮公所的廟宇介紹把北門福德祠的福德正神誕辰記在農曆二月初二，並提到中秋與尾牙也是參拜人多的日子。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://toucheng.e-land.gov.tw/cp.aspx?n=7068",
+            "note": "宜蘭縣頭城鎮公所〈悠遊頭城・廟宇巡禮〉北門福德祠條；本站改寫敘述、不逐字轉載。這是獨立於內政部的第二個政府來源，佐證農曆二月初二"
+          }
+        ]
+      }
+    ]
   }
 ]

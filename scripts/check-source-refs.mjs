@@ -151,6 +151,13 @@ const walk = (node, cb) => {
     Object.values(node).forEach((v) => walk(v, cb));
   }
 };
+/**
+ * 這段 note 是不是在**宣稱逐字引用**。
+ * 含「逐字」但同時出現否定語（非逐字／不逐字／未逐字／只可摘述／只能摘述／摘述自）的，
+ * 是在描述「本站沒有逐字用它」——那不是要擋的對象。
+ */
+const claimsVerbatim = (note) => note.includes('逐字') && !/非逐字|不逐字|未逐字|不可逐字|摘述/.test(note);
+
 const verbatimReject = (file, what, host) => {
   const why = UNLICENSED[host] ?? Object.entries(UNLICENSED).find(([h]) => host.endsWith(h))?.[1];
   errors.push(
@@ -169,8 +176,11 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
     continue; // JSON 壞掉是別的 gate 的事
   }
   walk(data, (o) => {
-    // 2a：sources[] 裡 note 含「逐字」的
-    if (typeof o.ref === 'string' && String(o.note ?? '').includes('逐字')) {
+    // 2a：sources[] 裡**宣稱自己是逐字引用**的
+    //     🔴 判準不能只看有沒有「逐字」兩個字：實測誤擋過三筆，它們的 note 是在
+    //     **說明自己不是逐字**（「非逐字引用授權來源…只能摘述」）。那種註記正是我們
+    //     希望有人寫的東西，擋掉它等於懲罰把授權界線寫清楚的人。
+    if (typeof o.ref === 'string' && claimsVerbatim(String(o.note ?? ''))) {
       const host = hostOf(o.ref);
       if (host) {
         verbatimChecked += 1;

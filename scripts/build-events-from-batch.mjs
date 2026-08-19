@@ -53,6 +53,17 @@ for (const it of batch.items ?? []) {
     continue;
   }
 
+  // 公告欄位正規化：查源批次常直接把 nchdb 的原始物件貼過來
+  // （classification／officialDocNo／registerDate），但 repo 的 schema 是
+  // { date, doc, note } 且 doc 必填。不轉就會在 astro check 被擋（實測過）。
+  const announcements = (it.announcements ?? [])
+    .map((a) => ({
+      date: String(a.date ?? a.registerDate ?? '').slice(0, 10),
+      doc: String(a.doc ?? a.officialDocNo ?? ''),
+      ...(a.note || a.classification ? { note: a.note || a.classification } : {}),
+    }))
+    .filter((a) => a.date && a.doc);
+
   const sources = (it.sources ?? []).map((s) => ({
     type: s.type ?? 'gov',
     ref: s.ref,
@@ -89,7 +100,7 @@ for (const it of batch.items ?? []) {
             ...(it.authority ? { authority: it.authority } : {}),
             ...(it.preservers?.length ? { preservers: it.preservers } : {}),
             ...(it.venue ? { venue: it.venue } : {}),
-            ...(it.announcements?.length ? { announcements: it.announcements } : {}),
+            ...(announcements.length ? { announcements } : {}),
             ...(it.register_reason ? { register_reason: it.register_reason } : {}),
             ...(it.history ? { history: it.history } : {}),
             ...(it.notices?.length ? { notices: it.notices } : {}),
