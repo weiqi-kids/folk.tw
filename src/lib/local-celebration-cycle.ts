@@ -46,6 +46,7 @@ type CaseRow = {
   alt_cases?: unknown[];
   date_conflict?: string;
   date_override?: { calendar: string; date: string; basis: string };
+  display_note?: string;
 };
 
 const caseByLcId = new Map<string, CaseRow>((cases.items as CaseRow[]).map((x) => [x.lc_id, x]));
@@ -127,6 +128,21 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
       : quotable
         ? `舉辦週期的登錄資料記為「${periodText}」，日期以主辦單位公告為準`
         : '舉辦週期的登錄資料未記為每年，日期以主辦單位公告為準';
+
+  // 🔴 `display_note` 覆寫自動推導的句子。只有一種正當用途：推導出的句子會把屬性講錯。
+  //    實例（2026-08-19）：lc_59 拆成「登錄民俗＝下路頭玄天上帝廟盪鞦韆」與「市府版＝
+  //    嘉義市鞦韆節」兩件事之後，`hold_period`「不定期 5年2閏」是**前者**的屬性，
+  //    掛在後者身上就是錯的歸屬。
+  if (row.display_note) {
+    return {
+      annual: false,
+      periodText,
+      note: row.display_note,
+      shortNote: row.display_note,
+      caseId: row.case_id,
+      basis: row.basis,
+    };
+  }
 
   const shortNote =
     row.verdict === 'n_year'

@@ -54,25 +54,23 @@ const VERBATIM_ALLOW = new Set([
   'religion.moi.gov.tw', // 內政部全國宗教資訊網，2026-08-06 同意（docs/taiwan-intake-status.md）
   'nchdb.boch.gov.tw', // 文化部國家文化資產網，2026-08-09 同意（docs/decisions/festivals-and-intent.md:146-158）
   'data.boch.gov.tw', // 同上，開放資料端點
+  // 內政部臺灣宗教文化地圖，2026-08-19 站主回報**已取得內政部確認授權**。
+  // ⚠️ 條件比照內政部 2026-08-06 那次＝**標示資料來源連結**（本 repo 對前一次的落實方式是
+  //    逐筆掛回原始網址、文字逐字不改寫）。若實際條件與此不同，改這裡並同步 /about/。
+  'taiwangods.moi.gov.tw',
 ]);
 
 // 已知授權有問題的站（規則 ③ 的計數對象，也是規則 ② 的明確拒絕理由）。
 const UNLICENSED = {
-  'taiwangods.moi.gov.tw': '版權宣告限個人及非商業目的，且不在 2026-08-06 同意書列舉範圍內',
+  // 2026-08-19：taiwangods.moi.gov.tw 已移出本表——站主回報內政部已確認授權。
+  // 它的 grandfather 上限一併移除（那條規則的用途是「未授權來源不得再擴散」，
+  // 前提消失了，留著只會擋住正常使用）。歷史脈絡見 docs/decisions/festivals-and-intent.md。
   'th.gov.tw': '國史館臺灣文獻館未查到明示授權（主站著作權聲明抓不到，子站僅「版權所有」）',
 };
 
 // 🔴 grandfather 基準（2026-08-19 實測值）。**只能往下調，不可往上調。**
 //    往上調等於把「又多引用了一處未授權來源」正常化——那正是這條要擋的事。
 const BASELINE = {
-  // 其中 1 處在 scripts/generate-topic-article-drafts.mjs:67——那是**草稿產生器**的來源清單，
-  // 會把這個網域再種進週稿，是擴散源不只是一處引用。要降這個數字，那一處優先。
-  // 2026-08-19 由 213 一路降到 176：① 修掉 23 處掛錯的引用（vocabulary 全部 10 處＋
-  // festivals 13 處）② 頭城搶孤與七夕做十六歲的近似逐字段落改掛 nchdb（內容逐項確認在
-  // 登錄資料原文內；只有未授權來源才有的「織女」「匍匐」直接拿掉）③ week-16.md 與
-  // dec-mar.md 的臺東寒單段落改寫成登錄資料支撐得住的版本並改掛 ④ 換掉草稿產生器裡的
-  // 擴散源（每產一次草稿就再種一次）。
-  'taiwangods.moi.gov.tw': 176,
   // 其中 1 處在 scripts/check-anchor-text.mjs:5 的註解範例（不是實際引用，但仍是網址形式，照算）。
   'th.gov.tw': 146,
 };
