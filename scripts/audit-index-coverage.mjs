@@ -129,13 +129,24 @@ if (args.includes('--list')) {
 async function scan() {
 
 const { gscSiteUrl } = await loadConfig();
-// 先查沒查過的；全查完後改滾動重查最舊的，讓資料保持新鮮。
+// 先查沒查過的，**剩餘配額接著滾動重查最舊的**，讓資料保持新鮮。
+//
+// 🔴 2026-08-19 修：原本是 `pending.length ? pending : 滾動`——三元的前半一旦非空就
+//    整批只跑 pending。實際發生的事：第一輪掃完後每天只新增幾頁，於是
+//    「站上共 15396 頁；已查 15392，本輪待查 4／本輪查了 4 頁」，當天 2,000 次配額
+//    浪費掉 1,996 次，資料就此凍住——實測 8,842 頁停在 15–21 天前的讀值，
+//    而抽樣重查發現其中 15/16 早就已收錄。**過期的稽核比沒有稽核更糟**：
+//    它會讓人拿 20 天前的快照去回答「現在收錄了沒」，然後得到相反的結論。
 const pending = urls.filter((u) => !state.results[u]);
-const queue = pending.length
-  ? pending
-  : [...urls].sort((a, b) => (state.results[a]?.checkedAt ?? '').localeCompare(state.results[b]?.checkedAt ?? ''));
+const stale = urls
+  .filter((u) => state.results[u])
+  .sort((a, b) => (state.results[a]?.checkedAt ?? '').localeCompare(state.results[b]?.checkedAt ?? ''));
+const queue = [...pending, ...stale];
 
-console.log(`站上共 ${urls.length} 頁；已查 ${urls.length - pending.length}，本輪待查 ${Math.min(queue.length, MAX)}。`);
+console.log(
+  `站上共 ${urls.length} 頁；從未查過 ${pending.length}，`
+  + `本輪預計查 ${Math.min(queue.length, MAX)}（不足的用最久沒查的補滿）。`,
+);
 
 let done = 0, quota = false;
 for (const u of queue) {
