@@ -3227,5 +3227,26 @@
       "last_checked": "2026-08-18",
       "empty_runs": 1
     }
+  },
+  {
+    "id": "news-landslide-20260817-e8c7c0",
+    "eventType": "landslide",
+    "title": "為廣西南丹山崩罹難者祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "新華網",
+        "url": "https://www.news.cn/local/20260819/d676f135b13b4c60bb124fae16abae5c/c.html"
+      },
+      {
+        "ref": "新唐人電視台",
+        "url": "https://www.ntdtv.com/b5/2026/08/18/a104125058.html"
+      }
+    ],
+    "place": "廣西南丹縣芒場鎮拉麻村黃祥坡屯",
+    "time": "2026-08-17",
+    "detector": "news",
+    "since": "2026-08-19",
+    "status": "active"
   }
 ]
