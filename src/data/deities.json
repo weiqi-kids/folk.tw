@@ -5657,6 +5657,7 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%99%AF%E7%BE%8E%E9%9B%86%E6%87%89%E5%BB%9F%E4%BF%9D%E5%84%80%E5%B0%8A%E7%8E%8B(%E5%B0%AA%E5%85%AC).jpg"
     },
+    "summary": "保儀尊王又稱保儀大夫，民間俗稱大使公、大使爺、尪公、尪元帥。一般認為指的是唐代大將張巡，或說為許遠——二人都在安祿山之亂中死守睢陽城，保國衛民忠勇不屈而享名後世。臺灣信奉保儀尊王的信徒以北部地區最多，早期的尪公信仰多是由某氏族從祖廟分靈而來、由該氏建廟奉祀，因此有不少尪公被冠以姓氏稱之；廟中多配祀張巡的部將雷萬春與南霽雲。",
     "sources": [
       {
         "type": "gov",
@@ -5667,6 +5668,11 @@
         "type": "gov",
         "ref": "內政部全國宗教資訊網（data.gov.tw/dataset/8203）",
         "note": "政府資料開放授權條款；主祀本神之寺廟清單"
+      },
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈保儀尊王〉 https://dict.th.gov.tw/detailPage.aspx?Ca=283&ID=1215",
+        "note": "辭條：別稱、張巡或許遠兩說、北部氏族分靈與配祀部將"
       }
     ],
     "sameAs": [],
