@@ -6,6 +6,11 @@
 //    ① 攝影者姓名（著作人格權的姓名表示）必須印在頁面上
 //    ② 可點的來源連結（授權條件）必須在頁面上
 //    Commons 那批沿用既有作法（出處彙整在 /about），只驗圖與檔案在。
+//
+// ⚠️ **管轄範圍＝條目頁（廟頁／神明頁），不含索引頁縮圖。** 這不是疏漏，是
+//    2026-08-19 查證後確認的粒度：授權條文未界定是否及於每一處渲染實例，
+//    現況採「條目頁＋/about 站台彙整」。緣由與條文逐字引用見
+//    src/lib/image-credit.ts 檔頭。改這裡的管轄範圍前先讀那段。
 import { escText, escAttr } from '../lib/astro-escape.mjs';
 
 export function checkEntityPhoto(entity, page, ctx, acc, prefix) {
