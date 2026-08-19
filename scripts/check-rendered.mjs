@@ -17,6 +17,10 @@ import { seasonalCampaigns } from '../src/lib/seasonal-campaigns.ts';
 import { FESTIVAL_OG_SLUGS, festivalDiscoverImagePath } from '../src/lib/festival-og.ts';
 import { releasedItems } from '../src/lib/release-schedule.ts';
 import { excerptAtBoundary, stripOuterParens, withoutTerminalPunctuation } from '../src/lib/text.ts';
+// 全形寬度與 title 上限：與 src/pages/temples/[id].astro 共用同一支，gate 不重寫規則。
+import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../src/lib/text-width.ts';
+// 「Astro 會輸出什麼」一律問 Astro 自己（見該檔檔頭：兩次假紅燈的教訓）。
+import { escText, escAttr } from './lib/astro-escape.mjs';
 const require = createRequire(import.meta.url);
 const sharp = require('sharp');
 
@@ -31,20 +35,10 @@ const TODAY = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
 }).format(new Date());
 // 內文節點與屬性值的跳脫規則不同（屬性多跳脫引號），比對時要分開用，
-// 否則哪天資料出現 &／"／< 就會 gate 誤報。目前資料無此字元，但別把它留成未來的陷阱。
-// 🔴 escText 必須跳脫 `"`（2026-08-08 修）：Astro 在**文字節點**也把 `"` 輸出成 `&quot;`，
-//    但這裡原本只跳脫 & < >，於是任何含半形雙引號的資料都會被誤判成「文字與資料不符」。
-//    實例：內政部參拜流程有 3 筆的 Comment 自帶 `"`（來源的引號殘留），
-//    526 筆匯入後就這 3 筆紅燈——**渲染是對的，錯的是這個檢查**。
-//    ⚠️ 這不是把 escText 併成 escAttr：屬性值還要處理更多情形，兩者維持分開。
-// 🔴 這裡必須**完整對齊 Astro 的 escapeHTML 集合**：`& < > " '`，一個都不能少。
-//    2026-08-08 分兩次栽在同一件事上：先補了 `"`（3 筆參拜流程紅燈），
-//    當時沒想到 `'`，隔一個匯入批次又被 `Dynasty's` 咬（Astro 輸出 `&#39;`）。
-//    **逐字元補是錯的做法**——來源是政府資料，什麼字元都可能出現。
-//    改任何一邊都要同時想另一邊：這支的職責就是「重現 Astro 會輸出什麼」。
-const ASTRO_ESCAPE = [[/&/g, '&amp;'], [/</g, '&lt;'], [/>/g, '&gt;'], [/"/g, '&quot;'], [/'/g, '&#39;']];
-const escText = (s) => ASTRO_ESCAPE.reduce((acc, [re, to]) => acc.replace(re, to), String(s));
-const escAttr = (s) => escText(s);
+// 否則哪天資料出現 &／"／< 就會 gate 誤報。
+// 🔴 這兩支的職責是「重現 Astro 會輸出什麼」，所以**直接用 Astro 自己的 escapeHTML**，
+//    不在本檔（也不在任何 gate）留第二份對照表——2026-08-08 同一天兩次假紅燈的完整緣由
+//    與「逐字元補是錯的做法」那條結論，都記在 scripts/lib/astro-escape.mjs 檔頭。
 const { Solar } = require('lunar-javascript');
 const temples = normalize(require('../src/data/temples.json'));
 const deities = normalize(require('../src/data/deities.json'));
@@ -200,11 +194,11 @@ for (const t of temples) {
     const m = pageTitle.match(/・主祀([^｜]+)｜/);
     if (m) {
       titleWithDeity++;
-      const wide = [...pageTitle].reduce((n, c) => (/[\x00-\xff]/.test(c) ? n + 0.5 : n + 1), 0);
-      if (wide > 30) violations.push(`${t.id} title 帶主祀子句卻超過 30 全形字（${wide}）：${pageTitle}`);
+      const wide = fullWidth(pageTitle);
+      if (wide > SERP_TITLE_MAX_WIDTH) violations.push(`${t.id} title 帶主祀子句卻超過 ${SERP_TITLE_MAX_WIDTH} 全形字（${wide}）：${pageTitle}`);
       if (/[,，、;；]/.test(m[1])) violations.push(`${t.id} title 主祀神未取首位（含分隔符）：${m[1]}`);
-      if ([...m[1]].reduce((n, c) => (/[\x00-\xff]/.test(c) ? n + 0.5 : n + 1), 0) > 8) {
-        violations.push(`${t.id} title 主祀神超過 8 全形字：${m[1]}`);
+      if (fullWidth(m[1]) > TEMPLE_TITLE_DEITY_MAX_WIDTH) {
+        violations.push(`${t.id} title 主祀神超過 ${TEMPLE_TITLE_DEITY_MAX_WIDTH} 全形字：${m[1]}`);
       }
     }
     // 不變量 1h（2026-08-09 加）：法人前綴不得出現在 title 開頭。
@@ -626,9 +620,9 @@ let deityWithMoi = 0;
     // 日期是這個 cohort 的核心答案，故標題不帶別名，並限制品牌前內容不超過 30 全形字。
     // 英數各算半形；站名由 Base 統一附加，不列入 cohort 的內容預算。
     const seoTitle = title.replace(/｜神酷$/, '');
-    const titleWide = [...seoTitle].reduce((n, c) => (/[^\x00-\xff]/.test(c) ? n + 1 : n + 0.5), 0);
-    if (titleWide > 30) {
-      violations.push(`${d.id} 生日 title 超過 30 全形字（${titleWide}）：${title}`);
+    const titleWide = fullWidth(seoTitle);
+    if (titleWide > SERP_TITLE_MAX_WIDTH) {
+      violations.push(`${d.id} 生日 title 超過 ${SERP_TITLE_MAX_WIDTH} 全形字（${titleWide}）：${title}`);
     }
     const alias = (d.aliases ?? [])[0];
     if (alias && alias !== d.name && seoTitle.includes(`（${alias}）`)) {

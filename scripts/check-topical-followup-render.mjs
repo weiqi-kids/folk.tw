@@ -6,14 +6,15 @@
 // 雙向比對，防止「通知已發，頁面卻看不到」再發生。
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { escText } from './lib/astro-escape.mjs';
 
 const DIST = 'dist';
 const topical = JSON.parse(readFileSync('src/data/topical.json', 'utf8'));
 const violations = [];
-const ASTRO_ESCAPE = [
-  [/&/g, '&amp;'], [/</g, '&lt;'], [/>/g, '&gt;'], [/"/g, '&quot;'], [/'/g, '&#39;'],
-];
-const esc = (value) => ASTRO_ESCAPE.reduce((text, [re, replacement]) => text.replace(re, replacement), String(value));
+// 🔴 跳脫規則不在本檔重寫：這裡原本有一份逐字副本，而 check-rendered.mjs 那 10 行
+//    「逐字元補是錯的做法」的紅字警語根本沒涵蓋到它（2026-08-08 兩次假紅燈的教訓）。
+//    現在兩支 gate 共用同一支，且那一支直接用 Astro 自己的 escapeHTML。見該檔檔頭。
+const esc = escText;
 
 let checked = 0;
 let withTimeline = 0;

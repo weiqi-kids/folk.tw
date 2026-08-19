@@ -21,6 +21,7 @@ import {
   festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
 import { releasedItems } from '../../lib/release-schedule';
+import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../lib/text-width.ts';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
 import imagePriority from '../../data/image-priority.json';
@@ -399,9 +400,10 @@ const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' 
 // 那群 CTR 1.37%、其餘 2.42%（GSC 7 天實測，完整數字與判準見 src/lib/temple-name.ts 檔頭）。
 // 🔴 **這不是截字**——拿掉的是零搜尋需求的法人前綴，登記全名仍完整出現在 title 的括號裡
 //    （放不下才退到只留一般稱呼），且 `<h1>`、meta description、內文一律仍是登記全名。
-const TITLE_MAX = 30;
-const TITLE_DEITY_MAX = 8;
-const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
+// 上限與全形寬度算法一律取 src/lib/text-width.ts（頁面與 check:rendered 共用同一支）。
+// ⚠️ 這裡的 30 是**含站名「｜神酷」**一起算的（見下方候選階梯）；別在本檔重寫規則。
+const TITLE_MAX = SERP_TITLE_MAX_WIDTH;
+const TITLE_DEITY_MAX = TEMPLE_TITLE_DEITY_MAX_WIDTH;
 const titleDeity = (() => {
   const first = (t.main_deity_raw ?? '').split(/[,，、;；]/)[0].trim();
   if (first && fullWidth(first) <= TITLE_DEITY_MAX) return first;

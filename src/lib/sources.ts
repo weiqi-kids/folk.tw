@@ -11,6 +11,8 @@
 // 只是解析器從來沒讀它。修法＝ref 取不出名稱時改用 note。
 // 硬 gate＝`pnpm check:anchor-text`（錨文字不得含 http），已串進 CI。
 
+import { fullWidth, SOURCE_LABEL_MAX_WIDTH } from './text-width.ts';
+
 export interface SourceRef {
   ref: string;
   /** 來源說明；`ref` 為純網址時，錨文字取自這裡。 */
@@ -37,9 +39,11 @@ const WRAP_PARENS = /^[（(]([\s\S]*)[）)]$/;
 /** 條目／篇名標記：標籤已帶這些就代表已有具體篇名，不需再從網址補。 */
 const TITLE_MARK = /[〈《「『【]/;
 
-/** 錨文字長度上限（全形字）。超過就退到「：」前的機構／條目名，再不行才截字。 */
-const LABEL_MAX = 40;
-const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
+/**
+ * 錨文字長度上限（全形字）。超過就退到「：」前的機構／條目名，再不行才截字。
+ * 上限與寬度算法都在 src/lib/text-width.ts（唯一入口，頁面與 gate 共用），本檔不再自己寫一份。
+ */
+const LABEL_MAX = SOURCE_LABEL_MAX_WIDTH;
 
 function clamp(s: string, max: number): string {
   if (fullWidth(s) <= max) return s;
