@@ -2774,5 +2774,369 @@
         ]
       }
     ]
+  },
+  {
+    "id": "taipei_yingwanggong",
+    "name": "迎尪公巡田園活動",
+    "host_temple": "moi_6637_財團法人台北市木",
+    "main_deity": "baoyi",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "🔴 內政部地方宗教慶典清單記農曆 03-10，但那不是可靠的單一日期，不要照它換算國曆。已驗證的三筆互相矛盾：① nchdb 個案 20260302000004 的 holdCalendarType 逐字為「其他」，且沒有起訖日期欄位；② 木柵忠順廟向內政部登記的年度慶(祭)典是「保儀大夫聖誕千秋」農曆 04-10，說明逐字為「4月初7日遶境木柵市區及指南里、老泉里等，農曆4月初10日聖誕千秋及三獻禮。」；③ 木柵集應廟登記的是「保儀尊王誕辰」農曆 02-01。登錄理由本身逐字寫「聚落間輪庄祭祀」「過頭輪祀」，代表各庄頭日期本來就不同。→ 產頁時 date_resolution 必須是 undetermined，並把三個日期並陳、各自掛源。",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "北市文化藝術字第11530090092號（nchdb 20260302000004）",
+      "verified": true,
+      "case_id": "20260302000004",
+      "authority": "臺北市政府",
+      "preservers": [
+        {
+          "name": "財團法人台北市木柵忠順廟"
+        },
+        {
+          "name": "財團法人台北市景美集應廟"
+        },
+        {
+          "name": "木柵集應廟"
+        },
+        {
+          "name": "萬隆集應廟"
+        }
+      ],
+      "venue": "臺北市文山區",
+      "announcements": [
+        {
+          "date": "2026-02-13",
+          "doc": "北市文化藝術字第11530090092號"
+        }
+      ],
+      "register_reason": "一、「臺北迎尪公」源於文山區安溪人信仰，歷經移居臺北後因應拓墾需求而形成在地化信仰實踐，兼容跨區域族群之聚落祭祀與宗族連結。長期依循週期請神年例祭典和過頭輪祀，展現民間高度認同，並持續自主、自發參與。\n二、「臺北迎尪公」結合文山縱谷聚落型態並與雙北部分聚落型態形成互動，農業生產、宗族結構，發展出跨區請神、巡田園「送蝝」除蟲與過頭輪祀等民俗，反映地方社會、產業及族群互動關係，呈現因地制宜信仰樣貌，顯著反映族群或地方社會生活及文化之特色。\n三、「臺北迎尪公」維續來廟掛單請神、聚落間輪庄祭祀、宗族過頭輪祀等祭儀，保存跨庄頭信仰連結與宗族遷移記憶，延續遶境、獻神豬及尪公戲、點心攤、「撞轎」等信仰實踐，在都市化下仍展現韌性，各聚落透過爐主制、鄰里或宮廟組織與宗親會傳承，其表現形式與實踐仍保留一定之傳統方式。",
+      "history": "「臺北迎尪公」源於文山區安溪人信仰，歷經移居臺北後因應拓墾需求而形成在地化信仰實踐，兼容跨區域族群之聚落祭祀與宗族連結。長期依循週期請神年例祭典和過頭輪祀，展現民間高度認同，並持續自主、自發參與。"
+    },
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
+        "note": "國家文化資產網「臺北迎尪公」（臺北市登錄民俗，2026-02-13 登錄）；登錄理由與歷史沿革逐字引用"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類開放資料 266 筆，caseId 20260302000004 已逐筆驗證存在"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
+        "note": "內政部慶(祭)典（dataset 8209，OGDL 1.0）：木柵忠順廟 農曆4/7遶境、4/10聖誕千秋；木柵集應廟 農曆2/1 保儀尊王誕辰"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/upload/documents/2026-03-02/c3b812a4-cc7b-4ed3-9dca-e3a38a726f02/北市文化藝術字第11530090092號.pdf",
+        "note": "登錄公告 PDF（nchdb documents 欄位）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "這是 2026 年 2 月才登錄的新案：公告文號「北市文化藝術字第11530090092號」，登錄日期 2026-02-13，範圍在臺北市文山區。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
+            "note": "nchdb 民俗開放資料 announcementList 逐字：classification「指定/登錄」、officialDocNo「北市文化藝術字第11530090092號」、registerDate「2026-02-13 17:26:31.487」；addresses 為臺北市文山區"
+          }
+        ]
+      },
+      {
+        "text": "登錄理由逐字寫出這個民俗最特別的一段：「發展出跨區請神、巡田園『送蝝』除蟲與過頭輪祀等民俗」——尪公巡田園是為了除蟲害，不是單純祝壽遶境。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
+            "note": "registerReason 第二點逐字"
+          }
+        ]
+      },
+      {
+        "text": "登錄理由把還在延續的實踐逐字列成：「延續遶境、獻神豬及尪公戲、點心攤、『撞轎』等信仰實踐」，並說各聚落是透過爐主制、鄰里或宮廟組織與宗親會在傳承。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
+            "note": "registerReason 第三點逐字"
+          }
+        ]
+      },
+      {
+        "text": "保存者登記了四間廟：財團法人台北市木柵忠順廟、財團法人台北市景美集應廟、木柵集應廟、萬隆集應廟。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20260302000004",
+            "note": "nchdb recorder 欄位逐字"
+          }
+        ]
+      },
+      {
+        "text": "木柵忠順廟向內政部登記的年度慶(祭)典說明逐字為「4月初7日遶境木柵市區及指南里、老泉里等，農曆4月初10日聖誕千秋及三獻禮。」，遶境日與聖誕日是分開的兩天。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
+            "note": "內政部全國宗教資訊網・慶(祭)典查詢（OGDL 1.0，dataset 8209）；已落在 temples.json moi_6637_財團法人台北市木 的 festivals[]，抓取日 2026-07-30"
+          }
+        ]
+      },
+      {
+        "text": "木柵忠順廟主祀保儀大夫張巡，內政部歷史沿革逐字記載「新北市、市內定期祈求合境平安，恭請保儀大夫公分靈神尊遶境者，計二百餘村莊」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=68272&IndexID=2&_t=0",
+            "note": "內政部全國宗教資訊網·歷史沿革（2026-08-06 經內政部同意使用，條件為標示資料來源連結）；已在 temples.json moi_6637 的 history"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "caotun_dunhe_caishen",
+    "name": "南投縣草屯鎮敦和宮—財神祭活動",
+    "host_temple": "moi_9088_敦和宮",
+    "main_deity": "zhao_gongming",
+    "type": [
+      "遶境"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "fixed_lunar",
+    "date_note": "農曆三月十五日趙天君財神爺聖誕。已驗證的權威依據是廟方官網 2026-04-22 的公告，標題逐字「歲次丙午年 農曆三月十五日」，內文逐字「草屯敦和宮 趙天君財神爺聖誕慶典／遶境起駕時辰：國曆5月1日 中午12時30分」——2026 年的農曆三月十五確實對應國曆 5 月 1 日，與內政部地方宗教慶典清單記的農曆 03-15 一致。⚠️ 2027 年的公告尚未發布（查證日 2026-08-19 廟方官網最新消息只到 2026-04-22 那則）。",
+    "route_mode": "undetermined",
+    "region": [
+      "南投"
+    ],
+    "sources": [
+      {
+        "type": "temple",
+        "ref": "https://www.dht.org.tw/?act=menuinfo&cmd=detail&ml_id=20251125008&mi_id=20260422001",
+        "note": "草屯敦和宮官網 2026 年聖誕慶典暨遶境公告（本次查證 2026-08-19 實抓，HTTP 200）"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.dht.org.tw/",
+        "note": "草屯敦和宮官網首頁：地址「南投縣草屯鎮敦和路74號」、電話 049-2323793"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65160&IndexID=2&_t=0",
+        "note": "內政部·敦和宮歷史沿革（逐字可引）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=71417&IndexID=3&_t=0",
+        "note": "內政部·敦和宮建築特色（逐字可引）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類開放資料，全數比對後查無敦和宮財神祭個案"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "2026 年（歲次丙午）的財神爺聖誕慶典，廟方公告的遶境起駕時辰是國曆 5 月 1 日中午 12 時 30 分，路線是遶境草屯市區。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.dht.org.tw/?act=menuinfo&cmd=detail&ml_id=20251125008&mi_id=20260422001",
+            "note": "草屯敦和宮官網最新消息公告的年度檔期：2026 歲次丙午年農曆三月十五日，遶境起駕時辰國曆 5 月 1 日中午 12 時 30 分，遶境草屯市區（日期與時辰屬事實陳述）"
+          }
+        ]
+      },
+      {
+        "text": "敦和宮七樓頂立著銅鑄的趙天君財神爺像，內政部登錄的建築特色欄位逐字寫「七樓鋼構建築，辦設二部電梯，一、三、五、七神殿，全世界最大尊銅製趙天君財神爺尊」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=71417&IndexID=3&_t=0",
+            "note": "內政部全國宗教資訊網·建築特色（逐字，2026-08-06 經內政部同意使用，條件為標示資料來源連結）；已在 temples.json moi_9088_敦和宮 的 architecture"
+          }
+        ]
+      },
+      {
+        "text": "廟的來歷：內政部歷史沿革逐字記「乾隆二十年（西元1755年）李創回故里敦和宮奉請趙天君財神爺金尊回草屯奉拜，宮名為敦和宮」，並記 1999 年九二一大地震時銅像安座。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65160&IndexID=2&_t=0",
+            "note": "內政部全國宗教資訊網·歷史沿革（逐字，2026-08-06 經內政部同意使用）；已在 temples.json moi_9088_敦和宮 的 history"
+          }
+        ]
+      },
+      {
+        "text": "這個財神祭在國家文化資產網的民俗類 266 筆登錄個案裡查無資料，所以本頁沒有文化資產登錄明細可引。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+            "note": "nchdb 民俗類開放資料全量比對：搜「敦和」0 筆、搜「財神」3 筆（竹山社寮紫南宮借金／炮炸肉身寒單爺活動／北港武財公扶鸞儀典），皆非本案"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nanyao_benggang",
+    "name": "南瑤宮笨港進香",
+    "host_temple": "moi_5961_南瑤宮",
+    "main_deity": "mazu",
+    "type": [
+      "進香"
+    ],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "divined",
+    "date_note": "🔴 不可用農曆 03-22 換算國曆，這一項的日期是擲筊決定的。nchdb 的儀式清單裡有一條逐字寫著：「南瑤宮欲進行進香日期筊筶前皆會『置天台』稟告上蒼三天…若以古例來說，南瑤宮的筊筶進香日期皆在農曆正月15日的上元節舉行，但因為近年來的進香日期多提早於農曆二月份舉行，所以自民國100年（西元2011年）開始，將筊筶進香日期改為前一年的下元節（農曆10月15日）舉行」。同一筆的 ceremonies.schedule 逐字為「農曆二月起」，而 holdEndMonth/Day 欄位是農曆 3/23——來源內部就不一致。cycle 是每年（holdPeriod 逐字「每年」），但值年媽會以「大媽四、二媽五、三媽六」三年一輪。2027 年的日期應在 2026 年農曆 10/15 擲筊後才會有；本次查證未查到任何已公告的 2027 日期。",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "authority_ref": "nchdb 20150309000002",
+      "verified": true,
+      "case_id": "20150309000002",
+      "authority": "彰化縣政府",
+      "preservers": [
+        {
+          "name": "彰化縣南瑤宮笨港進香文化推廣協會"
+        }
+      ],
+      "venue": "彰化縣彰化市南瑤路43號",
+      "register_reason": "1.彰化南瑤媽笨港進香為清代全台規模最大之進香活動，媽會組織相當健全。祭典活動從乾隆年間延續下來，源遠流長，為古昔生活傳承，具傳統性。\n2.彰化南瑤宮的媽祖祭拜是中部地區的盛會，尤其是到笨港進香活動有其地方特色，具地方性。\n3.於泉、漳、客對立的移墾時期，媽祖信仰超越祖籍與地域，藉由各神明會之間的互動往來，彼此逐漸產生認同，進而和諧共處，具歷史性。\n4.獻龍袍儀式具有特殊文化價值，具文化性。\n5.繞境進香，組織嚴謹，具典範性。",
+      "history": "雍正年間有一窯工楊謙自笨港到縣城來應募工事，工作完成之後，求自笨港媽祖佑身的香火袋放置於工寮內未帶走而產生神蹟，肇始南瑤宮建廟之緣由，隨著南瑤宮媽祖香火的興旺，宗教活動亦熱絡起來，進香活動為主要型式，據《彰化縣志》記載：「歲往笨港進香，男女塞道，屢著靈驗。」。\n\n南瑤宮何時開始前往笨港進香的起源年代不詳，目前可溯至最早的記載為嘉慶19年（西元1814年）的〈南瑤宮老大媽會合約書〉，為了要前往南瑤宮香火起源地笨港進香，信徒們紛紛成立輿前會，亦即媽祖會，簡稱媽會，在媽祖進香活動中，擔任抬媽祖神轎的榮職，十個媽會陸續成立於嘉慶年間至日治初期，會員分佈於臺中盆地、彰化平原與南投部分地區，形成南瑤宮媽祖的信仰團。在各地多次的進香迎媽祖的活動中，都有媽祖顯靈庇佑的神蹟產生，並一再廣傳，因而有「彰化媽祖廕外方」之說。\n\n日治初期，可能因為當時政經情勢不穩，南瑤宮往笨港進香活動一度中止，直至明治43年（西元1910年）才又重啟，依《臺灣日日新報》的資料顯示，日治時期共進行3次往笨港進香的活動，分別為明治43年（西元1910年）、大正6年（西元1917年）、昭和10年（西元1935年）。到了戰後時期，南瑤宮也並非每年進香，而是呈現不定期的進香頻率，這與進香活動實為媽會所主導而非廟方主掌有關，直到民國100年（西元2011年），配合中華民國建國100年的活動，才每年辦理進香活動。\n\n民國104年（西元2015年）的進香是在南瑤宮金意承青年會舉辦「意齊尋歷史，承行古香路」活動之後，決議恢復徒步進香，除了從夜晚改為早上起駕以外，也將駐駕地點從地名改為廟宇名稱，融入廟宇交陪模式。並且，以通稱為「大媽四、二媽五、三媽六」的媽會分組，以3年為輪值舉辦方式持續至今。"
+    },
+    "region": [
+      "彰化"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+        "note": "國家文化資產網「彰化南瑤媽笨港進香」（彰化縣登錄民俗，2015-03-09，府授文演字第1040074515號）；登錄理由／歷史沿革／13 段儀式／8 個陣頭／6 項特徵皆逐字可引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20151221000002",
+        "note": "國家文化資產網「新港奉天宮迎南瑤宮媽祖請火」（嘉義縣登錄民俗）＝同一趟進香的接待方，週期欄位與彰化端不一致，需並陳"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類開放資料 266 筆，caseId 20150309000002 與 20151221000002 皆已逐筆驗證存在"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=64276&IndexID=2&_t=0",
+        "note": "內政部·南瑤宮歷史沿革（逐字，2026-08-06 經內政部同意使用）；已在 temples.json moi_5961_南瑤宮"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/upload/documents/2023-04-14/7079753f-2d59-4d74-8380-c95c561f5dc9/彰化南瑤媽笨港進香1040309.pdf",
+        "note": "登錄公告 PDF（nchdb documents 欄位）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "進香日期不是固定的，是前一年農曆十月十五日下元節擲筊決定的；擲筊前還要「置天台」稟告上蒼三天。古例本來在農曆正月十五上元節擲筊，2011 年起才改到前一年下元節。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonies「笨港進香日期筊筶置天台」description 逐字"
+          }
+        ]
+      },
+      {
+        "text": "「三媽愛潦溪」是這個進香的招牌：逢三媽六值年才會涉水過濁水溪，由莿桐鄉饒平村庄民把金紙疊成圓弧塔狀燒化、廣興宮乩童起乩主持，池府王爺引路，頭旗大燈組先衝下溪。這是全台唯一常態性「潦溪」的進香活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonyFeature 第 7 項與 features「潦溪」description 逐字：「作為台灣唯一常態性『潦溪』的進香活動」"
+          }
+        ]
+      },
+      {
+        "text": "潦溪期間有明確禁忌：嚴禁喧嘩、嚴禁呼人名諱，且要持續拋灑金紙買水路。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonyFeature 第 7 項逐字"
+          }
+        ]
+      },
+      {
+        "text": "笨港天后宮那一段是「換龍袍」，而且換龍袍儀式全程由女性負責；登錄理由把「獻龍袍儀式具有特殊文化價值」單獨列為文化性的依據。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonyFeature 第 4 項逐字「恭請祖家媽出龕、獻禮、換龍袍儀式(皆由女性負責)、恭請祖家媽回神龕」＋registerReason 第 4 點"
+          }
+        ]
+      },
+      {
+        "text": "香擔按古例必須在午時前入廟，所以隊伍還在花壇附近時香擔組就得驅車趕回；香擔一進廟就關廟門、外面用封條封住，等香擔安置到神房才重新開門。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonyFeature 第 11 項逐字"
+          }
+        ]
+      },
+      {
+        "text": "進香隊伍返程會特地繞去彰化溪州的石塔答謝——相傳早年潦溪時夜色太暗迷失方向，是石塔發出毫光指路才平安上岸。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb ceremonyFeature 第 8 項與 features「參拜石塔」逐字"
+          }
+        ]
+      },
+      {
+        "text": "戰後南瑤宮其實並非每年進香，是不定期的；直到 2011 年配合建國百年活動才恢復每年辦理，2015 年又決議恢復徒步進香、把駐駕地點從地名改成廟宇名稱，並以「大媽四、二媽五、三媽六」的媽會分組三年一輪。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150309000002",
+            "note": "nchdb historyDevelopment 末兩段逐字"
+          }
+        ]
+      },
+      {
+        "text": "嘉義縣端另有一筆登錄「新港奉天宮迎南瑤宮媽祖請火」，記的是同一趟進香的接待方，交香請火時由奉天宮主事先舀第一匙香火到南瑤宮香爐，再由南瑤宮管理人回舀。⚠️ 那一筆的週期欄位逐字是「每逢(隔)1年舉行一次」，與彰化端的「每年」不一致。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20151221000002",
+            "note": "nchdb 20151221000002（嘉義縣政府登錄）registerReason 第 3 點與 holdPeriod 逐字；已驗證存在於 266 筆內"
+          }
+        ]
+      }
+    ]
   }
 ]
