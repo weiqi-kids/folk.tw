@@ -27,7 +27,7 @@ publish_at: annual-source-check
 
 內政部宗教文化資料記載，光緒十一年（1885）鹽水霍亂流行，地方迎請關聖帝君出巡祈安，形成以煙火鞭炮驅疫祈安的歷史敘事。[內政部臺灣宗教文化地圖〈鹽水蜂炮〉](https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=86)
 
-內政部另一官方景觀頁記錄，活動原本集中在元宵當天，後因耗時與人潮，改為正月十四至十五分區／分段進行；年度路線與時間仍可能調整。[文化部國家文化資產網〈鹽水蜂炮〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004)
+內政部另一官方景觀頁記錄，活動原本集中在元宵當天，後因耗時與人潮，改為正月十四至十五分區／分段進行；年度路線與時間仍可能調整。[內政部〈鹽水蜂炮〉臺灣宗教百景](https://taiwangods.moi.gov.tw/religious_culture/html/landscape/1_0011.aspx?i=82)
 
 國家文化記憶庫所收文化部資料將鹽水蜂炮列為地方民俗，並記錄 2000 年前後由大型觀光活動推動而擴大知名度；觀光規模與傳統儀式應分開理解。[文化部國家文化記憶庫〈鹽水蜂炮〉](https://tcmb.culture.tw/zh-tw/detail?id=20080627000004&indexCode=BOCH_CountryCulture_51)
 
@@ -41,13 +41,13 @@ publish_at: annual-source-check
 
 ### 臺東寒單的地方儀式
 
-文化資產登錄資料記載，寒單爺金身原由信徒輪流供奉，民國78年（1989）李建智請回家宅供奉並設立「玄武堂」，至此才有固定安奉場所。每年天數與路線仍以主辦方公告為準。[文化部國家文化資產網〈炮炸肉身寒單爺活動〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003)
+內政部宗教文化地圖記錄，臺東炮炸寒單爺的主要活動日常落在農曆正月十五、十六，主辦單位為玄武堂；頁面也提醒每年天數與路線會調整。[內政部〈臺東炮炸寒單爺〉臺灣宗教百景](https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92)
 
-文化資產登錄資料記載，炮炸寒單爺活動約於民國40年（1951）前後發展；臺東縣政府於 2007 年 1 月 23 日以府文資字第 0963002803 號公告登錄為民俗。這些是歷史與資產資料，不是 2027 檔期。[文化部國家文化資產網〈炮炸肉身寒單爺活動〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003)
+同一官方資料記載，臺東炮炸寒單爺約自 1951 年發展，1998 年開始與官方合作，2007 年公告為臺東縣民俗文化資產；這些是歷史與資產資料，不是 2027 檔期。[內政部〈臺東炮炸寒單爺〉臺灣宗教百景](https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92)
 
-文化資產登錄資料描述的形式是：四個人抬著武轎，武轎上站著一名肉身寒單爺，數位炮手一邊將鞭炮引燃擲向寒單爺，一邊隨著轎子來回繞圈；肉身寒單爺頭綁紅頭巾、上身打赤膊、著紅短褲，頸上掛著天師印，一手揮舞著榕樹枝葉以擋住嗆鼻的炮灰。現場安排與管制仍以年度公告為準。[文化部國家文化資產網〈炮炸肉身寒單爺活動〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003)
+官方流程資料把活動分成準備、出巡炮炸、邀約炮炸與安神等階段，並說明肉身寒單爺由自願者擔任，炮手與場域有安全安排；細節仍須服從年度管制。[內政部〈臺東炮炸寒單爺〉臺灣宗教百景](https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92)
 
-觀賞的服裝與防護建議、可否進入炮炸區，都屬主辦方與地方政府的年度管制事項，本站不預先列出清單——那些細節每年可能調整，且我們沒有可引用的權威來源。[文化部國家文化資產網〈炮炸肉身寒單爺活動〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003)
+內政部頁面建議觀賞者穿長袖長褲、戴帽子、護目鏡、口罩或耳塞；這是官方安全提示，實際管制仍以 2027 主辦方與地方政府公告為準。[內政部〈臺東炮炸寒單爺〉臺灣宗教百景](https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92)
 
 寒單爺的主要活動日常落在正月十五、十六，但每年天數與路線會調整。官方資料記錄「寒單爺怕冷」的民間信仰敘事，以及炮炸作為出巡展演的地方文化，不宜寫成神蹟或醫療效果；只有主辦方開放的年度體驗或指定活動才可參加，未公告不得自行進入炮陣。
 
@@ -75,10 +75,10 @@ publish_at: annual-source-check
 ## 來源
 
 - [內政部臺灣宗教文化地圖〈鹽水蜂炮〉](https://taiwangods.moi.gov.tw/Religious_Culture/html/Cultural/3_0011.aspx?i=86)
-- [文化部國家文化資產網〈鹽水蜂炮〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004)
+- [內政部〈鹽水蜂炮〉臺灣宗教百景](https://taiwangods.moi.gov.tw/religious_culture/html/landscape/1_0011.aspx?i=82)
 - [文化部國家文化記憶庫〈鹽水蜂炮〉](https://tcmb.culture.tw/zh-tw/detail?id=20080627000004&indexCode=BOCH_CountryCulture_51)
 - [文化部國家文化資產網〈鹽水蜂炮〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004)
-- [文化部國家文化資產網〈炮炸肉身寒單爺活動〉](https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003)
+- [內政部〈臺東炮炸寒單爺〉臺灣宗教百景](https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=92)
 
 ## 延伸閱讀
 
