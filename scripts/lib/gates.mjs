@@ -67,6 +67,15 @@ export const GATES = [
     why: '現況型文件不得寫死會過期的數量（CLAUDE.md／docs/README.md／intake-status／TODO-FOR-TAIWAN）',
   },
   {
+    id: 'test:dataset-commit',
+    label: '資料集寫入 fixture 測試',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['data'],
+    why: 'dataset-commit 的合併/差異量/原子寫入/去重/正規化 21 項；🔴 含「缺 path 直接丟錯」——寫入落點錯必須炸，不能安靜成功',
+  },
+  {
     id: 'check:design',
     label: '設計規範 v2',
     needs: 'source',

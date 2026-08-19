@@ -20,6 +20,7 @@
     "astro": "astro",
     "check": "astro check",
     "check:integrity": "node --experimental-strip-types scripts/check-integrity.ts",
+    "test:dataset-commit": "node scripts/lib/dataset-commit.test.mjs",
     "check:canonical": "node scripts/check-canonical-links.mjs",
     "check:rendered": "node --experimental-strip-types scripts/check-rendered.mjs && node scripts/check-topical-followup-render.mjs",
     "check:discover": "node scripts/check-discover-coverage.mjs --strict",
