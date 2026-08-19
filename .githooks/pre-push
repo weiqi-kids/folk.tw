@@ -10,7 +10,14 @@
 #
 # 只跑**快、且純檔案掃描**的那幾道（實測合計約 7 秒）。
 # 刻意不跑 `astro check`（約 40 秒）、`verify:almanac`、`build`（約 20 分）——
-# 那些留給 CI。這支的目的是「不要讓明顯的東西溜過去」，不是取代 CI。
+# 那些留給 CI（🔴 2026-08-19 起 CI 真的有跑 verify:almanac 了，之前這句是空話）。
+# 這支的目的是「不要讓明顯的東西溜過去」，不是取代 CI。
+#
+# 🔴 gate 清單**不寫在這裡**：唯一真實來源是 scripts/lib/gates.mjs
+#   （stages 含 'pre-push' 且 needs:'source' 的那些）。以前這裡手抄一份、
+#   deploy.yml 手抄一份、CLAUDE.md 手抄一份、check-changed.sh 手抄一份，四份互相矛盾；
+#   實害之一：check:anchor-text 吃 dist 卻被列在這裡，而 dist/ 在 .gitignore，
+#   本機等於掃一份舊 build 空過（乾淨工作目錄則直接拋錯）。
 #
 # ⚠️ 已知限制，寫出來免得誤以為它保證了更多：
 #   gate 掃的是**工作樹**，不是即將推送的那個 commit。工作樹乾淨時兩者相同（一般情況）；
@@ -39,17 +46,17 @@ if ! out="$(node scripts/check-memory-numbers.mjs 2>&1)"; then
   exit 1
 fi
 
-GATES=(
-  check:doc-numbers
-  check:design
-  check:design-tokens
-  check:copy-voice
-  check:scoped-styles
-  check:anchor-text
-  check:integrity
-  check:content
-  check:outbound-urls
-)
+# gate 清單一律從 manifest 讀；讀不到就擋 push（沒有清單＝沒有驗證，不可默默放行）。
+if ! _gates_raw="$(node scripts/lib/gates.mjs list pre-push 2>&1)"; then
+  echo "$_gates_raw"
+  echo "[pre-push] ✗ 讀不到 gate manifest（scripts/lib/gates.mjs），push 已中止。"
+  exit 1
+fi
+mapfile -t GATES <<<"$_gates_raw"
+if [ ${#GATES[@]} -eq 0 ] || [ -z "${GATES[0]}" ]; then
+  echo "[pre-push] ✗ gate manifest 回了空清單，push 已中止。"
+  exit 1
+fi
 
 failed=()
 for g in "${GATES[@]}"; do

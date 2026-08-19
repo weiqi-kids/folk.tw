@@ -6,6 +6,13 @@
 # 這支只依相對 origin/main 的變更檔案，挑需要的來源層 gate。
 #
 # 注意：本支不產生 dist，也不宣稱可以取代正式 release gate。
+#
+# 🔴 「哪個檔案改了要跑哪道 gate」**不寫在這裡**：唯一真實來源是
+#   scripts/lib/gates.mjs（各 gate 的 `changed` 欄位＋ CHANGED_RULES 的路徑規則）。
+#   以前這裡手抄一份路由、deploy.yml／pre-push／CLAUDE.md 各手抄一份清單，四份互相矛盾。
+#   本支只負責「收集變更檔案 → 問 manifest → 依序跑」。
+#   ⚠️ 本支只會跑 needs:'source' 的 gate（manifest 已代為過濾）；吃 dist 的那幾道
+#     （check:canonical／check:anchor-text／check:rendered）只能在 build:release 之後跑。
 
 set -euo pipefail
 
@@ -28,57 +35,18 @@ for file in "${files[@]}"; do
   echo "  · ${file}"
 done
 
-has_site_source=0
-has_ui=0
-has_article=0
-has_data=0
-has_release_data=0
-has_script=0
+# manifest 決定要跑哪些 gate（輸出：`id<TAB>label`，一行一道，順序即執行順序）。
+rows="$(printf '%s\n' "${files[@]}" | node scripts/lib/gates.mjs for-changed)"
 
-for file in "${files[@]}"; do
-  case "$file" in
-    src/*|astro.config.mjs|package.json|pnpm-lock.yaml|public/*) has_site_source=1 ;;
-  esac
-  case "$file" in
-    src/*.astro|src/*.svelte|src/*.css) has_ui=1 ;;
-    src/*.md|src/*.mdx) has_article=1 ;;
-  esac
-  case "$file" in
-    src/data/*|src/content/*|src/content.config.ts) has_data=1 ;;
-  esac
-  case "$file" in
-    src/data/festivals.json|docs/annual-release-manifest.json) has_release_data=1 ;;
-  esac
-  case "$file" in
-    scripts/*|astro.config.mjs|package.json) has_script=1 ;;
-  esac
-done
-
-run_check() {
-  local label="$1"
-  local script="$2"
-  echo
-  echo "▶ ${label}: pnpm ${script}"
-  pnpm "$script"
-}
-
-if ((has_site_source)); then run_check '型別檢查' check; fi
-if ((has_ui)); then
-  run_check '設計規範' check:design
-  run_check '設計 token' check:design-tokens
-  run_check '文案語氣' check:copy-voice
-fi
-if ((has_article)); then run_check '文章內容' check:content; fi
-if ((has_data)); then run_check '資料完整性' check:integrity; fi
-if ((has_script)); then run_check '外送網址' check:outbound-urls; fi
-if ((has_release_data)); then
-  run_check '釋出排程' check:release
-  run_check '年度釋出' check:annual-release
-fi
-
-if ((has_site_source == 0 && has_ui == 0 && has_article == 0 && has_data == 0 && has_script == 0)); then
-  echo '✓ 變更只涉及文件或未配置 gate 的檔案；略過來源檢查。'
+if [ -z "$rows" ]; then
+  echo '✓ 變更未命中任何已配置 gate 的路徑分類；略過來源檢查。'
 else
+  while IFS=$'\t' read -r gate label; do
+    [ -n "$gate" ] || continue
+    echo
+    echo "▶ ${label}: pnpm ${gate}"
+    pnpm "$gate"
+  done <<< "$rows"
   echo
   echo '✓ 變更感知檢查完成；未重建 dist、Pagefind、OG 或 Discover 全站 gate。'
 fi
