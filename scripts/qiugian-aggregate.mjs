@@ -13,6 +13,7 @@
 // 手動：node scripts/qiugian-aggregate.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 import { ga4RunReport, loadConfig } from './lib/google-data.mjs';
+import { readTopical, writeTopical, setBlessSnapshot } from './lib/topical-record.mjs';
 
 const STATS_FILE = 'src/data/qiugian-stats.json';
 const { ga4PropertyId } = loadConfig();
@@ -129,19 +130,13 @@ console.log(`[qiugian-aggregate] 已更新 ${STATS_FILE} — ${summary}；時事
 // 集氣人數快照（P3）：GA4 近 7 天的集氣數會隨事件老化歸零，故把「峰值集氣數」凍結回寫 topical.json，
 // 供頁面歸檔（archived）／轉記錄（memorial）後顯示「當時共有 N 人一起集氣」。取 max(既有快照, 本次7天數)，
 // **只增不減、真實不灌水**：反映曾達到的真實峰值，不會被之後歸零的低值覆蓋。
-const TOPICAL_FILE = 'src/data/topical.json';
+// 讀寫與「只增不減」的規則走 lib/topical-record.mjs（topical.json 的四個寫入端共用同一份定義）。
 try {
-  const items = JSON.parse(readFileSync(TOPICAL_FILE, 'utf8'));
+  const items = readTopical();
   let snapChanged = 0;
-  for (const it of items) {
-    const week = topical[it.id];
-    if (typeof week !== 'number' || week <= 0) continue; // 本週無資料則不動既有快照
-    const prev = typeof it.bless_snapshot === 'number' ? it.bless_snapshot : 0;
-    const next = Math.max(prev, week);
-    if (next !== prev) { it.bless_snapshot = next; snapChanged++; }
-  }
+  for (const it of items) if (setBlessSnapshot(it, topical[it.id])) snapChanged++;
   if (snapChanged) {
-    writeFileSync(TOPICAL_FILE, JSON.stringify(items, null, 2) + '\n');
+    writeTopical(items);
     console.log(`[qiugian-aggregate] 集氣快照更新 ${snapChanged} 案（bless_snapshot 只增不減）`);
   }
 } catch (e) {

@@ -6,26 +6,27 @@
 //   detector:'news'）。印 PUBLISHED\t<id>\t<title>\t<url>（與 orchestrate.mjs 同格式）供 cron 發 Slack。
 //   自身不碰 git。用法：node scripts/topical-news-scan.mjs [--dry]（--dry 只印不寫檔）。
 //
-// 為何獨立成腳本（不 import orchestrate.mjs）：orchestrate.mjs 在 import 時即執行 top-level
-//   偵測/寫檔流程；故本檔允許少量複製其 gate/去重/normPlace 邏輯，換取彼此不互相觸發。
-import { readFileSync, writeFileSync } from 'node:fs';
+// 為何獨立成腳本（不 import orchestrate.mjs）：兩者是不同的偵測產線（結構化 feed vs 新聞），
+//   各自有 cron 與節奏。⚠️ 2026-08-19 前這裡還寫著「orchestrate.mjs 在 import 時即執行
+//   top-level 流程，故本檔允許少量複製其 gate/去重/normPlace 邏輯」——那個 seam 已經修掉
+//   （三支都改成 main() ＋ 被直接執行才跑），**閘與紀錄形狀不再各留一份**：
+//   正向閘 lib/topical-gate.mjs、類型標籤與文字正規化 lib/topical-text.mjs、
+//   紀錄形狀 lib/topical-record.mjs、stdout 摘要協定 lib/topical-report.mjs。
+//   合併前兩份 gate 的 prompt 已經漂移過（見 topical-gate.mjs 檔頭），別再複製回來。
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
+import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
 import { findDuplicate, normPlace, officialCycloneName, eventText, findTitleClash } from './lib/topical-dedup.mjs';
+import { VALID_EVENT_TYPES, stripHtml, normText } from './lib/topical-text.mjs';
+import { gateAndFrame } from './lib/topical-gate.mjs';
+import { readTopical, writeTopical, makeBlessingRecord } from './lib/topical-record.mjs';
+import { reportPublished } from './lib/topical-report.mjs';
 
-const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
 const today = new Date().toISOString().slice(0, 10);
-
-// 事件類型 → 中文標籤（與 orchestrate.mjs TYPE_LABEL 對齊）。
-const TYPE_LABEL = {
-  quake: '地震', cyclone: '熱帶氣旋', flood: '水災', volcano: '火山活動', wildfire: '野火',
-  landslide: '山崩', 'bridge-collapse': '橋樑坍塌', fire: '火災', 'gas-explosion': '氣爆',
-  storm: '風災', other: '重大事件',
-};
-const VALID_TYPES = new Set(Object.keys(TYPE_LABEL));
+// 本產線的閘身分：log 前綴與「下一輪會再掃到」的節奏（規則本身在 lib/topical-gate.mjs，只有一份）。
+const GATE_OPT = { logTag: '[news-scan]', cadenceNote: 'P2 每 8 小時掃一次', srcFallback: '新聞來源' };
 
 // 去重輔助已抽到 lib/topical-dedup.mjs（純函式、可用歷史事故資料回測；見該檔檔頭）。
 // 本檔只在 makeId 用到 normPlace，其餘判定一律走 findDuplicate。
@@ -65,15 +66,7 @@ function scanNews() {
 }
 
 // ── (b) 機器層複驗（防杜撰硬關卡，不信任 LLM 自述）───────────────────────────────
-// 去 HTML 標籤後正規化（去空白、小寫、去標點）供關鍵詞比對。
-function stripHtml(html) {
-  return String(html)
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z#0-9]+;/gi, ' ');
-}
-const normText = (s) => String(s || '').toLowerCase().replace(/[\s　]+/g, '').replace(/[，,、。.；;：:「」『』（）()\-—－]/g, '');
+// stripHtml／normText（去標籤後正規化，供關鍵詞比對）見 lib/topical-text.mjs。
 
 async function fetchOk(url) {
   try {
@@ -108,7 +101,7 @@ async function verifyCandidate(cand) {
   const label = `${cand.eventType || '?'}@${cand.place || '?'}`;
   console.error(`[news-scan] 複驗候選：${label}（time=${cand.time}）`);
 
-  if (!VALID_TYPES.has(cand.eventType)) {
+  if (!VALID_EVENT_TYPES.has(cand.eventType)) {
     console.error(`[news-scan]   丟棄：eventType 非法（${cand.eventType}）`); return null;
   }
   if (!cand.place || !/^\d{4}-\d{2}-\d{2}$/.test(String(cand.time || ''))) {
@@ -158,64 +151,13 @@ function makeId(cand) {
   return `news-${cand.eventType}-${ymd}-${hash6}`;
 }
 
-// ── (e) 正向議題閘＋莊重中文框架（複製自 orchestrate.mjs gateAndFrame 精神）───────────
-function gateAndFrame(c) {
-  // 颱風要有名字（2026-07-26 加，與 orchestrate.mjs 同規）：新聞是中文的，名字多半就在摘要裡，
-  // 但「LLM 通常會自己帶到」不是保證——改成機械抽出（只認 CWA 正式名單）再硬性要求寫進標題。
-  const zhName = c.eventType === 'cyclone' ? officialCycloneName(eventText(c)) : null;
-  const label = zhName ? '颱風' : (TYPE_LABEL[c.eventType] ?? '重大事件');
-  const nameLine = zhName ? `\n${label}名稱：「${zhName}」（中央氣象署正式中文譯名，直接照抄勿改）` : '';
-  const nameRule = zhName
-    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那幾個字，不得改寫或自創其他譯名。`
-    : '';
-  const src = c.sources?.[0]?.ref || '新聞來源';
-  const PROMPT = `你是台灣民俗祈福站的守門與編輯。以下是來自新聞（「${src}」等）的災難事實：
-類型：${label}
-地點：「${c.place}」
-日期：${c.time}${nameLine}${c.summary ? `\n事件摘要：${c.summary}` : ''}
-任務(1) 相關性＋正向議題判定，pass 需同時滿足：
-  a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
-  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。
-  c. **災害已經實際發生在人身上，不是只發生在地圖上**——**沒有災害就不用祈福**。兩類分開看：
-     ・地震、山崩、橋垮、氣爆、建物火災這種「發生即是災害」者：事件本身就直接作用在人與房舍上，天然符合本條。
-     ・颱風、洪水、**森林野火**這種「先發生在自然環境、之後才知道有沒有傷到人」者：必須有
-       **人員傷亡／住宅或村落被燒毀淹沒／居民撤離安置／聚落交通中斷**等已經發生的事實才算；
-       若報導通篇只有「預計」「可能」「將會」「發布警報」「加強戒備」這類未來式，或只講燒了多少林地、
-       淹了多少面積而未提到人，判 block，等真的傷到人了再開（P2 每 8 小時掃一次，下一輪會再掃到，不會漏）。
-  任一不符即 block。
-任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
-  - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
-  - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。
-  - **event 只能寫上面事實真的說了的事**：來源沒提到的影響（「波及當地居民」這類）不得自行推導補上
-    （紅線：絕不杜撰）。來源沒說影響到人，就只寫事件本身加祝願，不要替它加戲。
-  - 只依上述事實，不誇大。**event 不要寫出任何具體傷亡／失聯／疏散人數或金額**（這些數字未經機器複驗、且常隨救援變動；具體數字留給有逐筆掛源的後續發展時間軸）。event 只做莊重的事件描述＋祈福祝願，可用「造成傷亡」「多人失聯」等不帶數字的概述。
-只輸出單行 JSON：{"verdict":"pass"|"block","title":"…","event":"…"}。`;
-  const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
-    { encoding: 'utf8', timeout: 120000, env: { ...process.env, IS_SANDBOX: '1' } });
-  if (r.status !== 0 || !r.stdout) return { verdict: 'block', reason: 'claude 執行失敗' };
-  const m = r.stdout.match(/\{[\s\S]*\}/);
-  if (!m) return { verdict: 'block', reason: '無 JSON 輸出' };
-  try {
-    const g = JSON.parse(m[0]);
-    // 機械保底：緊鄰中文字的半形逗號/分號轉全形（英文語境不動；不碰句號免誤傷小數）。
-    const zh = (s) => typeof s === 'string'
-      ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
-      : s;
-    // 大陸用語機械替換（見 lib/topical-guard.mjs）：P2 讀的多是陸媒報導，最容易沾到。
-    const tw = (s) => {
-      const hits = findMainlandTerms(s);
-      if (!hits.length) return s;
-      console.error(`[news-scan] ⚑ 陸用語替換：${hits.map((h) => `${h.term}→${h.tw}`).join('、')}`);
-      return replaceMainlandTerms(s);
-    };
-    g.title = tw(zh(g.title)); g.event = tw(zh(g.event));
-    return g;
-  } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
-}
+// ── (e) 正向議題閘＋莊重中文框架 → lib/topical-gate.mjs（P1／P2 共用同一份規則）──────────
+//   本檔只提供「呼叫端身分」GATE_OPT；⚠️ 2026-08-19 前這裡有一份複製品，且與 orchestrate 那份
+//   已經漂移（缺 GDACS 推估值警語、缺 2026-07-27 杜撰案例、寫「橋垮」而非「橋樑坍塌」）。
 
 // ── 主流程 ────────────────────────────────────────────────────────────────
 async function main() {
-  const list = JSON.parse(readFileSync(TOPICAL, 'utf8'));
+  const list = readTopical();
   const known = new Set(list.map((x) => x.id));
   let changed = false;
 
@@ -251,7 +193,7 @@ async function main() {
     }
 
     // (e) 正向閘
-    const g = gateAndFrame(v);
+    const g = gateAndFrame(v, GATE_OPT);
     if (g.verdict !== 'pass' || !g.title) {
       console.error(`[news-scan] ${id} 未過閘：${g.reason || 'block'}`); continue;
     }
@@ -268,15 +210,11 @@ async function main() {
     // 「這頁已經有名字了、不必再補名」。只認 CWA 正式名單，抽不到就留空。
     const cycloneNameZh = v.eventType === 'cyclone'
       ? officialCycloneName(eventText({ ...v, title: g.title, event: safeEvent })) : null;
-    const rec = {
-      id, eventType: v.eventType, title: g.title,
-      event: safeEvent,
-      sources: v.sources,
-      place: v.place, time: v.time,
-      ...(cycloneNameZh ? { cycloneNameZh } : {}),
-      ...(v.lat != null && v.lon != null ? { lat: v.lat, lon: v.lon } : {}),
-      detector: 'news', since: today, status: 'active',
-    };
+    const rec = makeBlessingRecord({
+      id, eventType: v.eventType, title: g.title, event: safeEvent, sources: v.sources,
+      place: v.place, time: v.time, cycloneNameZh, lat: v.lat, lon: v.lon,
+      detector: 'news', since: today,
+    });
 
     // (f2) 過閘後再驗一次去重：颱風名有時只出現在 (e) 才產出的標題／祈福語裡
     //      （摘要可能只寫「熱帶氣旋」不提名字），(d) 那輪自然抓不到。多驗一次不花成本。
@@ -285,10 +223,12 @@ async function main() {
       console.error(`[news-scan] ${id}（${g.title}）與 ${dup2.id} ${dupWhy(dup2)}，略過（過閘後複驗）`); continue;
     }
     if (!DRY) { list.push(rec); known.add(id); changed = true; }
-    console.log(`PUBLISHED\t${id}\t${g.title}\thttps://folk.tw/qiugian/blessing/${id}/`);
+    reportPublished(id, g.title);
   }
 
-  if (changed && !DRY) writeFileSync(TOPICAL, JSON.stringify(list, null, 2) + '\n');
+  if (changed && !DRY) writeTopical(list);
 }
 
-await main();
+// 被直接執行才跑；被 import 時只提供上面那些函式、不產生任何副作用
+// （這個 seam 就是把 gate/類型表/紀錄形狀抽成共用模組的前提，見檔頭）。
+if (import.meta.url === `file://${process.argv[1]}`) await main();

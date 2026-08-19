@@ -23,6 +23,20 @@
 | P4 後續追蹤 | `topical-followup.mjs` | `30 12`（每日） | 追蹤中事件找新進展 → 機器複驗 → 掛源接時間軸；archived 有後續→memorial；**颱風事後補名**（見 §3.7） |
 | （集氣聚合） | `qiugian-aggregate.mjs` | `7 */3`（每 3 小時） | GA4 → 集氣人數；峰值凍結回寫 `bless_snapshot` |
 
+三支腳本共用的部分都在 `scripts/lib/`（2026-08-19 抽出，**改規則只改這裡，別在腳本裡再開一份**）：
+
+| 模組 | 管什麼 |
+|---|---|
+| `topical-gate.mjs` | 正向議題閘＋產標題／祈福語（P1／P2 唯一入口；⚠️ 檔頭記著兩份漂移過的 prompt 是怎麼合併的） |
+| `topical-text.mjs` | 事件類型中文標籤 `TYPE_LABEL`、`stripHtml`／`normText`／全形標點保底 `zh` |
+| `topical-record.mjs` | `topical.json` 的紀錄形狀與三態轉移（四個寫入端共用，含 `qiugian-aggregate.mjs`） |
+| `topical-report.mjs` | 階段間的 tab 分隔 stdout 摘要協定（`PUBLISHED`／`ARCHIVED`／`UPDATED`…）唯一產生端 |
+| `topical-dedup.mjs`／`topical-guard.mjs`／`topical-geo.mjs` | 去重／文案硬守門／地理編碼（見 §3） |
+
+🔴 **三支腳本都是「被直接執行才跑」**（`import.meta.url === file://${process.argv[1]}`）：
+被 import 時不得有任何副作用。這個 seam 就是上面那些共用模組成立的前提——2026-08-19 之前
+主流程是 top-level，腳本之間只能互相複製（`gateAndFrame` 因此漂移過，見 `topical-gate.mjs` 檔頭）。
+
 每支都有 `*-cron.sh` 包裝：`備妥隔離 worktree → 跑 → topical.json 有變才 commit/push（觸發部署）→ Slack 通知`。
 腳本自身**不碰 git**；P1／P2／P4 三支支援 `--dry`（只印不寫）——⚠️ **`qiugian-aggregate.mjs` 沒有 `--dry`**（2026-08-06 實查）。**push main 即自動部署，勿手動補跑 workflow**（見根 CLAUDE.md）。
 
@@ -164,6 +178,11 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 |---|---|---|
 | 開頁（P1） | `gateAndFrame()` | GDACS `<gdacs:eventname>`／RSS 標題的國際命名 → `typhoonZhName()` 查表 |
 | 開頁（P2） | `gateAndFrame()` | 中文新聞文字 → `officialCycloneName()`（只認正式名單、且須恰好一個） |
+
+⚠️ **上面兩條路現在是同一支 `lib/topical-gate.mjs` 裡的 `resolveCycloneZhName()` 三段 fallback**
+（條目已存的中文名 → 國際命名查表 → 事件文字抽正式名），2026-08-19 合併兩份 `gateAndFrame` 時
+一起收斂。**兩條都要留著**：只留 P1 那條，P2 的颱風頁就再也寫不出「紅霞」（新聞沒有國際命名）；
+只留 P2 那條，P1 拿到的英文摘要抽不出中文名。合併實測見該檔檔頭。
 | 開頁後（P4） | `renameCyclone()` | 條目自己的 `cycloneName`，或全頁文字（**含 P4 自己接上的 updates**）→ `officialCycloneName()` |
 
 - **有名字時標籤同時由「熱帶氣旋」改成台灣慣稱「颱風」**；沒名字才留學術詞。
@@ -181,7 +200,10 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 
 ### 3.8 沒有災害就不用祈福（2026-07-26）
 
-正向閘的 pass 條件加第三條 c：**災害必須已經實際發生，不是還在預報階段**。兩支閘（P1/P2）同規：
+正向閘的 pass 條件加第三條 c：**災害必須已經實際發生，不是還在預報階段**。兩支閘（P1/P2）同規
+——⚠️ **2026-08-19 更正：在那之前「同規」只是願望**，兩支各有一份 `gateAndFrame`、prompt 實際已經漂移
+（P2 那份缺本節的 GDACS 推估值警語、缺下方 2026-07-27 杜撰案例的硬性要求，連類型詞都寫成「橋垮」）。
+現在規則只有一份（`lib/topical-gate.mjs`），呼叫端只傳 log 前綴與「下一輪會再掃到」的節奏：
 
 - 地震／山崩／橋垮／氣爆／火災這種「發生即是事件」者：事實本身就代表已發生，天然符合，**不受影響**
   （實測放寬門檻讓真實 M5.4+ 地震進閘，仍有 pass，未被誤擋）。
@@ -355,7 +377,13 @@ LLM 回報的候選**一律不信其自述**，逐一機器驗證：
 
 ## 5. 改動守則
 
-- 改事件/更新文案的**產生方式**（prompt）→ 必須確認**四道硬 gate（§3）仍有效**；prompt 只是第一層。
+- 改事件/更新文案的**產生方式**（prompt）→ 改 `lib/topical-gate.mjs`（**只有一份，P1／P2 共用**），
+  並確認**硬 gate（§3）仍有效**；prompt 只是第一層。🔴 **不要為了單一產線在腳本裡另開一份閘**——
+  上一次那樣做的結果就是兩份 prompt 悄悄漂移了三個月（見該檔檔頭）。
+- 改 `topical.json` 的欄位或三態轉移 → 改 `lib/topical-record.mjs`（四個寫入端共用），
+  別在個別腳本裡直接寫 `it.status = …`。
+- 改階段間的 stdout 摘要行 → 改 `lib/topical-report.mjs`，**同一回合改 `*-cron.sh` 的解析**
+  （那側是 `grep '^KIND'` ＋ `IFS=$'\t' read`，欄位數一動就會安靜錯位、Slack 照發）。
 - 改 `topical.json` schema → 顧及既有 archived 條目**向後相容**（靠 `inferType` 推論）、舊網址不 404。
 - 改任何 cron → 同步更新 `/etc/cron.d/folk-qiugian` 註解與本檔（根 CLAUDE.md 紅線）。
 - 改 `topical-guard.mjs` → 跑其自測。改複驗邏輯 → 用真實觸雷案例回歸。

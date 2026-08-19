@@ -8,30 +8,25 @@
 //
 // 為何獨立成腳本：與 orchestrate.mjs（開頁）、topical-news-scan.mjs（新聞掃描開頁）、
 //   orchestrator 的升 archived 職責解耦——本檔**只**做「已存在事件的後續追蹤」與「archived→memorial」，
-//   **絕不**動 active→archived（那是 orchestrator 的職責）。沿用 news-scan 的機器複驗與 gate 呼叫慣例。
-import { readFileSync, writeFileSync } from 'node:fs';
+//   **絕不**動 active→archived（那是 orchestrator 的職責）。
+//   ⚠️ 2026-08-19 前這裡寫著「機器層工具複製自 topical-news-scan.mjs 精神，彼此不 import 以免
+//   互相觸發」——那個 seam 已經修掉（三支都改成 main() ＋ 被直接執行才跑），
+//   stripHtml／normText／zh 與紀錄形狀、stdout 摘要協定都只剩一份，見 lib/topical-{text,record,report}.mjs。
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hasBannedNumber, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
 import { officialCycloneName, typhoonZhName, eventText, CYC_WORD } from './lib/topical-dedup.mjs';
+import { normText, zh } from './lib/topical-text.mjs';
+import {
+  STATUSES, readTopical, writeTopical, promoteToMemorial, setFollowupMeta,
+} from './lib/topical-record.mjs';
+import { reportUpdated, reportMemorial, reportRenamed } from './lib/topical-report.mjs';
 
-const TOPICAL = 'src/data/topical.json';
 const DRY = process.argv.includes('--dry');
 const today = new Date().toISOString().slice(0, 10);
 const DAY = 864e5;
 
-// ── 機器層工具（複製自 topical-news-scan.mjs 精神，彼此不 import 以免互相觸發）─────────────
-function stripHtml(html) {
-  return String(html)
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z#0-9]+;/gi, ' ');
-}
-// 全形標點機械保底：緊鄰中文字的半形逗號/分號轉全形（英文語境不動；不碰句號免誤傷小數）。
-const zh = (s) => typeof s === 'string'
-  ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
-  : s;
+// ── 機器層工具（stripHtml／normText／zh 見 lib/topical-text.mjs）──────────────────────
 // url 正規化：去協定大小寫、去尾斜線、去 hash/常見追蹤參數，供去重比對。
 function normUrl(u) {
   try {
@@ -47,8 +42,6 @@ function normUrl(u) {
     return String(u || '').trim().toLowerCase().replace(/\/+$/, '');
   }
 }
-const normText = (s) => String(s || '').toLowerCase()
-  .replace(/[\s　]+/g, '').replace(/[，,、。.；;：:「」『』（）()\-—－]/g, '');
 
 async function fetchOk(url) {
   try {
@@ -74,7 +67,7 @@ function isTracked(item) {
   if (item.mergedInto) return false;
   if (item.followup?.sealed) return false;
   const st = item.status ?? 'active';
-  if (!['active', 'archived', 'memorial'].includes(st)) return false;
+  if (!STATUSES.includes(st)) return false;
   const ageDays = (Date.parse(today) - Date.parse(item.since)) / DAY;
   if (!Number.isFinite(ageDays) || ageDays > 90) return false;
   return true;
@@ -228,7 +221,7 @@ function renameCyclone(item) {
 
 // ── 主流程 ────────────────────────────────────────────────────────────────
 async function main() {
-  const list = JSON.parse(readFileSync(TOPICAL, 'utf8'));
+  const list = readTopical();
   let changed = false;
 
   const targets = list.filter(isTracked);
@@ -256,12 +249,11 @@ async function main() {
       fresh.push(v);
     }
 
-    // (5) append + 升態
-    const pageUrl = `https://folk.tw/qiugian/blessing/${item.id}/`;
+    // (5) append + 升態（stdout 摘要行的格式一律走 lib/topical-report.mjs，見該檔）
     if (fresh.length > 0) {
       for (const v of fresh) {
         item.updates.push(v);
-        console.log(`UPDATED\t${item.id}\t${item.title}\t${v.text}\t${pageUrl}`);
+        reportUpdated(item.id, item.title, v.text);
       }
       item.updates.sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')));
       changed = true;
@@ -270,30 +262,27 @@ async function main() {
     // 颱風事後補名：擺在 append 之後，這樣今天剛掛上的 updates（新聞多半會寫出颱風名）也算數。
     const renamed = renameCyclone(item);
     if (renamed) {
-      console.log(`RENAMED\t${item.id}\t${renamed.before}\t${renamed.after}\t${pageUrl}`);
+      reportRenamed(item.id, renamed.before, renamed.after);
       changed = true;
     }
 
     // archived + 非範例 + 有 updates → 升 memorial（不動 active→archived）
     if (item.status === 'archived' && !item.example && item.updates.length > 0) {
-      item.status = 'memorial';
-      item.memorial_at = today;
-      console.log(`MEMORIAL\t${item.id}\t${item.title}\t${pageUrl}`);
+      promoteToMemorial(item, today);
+      reportMemorial(item.id, item.title);
       changed = true;
     }
 
     // (6) followup 中繼
-    const prev = item.followup ?? {};
-    const empty_runs = fresh.length > 0 ? 0 : ((prev.empty_runs || 0) + 1);
+    const empty_runs = fresh.length > 0 ? 0 : ((item.followup?.empty_runs || 0) + 1);
     const ageDays = (Date.parse(today) - Date.parse(item.since)) / DAY;
     const sealed = empty_runs >= 14 || ageDays > 90;
-    item.followup = { sealed, last_checked: today, empty_runs };
-    if (JSON.stringify(prev) !== JSON.stringify(item.followup)) changed = true;
+    if (setFollowupMeta(item, { sealed, last_checked: today, empty_runs })) changed = true;
     console.error(`[followup] ${item.id} → 新增 ${fresh.length} 筆；followup=${JSON.stringify(item.followup)}`);
   }
 
   if (changed && !DRY) {
-    writeFileSync(TOPICAL, JSON.stringify(list, null, 2) + '\n');
+    writeTopical(list);
     console.error('[followup] 已寫回 topical.json');
   } else if (DRY) {
     console.error('[followup] --dry：不寫檔');
@@ -302,4 +291,6 @@ async function main() {
   }
 }
 
-await main();
+// 被直接執行才跑；被 import 時只提供上面那些函式、不產生任何副作用
+// （這個 seam 就是把機器層工具與紀錄形狀抽成共用模組的前提，見檔頭）。
+if (import.meta.url === `file://${process.argv[1]}`) await main();
