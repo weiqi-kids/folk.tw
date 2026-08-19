@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
+import OccurrenceTimeline from '../../components/OccurrenceTimeline.astro';
+import { occurrencesForPage } from '../../lib/celebration-occurrences';
 import ShareRow from '../../components/ShareRow.astro';
 import LineCta from '../../components/LineCta.astro';
 import PuduChecklist from '../../components/PuduChecklist.astro';
@@ -813,6 +815,21 @@ const jsonLd = [article];
       >拜拜習俗</a
     >｜<a href="/qiugian/">線上求籤</a>｜<a href="/almanac/">農民曆</a>
   </p>
+
+
+  {
+    occurrencesForPage('festival', f.slug) && (
+      <section class="occurrences">
+        <h2>歷年舉辦紀錄</h2>
+        <p>下面是實際辦過哪幾次的紀錄，每一筆都連回它自己的來源。年度日期以主辦單位公告為準。</p>
+        <OccurrenceTimeline
+          occurrences={occurrencesForPage('festival', f.slug)!.occurrences}
+          nextAnnounced={occurrencesForPage('festival', f.slug)!.next_announced}
+          pendingLabel="下一次日期尚未公告"
+        />
+      </section>
+    )
+  }
 
   <Sources sources={sources} variant="footer" />
 
