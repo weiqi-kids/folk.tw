@@ -1432,12 +1432,10 @@
     "image_key": "zhongqiu",
     "sources": [
       {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部官方節日資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=5", "note": "內政部臺灣宗教文化地圖的中秋民俗資料"},
       {"type": "gov", "ref": "https://www.dgpa.gov.tw/News_Content.aspx?n=3710&s=1244007", "note": "行政院人事行政總處官方年曆"}
     ],
     "facts": [
       {"text": "內政部節日資料以農曆八月十五標示中秋節；國曆落點要依當年度農曆換算，不能把某一年的日期當成固定國曆日。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]},
-      {"text": "臺灣宗教文化資料把中秋的賞月、月娘信仰與家庭團聚放在地方民俗脈絡中，拜月娘不是所有家庭都相同的固定儀式。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=5"}]},
       {"text": "秋報土地公可理解為農作收成後的答謝語境，實際供品、時間與是否祭拜要依家庭或地方廟宇做法，不能用節日日期推定每家流程。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239"}]}
     ],
     "draft_week": 2,
@@ -1459,7 +1457,7 @@
     "sources": [
       {"type": "gov", "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219", "note": "金門縣政府觀光處博餅文化介紹"},
       {"type": "gov", "ref": "https://www.kmfa.gov.tw/News_Content.aspx?n=4184&s=105665", "note": "金門縣政府年度中秋博餅活動公告入口"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=5", "note": "中秋民俗背景"}
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111215000003", "note": "國家文化資產網「中秋搏餅」登錄資料：金門中秋搏餅的骰法與彩目"}
     ],
     "facts": [
       {"text": "博狀元餅以六顆骰子作為遊戲工具，獎項名稱沿用科舉語彙；具體點數、紅四與獎項分配仍以當場或當年度主辦規則為準。", "sources": [{"type": "gov", "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219"}]},
@@ -1535,12 +1533,12 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212", "note": "內政部臺灣宗教文化地圖地方祭典資料"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002", "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料：暗訪與遶境是艋舺信仰圈活動的兩個階段"},
       {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002", "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料（臺北市登錄民俗）"},
       {"type": "temple", "ref": "https://www.bka.org.tw/", "note": "艋舺青山宮官方公告入口"}
     ],
     "facts": [
-      {"text": "艋舺青山王祭的正日資料以農曆十月二十二日青山王聖誕與地方遶境為主要日期基準。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212"}]},
+      {"text": "艋舺青山王祭的正日資料以農曆十月二十二日青山王聖誕與地方遶境為主要日期基準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"}]},
       {"text": "文化資產資料把青山王祭典放在艋舺地方信仰與暗訪、遶境的脈絡中，暗訪與正日公開遶境不是同一個儀式時段。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"}]},
       {"text": "年度路線與交通管制會由廟方及地方機關另行公告，常年文化資產資料不能直接推出某一年的起駕時間或封路範圍。", "sources": [{"type": "temple", "ref": "https://www.bka.org.tw/"}]}
     ],
@@ -1562,13 +1560,11 @@
     "image_key": "baitiangong",
     "sources": [
       {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部全國宗教資訊網三官信仰資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7", "note": "內政部臺灣宗教文化地圖節令資料"},
       {"type": "gov", "ref": "https://www.dao.gov.tw/", "note": "道教相關官方資料入口"}
     ],
     "facts": [
       {"text": "下元節常見日期為農曆十月十五，與上元正月十五、中元七月十五形成三元日期系統。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "三官信仰把天官、地官與水官分別連到賜福、赦罪與解厄等宗教語境，這是信仰解釋，不是醫療或法律保證。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "臺灣各宮廟對下元節的法會、供品與參與方式可能不同，沒有單一全臺通用的下元儀式清單。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=7"}]}
+      {"text": "三官信仰把天官、地官與水官分別連到賜福、赦罪與解厄等宗教語境，這是信仰解釋，不是醫療或法律保證。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
     ],
     "draft_week": 7,
     "published": "2026-08-12",
@@ -1615,12 +1611,11 @@
     "multi_day": true,
     "sources": [
       {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009", "note": "國家文化資產網「東山碧軒寺迎佛祖暨遶境」登錄資料（文化部重要民俗）"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=74", "note": "內政部臺灣宗教文化地圖東山碧軒寺資料"},
       {"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/", "note": "碧軒寺年度公告入口"}
     ],
     "facts": [
       {"text": "東山碧軒寺迎佛祖是臺南東山的地方民俗，正式活動名稱與保存脈絡應以文化資產資料及主辦廟公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"}]},
-      {"text": "常年資料把迎佛祖放在農曆十二月歲末與地方遶境脈絡中，國曆落點與活動天數每年仍須重新換算和核對。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=74"}]},
+      {"text": "常年資料把迎佛祖放在農曆十二月歲末與地方遶境脈絡中，國曆落點與活動天數每年仍須重新換算和核對。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"}]},
       {"text": "迎佛祖的起駕、駐駕與回鑾不是由節日名稱自動推定的固定時間，應以碧軒寺當年度公告的路線和現場規則為準。", "sources": [{"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/"}]}
     ],
     "draft_week": 9,
@@ -1718,12 +1713,10 @@
     "image_key": "baitiangong",
     "sources": [
       {"type": "site", "ref": "https://folk.tw/practices/antaisui/", "note": "本站安太歲儀式資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8", "note": "內政部臺灣宗教文化地圖廟宇服務資料"}
+      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"}
     ],
     "facts": [
       {"text": "安太歲通常指依太歲信仰辦理年度登記或祈福服務，是否屬於某人的犯太歲判定與辦理方式要看廟方規則。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/antaisui/"}]},
-      {"text": "光明燈、平安燈與文昌燈是不同廟宇可能採用的服務名稱，名稱相近不代表每間廟的登記內容或祈願對象完全相同。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8"}]},
       {"text": "年度服務的費用、開放日期、補辦方式與燈位安排屬廟方公告資訊，不能用往年價格或其他廟宇的規則替代。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
     ],
     "date_status": "source_required",
@@ -1874,12 +1867,12 @@
     "image_key": "chongyang",
     "sources": [
       {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001", "note": "文化部羅漢門迎佛祖資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22", "note": "內政部宋江陣文化資料"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001", "note": "國家文化資產網「新園鄉五房洲庄澄瀛宮宋江陣」登錄資料：源於械鬥護庄的團練，72 人陣"},
       {"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0", "note": "內門紫竹寺廟宇資料"}
     ],
     "facts": [
       {"text": "文化資產登錄名稱是羅漢門迎佛祖，內門宋江陣是該地方遶境與民俗展演中重要的陣頭脈絡。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001"}]},
-      {"text": "宋江陣可從集體武藝、陣式與廟會展演理解，這個定義不能直接推定年度參賽隊伍、演出名單或活動時間。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22"}]},
+      {"text": "宋江陣可從集體武藝、陣式與廟會展演理解，這個定義不能直接推定年度參賽隊伍、演出名單或活動時間。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001"}]},
       {"text": "內門紫竹寺是迎佛祖與地方活動的主辦廟脈絡之一，路線、起駕與交通仍應回查廟方或地方政府公告。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0"}]}
     ],
     "date_status": "source_required",

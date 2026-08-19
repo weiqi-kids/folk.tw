@@ -7,8 +7,8 @@
       "sources": [
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=27",
-          "note": "內政部臺灣宗教文化地圖：遶境（定義說明）"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
+          "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料：暗訪與遶境是艋舺信仰圈活動的兩個階段"
         },
         {
           "type": "web",
@@ -29,8 +29,8 @@
         },
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=15",
-          "note": "內政部臺灣宗教文化地圖：進香"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080804000002",
+          "note": "國家文化資產網「白沙屯媽祖進香」登錄資料：全台路線最遠的徒步進香，日程與路程由媽祖指引"
         }
       ]
     },
@@ -41,8 +41,8 @@
       "sources": [
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=27",
-          "note": "內政部臺灣宗教文化地圖：遶境進香（複合型分類）"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+          "note": "國家文化資產網「大甲媽祖遶境進香」登錄資料：逐字記載「北港進香」改稱「遶境進香」的緣由"
         }
       ]
     },
@@ -69,9 +69,9 @@
       "alias": ["進火", "取火"],
       "sources": [
         {
-          "type": "web",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=15",
-          "note": "內政部臺灣宗教文化地圖：進火（刈火）條目說明"
+          "type": "gov",
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+          "note": "國家文化資產網「大甲媽祖遶境進香」登錄資料：逐字記載「刈火」改稱「添火」的緣由"
         }
       ]
     },
@@ -232,8 +232,8 @@
       "sources": [
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=16",
-          "note": "內政部臺灣宗教文化地圖：過火"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20130207000006",
+          "note": "國家文化資產網「新莊保元宮弄過火」登錄資料：弄過火儀式的步驟與百年相沿的傳承"
         },
         {
           "type": "web",
@@ -268,11 +268,6 @@
           "type": "web",
           "ref": "https://zh.wikipedia.org/zh-tw/%E7%A5%9E%E8%B1%AC",
           "note": "維基百科：神豬"
-        },
-        {
-          "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx",
-          "note": "內政部臺灣宗教文化地圖：神豬祭典說明"
         }
       ]
     },
@@ -300,8 +295,8 @@
         },
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=18",
-          "note": "內政部臺灣宗教文化地圖：建醮"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090115000002",
+          "note": "國家文化資產網「關廟山西宮遶境暨王醮祭典」登錄資料：王醮每 12 年 1 科，請水、請王分開舉行"
         }
       ]
     },
@@ -314,11 +309,6 @@
           "type": "web",
           "ref": "https://zh.wikipedia.org/zh-tw/%E9%99%A3%E9%A0%AD",
           "note": "維基百科：陣頭"
-        },
-        {
-          "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
-          "note": "內政部臺灣宗教文化地圖：陣頭"
         }
       ]
     }
@@ -336,8 +326,8 @@
         },
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
-          "note": "內政部臺灣宗教文化地圖：宋江陣"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001",
+          "note": "國家文化資產網「新園鄉五房洲庄澄瀛宮宋江陣」登錄資料：源於械鬥護庄的團練，72 人陣"
         }
       ]
     },
@@ -377,8 +367,8 @@
         },
         {
           "type": "gov",
-          "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=22",
-          "note": "內政部臺灣宗教文化地圖：家將陣"
+          "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190115000003",
+          "note": "國家文化資產網「震安宮振祐堂八家將」登錄資料：導師、法師、面師三師傳承制度"
         }
       ]
     },

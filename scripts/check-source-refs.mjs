@@ -67,7 +67,9 @@ const UNLICENSED = {
 const BASELINE = {
   // 其中 1 處在 scripts/generate-topic-article-drafts.mjs:67——那是**草稿產生器**的來源清單，
   // 會把這個網域再種進週稿，是擴散源不只是一處引用。要降這個數字，那一處優先。
-  'taiwangods.moi.gov.tw': 213,
+  // 2026-08-19 由 213 調降到 190：修掉 23 處掛錯的引用（vocabulary 全部 10 處＋festivals 13 處），
+  // 其中查得到已授權替代的改掛 nchdb 登錄個案，查無替代的連同只靠它的那筆 fact 一起移除。
+  'taiwangods.moi.gov.tw': 190,
   // 其中 1 處在 scripts/check-anchor-text.mjs:5 的註解範例（不是實際引用，但仍是網址形式，照算）。
   'th.gov.tw': 146,
 };
