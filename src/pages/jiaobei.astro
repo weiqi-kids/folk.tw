@@ -45,7 +45,7 @@ const { results, sequence_rule, sources } = data;
     <p class="muted small">{sequence_rule.variants}</p>
   </section>
 
-  <p class="src small"><Sources sources={sources} />　·　判讀僅為文化呈現，非問事指導。</p>
+  <Sources sources={sources} variant="footer">　·　判讀僅為文化呈現，非問事指導。</Sources>
 
   <style>
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
@@ -54,7 +54,6 @@ const { results, sequence_rule, sources } = data;
     .jiaobei-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
     .card strong { color: var(--accent); }
     .small { font-size: var(--text-sm); }
-    .src { color: var(--gold); margin-top: 1.875rem; }
     .visual-note { margin-top: -1rem; }
   </style>
 </Base>

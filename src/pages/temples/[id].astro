@@ -10,7 +10,7 @@ import { faqPage, templePlace } from '../../lib/seo';
 import { templeCrumbs } from '../../lib/breadcrumbs';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { commonTempleName } from '../../lib/temple-name';
-import { imageCredit } from '../../lib/image-credit';
+import ImageCredit from '../../components/ImageCredit.astro';
 import { lunarDateLabel } from '../../lib/birthdays';
 import { festivalNextSolar } from '../../lib/lunar-date';
 import {
@@ -655,20 +655,16 @@ const jsonLd = [
 
   {/* 代表圖（2026-08-06 起在詳情頁也顯示）。原本只有索引頁的卡片用得到，
       詳情頁完全不顯示——而詳情頁才是廟方與讀者真正會看的那一頁。
-      🔴 出處標示走 `imageCredit()` 這支唯一入口：內政部的照片**必須給可點的來源連結**
-      （那是授權條件，不是排版偏好），Commons 那批沿用既有作法（出處彙整在 /about）。
-      別把這段的連結拿掉，也別把標註寫死成某個平台名——寫死正是 2026-08-06 修掉的病灶。 */}
+      🔴 出處標示走 <ImageCredit>（唯一渲染入口，判定在 src/lib/image-credit.ts）：
+      內政部的照片**必須給可點的來源連結**（那是授權條件，不是排版偏好），
+      Commons 那批沿用既有作法（出處彙整在 /about）。別把這段拿掉，也別在這裡自己寫一份 <a>——
+      rel/target 一度在三個檔長成三種寫法，2026-08-19 已收斂。
+      🔴 圖說必須在 <img> **之後**（曾掃錯方向導致署名全空、圖被安靜略過）。 */}
   {
     t.image && (
       <figure class="temple-photo">
         <img src={t.image.src} alt={t.image.alt} loading="lazy" decoding="async" />
-        <figcaption class="muted small">
-          {imageCredit(t.image).href ? (
-            <a href={imageCredit(t.image).href!} rel="noopener">{imageCredit(t.image).text}</a>
-          ) : (
-            imageCredit(t.image).text
-          )}
-        </figcaption>
+        <figcaption class="muted small"><ImageCredit image={t.image} /></figcaption>
       </figure>
     )
   }
@@ -789,7 +785,7 @@ const jsonLd = [
 
   {t.website && <p class="temple-site"><a href={t.website} target="_blank" rel="noopener">官方網站 →</a></p>}
 
-  {t.sources.length > 0 && <p class="src"><Sources sources={t.sources} /></p>}
+  <Sources sources={t.sources} variant="footer" />
 
   <style>
     .summary { font-size: var(--text-base); line-height: 1.8; margin: 0.75rem 0 1.25rem; }
@@ -862,6 +858,5 @@ const jsonLd = [
     .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1.25rem; font-size: var(--text-sm); }
     .temple-site a { font-weight: 600; }
-    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; line-height: 1.9; }
   </style>
 </Base>

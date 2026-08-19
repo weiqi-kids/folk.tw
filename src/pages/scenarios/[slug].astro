@@ -145,7 +145,7 @@ const jsonLd = [
                 ))}
               </p>
             )}
-            <p class="src"><Sources sources={p.sources} /></p>
+            <Sources sources={p.sources} variant="block" />
           </div>
         );
       })
@@ -189,7 +189,7 @@ const jsonLd = [
     <a href="/scenarios/">其他情境</a>
   </p>
 
-  {s.sources.length > 0 && <p class="src footer-src"><Sources sources={s.sources} /></p>}
+  <Sources sources={s.sources} variant="footer" />
 
   <style>
     .dh h1 { margin: 0.25rem 0 0.5rem; }
@@ -205,12 +205,10 @@ const jsonLd = [
       background: var(--paper-2); font-size: var(--text-sm);
     }
     .chip:hover { text-decoration: none; border-color: var(--accent-soft); }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .small { font-size: var(--text-sm); }
     .qiugian-cta { margin-top: 2.25rem; padding: 1.125rem 1.25rem; border-radius: 0.875rem;
       border: 1px solid var(--line); background: var(--paper-2); font-size: var(--text-base); }
     .qiugian-cta a { font-weight: 700; }
     .extend { margin-top: 1.875rem; }
-    .footer-src { margin-top: 2.5rem; }
   </style>
 </Base>

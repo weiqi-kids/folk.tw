@@ -218,7 +218,7 @@ const jsonLd: object[] = [
             <li>
               {fact.text}
               {fact.sources.length > 0 && (
-                <span class="muted small">　— <Sources sources={fact.sources} prefix="" /></span>
+                <span class="muted small">　— <Sources sources={fact.sources} prefix="" variant="bare" /></span>
               )}
             </li>
           ))}
@@ -322,12 +322,12 @@ const jsonLd: object[] = [
               {/* ⚠️ 原本 href 與錨文字都直接吃整個 polyline_source 欄位，而該欄位是
                   「網址（中文說明）」——href 因此含中文說明＝**連結點不開**（2026-08-04 線上實測
                   三個活動頁皆然），錨文字也是裸網址。一律走 parseSourceRef 拆成 href + 名稱。 */}
-              即時軌跡（進香期間）：<Sources sources={[{ ref: e.route.polyline_source }]} prefix="" />
+              即時軌跡（進香期間）：<Sources sources={[{ ref: e.route.polyline_source }]} prefix="" variant="bare" />
               　·　第三方來源、非官方，僅供參考。
             </p>
           )
         }
-        {e.route.sources.length > 0 && <p class="src small"><Sources sources={e.route.sources} prefix="座標來源：" /></p>}
+        <Sources sources={e.route.sources} prefix="座標來源：" variant="block" />
       </section>
     )
   }
@@ -345,7 +345,7 @@ const jsonLd: object[] = [
     )
   }
 
-  {e.sources.length > 0 && <p class="src"><Sources sources={e.sources} /></p>}
+  <Sources sources={e.sources} variant="footer" />
 
   <style>
     .summary { font-size: var(--text-base); }
@@ -369,7 +369,6 @@ const jsonLd: object[] = [
     .heritage-details .quoted { margin-top: 1rem; }
     .heritage-details .quoted h3 { color: var(--gold); font-size: var(--text-sm); margin-bottom: 0.35rem; }
     .heritage-details .quoted p { line-height: 1.85; margin: 0 0 0.6rem; }
-    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .stops { margin: 0.75rem 0; padding-left: 1.75rem; }
     .stops li { padding: 0.375rem 0; }
