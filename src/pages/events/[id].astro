@@ -67,7 +67,10 @@ const deityFallbackImage = e.main_deity ? deityById.get(e.main_deity)?.image : u
 const pageImage = e.image
   ? { ...e.image, genericNote: '' }
   : deityFallbackImage
-    ? { ...deityFallbackImage, genericNote: `${deityName.get(e.main_deity) ?? '相關神明'}通用神像視覺，非${e.name}現場紀實。` }
+    ? {
+        ...deityFallbackImage,
+        genericNote: `${(e.main_deity && deityName.get(e.main_deity)) || '相關神明'}通用神像視覺，非${e.name}現場紀實。`,
+      }
     : {
         src: '/og.png', alt: '神酷站內通用視覺', author: '神酷', license: '', source: '',
         genericNote: `站內通用視覺，非${e.name}現場紀實。`,
@@ -167,9 +170,14 @@ const jsonLd: object[] = [
     <div>
       <dt>主神</dt>
       <dd>
-        {isNode(e.main_deity)
-          ? <a href={`/deities/${e.main_deity}/`}>{deityName.get(e.main_deity)}</a>
-          : <span>{e.main_deity} <span class="tag">節點待建</span></span>}
+        {/* 🔴 main_deity 2026-08-19 起是選填：不是每個登錄民俗的主神都在台灣民間信仰的
+            神明譜系裡（天主教萬金聖母遊行的主神是聖母瑪利亞）。留空時不要印「節點待建」
+            ——那句是給「該建而還沒建」的節點看的，對本來就不屬於這個譜系的活動是錯的。 */}
+        {!e.main_deity
+          ? <span class="muted">本活動的主神不屬於本站的民間信仰神明譜系，詳見下方登錄資料</span>
+          : isNode(e.main_deity)
+            ? <a href={`/deities/${e.main_deity}/`}>{deityName.get(e.main_deity)}</a>
+            : <span>{e.main_deity} <span class="tag">節點待建</span></span>}
       </dd>
     </div>
     <div>

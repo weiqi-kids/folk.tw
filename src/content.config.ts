@@ -337,7 +337,14 @@ const events = defineCollection({
     id: z.string(),
     name: z.string(),
     host_temple: z.string().optional(), // → temple.id（字串 key，容佔位）
-    main_deity: z.string(), // → deity.id（用具名實例，B.3-1）
+    // → deity.id（用具名實例，B.3-1）。
+    // 🔴 2026-08-19 改為選填：**不是每個登錄民俗的主神都在台灣民間信仰的神明譜系裡**。
+    //    實例：「天主教萬金聖母遊行」（屏東縣登錄民俗，nchdb 20120426000004）的主神是
+    //    聖母瑪利亞，站上沒有、也不該硬塞——`DEITY_CATEGORIES` 的註解明寫那七類是
+    //    「可引用之既有分類學，不自創」，為了塞一個節點去新增一個分類等於自創分類；
+    //    而把天主教聖母歸進「族群神信仰」則是錯的陳述。兩條都比留空糟。
+    //    ⚠️ 留空的頁面仍要在正文說明主神是誰並掛源，不是把這件事略過不提。
+    main_deity: z.string().optional(),
     destination_temple: z.string().optional(),
     type: z.array(z.enum(EVENT_TYPES)).default([]),
     chen_tou: z.array(z.string()).default([]), // 陣頭（受控詞彙 D.3）

@@ -52,8 +52,10 @@ const groups = LEVELS.map((level) => ({
                 {e.data.date_note && `　·　${e.data.date_note}`}
               </div>
               <div class="muted small">
-                主神：{deityName.get(e.data.main_deity) ?? e.data.main_deity}
-                {e.data.region.length > 0 && `　·　${e.data.region.join('、')}`}
+                {/* main_deity 是選填（見 content.config.ts 那一段）：留空的活動不印「主神：」
+                    整行，而不是印一個空值——那會變成「主神：」後面什麼都沒有。 */}
+                {e.data.main_deity && `主神：${deityName.get(e.data.main_deity) ?? e.data.main_deity}`}
+                {e.data.region.length > 0 && `${e.data.main_deity ? '　·　' : ''}${e.data.region.join('、')}`}
               </div>
               <div class="chips">
                 {e.data.type.map((t) => (

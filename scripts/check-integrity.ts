@@ -247,8 +247,12 @@ const relUnmatched = relEndpoints.filter((x) => !deityIds.has(x));
 rate('關係邊端點 → 神明節點', relEndpoints.length, relEndpoints.length - relUnmatched.length, relUnmatched);
 
 // 活動主神 → 神明（R5 主祀神祇對映率）
-const evDeUnm = events.map((e) => e.main_deity).filter((x: string) => !deityIds.has(x));
-rate('活動主神 → 神明節點', events.length, events.length - evDeUnm.length, evDeUnm);
+// ⚠️ main_deity 2026-08-19 起是選填：不是每個登錄民俗的主神都在台灣民間信仰的神明譜系裡
+//    （天主教萬金聖母遊行的主神是聖母瑪利亞）。**沒填的不算 dangling ref**，
+//    但也不列入分母——分母是「宣告了主神的活動」，這樣對映率才不會被留空的稀釋。
+const evWithDeity = events.filter((e) => e.main_deity);
+const evDeUnm = evWithDeity.map((e) => e.main_deity).filter((x: string) => !deityIds.has(x));
+rate('活動主神 → 神明節點', evWithDeity.length, evWithDeity.length - evDeUnm.length, evDeUnm);
 
 // 習俗神明 → 神明
 const prDe = practices.flatMap((p) => p.deities ?? []);

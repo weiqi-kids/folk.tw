@@ -41,6 +41,23 @@ const PROSE_JSON = [
   // 2026-08-16：籤型（八型）的描述散文，渲染於籤詩頁。根是物件不是陣列，
   // 靠下方 scanProseJson 的物件包裝支援；用 types.desc 路徑穿進去。
   { file: 'src/data/poem-personas.json', fields: ['types.desc'] },
+  // 2026-08-19：活動頁的檔期說明與補充事實。⚠️ `date_note` 直接渲染在活動頁與
+  // /events/ 列表頁上，但它同時是最容易被寫成「維護筆記」的欄位——查源時手邊都是
+  // caseId、holdPeriod、「repo 記的日期不可沿用」這類內部語彙，一不小心就整段貼進去。
+  // 當天實際發生：17 筆 date_note 全部混進維護註記，其中 5 筆**已經上線**，
+  // 讀者在列表頁看得到「🔴 repo 的 solar 12-12 是假的固定日」。
+  { file: 'src/data/events.json', fields: ['date_note', 'facts.text'] },
+];
+
+// 維護筆記殘留（2026-08-19 加）。這些是**寫給維護者的語彙**，不該出現在讀者眼前。
+// 🔴 為什麼做成 gate：查源與產頁是同一個流程，素材裡本來就充滿內部識別碼與判斷語，
+//    「記得把它們拿掉」是靠不住的——那正是這批 17 筆一起中招的原因。
+const MAINTENANCE_LEAKS = [
+  { re: /🔴|⛔|🅤/, why: '維護註記符號（🔴／⛔／🅤 是給維護者的標記，不是給讀者的）' },
+  { re: /caseId|holdPeriod|holdCalendarType|registerReason|historyDevelopment/, why: '資料來源的欄位名稱' },
+  { re: /(?:^|[^A-Za-z])repo(?:[^A-Za-z]|$)/, why: '「repo」是內部語彙' },
+  { re: /不可沿用|不要照它換算|逐字照抄|本站鐵則/, why: '對維護者的指示語' },
+  { re: /lunar-javascript|nchdb|data\.boch/, why: '工具或端點名稱（讀者不需要知道我們用什麼查的）' },
 ];
 
 // Markdown 殘留（2026-08-09 加）。這些欄位**渲染時是純文字**，不會過 Markdown ——
@@ -152,7 +169,7 @@ function scanProseJson(hits) {
         // 加了白名單卻什麼都沒掃，比沒加更糟（誤以為有守）。
         for (const { path, value } of resolveField(row, k)) {
           if (typeof value !== 'string') continue;
-          for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS]) {
+          for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS, ...MAINTENANCE_LEAKS]) {
             const m = value.match(b.re);
             if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0].trim(), why: b.why });
           }

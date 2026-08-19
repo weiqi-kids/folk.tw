@@ -80,7 +80,10 @@ for (const it of batch.items ?? []) {
     id,
     name: it.name,
     ...(it.host_temple_id ? { host_temple: it.host_temple_id } : {}),
-    main_deity: it.main_deity ?? 'mazu',
+    // 🔴 沒給就留空：main_deity 2026-08-19 起是選填，因為不是每個登錄民俗的主神都在
+    //    台灣民間信仰的神明譜系裡（天主教萬金聖母遊行）。**不要給預設值**——
+    //    原本這裡預設 mazu，等於替活動安上一個它沒有的主神。
+    ...(it.main_deity ? { main_deity: it.main_deity } : {}),
     type: it.type ?? [],
     chen_tou: [],
     cycle: it.cycle ?? 'annual',
