@@ -67,9 +67,12 @@ const UNLICENSED = {
 const BASELINE = {
   // 其中 1 處在 scripts/generate-topic-article-drafts.mjs:67——那是**草稿產生器**的來源清單，
   // 會把這個網域再種進週稿，是擴散源不只是一處引用。要降這個數字，那一處優先。
-  // 2026-08-19 由 213 調降到 190：修掉 23 處掛錯的引用（vocabulary 全部 10 處＋festivals 13 處），
-  // 其中查得到已授權替代的改掛 nchdb 登錄個案，查無替代的連同只靠它的那筆 fact 一起移除。
-  'taiwangods.moi.gov.tw': 190,
+  // 2026-08-19 由 213 一路降到 176：① 修掉 23 處掛錯的引用（vocabulary 全部 10 處＋
+  // festivals 13 處）② 頭城搶孤與七夕做十六歲的近似逐字段落改掛 nchdb（內容逐項確認在
+  // 登錄資料原文內；只有未授權來源才有的「織女」「匍匐」直接拿掉）③ week-16.md 與
+  // dec-mar.md 的臺東寒單段落改寫成登錄資料支撐得住的版本並改掛 ④ 換掉草稿產生器裡的
+  // 擴散源（每產一次草稿就再種一次）。
+  'taiwangods.moi.gov.tw': 176,
   // 其中 1 處在 scripts/check-anchor-text.mjs:5 的註解範例（不是實際引用，但仍是網址形式，照算）。
   'th.gov.tw': 146,
 };

@@ -64,7 +64,10 @@ const mappings = [
 
 const supplementalSources = new Map([
   [1, ['https://www.cwa.gov.tw/Data/knowledge/announce/astronomy3.pdf']],
-  [4, ['https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=109']],
+  // 2026-08-19：原本是 taiwangods 的臺北孔子廟頁。那個網域授權限個人非商業、不在本站
+  // 同意書範圍內，而這裡是**擴散源**——每產一次草稿就把它再種進週稿一次。改掛已授權的
+  // 文化部登錄個案「大成至聖先師釋奠典禮」。
+  [4, ['https://nchdb.boch.gov.tw/assets/overview/folklore/20110315000001']],
   [6, ['https://www.mjcsg.org.tw/']],
   [17, [
     'https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008',
