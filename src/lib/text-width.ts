@@ -44,8 +44,14 @@ export const SOURCE_LABEL_MAX_WIDTH = 40;
 
 /**
  * Google 中文摘要的實測截斷位置（全形字）。
- * ⚠️ 這是**觀測值不是強制上限**：description 目前由 excerptAtBoundary 以 UTF-16 `.length` 160 收斂
- * （src/layouts/Base.astro），單位與此不同。廟宇頁 descTail 的排序理由（求籤句必須排在截斷點之前）
+ * ⚠️ 這是**觀測值不是強制上限**：description 由 excerptAtBoundary 以 UTF-16 `.length` 160 收斂
+ * （src/layouts/Base.astro）。廟宇頁 descTail 的排序理由（求籤句必須排在截斷點之前）
  * 是照這個數字推出來的，數字放這裡以免又散成好幾份。
+ *
+ * 🔴 **本常數沒有任何執行期消費端**（2026-08-19 實查：全 repo 只出現在這一行）。
+ *    它是寫成常數的觀測筆記，不要去找「誰在用它」，也不要把它跟 160 那個數字當成
+ *    「同一件事的兩種單位」而想統一——兩者量的是不同的東西：78 是 Google 在哪裡切，
+ *    160 是我們自己截多長。上一輪把它記成「description 單位未統一」待追認，
+ *    2026-08-19 查證後判定不是漂移、不修。
  */
 export const SERP_DESC_TRUNCATION_WIDTH = 78;

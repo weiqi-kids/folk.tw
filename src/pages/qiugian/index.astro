@@ -46,12 +46,17 @@ const hotConcerns = [...concerns].sort((a, b) => drawCount(b.id) - drawCount(a.i
 const CONCERN_ORDER = ['qiuzhi', 'kaoshi', 'ganqing', 'yunshi', 'caiyun', 'jiankang', 'qiuzi'];
 const rank = (id: string) => { const i = CONCERN_ORDER.indexOf(id); return i < 0 ? 999 : i; };
 const orderedConcerns = [...concerns].sort((a, b) => rank(a.id) - rank(b.id));
+
+// 2026-08-19：本頁是求籤工具的入口（樞紐），先前標 kind="detail" 是既有錯標——
+// 上一輪重構為了「純重構不得改輸出」而保留，這次依裁示修掉。kind 預設就是 hub；
+// 本頁確實有直答段，所以照 /festivals/ 與 /festivals/local/ 的既有寫法加 answer="lead"，
+// 讓 og:type 正確變成 website 的同時**保留 speakable**。
 ---
 
 <Base
   title="求籤 · 為心裡的那件事"
   description="在為工作、感情、考試這些事煩惱嗎？選一件煩惱，求一支籤，看白話解籤。另可為此刻的平安集氣。"
-  kind="detail"
+  answer="lead"
   faq={faq}
   crumbs={[HUB.qiugian]}
 >
