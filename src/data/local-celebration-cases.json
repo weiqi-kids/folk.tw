@@ -1,34 +1,589 @@
 {
-  "_readme": "把 local-celebrations.json 的 65 項（內政部『地方宗教慶典』，每筆只有縣市／曆別／月日／名稱）對到國家文化資產網的民俗登錄個案。用途＝取得『這個慶典是不是每年舉辦』的權威依據；判定邏輯的唯一入口是 src/lib/local-celebration-cycle.ts。名稱比對必須看實質不能比字面（repo 寫『蕭壟』而官方寫『蕭壠』；『土城香』官方名是『鹿耳門聖母廟土城仔香』；『西港香』官方名是『西港刈香』），所以這份對帳是人工判斷的結果、不是程式產生的，改動要附依據。",
-  "source": "src/data/nchdb-folklore-index.json（hold_period 逐字照抄官方原文）",
+  "_readme": "把 local-celebrations.json 的 65 項（內政部『地方宗教慶典』，每筆只有縣市／曆別／月日／名稱）逐項對到國家文化資產網的民俗登錄個案，取得『是不是每年舉辦』的權威依據。判定唯一入口＝src/lib/local-celebration-cycle.ts。verdict：annual＝官方記為每年｜n_year＝有權威記載說不是每年｜unknown＝來源記載不定期或兩源互斥｜no_case＝nchdb 查無此案（未裁決，維持照算）。名稱比對必須看實質不能比字面（repo 寫『蕭壟』官方寫『蕭壠』；『土城香』官方名『鹿耳門聖母廟土城仔香』；『西港香』官方名『西港刈香』），所以這是人工判斷的結果，改動要附依據。",
+  "source": "src/data/nchdb-folklore-index.json 的 hold_period（逐字照抄官方原文）；查無個案者另註外部來源",
   "verified_on": "2026-08-19",
   "items": [
     {
-      "lc_id": "lc_66",
-      "name": "蕭壟香",
-      "case_id": "20090115000003",
-      "case_name": "佳里金唐殿蕭壠香",
-      "verdict": "n_year",
-      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」；科年為子卯午酉，2026 丙午科已於 2026-03 辦畢，下一科 2029",
+      "lc_id": "lc_1",
+      "name": "神明淨港",
+      "case_id": "20080917000003",
+      "case_name": "野柳神明淨港",
+      "verdict": "annual",
+      "basis": "nchdb 20080917000003「野柳神明淨港」holdPeriod「每年」，農曆 1/14~1/15，與 repo 的 lunar 01-15 相符。",
       "next_known": null
     },
     {
-      "lc_id": "lc_64",
-      "name": "土城香",
-      "case_id": "20130128000002",
-      "case_name": "鹿耳門聖母廟土城仔香",
-      "verdict": "n_year",
-      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」；2027 丁未為科年但精確日期未公告",
+      "lc_id": "lc_2",
+      "name": "新北國際佛誕文化節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「佛誕」相關個案（搜「佛誕」0 筆）。未另查得權威週期公告。",
       "next_known": null
     },
     {
-      "lc_id": "lc_65",
-      "name": "西港香",
-      "case_id": "20080627000001",
-      "case_name": "西港刈香",
-      "verdict": "n_year",
-      "basis": "nchdb hold_period 逐字「每逢(隔)3年舉行一次」",
+      "lc_id": "lc_3",
+      "name": "大甲媽祖遶境進香",
+      "case_id": "20100618000008",
+      "case_name": "大甲媽祖遶境進香",
+      "verdict": "annual",
+      "basis": "nchdb 文化部重要民俗 20100618000008「大甲媽祖遶境進香」holdPeriod 逐字為「每年」。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20080704000002",
+          "case_name": "大甲媽祖遶境進香",
+          "gov": "臺中市政府",
+          "hold_period": "其他",
+          "hold_calendar_type": "農曆"
+        }
+      ],
+      "date_conflict": "兩筆皆無 holdStart；文化部那筆 holdCalendarType 為「其他」。起駕日由元宵擲筊決定、逐年不同（2019 年為農曆 3/3~3/12），repo 的 lunar 03-22 是固定農曆日，與來源不符。"
+    },
+    {
+      "lc_id": "lc_5",
+      "name": "鞭春牛",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類 266 筆中無「鞭春牛／春牛」之宜蘭縣個案（僅臺南 20180102000002「土城仔迎春牛」，非同一活動）。未另查得權威週期公告。",
       "next_known": null
+    },
+    {
+      "lc_id": "lc_6",
+      "name": "礁溪二龍競渡",
+      "case_id": "20061227000003",
+      "case_name": "礁溪二龍競渡",
+      "verdict": "annual",
+      "basis": "nchdb 20061227000003「礁溪二龍競渡」holdPeriod 為「每年」。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_7",
+      "name": "武轎踩街",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「武轎踩街」個案（搜「武轎」「踩街」皆 0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_8",
+      "name": "乞龜與元宵",
+      "case_id": "20250716000001",
+      "case_name": "澎湖上元乞龜",
+      "verdict": "annual",
+      "basis": "nchdb 20250716000001「澎湖上元乞龜」holdPeriod 逐字為「每年舉辦1次」，範圍涵蓋澎湖各鄉市，與 repo「乞龜與元宵」（lunar 01-15）相符。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_10",
+      "name": "新北平安夜",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無此個案（市府耶誕活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_11",
+      "name": "北海岸傳奇媽祖文化祭",
+      "case_id": "20190128000004",
+      "case_name": "金包里二媽回野柳媽祖洞祭典",
+      "verdict": "annual",
+      "basis": "nchdb 20190128000004「金包里二媽回野柳媽祖洞祭典」holdPeriod「每年」，農曆 4/16~4/16、地點金山區與萬里區，與 repo 的 lunar 04-16＋「北海岸」完全吻合。【推測】名稱不同（市府活動名 vs 登錄個案名），此對應是以「同一農曆日期＋同一地緣＋同為迎媽祖」推得，非字面比對。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_12",
+      "name": "新北市玄天上帝文化祭",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「玄天上帝文化祭」個案。未另查得權威週期公告。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20130207000006",
+          "case_name": "新莊保元宮弄過火",
+          "gov": "新北市政府",
+          "hold_period": "每年",
+          "hold_calendar_type": "農曆"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_13",
+      "name": "恭祝天上聖母聖誕活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類臺北市無此個案（無法判定所指宮廟）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_14",
+      "name": "臺北母娘文化季—保民遶境嘉年華活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「母娘文化季」個案。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_15",
+      "name": "青山靈安尊王暗訪暨遶境活動",
+      "case_id": "20100726000002",
+      "case_name": "艋舺青山宮暗訪暨遶境",
+      "verdict": "annual",
+      "basis": "nchdb 20100726000002「艋舺青山宮暗訪暨遶境」holdPeriod 欄位為「其他」，但同筆內文逐字載「每年艋舺青山宮均循例舉行盛大的『青山王祭典』活動…農曆10月20、21日青山王巡察暗訪」與「雖曾中斷，現仍每年如期舉行」——來源本身有正面的每年陳述，且農曆 10/20 與 repo 相符。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_16",
+      "name": "三山國王客家文化節活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「三山國王」個案（搜「三山國王」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_17",
+      "name": "臺北開齋節暨穆斯林嘉年華",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "回曆項目，依交辦不在本次範圍（頁面已刻意不換算）。另查：nchdb 民俗類無此個案。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_18",
+      "name": "北臺灣媽祖文化節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「北臺灣媽祖文化節」個案（跨縣市政府活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_19",
+      "name": "中元盂蘭盆勝會",
+      "case_id": "20131225000004",
+      "case_name": "艋舺龍山寺中元盂蘭盆勝會",
+      "verdict": "annual",
+      "basis": "nchdb 20131225000004「艋舺龍山寺中元盂蘭盆勝會」holdPeriod 欄位為「其他」，但同筆內文逐字載「自農曆六月末日地藏王廟發表開始，至七月末日龍山寺謝燈篙而告一段落，每年均有眾多民眾參與」——來源本身有正面的每年陳述。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_20",
+      "name": "迎尪公巡田園活動",
+      "case_id": "20260302000004",
+      "case_name": "臺北迎尪公",
+      "verdict": "annual",
+      "basis": "nchdb 20260302000004「臺北迎尪公」（臺北市政府，臺北市文山區）holdPeriod「每年」，內文明載「巡田園『送蝝』除蟲」，與 repo「迎尪公巡田園活動」同一民俗。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_21",
+      "name": "夜弄土地公活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「夜弄土地公」個案（搜「夜弄」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_22",
+      "name": "天上聖母聖誕遶境",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類臺北市無此個案（無法判定所指宮廟）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_23",
+      "name": "傳統過炭火儀式",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「過炭火」個案（搜「炭火」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_24",
+      "name": "桃園燈節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「桃園燈節」個案（「燈節」僅命中新北平溪天燈節）。市府年度活動，未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_25",
+      "name": "臺中媽祖國際觀光文化節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「臺中媽祖國際觀光文化節」個案（市府活動包裝，非登錄民俗）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_26",
+      "name": "開齋節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "回曆項目，依交辦不在本次範圍（頁面已刻意不換算）。另查：nchdb 民俗類無此個案。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_27",
+      "name": "巧聖仙師文化祭",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「巧聖仙師」個案（搜「巧聖」「仙師」皆 0 筆；20080415000003「鹿港魯班公宴」同為農曆 5/7 但屬彰化縣、不同活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_28",
+      "name": "「利澤簡走尪」活動—扛神轎巡八大庄",
+      "case_id": "20061227000004",
+      "case_name": "利澤簡走尪",
+      "verdict": "annual",
+      "basis": "nchdb 20061227000004「利澤簡走尪」holdPeriod 為「每年」；同為宜蘭縣五結鄉利澤簡永安宮元宵扛神轎巡庄，名稱雖為政府活動包裝但實質同一。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_29",
+      "name": "福神弄龜",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「福神弄龜」個案（搜「弄龜」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_30",
+      "name": "土地公春遊",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「土地公春遊」個案。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_31",
+      "name": "三月初三帝爺生迎鬧熱呷拜拜",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無對應個案（搜「帝爺」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_32",
+      "name": "彰化縣媽祖祈福文化節",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「彰化縣媽祖祈福文化節」個案。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_33",
+      "name": "鹿港慶端陽系列活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「鹿港慶端陽」個案（搜「端陽」0 筆；20080415000003「鹿港魯班公宴」為農曆 5/7 的不同活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_34",
+      "name": "花壇文德宮白沙坑迎燈排",
+      "case_id": "20080415000002",
+      "case_name": "花壇白沙坑迎花燈",
+      "verdict": "annual",
+      "basis": "nchdb 20080415000002「花壇白沙坑迎花燈」holdPeriod「每年」、農曆 1/14~1/16，主辦為彰化花壇白沙坑文德宮，與 repo「花壇文德宮白沙坑迎燈排」同一活動（迎燈排＝迎花燈）。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_35",
+      "name": "南瑤宮笨港進香",
+      "case_id": "20150309000002",
+      "case_name": "彰化南瑤媽笨港進香",
+      "verdict": "annual",
+      "basis": "nchdb 20150309000002「彰化南瑤媽笨港進香」（彰化縣政府，主辦彰化縣南瑤宮笨港進香文化推廣協會）holdPeriod「每年」、holdEnd 農曆 3/23，與 repo 的 lunar 03-22 相近。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20151221000002",
+          "case_name": "新港奉天宮迎南瑤宮媽祖請火 ",
+          "gov": "嘉義縣政府",
+          "hold_period": "每逢(隔)1年舉行一次",
+          "hold_calendar_type": "其他"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_36",
+      "name": "南投縣草屯鎮敦和宮—財神祭活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「敦和宮／財神祭」個案（搜「敦和」「財神」皆 0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_37",
+      "name": "聖誕踩街報佳音活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無此個案（縣府耶誕報佳音活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_38",
+      "name": "民雄大士爺祭",
+      "case_id": "20090619000002",
+      "case_name": "民雄大士爺祭典",
+      "verdict": "annual",
+      "basis": "nchdb 20090619000002「民雄大士爺祭典」holdPeriod「每年」。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_39",
+      "name": "釋迦佛祖聖誕暨建寺週年系列活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無「釋迦佛祖聖誕暨建寺週年」個案（搜「釋迦」0 筆）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_40",
+      "name": "天上聖母聖誕系列活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無花蓮縣之「天上聖母聖誕系列活動」個案。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_41",
+      "name": "「天降神子．真愛基隆」歡慶聖誕活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類無此個案（市府耶誕活動）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_42",
+      "name": "「城隍夜巡諸羅城」活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類嘉義市僅盪鞦韆、震安宮八家將、城隍廟中元祭典、九華山地藏庵過爐、鎮北宮什家將，無「城隍夜巡諸羅城」（20230620000002「府城縣城隍夜巡」屬臺南市）。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_43",
+      "name": "連江縣元宵節擺暝文化季",
+      "case_id": "20091230000001",
+      "case_name": "馬祖擺暝祭",
+      "verdict": "annual",
+      "basis": "nchdb 20091230000001「馬祖擺暝祭」（連江縣政府）holdPeriod「每年」；文化部 20190807000001「馬祖擺暝」亦為「每年」。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20190807000001",
+          "case_name": "馬祖擺暝",
+          "gov": "文化部",
+          "hold_period": "每年",
+          "hold_calendar_type": "農曆"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_44",
+      "name": "連江縣媽祖聖誕慶典活動",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類連江縣僅擺暝（兩筆）與 20221107000002 馬祖鼓板樂，無媽祖聖誕慶典個案。未另查得權威週期公告。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_46",
+      "name": "臺北保安宮—保生文化祭",
+      "case_id": "20211014000001",
+      "case_name": "大龍峒保安宮保生大帝聖誕慶典",
+      "verdict": "annual",
+      "basis": "nchdb 20211014000001「大龍峒保安宮保生大帝聖誕慶典」holdPeriod 逐字為「每年舉辦1次」。",
+      "next_known": null,
+      "date_conflict": "nchdb holdStart/holdEnd 皆為農曆 3/14，repo 記 lunar 03-15（保生大帝聖誕正日）。差一日，屬同一慶典的不同段落（3/14 遶境、3/15 聖誕），列為輕微不一致。"
+    },
+    {
+      "lc_id": "lc_47",
+      "name": "五月十三迎城隍",
+      "case_id": "20100726000001",
+      "case_name": "台北霞海城隍廟五月十三迎城隍",
+      "verdict": "annual",
+      "basis": "nchdb 20100726000001「台北霞海城隍廟五月十三迎城隍」holdPeriod 欄位為「其他」，但同筆內文逐字載「霞海城隍祭典可追溯至光緒五年…除日治時代曾中斷外，現仍每年如期舉行」、「至今仍每年重覆例行舉行」——來源本身有正面的每年陳述。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_48",
+      "name": "端午節「穿木屐躦鯪鯉」活動",
+      "case_id": "20080812000002",
+      "case_name": "犁頭店穿木屐躦鯪鯉",
+      "verdict": "annual",
+      "basis": "nchdb 20080812000002「犁頭店穿木屐躦鯪鯉」holdPeriod 欄位為「其他」，但同筆 ceremonyFeature 逐字載「每年端午午時舉行競賽」——來源本身有正面的每年陳述。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_49",
+      "name": "宜蘭放水燈節",
+      "case_id": "20090121000002",
+      "case_name": "宜蘭放水燈",
+      "verdict": "annual",
+      "basis": "nchdb 20090121000002「宜蘭放水燈」holdPeriod 為「每年」。",
+      "next_known": null,
+      "date_conflict": "nchdb 記農曆 6/28~7/2，repo 記農曆 07-15，日期不在來源區間內。"
+    },
+    {
+      "lc_id": "lc_50",
+      "name": "二結王公過火",
+      "case_id": "20110209000001",
+      "case_name": "二結王公過火",
+      "verdict": "annual",
+      "basis": "nchdb 20110209000001「二結王公過火」holdPeriod 為「每年」。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_51",
+      "name": "頭城搶孤",
+      "case_id": "20061227000002",
+      "case_name": "頭城搶孤",
+      "verdict": "unknown",
+      "basis": "nchdb 20061227000002「頭城搶孤」holdPeriod 逐字為「不定期 由頭城搶孤中元祭典協會會員大會決定」——來源明載不定期，不可推定為每年。",
+      "next_known": "無權威公告。（網路活動平台有 2026 年日期，但非主辦方或政府公告，不採用。）",
+      "date_conflict": "nchdb 儀式描述為「農曆七月二十九日子時搶孤活動開始」，repo 記農曆 07-30。"
+    },
+    {
+      "lc_id": "lc_52",
+      "name": "冬山八寶綰絭",
+      "case_id": "20061227000005",
+      "case_name": "冬山八寶捾絭",
+      "verdict": "annual",
+      "basis": "nchdb 20061227000005「冬山八寶捾絭」holdPeriod 為「每年」；repo 寫「綰絭」、nchdb 寫「捾絭」，同一活動（冬山石聖爺廟七夕綰絭）。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_53",
+      "name": "義民節慶祝大典",
+      "case_id": "20090608000002",
+      "case_name": "褒忠亭義民節祭典",
+      "verdict": "annual",
+      "basis": "nchdb 20090608000002「褒忠亭義民節祭典」（新竹縣政府）holdPeriod「每年」、農曆 7/18~7/20，與 repo 的 lunar 07-20 相符；文化部 20150326000001 同名個案亦為「每年」。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20150326000001",
+          "case_name": "褒忠亭義民節祭典",
+          "gov": "文化部",
+          "hold_period": "每年",
+          "hold_calendar_type": "農曆"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_54",
+      "name": "南投縣竹山鎮紫南宮「土地公吃丁酒」活動",
+      "case_id": "20090902000002",
+      "case_name": "竹山社寮紫南宮吃丁酒",
+      "verdict": "annual",
+      "basis": "nchdb 20090902000002「竹山社寮紫南宮吃丁酒」holdPeriod 為「每年」。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20090423000007",
+          "case_name": "竹山社寮紫南宮借金",
+          "gov": "南投縣政府",
+          "hold_period": "不定期 不定時，持續進行中。 每年農曆正月、新年假期期間，為高峰期，大量香客蜂擁回廟借、還金。",
+          "hold_calendar_type": "其他"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_55",
+      "name": "南投縣名間鄉受天宮—元宵節米糕桃祈福活動及玄天上帝聖誕活動",
+      "case_id": "20120913000001",
+      "case_name": "南投縣名間鄉受天宮玄天上帝香期",
+      "verdict": "annual",
+      "basis": "nchdb 20120913000001「南投縣名間鄉受天宮玄天上帝香期」holdPeriod 為「每年」，與 repo 品名中的「玄天上帝聖誕活動」同指受天宮香期。",
+      "next_known": null,
+      "date_conflict": "nchdb 內文載香期「自農曆正月底便開始…延續至農曆三月底左右」，repo 記農曆 01-15（元宵米糕桃），不在該區間；元宵米糕桃這一段 nchdb 並未登錄。"
+    },
+    {
+      "lc_id": "lc_56",
+      "name": "東隆宮迎王平安祭典",
+      "case_id": "20190515000004",
+      "case_name": "東港迎王平安祭典",
+      "verdict": "n_year",
+      "basis": "nchdb 20190515000004「東港迎王平安祭典」（屏東縣政府登錄，主辦單位東港東隆宮）holdPeriod 逐字為「每逢(隔)3年舉行一次」；文化部重要民俗 20100618000011 同名個案亦為「每逢(隔)3年舉行一次」，兩筆一致。",
+      "next_known": "下一科為 2027（丁未）年——三年一科，逢丑、辰、未、戌年；2024 甲辰正科已辦畢，2024-10-08 已抽定 2027 丁未科職務。確切日期由東隆宮擲筊決定，尚未公告。來源：https://www.dbnsa.gov.tw/Festival-Content.aspx?Lang=1&SNo=03001990 、 https://www.ettoday.net/news/20241009/2831966.htm",
+      "alt_cases": [
+        {
+          "case_id": "20100618000011",
+          "case_name": "東港迎王平安祭典",
+          "gov": "文化部",
+          "hold_period": "每逢(隔)3年舉行一次",
+          "hold_calendar_type": "其他"
+        }
+      ],
+      "date_conflict": "nchdb 兩筆 holdCalendarType 皆為「其他」且無 holdStart，日期由擲筊決定；repo 記 lunar 09-01 為固定農曆日，與來源不符。"
+    },
+    {
+      "lc_id": "lc_57",
+      "name": "萬金聖母遊行",
+      "case_id": "20120426000004",
+      "case_name": "天主教萬金聖母遊行",
+      "verdict": "annual",
+      "basis": "nchdb 20120426000004「天主教萬金聖母遊行」holdCalendarType「國曆」、holdPeriod「每年」，與 repo 的 solar 12-12 一致。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_58",
+      "name": "鷄籠中元祭",
+      "case_id": "20071008000004",
+      "case_name": "鷄籠中元祭",
+      "verdict": "annual",
+      "basis": "nchdb 20071008000004「鷄籠中元祭」（基隆市政府）holdPeriod「每年」；文化部重要民俗 20080129000001 同名個案亦為「每年」，兩筆一致。",
+      "next_known": null,
+      "alt_cases": [
+        {
+          "case_id": "20080129000001",
+          "case_name": "鷄籠中元祭",
+          "gov": "文化部",
+          "hold_period": "每年",
+          "hold_calendar_type": "農曆"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_59",
+      "name": "「嘉義市鞦韆節」活動",
+      "case_id": "20081209000001",
+      "case_name": "下路頭玄天上帝廟盪鞦韆",
+      "verdict": "unknown",
+      "basis": "nchdb 20081209000001「下路頭玄天上帝廟盪鞦韆」holdPeriod 逐字為「不定期 5年2閏」，內文亦載「辦理週期為每逢閏年、閏月的農曆3月6日」；但市府與媒體報導自 2008 年起經擲筊改為每年辦理，2025 年（114 年）鞦韆節已於 2025-03-30 舉行。兩者矛盾，依規則標 unknown，不自行擇一。來源：https://www.cna.com.tw/postwrite/chi/397889 、 https://udn.com/news/story/7326/8641743",
+      "next_known": "現行為每年辦理（若採此說即為 annual）；nchdb 登錄文字未更新。無「下一科」型公告。"
     },
     {
       "lc_id": "lc_60",
@@ -36,18 +591,111 @@
       "case_id": null,
       "case_name": null,
       "verdict": "n_year",
-      "basis": "nchdb 民俗類 266 筆內查無此案（麻豆／代天府／南巡／五府千歲／香科／刈香 全掃過）。改由廟方官網 5god.com.tw 年度公告與臺南市政府新聞稿「1967 年開始固定每三年一科」互驗；lc 原始欄位 solar 04-25 推不出任一實際科期，不可用",
-      "next_known": "2027-04-30~05-02（丁未科，麻豆代天府官網公告：國曆4月30日~5月2日／農曆3月24日~3月26日）"
+      "basis": "nchdb 民俗類 266 筆查無麻豆香個案（搜「麻豆」僅命中 20231018000001「竹仔港麻豆寮南平社德安宮金獅陣」，不同活動）。但 no_case ≠ 每年：麻豆代天府麻豆香為南瀛五大香之一，逢丑、辰、未、戌年三年一科（農曆三、四月）；臺南市政府 2024 年新聞稿「甲辰麻豆、西港香，百年文化新氣象」可證 2024 甲辰科舉行。來源：https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8635723 、 https://zh.wikipedia.org/zh-tw/%E9%BA%BB%E8%B1%86%E9%A6%99",
+      "next_known": "下一科為 2027（丁未）年，農曆三、四月。【推測】確切日期尚無主辦廟公告。",
+      "date_conflict": "repo 記 solar 04-25（國曆），但來源一致指向農曆三月中下旬至四月，曆別與日期皆不符。"
     },
     {
       "lc_id": "lc_61",
       "name": "學甲香",
       "case_id": "20080627000002",
       "case_name": "學甲上白礁暨刈香",
-      "verdict": "unknown",
-      "basis": "同一場活動有兩筆登錄且週期記載矛盾：20080627000002「其他」、20220926000003「每年」。上白礁謁祖是每年、香科是數年一科，而 lc 這一筆的名稱『學甲香』無法判定指哪一個 → 不推定",
+      "verdict": "n_year",
+      "basis": "nchdb 20080627000002「學甲上白礁暨刈香」holdPeriod 欄位為「其他」，但同筆內文逐字載「學甲慈濟宮除每年固定舉行『上白礁』謁祖祭典及繞境外，亦每隔4年舉行一次刈香，亦即「學甲香」」——repo 品名為「學甲香」＝刈香，故判 n_year。維基百科所列學甲香舉辦年份（1971、1978、1984、1988、1992、1996、2000、2004、2008、2012、2016）亦呈四年一科。",
+      "next_known": "無公告。四年一科，但 2016 年之後的實際科年未查得權威來源。",
+      "alt_cases": [
+        {
+          "case_id": "20220926000003",
+          "case_name": "學甲上白礁",
+          "gov": "文化部",
+          "hold_period": "每年",
+          "hold_calendar_type": "其他"
+        }
+      ],
+      "date_conflict": "nchdb 內文載每年上白礁為「農曆3月11日」（保生大帝誕辰為 3/15、故提前渡海），repo 記 lunar 03-15。"
+    },
+    {
+      "lc_id": "lc_64",
+      "name": "土城香",
+      "case_id": "20130128000002",
+      "case_name": "鹿耳門聖母廟土城仔香",
+      "verdict": "n_year",
+      "basis": "nchdb 20130128000002「鹿耳門聖母廟土城仔香」holdPeriod 逐字為「每逢(隔)3年舉行一次」，農曆 3/15~3/18，主辦正統鹿耳門聖母廟。repo 寫「土城香」、nchdb 寫「鹿耳門聖母廟土城仔香」，同一活動。",
+      "next_known": "下一科為 2027（丁未）年農曆三月中旬——逢丑、辰、未、戌年三年一科。【推測】確切日期尚無主辦廟公告。來源：https://zh.wikipedia.org/zh-tw/%E5%9C%9F%E5%9F%8E%E4%BB%94%E9%A6%99 、 https://www.swcoast-nsa.gov.tw/zh-tw/cultural-heritage/details/8",
+      "date_conflict": "nchdb 記農曆 3/15~3/18，repo 記農曆 03-19，落在來源區間之外。"
+    },
+    {
+      "lc_id": "lc_65",
+      "name": "西港香",
+      "case_id": "20080627000001",
+      "case_name": "西港刈香",
+      "verdict": "n_year",
+      "basis": "nchdb 20080627000001「西港刈香」（臺南市政府）holdPeriod 逐字為「每逢(隔)3年舉行一次」；文化部重要民俗 20090217000006「西港刈香」亦為「每逢(隔)3年舉行一次」，兩筆一致。repo 寫「西港香」、nchdb 寫「西港刈香」，同一活動。",
+      "next_known": "下一科為 2027（丁未）年——逢丑、辰、未、戌年三年一科，2024 甲辰香科已辦畢。【推測】確切日期尚無公告。來源：https://www.tainan.gov.tw/news_content.aspx?n=13370&s=8635723 、 https://zh.wikipedia.org/zh-tw/%E8%A5%BF%E6%B8%AF%E5%88%88%E9%A6%99",
+      "alt_cases": [
+        {
+          "case_id": "20090217000006",
+          "case_name": "西港刈香",
+          "gov": "文化部",
+          "hold_period": "每逢(隔)3年舉行一次",
+          "hold_calendar_type": "農曆"
+        }
+      ],
+      "date_conflict": "臺南市那筆 holdCalendarType 為「國曆」、holdStart 5/15~5/31；文化部那筆為「農曆」且無日期；repo 記 lunar 04-01。三方曆別／日期互不相同。"
+    },
+    {
+      "lc_id": "lc_66",
+      "name": "蕭壟香",
+      "case_id": "20090115000003",
+      "case_name": "佳里金唐殿蕭壠香",
+      "verdict": "n_year",
+      "basis": "nchdb 20090115000003「佳里金唐殿蕭壠香」holdPeriod 逐字為「每逢(隔)3年舉行一次」，農曆 1/15~1/23。repo 寫「蕭壟」、nchdb 寫「蕭壠」，以「壟」在 266 筆中搜不到。",
+      "next_known": "2026 丙午科已於 2026 年 3 月上旬舉行完畢；依「逢農曆子、卯、午、酉年正月中旬」之科期，下一科為 2029（己酉）年。【推測】2029 尚無主辦廟公告。來源：https://zh.wikipedia.org/zh-tw/%E4%BD%B3%E9%87%8C%E9%87%91%E5%94%90%E6%AE%BF%E8%95%AD%E5%A3%A0%E9%A6%99"
+    },
+    {
+      "lc_id": "lc_67",
+      "name": "東山迎佛祖",
+      "case_id": "20110825000009",
+      "case_name": "東山碧軒寺迎佛祖暨遶境",
+      "verdict": "annual",
+      "basis": "nchdb 文化部重要民俗 20110825000009「東山碧軒寺迎佛祖暨遶境」holdPeriod 逐字為「每年」，內文載「農曆12月23日送駕上山至火山碧雲寺」，與 repo 的 lunar 12-23 完全相符。",
       "next_known": null,
-      "alt_cases": ["20220926000003"]
+      "alt_cases": [
+        {
+          "case_id": "20090115000004",
+          "case_name": "東山碧軒寺迎佛祖暨遶境",
+          "gov": "臺南市政府",
+          "hold_period": "其他",
+          "hold_calendar_type": "農曆"
+        }
+      ]
+    },
+    {
+      "lc_id": "lc_68",
+      "name": "做十六歲",
+      "case_id": "20080618000001",
+      "case_name": "七娘媽生，做十六歲",
+      "verdict": "annual",
+      "basis": "nchdb 20080618000001「七娘媽生，做十六歲」holdPeriod「每年」、農曆 7/7，主辦開隆宮，與 repo 的 lunar 07-07 相符。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_73",
+      "name": "鹽水蜂炮",
+      "case_id": "20080627000004",
+      "case_name": "鹽水蜂炮",
+      "verdict": "annual",
+      "basis": "nchdb 20080627000004「鹽水蜂炮」holdPeriod「每年」、農曆 1/14~1/15，與 repo 的 lunar 01-15 相符。",
+      "next_known": null
+    },
+    {
+      "lc_id": "lc_74",
+      "name": "雞籠城隍文化祭",
+      "case_id": null,
+      "case_name": null,
+      "verdict": "no_case",
+      "basis": "nchdb 民俗類基隆市僅 20071008000004／20080129000001（中元祭）與 20240507000001（和平島王爺海上遊江），無「雞籠城隍文化祭」。未另查得權威週期公告。",
+      "next_known": null
     }
   ]
 }

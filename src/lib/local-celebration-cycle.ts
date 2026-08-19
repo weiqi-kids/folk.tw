@@ -20,11 +20,11 @@
 //   那份對帳在 `src/data/local-celebration-cases.json`。
 //   **本支只做 join 與分類，不自己認定週期、也不猜對映。**
 //
-// ⚠️ **殘留風險，寫在這裡以免下一個人以為已經全對過**：對帳檔目前只涵蓋已查證的那幾筆，
-//    **未對帳的項目一律沿用來源的月日照算（＝維持既有行為）**。理由是內政部那份清單
-//    本身是以「年度慶典」的形式登錄月日，多數項目確實每年舉辦，全部停算會讓頁面
-//    失去用途；但這也意味著**未對帳項目的年度性沒有經過驗證**。對帳補齊到哪裡，
-//    看 `local-celebration-cases.json` 的 items 數。
+// ⚠️ **殘留風險，寫在這裡以免下一個人以為已經全查證過**：65 筆都已逐筆對帳，
+//    但其中相當一部分的 verdict 是 `no_case`（nchdb 民俗類查無此案，多為市府活動
+//    包裝或未登錄民俗）。**那不是「已驗證每年」，是沒有反向證據**，所以維持照算。
+//    把「查不到」當成「不是每年」會反過來製造另一種錯誤陳述，兩邊都不能亂推。
+//    各 verdict 各幾筆別寫死在文件裡，跑 `nonAnnualCount()` 或直接數對帳檔。
 //
 // 🔴 改這支之前先想清楚：任何「顯示一個算出來的日期」的決定，都是在替主辦方
 //    宣稱那天有活動。寧可顯示「日期以主辦廟公告為準」，也不要顯示一個好看的錯日期。
@@ -43,7 +43,8 @@ type CaseRow = {
   verdict: string;
   basis: string;
   next_known?: string | null;
-  alt_cases?: string[];
+  alt_cases?: unknown[];
+  date_conflict?: string;
 };
 
 const caseByLcId = new Map<string, CaseRow>((cases.items as CaseRow[]).map((x) => [x.lc_id, x]));
@@ -75,38 +76,57 @@ export function celebrationCycle(lcId: string): CelebrationCycle {
   const periodText = row.case_id ? (periodByCaseId.get(row.case_id) ?? null) : null;
 
   if (row.verdict === 'annual') {
-    // 🔴 對帳說「每年」但官方原文不是「每年」＝兩份記載矛盾 → **保守不算**。
-    //    對帳是人工判斷、會出錯；`hold_period` 是官方原文。矛盾時信官方，
-    //    而且寧可少顯示一個日期，也不要顯示一個錯的。（沒對到個案就沒得比，照對帳走。）
-    const contradicts = periodText !== null && !ANNUAL_PERIOD.test(periodText);
+    // 🔴 對帳說「每年」但官方原文**明確說了別的週期**＝兩份記載矛盾 → 保守不算。
+    //    ⚠️ 判準刻意收窄成「每逢…」「不定期…」這種**明確的週期陳述**：
+    //    `hold_period` 還有一個值是「其他」，那代表**來源沒有分類**，不是來源說不是每年。
+    //    第一版把「其他」也當矛盾，結果誤停 4 筆——而那 4 筆的對帳依據正是同一份 nchdb
+    //    內文的逐字正面陳述（青山宮「雖曾中斷，現仍每年如期舉行」、龍山寺盂蘭盆
+    //    「每年均有眾多民眾參與」）。**空白的欄位不能當成反向證據。**
+    const contradicts =
+      periodText !== null && /(每逢|不定期)/.test(periodText) && !ANNUAL_PERIOD.test(periodText);
     if (!contradicts) {
       return { annual: true, periodText, note: null, caseId: row.case_id, basis: row.basis };
     }
     return {
       annual: false,
       periodText,
-      note: `舉辦週期的登錄資料記為「${periodText}」，日期以主辦廟公告為準`,
+      note: `舉辦週期的登錄資料記為「${periodText}」，日期以主辦單位公告為準`,
       caseId: row.case_id,
       basis: `${row.basis}（⚠️ 與官方 hold_period 矛盾，已保守不換算）`,
     };
   }
 
+  // 🔴 `no_case`＝nchdb 查無此案，**那不是「不是每年」，是還沒裁決**。
+  //    這 30 筆沒有任何反向證據，維持既有算法（照來源月日算）——把「查不到」
+  //    當成「不是每年」會反過來製造另一種錯誤陳述。
+  if (row.verdict === 'no_case') {
+    return { annual: true, periodText, note: null, caseId: row.case_id, basis: row.basis };
+  }
+
   // 措辭刻意分兩種，因為兩者的事實強度不同（本 repo 踩過「有這個殿」被寫成「有在辦」的坑）：
   //   n_year  ＝有權威記載說它不是每年 → 可以說「數年一科」
-  //   unknown ＝來源沒說或兩筆記載矛盾 → 只能說「未記為每年」，不可自己說成數年一科
+  //   unknown ＝來源記為不定期、或兩個來源互斥 → 只能說「未記為每年」，不可自己升級成數年一科
   //     ⚠️ 有對到個案才可以說「登錄資料記為…」；沒對到個案（如麻豆香，nchdb 查無此案、
   //     依據是廟方官網與市府新聞稿）卻那樣寫，就是替官方文件說了它沒說的話。
+  //     另外「其他」這種值不是週期陳述，引它等於讓讀者以為官方說了什麼——所以只有
+  //     真的是週期描述（含「年」或「不定期」）時才引原文。
+  const quotable = periodText !== null && /(年|不定期)/.test(periodText);
   const note =
     row.verdict === 'n_year'
-      ? periodText
-        ? `數年一科（登錄資料記為「${periodText}」），下一科日期以主辦廟公告為準`
-        : '數年一科，下一科日期以主辦廟公告為準'
-      : '舉辦週期的登錄資料未記為每年，日期以主辦廟公告為準';
+      ? quotable
+        ? `數年一科（登錄資料記為「${periodText}」），下一科日期以主辦單位公告為準`
+        : '數年一科，下一科日期以主辦單位公告為準'
+      : quotable
+        ? `舉辦週期的登錄資料記為「${periodText}」，日期以主辦單位公告為準`
+        : '舉辦週期的登錄資料未記為每年，日期以主辦單位公告為準';
 
   return { annual: false, periodText, note, caseId: row.case_id, basis: row.basis };
 }
 
-/** 已對帳、且判定為非每年的項目數（給文件與 gate 用，不要在頁面寫死數字）。 */
+/**
+ * 已判定為「不可算國曆日期」的項目數（給文件與 gate 用，不要在頁面寫死數字）。
+ * ⚠️ `no_case` 不算在內——它是「查無個案、未裁決」，行為上與 `annual` 相同。
+ */
 export function nonAnnualCount(): number {
-  return (cases.items as CaseRow[]).filter((x) => x.verdict !== 'annual').length;
+  return (cases.items as CaseRow[]).filter((x) => x.verdict === 'n_year' || x.verdict === 'unknown').length;
 }
