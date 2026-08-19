@@ -33,7 +33,9 @@
 //   node scripts/import-festivals.mjs --write    # 實際寫回 src/data/temples.json
 //   node scripts/import-festivals.mjs --sample 20
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
+// 🔴 資料集寫入、來源標註、合併鍵正規化、entity 解碼**一律走這支**（唯一入口，見其檔頭）。
+import { attachSource, cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
 
 const HTML = '/root/.config/folk-tw/intake/inbox/religion-festival/festival-entry.html';
 const XML = '/root/.config/folk-tw/temple.xml';
@@ -43,20 +45,13 @@ const FETCHED_ON = '2026-07-30'; // 台灣端投遞管道的抓取日（見 docs
 const SOURCE_REF = '內政部全國宗教資訊網・慶(祭)典查詢 https://religion.moi.gov.tw/Festival/Festival?ci=1';
 const SOURCE_NOTE = `年度慶(祭)典名稱、農曆／國曆日期與說明；抓取日 ${FETCHED_ON}`;
 
-const args = process.argv.slice(2);
-const WRITE = args.includes('--write');
-const SAMPLE = Number(args[args.indexOf('--sample') + 1]) || 8;
+const flags = cliFlags();
+const WRITE = flags.write;
+const SAMPLE = Number(flags.value('--sample')) || 8;
 
 // ── 解析 ────────────────────────────────────────────────────────────────────
 const stripTags = (s) => s.replace(/<[^>]+>/g, '');
-const unescapeHtml = (s) =>
-  s
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&amp;/g, '&');
+const unescapeHtml = decodeEntities; // lib/dataset-commit.mjs 的唯一一份（另含數值型 entity）
 
 const COLS = ['name', 'org', 'religion', 'area', 'date', 'phone', 'desc'];
 
@@ -125,7 +120,7 @@ function normalizeDate(raw) {
 // （初版自寫正則曾在桃園區／麻豆區等 12 處對不上——lib 依縣市別區分後綴並做臺→台正規化。）
 const { templeCounty, templeTownship } = await import('../src/lib/temple-region.ts');
 
-const norm = (s) => (s ?? '').replace(/臺/g, '台').trim();
+// norm 來自 lib/dataset-commit.mjs（統一為「臺→台＋刪全部空白」；2026-08-19 實測配對結果不變）。
 const regionKey = (d) => {
   const c = templeCounty(d);
   const t = templeTownship(d);
@@ -274,11 +269,8 @@ for (const t of temples) {
   touched++;
   t.festivals = list;
   if (t.main_festival) keptCurated++; // 已查證的敘述句保留，本檔不碰
-  t.sources = t.sources ?? [];
-  if (!t.sources.some((s) => s.ref === SOURCE_REF)) {
-    t.sources.push({ type: 'gov', ref: SOURCE_REF, note: SOURCE_NOTE });
-    sourcesAdded++;
-  }
+  // ref 是固定字串 → 用預設的「ref 完全相同」判準（見 lib/dataset-commit.mjs 檔頭 ⑤）。
+  if (attachSource(t, { ref: SOURCE_REF, note: SOURCE_NOTE })) sourcesAdded++;
 }
 
 const totalFestivals = [...collected.values()].reduce((n, l) => n + l.length, 0);
@@ -309,9 +301,10 @@ for (const t of temples.filter((x) => x.festivals?.length).slice(0, SAMPLE)) {
   }
 }
 
-if (WRITE) {
-  writeFileSync(TEMPLES, `${JSON.stringify(temples, null, 2)}\n`);
-  console.log(`\n✅ 已寫回 ${TEMPLES}`);
-} else {
-  console.log('\n（乾跑，未寫檔。確認上面數字後加 --write）');
-}
+commitDataset({
+  path: TEMPLES,
+  data: temples,
+  write: WRITE,
+  dryNote: '\n（乾跑，未寫檔。確認上面數字後加 --write）',
+  doneNote: `\n✅ 已寫回 ${TEMPLES}`,
+});

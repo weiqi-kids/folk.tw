@@ -10,12 +10,11 @@
 // 🔴 個資：結果頁每列都帶電話與負責人，本模組只取廟名與行政區／地址兩格，其餘不碰。
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
+// 合併鍵正規化與 entity 解碼的**唯一定義**在 lib/dataset-commit.mjs（2026-08-19 收斂，
+// 抽出前 norm 有四份、entity 解碼有五份）。這裡只是轉出給既有 import 路徑用，不要在此重寫。
+import { norm, decodeEntities as unescapeHtml } from './dataset-commit.mjs';
 
-export const norm = (s) => String(s ?? '').replace(/台/g, '臺').replace(/\s+/g, '').trim();
-
-const unescapeHtml = (s) =>
-  s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+export { norm };
 
 // 🔴 **欄位順序不固定，不可用位置索引**（2026-08-06 實測換來的）：
 //   有的列是 [廟名, 主管機關, 縣市鄉鎮, 地址, 電話, …]

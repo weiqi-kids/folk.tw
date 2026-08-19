@@ -25,20 +25,24 @@
 //   node scripts/import-knowledge-deities.mjs --write     # 實際寫回 src/data/deities.json
 //   node scripts/import-knowledge-deities.mjs --photos    # 另外印出待抓照片清單（給 gen-intake-urls-photos）
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+// 🔴 資料集寫入、旗標解析、來源標註、entity 解碼、合併鍵正規化**一律走這支**（唯一入口）。
+import { attachSource, cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
 
 const DIR = '/root/.config/folk-tw/intake/inbox/knowledge-deities';
 const DEITIES = 'src/data/deities.json';
-const args = process.argv.slice(2);
-const WRITE = args.includes('--write');
-const VERBOSE = args.includes('--verbose');
-const PHOTOS = args.includes('--photos');
+const PHOTO_CANDIDATES = 'docs/knowledge-photo-candidates.json';
+// 🔴 旗標一律從這裡讀（含 --json）。抽出前 --write/--verbose/--photos 讀切好的 args、
+//    而 --json 讀 process.argv，同一支檔案兩種來源，要逐行看才知道吃不吃哪個旗標。
+const flags = cliFlags();
+const WRITE = flags.write;
+const VERBOSE = flags.verbose;
+const PHOTOS = flags.photos;
 
-const unescapeHtml = (s) =>
-  s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+const unescapeHtml = decodeEntities; // lib/dataset-commit.mjs 的唯一一份（另含數值型 entity）
 const stripTags = (s) => s.replace(/<[^>]+>/g, '');
-const norm = (s) => String(s ?? '').replace(/台/g, '臺').replace(/\s+/g, '').trim();
+// norm 來自 lib/dataset-commit.mjs（統一為「臺→台＋刪全部空白」；方向對相等比對可證明等價，
+// 空白處理與本檔原本相同，2026-08-19 實測輸出逐字元不變）。
 
 // ── 造型短語 ────────────────────────────────────────────────────────────────
 // 🔴 2026-08-06 實測（灶神那篇）換來的規則。初版只要求「含造型詞且 ≤40 字」，跑出來是：
@@ -215,14 +219,11 @@ for (const f of files.sort()) {
 
   // 掛源：授權條件就是「標示資料來源連結」，故 ref 直接放那個公開網址。
   if (picked.length || excerpt.length) {
-    d.sources = d.sources ?? [];
-    if (!d.sources.some((s) => String(s.ref ?? '').includes(`cid=${e.cid}`))) {
-      d.sources.push({
-        type: 'gov',
-        ref: `內政部全國宗教資訊網·宗教知識+·${e.name} ${e.url}`,
-        note: '造型・法器與條目引文（逐字擷取，未改寫）；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
-      });
-    }
+    // ref 內含每尊各異的 cid → 用 dedupeBy 只比那段（見 lib/dataset-commit.mjs 檔頭 ⑤）。
+    attachSource(d, {
+      ref: `內政部全國宗教資訊網·宗教知識+·${e.name} ${e.url}`,
+      note: '造型・法器與條目引文（逐字擷取，未改寫）；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
+    }, { dedupeBy: `cid=${e.cid}` });
   }
 
   // 照片：只在該尊「還沒有圖」時列為候選。已有 Commons 圖者不動。
@@ -239,7 +240,7 @@ for (const f of files.sort()) {
 }
 
 // --json：給 scripts/intake-status.mjs 的「待匯入」段消費（契約見 import-temple-history.mjs）。
-if (process.argv.includes('--json')) {
+if (flags.json) {
   console.log(JSON.stringify({
     read: stat.parsed,
     pending: { iconography: stat.iconAdded, moi_knowledge: stat.excerptAdded, 照片候選: stat.photoCand },
@@ -254,13 +255,23 @@ console.log(`  照片候選（該尊尚無圖）${stat.photoCand}`);
 if (stat.unmatched.length && VERBOSE) console.log(`  站上無節點者：${stat.unmatched.join('、')}`);
 
 if (PHOTOS) {
-  writeFileSync('docs/knowledge-photo-candidates.json', JSON.stringify(photoList, null, 1) + '\n');
-  console.log(`  ✓ 照片候選已寫入 docs/knowledge-photo-candidates.json（${photoList.length} 筆）`);
+  // sidecar：縮排 1（沿用現況，見 lib/dataset-commit.mjs 檔頭 ④）；
+  // 它是**會自己排空的工作佇列**，逐筆差異量沒有意義故不印（reportDiff: false）。
+  commitDataset({
+    path: PHOTO_CANDIDATES,
+    data: photoList,
+    write: true, // 這份與 --write 無關，給了 --photos 就產
+    indent: 1,
+    reportDiff: false,
+    doneNote: `  ✓ 照片候選已寫入 ${PHOTO_CANDIDATES}（${photoList.length} 筆）`,
+  });
 }
 
-if (!WRITE) {
-  console.log('\n（乾跑，未寫檔。加 --write 才寫回 deities.json；--photos 另寫照片候選清單。）');
-  process.exit(0);
-}
-writeFileSync(DEITIES, JSON.stringify(deities, null, 2) + '\n');
-console.log(`\n✓ 已寫回 ${DEITIES}`);
+commitDataset({
+  path: DEITIES,
+  data: deities,
+  write: WRITE,
+  dryNote: '\n（乾跑，未寫檔。加 --write 才寫回 deities.json；--photos 另寫照片候選清單。）',
+  doneNote: `\n✓ 已寫回 ${DEITIES}`,
+});
+if (!WRITE) process.exit(0);

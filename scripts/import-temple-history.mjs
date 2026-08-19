@@ -39,10 +39,12 @@
 //   node scripts/import-temple-history.mjs --write --replace-intro
 //   node scripts/import-temple-history.mjs --photos     # 另寫 docs/temple-photo-candidates.json
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 // 🔴 對映與消歧的**唯一實作**在這裡，本檔不再自己寫一份（2026-08-07 抽出，
 //    因為 gen-intake-urls-yange.mjs 也要用同一套判斷「站上有沒有這間廟」）。
-import { buildOwnerMap, makeResolver, norm } from './lib/temple-owner.mjs';
+import { buildOwnerMap, makeResolver } from './lib/temple-owner.mjs';
+// 🔴 資料集寫入、旗標解析、來源標註、entity 解碼、合併鍵正規化**一律走這支**（唯一入口）。
+import { attachSource, cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
 
 const LIST_DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
 // 🔴 內容 JSON **分散在多個 inbox 目錄**，因為 manifest 把它們拆成不同 job：
@@ -57,28 +59,20 @@ const JSON_DIRS = [
   '/root/.config/folk-tw/intake/inbox/religion-jianzhu',
 ];
 const TEMPLES = 'src/data/temples.json';
+const PHOTO_CANDIDATES = 'docs/temple-photo-candidates.json';
 
-const args = process.argv.slice(2);
-const WRITE = args.includes('--write');
-const VERBOSE = args.includes('--verbose');
-const PHOTOS = args.includes('--photos');
-const REPLACE_INTRO = args.includes('--replace-intro');
+// 🔴 旗標一律從這裡讀（含 --json）。抽出前 --json 走 process.argv、其餘走切好的 args。
+const flags = cliFlags();
+const WRITE = flags.write;
+const VERBOSE = flags.verbose;
+const PHOTOS = flags.photos;
+const REPLACE_INTRO = flags.has('--replace-intro');
 
 
-/** HTML entity 解碼（具名＋十進位＋十六進位）。
- * 🔴 2026-08-07 實測必要性：內政部的 `Comment` 直接帶 `&#63886;`（CJK 相容字）這類**數值型** entity，
- *    本檔原本一個都沒解就存進 history，**308 間廟中招**。而 entity 結尾的分號會與後面的標點
- *    連成「;、」「;，」，最終被 check:rendered 的連續標點不變量擋下（CI 紅燈，commit 210049e）。
- *    解碼是**還原來源本字**，不是改寫——「逐字引用」的前提就是先正確解碼。
- * ⚠️ `&amp;` 必須放最後，否則 `&amp;#39;` 會被兩段式誤解。
- */
-const decodeEntities = (s) => String(s ?? '')
-  .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-  .replace(/&nbsp;/g, ' ')
-  .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-  .replace(/&quot;/g, '"').replace(/&apos;/g, "'")
-  .replace(/&amp;/g, '&');
+// HTML entity 解碼：**唯一一份在 lib/dataset-commit.mjs**（2026-08-19 收斂，
+// 抽出前本檔這份是完整版、另外四支各有一份缺數值型解碼的具名版——
+// 而數值型正是 2026-08-07 讓 308 間廟中招、被 check:rendered 擋下的那個 bug）。
+// 解碼是**還原來源本字，不是改寫**：「逐字引用」的前提就是先正確解碼。
 
 const FIELD = { 2: 'history', 3: 'architecture', 4: 'worship_flow' };
 const KIND = { 2: '歷史沿革', 3: '建築特色', 4: '參拜流程' };
@@ -154,15 +148,13 @@ for (const { dir, f } of jsonFiles.sort((a, b) => (a.f < b.f ? -1 : a.f > b.f ? 
     if (field === 'history' && t.intro) stat.coexistIntro++;
     if (REPLACE_INTRO && field === 'history' && t.intro) delete t.intro;
     t[field] = comment;
-    t.sources = t.sources ?? [];
     const ref = `${SOURCE_PREFIX}·${KIND[idx]} https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=${key.split('-')[0]}&IndexID=${idx}&_t=0`;
-    if (!t.sources.some((s) => String(s.ref ?? '').includes(`UploadFileID=${key.split('-')[0]}&IndexID=${idx}`))) {
-      t.sources.push({
-        type: 'gov',
-        ref,
-        note: `${KIND[idx]}（逐字，未改寫）；2026-08-06 經內政部同意使用，條件為標示資料來源連結`,
-      });
-    }
+    // ref 尾巴帶 `&_t=0`、每筆 UploadFileID/IndexID 各異 → 用 dedupeBy 只比穩定那段
+    // （見 lib/dataset-commit.mjs 檔頭 ⑤）。
+    attachSource(t, {
+      ref,
+      note: `${KIND[idx]}（逐字，未改寫）；2026-08-06 經內政部同意使用，條件為標示資料來源連結`,
+    }, { dedupeBy: `UploadFileID=${key.split('-')[0]}&IndexID=${idx}` });
     stat.written[field] = (stat.written[field] ?? 0) + 1;
   }
 
@@ -196,7 +188,7 @@ for (const t of temples) {
 // --json：給 scripts/intake-status.mjs 消費的機器可讀輸出（見該檔「待匯入」段）。
 // 🔴 契約：鍵名是 stat.written 的鍵（history／worship_flow／architecture…），值是「這次會寫幾筆」。
 //    乾跑時＝「收到了但還沒進站」的筆數，那正是狀態報告要的數字。改鍵名要同步改消費端。
-if (process.argv.includes('--json')) {
+if (flags.json) {
   console.log(JSON.stringify({ read: stat.json, pending: stat.written }));
   process.exit(0);
 }
@@ -210,12 +202,22 @@ console.log(`  entity 解碼修正 ${stat.decoded}｜已有不覆寫 ${stat.skip
 console.log(`  照片候選 ${stat.photos}`);
 
 if (PHOTOS) {
-  writeFileSync('docs/temple-photo-candidates.json', JSON.stringify(photoList, null, 1) + '\n');
-  console.log(`  ✓ 照片候選已寫入 docs/temple-photo-candidates.json`);
+  // sidecar：縮排 1（沿用現況，見 lib/dataset-commit.mjs 檔頭 ④）；它是會自己排空的工作佇列，
+  // 逐筆差異量沒有意義故不印。與 --write 無關，給了 --photos 就產。
+  commitDataset({
+    path: PHOTO_CANDIDATES,
+    data: photoList,
+    write: true,
+    indent: 1,
+    reportDiff: false,
+    doneNote: `  ✓ 照片候選已寫入 ${PHOTO_CANDIDATES}`,
+  });
 }
-if (!WRITE) {
-  console.log('\n（乾跑，未寫檔。加 --write 才寫回 temples.json。）');
-  process.exit(0);
-}
-writeFileSync(TEMPLES, JSON.stringify(temples, null, 2) + '\n');
-console.log(`\n✓ 已寫回 ${TEMPLES}`);
+commitDataset({
+  path: TEMPLES,
+  data: temples,
+  write: WRITE,
+  dryNote: '\n（乾跑，未寫檔。加 --write 才寫回 temples.json。）',
+  doneNote: `\n✓ 已寫回 ${TEMPLES}`,
+});
+if (!WRITE) process.exit(0);
