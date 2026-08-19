@@ -69,8 +69,13 @@ export function gateAndFrame(c, { logTag = '[topical]', cadenceNote = 'P1 每 20
     ? `國際命名 ${c.cycloneName}，中文名出自中央氣象署對照表`
     : '中央氣象署正式中文譯名';
   const nameLine = zhName ? `\n${label}名稱：「${zhName}」（${nameOrigin}，直接照抄勿改）` : '';
+  // ⚠️ 2026-08-19 用戶裁示：措辭用「那三個字」（orchestrate 的原始寫法）。
+  //    保留紀錄：CWA 正式中文譯名並非一律三字（docs/topical-blessing.md §3.5 明載
+  //    「紅霞」＝2 字、「杜蘇芮」＝3 字），所以遇到 2 字名時這句與事實不符，
+  //    LLM 可能因此改寫或補字。要改回不預設字數的寫法，把「三個字」換成「幾個字」即可，
+  //    不影響其他任何邏輯。
   const nameRule = zhName
-    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那幾個字，不得改寫或自創其他譯名。`
+    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那三個字，不得改寫或自創其他譯名。`
     : '';
   // 地震來源的 place 是「距震央最近的城市」，常是無辨識度的小鎮（熊本 7.1 → Uki 宇城市）。
   // 反查到的上級行政區一併提供，讓標題選台灣人真的會用的地名。
