@@ -28,7 +28,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008）",
-        "note": "登錄年 2010；2008年先由台中縣政府登錄縣定民俗（府授文資字第0970004811號），2010年文建會指定為國家重要民俗"
+        "note": "登錄年 2010"
       }
     ],
     "draft": false,
@@ -172,7 +172,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007）",
-        "note": "登錄年 2010；2008年先由苗栗縣政府登錄縣定民俗（府文資字第0977501496號），2010年文建會指定為國家重要民俗"
+        "note": "登錄年 2010"
       },
       {
         "type": "temple",
@@ -264,7 +264,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009）",
-        "note": "登錄年 2010；2008年先由雲林縣政府登錄縣定民俗（府文資字第0972400906號），2010年文建會指定為國家重要民俗，2011年4月21日頒發授證；2017年依文資法第111條重新公告（文授資局傳字第10630129831號）"
+        "note": "登錄年 2010"
       },
       {
         "type": "temple",
@@ -365,7 +365,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004）",
-        "note": "登錄年 2010；2008年先由屏東縣政府登錄縣定民俗（屏府文推字第0970233207號），2010年指定為國家重要民俗；nchdb現行頁面為20190515000004（重新登錄）"
+        "note": "登錄年 2010"
       },
       {
         "type": "temple",
@@ -440,7 +440,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20090217000006）",
-        "note": "登錄年 2009；2008年先由臺南市政府登錄市定民俗（府文資字第0970141209號），2009年2月文建會指定為國家重要民俗（全國第一個以香醮合一形式登錄者）"
+        "note": "登錄年 2009"
       },
       {
         "type": "temple",
@@ -574,7 +574,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001）",
-        "note": "登錄年 2008；2008年1月29日文建會指定為國家重要民俗，為全臺第一個登錄之重要民俗；起源咸豐5年（1855年）漳泉械鬥後整合字姓輪值制度"
+        "note": "登錄年 2008"
       }
     ],
     "draft": false,
@@ -694,7 +694,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002）",
-        "note": "登錄年 2010；登錄為臺北市定民俗（直轄市定），非國家重要民俗；events.json 中 level 填 county 應更正為 municipal"
+        "note": "登錄年 2010"
       },
       {
         "type": "temple",
@@ -770,7 +770,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004）",
-        "note": "登錄年 2008；登錄為臺南市定民俗，非國家重要民俗；events.json 中 level 填 county 應更正為 municipal（臺南市為直轄市）"
+        "note": "登錄年 2008"
       },
       {
         "type": "temple",
@@ -848,7 +848,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001）",
-        "note": "登錄年 2014；nchdb登錄名稱為「羅漢門迎佛祖」（非「內門宋江陣」）；宋江陣為遶境中的核心陣頭但非登錄標的名稱。events.json 中 level 填 county 應更正為 national_important"
+        "note": "登錄年 2014"
       },
       {
         "type": "temple",
@@ -964,7 +964,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網（https://nchdb.boch.gov.tw/assets/overview/folklore/20061227000002）",
-        "note": "登錄年 2006；宜蘭縣定民俗（非國家重要民俗）；首次登錄2006年（府文資字第0950007040號），後於2020年重新公告"
+        "note": "登錄年 2006"
       }
     ],
     "facts": [
@@ -1079,7 +1079,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網〈褒忠亭義民節祭典〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
-        "note": "2015-03-25 指定為重要民俗（全國第 16 個、客家族群第 1 個）；登錄理由／歷史沿革／儀式段落逐字引用，2026-08-09 經文化部同意使用，條件為標示資料來源連結"
+        "note": "2015-03-25 指定為重要民俗（全國第 16 個、客家族群第 1 個）"
       },
       {
         "type": "temple",
@@ -2307,7 +2307,7 @@
       {
         "type": "gov",
         "ref": "文化部國家文化資產網〈二結王公過火〉 https://nchdb.boch.gov.tw/assets/overview/folklore/20110209000001",
-        "note": "宜蘭縣定民俗；主祀古公三王（無對應 deity id）；武轎掠童乩過萬斤炭火，全台最大過火"
+        "note": "宜蘭縣定民俗"
       }
     ],
     "facts": [
@@ -2397,7 +2397,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090115000003",
-        "note": "國家文化資產網「佳里金唐殿蕭壠香」登錄資料（臺南市登錄民俗）；登錄理由、歷史沿革與日程決定方式皆逐字引用"
+        "note": "國家文化資產網「佳里金唐殿蕭壠香」登錄資料（臺南市登錄民俗）"
       }
     ],
     "draft": false,
@@ -2478,7 +2478,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20130128000002",
-        "note": "國家文化資產網「鹿耳門聖母廟土城仔香」登錄資料（臺南市登錄民俗）；登錄理由、歷史沿革與儀式特色皆逐字引用"
+        "note": "國家文化資產網「鹿耳門聖母廟土城仔香」登錄資料（臺南市登錄民俗）"
       }
     ],
     "draft": false,
@@ -2544,7 +2544,7 @@
       {
         "type": "temple",
         "ref": "https://www.5god.com.tw/news-detail-1925635.html",
-        "note": "麻豆代天府官網「113年 歲次 甲辰 龍年12年一次 祈安清醮大法會」——與三年一科的麻豆香是兩件不同的活動"
+        "note": "麻豆代天府官網「113年 歲次 甲辰 龍年12年一次 祈安清醮大法會」——與三年一科的"
       }
     ],
     "draft": false,
@@ -2612,7 +2612,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080415000002",
-        "note": "國家文化資產網「花壇白沙坑迎花燈」登錄資料（彰化縣登錄民俗）；登錄理由、歷史沿革與禁忌皆逐字引用"
+        "note": "國家文化資產網「花壇白沙坑迎花燈」登錄資料（彰化縣登錄民俗）"
       }
     ],
     "draft": false,
@@ -2741,7 +2741,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081209000001",
-        "note": "國家文化資產網「下路頭玄天上帝廟盪鞦韆」登錄資料（嘉義市登錄民俗）；登錄理由、歷史沿革與籌備方式皆逐字引用"
+        "note": "國家文化資產網「下路頭玄天上帝廟盪鞦韆」登錄資料（嘉義市登錄民俗）"
       }
     ],
     "draft": false,
@@ -3699,7 +3699,7 @@
       {
         "type": "gov",
         "ref": "https://nchdb.boch.gov.tw/assets/overview/monument/20061215000002",
-        "note": "國家文化資產網〈頭城鎮南北門福德祠〉（宜蘭縣定**古蹟**）"
+        "note": "國家文化資產網〈頭城鎮南北門福德祠〉（宜蘭縣定古蹟）"
       },
       {
         "type": "gov",
@@ -4176,6 +4176,789 @@
             "type": "gov",
             "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120426000004",
             "note": "nchdb registerReason 第 2 點逐字（登錄理由）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ntpc_xuantian_festival",
+    "name": "新北市玄天上帝文化祭",
+    "main_deity": "xuantian",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "沒有固定的年度日期。徒步會香多在國曆 9 至 10 月、主場遶境在 10 至 11 月，實際日期每年由主辦單位公告。2025 年因主辦單位另有宗教要務決議停辦。",
+    "route_mode": "undetermined",
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=087b82d37ea6d8d2756b28e73214d28a",
+        "note": "新北市政府民政局新聞資訊 2023-10-01「2023新北市玄天上帝文化祭 昨起九天八夜徒步"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=73c677aff454e8a90322dfd023f762ec",
+        "note": "新北市政府民政局新聞資訊 2023-11-19「聯合祈福慶典」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類 266 筆比對：新北市 15 筆中無「玄天上帝文化祭」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.gov.tw/dataset/7778",
+        "note": "交通部觀光署活動開放資料 948 筆比對：查無本活動"
+      },
+      {
+        "type": "gov",
+        "ref": "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ",
+        "note": "文化部 iCulture 全國藝文活動 2,196 筆比對：查無本活動"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "主辦單位是新北市道教玄天上帝會，自民國103年（2014年）起每年辦理文化祭；活動於玄天上帝得道昇天紀念日（農曆九月初九）前後展開九天八夜徒步行腳會香，並開放信眾扶轎、隨香。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=087b82d37ea6d8d2756b28e73214d28a",
+            "note": "摘述自新北市政府民政局新聞資訊 2023-10-01"
+          }
+        ]
+      },
+      {
+        "text": "2023 年的徒步會香在新莊的新北市道教玄天上帝會會館前點燃起馬炮起走，行經八縣市、單程逾250公里，10月4日抵達南投集集武昌宮，與全臺160間主、副祀玄天上帝宮廟共同祈福。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=087b82d37ea6d8d2756b28e73214d28a",
+            "note": "摘述自民政局新聞 2023-10-01"
+          }
+        ]
+      },
+      {
+        "text": "2023 年的踩街遶境於 11 月 19 日在三重登場，全臺超過300尊神佛會聚，路線逾10公里，晚間依道教科儀舉行聯合祈福慶典，超過150間宮廟共襄盛舉。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=73c677aff454e8a90322dfd023f762ec",
+            "note": "摘述自民政局新聞 2023-11-19"
+          }
+        ]
+      },
+      {
+        "text": "歷年主場地點與規模：2014 年全國284家宮廟共同參贊、2018 年五股場300金尊、2020 年泰山捷運公園500神尊、2023 與2024 年在三重（大都會公園／向日葵廣場）。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c",
+            "note": "摘述自民政局新聞資訊列表"
+          }
+        ]
+      },
+      {
+        "text": "這個文化祭是新北市道教玄天上帝會主辦、市府民政局指導合辦，值年宮廟由新北市境內主祀玄天上帝的宮廟以擲筊決定，而且要提前兩年決定。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=fd4a8f5d571a27fe220dbfe96f7a3bec",
+            "note": "民政局新聞資訊 2019-11-04"
+          }
+        ]
+      },
+      {
+        "text": "新北市境內祀奉玄天上帝的宮廟有 127 家（市府 2018、2019、2022 三份新聞稿數字一致）。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=7b21e888ae292701b90474905dd1ea34",
+            "note": "民政局新聞資訊 2022-10-20、2019-11-04、2018-10-19 三稿皆記「新北市境內祀奉玄天"
+          }
+        ]
+      },
+      {
+        "text": "2018 年那屆有一道其他玄天上帝慶典沒有的科儀「天子宴」——由先嗇宮神農大帝作東，以「福祿壽大宴」等十道吉祥菜宴請眾神；主辦方說明只有具天子或帝王級神格的神明才能作東，工作人員事前須淨身、料理過程也不可以先嚐味道。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=e3293943709211a854b5bce3d8a4a03d",
+            "note": "民政局新聞資訊 2018-10-03。"
+          }
+        ]
+      },
+      {
+        "text": "2025（民國 114 年）這一屆停辦，主管機關寫明理由是「因有其他宗教要務」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://wedid.ntpc.gov.tw/Governance/Detail/06YdLED5PR7b",
+            "note": "新北市政府施政成果網（主管機關"
+          }
+        ]
+      },
+      {
+        "text": "市府把它定調為「北臺灣最大之玄天上帝慶典」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://wedid.ntpc.gov.tw/Governance/Detail/06YdLED5PR7b",
+            "note": "施政成果網與 2022-10-20 民政局新聞稿皆有此措辭。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "north_taiwan_mazu",
+    "name": "北臺灣媽祖文化節",
+    "main_deity": "mazu",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "由北臺灣八縣市輪值，值東宮廟逐年更換，日期與地點都要看當年度公告。臺北市是 2004 年的發起地，不是固定的舉辦地。",
+    "route_mode": "undetermined",
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=d1d6b0fa6ffa4aef81ac35cca7d67963",
+        "note": "新北市政府民政局新聞資訊 2023-10-14「2023北臺灣媽祖文化節板橋慈惠宮值東主辦」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類 266 筆比對：臺北市 8 筆中無本活動；全庫查無"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.gov.tw/dataset/7778",
+        "note": "交通部觀光署活動開放資料 948 筆比對：查無本活動"
+      },
+      {
+        "type": "gov",
+        "ref": "https://ca.gov.taipei/Content_List.aspx?n=E4401709980CCC44",
+        "note": "臺北市政府民政局「宗教禮俗」專區實測"
+      },
+      {
+        "type": "web",
+        "ref": "https://zh.wikipedia.org/wiki/%E5%8C%97%E8%87%BA%E7%81%A3%E5%AA%BD%E7%A5%96%E6%96%87%E5%8C%96%E7%AF%80",
+        "note": "中文維基百科：歷屆值東宮廟表（2004–2026）與 cere_date 標「不定時」"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "活動由值東宮廟逐年輪替主辦：2023 年由板橋慈惠宮接任值東，是繼 2013 年後睽違 10 年再度與新北市府攜手主辦；當年恭迎全臺近 50 座宮廟、60 尊神尊到板橋慈惠宮會香，並於 10 月 28、29 日在板橋府中廣場辦鑽轎腳。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=d1d6b0fa6ffa4aef81ac35cca7d67963",
+            "note": "摘述自新北市政府民政局新聞資訊 2023-10-14；⚠️ 非場次資料授權來源"
+          }
+        ]
+      },
+      {
+        "text": "2023 年為第 20 屆，由北臺八縣市政府代表共同啟動；活動目的除信仰體驗外亦包含北臺縣市宗教文化交流。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=7909a03d82ce044c&act=43c8cd4505626cc5&dataserno=d1d6b0fa6ffa4aef81ac35cca7d67963",
+            "note": "摘述自民政局新聞 2023-10-14（副市長談話）"
+          }
+        ]
+      },
+      {
+        "text": "活動源自 2004 年臺北建城 120 週年時發起的「清代臺北府城大天后宮金面天上聖母神像重回臺北城」民俗慶典，2006 年由臺北市民政局接辦並聯合北臺灣各地擴大為「北臺灣媽祖文化節」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://zh.wikipedia.org/wiki/%E5%8C%97%E8%87%BA%E7%81%A3%E5%AA%BD%E7%A5%96%E6%96%87%E5%8C%96%E7%AF%80",
+            "note": "🔴 來源為中文維基百科，非權威源"
+          }
+        ]
+      },
+      {
+        "text": "活動源自 2004 年臺北建城 120 週年時，臺北市政府邀集發起的「清代臺北府城大天后宮金面天上聖母神像重回臺北城」民俗慶典，2006 年起擴大為北臺灣 8 縣市共同辦理的「北臺灣媽祖文化節」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=5de1eb3937634604083b6afdb1d0cccc",
+            "note": "民政局新聞資訊 2022-01-06 記其源自 2004 年臺北建城 120 週年，「後擴大為『北臺"
+          }
+        ]
+      },
+      {
+        "text": "整個活動繞著一尊神像轉：日治時期原臺北府城大天后宮（今二二八和平公園一帶）建物被拆毀移作軍用，「金面媽祖」神像先被移往臺北廳舍暫置，後來移祀三芝，1919 年興建小基隆福成宮供奉至今——所以文化節的核心儀式是「金面媽祖回臺北城」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=5de1eb3937634604083b6afdb1d0cccc",
+            "note": "民政局新聞資訊 2022-01-06。"
+          }
+        ]
+      },
+      {
+        "text": "板橋慈惠宮值東那幾屆有一道獨有古禮：在信徒中推舉「五福婆」（須夫妻俱在、至少三代同堂、已任內祖母或外祖母者）擔任執禮者，為媽祖獻上香湯、胭脂水粉、寶鏡、絲巾等物。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=eff06e44c2696149",
+            "note": "民政局新聞資訊 2013-11-18。"
+          }
+        ]
+      },
+      {
+        "text": "代表性場面是一次連續鑽過二、三十頂神轎：2013 年 11/23 有 28 頂、11/24 有 20 頂；2023 年準備一次鑽過 30 座神尊。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ca.ntpc.gov.tw/home.jsp?id=30&act=43c8cd4505626cc5&dataserno=d1d6b0fa6ffa4aef81ac35cca7d67963",
+            "note": "民政局新聞資訊 2013-11-18 與 2023-10-14。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "taichung_mazu_festival",
+    "name": "臺中媽祖國際觀光文化節",
+    "main_deity": "mazu",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "是橫跨數月的系列活動，不是單一天。2026 年的期程是國曆 2 月 20 日至 5 月 16 日，由臺中市政府文化局逐年公告。",
+    "route_mode": "undetermined",
+    "region": [
+      "台中"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.culture.taichung.gov.tw/3206093/post",
+        "note": "臺中市政府文化局「臺中媽祖國際觀光文化節－115年度活動訊息」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Event-json.zip",
+        "note": "交通部觀光署活動開放資料 dataset 7778（OGDL 1.0，可商用、免金鑰）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類開放資料，全數比對後查無臺中媽祖國際觀光文化節個案"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "觀光署活動開放資料對這個活動的描述逐字為：「臺中媽祖信仰獨具特色，大甲媽祖繞境全長340多公里，信徒們全程徒步隨行，結合臺中市轄內12間百年宮廟，在傳統宗教儀式的基礎上，整合不同地區媽祖信仰文化活動」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Event-json.zip",
+            "note": "交通部觀光署活動開放資料"
+          }
+        ]
+      },
+      {
+        "text": "2026 年（115 年）文化局排出的場次落在 12 個宮廟：新社九庄媽（新社國小旁）、大里杙福興宮、台中樂成宮、大庄浩天宮、南屯萬和宮、大甲鎮瀾宮、北屯南興宮、社口萬興宮、台中萬春宮、豐原慈濟宮、大肚萬興宮、梧棲朝元宮。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.culture.taichung.gov.tw/3206093/post",
+            "note": "臺中市政府文化局「臺中媽祖國際觀光文化節－115年度活動訊息」場次表逐項"
+          }
+        ]
+      },
+      {
+        "text": "大甲鎮瀾宮在 2026 年場次表裡佔了三場：3/3 元宵晚會、4/14 起駕戲、4/17 遶境匯演。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.culture.taichung.gov.tw/3206093/post",
+            "note": "同上場次表場次資料"
+          }
+        ]
+      },
+      {
+        "text": "這個活動在國家文化資產網民俗類 266 筆登錄個案裡查無資料——它是市府包裝的年度藝文系列活動，不是登錄民俗；場次表的欄位是「表演團隊」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+            "note": "nchdb 民俗類開放資料全量比對查無此案"
+          }
+        ]
+      },
+      {
+        "text": "這個活動不是登錄民俗，而是臺中市政府文化局逐年編排的系列演出：場次表的欄位是「表演團隊」，發布單位為文化局表演藝術科第二股，網站路徑掛在「藝文主題＞表演」底下。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.culture.taichung.gov.tw/3206093/post",
+            "note": "文化局 115 年度場次表頁面的欄位、發布單位與麵包屑"
+          }
+        ]
+      },
+      {
+        "text": "連續五年（2022–2026）的場次表都由「新社九庄媽」打頭陣、由「梧棲朝元宮」壓軸收尾；2021 年因疫情打亂才沒有新社場。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.culture.taichung.gov.tw/2061062/2099383/2101721/2105732",
+            "note": "文化局「臺中媽祖國際觀光文化節」區段的 110–115 年度活動訊息六頁逐頁比對"
+          }
+        ]
+      },
+      {
+        "text": "大甲鎮瀾宮在場次表裡是唯一一年佔三場的宮廟（元宵晚會、起駕戲、遶境匯演／觀禮臺），2022–2026 每年皆然。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.culture.taichung.gov.tw/3206093/post",
+            "note": "115 年度場次表場次資料"
+          }
+        ]
+      },
+      {
+        "text": "2015 年這個文化節拿過《天下雜誌》金牌服務業調查「節慶活動類」第一名（2014 年是銀賞）。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/1233761/post",
+            "note": "臺中市政府新聞稿 2019-03-19"
+          }
+        ]
+      },
+      {
+        "text": "固定打頭陣的「新社九庄媽」是有神無廟：每年農曆正月初三至初七由信徒向九庄媽擲筊請示挑一天出巡遊庄，是全臺唯一在農曆春節期間舉行的媽祖遊庄遶境。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/974760/post",
+            "note": "臺中市政府新聞稿"
+          }
+        ]
+      },
+      {
+        "text": "市府自己給的屆數錨點指向 1999 年前後起辦：2017 年新聞稿寫「舉辦19年」、2018 年寫「辦理至今已邁入20年」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/818185/post",
+            "note": "2018 年稿；2017 年稿 。⚠️ 屆數是市府敘述，本站只當線索，未回推起始年寫成事實。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "songshan_cihuitang_muniang",
+    "name": "臺北母娘文化季—保民遶境嘉年華活動",
+    "host_temple": "moi_1477_松山慈惠堂",
+    "main_deity": "wangmu",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "錨點是主辦方公告的「弘揚母愛音樂會前一天」，也就是國曆母親節前的週末，不是固定的農曆日。2020 年延期、2022 年停辦。",
+    "route_mode": "undetermined",
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=3",
+        "note": "內政部全國宗教資訊網・臺灣宗教百景「松山慈惠堂」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.religiouscarnival.com/edcontent.php?lang=tw&tb=4",
+        "note": "臺北市政府民政局「與神同遊護台北」・母娘文化季頁（2026 年期程與分項活動）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類臺北市 8 筆逐筆比對，查無母娘文化季個案"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
+        "note": "內政部地方宗教慶典清單（cid=14）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "「臺北母娘文化季」已成為北臺灣一年一度重要的母娘信仰民俗活動，包括移星禮斗法會、慈悲楷模與孝悌楷模選拔、孝親感恩成年禮、萬人淨山活動、祈天護國佑民大法會…等。壓軸的「保民遶境嘉年華」遊行隊伍有藝閣車、花車、陣頭車、神將團共同參與，是臺北市最盛大的藝陣遊行之一。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=3",
+            "note": "taiwangods 臺灣宗教百景「松山慈惠堂」逐字引用"
+          }
+        ]
+      },
+      {
+        "text": "松山慈惠堂自 2008 年起每年規畫「臺北母娘文化季」，2026 年為第 18 年；當年度期程為 4 月 11 日至 6 月 6 日，地點為臺北小巨蛋與松山慈惠堂。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.religiouscarnival.com/edcontent.php?lang=tw&tb=4",
+            "note": "臺北市政府民政局「與神同遊護台北」官方活動頁"
+          }
+        ]
+      },
+      {
+        "text": "2026 年的分項活動包含淨山健行（4/11）、保民遶境嘉年華（4/25）、安龍護國祈福大典（4/25～4/29）、弘揚母愛音樂會（5/3）與冥陽普利梁皇大法會（6/3～6/6）。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.religiouscarnival.com/edcontent.php?lang=tw&tb=4",
+            "note": "同上；用來說明『文化季』與『遶境當天』是兩層檔期"
+          }
+        ]
+      },
+      {
+        "text": "臺灣瑤池金母信仰體系源自 1949 年在花蓮興起，凡以「慈惠堂」為廟名者皆主祀瑤池金母；松山慈惠堂創建於 1968 年，1985 年完成瑤池金母安座大典，發展成北臺灣廟宇規模最大、信徒人數最多的慈惠堂。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=3",
+            "note": "taiwangods 逐字段落改寫"
+          }
+        ]
+      },
+      {
+        "text": "慈惠堂在農曆 6 月 3 日（相傳西王母設蟠桃盛會之日）與農曆 10 月 18 日地母聖誕兩天舉辦「契子女皈依」盛會。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=3",
+            "note": "taiwangods 逐字段落改寫；與文化季不同日，可作為母娘信仰的年度節點對照"
+          }
+        ]
+      },
+      {
+        "text": "松山慈惠堂自 2008 年起把常態性的廟會活動與法會整合成 1 月到 5 月的「母娘文化季」，2026 年是第 19 屆。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.gov.taipei/News_Content.aspx?n=2044902FC839D045&s=76B6B5E887AAA8DA",
+            "note": "三個獨立政府來源一致"
+          }
+        ]
+      },
+      {
+        "text": "排期規則是綁國曆母親節、不是綁農曆：官方寫明「保民遶境嘉年華（每年弘揚母愛音樂會前 1 天）」，而「弘揚母愛音樂會（每年母親節前一個週六日）」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.travel.taipei/zh-tw/featured/details/7977",
+            "note": "臺北畫刊 105 年 4 月第 579 期"
+          }
+        ]
+      },
+      {
+        "text": "保民遶境嘉年華每年吸引逾 10 萬人參與，是臺北市最盛大的藝閣車遊行之一。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.travel.taipei/zh-tw/featured/details/7977",
+            "note": "臺北畫刊 105 年 4 月第 579 期。⚠️ 是 2016 年當時的數字，引用要標年份。"
+          }
+        ]
+      },
+      {
+        "text": "2026 年那屆邀請國寶級民藝大師葉峻男創作大型米龍，使用約 3 萬斤白米、以無草稿方式即興創作。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.gov.taipei/News_Content.aspx?n=2044902FC839D045&s=76B6B5E887AAA8DA",
+            "note": "臺北市政府新聞稿（115-04-25）。"
+          }
+        ]
+      },
+      {
+        "text": "2020 年因疫情延期、2022 年因疫情停辦——這個活動不是每年都有。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://news.ebc.net.tw/news/living/313605",
+            "note": "2022 停辦"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dongshi_qiaosheng",
+    "name": "巧聖仙師文化祭",
+    "host_temple": "moi_1741_巧聖仙師廟",
+    "main_deity": "luban",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "以農曆五月初七巧聖仙師誕辰為核心，實際期程由主辦單位逐年公告。2022、2023、2025、2026 未查得辦理紀錄。",
+    "route_mode": "undetermined",
+    "region": [
+      "台中"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://www.dongshi.taichung.gov.tw/1511265/post",
+        "note": "臺中市東勢區公所「東勢文化慶典」（發布 2019-03-07、最後異動 2021-05-04）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080415000003",
+        "note": "nchdb 20080415000003「鹿港魯班公宴」"
+      },
+      {
+        "type": "gov",
+        "ref": "https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json",
+        "note": "nchdb 民俗類 266 筆全數比對"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
+        "note": "內政部地方宗教慶典清單（cid=27）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "臺中巧聖仙師文化祭由臺中市政府客家事務委員會主辦，與元宵的東勢新丁粄節、九月的鯉魚伯公文化祭並列為東勢每年三大客庄節慶，文化祭辦在六月。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.dongshi.taichung.gov.tw/1511265/post",
+            "note": "臺中市東勢區公所官網「東勢文化慶典」頁"
+          }
+        ]
+      },
+      {
+        "text": "東勢巧聖仙師廟被記為全臺最古老且唯一主祀魯班的開基祖廟，全臺主祀魯班的廟宇共 34 間。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.dongshi.taichung.gov.tw/1511265/post",
+            "note": "同上"
+          }
+        ]
+      },
+      {
+        "text": "該文化祭曾連續 3 年獲行政院客家委員會列入「客庄十二大節慶」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.dongshi.taichung.gov.tw/1511265/post",
+            "note": "同上"
+          }
+        ]
+      },
+      {
+        "text": "「早年鹿港有四個魯班公神明會的組織，以農曆五月七日魯班的生日為例祭日。」——農曆 5/7 為魯班誕辰這件事，有國家文化資產網的登錄資料可掛。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080415000003",
+            "note": "nchdb 20080415000003「鹿港魯班公宴」historyDevelopment 逐字"
+          }
+        ]
+      },
+      {
+        "text": "東勢巧聖仙師廟是全臺主祀魯班的開基祖廟：全臺主祀魯班的廟宇 34 間，其中 24 間分香自東勢祖廟。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.hakka.taichung.gov.tw/371547/post",
+            "note": "臺中市政府客家事務委員會官方 PDF《臺中東勢「巧聖仙師廟」文史資料》"
+          }
+        ]
+      },
+      {
+        "text": "廟裡不是只有魯班：主神巧聖仙師（木作）、泥水工程業祖師荷葉仙師、鋼鐵工匠業爐公仙師合稱「三仙師」，聖誕分別為農曆五月初七、九月廿四、四月十三。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/2616412/post",
+            "note": "臺中市政府新聞稿"
+          }
+        ]
+      },
+      {
+        "text": "「匠寮」是這間廟的身世：東勢早期林木業發達，是軍工匠首、伐木匠人的聚居地，當時人稱東勢為「匠寮」；因採料危險，就在東勢匠寮巷旁興建供奉魯班公的仙師廟安定民心。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/2616412/post",
+            "note": "臺中市政府新聞稿 2024-04-20。"
+          }
+        ]
+      },
+      {
+        "text": "文化祭裡有一道別處沒有的「拜師禮」：由師長帶領東勢高工及玉山高中學生依序跨過「規矩方圓」門，再以文公尺為學生加持。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/1650898/post",
+            "note": "臺中市政府新聞稿 2020-11-07"
+          }
+        ]
+      },
+      {
+        "text": "這個文化祭曾連續 3 年被行政院客家委員會列入「客庄十二大節慶」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.dongshi.taichung.gov.tw/1511265/post",
+            "note": "臺中市東勢區公所「東勢文化慶典」頁（同頁亦寫「六月的巧聖仙師文化祭」）"
+          }
+        ]
+      },
+      {
+        "text": "建廟年份錨點：2021 年市府新聞稿寫「奠基已經 248 年」、2023 年寫「明年適逢建廟 250 週年」，兩者一致指向 1773–1774 年。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.taichung.gov.tw/1759800/post",
+            "note": "2021-04-07 稿"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zhishanyan_huijigong_guohuo",
+    "name": "傳統過炭火儀式",
+    "host_temple": "moi_2545_芝山巖惠濟宮",
+    "main_deity": "kaizhang",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "農曆二月十五開漳聖王聖誕前夕暖壽過火，隔日二月十六正誕行三獻禮。這是本清單裡少數日期真的固定的一項。",
+    "route_mode": "undetermined",
+    "region": [
+      "台北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=23",
+        "note": "內政部地方宗教慶典詳情頁"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+        "note": "內政部臺灣宗教文化地圖〈芝山岩惠濟宮〉"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/monument/19850819000021",
+        "note": "國家文化資產網〈芝山岩惠濟宮〉（直轄市定古蹟）"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "臺北市芝山巖惠濟宮每年農曆2月15日舉行傳統過炭火儀式，過炭火具有祛邪除穢、迎祥納福之意。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/LocalCelebration/Content?ci=96&cid=23",
+            "note": "內政部全國宗教資訊網詳情頁全文逐字（該頁只有這一句）"
+          }
+        ]
+      },
+      {
+        "text": "惠濟宮的敬字亭在民國88年(公元1999年)才設置，是臺北市內唯一仍在使用的敬字亭。只是這座敬字亭目前燃燒的不再是字紙，而是在升學法會時學子帶來的准考證影印本。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+            "note": "內政部臺灣宗教文化地圖〈芝山岩惠濟宮〉逐字"
+          }
+        ]
+      },
+      {
+        "text": "廟方仍因應當代考試而每年舉辦2次「升學考試學子金榜題名法會」，並在文昌閣內懸掛1支稱作「文昌筆」的大型毛筆，可讓考生觸摸祈求好運。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+            "note": "同上，逐字。⚠️ 同樣是廟的事實，不是過火。"
+          }
+        ]
+      },
+      {
+        "text": "明治28年(公元1895年)，日本領臺，並在惠濟宮設立臺灣總督府學務部，也於此開設國語學校招收士林鄉紳子弟，為日人在臺教育機構的起點。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+            "note": "同上，逐字。⚠️ 廟的事實。"
+          }
+        ]
+      },
+      {
+        "text": "惠濟宮三川殿採用硬山燕尾屋頂，中門前有蟠龍柱1對，廟門上繪製的4大天王手中分別各持寶劍、琵琶、雨傘、小龍，代表「風（鋒）、調、雨、順」的涵意。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+            "note": "同上，逐字。⚠️ 廟的事實。"
+          }
+        ]
+      },
+      {
+        "text": "過火綁在開漳聖王聖誕，而且是「暖壽」那一天：廟方每年的固定流程是農曆二月十二至十六啟建春季祈安禮斗法會五天、二月十三至十五乞龜、「二月十五午時過火」、二月十六上午九時祝壽三獻禮、十時齋天拜天公、下午二時普度施食。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.facebook.com/hctemple5656/posts/632557746090629/",
+            "note": "廟方粉專 2025-02-17 的年度公告"
+          }
+        ]
+      },
+      {
+        "text": "過火當天正午開始，北管八音、舞龍舞獅與官將首陣頭先行，神轎與大神尪由壯丁扛抬衝過十多公尺的炭火路，之後開放信眾自己踏過餘燼，許多信徒會爭相撿拾神明走過的木炭帶回家。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.setn.com/News.aspx?NewsID=1622486",
+            "note": "三立新聞 2025-03-12 報導。⚠️ 媒體來源，頁面文案要改寫，不可場次資料。"
+          }
+        ]
+      },
+      {
+        "text": "惠濟宮主祀開漳聖王、觀音菩薩與文昌帝君，是一座儒釋道三教合一的廟宇，正殿供奉開漳聖王，後殿樓下奉祀觀音菩薩、二樓文昌閣奉祀文昌帝君。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=73",
+            "note": "內政部臺灣宗教文化地圖〈芝山岩惠濟宮〉逐字"
           }
         ]
       }

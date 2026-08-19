@@ -239,7 +239,7 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
 //    （收窄成「ref 是純網址」後為 41 筆）。硬擋會讓所有部署紅燈——那不是擋錯誤、
 //    是擋工作，同 taiwangods 那條的理由。含 http 的則是硬擋，因為那會真的讓
 //    check:anchor-text 紅燈，且目前是 0 筆、沒有既存包袱。
-const WIDE_NOTE_BASELINE = 41;
+const WIDE_NOTE_BASELINE = 36;
 if (wideNotes > WIDE_NOTE_BASELINE) {
   errors.push(`來源 note 超過 ${NOTE_WIDTH_MAX} 全形字的有 ${wideNotes} 筆，超過基準 ${WIDE_NOTE_BASELINE}`
     + `（+${wideNotes - WIDE_NOTE_BASELINE}）。note 是 <a> 的可見文字，太長會被截斷；`
