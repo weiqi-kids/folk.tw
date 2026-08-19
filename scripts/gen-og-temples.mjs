@@ -50,7 +50,12 @@ const deityById = new Map(deities.map((d) => [d.id, d]));
  * 但頁面/卡片不替他們斷言。**改這段措辭前先想清楚上面這條界線**（2026-07-30 用戶討論後定案）。
  *
  * 為何不用「近期活動」欄位：實測公開資料裡沒有涵蓋全台 7,891 間的活動行事曆——
- * 全國宗教資訊網的慶(祭)典查詢擋境外 IP、nchdb 無公開 API、文化部藝文活動是表演展覽。
+ * 全國宗教資訊網的慶(祭)典查詢擋境外 IP、文化部藝文活動是表演展覽。
+ * ⚠️ 2026-08-19 更正：原本這行還寫著「nchdb 無公開 API」——**那已經過期**。
+ *   nchdb 有開放資料端點 data.boch.gov.tw/opendata/v2/assetsCase/5.1.json（民俗類），
+ *   快照與比對 gate 見 src/data/nchdb-folklore-index.json 與 scripts/check-source-refs.mjs。
+ *   但它是**文化資產登錄個案**，不是全台廟宇的活動行事曆，所以上面的結論不變：
+ *   本欄位仍不改用「近期活動」。
  * 詳見 docs/taiwan-host-handoff.md。
  */
 export function recentActivity(t, todayIso) {

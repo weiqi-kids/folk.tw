@@ -258,7 +258,7 @@ rsync -az --partial --ignore-times \
 | 來源 | 結論 |
 |---|---|
 | MOI 寺廟開放資料（就是 `temple.xml`） | **完全沒有祭典欄位**。只有：編號／寺廟名稱／主祀神祇／行政區／地址／教別／登記別／統一編號／電話／負責人／WGS84X／WGS84Y |
-| 文化部 nchdb（`nchdb.boch.gov.tw`） | JS SPA、**無公開 API**（2026-08-01 試過數個常見端點全回前端殼） |
+| 文化部 nchdb（`nchdb.boch.gov.tw`） | 前台是 JS SPA。🔴 **2026-08-19 更正：「無公開 API」已過期**——開放資料端點 `data.boch.gov.tw/opendata/v2/assetsCase/5.1.json` 實抓成功（民俗類，33 欄含登錄理由／歷史沿革／儀式特色／公告文號／代表圖署名）。當初 2026-08-01 試的是前台常見端點，沒試到 data.boch 這個網域。⚠️ 但它是**文化資產登錄個案**，涵蓋不到全台廟宇的活動行事曆，所以下面「沒有全台祭典行事曆」的結論不變。名錄快照＋比對 gate 見 `src/data/nchdb-folklore-index.json`、`scripts/check-source-refs.mjs` |
 | 文化部全國藝文活動（`cloud.culture.tw`） | 有 JSON API、2026-08-01 全分類掃過，**是表演/展覽/講座**。關鍵詞命中全是誤判（宮崎駿、《神明便利商店》音樂劇、文武廟只是街頭藝人場地） |
 | 觀光署宗教慶典（`taiwan.net.tw/m1.aspx?sNo=0001022`） | 2000 年代靜態散文，只講大甲媽祖等數個 |
 | `data.gov.tw` dataset 7723 文化部國家文化資料庫-民俗 | **已下架**，僅存歷史資料 |

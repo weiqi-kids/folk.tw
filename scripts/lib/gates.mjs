@@ -165,6 +165,19 @@ export const GATES = [
     changed: ['festival'],
     why: '節日的 Google Calendar URL 與 ICS 必須與 festivalNextSolar 同源（含短月退日的農曆標籤）',
   },
+  {
+    id: 'check:source-refs',
+    label: '來源可複驗',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['source-refs'],
+    // 2026-08-19 新增，起因是一個撐了約四個月的事故：festivals.json 三頁掛了四個
+    // **不存在的** nchdb caseId。沒被擋下是因為 nchdb 前台是 SPA、不同 id 回傳相同
+    // 位元組數、robots.txt 404 → HTTP 層驗不出來。同一個 repo 別處（temples/events/
+    // topic-articles/evidence）其實都掛對，但沒有東西比對這兩組。
+    why: 'nchdb caseId 須存在於官方名錄快照／逐字引用只准掛已授權網域／未授權來源引用數只能降不能升',
+  },
 
   // ── CI／發佈等級、吃原始碼：build 之前跑 ───────────────────────────────
   {
@@ -385,6 +398,10 @@ export const CHANGED_RULES = {
   // 2026-08-19 新增：原本 docs-only 改動在 build:changed 完全沒 gate，
   // 但 CI 會用 check:doc-numbers 擋 → 本機顯示 ✓ 而 CI 紅。補上這條把洞補起來。
   docs: [/^CLAUDE\.md$/, /^docs\/.*\.md$/, /^README\.md$/],
+  // 2026-08-19 新增：check:source-refs 的輸入範圍比既有任何一類都寬——它掃 git 追蹤中
+  // 的 src/、docs/、scripts/ 與 CLAUDE.md。刻意不併進 `docs`（那類只認 .md，吃不到
+  // docs/annual-release-evidence/*.json，而那裡正是掛 nchdb 個案網址的地方）。
+  'source-refs': [/^src\/data\//, /^docs\//, /^CLAUDE\.md$/, /^scripts\//],
 };
 
 // ── 不變量自我驗證 ──────────────────────────────────────────────────────

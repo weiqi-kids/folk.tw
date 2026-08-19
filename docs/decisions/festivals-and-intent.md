@@ -19,6 +19,10 @@
   - 行業守護神＋農民曆行業視角
 - **名廟內容**
   - 名廟 沿革/聖誕 內容豐化
+- **來源管道與掛源可複驗性（2026-08-19）**
+  - nchdb 個案 id 掛錯事故與 check:source-refs
+  - taiwangods／文獻館的授權風險與 grandfather 基準
+  - 可用但還沒接的管道（觀光署 7778／記憶庫）
 
 ---
 
@@ -242,3 +246,60 @@
 
 - [x] 名廟 沿革/聖誕 內容豐化（2026-06-24）：temple schema 加 `founded`/`history`/`main_festival`＋
       詳情頁「沿革」區塊（有沿革者加 speakable）；21 間有官網名廟逐間查證（文化部文資/官網/維基）填入、各掛源。
+
+## 來源管道與掛源可複驗性（2026-08-19）
+
+> 這一節是 2026-08-19 兩次查證的產物：一次是「哪些權威源可用」的管道盤點，
+> 一次是由它揭出的**已上線掛源錯誤**。兩者都改變了「產新頁時能掛什麼源」的前提。
+
+- [x] **掛錯的 nchdb 個案 id（事故，已修並上線）**：`src/data/festivals.json` 有四個
+      caseId 不存在於官方民俗名錄，分佈在三頁（`draft-week-16-yanshui-handan`／
+      `draft-week-09-dongshan-yingfozu`／`draft-week-06-qingshan-king-festival`），
+      commit `da84444`。
+      🔴 **為什麼撐了約四個月沒被發現**：nchdb 前台 `assets/overview/folklore/<caseId>`
+      是 Next.js SPA，**不同 caseId 回傳的 HTML 位元組數完全相同**（實測三個不同 id 皆
+      39,690），且 robots.txt 404 → **HTTP 層拿不到「這個 id 不存在」的訊號**。
+      而同一個 repo 別處（`temples.json`／`events.json`／`docs/topic-articles/week-06.md`／
+      `week-16.md`／`annual-release-evidence/group-a.json`／`group-c.json`）**全都掛對**，
+      只有對外的頁面資料錯——**沒有任何東西比對這兩組**。
+      👉 已做成 gate：`check:source-refs`（規則 ①），拿 `src/data/nchdb-folklore-index.json`
+      名錄快照比對。⚠️ 兩種書寫形式都要驗：個案網址，以及 `heritage.authority_ref`
+      那種「府文資字第…號（nchdb <14 位>）」——第一次稽核只驗了網址形式，非網址形式漏在外面
+      （後來補驗，那 7 個都是對的）。
+
+- [x] **nchdb 有開放資料端點**（更正先前記載）：`https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json`
+      為民俗類登錄個案，33 欄含 `registerReason`／`historyDevelopment`／`ceremonyFeature`／
+      `ceremonies`／`activities`（國曆＋農曆起訖）／`announcementList`（公告文號）／
+      `representImage` ＋ `representImageSource`（署名）。
+      ⚠️ `scripts/gen-og-temples.mjs` 與 `docs/taiwan-host-handoff.md` 原本都寫「nchdb 無公開 API」，
+      同日已就地更正——當初試的是**前台**常見端點，沒試到 `data.boch` 這個網域。
+      🔴 **但 5.1 在 data.gov.tw 查不到資料集條目**，所以「它也是 OGDL」目前只是推測；
+      現階段**繼續用 2026-08-09 那條個別授權的規格**（逐字引用、不改寫、每筆掛回個案網址）。
+
+- [x] **`taiwangods.moi.gov.tw` 的授權是本站目前最大的來源風險**：版權宣告逐字寫
+      「限於個人及非商業目的」「任何商業機構或團體，非經內政部以及各版面著作人書面同意，
+      不得以任何形式轉載、重製、散布」。**它不在 2026-08-06 那份內政部同意書列舉的範圍內**
+      （那份只列 `religion.moi` 的 `IndexID=2|3|4` 與 `ci=2`），而站主 2026-08-12 已定案
+      不排除廣告投放 → **「非商業」這個前提對本站不成立**。
+      ⚠️ `scripts/generate-topic-article-drafts.mjs` 的來源清單裡有一個 taiwangods 網址，
+      那是**擴散源**（會再種進週稿），不只是一處引用。
+
+- [x] **國史館臺灣文獻館（`th.gov.tw`）未查到明示授權**：主站著作權聲明抓不到（SPA＋常見路徑
+      404，Wayback 同樣），子站僅「版權所有」，data.gov.tw 無其資料集。
+      → **可摘述、不可逐字大段引用**。
+
+- [x] **上面兩者做成 grandfather gate**（`check:source-refs` 規則 ③）：引用數**只能降不能升**。
+      為什麼不直接禁：現況已有數百處，一刀切會讓所有部署紅燈，那不是擋錯誤、那是擋工作。
+      改寫掉舊引用後把 `BASELINE` 往下調即可鎖住成果。等洽詢有結論再決定全禁或放行。
+
+- [x] **逐字引用的來源網域改白名單制**（規則 ②）：只有 `religion.moi.gov.tw`（2026-08-06 同意）
+      與 `nchdb.boch.gov.tw`／`data.boch.gov.tw`（2026-08-09 同意）可掛逐字。
+      實測現況全部合規，所以這條訂得硬也不誤擋。
+
+- [ ] **可用但還沒接的管道**：交通部觀光署 data.gov.tw 資料集 **7778「活動」**——OGDL 1.0
+      （可商用）、每日更新、免金鑰，含起訖日期／地址／主辦／圖。
+      ⚠️ 沒有宗教分類欄位，混著旅展與路跑（「五結走尪路跑」不是走尪祭典），**只能逐筆判斷**。
+      國家文化記憶庫（`tcmbdata.culture.tw`）的民俗與宗教類**逐筆帶 `contentLicense`／
+      `imageLicense`**，🔴 授權逐筆不統一（nchdb 來源那批是文字 OGDL、影像「僅限本平台瀏覽」
+      ＝圖不可用），要用就逐筆讀那兩欄，不可整批推論。
+      地方政府（台南／台中／屏東）**皆無**節慶結構化資料集，只能逐案抓網頁。
