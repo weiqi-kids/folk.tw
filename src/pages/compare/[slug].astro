@@ -3,7 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getDeities, getScenarios } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import comparisons from '../../data/comparisons.json';
 import LeadVisual from '../../components/LeadVisual.astro';
 
@@ -58,27 +59,17 @@ const faqItems = [
   },
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  breadcrumb([
-    { name: '神明比較', path: '/compare' },
-    { name: `${A.name}與${B.name}`, path: `/compare/${cmp.slug}` },
-  ]),
-  ...(faq ? [faq] : []),
-];
 const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
 ---
 
 <Base
   title={cmp.question}
   description={cmp.contrast}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
+  faq={faq}
+  crumbs={[HUB.compare, { name: `${A.name}與${B.name}`, path: `/compare/${cmp.slug}/` }]}
 >
-  <nav class="crumb"><a href="/compare/">神明比較</a> ／ {A.name}與{B.name}</nav>
 
   <header class="dh">
     <h1>{cmp.question}</h1>
@@ -140,12 +131,9 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
     延伸：<a href="/compare/">其他比較</a>｜<a href="/scenarios/">拜什麼神</a>｜<a href="/deities/">神明圖譜</a>
   </p>
 
-  {sources.length > 0 && (
-    <p class="src footer-src"><Sources sources={sources} /></p>
-  )}
+  <Sources sources={sources} variant="footer" />
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
@@ -161,9 +149,7 @@ const relScen = (cmp.related_scenarios ?? []).filter((id) => scenName.get(id));
     .summaries { display: grid; gap: 1.25rem; grid-template-columns: 1fr 1fr; margin-top: 1.75rem; }
     .summaries h3 { margin: 0 0 0.375rem; }
     @media (max-width: 560px) { .summaries { grid-template-columns: 1fr; } }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .small { font-size: var(--text-sm); }
     .extend { margin-top: 1.875rem; }
-    .footer-src { margin-top: 2.5rem; }
   </style>
 </Base>

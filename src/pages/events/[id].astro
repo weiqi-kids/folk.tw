@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getEvents, getDeities, templeNameById } from '../../lib/queries';
-import { breadcrumb, faqPage, eventThing } from '../../lib/seo';
+import { faqPage, eventThing } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import festivalsData from '../../data/festivals.json';
 
@@ -118,8 +119,9 @@ const eventLd = eventThing({
   startDate: undefined,
 });
 
+// ⚠️ 這一頁的 FAQPage 排在實體節點**之前**（歷史寫法），與 Base 的 `faq` prop（一律接在最後）
+// 位置不同，改用它會動到線上輸出，故維持自組陣列。
 const jsonLd: object[] = [
-  breadcrumb([{ name: '民俗活動', path: '/events' }, { name: e.name, path: `/events/${event.id}` }]),
   ...(faq ? [faq] : []),
   eventLd,
 ];
@@ -128,14 +130,12 @@ const jsonLd: object[] = [
 <Base
   title={e.name}
   description={pageDesc}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
   jsonLd={jsonLd}
-  speakable={['h1', '.summary']}
+  answer="summary"
+  crumbs={[HUB.events, { name: e.name, path: `/events/${event.id}/` }]}
 >
-  <nav class="crumb"><a href="/events/">民俗活動</a></nav>
   <h1>{e.name}</h1>
   <p class="summary">{pageDesc}</p>
   <RelatedSeasonalCampaign festivalSlugs={linkedFestivals.map((f) => f.slug)} />
@@ -218,7 +218,7 @@ const jsonLd: object[] = [
             <li>
               {fact.text}
               {fact.sources.length > 0 && (
-                <span class="muted small">　— <Sources sources={fact.sources} prefix="" /></span>
+                <span class="muted small">　— <Sources sources={fact.sources} prefix="" variant="bare" /></span>
               )}
             </li>
           ))}
@@ -322,12 +322,12 @@ const jsonLd: object[] = [
               {/* ⚠️ 原本 href 與錨文字都直接吃整個 polyline_source 欄位，而該欄位是
                   「網址（中文說明）」——href 因此含中文說明＝**連結點不開**（2026-08-04 線上實測
                   三個活動頁皆然），錨文字也是裸網址。一律走 parseSourceRef 拆成 href + 名稱。 */}
-              即時軌跡（進香期間）：<Sources sources={[{ ref: e.route.polyline_source }]} prefix="" />
+              即時軌跡（進香期間）：<Sources sources={[{ ref: e.route.polyline_source }]} prefix="" variant="bare" />
               　·　第三方來源、非官方，僅供參考。
             </p>
           )
         }
-        {e.route.sources.length > 0 && <p class="src small"><Sources sources={e.route.sources} prefix="座標來源：" /></p>}
+        <Sources sources={e.route.sources} prefix="座標來源：" variant="block" />
       </section>
     )
   }
@@ -345,10 +345,9 @@ const jsonLd: object[] = [
     )
   }
 
-  {e.sources.length > 0 && <p class="src"><Sources sources={e.sources} /></p>}
+  <Sources sources={e.sources} variant="footer" />
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); }
     .entry-photo { margin: 1.25rem 0; }
     .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }
@@ -370,7 +369,6 @@ const jsonLd: object[] = [
     .heritage-details .quoted { margin-top: 1rem; }
     .heritage-details .quoted h3 { color: var(--gold); font-size: var(--text-sm); margin-bottom: 0.35rem; }
     .heritage-details .quoted p { line-height: 1.85; margin: 0 0 0.6rem; }
-    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2.25rem; }
     .stops { margin: 0.75rem 0; padding-left: 1.75rem; }
     .stops li { padding: 0.375rem 0; }

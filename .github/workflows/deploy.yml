@@ -64,33 +64,45 @@ jobs:
           done
           echo "::error::字型安裝連續三次失敗，中止部署（缺 CJK 字型會讓分享卡整片空框）"
           exit 1
-      - name: 完整性檢查（dangling ref 阻擋部署）
-        run: pnpm check:integrity
-      - name: 型別檢查
-        run: pnpm exec astro check
-      - name: scoped 樣式檢查（JS 注入 DOM 套不到 scoped <style>，阻擋部署）
-        run: pnpm check:scoped-styles
-      - name: 設計 token 檢查（硬編顏色 / 新增硬編 font-size，阻擋部署）
-        run: pnpm check:design-tokens
-      # 設計規範守門 v2（團隊統一，2026-07-20）另由 pnpm build:release 內建先跑（scripts/check-design.mjs）
-      - name: 文案 AI 味檢查（面向使用者的字禁療癒腔／假掰詩意，阻擋部署）
-        run: pnpm check:copy-voice
+      # 🔴 gate 清單**不寫在這個 workflow 裡**：唯一真實來源是 scripts/lib/gates.mjs。
+      #    以前 deploy.yml／.githooks/pre-push／CLAUDE.md §3／scripts/check-changed.sh
+      #    各手抄一份，四份互相矛盾且沒有任何東西會發現矛盾（2026-08-19 收斂）。
+      #    要加／減 gate，改 manifest；這裡不動。
+      #
+      # ⚠️ 這兩步刻意用 `for` 迴圈而非一 gate 一 step：
+      #    `set -euo pipefail` ＋ 直接呼叫 `pnpm "$g"`（**不接 pipe**）＝ 任何一道失敗
+      #    立刻中止整個 step、exit code 原樣傳出。本 repo 明列過 `cmd | tail && …`
+      #    會吃掉 exit code 的坑，這裡絕不引入。::group:: 讓 log 仍逐道可摺疊。
+      #
+      # 註：check:design／check:content／check:outbound-urls／check:release／check:discover 等
+      #    已內建在 `pnpm build`／`postbuild` 的指令鏈裡（manifest 標 viaBuild），
+      #    這裡不重複跑；它們沒有被弄丟，跑 `node scripts/lib/gates.mjs table` 可核對。
+      - name: 來源層 gate（build 前，讀 scripts/lib/gates.mjs）
+        run: |
+          set -euo pipefail
+          gates="$(node scripts/lib/gates.mjs list ci-pre-build)"
+          [ -n "$gates" ] || { echo "::error::gate manifest 回了空清單"; exit 1; }
+          for g in $gates; do
+            echo "::group::$g"
+            pnpm "$g"
+            echo "::endgroup::"
+          done
       - name: 完整發佈建置（static）
         run: pnpm build:release
-      - name: canonical 連結檢查（dist 內部網址非斜線→301，阻擋部署）
-        run: pnpm check:canonical
-      # 送出網址檢查（腳本主動送給 Google/IndexNow 的網址非斜線→301）另由 pnpm build:release 內建先跑
-      # （scripts/check-outbound-urls.mjs，2026-07-28 補上 check:canonical 的盲區）
-      # 錨文字：<a> 的**可見文字**不得是裸露網址、括號須成對（2026-08-04 用戶指出）。
-      # 起因：來源標註整段呈現為「來源：https://www.th.gov.tw/…；https://zh.wikipedia.org/…」
-      # 而非來源單位名稱，實測影響 131 頁；同批還挖出 3 個活動頁的即時軌跡 href 含中文說明＝連結是死的。
-      - name: 錨文字檢查（<a> 可見文字不得含網址，阻擋部署）
-        run: pnpm check:anchor-text
-
-      - name: 文件數字守門（現況型文件不得寫死會過期的數量）
-        run: pnpm check:doc-numbers
-      - name: render 不變量檢查（廟頁求籤區塊＋鄉鎮頁摘要，全量比對資料，阻擋部署）
-        run: pnpm check:rendered
+      # 產物層 gate：這幾道走訪 dist/**/*.html，**只能**排在 build:release 之後
+      # （dist/ 在 .gitignore，build 前跑等於掃舊產物空過或直接拋錯）。
+      # 內含 canonical（內部網址非斜線→301）、錨文字（<a> 可見文字不得是裸露網址，
+      # 2026-08-04 用戶指出，實測影響 131 頁）、render 不變量（廟頁求籤區塊＋鄉鎮頁摘要）。
+      - name: 產物層 gate（build 後，讀 scripts/lib/gates.mjs）
+        run: |
+          set -euo pipefail
+          gates="$(node scripts/lib/gates.mjs list ci-post-build)"
+          [ -n "$gates" ] || { echo "::error::gate manifest 回了空清單"; exit 1; }
+          for g in $gates; do
+            echo "::group::$g"
+            pnpm "$g"
+            echo "::endgroup::"
+          done
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

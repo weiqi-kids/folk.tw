@@ -4,7 +4,8 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { stripOuterParens } from '../../lib/text';
 
 export const getStaticPaths = (async () => {
@@ -26,39 +27,29 @@ const pageDesc =
   (`${a.name}${a.source ? `（出典：${stripOuterParens(a.source)}）` : ''}${a.people.length ? `，關聯人物：${a.people.join('、')}` : ''}。` +
   `${poems.length ? `出現於第 ${poems.map((p) => p.data.no).join('、')} 籤（跨文本反查）。` : ''}`);
 
-// GEO：BreadcrumbList ＋（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
-const ld: object[] = [
-  breadcrumb([
-    { name: '籤詩', path: '/poems/' },
-    { name: '典故', path: '/allusions/' },
-    { name: a.name, path: `/allusions/${allusion.id}/` },
-  ]),
-];
-if (hasStory) {
-  const storySummary = (allusion.body ?? '').trim().split(/(?<=[。！？])/)[0]?.trim() ?? '';
-  const faq = faqPage([{ q: `「${a.name}」的故事是什麼？`, a: storySummary }]);
-  if (faq) ld.push(faq);
-}
+// GEO：（有白話故事時）FAQPage（AEO，P1-4）。故事首句作為「故事是什麼」之答案，不杜撰
+const storySummary = (allusion.body ?? '').trim().split(/(?<=[。！？])/)[0]?.trim() ?? '';
+const faq = hasStory ? faqPage([{ q: `「${a.name}」的故事是什麼？`, a: storySummary }]) : null;
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={`典故 · ${a.name}`}
   description={pageDesc}
-  jsonLd={ld}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  speakable={['h1', '.story']}
+  faq={faq}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
+  answer="story"
+  crumbs={[HUB.poems, HUB.allusions, { name: a.name, path: `/allusions/${allusion.id}/` }]}
 >
-  <nav class="crumb"><a href="/poems/">籤詩</a> ／ <a href="/allusions/">典故</a> ／ {a.name}</nav>
   <h1>{a.name}</h1>
   {a.source && <p class="muted">出典：{a.source}</p>}
   {a.people.length > 0 && (
     <p>關聯人物：{a.people.map((p) => <span class="tag">{p}</span>)}</p>
   )}
   {/* 通用抽象視覺不描繪人物或場景，避免把錯誤歷史人物配給典故。 */}
-  <LeadVisual src="/visuals/qian-slips.svg" alt={`${a.name}典故的站內通用籤詩插圖`} />
+  <LeadVisual visual={visual} alt={`${a.name}典故的站內通用籤詩插圖`} />
 
   {
     hasStory ? (
@@ -88,7 +79,6 @@ if (hasStory) {
   </section>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .story { margin: 1.25rem 0; }
     .small { font-size: var(--text-sm); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }

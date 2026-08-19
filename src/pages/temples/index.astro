@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getTemples } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { ALL_COUNTIES, templeCounty } from '../../lib/temple-region';
 import { imageCreditTitle } from '../../lib/image-credit';
 import { num } from '../../lib/format'; // 千分位唯一入口（見該檔）
@@ -25,7 +25,7 @@ const featured = temples.filter((t) => !t.id.startsWith('moi_')).slice(0, 28);
 <Base
   title="廟宇"
   description={`收錄全台 ${num(temples.length)} 間廟宇與主祀神祇，可依縣市瀏覽，主祀神連回神明圖譜。`}
-  jsonLd={breadcrumb([{ name: '廟宇', path: '/temples' }])}
+  crumbs={[HUB.temples]}
 >
   <h1>廟宇</h1>
   <p class="muted">收錄全台 {num(temples.length)} 間廟宇。依縣市瀏覽，或先看代表名廟。</p>

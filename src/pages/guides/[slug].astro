@@ -3,7 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
-import { articleThing, breadcrumb, faqPage } from '../../lib/seo';
+import { articleThing, faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 export const getStaticPaths = (async () => {
   const articles = await getCollection('seoArticles', ({ data }) => !data.draft);
@@ -18,11 +19,6 @@ const { Content } = await render(article);
 const a = article.data;
 const faq = faqPage(a.faq);
 const ld: object[] = [
-  breadcrumb([
-    { name: '節慶習俗', path: '/festivals' },
-    { name: '主題文章', path: '/guides' },
-    { name: a.title, path: `/guides/${article.id}` },
-  ]),
   articleThing({
     slug: article.id,
     title: a.title,
@@ -32,25 +28,25 @@ const ld: object[] = [
     sources: a.sources,
   }),
 ];
-if (faq) ld.push(faq);
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={a.title}
   description={a.description}
   jsonLd={ld}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  speakable={['h1', '.article-summary']}
+  faq={faq}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
+  answer="articleSummary"
+  crumbs={[HUB.festivals, HUB.guides, { name: a.title, path: `/guides/${article.id}/` }]}
 >
-  <nav class="crumb"><a href="/festivals/">節慶習俗</a> ／ <a href="/guides/">主題文章</a> ／ {a.title}</nav>
   <article>
     <h1>{a.title}</h1>
     <p class="article-summary lead">{a.description}</p>
     <p class="muted small">發布於 {a.datePublished} · 更新於 {a.dateModified}</p>
-    <LeadVisual src="/visuals/qian-slips.svg" alt={`${a.title}的民俗主題文章通用插圖`} />
+    <LeadVisual visual={visual} alt={`${a.title}的民俗主題文章通用插圖`} />
 
     <div class="prose"><Content /></div>
 
@@ -78,7 +74,6 @@ if (faq) ld.push(faq);
   </article>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .article-summary { margin: 1rem 0 0.5rem; }
     .small { font-size: var(--text-sm); }
     article > .prose { margin-top: 1.5rem; }

@@ -19,6 +19,29 @@
 
 ---
 
+## 🔴 2026-08-19 更正：gate 清單已收斂成一份 manifest，本檔以下各節的**清單**已過期
+
+> 本節以下（含「`check:anchor-text` 是部署擋門」「pre-push hook」「驗證套件」三節）
+> 記的是**當時**的手抄清單。2026-08-19 起，「哪些 gate 要跑、什麼順序、吃什麼輸入」
+> 的唯一真實來源是 **`scripts/lib/gates.mjs`**，`deploy.yml`／`.githooks/pre-push`／
+> `scripts/check-changed.sh` 三個消費端都改成讀它，`CLAUDE.md` §3 也改成叫人跑
+> `node scripts/lib/gates.mjs table` 查。**要知道現在跑哪幾道，跑那個指令，別讀下面的名單。**
+>
+> 收斂時一併修掉三個實測確認的缺陷（原因是四份清單各自手維護、沒有東西會發現矛盾）：
+>
+> 1. **`check:anchor-text` 排錯層**。它走訪 `htmlFiles('dist')`（`scripts/check-anchor-text.mjs:19-27`），
+>    檔頭第 15 行寫明要在 `build:release` **之後**跑。`deploy.yml` 排對了，
+>    但 `CLAUDE.md` 舊的 `&&` 鏈把它排在 build **之前**，下面「pre-push hook」那節也把它
+>    列進「快、且純檔案掃描」那批。`dist/` 在 `.gitignore` → 本機等於掃一份舊 build 空過，
+>    乾淨工作目錄則 `readdirSync` 直接拋錯。**已改為只在 `ci-post-build` 出現。**
+> 2. **`check:festival-calendar` 是孤兒**：只存在於 `package.json`，全 repo 沒有任何東西跑它。
+>    實測 0.85 秒、純讀 `src/`（檔頭自述「不需 build」）、當下就是綠的 → 納入 pre-push 與 CI。
+> 3. **`verify:almanac` 沒有自動路徑**：只在本檔與 `RELEASE-CHECKLIST.md`，CI 沒接——
+>    而下面「pre-push hook」那節還寫著「那些留給 CI」。實測 3.9 秒 → 納入 `ci-pre-build`。
+>
+> ⚠️ 因此**上一節那句「日後在 deploy.yml 新增任何 gate step，同一回合要補進 CLAUDE.md §3 與本檔」
+> 已作廢**：新增 gate 只改 manifest 一處，四個消費端自動跟上，不必再手抄。
+
 ## 🔴 `check:anchor-text` 是部署擋門，但長期不在任何驗證清單裡
 
 `.github/workflows/deploy.yml:60` 有獨立的 `run: pnpm check:anchor-text` step——**它會擋部署**。

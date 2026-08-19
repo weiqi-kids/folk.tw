@@ -4,7 +4,8 @@ import UpcomingBirthdays from '../../components/UpcomingBirthdays.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { upcomingDeityBirthdays } from '../../lib/birthdays';
 import { todayInTaipei } from '../../lib/daily';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 const { iso } = todayInTaipei();
 // 全年聖誕曆：自今日起 400 天＋每尊去重＝60 尊各出現一次（下一次聖誕），依國曆日序。
@@ -30,27 +31,18 @@ const faqItems = [
     : []),
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  breadcrumb([
-    { name: '神明', path: '/deities' },
-    { name: '神明聖誕曆', path: '/deities/birthdays' },
-  ]),
-  ...(faq ? [faq] : []),
-];
 ---
 
 <Base
   title="神明生日一覽—台灣神明聖誕曆（農曆對國曆）"
   description={`台灣 ${totalDeities} 尊神明的聖誕（農曆生日）與今年國曆對照，依日期排序、逐尊掛來源。媽祖、關聖帝君、月老、土地公等聖誕是哪一天，一頁查。`}
-  ogType="article"
-  ogImage="/og/discover/calendar-compass.webp"
+  kind="detail"
+  og={{ family: 'visual', stem: 'calendar-compass' }}
   ogImageAlt="神明聖誕曆與農曆國曆日期對照"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.bd-answer']}
+  faq={faq}
+  answer="bdAnswer"
+  crumbs={[HUB.deities, { name: '神明聖誕曆', path: '/deities/birthdays/' }]}
 >
-  <nav class="crumb"><a href="/deities/">神明</a> ／ 神明聖誕曆</nav>
 
   <header class="dh">
     <h1>神明聖誕曆</h1>
@@ -88,7 +80,6 @@ const jsonLd = [
   </p>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .lead { font-size: var(--text-base); }
     .small { font-size: var(--text-sm); }

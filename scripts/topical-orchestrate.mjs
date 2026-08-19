@@ -7,13 +7,19 @@
 // 印 PUBLISHED / ARCHIVED 摘要行（tab 分隔）供 cron 包裝決定 commit/push/Slack。自身不碰 git。
 // 只有偵測到「新事件」時才呼叫 claude（顯著事件罕見→平時零 claude 用量、零改動）。
 // 用法：node scripts/topical-orchestrate.mjs [--dry]（--dry 只偵測＋過閘＋印，不寫檔）。
-import { readFileSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
-import { hasBannedNumber, SAFE_EVENT, findMainlandTerms, replaceMainlandTerms } from './lib/topical-guard.mjs';
+//
+// 2026-08-19：原本整段主流程是 top-level（一 import 就跑偵測與寫檔），別的腳本因此無法共用
+//   本檔的閘與紀錄形狀、只能複製。現已收進 main()，共用的部分在 lib/topical-{gate,text,record,report}.mjs。
+import { readFileSync } from 'node:fs';
+import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 import { sharedCycloneName, typhoonZhName, findTitleClash, CYCLONE_DAYS } from './lib/topical-dedup.mjs';
 import { reverseRegion } from './lib/topical-geo.mjs';
+import { gateAndFrame } from './lib/topical-gate.mjs';
+import {
+  readTopical, writeTopical, makeBlessingRecord, archiveRecord,
+} from './lib/topical-record.mjs';
+import { reportPublished, reportArchived, reportDemoted, reportGrace } from './lib/topical-report.mjs';
 
-const TOPICAL = 'src/data/topical.json';
 const STATS = 'src/data/qiugian-stats.json';
 const DRY = process.argv.includes('--dry');
 const DETECT_DAYS = 3, ARCHIVE_DAYS = 14;
@@ -22,13 +28,10 @@ const DETECT_DAYS = 3, ARCHIVE_DAYS = 14;
 //    （實際落在真實 24～48 小時之間）。要更精細得先給條目補時刻欄位。
 const KEEP_ACTIVE = 5, GRACE_DAYS = 2;
 const today = new Date().toISOString().slice(0, 10);
+// 本產線的閘身分：log 前綴與「下一輪會再掃到」的節奏（規則本身在 lib/topical-gate.mjs，只有一份）。
+const GATE_OPT = { logTag: '[topical]', cadenceNote: 'P1 每 20 分跑一次', srcFallback: '來源' };
 
-// 事件類型 → 中文標籤（供 gate 產文案、UI 可用）。新增類型只要在此登記即可。
-const TYPE_LABEL = {
-  quake: '地震', cyclone: '熱帶氣旋', flood: '水災', volcano: '火山活動', wildfire: '野火',
-  landslide: '山崩', 'bridge-collapse': '橋樑坍塌', fire: '火災', 'gas-explosion': '氣爆',
-  storm: '風災', other: '重大事件',
-};
+// 事件類型 → 中文標籤已抽到 lib/topical-text.mjs（P1／P2 共用，新增類型只改那一份）。
 // 舊條目無 eventType 時的推論（向後相容：有 mag 或 id 以 eq- 開頭＝地震）。
 const inferType = (e) => e.eventType ?? (e.mag != null || String(e.id).startsWith('eq-') ? 'quake' : 'other');
 
@@ -158,197 +161,122 @@ async function detect() {
   return groups.map(pickCanonical);
 }
 
-// ── 正向議題閘＋莊重中文框架（型別無關）。回 { verdict, title, event }。失敗一律保守 block。──
-function gateAndFrame(c) {
-  // 颱風有名字時，標籤改用台灣慣稱「颱風」而非學術詞「熱帶氣旋」（CWA 對照表有名字＝西北太平洋/南海）。
-  // 查無中文名（大西洋颶風等）則維持 TYPE_LABEL，標題退回無名寫法——絕不讓 LLM 自創音譯。
-  const zhName = c.cycloneNameZh || typhoonZhName(c.cycloneName);
-  const label = zhName ? '颱風' : (TYPE_LABEL[c.eventType] ?? '重大事件');
-  const src = c.sources?.[0]?.ref || '來源';
-  const fact = c.mag != null ? `規模 ${c.mag}` : (c.severity || '');
-  // 名字必須明白餵進 prompt：GDACS 摘要裡只有英文代號（NOUL-26），LLM 依「不得自創譯名」的規矩
-  // 只能略去不寫 → 標題長成「為中國熱帶氣旋平安祈福」這種沒有主角的樣子（2026-07-23 紅霞實例）。
-  const nameLine = zhName
-    ? `\n${label}名稱：「${zhName}」（國際命名 ${c.cycloneName}，中文名出自中央氣象署對照表，直接照抄勿改）`
-    : '';
-  const nameRule = zhName
-    ? `\n  - **標題必須寫出${label}名「${zhName}」**：形如「為${label}${zhName}祈福」或「為○○${label}${zhName}平安祈福」（○○＝受影響地區）；event 也要提到名字。名字只准照抄上面那三個字，不得改寫或自創其他譯名。`
-    : '';
-  // 地震來源的 place 是「距震央最近的城市」，常是無辨識度的小鎮（熊本 7.1 → Uki 宇城市）。
-  // 反查到的上級行政區一併提供，讓標題選台灣人真的會用的地名。
-  const regionLine = c.adminRegion
-    ? `\n所在行政區（由座標反查 OpenStreetMap，非自創）：「${c.adminCountry ?? ''}${c.adminRegion}」`
-    : '';
-  const PROMPT = `你是台灣民俗祈福站的守門與編輯。以下是來自「${src}」的災難事實：
-類型：${label}
-地點：「${c.place}」${regionLine}
-日期：${c.time}${nameLine}${fact ? `\n嚴重度：${fact}` : ''}${c.summary ? `\n事件摘要：${c.summary}` : ''}
-任務(1) 相關性＋正向議題判定，pass 需同時滿足：
-  a. 值得集體祈福——事件發生在有人居住/會受影響之地、有集體關切必要（**全球皆可，台灣人也會為國際重大災難如日本地震、中國山崩祈福**）；若在**無人或極少人受影響之處、無集體關切必要**，判 block（不必為每個事件都開頁）。
-  b. 正向框——做「為平安／復原祈福」（集體平安、非政治、非爭議對立、非消費痛苦、非對災難算吉凶）。
-  c. **災害已經實際發生在人身上，不是只發生在地圖上**——**沒有災害就不用祈福**。兩類分開看：
-     ・地震、山崩、橋樑坍塌、氣爆、建物火災這種「發生即是災害」者：事件本身就直接作用在人與房舍上，天然符合本條。
-     ・颱風、洪水、**森林野火**這種「先發生在自然環境、之後才知道有沒有傷到人」者：必須有
-       **人員傷亡／住宅或村落被燒毀淹沒／居民撤離安置／聚落交通中斷**等**已經發生的事實**才算；
-       若只有路徑預測、警報發布、防災整備，或「燒了多少林地、淹了多少面積」而未提到人，判 block，
-       等真的傷到人了再開（P1 每 20 分跑一次，下一輪會再掃到，不會漏）。
-     ⚠️ **GDACS 的數字全是推估，一律不得當成災情**：
-       ・「Population affected by … wind speeds」＝模式推算「可能會被吹到的人有多少」；
-       ・「forestfire in N ha」＝燒掉多少公頃**林地**（山林燒起來是常態，不等於有人受災）；
-       ・「N people affected in the area」＝該**區域裡住了多少人**，不是受災人數。
-       摘要只有這幾種數字、沒有一句寫到人或房舍實際受害時，判 **block**。
-  任一不符即 block。
-任務(2) 若 pass，產生莊重的**台灣繁體中文**：title 形如「為○○${label}平安祈福」或「為○○祈福」，event 為一到兩句。硬性要求：${nameRule}
-  - **台灣慣用語＋全形標點**（，。、；「」），**禁半形逗號句號、禁大陸用語**。
-  - **地名以上述來源「${c.place}」為準**：有通用台灣譯名才用（如「土耳其」「日本能登」），**沒有就保留原名或用保守描述（如「墨西哥外海」）——絕不自創或套大陸譯名**；若來源本為中文地名（如「重慶市彭水縣」）則**直接沿用原漢字、不另譯不改**。數字一律照來源，勿改。${
-    c.adminRegion
-      ? `\n  - ⚠️ **本則有「所在行政區」可用**：地震來源的地點是「距震央最近的城市」，常是台灣人沒聽過的小鎮。
-    若「${c.place}」的城市名不具辨識度，**改用上面那個行政區名**（2026-07-30 實例：USGS 給「4 km SE of Uki, Japan」＝宇城市，
-    但台灣人搜的、新聞寫的都是「熊本」；標題寫成「宇城地震」等於沒人找得到）。兩者皆為查得之事實，擇辨識度高者，仍不得自創。`
-      : ''
-  }
-  - **event 只能寫上面事實真的說了的事**：來源沒提到的影響（「波及當地居民」「居民生活受到影響」這類）
-    **不得自行推導補上**——2026-07-27 四則野火頁就是這樣把「燒了 N 公頃林地」腦補成「波及居民」（違反絕不杜撰）。
-    來源沒說影響到人，就只寫「發生森林野火，延燒林地」加祝願，不要替它加戲。
-  - 只依上述事實，不誇大。**event 不要寫出任何具體傷亡／失聯／疏散人數或金額**（這些數字未經機器複驗、且常隨救援變動；具體數字留給有逐筆掛源的後續發展時間軸）。event 只做莊重的事件描述＋祈福祝願，可用「造成傷亡」「多人失聯」等不帶數字的概述。
-只輸出單行 JSON：{"verdict":"pass"|"block","title":"…","event":"…"}。`;
-  const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
-    { encoding: 'utf8', timeout: 120000, env: { ...process.env, IS_SANDBOX: '1' } });
-  if (r.status !== 0 || !r.stdout) return { verdict: 'block', reason: 'claude 執行失敗' };
-  const m = r.stdout.match(/\{[\s\S]*\}/);
-  if (!m) return { verdict: 'block', reason: '無 JSON 輸出' };
-  try {
-    const g = JSON.parse(m[0]);
-    // 機械保底：claude 偶爾仍吐半形逗號/分號（見 2026-07-19 墨西哥頁事故）。緊鄰中文字者一律轉全形，
-    // 英文語境（如「Madero, Mexico」）左側為拉丁字母故不動；不碰句號免誤傷「7.3」這種小數。
-    const zh = (s) => typeof s === 'string'
-      ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
-      : s;
-    // 大陸用語機械替換（見 lib/topical-guard.mjs）：prompt 的「禁大陸用語」是軟約束，這裡才是強制層。
-    const tw = (s) => {
-      const hits = findMainlandTerms(s);
-      if (!hits.length) return s;
-      console.error(`[topical] ⚑ 陸用語替換：${hits.map((h) => `${h.term}→${h.tw}`).join('、')}`);
-      return replaceMainlandTerms(s);
-    };
-    g.title = tw(zh(g.title)); g.event = tw(zh(g.event));
-    return g;
-  } catch { return { verdict: 'block', reason: 'JSON 解析失敗' }; }
-}
+// ── 正向議題閘＋莊重中文框架 → lib/topical-gate.mjs（P1／P2 共用同一份規則）─────────────
+//   本檔只提供「呼叫端身分」GATE_OPT。⚠️ 2026-08-19 前 news-scan.mjs 有一份複製品，兩份已漂移；
+//   合併時以本檔那份為準（它帶著 GDACS 推估值警語等後補修正），詳見 topical-gate.mjs 檔頭。
 
-const list = JSON.parse(readFileSync(TOPICAL, 'utf8'));
-const known = new Set(list.map((x) => x.id));
-let changed = false;
+// ── 主流程（2026-08-19 由 top-level 收進 main()：讓本檔可被 import 而不動起來，
+//    這是把閘／類型表／紀錄形狀抽成共用模組的前提）────────────────────────────────
+async function main() {
+  const list = readTopical();
+  const known = new Set(list.map((x) => x.id));
+  let changed = false;
 
-// 1) 逾期 active → 歸檔（頁面轉 noindex）
-for (const it of list) {
-  if (it.mergedInto) continue; // 併頁後的舊條目只剩 redirect，狀態無意義、不必歸檔
-  if (it.status === 'active' && it.since && (Date.parse(today) - Date.parse(it.since)) / 864e5 > ARCHIVE_DAYS) {
-    if (!DRY) { it.status = 'archived'; it.archived_at = today; changed = true; }
-    console.log(`ARCHIVED\t${it.id}\t${it.title}`);
-  }
-}
-
-// 2) 新事件 → 過正向閘 → 開頁
-for (const c of await detect()) {
-  if (known.has(c.id)) continue;
-  // 跨執行去重：與既有條目（含已歸檔）同震者略過，免同一場事件換個網解又開一頁。
-  if (list.some((it) => sameEvent(it, c))) { console.error(`[topical] ${c.id} 與既有事件同震，略過`); continue; }
-  // GLIDE 去重（最權威，不看距離與時間窗）：同一場災害被 GDACS 分成多個 eventid 時，只有它擋得住。
-  // 2026-07-27 三場西班牙野火各自的 GLIDE 不同（…128/130/131-ESP）＝國際上就登記為三場，故不會被誤併。
-  if (c.glide) {
-    const dupG = list.find((it) => it.glide && it.glide === c.glide);
-    if (dupG) { console.error(`[topical] ${c.id} 與 ${dupG.id} 同一個 GLIDE「${c.glide}」，略過`); continue; }
-  }
-  // 跨產線去重（氣旋專用）：颱風會移動，上面的距離判定對它無效——P2 可能已先用中文名開過同一個颱風的頁。
-  // 這裡不動 sameEvent（它有地震 250km/1 天的專屬調校），只補一道名字比對。見 lib/topical-dedup.mjs dC。
-  if (c.eventType === 'cyclone') {
-    const dup = list.find((it) => it.eventType === 'cyclone' &&
-      Math.abs(Date.parse(it.time) - Date.parse(c.time)) / 864e5 <= CYCLONE_DAYS &&
-      sharedCycloneName(it, c));
-    if (dup) {
-      console.error(`[topical] ${c.id} 與 ${dup.id} 同一個颱風「${sharedCycloneName(dup, c)}」，略過`); continue;
+  // 1) 逾期 active → 歸檔（頁面轉 noindex）
+  for (const it of list) {
+    if (it.mergedInto) continue; // 併頁後的舊條目只剩 redirect，狀態無意義、不必歸檔
+    if (it.status === 'active' && it.since && (Date.parse(today) - Date.parse(it.since)) / 864e5 > ARCHIVE_DAYS) {
+      if (!DRY) { archiveRecord(it, today); changed = true; }
+      reportArchived(it.id, it.title);
     }
   }
-  // 地震（USGS）的 place 是「距震央最近的城市」，常是沒人聽過的小鎮（熊本 7.1 →「Uki」宇城市），
-  // 導致標題變成沒人會搜的「宇城地震」。開頁前先由座標反查上級行政區（熊本縣）一併餵給 prompt，
-  // 讓它挑有辨識度的地名——仍是查來的事實，不違反「絕不自創譯名」。查不到就照舊只用 place。
-  if (c.eventType === 'quake' && c.lat != null && c.lon != null) {
-    const geo = await reverseRegion(c.lat, c.lon);
-    if (geo?.region) {
-      c.adminRegion = geo.region;
-      c.adminCountry = geo.country;
-      console.log(`[topical] ${c.id} 反查行政區：${geo.country}${geo.region}（place=${c.place}）`);
+
+  // 2) 新事件 → 過正向閘 → 開頁
+  for (const c of await detect()) {
+    if (known.has(c.id)) continue;
+    // 跨執行去重：與既有條目（含已歸檔）同震者略過，免同一場事件換個網解又開一頁。
+    if (list.some((it) => sameEvent(it, c))) { console.error(`[topical] ${c.id} 與既有事件同震，略過`); continue; }
+    // GLIDE 去重（最權威，不看距離與時間窗）：同一場災害被 GDACS 分成多個 eventid 時，只有它擋得住。
+    // 2026-07-27 三場西班牙野火各自的 GLIDE 不同（…128/130/131-ESP）＝國際上就登記為三場，故不會被誤併。
+    if (c.glide) {
+      const dupG = list.find((it) => it.glide && it.glide === c.glide);
+      if (dupG) { console.error(`[topical] ${c.id} 與 ${dupG.id} 同一個 GLIDE「${c.glide}」，略過`); continue; }
     }
-  }
-  const g = gateAndFrame(c);
-  if (g.verdict !== 'pass' || !g.title) { console.error(`[topical] ${c.id} 未過閘：${g.reason || 'block'}`); continue; }
-  // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
-  if (hasBannedNumber(g.title)) { console.error(`[topical] ${c.id} 標題含具體傷亡/災損數字，攔下不開頁`); continue; }
-  // 硬守門：標題不得與既有頁完全相同（來源地理資訊不足以區分，開了使用者也分不出誰是誰）。
-  const clash = findTitleClash(list, g.title);
-  if (clash) { console.error(`[topical] ${c.id} 標題「${g.title}」與 ${clash.id} 完全相同，攔下不開頁`); continue; }
-  let safeEvent = g.event || SAFE_EVENT;
-  if (hasBannedNumber(safeEvent)) { console.error(`[topical] ${c.id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
-  const rec = {
-    id: c.id, eventType: c.eventType, title: g.title,
-    event: safeEvent,
-    sources: c.sources,
+    // 跨產線去重（氣旋專用）：颱風會移動，上面的距離判定對它無效——P2 可能已先用中文名開過同一個颱風的頁。
+    // 這裡不動 sameEvent（它有地震 250km/1 天的專屬調校），只補一道名字比對。見 lib/topical-dedup.mjs dC。
+    if (c.eventType === 'cyclone') {
+      const dup = list.find((it) => it.eventType === 'cyclone' &&
+        Math.abs(Date.parse(it.time) - Date.parse(c.time)) / 864e5 <= CYCLONE_DAYS &&
+        sharedCycloneName(it, c));
+      if (dup) {
+        console.error(`[topical] ${c.id} 與 ${dup.id} 同一個颱風「${sharedCycloneName(dup, c)}」，略過`); continue;
+      }
+    }
+    // 地震（USGS）的 place 是「距震央最近的城市」，常是沒人聽過的小鎮（熊本 7.1 →「Uki」宇城市），
+    // 導致標題變成沒人會搜的「宇城地震」。開頁前先由座標反查上級行政區（熊本縣）一併餵給 prompt，
+    // 讓它挑有辨識度的地名——仍是查來的事實，不違反「絕不自創譯名」。查不到就照舊只用 place。
+    if (c.eventType === 'quake' && c.lat != null && c.lon != null) {
+      const geo = await reverseRegion(c.lat, c.lon);
+      if (geo?.region) {
+        c.adminRegion = geo.region;
+        c.adminCountry = geo.country;
+        console.log(`[topical] ${c.id} 反查行政區：${geo.country}${geo.region}（place=${c.place}）`);
+      }
+    }
+    const g = gateAndFrame(c, GATE_OPT);
+    if (g.verdict !== 'pass' || !g.title) { console.error(`[topical] ${c.id} 未過閘：${g.reason || 'block'}`); continue; }
+    // 硬守門：面向使用者文案絕不出現具體傷亡/災損數字（見 lib/topical-guard.mjs）。
+    if (hasBannedNumber(g.title)) { console.error(`[topical] ${c.id} 標題含具體傷亡/災損數字，攔下不開頁`); continue; }
+    // 硬守門：標題不得與既有頁完全相同（來源地理資訊不足以區分，開了使用者也分不出誰是誰）。
+    const clash = findTitleClash(list, g.title);
+    if (clash) { console.error(`[topical] ${c.id} 標題「${g.title}」與 ${clash.id} 完全相同，攔下不開頁`); continue; }
+    let safeEvent = g.event || SAFE_EVENT;
+    if (hasBannedNumber(safeEvent)) { console.error(`[topical] ${c.id} event 含具體數字，改用無數字祈福語`); safeEvent = SAFE_EVENT; }
     // place/severity/mag/lat/lon/time 留檔供跨執行 sameEvent 比對；cycloneName（國際命名）供跨產線名字比對。
-    place: c.place, time: c.time,
-    ...(c.cycloneName ? { cycloneName: c.cycloneName } : {}),
-    ...(c.cycloneNameZh ? { cycloneNameZh: c.cycloneNameZh } : {}),
-    ...(c.glide ? { glide: c.glide } : {}),
-    ...(c.mag != null ? { mag: c.mag } : {}),
-    ...(c.severity ? { severity: c.severity } : {}),
-    ...(c.lat != null ? { lat: c.lat, lon: c.lon } : {}),
-    detector: c.detector, since: today, status: 'active',
-  };
-  if (!DRY) { list.push(rec); changed = true; }
-  console.log(`PUBLISHED\t${c.id}\t${g.title}\thttps://folk.tw/qiugian/blessing/${c.id}/`);
-}
-
-// 3) 集氣排序去留（用戶 2026-08-12 定案）：只保留集氣數最高的 KEEP_ACTIVE 頁 active。
-//
-// 🔴 為什麼不是「N 小時沒人點就下架」：2026-08-12 實測 30 天——全站 9,293 sessions、
-//    /qiugian/ 樞紐 207 views，但祈福頁 6 頁合計只有 10 views、集氣 6 次。這個量級下
-//    任何時間窗門檻的答案永遠是「沒人點」＝全刪（含花蓮大地震等級的事件）。
-//    改問「這幾頁裡哪幾頁相對最被在意」，答案不依賴絕對流量，量再小都能運作。
-//    決策脈絡見 docs/topical-blessing.md §3.10。
-// 排序：主鍵集氣數（高→低）；同分時次鍵 since（新→舊）——同樣 0 集氣，舊的已經有過曝光機會
-//    卻沒人點，先淘汰它。
-// ⚠️ 剛開的頁還沒被人看到就被擠掉是不對的 → GRACE_DAYS 內的新頁豁免，
-//    故 active 可**暫時多於** KEEP_ACTIVE，這是預期行為不是 bug。
-// 🔴 下架＝`archived` ＋ `archived_at` ＋ `followup.sealed`，**網址不 404**（紅線 4）、
-//    P4 不再追蹤（sealed → isTracked 為 false，否則它會掛 updates 又把頁面升回 memorial 重進索引）。
-// 🔴 memorial 不受本段影響——那是已有後續發展的事件記錄頁，本來就該長期可查。
-const blessCounts = (() => {
-  try { return JSON.parse(readFileSync(STATS, 'utf8')).topical ?? {}; } catch { return {}; }
-})();
-// 聚合器寫回時已去掉 GA4 的 `topical:` 前綴，但兩種寫法都認，免得改一邊就安靜歸零。
-const blessOf = (it) => blessCounts[it.id] ?? blessCounts[`topical:${it.id}`] ?? 0;
-
-const ranked = list
-  .filter((it) => it.status === 'active' && !it.mergedInto && !it.example)
-  .map((it) => ({
-    it,
-    n: blessOf(it),
-    ageDays: (Date.parse(today) - Date.parse(it.since || today)) / 864e5,
-  }))
-  .sort((a, b) => b.n - a.n || String(b.it.since ?? '').localeCompare(String(a.it.since ?? '')));
-
-let kept = 0;
-for (const r of ranked) {
-  if (kept < KEEP_ACTIVE) { kept += 1; continue; }
-  if (r.ageDays < GRACE_DAYS) { console.log(`GRACE\t${r.it.id}\t${r.it.title}\t集氣 ${r.n}`); continue; }
-  if (!DRY) {
-    r.it.status = 'archived';
-    r.it.archived_at = today;
-    r.it.followup = { ...(r.it.followup ?? {}), sealed: true };
-    r.it.retracted_reason = `集氣排序未進前 ${KEEP_ACTIVE}（集氣 ${r.n}）`;
-    changed = true;
+    // 欄位順序與「有值才寫」的規則收在 lib/topical-record.mjs（四個寫入端共用同一份形狀）。
+    const rec = makeBlessingRecord({
+      id: c.id, eventType: c.eventType, title: g.title, event: safeEvent, sources: c.sources,
+      place: c.place, time: c.time,
+      cycloneName: c.cycloneName, cycloneNameZh: c.cycloneNameZh, glide: c.glide,
+      mag: c.mag, severity: c.severity, lat: c.lat, lon: c.lon,
+      detector: c.detector, since: today,
+    });
+    if (!DRY) { list.push(rec); changed = true; }
+    reportPublished(c.id, g.title);
   }
-  console.log(`DEMOTED\t${r.it.id}\t${r.it.title}\t集氣 ${r.n}`);
+
+  // 3) 集氣排序去留（用戶 2026-08-12 定案）：只保留集氣數最高的 KEEP_ACTIVE 頁 active。
+  //
+  // 🔴 為什麼不是「N 小時沒人點就下架」：2026-08-12 實測 30 天——全站 9,293 sessions、
+  //    /qiugian/ 樞紐 207 views，但祈福頁 6 頁合計只有 10 views、集氣 6 次。這個量級下
+  //    任何時間窗門檻的答案永遠是「沒人點」＝全刪（含花蓮大地震等級的事件）。
+  //    改問「這幾頁裡哪幾頁相對最被在意」，答案不依賴絕對流量，量再小都能運作。
+  //    決策脈絡見 docs/topical-blessing.md §3.10。
+  // 排序：主鍵集氣數（高→低）；同分時次鍵 since（新→舊）——同樣 0 集氣，舊的已經有過曝光機會
+  //    卻沒人點，先淘汰它。
+  // ⚠️ 剛開的頁還沒被人看到就被擠掉是不對的 → GRACE_DAYS 內的新頁豁免，
+  //    故 active 可**暫時多於** KEEP_ACTIVE，這是預期行為不是 bug。
+  // 🔴 下架＝`archived` ＋ `archived_at` ＋ `followup.sealed`，**網址不 404**（紅線 4）、
+  //    P4 不再追蹤（sealed → isTracked 為 false，否則它會掛 updates 又把頁面升回 memorial 重進索引）。
+  // 🔴 memorial 不受本段影響——那是已有後續發展的事件記錄頁，本來就該長期可查。
+  const blessCounts = (() => {
+    try { return JSON.parse(readFileSync(STATS, 'utf8')).topical ?? {}; } catch { return {}; }
+  })();
+  // 聚合器寫回時已去掉 GA4 的 `topical:` 前綴，但兩種寫法都認，免得改一邊就安靜歸零。
+  const blessOf = (it) => blessCounts[it.id] ?? blessCounts[`topical:${it.id}`] ?? 0;
+
+  const ranked = list
+    .filter((it) => it.status === 'active' && !it.mergedInto && !it.example)
+    .map((it) => ({
+      it,
+      n: blessOf(it),
+      ageDays: (Date.parse(today) - Date.parse(it.since || today)) / 864e5,
+    }))
+    .sort((a, b) => b.n - a.n || String(b.it.since ?? '').localeCompare(String(a.it.since ?? '')));
+
+  let kept = 0;
+  for (const r of ranked) {
+    if (kept < KEEP_ACTIVE) { kept += 1; continue; }
+    if (r.ageDays < GRACE_DAYS) { reportGrace(r.it.id, r.it.title, r.n); continue; }
+    if (!DRY) {
+      archiveRecord(r.it, today, { seal: true, reason: `集氣排序未進前 ${KEEP_ACTIVE}（集氣 ${r.n}）` });
+      changed = true;
+    }
+    reportDemoted(r.it.id, r.it.title, r.n);
+  }
+
+  if (changed && !DRY) writeTopical(list);
 }
 
-if (changed && !DRY) writeFileSync(TOPICAL, JSON.stringify(list, null, 2) + '\n');
+// 被直接執行才跑；被 import 時只提供上面那些偵測器與純函式、不產生任何副作用。
+if (import.meta.url === `file://${process.argv[1]}`) await main();

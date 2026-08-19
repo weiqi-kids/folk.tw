@@ -2,7 +2,8 @@
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
 import slipsData from '../../../data/yaoqian.import.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
 
@@ -25,12 +26,6 @@ const list = (slipsData as Slip[]).filter((s) => s.category === meta.name).sort(
 const isWarned = (s: Slip) => /請勿使用|毒劇|有毒/.test(s.formula + s.institute_note);
 const warned = list.filter(isWarned);
 
-const jsonLd: object[] = [
-  breadcrumb([
-    { name: '保生大帝藥籤', path: '/medicine-slips/' },
-    { name: meta.name, path: `/medicine-slips/${category}/` },
-  ]),
-];
 const faq = faqPage([
   { q: `保生大帝藥籤${meta.name}有幾首？`, a: `臺南興濟宮版共 ${list.length} 首。` },
   {
@@ -44,29 +39,25 @@ const faq = faqPage([
       }]
     : []),
 ]);
-if (faq) jsonLd.push(faq);
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'medicine-manuscript';
 ---
 
 <Base
   title={`保生大帝藥籤${meta.name} ${list.length} 首全文`}
   description={`臺南興濟宮保生大帝藥籤${meta.name}共 ${list.length} 首全文與藥材說明。每首附藥方原文與藥材說明，引自衛生福利部國家中醫藥研究所典藏。`}
-  ogImage="/og/discover/medicine-manuscript.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.lead']}
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
+  kind="detail"
+  crumbs={[HUB.medicineSlips, { name: meta.name, path: `/medicine-slips/${category}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/medicine-slips/">保生大帝藥籤</a> ／ {meta.name}
-  </nav>
 
   <h1>保生大帝藥籤・{meta.name}</h1>
 
   <p class="lead">
     臺南興濟宮保生大帝藥籤{meta.name}共 <strong>{list.length} 首</strong>。{meta.blurb}
   </p>
-  <LeadVisual src="/visuals/medicine-manuscript.svg" alt={`${meta.name}藥籤文獻的站內通用插圖`} />
+  <LeadVisual visual={visual} alt={`${meta.name}藥籤文獻的站內通用插圖`} />
 
 
   {/* 籤號跳號（2026-08-08）：大人科 120 首全在一頁、整頁 21,000px，要找第 87 首

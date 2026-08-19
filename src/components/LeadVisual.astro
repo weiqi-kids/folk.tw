@@ -5,9 +5,17 @@
 // 滿版主視覺會把正文與行動按鈕推離首屏（qiugian 先被抓，後確認 good-days／systems
 // 等 30 個使用點同病）。`compact` 現在只差在 margin（供 qiugian 樞紐的並排格用），
 // 尺寸兩者相同；要恢復滿版是設計決策，先問用戶。
-import { imageCredit, imageCreditTitle, type ImageMeta } from '../lib/image-credit';
+import { imageCreditTitle, type ImageMeta } from '../lib/image-credit';
+import ImageCredit from './ImageCredit.astro';
+import { visualSvgPath, type VisualStem } from '../lib/page-head';
 
 interface Props {
+  /**
+   * 站內通用視覺（`/visuals/<stem>.svg`）。**與 Base 的 `og={{ family: 'visual', stem }}`
+   * 吃同一個 `VisualStem`**：頁面只宣告一次 stem，正文主視覺與分享圖就不可能指到兩張不同的圖。
+   * 重構前這兩處是毫無關聯的字串字面值（`/visuals/qian-slips.svg` vs `/og/discover/qian-slips.webp`）。
+   */
+  visual?: VisualStem;
   src?: string;
   alt?: string;
   image?: ImageMeta;
@@ -15,11 +23,10 @@ interface Props {
   compact?: boolean;
 }
 
-const { src, alt, image, eager = true, compact = false } = Astro.props;
-const actualSrc = image?.src ?? src;
+const { visual, src, alt, image, eager = true, compact = false } = Astro.props;
+const actualSrc = image?.src ?? (visual ? visualSvgPath(visual) : src);
 const actualAlt = image?.alt ?? alt ?? '';
 if (!actualSrc) throw new Error('LeadVisual 需要 src 或 image');
-const credit = image ? imageCredit(image) : null;
 ---
 
 <figure class:list={['lead-visual', { compact }]}>
@@ -33,9 +40,9 @@ const credit = image ? imageCredit(image) : null;
     fetchpriority={eager ? 'high' : undefined}
     decoding="async"
   />
-  {credit && (
+  {image && (
     <figcaption>
-      {credit.href ? <a href={credit.href} rel="nofollow noopener" target="_blank">{credit.text}</a> : credit.text}
+      <ImageCredit image={image} />
     </figcaption>
   )}
 </figure>
@@ -61,6 +68,7 @@ const credit = image ? imageCredit(image) : null;
     color: var(--ink-soft);
     font-size: var(--text-xs);
   }
-  .lead-visual figcaption a { color: inherit; }
+  /* <a> 由 ImageCredit 產生（帶的是它的 scope），故此處必須 :global，否則規則靜默失效。 */
+  .lead-visual figcaption :global(a) { color: inherit; }
   .lead-visual.compact { margin: 0; }
 </style>

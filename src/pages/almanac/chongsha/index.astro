@@ -4,7 +4,8 @@ import { todayInTaipei } from '../../../lib/daily';
 import { addDays } from '../../../lib/almanac/dates';
 import { computeDayRecord } from '../../../lib/almanac';
 import { lunarProvider } from '../../../lib/almanac/provider';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 
 // 今日沖生肖 / 沖煞查詢：純干支曆算（日支對沖生肖＋日煞方），非命理預測。
 // 沖生肖與煞方皆為決定性事實，用站上既有農民曆引擎（computeDayRecord）算，不自建算法。
@@ -25,12 +26,6 @@ for (let i = 0; i < 30; i++) {
 }
 const heroDay = rows[0]; // build 期今日；前端會依台灣當下日期改寫為正確今日。
 
-const jsonLd: object[] = [
-  breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: '今日沖煞', path: '/almanac/chongsha' },
-  ]),
-];
 const faq = faqPage([
   {
     q: '今天沖什麼生肖？',
@@ -41,19 +36,16 @@ const faq = faqPage([
     a: '「沖」指當日相沖的生肖，該生肖的人遇重要場合（如嫁娶、出殯）宜暫避；「煞方」指當日的凶方位，行事盡量避免朝該方向。沖煞是干支曆算，逐日推定。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="今日沖什麼生肖？農民曆沖煞查詢"
   description="今日沖生肖、煞方即時查詢，附近 30 天每日沖煞一覽。沖煞為干支曆算：沖指相沖生肖，煞指當日凶方位。"
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.hero-answer']}
+  faq={faq}
+  kind="detail"
+  answer="heroAnswer"
+  crumbs={[HUB.almanac, { name: '今日沖煞', path: '/almanac/chongsha/' }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/almanac/">農民曆</a> ／ 今日沖煞
-  </nav>
 
   <h1>今日沖什麼生肖？</h1>
 
@@ -137,8 +129,6 @@ if (faq) jsonLd.push(faq);
 </script>
 
 <style>
-  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
-  .crumbs a { color: var(--accent); }
   .hero { margin: 0.75rem 0 2.25rem; padding: 1.25rem 1.5rem; border: 1px solid var(--line); border-radius: 0.625rem; background: var(--paper-2); }
   .hero-answer { font-size: var(--text-xl); line-height: 1.7; margin: 0 0 0.375rem; }
   .hero-answer strong { color: var(--accent); }

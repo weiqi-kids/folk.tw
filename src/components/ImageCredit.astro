@@ -1,0 +1,34 @@
+---
+// 圖片出處標示的**唯一渲染入口**（判定規則在 src/lib/image-credit.ts，本檔只負責標記）。
+//
+// 🔴 為什麼要有這支（2026-08-19）：`imageCredit()` 早就是唯一的**判定**入口，但**渲染**
+//    在三個地方各寫一份，rel/target 長成三種：LeadVisual 是 `rel="nofollow noopener"
+//    target="_blank"`，廟宇頁與神明頁是 `rel="noopener"`（沒有 target ＝ noopener 完全無作用）。
+//    出處連結是授權條件，不該由「當時是誰複製貼上的」決定它長什麼樣。
+//
+// 🔴 統一取 `rel="nofollow noopener" target="_blank"`，判準：
+//    ① 與 Sources.astro（全站來源連結的唯一渲染入口）逐字相同——出處連結就是來源連結。
+//    ② `target="_blank"` 是刻意的：讀者點出處是為了「查證」，不是離開本頁；
+//       全站每一條對外來源連結（Sources、good-days、medicine-slips、yiji）都開新分頁。
+//    ③ `noopener` 只有在 `target="_blank"` 時才有意義，故兩者必須同進退。
+//    ④ `nofollow` 不影響授權：授權要求的是「頁面上有可點的來源連結」，
+//       而 nofollow 是給爬蟲的排序提示，不改變連結的可見性、可點性與機器可讀性。
+//       站上有上萬頁會指向同一批來源網域，全站級的外連一律 nofollow 是既有慣例。
+//
+// 🔴 圖說在條目頁必須放在 `<img>` **之後**——本元件只出 `<figcaption>` 的**內容**，
+//    `<figure>`／`<img>`／`<figcaption>` 仍由呼叫端擺放（各頁的 figcaption 樣式是頁面自己的
+//    scoped 規則，把 figcaption 搬進元件會讓那些規則靜默失效）。
+import { imageCredit, type ImageMeta } from '../lib/image-credit';
+
+interface Props {
+  image: ImageMeta;
+}
+
+// 一頁一張圖只算一次（重構前廟宇頁與神明頁各呼叫 imageCredit() 三次）。
+const credit = imageCredit(Astro.props.image);
+---
+{credit.href ? (
+  <a href={credit.href} rel="nofollow noopener" target="_blank">{credit.text}</a>
+) : (
+  credit.text
+)}

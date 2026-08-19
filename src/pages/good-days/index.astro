@@ -4,7 +4,8 @@ import { todayInTaipei } from '../../lib/daily';
 import { addDays } from '../../lib/almanac/dates';
 import { verifiedYiDays } from '../../lib/almanac/select';
 import goodDaysData from '../../data/good-days.json';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import LeadVisual from '../../components/LeadVisual.astro';
 import LineCta from '../../components/LineCta.astro';
 
@@ -24,7 +25,6 @@ const rows = items.map((it) => {
   return { ...it, days };
 });
 
-const jsonLd: object[] = [breadcrumb([{ name: '看日子', path: '/good-days/' }])];
 const faq = faqPage([
   {
     q: '這些日子是怎麼算出來的？',
@@ -39,19 +39,18 @@ const faq = faqPage([
     a: '只列目前確實推得出「宜」日的事項。破土的宜列在原書只有「鳴吠」「鳴吠對」兩條，這兩個神煞的定位義例還沒考據完成；開光與入殮則是卷十一「用事」篇裡根本沒有的條目（三份總目與逐條宜忌都查過），沒有原文可依就不列，以免給出沒有依據的日子。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title="看日子：結婚、搬家、動土、安葬、拜拜的近期吉日"
   description="依《欽定協紀辨方書》卷十一用事推算，逐條掛原文出處。列出近六十天宜結婚、搬家入厝、動土、安葬、拜拜的日子，並說明通書吉日與合八字的差別。"
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  faq={faq}
+  answer="lead"
+  crumbs={[HUB.goodDays]}
 >
-  <nav class="crumbs" aria-label="麵包屑">看日子</nav>
 
   <h1>看日子</h1>
-  <LeadVisual src="/visuals/calendar-compass.svg" alt="曆書、日期格與擇日羅盤" />
+  <LeadVisual visual="calendar-compass" alt="曆書、日期格與擇日羅盤" />
   <p class="lead">
     這裡列出近六十天內，通書所載宜結婚、搬家入厝、動土、安葬、拜拜的日子。
     判斷依據是《欽定協紀辨方書》卷十一「用事」所載的宜忌神煞，每一條規則都核對過四庫全書本原文。

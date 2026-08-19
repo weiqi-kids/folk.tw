@@ -34,7 +34,9 @@
 //   node scripts/import-local-celebrations.mjs --write    # 實際寫 src/data/local-celebrations.json
 //   node scripts/import-local-celebrations.mjs --verbose  # 逐筆印出配廟判定過程
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+// 🔴 資料集寫入、旗標解析、entity 解碼、合併鍵正規化**一律走這支**（唯一入口，見其檔頭）。
+import { cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
 
 const INBOX = '/root/.config/folk-tw/intake/inbox/misc';
 const PAGES = [
@@ -49,9 +51,9 @@ const SOURCE_REF =
   '內政部全國宗教資訊網・地方宗教慶典 https://religion.moi.gov.tw/LocalCelebration/Index?ci=96';
 const SOURCE_NOTE = `縣市、曆別與月日、活動名稱；抓取日 ${FETCHED_ON}`;
 
-const args = process.argv.slice(2);
-const WRITE = args.includes('--write');
-const VERBOSE = args.includes('--verbose');
+const flags = cliFlags();
+const WRITE = flags.write;
+const VERBOSE = flags.verbose;
 
 // ── 解析 ────────────────────────────────────────────────────────────────────
 // 每一列的形狀（2026-08-06 實測）：
@@ -62,14 +64,7 @@ const ROW = /<a href="\/LocalCelebration\/Content\?ci=96&(?:amp;)?cid=(\d+)" tit
 
 const CAL = { 農曆: 'lunar', 國曆: 'solar', 回曆: 'hijri' };
 
-const unescapeHtml = (s) =>
-  s
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&amp;/g, '&');
+const unescapeHtml = decodeEntities; // lib/dataset-commit.mjs 的唯一一份（另含數值型 entity）
 
 const pad = (n) => String(n).padStart(2, '0');
 
@@ -123,7 +118,8 @@ if (bad.length) {
 
 // ── 配廟消歧 ────────────────────────────────────────────────────────────────
 // 臺／台 正規化：來源用「臺北市」，temples.json 兩種都有（MOI 原始欄位很髒）。
-const norm = (s) => String(s ?? '').replace(/台/g, '臺');
+// norm 來自 lib/dataset-commit.mjs（統一為「臺→台＋刪全部空白」）。方向對比對是可證明等價的
+// ——**含本檔用的子字串比對**，因為逐字元代換保長度；2026-08-19 實測本檔輸出逐字元相同。
 
 const temples = JSON.parse(readFileSync(TEMPLES, 'utf8'));
 // 只拿「看得出是廟」的名稱當比對候選：兩字名（如「天宮」）當子字串會亂命中。
@@ -238,10 +234,14 @@ console.log(`  無法消歧(留空)　　${stat.unresolved}`);
 console.log(`  名稱無廟名　　　　${stat.no_temple_in_name}`);
 console.log(`  → 有 temple_ref 者 ${out.filter((x) => x.temple_ref).length} 筆`);
 
+commitDataset({
+  path: OUT,
+  data: payload, // 信封物件；差異量對 payload.items 逐筆比對
+  write: WRITE,
+  dryNote: '\n（乾跑，未寫檔。加 --write 才寫入。樣本：）',
+  doneNote: `\n✓ 已寫入 ${OUT}`,
+});
 if (!WRITE) {
-  console.log('\n（乾跑，未寫檔。加 --write 才寫入。樣本：）');
   for (const x of out.slice(0, 6)) console.log('   ', JSON.stringify(x));
   process.exit(0);
 }
-writeFileSync(OUT, JSON.stringify(payload, null, 2) + '\n');
-console.log(`\n✓ 已寫入 ${OUT}`);

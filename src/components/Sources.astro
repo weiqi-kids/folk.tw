@@ -1,19 +1,49 @@
 ---
-// 統一來源渲染：把 source.ref 內嵌的網址轉成錨文字連結（見 src/lib/sources.ts）。
-// 行內輸出「來源：名稱；名稱…」，外層 <p class="src">/<span> 由呼叫頁自理。
-// prefix 預設「來源：」，可傳空字串或「座標來源：」等自訂；無網址的來源退化為純文字。
+// 來源標示的**唯一渲染入口**：外層元素、空值判斷、class 與 CSS 全在這一支。
+//
+// 🔴 出處標示是授權義務（緣由見 src/lib/sources.ts 檔頭）。呼叫端**只選版型**，
+//    不要自己再寫一次 `<p class="src">`、也不要自己再寫一次 `sources.length > 0`——
+//    2026-08-19 重構前這兩件事被 20 個呼叫端各做一遍：外層元素在 p／div／span 之間游移、
+//    `.src` 的 CSS 在 21 個檔裡長出 4 種互不相容的變體，而空值判斷本來就多餘
+//    （本檔一向在 `parsed.length === 0` 時什麼都不畫）。
+//
+// 文字內容與分隔符自 2026-08-08 起一個字都沒動過（來源標示是授權條件，不動它）。
 import { parseSourceRef, type SourceRef } from '../lib/sources';
+
+/**
+ * 版型＝呼叫端唯一要決定的事。
+ * - `footer`   頁尾整段來源：`<p>`，與正文拉開距離、行距放寬（來源常有七八筆到十幾筆）。
+ * - `block`    區塊內獨立的一段來源：`<p>`，緊接在它所標註的區塊之後。
+ * - `attached` 貼著上一列的來源：`<div>`，**無上下外距**（用在清單列內，如神明頁的聖誕列）。
+ * - `inline`   接在一句話後面的來源：`<span>`。
+ * - `bare`     已經在別人的元素裡與其他文字混排（如 `<span class="muted small">　— …</span>`）：
+ *              只出文字、不加外層、不套 `.src` 顏色，由那個元素自己決定樣子。
+ */
+type SourcesVariant = 'footer' | 'block' | 'attached' | 'inline' | 'bare';
 
 interface Props {
   sources?: SourceRef[];
+  /** 前導文字。預設「來源：」；`inline` 版型也拿它當前置分隔符（如「 · 」「（」）。 */
   prefix?: string;
+  variant: SourcesVariant;
 }
 
-const { sources = [], prefix = '來源：' } = Astro.props;
+const TAG: Record<SourcesVariant, unknown> = {
+  footer: 'p', block: 'p', attached: 'div', inline: 'span', bare: Fragment,
+};
+
+// ⚠️ 本 repo 的 `Astro.props` 型別是 Record<string, any>（實測 astro check 不會驗呼叫端的 props），
+// 所以「版型必須指定」靠下面那行 runtime 守——漏傳會在 build 當場炸掉，不會安靜掉樣式。
+const { sources = [], prefix = '來源：', variant } = Astro.props as Props;
+if (!variant || !(variant in TAG)) throw new Error(`<Sources> 必須指定 variant（${Object.keys(TAG).join('／')}），收到：${variant}`);
 const parsed = sources.map(parseSourceRef);
+
+const Wrapper = TAG[variant] as 'p' | 'div' | 'span';
+// Fragment 不吃 class；其餘版型統一由本檔的 scoped style 上色與排版。
+const wrapperProps = variant === 'bare' ? {} : { class: `src src-${variant}` };
 ---
 {parsed.length > 0 && (
-  <Fragment>
+  <Wrapper {...wrapperProps}>
     {prefix}
     {parsed.map((p, i) => (
       /* 2026-08-08：每筆包一層 span 並 inline-block——廟宇頁的來源常有七八筆、
@@ -29,9 +59,17 @@ const parsed = sources.map(parseSourceRef);
         )}
       </span>
     ))}
-  </Fragment>
+    {/* 尾綴（收尾的括號、同一段裡的補充句）；來源為空時整段連同尾綴一起不出現。 */}
+    <slot />
+  </Wrapper>
 )}
 
 <style>
   .s { display: inline-block; }
+  /* 全站來源標示的單一樣式來源（--gold ＝ variables.css 註明的「出處／註記」色）。 */
+  .src { color: var(--gold); font-size: var(--text-xs); }
+  /* 頁尾那段常有十幾筆、必然多行，行距放寬（原本只有廟宇頁這麼做，收斂時全站採用）。 */
+  .src-footer { margin-top: 2.5rem; line-height: 1.9; }
+  /* 貼著上一列，不要 p 的預設上下外距。 */
+  .src-attached { margin: 0; }
 </style>

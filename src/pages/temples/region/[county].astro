@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import { getTemples } from '../../../lib/queries';
-import { breadcrumb } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../lib/temple-region';
 import { num } from '../../../lib/format';
 
@@ -42,12 +42,8 @@ const towns = [...byTown.entries()]
 <Base
   title={`${name}廟宇`}
   description={`${name}的廟宇與主祀神祇，共 ${num(temples.length)} 間，可依鄉鎮市區瀏覽。`}
-  jsonLd={breadcrumb([
-    { name: '廟宇', path: '/temples/' },
-    { name, path: `/temples/region/${slug}/` },
-  ])}
+  crumbs={[HUB.temples, { name, path: `/temples/region/${slug}/` }]}
 >
-  <nav class="crumb"><a href="/temples/">廟宇</a> ／ {name}</nav>
   <h1>{name}廟宇</h1>
   <p class="muted">{name}收錄 {num(temples.length)} 間，依鄉鎮市區瀏覽。</p>
   <p class="nearby-entry"><a href="/temples/nearby/">用我的位置找附近的廟 →</a></p>
@@ -85,7 +81,6 @@ const towns = [...byTown.entries()]
   }
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .nearby-entry { margin: 0.625rem 0 0; font-size: var(--text-base); }
     .town-wall {
       display: grid;
@@ -106,6 +101,5 @@ const towns = [...byTown.entries()]
     .temple strong { color: var(--ink); }
     .small { font-size: var(--text-sm); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
-    .src { margin-top: 1.875rem; color: var(--gold); }
   </style>
 </Base>

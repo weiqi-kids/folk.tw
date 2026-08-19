@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { HUB } from '../../lib/breadcrumbs';
 
 const LINE_ADD_URL = 'https://line.me/R/ti/p/@616yhksm';
 const features = [
@@ -13,9 +14,9 @@ const features = [
 <Base
   title="神酷 LINE 官方帳號"
   description="把神酷加進 LINE：每天一支六十甲子籤、查最近五個民俗節日、直接打日期看宜忌，也能加進群組一起用。平常不推播，想查時再叫它。"
-  speakable={['h1', '.line-lead']}
+  answer="lineLead"
+  crumbs={[HUB.line]}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ LINE 官方帳號</nav>
 
   <header class="line-hero">
     <img src="/line-profile-640.png" alt="神酷 LINE 官方帳號" width="640" height="640" loading="eager" decoding="async" />
@@ -66,7 +67,6 @@ const features = [
   </p>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 1rem; }
     .line-hero { display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; align-items: center; margin: 1rem 0 2.5rem; }
     .line-hero img { display: block; width: 10rem; height: 10rem; object-fit: cover; }
     .line-hero h1 { margin: 0.25rem 0 0.75rem; }

@@ -3,7 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Sources from '../../components/Sources.astro';
 import { getTrades, getDeities, templesByDeity, getSystems, systemHref } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { todayInTaipei } from '../../lib/daily';
 import { addDays, almanacHref } from '../../lib/almanac/dates';
 import { verifiedYiDays, affairNameOf } from '../../lib/almanac/select';
@@ -66,13 +67,6 @@ const faqItems: { q: string; a: string }[] = [
   },
 ];
 const faq = faqPage(faqItems);
-const jsonLd = [
-  breadcrumb([
-    { name: '行業守護神', path: '/trades' },
-    { name: t.name, path: `/trades/${trade.id}` },
-  ]),
-  ...(faq ? [faq] : []),
-];
 
 // title/description 用**使用者實際會打的職業詞**（occupations），不是行業統稱。
 // GSC 實測（29 天）命中的查詢全部是「○○拜什麼神」句型：護士拜什麼神 25 曝光第 9.4 名、
@@ -90,14 +84,11 @@ const pageDesc =
 <Base
   title={pageTitle}
   description={pageDesc}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: 'prayer-light' }}
+  faq={faq}
+  crumbs={[HUB.trades, { name: t.name, path: `/trades/${trade.id}/` }]}
 >
-  <nav class="crumb"><a href="/trades/">行業守護神</a> ／ {t.name}</nav>
 
   <header class="dh">
     <h1>{t.name}的守護神與吉日</h1>
@@ -160,7 +151,7 @@ const pageDesc =
                 ))}
               </p>
             )}
-            <p class="src"><Sources sources={p.sources} /></p>
+            <Sources sources={p.sources} variant="block" />
           </div>
         );
       })
@@ -213,10 +204,9 @@ const pageDesc =
     </p>
   </section>
 
-  {t.sources.length > 0 && <p class="src footer-src"><Sources sources={t.sources} /></p>}
+  <Sources sources={t.sources} variant="footer" />
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .lead { font-size: var(--text-base); }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
@@ -230,9 +220,7 @@ const pageDesc =
       background: var(--paper-2); font-size: var(--text-sm);
     }
     .chip:hover { text-decoration: none; border-color: var(--accent-soft); }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .small { font-size: var(--text-sm); }
-    .footer-src { margin-top: 2.5rem; }
     .festival-link { margin: 1.25rem 0; padding: 0.8rem 1rem; border-left: 3px solid var(--accent); background: var(--paper-2); }
   </style>
 </Base>

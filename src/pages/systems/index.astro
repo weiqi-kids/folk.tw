@@ -2,7 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getSystems, getPoems, deitiesBySystem, getTemples, systemHref } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { num } from '../../lib/format';
 
 // 籤系樞紐（2026-08-01 建）：原本只有 /systems/<id>/ 各籤系頁，**沒有共同入口**——
@@ -45,10 +46,6 @@ const totalTemples = rows.reduce((n, r) => n + r.temples, 0);
 const lingqianCount = rows.filter((r) => !r.data.hub).reduce((n, r) => n + r.count, 0);
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '籤詩', path: '/poems/' },
-    { name: '籤系', path: '/systems/' },
-  ]),
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -76,18 +73,16 @@ const faq = faqPage([
     a: '會。有些廟除了主神的籤，還另設藥籤、月老籤等專用籤筒；也有廟因為歷史沿革換過籤本。本站的對映是依主祀神的通行籤系，實際以廟方現場為準。',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title={`台灣籤詩系統：${rows.length} 套共 ${totalPoems} 首`}
   description={`台灣廟宇常見的籤詩系統整理。本站收錄 ${rows.length} 套共 ${totalPoems} 首，含六十甲子籤、關聖帝君靈籤與保生大帝藥籤，逐首附全文，並標明各籤系對應的主祀神與廟宇數。`}
   jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  faq={faq}
+  answer="lead"
+  crumbs={[HUB.poems, HUB.systems]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/poems/">籤詩</a> ／ 籤系
-  </nav>
 
   <h1>籤詩系統</h1>
 
@@ -96,7 +91,7 @@ if (faq) jsonLd.push(faq);
     本站目前收錄 <strong>{rows.length} 套共 {totalPoems} 首</strong>，
     對應到 <strong>{num(totalTemples)} 間</strong>登記在案的宮廟。
   </p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的籤詩系統通用插圖" />
+  <LeadVisual visual="qian-slips" alt="竹籤、紙卷與印記構成的籤詩系統通用插圖" />
 
   <div class="sys-list">
     {rows.map((r) => (

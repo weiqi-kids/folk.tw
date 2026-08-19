@@ -24,8 +24,10 @@
 //   node scripts/import-photos.mjs            # 乾跑（預設）
 //   node scripts/import-photos.mjs --write
 
-import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+// 🔴 資料集寫入、旗標解析、來源標註**一律走這支**（唯一入口，見其檔頭）。
+import { attachSource, cliFlags, commitDataset } from './lib/dataset-commit.mjs';
 
 const IN = '/root/.config/folk-tw/intake/inbox/photos';
 const OUT_DIR = 'public/moi';
@@ -35,7 +37,9 @@ const CAND = [
   { file: 'docs/knowledge-photo-candidates.json', kind: 'deity', idField: 'deity_id', prefix: 'deity' },
   { file: 'docs/temple-photo-candidates.json', kind: 'temple', idField: 'temple_id', prefix: 'temple' },
 ];
-const WRITE = process.argv.includes('--write');
+// 🔴 旗標一律從這裡讀（含 --json）。抽出前 --write 與 --json 各自直接翻 process.argv。
+const flags = cliFlags();
+const WRITE = flags.write;
 
 const LICENSE = '內政部同意使用（2026-08-06）；條件為標示資料來源連結';
 
@@ -143,19 +147,16 @@ for (const f of files.sort()) {
     source: m.page,
   };
   // 掛源：授權條件就是標示資料來源連結。
-  target.sources = target.sources ?? [];
-  if (!target.sources.some((s) => String(s.ref ?? '').includes(m.page))) {
-    target.sources.push({
-      type: 'gov',
-      ref: `內政部全國宗教資訊網·照片（${author}${String(m.credit_role ?? '').trim() || '攝'}） ${m.page}`,
-      note: '照片；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
-    });
-  }
+  // ref 內含每張各異的來源頁網址 → 用 dedupeBy 只比那段（見 lib/dataset-commit.mjs 檔頭 ⑤）。
+  attachSource(target, {
+    ref: `內政部全國宗教資訊網·照片（${author}${String(m.credit_role ?? '').trim() || '攝'}） ${m.page}`,
+    note: '照片；2026-08-06 經內政部同意使用，條件為標示資料來源連結',
+  }, { dedupeBy: m.page });
   stat.written++;
 }
 
 // --json：給 scripts/intake-status.mjs 的「待匯入」段消費（契約見 import-temple-history.mjs）。
-if (process.argv.includes('--json')) {
+if (flags.json) {
   console.log(JSON.stringify({
     read: stat.seen,
     pending: { 代表圖: stat.written },
@@ -175,10 +176,12 @@ if (stat.notImage) {
 }
 if (stat.noPhotographer) console.log('  ⚠️ 無攝影者者一律不採用（姓名表示是著作人格權）。');
 
+// 兩個資料集各自提交；收尾那句話是本檔自己的（還要提圖片落點），故兩邊都不印 note。
+for (const [path, data] of [[DEITIES, deities], [TEMPLES, temples]]) {
+  commitDataset({ path, data, write: WRITE, dryNote: null, doneNote: null });
+}
 if (!WRITE) {
   console.log('\n（乾跑，未寫檔也未轉圖。加 --write 才實際執行。）');
   process.exit(0);
 }
-writeFileSync(DEITIES, JSON.stringify(deities, null, 2) + '\n');
-writeFileSync(TEMPLES, JSON.stringify(temples, null, 2) + '\n');
 console.log(`\n✓ 已寫回 ${DEITIES}、${TEMPLES}，圖片轉存於 ${OUT_DIR}/`);

@@ -2,25 +2,23 @@
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { getAllusions, poemsByAllusion } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 const allusions = (await getAllusions()).sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh-Hant'));
 const poemIndex = await poemsByAllusion();
 
-const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
 ---
 
 <Base
   title="卦頭典故總覽"
   description={`籤詩卦頭典故總覽：${allusions.length} 則公有領域故事，逐則標出典並反查出現於哪些籤。`}
-  jsonLd={ld}
+  crumbs={[HUB.poems, HUB.allusions]}
 >
-  <nav class="crumb"><a href="/poems/">籤詩</a> ／ 典故</nav>
   <h1>卦頭典故總覽</h1>
   <p class="muted">
     籤詩四句之外的卦頭故事，共 {allusions.length} 則；同一典故可能橫跨多支籤，這裡也能反查出現於哪些籤。
   </p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的典故通用插圖" />
+  <LeadVisual visual="qian-slips" alt="竹籤、紙卷與印記構成的典故通用插圖" />
   {/* 篩選（2026-08-08）：137 則一次全出、整頁 11,500px，沒有任何索引或篩選，
       想找「包公」只能用瀏覽器搜尋。
       ⚠️ 只切既有 <a> 的 hidden 屬性，**不注入也不移除任何 DOM**
@@ -85,7 +83,6 @@ const ld = [breadcrumb([{ name: '典故', path: '/allusions' }])];
     })();
   </script>
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
     .filter-label { font-size: var(--text-sm); color: var(--ink-soft); letter-spacing: 0.08em; }
     .filter-input {

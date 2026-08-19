@@ -5,7 +5,8 @@ import { addDays } from '../../../lib/almanac/dates';
 import { verifiedYiDays } from '../../../lib/almanac/select';
 import affairsData from '../../../lib/almanac/rules/affairs.json';
 import termsData from '../../../data/yiji-terms.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 
 const affairs = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
 const terms = (termsData as { terms: Record<string, { def: string; note?: string }> }).terms;
@@ -29,13 +30,6 @@ for (let i = 0; i < 60; i++) windowDays.push(addDays(todayIso, i));
 const yiDays = verifiedYiDays(windowDays, [affair!]).get(affair!) ?? [];
 const md = (s: string) => `${Number(s.slice(5, 7))}/${Number(s.slice(8, 10))}`;
 
-const jsonLd: object[] = [
-  breadcrumb([
-    { name: '農民曆', path: '/almanac' },
-    { name: '宜忌事項', path: '/almanac/yiji' },
-    { name: meta.name, path: `/almanac/yiji/${affair}` },
-  ]),
-];
 const faq = faqPage([
   { q: `${meta.name}是什麼意思？`, a: term.def },
   ...(term.note ? [{ q: `${meta.name}和相近的用事有什麼不同？`, a: term.note }] : []),
@@ -46,19 +40,15 @@ const faq = faqPage([
       : '',
   },
 ]);
-if (faq) jsonLd.push(faq);
 ---
 
 <Base
   title={`${meta.name}是什麼？農民曆宜忌用事解釋`}
   description={`${meta.name}是什麼意思？${term.def}附近期宜${meta.name}的日子。`}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.lead']}
+  faq={faq}
+  kind="detail"
+  crumbs={[HUB.almanac, HUB.yiji, { name: meta.name, path: `/almanac/yiji/${affair}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/almanac/">農民曆</a> ／ <a href="/almanac/yiji/">宜忌事項</a> ／ {meta.name}
-  </nav>
 
   <h1>{meta.name}是什麼？</h1>
   <p class="lead">{term.def}</p>
@@ -121,8 +111,6 @@ if (faq) jsonLd.push(faq);
 </script>
 
 <style>
-  .crumbs { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
-  .crumbs a { color: var(--accent); }
   .lead { font-size: var(--text-lg); line-height: 1.9; margin: 0.5rem 0 1rem; }
   .note { font-size: var(--text-base); color: var(--ink-soft); line-height: 1.8; margin: 0 0 1.25rem; padding-left: 1rem; border-left: 3px solid var(--line); }
   .yi-days { margin-top: 2.25rem; }

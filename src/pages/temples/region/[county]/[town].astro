@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../../layouts/Base.astro';
 import { getTemples, getDeities } from '../../../../lib/queries';
-import { breadcrumb } from '../../../../lib/seo';
+import { HUB } from '../../../../lib/breadcrumbs';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../../lib/temple-region';
 import { num } from '../../../../lib/format';
 import { templeDemandHrefFor } from '../../../../lib/temple-demand-pages';
@@ -86,15 +86,8 @@ const lead = [
 <Base
   title={`${cName}${town}廟宇`}
   description={`${cName}${town}共 ${num(temples.length)} 間廟宇${topPhrase ? `，${topPhrase}` : ''}。資料來自內政部全國宗教資訊網。`}
-  jsonLd={breadcrumb([
-    { name: '廟宇', path: '/temples/' },
-    { name: cName, path: `/temples/region/${slug}/` },
-    { name: town, path: `/temples/region/${slug}/${town}/` },
-  ])}
+  crumbs={[HUB.temples, { name: cName, path: `/temples/region/${slug}/` }, { name: town, path: `/temples/region/${slug}/${town}/` }]}
 >
-  <nav class="crumb">
-    <a href="/temples/">廟宇</a> ／ <a href={`/temples/region/${slug}/`}>{cName}</a> ／ {town}
-  </nav>
   <h1>{cName}{town}廟宇</h1>
   <p class="lead">{lead}</p>
   <p class="nearby-entry"><a href="/temples/nearby/">用我的位置找附近的廟 →</a></p>
@@ -153,7 +146,6 @@ const lead = [
     }
   </div>
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .nearby-entry { margin: 0.625rem 0 0; font-size: var(--text-base); }
     .lead { color: var(--ink); margin-bottom: 1.5rem; }
     .deity-stats, .documented { margin-bottom: 1.875rem; }
@@ -165,6 +157,5 @@ const lead = [
     .temple { display: flex; flex-direction: column; gap: 0.3125rem; }
     .temple strong { color: var(--ink); }
     .small { font-size: var(--text-sm); }
-    .src { margin-top: 1.875rem; color: var(--gold); }
   </style>
 </Base>

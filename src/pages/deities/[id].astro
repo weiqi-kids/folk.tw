@@ -5,12 +5,13 @@ import Sources from '../../components/Sources.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity, systemHref } from '../../lib/queries';
-import { breadcrumb, deityThing, faqPage } from '../../lib/seo';
+import { deityThing, faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
 import { todayInTaipei } from '../../lib/daily';
 import { releasedItems } from '../../lib/release-schedule';
 import festivals from '../../data/festivals.json';
-import { imageCredit } from '../../lib/image-credit';
+import ImageCredit from '../../components/ImageCredit.astro';
 import { num } from '../../lib/format';
 import { stripOuterParens } from '../../lib/text';
 
@@ -148,11 +149,6 @@ const jsonLd = [
     summary: d.summary,
     sameAs: d.sameAs,
   }),
-  breadcrumb([
-    { name: '神明圖譜', path: '/deities/' },
-    { name: d.name, path: `/deities/${deity.id}/` },
-  ]),
-  ...(faq ? [faq] : []),
 ];
 const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
 ---
@@ -160,15 +156,14 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
 <Base
   title={deityTitle}
   description={`${d.name}${aliasesForMeta.length ? `（${aliasesForMeta.join('·')}）` : ''}—${d.category}${birthdayLabel}。${d.summary ?? `職司：${d.office.join('·')}`}`}
-  ogType="article"
-  ogImage={d.image ? `/og/deities/${deity.id}.png` : '/og/discover/prayer-light.webp'}
-  ogImageWidth={1200}
-  ogImageHeight={d.image ? 630 : 675}
+  kind="detail"
+  og={d.image ? { family: 'deity', id: deity.id } : { family: 'visual', stem: 'prayer-light' }}
   ogImageAlt={`${d.name}—${d.category}${d.office.length ? `，職司${d.office.join('、')}` : ''}`}
   jsonLd={jsonLd}
-  speakable={['h1', '.summary']}
+  faq={faq}
+  answer="summary"
+  crumbs={[HUB.deities, { name: d.name, path: `/deities/${deity.id}/` }]}
 >
-  <nav class="crumb"><a href="/deities/">神明圖譜</a> ／ {d.category}</nav>
 
   <header class="dh">
     <h1>{d.name}</h1>
@@ -200,7 +195,7 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
               <li>
                 <strong>{b.date}</strong> <span class="muted">{b.kind}</span>
                 {b.note && <span class="muted small">　{b.note}</span>}
-                {b.sources.length > 0 && <div class="src"><Sources sources={b.sources} prefix="" /></div>}
+                <Sources sources={b.sources} prefix="" variant="attached" />
               </li>
             ))}
           </ul>
@@ -224,18 +219,13 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
   }
 
   {/* 代表圖（2026-08-06 起在詳情頁也顯示；原本只有 /deities/ 索引頁的卡片用得到）。
-      出處標示走 `imageCredit()` 唯一入口——內政部的照片**必須給可點的來源連結**（授權條件）。 */}
+      出處標示走 <ImageCredit>（唯一渲染入口）——內政部的照片**必須給可點的來源連結**（授權條件）。
+      🔴 圖說必須在 <img> **之後**。 */}
   {
     d.image ? (
       <figure class="deity-photo">
         <img src={d.image.src} alt={d.image.alt} loading="lazy" decoding="async" />
-        <figcaption class="muted small">
-          {imageCredit(d.image).href ? (
-            <a href={imageCredit(d.image).href!} rel="noopener">{imageCredit(d.image).text}</a>
-          ) : (
-            imageCredit(d.image).text
-          )}
-        </figcaption>
+        <figcaption class="muted small"><ImageCredit image={d.image} /></figcaption>
       </figure>
     ) : (
       // 查無可授權神像照的神明，使用由本尊既有名稱／類別／職司／聖誕資料產生的文字卡。
@@ -435,10 +425,9 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
     )
   }
 
-  {d.sources.length > 0 && <p class="src footer-src"><Sources sources={d.sources} /></p>}
+  <Sources sources={d.sources} variant="footer" />
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .summary { font-size: var(--text-base); }
     /* 神像照片限高（同廟宇頁）：直式神像原本 width:100%/height:auto，桌機約 1000px 高，
@@ -467,7 +456,6 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; margin-top: 2rem; }
     .bdays { list-style: none; padding: 0; }
     .bdays li { padding: 0.375rem 0; }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .small { font-size: var(--text-sm); }
     .rels { list-style: none; padding: 0; }
     .rels li { padding: 0.4375rem 0; border-bottom: 1px dashed var(--line); }
@@ -476,7 +464,6 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
     .poem-group { margin: 0.75rem 0 1.25rem; }
     .poem-links { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr)); gap: 0.125rem 1.25rem; }
     .poem-links li { padding: 0.25rem 0; }
-    .footer-src { margin-top: 2.5rem; }
     .note { margin: 1.25rem 0; }
   </style>
 </Base>

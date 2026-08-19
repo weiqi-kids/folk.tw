@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import LineCta from '../../components/LineCta.astro';
 import { getPoems, getSystems, getDeities, interpretationById } from '../../lib/queries';
-import { breadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import concerns from '../../data/concerns.json';
 import stats from '../../data/qiugian-stats.json';
 // 籤詩人格（2026-08-15）：結果卡帶一行人格標籤，完整內容在籤詩頁
@@ -93,26 +94,18 @@ const faq = faqPage([
   { q: `為${concern.label}適合求哪種籤？`, a: `可求${sysLabel}，就「${concern.aspect}」面向看解籤。` },
 ]);
 
-const jsonLd = [
-  breadcrumb([
-    { name: '求籤', path: '/qiugian/' },
-    { name: concern.h1, path: `/qiugian/${concern.id}/` },
-  ]),
-  ...(faq ? [faq] : []),
-];
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'qian-slips';
 ---
 
 <Base
   title={concern.h1}
   description={pageDesc}
-  ogType="article"
-  ogImage="/og/discover/qian-slips.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
+  crumbs={[HUB.qiugian, { name: concern.h1, path: `/qiugian/${concern.id}/` }]}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ 求籤</nav>
   <p class="eyebrow">求籤 · 為心裡的那件事</p>
   <h1>{concern.h1}</h1>
 
@@ -127,7 +120,7 @@ const jsonLd = [
       check-rendered.mjs 的「首屏版面」不變量會擋住改回滿版。 */}
   <div class="intro">
     <p class="muted small blurb">{concern.blurb}</p>
-    <LeadVisual compact src="/visuals/qian-slips.svg" alt={`為${concern.label}求籤的站內通用插圖`} />
+    <LeadVisual compact visual={visual} alt={`為${concern.label}求籤的站內通用插圖`} />
   </div>
 
   <div class="actions">
@@ -205,7 +198,6 @@ const jsonLd = [
   <div id="cfg" data-concern={concern.id} data-label={concern.label} data-aspect={concern.aspect} data-system={sysLabel} hidden></div>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .lead { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .lead b { color: var(--accent); font-variant-numeric: tabular-nums; }

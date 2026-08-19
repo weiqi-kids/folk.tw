@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import PoemShelf from '../../components/PoemShelf.astro';
 import { getPoems, getSystems, systemHref } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 
 const poems = await getPoems();
 // 首數多的籤系在前（2026-08-08 改）：原本是由小到大，於是月老籤（27 首）排第一、
@@ -18,10 +18,9 @@ for (const p of poems) {
 }
 for (const list of bySystem.values()) list.sort((a, b) => a.data.no - b.data.no);
 // GEO：列表頁 BreadcrumbList（P3）
-const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
 ---
 
-<Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。" jsonLd={ld}>
+<Base title="籤詩解碼" description="六十甲子籤、關聖帝君靈籤：四句本文、卦頭故事典故、白話賞析與分項解。" crumbs={[HUB.poems]}>
   <h1>籤詩解碼</h1>
   {/* 2026-08-08：導言原本把籤系用「與」串成「A與B與C與D」，四個「與」讀起來卡；
       而且那句同時兼著「跳到某個籤系」的導覽功能，可是它長得就是一句話。
@@ -31,7 +30,7 @@ const ld = [breadcrumb([{ name: '籤詩', path: '/poems' }])];
       正確母體是 systems 資料本身；樞紐型籤系不在本頁攤開，但要列在跳轉列（連去它的樞紐），
       句子和按鈕才對得上「共 N 套」。 */}
   <p class="muted">共 {systems.filter((s) => s.data.count > 0).length} 套籤系：四句本文、卦頭故事典故、白話賞析與分項解。</p>
-  <LeadVisual src="/visuals/qian-slips.svg" alt="竹籤、紙卷與印記構成的籤詩通用插圖" />
+  <LeadVisual visual="qian-slips" alt="竹籤、紙卷與印記構成的籤詩通用插圖" />
   <PoemShelf />
   <nav class="sys-jumps" aria-label="跳到籤系">
     {systems

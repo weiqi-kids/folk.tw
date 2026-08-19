@@ -4,7 +4,8 @@ import LeadVisual from '../../../components/LeadVisual.astro';
 import PoemLocaleTabs from '../../../components/PoemLocaleTabs.astro';
 import slipsData from '../../../data/yaoqian.import.json';
 import notesData from '../../../data/yaoqian-notes.json';
-import { breadcrumb, faqPage } from '../../../lib/seo';
+import { faqPage } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 import { getPoemLocaleViews } from '../../../lib/poem-locales';
 
 interface Slip { id: string; category: string; no: number; formula: string; institute_note: string; source_url: string }
@@ -47,13 +48,6 @@ const warned = /請勿使用|毒劇|有毒/.test(slip.formula + slip.institute_n
 
 const note = noteById.get(slip.id) ?? null;
 const label = `${catName}第 ${slip.no} 首`;
-const jsonLd: object[] = [
-  breadcrumb([
-    { name: '保生大帝藥籤', path: '/medicine-slips/' },
-    { name: catName, path: `/medicine-slips/${category}/` },
-    { name: label, path: `/medicine-slips/${category}/${no}/` },
-  ]),
-];
 const faq = faqPage([
   { q: `保生大帝藥籤${label}的藥方是什麼？`, a: slip.formula },
   { q: `${label}的藥材有哪些作用？`, a: slip.institute_note },
@@ -68,26 +62,21 @@ const faq = faqPage([
     { q: `有相關症狀應該看哪一科？`, a: note.modern_care_pathway },
   ] : []),
 ]);
-if (faq) jsonLd.push(faq);
 
 // meta description：取藥方（每首天然不同），過長則截到句末，不硬切。
 const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[、，。]$/, '') + '…' : slip.formula;
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'medicine-manuscript';
 ---
 
 <Base
   title={`保生大帝藥籤${label}`}
   description={`保生大帝藥籤${label}：${descHead}${note ? ` 本首藥方指向${note.specialty}相關症狀，附安全警示與就醫指引。` : ""} 藥材說明引自衛生福利部國家中醫藥研究所典藏。`}
-  ogImage="/og/discover/medicine-manuscript.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.lead']}
+  og={{ family: 'visual', stem: visual }}
+  faq={faq}
+  kind="detail"
+  crumbs={[HUB.medicineSlips, { name: catName, path: `/medicine-slips/${category}/` }, { name: `第 ${slip.no} 首`, path: `/medicine-slips/${category}/${no}/` }]}
 >
-  <nav class="crumbs" aria-label="麵包屑">
-    <a href="/medicine-slips/">保生大帝藥籤</a> ／
-    <a href={`/medicine-slips/${category}/`}>{catName}</a> ／ 第 {slip.no} 首
-  </nav>
 
   <h1>保生大帝藥籤{catName}第 {slip.no} 首</h1>
 
@@ -97,7 +86,7 @@ const descHead = slip.formula.length > 70 ? slip.formula.slice(0, 68).replace(/[
     {warned && <> 這一首的<strong>原始典藏本身就標註了藥材有毒或請勿使用</strong>。</>}
     身體不舒服請就醫；想走中醫請掛合格中醫師門診當面辨證。
   </p>
-  <LeadVisual src="/visuals/medicine-manuscript.svg" alt={`${label}藥籤文獻的站內通用插圖`} />
+  <LeadVisual visual={visual} alt={`${label}藥籤文獻的站內通用插圖`} />
 
   {warned && (
     <p class="ms-flagbox">

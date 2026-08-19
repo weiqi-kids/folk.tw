@@ -7,7 +7,8 @@ import LineCta from '../../components/LineCta.astro';
 import PuduChecklist from '../../components/PuduChecklist.astro';
 import SeptemberHolidayStrip from '../../components/SeptemberHolidayStrip.astro';
 import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queries';
-import { breadcrumb, faqPage, ORG } from '../../lib/seo';
+import { faqPage, ORG } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { festivalNextSolar, lunarDateLabel, solarMd as formatSolarMd } from '../../lib/lunar-date';
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
@@ -390,28 +391,21 @@ const article = {
   ...(f.published ? { datePublished: f.published } : {}),
   ...(f.updated ? { dateModified: f.updated } : {}),
 };
-const jsonLd = [
-  breadcrumb([
-    { name: '節日', path: '/festivals' },
-    { name: f.name, path: `/festivals/${f.slug}` },
-  ]),
-  article,
-  ...(faq ? [faq] : []),
-].filter(Boolean);
+const jsonLd = [article];
 
 ---
 
 <Base
   title={pageTitle}
   description={pageDesc}
-  ogType="article"
-  ogImage={festivalOgImage}
+  kind="detail"
+  og={{ family: 'festival', path: festivalOgImage }}
   ogImageAlt={festivalOgImage ? `${f.name}｜${year} 日期與節俗整理` : undefined}
   jsonLd={jsonLd}
-  speakable={['h1', '.lead']}
+  faq={faq}
   share={false}
+  crumbs={[HUB.festivals, { name: f.name, path: `/festivals/${f.slug}/` }]}
 >
-  <nav class="crumb"><a href="/festivals/">節日</a> ／ {f.name}</nav>
 
   <header class="dh">
     <h1>{f.name}</h1>
@@ -583,7 +577,7 @@ const jsonLd = [
               {x.sources.length > 0 && (
                 <span class="muted small">
                   　—
-                  <Sources sources={x.sources} prefix="" />
+                  <Sources sources={x.sources} prefix="" variant="bare" />
                 </span>
               )}
             </li>
@@ -820,7 +814,7 @@ const jsonLd = [
     >｜<a href="/qiugian/">線上求籤</a>｜<a href="/almanac/">農民曆</a>
   </p>
 
-  {sources.length > 0 && <p class="src footer-src"><Sources sources={sources} /></p>}
+  <Sources sources={sources} variant="footer" />
 
   <script is:inline>
     (function () {
@@ -835,7 +829,6 @@ const jsonLd = [
   </script>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .when { margin: 0 0 0.375rem; }
     .when strong { color: var(--accent); font-size: var(--text-lg); }
@@ -866,7 +859,6 @@ const jsonLd = [
     .regional dt { font-weight: 700; margin-top: 0.75rem; }
     .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
     .small { font-size: var(--text-sm); }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .on-date-list { list-style: none; padding: 0; margin: 0.75rem 0 0;
       display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 0.5rem 1rem; }
     .on-date-list li { padding-bottom: 0.375rem; border-bottom: 1px dashed var(--line); }
@@ -884,7 +876,6 @@ const jsonLd = [
       display: flex; flex-direction: column; gap: 0.5rem; }
     .sibling-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
     .sibling-list .sfdate { color: var(--ink-soft); font-size: var(--text-sm); }
-    .footer-src { margin-top: 2.5rem; }
     @media (max-width: 46rem) {
       .calendar-reminder { align-items: stretch; flex-direction: column; }
       .calendar-actions { flex-direction: column; }

@@ -7,7 +7,8 @@ import { almanacDates } from '../../lib/almanac/dates';
 import { computeDayRecord } from '../../lib/almanac';
 import { BRANCHES, ZODIACS } from '../../lib/almanac/ganzhi';
 import { lunarProvider } from '../../lib/almanac/provider';
-import { almanacBreadcrumb, faqPage } from '../../lib/seo';
+import { faqPage } from '../../lib/seo';
+import { almanacCrumbs } from '../../lib/breadcrumbs';
 import festivalsData from '../../data/festivals.json';
 import LineCta from '../../components/LineCta.astro';
 
@@ -45,7 +46,8 @@ const yearBranch = rec.pillars.year.value?.branch;
 const yearZodiac = yearBranch ? ZODIACS[BRANCHES.indexOf(yearBranch as (typeof BRANCHES)[number])] : '';
 
 // FAQ（P1-4）：問答均出自實算欄位；空者交由 faqPage 過濾，不杜撰。
-const jsonLd: object[] = [almanacBreadcrumb(date!)];
+// 今天那一頁 canonical 指回 /almanac/，麵包屑末層跟著只到農民曆（否則末層會指向被 canonical 掉的網址）。
+const crumbs = almanacCrumbs(date!, date === today);
 const faq = faqPage([
   {
     q: `${date} 是農曆幾月幾日？`,
@@ -66,7 +68,6 @@ const faq = faqPage([
       : '',
   },
 ]);
-if (faq) jsonLd.push(faq);
 
 // meta/og description（P1-4 延伸）：answer-first，直接帶當日 verified 宜忌，與畫面同源（yiV/jiV）。
 // 宜有料→列宜；宜空但忌有料→列忌（誠實反映，與內頁「無確證宜事」語義一致）；兩者皆空→退回通用句。
@@ -84,9 +85,10 @@ const metaDescription = yiV.length
   title={`農民曆 · ${date}`}
   description={metaDescription}
   canonical={date === today ? '/almanac/' : undefined}
-  jsonLd={jsonLd}
-  ogType="article"
-  speakable={['h1', '.day-summary', '.yiji-section']}
+  faq={faq}
+  crumbs={crumbs}
+  kind="detail"
+  answer="almanacDay"
 >
   <AlmanacDay iso={date!} today={today} />
   <LineCta

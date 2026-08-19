@@ -78,7 +78,8 @@ NFC 抽籤這類產品。`/about/` 原本寫的「本站不販售亦不用於廣
    ✅ 2026-08-08 起有機制擋這件事：`scripts/lib/skip-ci-suffix.sh` 是該標記的唯一判定入口，
    本機有未推送 commit 時自動不加它。**新增任何會 commit 的自動化一律 source 它，不要自己寫死。**
    ⚠️ 機制擋的是「被別人吃掉」，不擋「你根本沒 push」——那條仍要自己顧。
-   另有 `.githooks/pre-push`（九道快速 gate，約 7 秒）擋「跑完 gate 之後又改檔才 push」：
+   另有 `.githooks/pre-push`（秒級快速 gate，清單跑 `node scripts/lib/gates.mjs list pre-push` 查）
+   擋「跑完 gate 之後又改檔才 push」：
    **驗證的效力綁在檔案內容上，不綁在「我跑過了」**。重新 clone 後要跑 `git config core.hooksPath .githooks`。
 4. **slug 是永久承諾。** `/festivals/`、`/festivals/local/`、`/good-days/`、`/trades/`、`/scenarios/`、
    `/compare/`、`/qiugian/blessing/<id>/` 一旦上線就不可改、不可 404。
@@ -103,11 +104,13 @@ pnpm notify [url...|--all]      # 部署後推 Google Indexing API ＋ IndexNow
 pnpm build:changed
 pnpm dev                                      # 編輯期間用 HMR 看頁面
 
-# 正式發佈驗證（push 前跑；🔴 pnpm check 是 CI 擋門但不在完整 build 裡）
-pnpm check:integrity && pnpm check && pnpm check:doc-numbers && pnpm check:scoped-styles && pnpm check:design \
-  && pnpm check:design-tokens && pnpm check:copy-voice && pnpm check:content \
-  && pnpm check:outbound-urls && pnpm check:anchor-text && pnpm verify:almanac && pnpm build:release
-pnpm check:canonical && pnpm check:rendered && pnpm check:discover  # build:release 後掃全站收錄／Discover 前置條件
+# 正式發佈驗證（push 前跑）
+# 🔴 gate 清單不再手抄：唯一真實來源＝ scripts/lib/gates.mjs，
+#    deploy.yml／.githooks/pre-push／pnpm build:changed 三個消費端都讀它。要加減 gate 改那支。
+node scripts/lib/gates.mjs table          # 有哪些 gate、吃 source 還是 dist、跑在哪一階段
+node scripts/lib/gates.mjs run ci-pre-build \
+  && pnpm build:release \
+  && node scripts/lib/gates.mjs run ci-post-build   # 產物層 gate 吃 dist，只能排在 build 之後
 
 # 資料
 node scripts/intake-status.mjs                   # 台灣端管道現況（四段）
@@ -118,6 +121,11 @@ pnpm data:weekly                                 # 週報乾跑預覽
 ```
 
 ⚠️ **完整 `build:release` ≈ 20 分鐘**（每間廟一張 OG 卡，數量隨廟數變）。編輯期間用 `build:changed`／`dev`；先定版再開 release，`astro build` 會清空 dist。
+
+🔴 **吃 `dist` 的 gate（`needs: 'dist'`）只能排在 `build:release` 之後。** `dist/` 在 `.gitignore`，
+build 前跑等於掃一份舊產物空過，乾淨工作目錄則直接拋錯。哪幾道吃 dist 跑
+`node scripts/lib/gates.mjs table` 查——**不要憑記憶把它們寫進 build 前的 `&&` 鏈**
+（2026-08-19 收斂前，本節與 `.githooks/pre-push` 就是這樣把 `check:anchor-text` 排錯的）。
 
 ---
 

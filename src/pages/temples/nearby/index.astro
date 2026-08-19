@@ -21,7 +21,7 @@
  */
 import Base from '../../../layouts/Base.astro';
 import { getTemples } from '../../../lib/queries';
-import { breadcrumb } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 import { ALL_COUNTIES, templeCounty } from '../../../lib/temple-region';
 import { num } from '../../../lib/format';
 
@@ -44,12 +44,8 @@ const slots = Array.from({ length: LIMIT }, (_, i) => i);
 <Base
   title="附近的廟"
   description={`用你的位置，從站上 ${num(located.length)} 間有座標的廟裡找出離你最近的幾間，附直線距離、登記地址與主祀神。`}
-  jsonLd={breadcrumb([
-    { name: '廟宇', path: '/temples' },
-    { name: '附近的廟', path: '/temples/nearby' },
-  ])}
+  crumbs={[HUB.temples, HUB.templesNearby]}
 >
-  <nav class="crumb"><a href="/temples/">廟宇</a> ／ 附近的廟</nav>
   <h1>附近的廟</h1>
   <p class="lead">
     站上 {num(located.length)} 間廟有座標。按下面那顆鈕，瀏覽器會問你要不要給位置，
@@ -92,7 +88,6 @@ const slots = Array.from({ length: LIMIT }, (_, i) => i);
   </div>
 
   <style>
-    .crumb { margin-bottom: 0.625rem; font-size: var(--text-sm); }
     .lead { max-width: 44rem; }
     .nb-actions { margin: 1.5rem 0 0.625rem; }
     .nb-go {

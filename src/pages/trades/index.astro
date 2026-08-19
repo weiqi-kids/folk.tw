@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getTrades, getDeities } from '../../lib/queries';
-import { breadcrumb } from '../../lib/seo';
+import { HUB } from '../../lib/breadcrumbs';
 import { affairNameOf } from '../../lib/almanac/select';
 import { imageCreditTitle } from '../../lib/image-credit';
 import LeadVisual from '../../components/LeadVisual.astro';
@@ -18,7 +18,7 @@ const hubImage = trades.map(tradeImg).find(Boolean);
 <Base
   title="行業守護神—各行各業拜什麼神？"
   description="考生拜文昌、商家拜關公、醫護拜保生大帝、工匠拜巧聖先師——各行業守護神、聖誕日與農民曆吉日視角，逐條掛來源。"
-  jsonLd={[breadcrumb([{ name: '行業守護神', path: '/trades' }])]}
+  crumbs={[HUB.trades]}
 >
   <h1>行業守護神</h1>
   {hubImage && <LeadVisual image={hubImage} />}

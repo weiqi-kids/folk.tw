@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { HUB } from '../lib/breadcrumbs';
 import Sources from '../components/Sources.astro';
 import LeadVisual from '../components/LeadVisual.astro';
 import data from '../data/jiaobei.json';
 const { results, sequence_rule, sources } = data;
 ---
 
-<Base title="擲筊判讀" description="擲筊（杯筊）判讀規則：聖筊、笑筊、陰筊與連擲慣例；諸說並陳、廟方規範優先。">
-  <nav class="crumb"><a href="/practices/">拜拜習俗</a> ／ 擲筊判讀</nav>
+<Base title="擲筊判讀" description="擲筊（杯筊）判讀規則：聖筊、笑筊、陰筊與連擲慣例；諸說並陳、廟方規範優先。" crumbs={[HUB.practices, HUB.jiaobei]}>
   <h1>擲筊判讀</h1>
   <p class="muted">
     擲筊（跋桮）是請示神意的儀式判讀，為民俗中少數可規則化者。判讀慣例各廟略異，以下為通行說法，
@@ -45,17 +45,15 @@ const { results, sequence_rule, sources } = data;
     <p class="muted small">{sequence_rule.variants}</p>
   </section>
 
-  <p class="src small"><Sources sources={sources} />　·　判讀僅為文化呈現，非問事指導。</p>
+  <Sources sources={sources} variant="footer">　·　判讀僅為文化呈現，非問事指導。</Sources>
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     h2 { border-bottom: 1px solid var(--line); padding-bottom: 0.375rem; }
     /* 不加 align-items: start——讓三張卡等高。笑筊那段文字比另外兩張長，
        各自貼齊內容的話三張會高低不一，看起來像沒對齊。 */
     .jiaobei-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
     .card strong { color: var(--accent); }
     .small { font-size: var(--text-sm); }
-    .src { color: var(--gold); margin-top: 1.875rem; }
     .visual-note { margin-top: -1rem; }
   </style>
 </Base>

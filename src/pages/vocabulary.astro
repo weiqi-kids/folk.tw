@@ -46,9 +46,7 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
                 <dd>
                   {t.def}
                   {t.alias && t.alias.length > 0 && <span class="alias muted"> · 別名：{t.alias.join('、')}</span>}
-                  {t.sources && t.sources.length > 0 && (
-                    <span class="src"> · <Sources sources={t.sources} prefix="" /></span>
-                  )}
+                  <Sources sources={t.sources ?? []} prefix=" · " variant="inline" />
                 </dd>
               </div>
             ))}
@@ -74,7 +72,6 @@ type Term = { term: string; def: string; alias?: string[]; sources?: { ref: stri
     .vocab dt { font-weight: 700; color: var(--accent); }
     .vocab dd { margin: 0; }
     .alias { font-size: var(--text-sm); }
-    .src { color: var(--gold); font-size: var(--text-xs); }
     .visual-note { margin-top: -1rem; font-size: var(--text-xs); }
   </style>
 </Base>

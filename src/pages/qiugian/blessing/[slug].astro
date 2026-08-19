@@ -10,7 +10,8 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
-import { breadcrumb, memorialArticle } from '../../../lib/seo';
+import { memorialArticle } from '../../../lib/seo';
+import { HUB } from '../../../lib/breadcrumbs';
 import topical from '../../../data/topical.json';
 import stats from '../../../data/qiugian-stats.json';
 
@@ -69,10 +70,6 @@ const snapshot = typeof item.bless_snapshot === 'number' ? item.bless_snapshot :
 const pageDesc = `${item.title}。${item.event}${item.place ? ` 事件地點：${item.place}。` : ''}`.slice(0, 150);
 
 const jsonLd: object[] = [
-  breadcrumb([
-    { name: '求籤', path: '/qiugian/' },
-    { name: item.title, path: `/qiugian/blessing/${item.id}/` },
-  ]),
 ];
 if (isMemorial) {
   jsonLd.push(
@@ -86,20 +83,19 @@ if (isMemorial) {
     }),
   );
 }
+// 本頁的通用視覺：正文主視覺（LeadVisual）與分享圖（og）同源，只宣告一次。
+const visual = 'prayer-light';
 ---
 
 <Base
   title={item.title}
   description={pageDesc}
-  ogType="article"
-  ogImage="/og/discover/prayer-light.webp"
-  ogImageWidth={1200}
-  ogImageHeight={675}
+  kind="detail"
+  og={{ family: 'visual', stem: visual }}
   jsonLd={jsonLd}
   noindex={!isIndexable}
-  speakable={['h1', '.lead']}
+  crumbs={[HUB.qiugian, { name: item.title, path: `/qiugian/blessing/${item.id}/` }]}
 >
-  <nav class="crumb"><a href="/">神酷</a> ／ <a href="/qiugian/">求籤</a> ／ {isMemorial ? '事件記錄' : '集氣祈福'}</nav>
 
   {isMemorial ? (
     <p class="eyebrow">事件記錄 · 已封存</p>
@@ -115,7 +111,7 @@ if (isMemorial) {
 
   <p class="lead">{item.event}</p>
   {/* 站內抽象燈火，不是事件照片，也不暗示任何特定災害現場。 */}
-  <LeadVisual src="/visuals/prayer-light.svg" alt={`${item.title}的站內通用祈福燈火插圖`} />
+  <LeadVisual visual={visual} alt={`${item.title}的站內通用祈福燈火插圖`} />
 
   {(item.place || item.time) && (
     <section class="incident-facts">
@@ -235,7 +231,6 @@ if (isMemorial) {
   )}
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.75rem; }
     .eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; color: var(--accent); font-weight: 700; margin: 0 0 0.375rem; }
     .badge { display: inline-block; margin-left: 0.75rem; font-size: var(--text-xs); font-weight: 700;
       letter-spacing: 0.1em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.625rem;

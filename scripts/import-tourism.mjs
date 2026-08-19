@@ -19,19 +19,22 @@
 //
 // ⚠️ 不覆蓋既有資料：`history` 一個字都不碰（那 22 間品質高於觀光文案，顯示層永遠讓它優先）；
 //    `website` 只補**空值**；重跑 idempotent。
-import { readFileSync, writeFileSync, existsSync, mkdtempSync } from 'node:fs';
+import { readFileSync, existsSync, mkdtempSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
   TOURISM_SOURCE, acceptIntro, TEMPLE_NAME_END, tw, coreName, normAddr,
 } from './lib/tourism-intro.mjs';
+// 🔴 資料集寫入、旗標解析、來源標註**一律走這支**（唯一入口，見其檔頭）。
+// ⚠️ 對映與 intro 過濾規則仍然只在 lib/tourism-intro.mjs（與 check:integrity 共用），別搬過來。
+import { attachSource, cliFlags, commitDataset } from './lib/dataset-commit.mjs';
 
 const ZIP_URL = 'https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Attraction-json.zip';
 const TEMPLES = 'src/data/temples.json';
-const WRITE = process.argv.includes('--write');
-const fileArg = process.argv.indexOf('--file');
-const LOCAL = fileArg > -1 ? process.argv[fileArg + 1] : null;
+const flags = cliFlags();
+const WRITE = flags.write;
+const LOCAL = flags.value('--file');
 
 // ── 取得來源 ────────────────────────────────────────────────────────────────
 function loadAttractions() {
@@ -102,7 +105,7 @@ for (const r of cand) {
     stat.introSkipHistory++;
   } else if (t.intro !== verdict.text) {
     diff.push(['intro', verdict.text.slice(0, 40) + '…']);
-    if (WRITE) t.intro = verdict.text;
+    t.intro = verdict.text;
     stat.intro++;
   }
 
@@ -110,7 +113,7 @@ for (const r of cand) {
   const ot = String(r.ServiceTimeInfo ?? '').trim();
   if (ot && t.open_time !== ot) {
     diff.push(['open_time', ot]);
-    if (WRITE) t.open_time = ot;
+    t.open_time = ot;
     stat.open++;
   }
 
@@ -120,24 +123,24 @@ for (const r of cand) {
     if (has(t.website)) stat.siteKept++;
     else {
       diff.push(['website', url]);
-      if (WRITE) t.website = url;
+      t.website = url;
       stat.site++;
     }
   }
 
   // 來源標註（OGDL 1.0 要求標示出處）：只要這間廟採用了任一欄位就補一筆，重跑不重複加
+  // 🔴 這裡以前整段包在 `if (WRITE)` 裡（連上面三個欄位的指派也是）。
+  //    那讓乾跑手上的物件與 --write 手上的不是同一個，於是「這次會動到幾筆」算不出來。
+  //    現在一律先寫進記憶體中的候選紀錄，**寫不寫檔由 commitDataset 依 WRITE 決定**
+  //    （見 lib/dataset-commit.mjs 檔頭 ⑧）。乾跑仍然一個位元組都不落地。
   if (diff.length) {
     changes.push({ id: t.id, name: t.name, how: m.how, diff });
-    if (WRITE) {
-      t.sources = t.sources ?? [];
-      if (!t.sources.some((s) => (s.ref ?? '').includes(TOURISM_SOURCE))) {
-        t.sources.push({
-          type: 'gov',
-          ref: `${TOURISM_SOURCE}（政府資料開放平臺 dataset 7777）`,
-          note: `政府資料開放授權條款－第1版；資料更新時間 ${updated || '未提供'}`,
-        });
-      }
-    }
+    // ref 是固定字串（只有括號內的 dataset 編號） → 但 note 帶會變的「資料更新時間」，
+    // 故以 TOURISM_SOURCE 這段穩定片段去重，維持原判準。
+    attachSource(t, {
+      ref: `${TOURISM_SOURCE}（政府資料開放平臺 dataset 7777）`,
+      note: `政府資料開放授權條款－第1版；資料更新時間 ${updated || '未提供'}`,
+    }, { dedupeBy: TOURISM_SOURCE });
   }
 }
 
@@ -153,9 +156,10 @@ for (const c of changes.slice(0, 8)) {
 }
 if (changes.length > 8) console.log(`  …其餘 ${changes.length - 8} 間略`);
 
-if (WRITE) {
-  writeFileSync(TEMPLES, `${JSON.stringify(temples, null, 2)}\n`);
-  console.log(`\n✓ 已寫回 ${TEMPLES}`);
-} else {
-  console.log('\n（乾跑，未寫檔。加 --write 才實際寫入）');
-}
+commitDataset({
+  path: TEMPLES,
+  data: temples,
+  write: WRITE,
+  dryNote: '\n（乾跑，未寫檔。加 --write 才實際寫入）',
+  doneNote: `\n✓ 已寫回 ${TEMPLES}`,
+});

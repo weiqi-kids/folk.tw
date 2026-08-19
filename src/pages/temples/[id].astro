@@ -6,10 +6,11 @@ import TempleMap from '../../components/TempleMap.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getTemples, getDeities, getEvents, getSystems, getScenarios, systemHref } from '../../lib/queries';
 import concernsData from '../../data/concerns.json';
-import { breadcrumb, faqPage, templePlace } from '../../lib/seo';
+import { faqPage, templePlace } from '../../lib/seo';
+import { templeCrumbs } from '../../lib/breadcrumbs';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { commonTempleName } from '../../lib/temple-name';
-import { imageCredit } from '../../lib/image-credit';
+import ImageCredit from '../../components/ImageCredit.astro';
 import { lunarDateLabel } from '../../lib/birthdays';
 import { festivalNextSolar } from '../../lib/lunar-date';
 import {
@@ -21,6 +22,7 @@ import {
   festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
 import { releasedItems } from '../../lib/release-schedule';
+import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../lib/text-width.ts';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
 import imagePriority from '../../data/image-priority.json';
@@ -344,8 +346,6 @@ const townContext = townLabel && townTotal > 1
     (mainDeity && sameDeityInTown > 1 ? `，其中主祀${mainDeity}者 ${sameDeityInTown} 間。` : '。')
   : '';
 
-// speakable 對全體廟頁生效：以頁首 .summary 直答區塊為主（不再只限有沿革者）。
-const speakable = ['h1', '.summary'];
 
 // 廟宇頁 meta description（原本無此 prop、全站落回首頁通用文案，
 // 與搜尋詞如「台南○○宮」不匹配）：僅用既有欄位（縣市鄉鎮／主祀／沿革）組成，不補新事實。
@@ -399,9 +399,10 @@ const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' 
 // 那群 CTR 1.37%、其餘 2.42%（GSC 7 天實測，完整數字與判準見 src/lib/temple-name.ts 檔頭）。
 // 🔴 **這不是截字**——拿掉的是零搜尋需求的法人前綴，登記全名仍完整出現在 title 的括號裡
 //    （放不下才退到只留一般稱呼），且 `<h1>`、meta description、內文一律仍是登記全名。
-const TITLE_MAX = 30;
-const TITLE_DEITY_MAX = 8;
-const fullWidth = (s: string) => [...s].reduce((n, c) => n + (/[\x00-\xff]/.test(c) ? 0.5 : 1), 0);
+// 上限與全形寬度算法一律取 src/lib/text-width.ts（頁面與 check:rendered 共用同一支）。
+// ⚠️ 這裡的 30 是**含站名「｜神酷」**一起算的（見下方候選階梯）；別在本檔重寫規則。
+const TITLE_MAX = SERP_TITLE_MAX_WIDTH;
+const TITLE_DEITY_MAX = TEMPLE_TITLE_DEITY_MAX_WIDTH;
 const titleDeity = (() => {
   const first = (t.main_deity_raw ?? '').split(/[,，、;；]/)[0].trim();
   if (first && fullWidth(first) <= TITLE_DEITY_MAX) return first;
@@ -484,11 +485,6 @@ const jsonLd = [
     lng: t.lng,
     website: t.website,
   }),
-  breadcrumb([
-    { name: '廟宇', path: '/temples/' },
-    { name: t.name, path: `/temples/${temple.id}/` },
-  ]),
-  ...(faq ? [faq] : []),
 ];
 ---
 
@@ -496,17 +492,14 @@ const jsonLd = [
   title={templeTitle}
   description={templeDesc}
   ogTitle={templeTitle}
-  ogImage={`/og/temples/${encodeURIComponent(t.id)}.png`}
+  og={{ family: 'temple', id: t.id }}
   ogImageAlt={`${t.name}${regionLabel ? `・${regionLabel}` : ''}`}
-  ogType="article"
+  kind="detail"
   jsonLd={jsonLd}
-  speakable={speakable}
+  faq={faq}
+  answer="summary"
+  crumbs={templeCrumbs(county, township, { id: temple.id, name: t.name })}
 >
-  <nav class="crumb">
-    <a href="/temples/">廟宇</a>
-    {county && <> ／ <a href={`/temples/region/${county.slug}/`}>{county.name}</a></>}
-    {county && township && <> ／ <a href={`/temples/region/${county.slug}/${township.name}/`}>{township.name}</a></>}
-  </nav>
   <h1>{t.name}</h1>
 
   {showTrafficCard && (
@@ -660,20 +653,16 @@ const jsonLd = [
 
   {/* 代表圖（2026-08-06 起在詳情頁也顯示）。原本只有索引頁的卡片用得到，
       詳情頁完全不顯示——而詳情頁才是廟方與讀者真正會看的那一頁。
-      🔴 出處標示走 `imageCredit()` 這支唯一入口：內政部的照片**必須給可點的來源連結**
-      （那是授權條件，不是排版偏好），Commons 那批沿用既有作法（出處彙整在 /about）。
-      別把這段的連結拿掉，也別把標註寫死成某個平台名——寫死正是 2026-08-06 修掉的病灶。 */}
+      🔴 出處標示走 <ImageCredit>（唯一渲染入口，判定在 src/lib/image-credit.ts）：
+      內政部的照片**必須給可點的來源連結**（那是授權條件，不是排版偏好），
+      Commons 那批沿用既有作法（出處彙整在 /about）。別把這段拿掉，也別在這裡自己寫一份 <a>——
+      rel/target 一度在三個檔長成三種寫法，2026-08-19 已收斂。
+      🔴 圖說必須在 <img> **之後**（曾掃錯方向導致署名全空、圖被安靜略過）。 */}
   {
     t.image && (
       <figure class="temple-photo">
         <img src={t.image.src} alt={t.image.alt} loading="lazy" decoding="async" />
-        <figcaption class="muted small">
-          {imageCredit(t.image).href ? (
-            <a href={imageCredit(t.image).href!} rel="noopener">{imageCredit(t.image).text}</a>
-          ) : (
-            imageCredit(t.image).text
-          )}
-        </figcaption>
+        <figcaption class="muted small"><ImageCredit image={t.image} /></figcaption>
       </figure>
     )
   }
@@ -794,10 +783,9 @@ const jsonLd = [
 
   {t.website && <p class="temple-site"><a href={t.website} target="_blank" rel="noopener">官方網站 →</a></p>}
 
-  {t.sources.length > 0 && <p class="src"><Sources sources={t.sources} /></p>}
+  <Sources sources={t.sources} variant="footer" />
 
   <style>
-    .crumb { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 0.625rem; }
     .summary { font-size: var(--text-base); line-height: 1.8; margin: 0.75rem 0 1.25rem; }
     .rec { display: grid; gap: 0.5rem; margin: 1.25rem 0; }
     .rec > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.625rem; padding: 0.375rem 0; border-bottom: 1px dashed var(--line); }
@@ -868,6 +856,5 @@ const jsonLd = [
     .region-link a { font-weight: 600; }
     .temple-site { margin-top: 1.25rem; font-size: var(--text-sm); }
     .temple-site a { font-weight: 600; }
-    .src { color: var(--gold); font-size: var(--text-xs); margin-top: 1.875rem; line-height: 1.9; }
   </style>
 </Base>
