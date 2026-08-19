@@ -147,7 +147,8 @@ for (let i = 0; i < results.length; i += 1) {
 if (errors.length) {
   console.error(`SEO 主題文章 gate：${errors.length} 個錯誤`);
   for (const error of errors) console.error(`- ${error}`);
-  process.exitCode = 1;
+  // 🔴 exit 而非 exitCode：後者可被之後才加進來的程式碼覆寫。與其餘 check 腳本一致。
+  process.exit(1);
 } else {
   console.log(`SEO 主題文章 gate 通過：${files.length} 篇`);
 }

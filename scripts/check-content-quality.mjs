@@ -408,4 +408,6 @@ if (jsonOutput) {
   if (!errors.length) console.log(`✓ 品質 gate 通過（WARN ${warnings.length}；存量不足項目請逐月補齊）`);
 }
 
-process.exitCode = errors.length ? 1 : 0;
+// 🔴 用 process.exit 而非 process.exitCode：後者可被之後才加進來的程式碼覆寫，
+//    而本檔是 CI 擋門。與其餘 20 支 check 腳本一致（2026-08-19 統一）。
+if (errors.length) process.exit(1);
