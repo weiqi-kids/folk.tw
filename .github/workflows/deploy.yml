@@ -52,17 +52,45 @@ jobs:
         timeout-minutes: 12
         run: |
           set -euo pipefail
-          # apt 偶發卡在 mirror 連線；每次呼叫都限時，避免單次暫時性故障變成無限等待。
+          # 產生器實際要的是 fc-match 找得到「Noto Serif CJK TC」（見 scripts/lib/og-card.mjs）。
+          # ① 已經有就直接跳過——runner 映像本來就可能帶 CJK 字型，白跑 apt 只是多一個失敗點。
+          if fc-match -f '%{family}' 'Noto Serif CJK TC' 2>/dev/null | grep -qiE 'noto.*(cjk|serif tc)'; then
+            echo "runner 已有 CJK 字型，略過安裝：$(fc-match -f '%{family}' 'Noto Serif CJK TC')"
+            exit 0
+          fi
+          # ② apt：偶發卡在 mirror 連線，每次呼叫都限時，避免單次暫時性故障變成無限等待。
           for i in 1 2 3; do
             if sudo timeout 120 apt-get update -qq \
                && sudo timeout 120 apt-get install -y -qq fonts-noto-cjk; then
-              echo "字型安裝成功（第 $i 次嘗試）"
+              echo "字型安裝成功（apt 第 $i 次嘗試）"
               exit 0
             fi
-            echo "::warning::字型安裝第 $i 次失敗，5 秒後重試"
+            echo "::warning::apt 第 $i 次失敗，5 秒後重試"
             sleep 5
           done
-          echo "::error::字型安裝連續三次失敗，中止部署（缺 CJK 字型會讓分享卡整片空框）"
+          # ③ 🔴 apt 失敗不等於沒救：2026-08-19 連兩次部署都掛在這一步（每次都跑滿 120s 逾時
+          #    ＝ mirror 連不上），把整批新頁擋在線下。Ubuntu mirror 對 runner 的可用性不是
+          #    我們能控制的，但字型檔本身可以從 GitHub 直接抓——那條路與 actions 同源、可靠得多。
+          #    Noto 是 SIL OFL 授權，可自由散布。
+          echo "::warning::apt 三次皆失敗，改由 GitHub 直接取字型檔"
+          #    ⚠️ Regular 與 Bold 都要抓：卡面同時用到兩種字重（見 gen-og-temples.mjs 的
+          #    .nm/.act 是 700、.sub/.lbl 是一般），只裝 Bold 會讓整張卡變粗體。
+          mkdir -p "$HOME/.local/share/fonts"
+          base='https://github.com/notofonts/noto-cjk/raw/main/Serif/OTF/TraditionalChinese'
+          ok=1
+          for w in Regular Bold; do
+            curl -fsSL --retry 3 --retry-delay 3 --max-time 240 \
+              -o "$HOME/.local/share/fonts/NotoSerifCJKtc-$w.otf" \
+              "$base/NotoSerifCJKtc-$w.otf" || ok=0
+          done
+          if [ "$ok" = 1 ]; then
+            fc-cache -f >/dev/null
+            if fc-match -f '%{family}' 'Noto Serif CJK TC' 2>/dev/null | grep -qiE 'noto.*(cjk|serif tc)'; then
+              echo "字型改由 GitHub 取得並註冊成功：$(fc-match -f '%{family}' 'Noto Serif CJK TC')"
+              exit 0
+            fi
+          fi
+          echo "::error::apt 與直接下載皆失敗，中止部署（缺 CJK 字型會讓分享卡整片空框）"
           exit 1
       # 🔴 gate 清單**不寫在這個 workflow 裡**：唯一真實來源是 scripts/lib/gates.mjs。
       #    以前 deploy.yml／.githooks/pre-push／CLAUDE.md §3／scripts/check-changed.sh
