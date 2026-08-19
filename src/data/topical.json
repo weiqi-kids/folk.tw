@@ -2962,7 +2962,7 @@
     "lon": 121.4700152,
     "detector": "news",
     "since": "2026-08-12",
-    "status": "active",
+    "status": "archived",
     "updates": [
       {
         "date": "2026-08-13",
@@ -3002,10 +3002,12 @@
       }
     ],
     "followup": {
-      "sealed": false,
+      "sealed": true,
       "last_checked": "2026-08-18",
       "empty_runs": 4
-    }
+    },
+    "archived_at": "2026-08-19",
+    "retracted_reason": "集氣排序未進前 5（集氣 0）"
   },
   {
     "id": "news-storm-20260809-6f23ad",
