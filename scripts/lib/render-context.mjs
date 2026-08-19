@@ -58,7 +58,20 @@ export async function buildContext() {
   const { pickMainFestival, festivalSentence } = await import('../../src/lib/temple-festival.ts');
   const { buildCells, cellKey } = await import('../../src/lib/nearby-grid.ts');
 
-  const TODAY = taipeiToday();
+  // 🔴 基準日要用「這次 build 當時的台北日期」，不是 gate 執行當下的。
+  //    完整 build 要 20 分鐘，只要跨過台北午夜，頁面用昨天算、gate 用今天重算，
+  //    所有「下一次國曆日期」的比對會整批對不上——2026-08-19 就這樣假紅燈擋住部署
+  //    （build 台北 23:45 開始、00:11 跑 gate，兩間廟的 meta description 被判未含祭典句，
+  //    因為農曆七月初七的下一次從今年變成明年）。
+  //    dist/.build-date 由 postbuild 的 gen-build-stamp.mjs 寫入；讀不到才退回當下日期
+  //    （例如有人直接跑 gate 而沒 build，那時本來就沒有「build 當時」可言）。
+  let TODAY = taipeiToday();
+  try {
+    const stamped = readFileSync('dist/.build-date', 'utf8').trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(stamped)) TODAY = stamped;
+  } catch {
+    /* 沒有 dist 或沒有戳記就用當下日期 */
+  }
   const temples = normalize(require('../../src/data/temples.json'));
   const deities = normalize(require('../../src/data/deities.json'));
   const poems = normalize(require('../../src/data/poems.json'));
