@@ -1536,12 +1536,12 @@
     "image_key": "chongyang",
     "sources": [
       {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212", "note": "內政部臺灣宗教文化地圖地方祭典資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000006", "note": "文化部國家文化資產網青山王祭典資料"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002", "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料（臺北市登錄民俗）"},
       {"type": "temple", "ref": "https://www.bka.org.tw/", "note": "艋舺青山宮官方公告入口"}
     ],
     "facts": [
       {"text": "艋舺青山王祭的正日資料以農曆十月二十二日青山王聖誕與地方遶境為主要日期基準。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212"}]},
-      {"text": "文化資產資料把青山王祭典放在艋舺地方信仰與暗訪、遶境的脈絡中，暗訪與正日公開遶境不是同一個儀式時段。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000006"}]},
+      {"text": "文化資產資料把青山王祭典放在艋舺地方信仰與暗訪、遶境的脈絡中，暗訪與正日公開遶境不是同一個儀式時段。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"}]},
       {"text": "年度路線與交通管制會由廟方及地方機關另行公告，常年文化資產資料不能直接推出某一年的起駕時間或封路範圍。", "sources": [{"type": "temple", "ref": "https://www.bka.org.tw/"}]}
     ],
     "draft_week": 6,
@@ -1614,12 +1614,12 @@
     "image_key": "baitiangong",
     "multi_day": true,
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000005", "note": "文化部地方民俗資料"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009", "note": "國家文化資產網「東山碧軒寺迎佛祖暨遶境」登錄資料（文化部重要民俗）"},
       {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=74", "note": "內政部臺灣宗教文化地圖東山碧軒寺資料"},
       {"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/", "note": "碧軒寺年度公告入口"}
     ],
     "facts": [
-      {"text": "東山碧軒寺迎佛祖是臺南東山的地方民俗，正式活動名稱與保存脈絡應以文化資產資料及主辦廟公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000005"}]},
+      {"text": "東山碧軒寺迎佛祖是臺南東山的地方民俗，正式活動名稱與保存脈絡應以文化資產資料及主辦廟公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"}]},
       {"text": "常年資料把迎佛祖放在農曆十二月歲末與地方遶境脈絡中，國曆落點與活動天數每年仍須重新換算和核對。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=74"}]},
       {"text": "迎佛祖的起駕、駐駕與回鑾不是由節日名稱自動推定的固定時間，應以碧軒寺當年度公告的路線和現場規則為準。", "sources": [{"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/"}]}
     ],
@@ -1796,13 +1796,13 @@
     "source_status": "source_required",
     "image_key": "fangshuideng",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000002", "note": "文化部鹽水蜂炮民俗資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000003", "note": "文化部臺東炮炸寒單爺資料"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004", "note": "國家文化資產網「鹽水蜂炮」登錄資料（臺南市登錄民俗）"},
+      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003", "note": "國家文化資產網「炮炸肉身寒單爺活動」登錄資料（臺東縣登錄民俗）"},
       {"type": "gov", "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013", "note": "臺南市政府觀光資料"}
     ],
     "facts": [
-      {"text": "鹽水蜂炮是臺南鹽水武廟及地方社區脈絡的元宵民俗，活動日期與施放區域以年度公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000002"}]},
-      {"text": "臺東炮炸寒單爺以寒單爺出巡與炮炸儀式辨識，與鹽水蜂炮不是同一場活動，也不共用安全或參與規則。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000003"}]},
+      {"text": "鹽水蜂炮是臺南鹽水武廟及地方社區脈絡的元宵民俗，活動日期與施放區域以年度公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004"}]},
+      {"text": "臺東炮炸寒單爺以寒單爺出巡與炮炸儀式辨識，與鹽水蜂炮不是同一場活動，也不共用安全或參與規則。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003"}]},
       {"text": "地方政府與主辦方會依當年度人流、場地與安全需求公告交通管制及防護要求，觀賞者不應自行推定可進入施放區。", "sources": [{"type": "gov", "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013"}]}
     ],
     "draft_week": 16,
