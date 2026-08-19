@@ -76,6 +76,18 @@ export const GATES = [
     why: 'dataset-commit 的合併/差異量/原子寫入/去重/正規化 21 項；🔴 含「缺 path 直接丟錯」——寫入落點錯必須炸，不能安靜成功',
   },
   {
+    id: 'test:text',
+    label: '文字工具單元測試',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['text-lib'],
+    // 這三條原本住在 check:rendered 裡（needs:'dist'），要跑三行 assert 得先跑完 20 分鐘的
+    // build:release。它們不讀 dist 也不讀資料，是純函式的 regression，2026-08-19 搬到
+    // src/lib/text.test.ts，回饋週期從分鐘變毫秒。
+    why: 'excerptAtBoundary／stripOuterParens／withoutTerminalPunctuation 的三個已知事故樣本',
+  },
+  {
     id: 'check:design',
     label: '設計規範 v2',
     needs: 'source',
@@ -368,6 +380,8 @@ export const CHANGED_RULES = {
     /^src\/lib\/lunar-date\.ts$/,
     /^src\/pages\/festivals\//,
   ],
+  // 2026-08-19 新增：test:text 的實際輸入（`ui` 只認 .astro/.svelte/.css，吃不到這支 .ts）
+  'text-lib': [/^src\/lib\/text\.ts$/, /^src\/lib\/text\.test\.ts$/],
   // 2026-08-19 新增：原本 docs-only 改動在 build:changed 完全沒 gate，
   // 但 CI 會用 check:doc-numbers 擋 → 本機顯示 ✓ 而 CI 紅。補上這條把洞補起來。
   docs: [/^CLAUDE\.md$/, /^docs\/.*\.md$/, /^README\.md$/],

@@ -6,7 +6,7 @@
 // qiugian-aggregate.mjs（集氣快照）。四邊都是「照著別人寫過的樣子再寫一次」，
 // 沒有任何一處說得出「一筆紀錄長什麼樣」。狀態機（active→archived→memorial）散在四個檔裡，
 // 而它同時被 `[slug].astro`、`astro.config.mjs`（mergedInto redirect）、sitemap、
-// `/qiugian/` 清單、`check-topical-followup-render.mjs` 消費——形狀漂了不會紅燈，會安靜錯。
+// `/qiugian/` 清單、render 不變量 `topical/followup-timeline` 消費——形狀漂了不會紅燈，會安靜錯。
 //
 // 🔴 本檔只管**形狀與狀態轉移**，不管**判準**：
 //   ・什麼事件值得開頁 → lib/topical-gate.mjs
