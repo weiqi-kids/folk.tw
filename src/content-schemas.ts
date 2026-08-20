@@ -40,9 +40,20 @@ const reference = createReference() as unknown as typeof import('astro:content')
 
 // ── 共用片段 ─────────────────────────────────────────────
 
-/** 來源標註（§5 provenance 鐵律的最小單位） */
+/**
+ * 來源標註（§5 provenance 鐵律的最小單位）
+ *
+ * 🔴 `site` 是 2026-08-20 收進來的，**不是**「一般網站」的意思——
+ *    它專指**指向本站自己的交叉引用**（`https://folk.tw/...`），用途是導覽入口而非舉證。
+ *    收進共用 enum 的理由：festivals.json 原本自己用了這個值 46 筆，而共用片段沒有它，
+ *    等於同一個概念有兩套詞彙、且沒有任何東西在比對（那份資料集當時連 schema 都沒有）。
+ *    ⚠️ **不可以把它併進 `web`**：自我引用被標成外部網站來源，就是替事實製造假的溯源，
+ *    違反「逐筆掛源、來源要能被機器複驗」（CLAUDE.md 紅線 1）。
+ *    ⚠️ 渲染端要據此分辨：同源連結不加 `nofollow`／`target="_blank"`
+ *    （見 src/components/Sources.astro，2026-08-20 之前它對自家連結也加 nofollow）。
+ */
 const source = z.object({
-  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other']),
+  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other', 'site']),
   ref: z.string(), // 書名+頁碼 / 廟方官網 / 資料集 ID …
   note: z.string().optional(),
 });
@@ -660,19 +671,13 @@ export const localCelebrationsSchema = z.object({
 //    2026-08-20 實測 0 筆同時有值，該不變量由 `src/lib/calendar-date.test.ts` 全量斷言；
 //    zod 的 refine 只能擋單筆，擋不住「兩邊各自漂走」，所以留在測試那邊。
 //
-// 🔴 **`sources[].type` 的詞彙已經跟站上其他資料集分岔了**，而且是這份 schema 補上去
-//    才發現的（2026-08-20 全量實測 474 筆來源）：festivals 多出 `site`（46 筆）與
-//    `gov_heritage`（24 筆）兩種，共用的 `source` 片段沒有它們。
-//    這正是「沒有 schema 所以詞彙悄悄漂走」的實例。
-//    ⚠️ 這裡**如實記錄分岔，不做規範化**——把那 70 筆改成 gov/web 是資料決定
-//    （會動到已上線頁面的來源標註分類），要站主裁示。要收斂時改這個 enum 並改資料，
-//    兩件事同一回合做，不要只改一邊。
-const festivalSource = z.object({
-  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other', 'site', 'gov_heritage']),
-  ref: z.string(),
-  note: z.string().optional(),
-});
-
+// ✅ 2026-08-20 已標準化：原本 festivals 自己多出 `site`（46 筆）與 `gov_heritage`（24 筆）
+//    兩種值，是這份 schema 補上去才發現的分岔。處理方式**兩種不同**：
+//    • `gov_heritage` → 併入 `gov`（全部 24 筆都是 nchdb.boch.gov.tw，就是政府來源，
+//      多一個值沒有承載任何額外資訊）。
+//    • `site` → **收進共用 enum，不併入 `web`**（它承載「本站自我引用」這個真實區別，
+//      併掉就是製造假的溯源）。定義見上面 `source` 片段的檔頭。
+//    所以這裡直接用共用的 `source`，不再有 festivals 專屬片段。
 export const FESTIVAL_DATE_STATUSES = ['source_required', 'verified', 'blocked', 'not_applicable'] as const;
 export const FESTIVAL_SOURCE_STATUSES = ['calendar_anchored', 'source_required'] as const;
 
@@ -685,8 +690,8 @@ export const festivalsSchema = z.object({
   question: z.string().min(1),
   intent: z.string().min(1), // 自由文字，長句
   lead: z.string().min(1),
-  sources: z.array(festivalSource),
-  facts: z.array(z.object({ text: z.string().min(1), sources: z.array(festivalSource) })),
+  sources: z.array(source),
+  facts: z.array(z.object({ text: z.string().min(1), sources: z.array(source) })),
   published: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 

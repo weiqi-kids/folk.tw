@@ -61,6 +61,24 @@ function trimUrlTail(u: string): string {
 /** 前後成對的全形／半形括號當標籤時是雜訊（「（說明）」→「說明」）。 */
 const WRAP_PARENS = /^[（(]([\s\S]*)[）)]$/;
 
+/** 本站 origin。與 astro.config.mjs 的 `site` 一致。 */
+export const SITE_ORIGIN = 'https://folk.tw';
+
+/**
+ * 這個網址是不是指向本站自己。
+ *
+ * 🔴 用途：來源列的連結原本**無條件**加 `rel="nofollow" target="_blank"`，
+ *    而 festivals.json 有一批 `type:'site'` 的自我引用（本站頁面當導覽入口）。
+ *    結果是我們對自己的內部連結下 nofollow、還開新分頁——兩者都是白白的自傷，
+ *    且不會有任何 gate 紅燈（check:anchor-text 驗的是可見文字，不是 rel）。
+ *
+ * ⚠️ 判準刻意用**網址**而不是 `sources[].type` 欄位：type 是人填的、可能填錯或漏填，
+ *    網址是機器可驗的。type:'site' 只是宣告意圖，這支才是事實判定。
+ */
+export function isSameOrigin(url: string): boolean {
+  return url.startsWith(`${SITE_ORIGIN}/`) || url === SITE_ORIGIN || url.startsWith('/');
+}
+
 /** 條目／篇名標記：標籤已帶這些就代表已有具體篇名，不需再從網址補。 */
 const TITLE_MARK = /[〈《「『【]/;
 

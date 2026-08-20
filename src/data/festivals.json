@@ -989,7 +989,11 @@
       "pudu"
     ],
     "event_refs": [],
-    "deity_refs": ["dizang", "haoxiongdi", "dongyue"],
+    "deity_refs": [
+      "dizang",
+      "haoxiongdi",
+      "dongyue"
+    ],
     "vocab_refs": [
       "起燈腳",
       "豎燈篙",
@@ -2006,7 +2010,11 @@
   {
     "slug": "draft-week-01-september-solar-terms",
     "name": "白露與秋分日期、節氣與秋收",
-    "aliases": ["白露", "秋分", "九月節氣"],
+    "aliases": [
+      "白露",
+      "秋分",
+      "九月節氣"
+    ],
     "season": "國曆九月",
     "solar_term": "白露",
     "question": "白露和秋分是哪一天？兩個節氣有什麼差別？",
@@ -2016,14 +2024,50 @@
     "source_status": "calendar_anchored",
     "image_key": "september-solar-terms",
     "sources": [
-      {"type": "gov", "ref": "https://www.dgpa.gov.tw/News_Content.aspx?n=3710&s=1244007", "note": "行政院人事行政總處官方年曆與節日資料"},
-      {"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html", "note": "中央氣象署二十四節氣說明"},
-      {"type": "gov", "ref": "https://kmweb.moa.gov.tw/theme_data.php?theme=agri_life&sub_theme=agri_life&node=4942", "note": "農業部農業生活節氣資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.dgpa.gov.tw/News_Content.aspx?n=3710&s=1244007",
+        "note": "行政院人事行政總處官方年曆與節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html",
+        "note": "中央氣象署二十四節氣說明"
+      },
+      {
+        "type": "gov",
+        "ref": "https://kmweb.moa.gov.tw/theme_data.php?theme=agri_life&sub_theme=agri_life&node=4942",
+        "note": "農業部農業生活節氣資料"
+      }
     ],
     "facts": [
-      {"text": "白露與秋分屬二十四節氣，節氣日期依太陽在黃道上的位置決定，因此國曆日期每年可能有一日左右差異。", "sources": [{"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"}]},
-      {"text": "秋分在節氣語境中是秋季中點，常用晝夜長短逐漸轉換來說明；這是天文曆法的描述，不等同於各地當天氣溫完全相同。", "sources": [{"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"}]},
-      {"text": "農業部的節氣資料會將白露、秋分連結到作物與季節觀察，正文可用來說明農事背景，但不能由節氣直接推定某地收成日期。", "sources": [{"type": "gov", "ref": "https://kmweb.moa.gov.tw/theme_data.php?theme=agri_life&sub_theme=agri_life&node=4942"}]}
+      {
+        "text": "白露與秋分屬二十四節氣，節氣日期依太陽在黃道上的位置決定，因此國曆日期每年可能有一日左右差異。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"
+          }
+        ]
+      },
+      {
+        "text": "秋分在節氣語境中是秋季中點，常用晝夜長短逐漸轉換來說明；這是天文曆法的描述，不等同於各地當天氣溫完全相同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"
+          }
+        ]
+      },
+      {
+        "text": "農業部的節氣資料會將白露、秋分連結到作物與季節觀察，正文可用來說明農事背景，但不能由節氣直接推定某地收成日期。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://kmweb.moa.gov.tw/theme_data.php?theme=agri_life&sub_theme=agri_life&node=4942"
+          }
+        ]
+      }
     ],
     "draft_week": 1,
     "published": "2026-08-12",
@@ -2032,7 +2076,11 @@
   {
     "slug": "draft-week-02-zhongqiu-guide",
     "name": "中秋節、拜月娘與秋報土地公",
-    "aliases": ["中秋", "八月節", "拜月娘"],
+    "aliases": [
+      "中秋",
+      "八月節",
+      "拜月娘"
+    ],
     "season": "農曆八月",
     "lunar_date": "08-15",
     "question": "中秋節是哪一天？拜月娘和拜土地公怎麼分？",
@@ -2042,12 +2090,36 @@
     "source_status": "calendar_anchored",
     "image_key": "zhongqiu",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部官方節日資料"},
-      {"type": "gov", "ref": "https://www.dgpa.gov.tw/News_Content.aspx?n=3710&s=1244007", "note": "行政院人事行政總處官方年曆"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部官方節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.dgpa.gov.tw/News_Content.aspx?n=3710&s=1244007",
+        "note": "行政院人事行政總處官方年曆"
+      }
     ],
     "facts": [
-      {"text": "內政部節日資料以農曆八月十五標示中秋節；國曆落點要依當年度農曆換算，不能把某一年的日期當成固定國曆日。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]},
-      {"text": "秋報土地公可理解為農作收成後的答謝語境，實際供品、時間與是否祭拜要依家庭或地方廟宇做法，不能用節日日期推定每家流程。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239"}]}
+      {
+        "text": "內政部節日資料以農曆八月十五標示中秋節；國曆落點要依當年度農曆換算，不能把某一年的日期當成固定國曆日。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      },
+      {
+        "text": "秋報土地公可理解為農作收成後的答謝語境，實際供品、時間與是否祭拜要依家庭或地方廟宇做法，不能用節日日期推定每家流程。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239"
+          }
+        ]
+      }
     ],
     "draft_week": 2,
     "published": "2026-08-12",
@@ -2056,7 +2128,11 @@
   {
     "slug": "draft-week-03-kinmen-bo-bing-guide",
     "name": "金門博狀元餅規則與中秋活動",
-    "aliases": ["博餅", "博狀元餅", "金門中秋博餅"],
+    "aliases": [
+      "博餅",
+      "博狀元餅",
+      "金門中秋博餅"
+    ],
     "season": "農曆八月",
     "lunar_date": "08-15",
     "question": "金門博狀元餅怎麼玩？六顆骰子和活動日期怎麼看？",
@@ -2066,14 +2142,50 @@
     "source_status": "source_required",
     "image_key": "kinmen-bo-bing",
     "sources": [
-      {"type": "gov", "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219", "note": "金門縣政府觀光處博餅文化介紹"},
-      {"type": "gov", "ref": "https://www.kmfa.gov.tw/News_Content.aspx?n=4184&s=105665", "note": "金門縣政府年度中秋博餅活動公告入口"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111215000003", "note": "國家文化資產網「中秋搏餅」登錄資料：金門中秋搏餅的骰法與彩目"}
+      {
+        "type": "gov",
+        "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219",
+        "note": "金門縣政府觀光處博餅文化介紹"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.kmfa.gov.tw/News_Content.aspx?n=4184&s=105665",
+        "note": "金門縣政府年度中秋博餅活動公告入口"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111215000003",
+        "note": "國家文化資產網「中秋搏餅」登錄資料：金門中秋搏餅的骰法與彩目"
+      }
     ],
     "facts": [
-      {"text": "博狀元餅以六顆骰子作為遊戲工具，獎項名稱沿用科舉語彙；具體點數、紅四與獎項分配仍以當場或當年度主辦規則為準。", "sources": [{"type": "gov", "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219"}]},
-      {"text": "金門地方資料把博餅放在中秋團聚與地方文化活動脈絡，洪旭起源傳說屬地方傳說，正文會標明傳說身分，不當成已證實的歷史事實。", "sources": [{"type": "gov", "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219"}]},
-      {"text": "活動檔期與場次由金門縣政府及承辦單位逐年公告，不能用農曆八月十五自動推定活動一定從哪一天開始或在哪個場地舉行。", "sources": [{"type": "gov", "ref": "https://www.kmfa.gov.tw/News_Content.aspx?n=4184&s=105665"}]}
+      {
+        "text": "博狀元餅以六顆骰子作為遊戲工具，獎項名稱沿用科舉語彙；具體點數、紅四與獎項分配仍以當場或當年度主辦規則為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219"
+          }
+        ]
+      },
+      {
+        "text": "金門地方資料把博餅放在中秋團聚與地方文化活動脈絡，洪旭起源傳說屬地方傳說，正文會標明傳說身分，不當成已證實的歷史事實。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.kmtravel.com.tw/Article.aspx?a=219"
+          }
+        ]
+      },
+      {
+        "text": "活動檔期與場次由金門縣政府及承辦單位逐年公告，不能用農曆八月十五自動推定活動一定從哪一天開始或在哪個場地舉行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.kmfa.gov.tw/News_Content.aspx?n=4184&s=105665"
+          }
+        ]
+      }
     ],
     "draft_week": 3,
     "published": "2026-08-12",
@@ -2082,7 +2194,11 @@
   {
     "slug": "draft-week-04-kongzi-teachers-day",
     "name": "教師節、孔子誕辰與祭孔釋奠",
-    "aliases": ["孔子誕辰", "教師節", "祭孔"],
+    "aliases": [
+      "孔子誕辰",
+      "教師節",
+      "祭孔"
+    ],
     "season": "國曆九月",
     "solar_date": "09-28",
     "question": "教師節和孔子誕辰是哪一天？祭孔釋奠在做什麼？",
@@ -2092,14 +2208,50 @@
     "source_status": "calendar_anchored",
     "image_key": "kongzi-birthday",
     "sources": [
-      {"type": "gov", "ref": "https://www.moe.gov.tw/cp-16-16118-1.html", "note": "教育部教師節與孔子誕辰紀念日資料"},
-      {"type": "gov", "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048", "note": "臺北市孔廟祭孔典禮資料"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "官方節日與紀念日資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.moe.gov.tw/cp-16-16118-1.html",
+        "note": "教育部教師節與孔子誕辰紀念日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048",
+        "note": "臺北市孔廟祭孔典禮資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "官方節日與紀念日資料"
+      }
     ],
     "facts": [
-      {"text": "教師節與孔子誕辰紀念日採國曆九月二十八日，這是行政與紀念日的日期基準；民間農曆聖誕說法應另外標示曆法來源。", "sources": [{"type": "gov", "ref": "https://www.moe.gov.tw/cp-16-16118-1.html"}]},
-      {"text": "釋奠典禮常見初獻、亞獻、終獻等獻禮，以及佾舞、樂舞與禮生等儀節；不同孔廟的公開安排可能有地方差異。", "sources": [{"type": "gov", "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048"}]},
-      {"text": "祭孔資料是儒家禮制與地方文化資產的公開介紹，不等於讀者參加任何一場典禮都能自由進入儀式區域，參訪規則須查主辦公告。", "sources": [{"type": "gov", "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048"}]}
+      {
+        "text": "教師節與孔子誕辰紀念日採國曆九月二十八日，這是行政與紀念日的日期基準；民間農曆聖誕說法應另外標示曆法來源。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moe.gov.tw/cp-16-16118-1.html"
+          }
+        ]
+      },
+      {
+        "text": "釋奠典禮常見初獻、亞獻、終獻等獻禮，以及佾舞、樂舞與禮生等儀節；不同孔廟的公開安排可能有地方差異。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048"
+          }
+        ]
+      },
+      {
+        "text": "祭孔資料是儒家禮制與地方文化資產的公開介紹，不等於讀者參加任何一場典禮都能自由進入儀式區域，參訪規則須查主辦公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.tct.gov.tw/News_Content.aspx?n=105&s=1048"
+          }
+        ]
+      }
     ],
     "draft_week": 4,
     "published": "2026-08-12",
@@ -2108,7 +2260,11 @@
   {
     "slug": "draft-week-05-chongyang-guide",
     "name": "重陽節敬老、祭祖與登高",
-    "aliases": ["重陽", "九九重陽", "老人節"],
+    "aliases": [
+      "重陽",
+      "九九重陽",
+      "老人節"
+    ],
     "season": "農曆九月",
     "lunar_date": "09-09",
     "question": "重陽節是哪一天？敬老、祭祖和登高怎麼分？",
@@ -2118,14 +2274,50 @@
     "source_status": "calendar_anchored",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部官方節日資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/8066/", "note": "國史館臺灣文獻館重陽節俗資料"},
-      {"type": "gov", "ref": "https://www.president.gov.tw/NEWS/20753", "note": "總統府敬老政策歷史資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部官方節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/8066/",
+        "note": "國史館臺灣文獻館重陽節俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.president.gov.tw/NEWS/20753",
+        "note": "總統府敬老政策歷史資料"
+      }
     ],
     "facts": [
-      {"text": "重陽節日期是農曆九月九日，國曆日期每年不同；內政部節日資料可作為節日日期基準。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]},
-      {"text": "國史館臺灣文獻館整理重陽與祀神、敬老及登高等多重語境，顯示不同家庭與地方可能採取不同做法。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/8066/"}]},
-      {"text": "總統府資料說明政府曾將重陽節與老人節政策連結，這是公共政策與敬老倡議的歷史脈絡，不代表每個家庭都有同一套祭拜流程。", "sources": [{"type": "gov", "ref": "https://www.president.gov.tw/NEWS/20753"}]}
+      {
+        "text": "重陽節日期是農曆九月九日，國曆日期每年不同；內政部節日資料可作為節日日期基準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      },
+      {
+        "text": "國史館臺灣文獻館整理重陽與祀神、敬老及登高等多重語境，顯示不同家庭與地方可能採取不同做法。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/238/8066/"
+          }
+        ]
+      },
+      {
+        "text": "總統府資料說明政府曾將重陽節與老人節政策連結，這是公共政策與敬老倡議的歷史脈絡，不代表每個家庭都有同一套祭拜流程。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.president.gov.tw/NEWS/20753"
+          }
+        ]
+      }
     ],
     "draft_week": 5,
     "published": "2026-08-12",
@@ -2134,7 +2326,11 @@
   {
     "slug": "draft-week-06-qingshan-king-festival",
     "name": "艋舺青山王祭與青山宮暗訪",
-    "aliases": ["艋舺大拜拜", "青山王祭", "青山宮暗訪"],
+    "aliases": [
+      "艋舺大拜拜",
+      "青山王祭",
+      "青山宮暗訪"
+    ],
     "season": "農曆十月",
     "lunar_date": "10-22",
     "question": "艋舺青山王祭是哪一天？暗訪和遶境有什麼不同？",
@@ -2144,14 +2340,50 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002", "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料：暗訪與遶境是艋舺信仰圈活動的兩個階段"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002", "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料（臺北市登錄民俗）"},
-      {"type": "temple", "ref": "https://www.bka.org.tw/", "note": "艋舺青山宮官方公告入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
+        "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料：暗訪與遶境是艋舺信仰圈活動的兩個階段"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002",
+        "note": "國家文化資產網「艋舺青山宮暗訪暨遶境」登錄資料（臺北市登錄民俗）"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.bka.org.tw/",
+        "note": "艋舺青山宮官方公告入口"
+      }
     ],
     "facts": [
-      {"text": "艋舺青山王祭的正日資料以農曆十月二十二日青山王聖誕與地方遶境為主要日期基準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"}]},
-      {"text": "文化資產資料把青山王祭典放在艋舺地方信仰與暗訪、遶境的脈絡中，暗訪與正日公開遶境不是同一個儀式時段。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"}]},
-      {"text": "年度路線與交通管制會由廟方及地方機關另行公告，常年文化資產資料不能直接推出某一年的起駕時間或封路範圍。", "sources": [{"type": "temple", "ref": "https://www.bka.org.tw/"}]}
+      {
+        "text": "艋舺青山王祭的正日資料以農曆十月二十二日青山王聖誕與地方遶境為主要日期基準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"
+          }
+        ]
+      },
+      {
+        "text": "文化資產資料把青山王祭典放在艋舺地方信仰與暗訪、遶境的脈絡中，暗訪與正日公開遶境不是同一個儀式時段。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000002"
+          }
+        ]
+      },
+      {
+        "text": "年度路線與交通管制會由廟方及地方機關另行公告，常年文化資產資料不能直接推出某一年的起駕時間或封路範圍。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.bka.org.tw/"
+          }
+        ]
+      }
     ],
     "draft_week": 6,
     "published": "2026-08-12",
@@ -2160,7 +2392,11 @@
   {
     "slug": "draft-week-07-xiayuan",
     "name": "下元節與三官大帝",
-    "aliases": ["下元", "下元節", "水官解厄"],
+    "aliases": [
+      "下元",
+      "下元節",
+      "水官解厄"
+    ],
     "season": "農曆十月",
     "lunar_date": "10-15",
     "question": "下元節是哪一天？三官大帝和下元解厄有什麼關係？",
@@ -2170,12 +2406,36 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部全國宗教資訊網三官信仰資料"},
-      {"type": "gov", "ref": "https://www.dao.gov.tw/", "note": "道教相關官方資料入口"}
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部全國宗教資訊網三官信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.dao.gov.tw/",
+        "note": "道教相關官方資料入口"
+      }
     ],
     "facts": [
-      {"text": "下元節常見日期為農曆十月十五，與上元正月十五、中元七月十五形成三元日期系統。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "三官信仰把天官、地官與水官分別連到賜福、赦罪與解厄等宗教語境，這是信仰解釋，不是醫療或法律保證。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
+      {
+        "text": "下元節常見日期為農曆十月十五，與上元正月十五、中元七月十五形成三元日期系統。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      },
+      {
+        "text": "三官信仰把天官、地官與水官分別連到賜福、赦罪與解厄等宗教語境，這是信仰解釋，不是醫療或法律保證。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      }
     ],
     "draft_week": 7,
     "published": "2026-08-12",
@@ -2184,7 +2444,11 @@
   {
     "slug": "draft-week-08-wangjiao-differences",
     "name": "王醮、王船祭與迎王的差異",
-    "aliases": ["王醮", "王船祭", "迎王"],
+    "aliases": [
+      "王醮",
+      "王船祭",
+      "迎王"
+    ],
     "season": "地方王醮",
     "question": "王醮、王船祭和迎王有什麼差別？",
     "intent": "王醮、王船祭與迎王詞彙比較",
@@ -2193,14 +2457,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004", "note": "文化部東港迎王平安祭典資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001", "note": "文化部雞籠中元祭資料"},
-      {"type": "gov", "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139", "note": "地方文化資產詞彙資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004",
+        "note": "文化部東港迎王平安祭典資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "note": "文化部雞籠中元祭資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139",
+        "note": "地方文化資產詞彙資料"
+      }
     ],
     "facts": [
-      {"text": "東港迎王平安祭典的文化資產資料把迎王、巡行與送王船放在同一個地方祭典序列中，但這是東港個案，不是所有王醮的固定流程。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"}]},
-      {"text": "雞籠中元祭以開龕門、放水燈、公普與關龕門等地方序列辨識，與王船祭的海上送王語境不同。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"}]},
-      {"text": "比較王醮時應先確認地點、主辦廟與正式文化資產名稱，再核對當年度公告；只靠相同的「王」字不能推定儀式相同。", "sources": [{"type": "gov", "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139"}]}
+      {
+        "text": "東港迎王平安祭典的文化資產資料把迎王、巡行與送王船放在同一個地方祭典序列中，但這是東港個案，不是所有王醮的固定流程。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"
+          }
+        ]
+      },
+      {
+        "text": "雞籠中元祭以開龕門、放水燈、公普與關龕門等地方序列辨識，與王船祭的海上送王語境不同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"
+          }
+        ]
+      },
+      {
+        "text": "比較王醮時應先確認地點、主辦廟與正式文化資產名稱，再核對當年度公告；只靠相同的「王」字不能推定儀式相同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://twinheritagenet.hchcc.gov.tw/ch/home.aspx?ID=$4139"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 8,
@@ -2210,7 +2510,11 @@
   {
     "slug": "draft-week-09-dongshan-yingfozu",
     "name": "東山迎佛祖與碧軒寺遶境",
-    "aliases": ["東山迎佛祖", "東山碧軒寺", "迎佛祖"],
+    "aliases": [
+      "東山迎佛祖",
+      "東山碧軒寺",
+      "迎佛祖"
+    ],
     "season": "農曆十二月",
     "lunar_date": "12-23",
     "question": "東山迎佛祖是哪一天？迎佛祖和遶境怎麼看？",
@@ -2221,13 +2525,45 @@
     "image_key": "baitiangong",
     "multi_day": true,
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009", "note": "國家文化資產網「東山碧軒寺迎佛祖暨遶境」登錄資料（文化部重要民俗）"},
-      {"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/", "note": "碧軒寺年度公告入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009",
+        "note": "國家文化資產網「東山碧軒寺迎佛祖暨遶境」登錄資料（文化部重要民俗）"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.facebook.com/dongshanbixuan/",
+        "note": "碧軒寺年度公告入口"
+      }
     ],
     "facts": [
-      {"text": "東山碧軒寺迎佛祖是臺南東山的地方民俗，正式活動名稱與保存脈絡應以文化資產資料及主辦廟公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"}]},
-      {"text": "常年資料把迎佛祖放在農曆十二月歲末與地方遶境脈絡中，國曆落點與活動天數每年仍須重新換算和核對。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"}]},
-      {"text": "迎佛祖的起駕、駐駕與回鑾不是由節日名稱自動推定的固定時間，應以碧軒寺當年度公告的路線和現場規則為準。", "sources": [{"type": "temple", "ref": "https://www.facebook.com/dongshanbixuan/"}]}
+      {
+        "text": "東山碧軒寺迎佛祖是臺南東山的地方民俗，正式活動名稱與保存脈絡應以文化資產資料及主辦廟公告為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"
+          }
+        ]
+      },
+      {
+        "text": "常年資料把迎佛祖放在農曆十二月歲末與地方遶境脈絡中，國曆落點與活動天數每年仍須重新換算和核對。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20110825000009"
+          }
+        ]
+      },
+      {
+        "text": "迎佛祖的起駕、駐駕與回鑾不是由節日名稱自動推定的固定時間，應以碧軒寺當年度公告的路線和現場規則為準。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.facebook.com/dongshanbixuan/"
+          }
+        ]
+      }
     ],
     "draft_week": 9,
     "published": "2026-08-12",
@@ -2236,7 +2572,11 @@
   {
     "slug": "draft-week-10-dongzhi-guide",
     "name": "冬至節氣、冬節圓與祭祖",
-    "aliases": ["冬至", "冬節", "冬節圓"],
+    "aliases": [
+      "冬至",
+      "冬節",
+      "冬節圓"
+    ],
     "season": "國曆十二月",
     "solar_term": "冬至",
     "question": "冬至是哪一天？冬節圓和祭祖有哪些做法？",
@@ -2246,9 +2586,21 @@
     "source_status": "calendar_anchored",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html", "note": "中央氣象署二十四節氣資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8529/", "note": "國史館臺灣文獻館冬至民俗資料"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部節日資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html",
+        "note": "中央氣象署二十四節氣資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8529/",
+        "note": "國史館臺灣文獻館冬至民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部節日資料"
+      }
     ],
     "facts": [
       {
@@ -2326,7 +2678,11 @@
   {
     "slug": "draft-week-11-songshen-xietaisui",
     "name": "送神、謝太歲與年末還願",
-    "aliases": ["送神日", "謝太歲", "年末還願"],
+    "aliases": [
+      "送神日",
+      "謝太歲",
+      "年末還願"
+    ],
     "season": "農曆十二月",
     "lunar_date": "12-24",
     "question": "送神日是哪一天？謝太歲和年末還願要怎麼分？",
@@ -2336,9 +2692,21 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部全國宗教資訊網歲時與道教信仰資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8531/", "note": "國史館臺灣文獻館送神民俗資料"},
-      {"type": "site", "ref": "https://folk.tw/practices/antaisui/", "note": "本站太歲儀式資料入口"}
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部全國宗教資訊網歲時與道教信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8531/",
+        "note": "國史館臺灣文獻館送神民俗資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/antaisui/",
+        "note": "本站太歲儀式資料入口"
+      }
     ],
     "facts": [
       {
@@ -2386,7 +2754,11 @@
   {
     "slug": "draft-week-12-chuxi-ancestors",
     "name": "除夕祭祖與年節拜公媽",
-    "aliases": ["除夕", "拜公媽", "年節祭祖"],
+    "aliases": [
+      "除夕",
+      "拜公媽",
+      "年節祭祖"
+    ],
     "season": "農曆十二月",
     "lunar_date": "12-30",
     "question": "除夕要不要祭祖？拜公媽的時間和供品怎麼看？",
@@ -2396,9 +2768,21 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部年節日期資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239", "note": "內政部祖先祭祀與民俗資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8532/", "note": "國史館臺灣文獻館年節祭祖資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部年節日期資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239",
+        "note": "內政部祖先祭祀與民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8532/",
+        "note": "國史館臺灣文獻館年節祭祖資料"
+      }
     ],
     "facts": [
       {
@@ -2456,7 +2840,11 @@
   {
     "slug": "draft-week-13-antaisui-deng",
     "name": "安太歲、點燈與年度祈福服務",
-    "aliases": ["安太歲", "太歲燈", "光明燈"],
+    "aliases": [
+      "安太歲",
+      "太歲燈",
+      "光明燈"
+    ],
     "season": "農曆正月",
     "question": "安太歲和點燈有什麼不同？要去哪裡辦？",
     "intent": "安太歲、點燈與廟方年度服務",
@@ -2465,12 +2853,36 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/practices/antaisui/", "note": "本站安太歲儀式資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/antaisui/",
+        "note": "本站安太歲儀式資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部宗教民俗資料"
+      }
     ],
     "facts": [
-      {"text": "安太歲通常指依太歲信仰辦理年度登記或祈福服務，是否屬於某人的犯太歲判定與辦理方式要看廟方規則。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/antaisui/"}]},
-      {"text": "年度服務的費用、開放日期、補辦方式與燈位安排屬廟方公告資訊，不能用往年價格或其他廟宇的規則替代。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
+      {
+        "text": "安太歲通常指依太歲信仰辦理年度登記或祈福服務，是否屬於某人的犯太歲判定與辦理方式要看廟方規則。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/antaisui/"
+          }
+        ]
+      },
+      {
+        "text": "年度服務的費用、開放日期、補辦方式與燈位安排屬廟方公告資訊，不能用往年價格或其他廟宇的規則替代。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 13,
@@ -2480,7 +2892,11 @@
   {
     "slug": "draft-week-14-baitiangong-guide",
     "name": "拜天公與天公生",
-    "aliases": ["天公生", "拜天公", "玉皇上帝聖誕"],
+    "aliases": [
+      "天公生",
+      "拜天公",
+      "玉皇上帝聖誕"
+    ],
     "season": "農曆正月",
     "lunar_date": "01-09",
     "question": "拜天公是哪一天？供桌和祭拜時間怎麼看？",
@@ -2490,14 +2906,50 @@
     "source_status": "calendar_anchored",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部節日資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部玉皇上帝與天公生資料"},
-      {"type": "site", "ref": "https://folk.tw/practices/baitiangong/", "note": "本站拜天公資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部玉皇上帝與天公生資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/baitiangong/",
+        "note": "本站拜天公資料"
+      }
     ],
     "facts": [
-      {"text": "天公生常以農曆正月初九為日期基準，國曆日期要依當年度農曆換算。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]},
-      {"text": "內政部宗教資料將天公生放在玉皇上帝信仰與民間祈福脈絡中，民間祭拜時間與供品可有地方及家庭差異。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "本站拜天公資料把流程、供品與禁忌標示為民俗參考，不把祭拜做法轉寫成所有家庭都必須遵守的規定。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/baitiangong/"}]}
+      {
+        "text": "天公生常以農曆正月初九為日期基準，國曆日期要依當年度農曆換算。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      },
+      {
+        "text": "內政部宗教資料將天公生放在玉皇上帝信仰與民間祈福脈絡中，民間祭拜時間與供品可有地方及家庭差異。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      },
+      {
+        "text": "本站拜天公資料把流程、供品與禁忌標示為民俗參考，不把祭拜做法轉寫成所有家庭都必須遵守的規定。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/baitiangong/"
+          }
+        ]
+      }
     ],
     "draft_week": 14,
     "published": "2026-08-12",
@@ -2506,7 +2958,11 @@
   {
     "slug": "draft-week-15-yuanxiao-guide",
     "name": "元宵節、上元與燈節",
-    "aliases": ["元宵", "上元節", "燈節"],
+    "aliases": [
+      "元宵",
+      "上元節",
+      "燈節"
+    ],
     "season": "農曆正月",
     "lunar_date": "01-15",
     "question": "元宵節是哪一天？上元、吃湯圓和燈會怎麼分？",
@@ -2516,9 +2972,21 @@
     "source_status": "calendar_anchored",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部節日資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部上元與三官信仰資料"},
-      {"type": "gov", "ref": "https://www.taiwan.net.tw/m1.aspx?sNo=0001019", "note": "交通部觀光署節慶活動入口"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部上元與三官信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.taiwan.net.tw/m1.aspx?sNo=0001019",
+        "note": "交通部觀光署節慶活動入口"
+      }
     ],
     "facts": [
       {
@@ -2616,7 +3084,11 @@
   {
     "slug": "draft-week-16-yanshui-handan",
     "name": "鹽水蜂炮與臺東寒單",
-    "aliases": ["鹽水蜂炮", "炮炸寒單", "寒單爺"],
+    "aliases": [
+      "鹽水蜂炮",
+      "炮炸寒單",
+      "寒單爺"
+    ],
     "season": "農曆正月",
     "lunar_date": "01-15",
     "question": "鹽水蜂炮和臺東寒單是哪一天？兩個活動一樣嗎？",
@@ -2626,14 +3098,50 @@
     "source_status": "source_required",
     "image_key": "fangshuideng",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004", "note": "國家文化資產網「鹽水蜂炮」登錄資料（臺南市登錄民俗）"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003", "note": "國家文化資產網「炮炸肉身寒單爺活動」登錄資料（臺東縣登錄民俗）"},
-      {"type": "gov", "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013", "note": "臺南市政府觀光資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004",
+        "note": "國家文化資產網「鹽水蜂炮」登錄資料（臺南市登錄民俗）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003",
+        "note": "國家文化資產網「炮炸肉身寒單爺活動」登錄資料（臺東縣登錄民俗）"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013",
+        "note": "臺南市政府觀光資料"
+      }
     ],
     "facts": [
-      {"text": "鹽水蜂炮是臺南鹽水武廟及地方社區脈絡的元宵民俗，活動日期與施放區域以年度公告為準。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004"}]},
-      {"text": "臺東炮炸寒單爺以寒單爺出巡與炮炸儀式辨識，與鹽水蜂炮不是同一場活動，也不共用安全或參與規則。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003"}]},
-      {"text": "地方政府與主辦方會依當年度人流、場地與安全需求公告交通管制及防護要求，觀賞者不應自行推定可進入施放區。", "sources": [{"type": "gov", "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013"}]}
+      {
+        "text": "鹽水蜂炮是臺南鹽水武廟及地方社區脈絡的元宵民俗，活動日期與施放區域以年度公告為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000004"
+          }
+        ]
+      },
+      {
+        "text": "臺東炮炸寒單爺以寒單爺出巡與炮炸儀式辨識，與鹽水蜂炮不是同一場活動，也不共用安全或參與規則。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20070123000003"
+          }
+        ]
+      },
+      {
+        "text": "地方政府與主辦方會依當年度人流、場地與安全需求公告交通管制及防護要求，觀賞者不應自行推定可進入施放區。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.twtainan.net/zh-tw/attractions/detail/1013"
+          }
+        ]
+      }
     ],
     "draft_week": 16,
     "published": "2026-08-12",
@@ -2642,7 +3150,11 @@
   {
     "slug": "draft-week-17-dajia-baishatun-pilgrimage",
     "name": "大甲與白沙屯媽祖進香",
-    "aliases": ["大甲媽祖", "白沙屯媽祖", "媽祖進香"],
+    "aliases": [
+      "大甲媽祖",
+      "白沙屯媽祖",
+      "媽祖進香"
+    ],
     "season": "農曆三月",
     "question": "大甲媽祖和白沙屯媽祖進香有什麼不同？",
     "intent": "大甲、白沙屯媽祖進香比較與年度公告",
@@ -2651,14 +3163,50 @@
     "source_status": "source_required",
     "image_key": "zhongqiu",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008", "note": "文化部大甲媽祖遶境進香資料"},
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007", "note": "文化部白沙屯媽祖進香資料"},
-      {"type": "temple", "ref": "https://www.gongtian.org.tw/", "note": "白沙屯拱天宮官方資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+        "note": "文化部大甲媽祖遶境進香資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007",
+        "note": "文化部白沙屯媽祖進香資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.gongtian.org.tw/",
+        "note": "白沙屯拱天宮官方資料"
+      }
     ],
     "facts": [
-      {"text": "大甲媽祖遶境進香的文化資產登錄對象是臺中大甲鎮瀾宮的年度進香傳統，路線與駐駕仍由廟方年度程序確認。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"}]},
-      {"text": "白沙屯媽祖進香的文化資產資料與廟方資料都強調鑾轎臨場決定路線的地方特色，因此不能用固定地圖取代年度即時資訊。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007"}]},
-      {"text": "兩項進香的起駕日、報名與交通管制由不同主辦廟公告，讀者查詢時應先確認廟名，再使用官方 GPS 或公告。", "sources": [{"type": "temple", "ref": "https://www.gongtian.org.tw/"}]}
+      {
+        "text": "大甲媽祖遶境進香的文化資產登錄對象是臺中大甲鎮瀾宮的年度進香傳統，路線與駐駕仍由廟方年度程序確認。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"
+          }
+        ]
+      },
+      {
+        "text": "白沙屯媽祖進香的文化資產資料與廟方資料都強調鑾轎臨場決定路線的地方特色，因此不能用固定地圖取代年度即時資訊。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007"
+          }
+        ]
+      },
+      {
+        "text": "兩項進香的起駕日、報名與交通管制由不同主辦廟公告，讀者查詢時應先確認廟名，再使用官方 GPS 或公告。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.gongtian.org.tw/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 17,
@@ -2668,7 +3216,11 @@
   {
     "slug": "draft-week-18-beigang-mazu-pilgrimage",
     "name": "北港迎媽祖與北港進香",
-    "aliases": ["北港媽祖", "北港迎媽祖", "北港進香"],
+    "aliases": [
+      "北港媽祖",
+      "北港迎媽祖",
+      "北港進香"
+    ],
     "season": "農曆三月",
     "question": "北港迎媽祖是哪一天？南巡、北巡和進香怎麼分？",
     "intent": "北港迎媽祖日期、南北巡與進香",
@@ -2677,14 +3229,50 @@
     "source_status": "source_required",
     "image_key": "zhongqiu",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009", "note": "文化部北港朝天宮迎媽祖資料"},
-      {"type": "temple", "ref": "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009", "note": "北港朝天宮官方南北巡資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=112", "note": "內政部北港媽祖文化資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009",
+        "note": "文化部北港朝天宮迎媽祖資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009",
+        "note": "北港朝天宮官方南北巡資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=112",
+        "note": "內政部北港媽祖文化資料"
+      }
     ],
     "facts": [
-      {"text": "北港朝天宮迎媽祖的常年資料把農曆三月十九與二十分為南巡、北巡，活動範圍與大甲或白沙屯進香不同。", "sources": [{"type": "temple", "ref": "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009"}]},
-      {"text": "文化資產資料將北港朝天宮迎媽祖列為地方媽祖信仰與迎神活動的文化脈絡，不能由登錄頁直接推定某一年的完整路線。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009"}]},
-      {"text": "北港進香團的報到、停駕、刈火或合香等安排可能依團體與年度調整，查詢時應以北港朝天宮公告及主辦單位通知為準。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=112"}]}
+      {
+        "text": "北港朝天宮迎媽祖的常年資料把農曆三月十九與二十分為南巡、北巡，活動範圍與大甲或白沙屯進香不同。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.matsu.org.tw/?act=menuinfo&ml_id=20240312009"
+          }
+        ]
+      },
+      {
+        "text": "文化資產資料將北港朝天宮迎媽祖列為地方媽祖信仰與迎神活動的文化脈絡，不能由登錄頁直接推定某一年的完整路線。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009"
+          }
+        ]
+      },
+      {
+        "text": "北港進香團的報到、停駕、刈火或合香等安排可能依團體與年度調整，查詢時應以北港朝天宮公告及主辦單位通知為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=112"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 18,
@@ -2694,7 +3282,11 @@
   {
     "slug": "draft-week-19-neimen-songjiang",
     "name": "內門宋江陣與羅漢門迎佛祖",
-    "aliases": ["內門宋江陣", "羅漢門迎佛祖", "宋江陣"],
+    "aliases": [
+      "內門宋江陣",
+      "羅漢門迎佛祖",
+      "宋江陣"
+    ],
     "season": "農曆二月",
     "question": "內門宋江陣是哪一天？和羅漢門迎佛祖有什麼關係？",
     "intent": "內門宋江陣、迎佛祖與地方陣頭",
@@ -2703,14 +3295,50 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001", "note": "文化部羅漢門迎佛祖資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001", "note": "國家文化資產網「新園鄉五房洲庄澄瀛宮宋江陣」登錄資料：源於械鬥護庄的團練，72 人陣"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0", "note": "內門紫竹寺廟宇資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001",
+        "note": "文化部羅漢門迎佛祖資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001",
+        "note": "國家文化資產網「新園鄉五房洲庄澄瀛宮宋江陣」登錄資料：源於械鬥護庄的團練，72 人陣"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0",
+        "note": "內門紫竹寺廟宇資料"
+      }
     ],
     "facts": [
-      {"text": "文化資產登錄名稱是羅漢門迎佛祖，內門宋江陣是該地方遶境與民俗展演中重要的陣頭脈絡。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001"}]},
-      {"text": "宋江陣可從集體武藝、陣式與廟會展演理解，這個定義不能直接推定年度參賽隊伍、演出名單或活動時間。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001"}]},
-      {"text": "內門紫竹寺是迎佛祖與地方活動的主辦廟脈絡之一，路線、起駕與交通仍應回查廟方或地方政府公告。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0"}]}
+      {
+        "text": "文化資產登錄名稱是羅漢門迎佛祖，內門宋江陣是該地方遶境與民俗展演中重要的陣頭脈絡。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20140926000001"
+          }
+        ]
+      },
+      {
+        "text": "宋江陣可從集體武藝、陣式與廟會展演理解，這個定義不能直接推定年度參賽隊伍、演出名單或活動時間。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20180726000001"
+          }
+        ]
+      },
+      {
+        "text": "內門紫竹寺是迎佛祖與地方活動的主辦廟脈絡之一，路線、起駕與交通仍應回查廟方或地方政府公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=65189&IndexID=2&_t=0"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 19,
@@ -2720,7 +3348,11 @@
   {
     "slug": "draft-week-20-qingming-guide",
     "name": "清明節氣與清明祭祖",
-    "aliases": ["清明", "清明節", "清明掃墓"],
+    "aliases": [
+      "清明",
+      "清明節",
+      "清明掃墓"
+    ],
     "season": "國曆四月",
     "solar_term": "清明",
     "question": "清明節是哪一天？節氣和祭祖有什麼關係？",
@@ -2730,14 +3362,50 @@
     "source_status": "calendar_anchored",
     "image_key": "qingming",
     "sources": [
-      {"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html", "note": "中央氣象署節氣資料"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部節日資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/", "note": "國史館臺灣文獻館祭祖民俗資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html",
+        "note": "中央氣象署節氣資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部節日資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/",
+        "note": "國史館臺灣文獻館祭祖民俗資料"
+      }
     ],
     "facts": [
-      {"text": "清明是依太陽位置計算的節氣，國曆日期通常落在四月初，實際日期由當年度節氣資料確認。", "sources": [{"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"}]},
-      {"text": "臺灣家庭常把掃墓、祭祖與掛紙安排在清明前後，但提早或延後的時間會受家族傳承、墓園與交通安排影響。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"}]},
-      {"text": "內政部節日資料與政府連假公告是日期查詢來源，不能用連假第一天推定所有家庭的祭祖日期。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]}
+      {
+        "text": "清明是依太陽位置計算的節氣，國曆日期通常落在四月初，實際日期由當年度節氣資料確認。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"
+          }
+        ]
+      },
+      {
+        "text": "臺灣家庭常把掃墓、祭祖與掛紙安排在清明前後，但提早或延後的時間會受家族傳承、墓園與交通安排影響。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"
+          }
+        ]
+      },
+      {
+        "text": "內政部節日資料與政府連假公告是日期查詢來源，不能用連假第一天推定所有家庭的祭祖日期。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      }
     ],
     "draft_week": 20,
     "published": "2026-08-12",
@@ -2746,7 +3414,11 @@
   {
     "slug": "draft-week-21-qingming-tomb-practice",
     "name": "清明掃墓、培墓與掛紙",
-    "aliases": ["掃墓", "培墓", "掛紙"],
+    "aliases": [
+      "掃墓",
+      "培墓",
+      "掛紙"
+    ],
     "season": "國曆四月",
     "solar_term": "清明",
     "question": "清明掃墓、培墓和掛紙有什麼差別？",
@@ -2756,14 +3428,50 @@
     "source_status": "source_required",
     "image_key": "qingming",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/practices/saomu/", "note": "本站掃墓資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/", "note": "國史館臺灣文獻館清明民俗資料"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部節日與祭祖資料"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/saomu/",
+        "note": "本站掃墓資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/",
+        "note": "國史館臺灣文獻館清明民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部節日與祭祖資料"
+      }
     ],
     "facts": [
-      {"text": "掃墓是清明祭祖與墓地整理的總稱，實際工作可能包含除草、清潔、獻供與家族祭拜等不同段落。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/saomu/"}]},
-      {"text": "培墓與掛紙的詞義及使用方式具有地區與家族差異，不能將某地的紙錢、墓紙或培土做法寫成全臺統一規則。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"}]},
-      {"text": "墓園焚燒、交通、開放時間與環境維護規定屬所在地管理資訊，應優先查地方政府與墓園公告。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]}
+      {
+        "text": "掃墓是清明祭祖與墓地整理的總稱，實際工作可能包含除草、清潔、獻供與家族祭拜等不同段落。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/saomu/"
+          }
+        ]
+      },
+      {
+        "text": "培墓與掛紙的詞義及使用方式具有地區與家族差異，不能將某地的紙錢、墓紙或培土做法寫成全臺統一規則。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"
+          }
+        ]
+      },
+      {
+        "text": "墓園焚燒、交通、開放時間與環境維護規定屬所在地管理資訊，應優先查地方政府與墓園公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      }
     ],
     "draft_week": 21,
     "published": "2026-08-12",
@@ -2772,7 +3480,11 @@
   {
     "slug": "draft-week-22-baosheng-birthday",
     "name": "保生大帝聖誕與大龍峒保安宮祭典",
-    "aliases": ["保生大帝生日", "保安宮聖誕", "大道公"],
+    "aliases": [
+      "保生大帝生日",
+      "保安宮聖誕",
+      "大道公"
+    ],
     "season": "農曆三月",
     "lunar_date": "03-15",
     "question": "保生大帝生日是哪一天？保安宮放火獅和遶境怎麼看？",
@@ -2782,14 +3494,50 @@
     "source_status": "calendar_anchored",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001", "note": "文化部保安宮保生大帝聖誕慶典資料"},
-      {"type": "temple", "ref": "https://www.baoan.org.tw/intro.php?lang=tw", "note": "大龍峒保安宮官方簡介"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258", "note": "內政部保生大帝神明資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001",
+        "note": "文化部保安宮保生大帝聖誕慶典資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.baoan.org.tw/intro.php?lang=tw",
+        "note": "大龍峒保安宮官方簡介"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "note": "內政部保生大帝神明資料"
+      }
     ],
     "facts": [
-      {"text": "文化資產資料記載大龍峒保安宮保生大帝聖誕以農曆三月十五為正日，前後另有地方祭典安排。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001"}]},
-      {"text": "保安宮祭典資料包含遶境、放火獅、過火與家姓戲等地方元素，這些是保安宮保存的脈絡，不是所有保生大帝廟都相同。", "sources": [{"type": "temple", "ref": "https://www.baoan.org.tw/intro.php?lang=tw"}]},
-      {"text": "內政部資料把保生大帝列為醫藥信仰神明，神明職司與保安宮年度活動是不同資料層次，頁面不互相複製。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"}]}
+      {
+        "text": "文化資產資料記載大龍峒保安宮保生大帝聖誕以農曆三月十五為正日，前後另有地方祭典安排。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20211014000001"
+          }
+        ]
+      },
+      {
+        "text": "保安宮祭典資料包含遶境、放火獅、過火與家姓戲等地方元素，這些是保安宮保存的脈絡，不是所有保生大帝廟都相同。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.baoan.org.tw/intro.php?lang=tw"
+          }
+        ]
+      },
+      {
+        "text": "內政部資料把保生大帝列為醫藥信仰神明，神明職司與保安宮年度活動是不同資料層次，頁面不互相複製。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"
+          }
+        ]
+      }
     ],
     "draft_week": 22,
     "published": "2026-08-12",
@@ -2798,7 +3546,11 @@
   {
     "slug": "draft-week-23-sanxia-qingshui",
     "name": "三峽清水祖師祭典",
-    "aliases": ["三峽祖師廟", "清水祖師生日", "祖師公祭典"],
+    "aliases": [
+      "三峽祖師廟",
+      "清水祖師生日",
+      "祖師公祭典"
+    ],
     "season": "農曆正月",
     "lunar_date": "01-06",
     "question": "三峽清水祖師生日是哪一天？祭典有哪些地方特色？",
@@ -2808,14 +3560,50 @@
     "source_status": "calendar_anchored",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176", "note": "內政部清水祖師聖誕祭典資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285", "note": "內政部清水祖師神明資料"},
-      {"type": "temple", "ref": "https://www.sanchia.org.tw/", "note": "三峽長福巖官方資料入口"}
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176",
+        "note": "內政部清水祖師聖誕祭典資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285",
+        "note": "內政部清水祖師神明資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.sanchia.org.tw/",
+        "note": "三峽長福巖官方資料入口"
+      }
     ],
     "facts": [
-      {"text": "內政部臺灣宗教文化地圖記載三峽長福巖清水祖師聖誕為農曆正月初六，國曆日期依年度換算。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176"}]},
-      {"text": "三峽祭典是特定廟宇與地方街區的文化脈絡，不能把遶境、祖師公稱呼或供品直接套用到所有清水祖師廟。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285"}]},
-      {"text": "年度遶境路線、封街與參觀規則屬廟方及地方政府公告資訊，常年生日日期不能取代活動公告。", "sources": [{"type": "temple", "ref": "https://www.sanchia.org.tw/"}]}
+      {
+        "text": "內政部臺灣宗教文化地圖記載三峽長福巖清水祖師聖誕為農曆正月初六，國曆日期依年度換算。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=176"
+          }
+        ]
+      },
+      {
+        "text": "三峽祭典是特定廟宇與地方街區的文化脈絡，不能把遶境、祖師公稱呼或供品直接套用到所有清水祖師廟。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285"
+          }
+        ]
+      },
+      {
+        "text": "年度遶境路線、封街與參觀規則屬廟方及地方政府公告資訊，常年生日日期不能取代活動公告。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.sanchia.org.tw/"
+          }
+        ]
+      }
     ],
     "draft_week": 23,
     "published": "2026-08-12",
@@ -2824,7 +3612,11 @@
   {
     "slug": "draft-week-24-dadaocheng-chenghuang",
     "name": "大稻埕霞海城隍與五月十三迎城隍",
-    "aliases": ["霞海城隍", "五月十三", "大稻埕迎城隍"],
+    "aliases": [
+      "霞海城隍",
+      "五月十三",
+      "大稻埕迎城隍"
+    ],
     "season": "農曆五月",
     "lunar_date": "05-13",
     "question": "霞海城隍生日是哪一天？五月十三暗訪和遶境怎麼分？",
@@ -2834,14 +3626,50 @@
     "source_status": "calendar_anchored",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000001", "note": "文化部大稻埕霞海城隍迎城隍資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212", "note": "內政部五月十三迎城隍資料"},
-      {"type": "temple", "ref": "https://www.tpecitygod.org/", "note": "臺北霞海城隍廟官方公告入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000001",
+        "note": "文化部大稻埕霞海城隍迎城隍資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212",
+        "note": "內政部五月十三迎城隍資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.tpecitygod.org/",
+        "note": "臺北霞海城隍廟官方公告入口"
+      }
     ],
     "facts": [
-      {"text": "大稻埕霞海城隍迎城隍常年資料以農曆五月十三為正日，五月十一另有暗訪段落。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212"}]},
-      {"text": "文化資產資料把五月十三放在大稻埕地方城隍信仰與迎神遶境脈絡，不能將它當成所有城隍廟共同的生日或路線。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000001"}]},
-      {"text": "年度遶境起駕、交通管制與神將隊伍安排由廟方及地方政府公告，不能使用過期路線替代現年度資訊。", "sources": [{"type": "temple", "ref": "https://www.tpecitygod.org/"}]}
+      {
+        "text": "大稻埕霞海城隍迎城隍常年資料以農曆五月十三為正日，五月十一另有暗訪段落。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=212"
+          }
+        ]
+      },
+      {
+        "text": "文化資產資料把五月十三放在大稻埕地方城隍信仰與迎神遶境脈絡，不能將它當成所有城隍廟共同的生日或路線。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100726000001"
+          }
+        ]
+      },
+      {
+        "text": "年度遶境起駕、交通管制與神將隊伍安排由廟方及地方政府公告，不能使用過期路線替代現年度資訊。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.tpecitygod.org/"
+          }
+        ]
+      }
     ],
     "draft_week": 24,
     "published": "2026-08-12",
@@ -2850,7 +3678,11 @@
   {
     "slug": "draft-week-25-xuejia-shangbaijiao",
     "name": "學甲上白礁與學甲香",
-    "aliases": ["上白礁", "學甲香", "學甲刈香"],
+    "aliases": [
+      "上白礁",
+      "學甲香",
+      "學甲刈香"
+    ],
     "season": "農曆三月",
     "lunar_date": "03-11",
     "question": "學甲上白礁是哪一天？上白礁和三年一科學甲香有什麼不同？",
@@ -2860,14 +3692,50 @@
     "source_status": "calendar_anchored",
     "image_key": "zhongqiu",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002", "note": "文化部學甲上白礁暨刈香資料"},
-      {"type": "gov", "ref": "https://www.moc.gov.tw/News_Content.aspx?n=105&s=119174", "note": "文化部重要民俗授證資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62", "note": "內政部學甲慈濟宮資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002",
+        "note": "文化部學甲上白礁暨刈香資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moc.gov.tw/News_Content.aspx?n=105&s=119174",
+        "note": "文化部重要民俗授證資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62",
+        "note": "內政部學甲慈濟宮資料"
+      }
     ],
     "facts": [
-      {"text": "文化資產資料將學甲上白礁暨刈香列為重要民俗，保存與主辦脈絡是學甲慈濟宮及地方聯境。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002"}]},
-      {"text": "學甲上白礁常年日期為農曆三月十一，與在白礁亭遙祭祖廟及先民登陸記憶的地方脈絡相連。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62"}]},
-      {"text": "學甲香或刈香屬特定科期擴大活動，科期資料不能直接推出某年一定有大型路關，年度安排仍需主辦方確認。", "sources": [{"type": "gov", "ref": "https://www.moc.gov.tw/News_Content.aspx?n=105&s=119174"}]}
+      {
+        "text": "文化資產資料將學甲上白礁暨刈香列為重要民俗，保存與主辦脈絡是學甲慈濟宮及地方聯境。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002"
+          }
+        ]
+      },
+      {
+        "text": "學甲上白礁常年日期為農曆三月十一，與在白礁亭遙祭祖廟及先民登陸記憶的地方脈絡相連。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=62"
+          }
+        ]
+      },
+      {
+        "text": "學甲香或刈香屬特定科期擴大活動，科期資料不能直接推出某年一定有大型路關，年度安排仍需主辦方確認。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moc.gov.tw/News_Content.aspx?n=105&s=119174"
+          }
+        ]
+      }
     ],
     "draft_week": 25,
     "published": "2026-08-12",
@@ -2876,7 +3744,11 @@
   {
     "slug": "draft-week-26-mazu-pilgrimage-differences",
     "name": "大甲、白沙屯與北港媽祖進香比較",
-    "aliases": ["媽祖進香比較", "三大媽祖進香", "大甲白沙屯北港"],
+    "aliases": [
+      "媽祖進香比較",
+      "三大媽祖進香",
+      "大甲白沙屯北港"
+    ],
     "season": "農曆三月",
     "question": "大甲、白沙屯、北港媽祖進香怎麼比較？",
     "intent": "三項媽祖進香的主辦廟、路線與日期差異",
@@ -2885,14 +3757,50 @@
     "source_status": "source_required",
     "image_key": "zhongqiu",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008", "note": "文化部大甲媽祖資料"},
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007", "note": "文化部白沙屯媽祖資料"},
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009", "note": "文化部北港迎媽祖資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+        "note": "文化部大甲媽祖資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007",
+        "note": "文化部白沙屯媽祖資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009",
+        "note": "文化部北港迎媽祖資料"
+      }
     ],
     "facts": [
-      {"text": "大甲媽祖進香、白沙屯媽祖進香與北港迎媽祖各有不同文化資產登錄對象與主辦廟，不能合併成單一活動。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"}]},
-      {"text": "白沙屯進香的路線形成方式與大甲固定駐駕、北港地方南北巡的資料脈絡不同，比較時應先看路線如何決定。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007"}]},
-      {"text": "年度日期、報名、住宿、交通與即時定位都是各主辦廟的當年資料，不能把一場進香的攻略套用到另外兩場。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009"}]}
+      {
+        "text": "大甲媽祖進香、白沙屯媽祖進香與北港迎媽祖各有不同文化資產登錄對象與主辦廟，不能合併成單一活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"
+          }
+        ]
+      },
+      {
+        "text": "白沙屯進香的路線形成方式與大甲固定駐駕、北港地方南北巡的資料脈絡不同，比較時應先看路線如何決定。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000007"
+          }
+        ]
+      },
+      {
+        "text": "年度日期、報名、住宿、交通與即時定位都是各主辦廟的當年資料，不能把一場進香的攻略套用到另外兩場。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000009"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 26,
@@ -2902,7 +3810,11 @@
   {
     "slug": "draft-week-27-duanwu-guide",
     "name": "端午節祭祖、香包與地方龍舟",
-    "aliases": ["端午", "端陽", "五月節"],
+    "aliases": [
+      "端午",
+      "端陽",
+      "五月節"
+    ],
     "season": "農曆五月",
     "lunar_date": "05-05",
     "question": "端午節是哪一天？祭祖、香包和龍舟活動怎麼分？",
@@ -2912,14 +3824,50 @@
     "source_status": "calendar_anchored",
     "image_key": "duanwu",
     "sources": [
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部端午日期資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/", "note": "國史館臺灣文獻館端午民俗資料"},
-      {"type": "gov", "ref": "https://www.tad.gov.tw/m1.aspx?sNo=0027040", "note": "交通部觀光署香包資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部端午日期資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/",
+        "note": "國史館臺灣文獻館端午民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.tad.gov.tw/m1.aspx?sNo=0027040",
+        "note": "交通部觀光署香包資料"
+      }
     ],
     "facts": [
-      {"text": "端午節的日期基準是農曆五月五日，國曆日期依當年度農曆換算，連假日期另看行政院公告。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]},
-      {"text": "國史館資料把掛草、佩香包、避疫與屈原傳說分開整理，端午習俗具有多重歷史脈絡。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"}]},
-      {"text": "香包、龍舟、洗港與午時水屬不同地方或家庭語境，活動日期、場地與安全規則不能由節日日期自動推定。", "sources": [{"type": "gov", "ref": "https://www.tad.gov.tw/m1.aspx?sNo=0027040"}]}
+      {
+        "text": "端午節的日期基準是農曆五月五日，國曆日期依當年度農曆換算，連假日期另看行政院公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      },
+      {
+        "text": "國史館資料把掛草、佩香包、避疫與屈原傳說分開整理，端午習俗具有多重歷史脈絡。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/237/8530/"
+          }
+        ]
+      },
+      {
+        "text": "香包、龍舟、洗港與午時水屬不同地方或家庭語境，活動日期、場地與安全規則不能由節日日期自動推定。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.tad.gov.tw/m1.aspx?sNo=0027040"
+          }
+        ]
+      }
     ],
     "draft_week": 27,
     "published": "2026-08-12",
@@ -2928,7 +3876,11 @@
   {
     "slug": "draft-week-28-daxi-guangong",
     "name": "大溪關帝聖誕與普濟堂遶境",
-    "aliases": ["關帝聖誕", "大溪遶境", "普濟堂關聖帝君"],
+    "aliases": [
+      "關帝聖誕",
+      "大溪遶境",
+      "普濟堂關聖帝君"
+    ],
     "season": "農曆六月",
     "lunar_date": "06-24",
     "question": "關帝聖誕是哪一天？大溪普濟堂遶境怎麼看？",
@@ -2938,14 +3890,50 @@
     "source_status": "calendar_anchored",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001", "note": "文化部大溪普濟堂祭典資料"},
-      {"type": "temple", "ref": "https://www.daxi-pujitang.org.tw/", "note": "大溪普濟堂官方資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260", "note": "內政部關聖帝君信仰資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001",
+        "note": "文化部大溪普濟堂祭典資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.daxi-pujitang.org.tw/",
+        "note": "大溪普濟堂官方資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260",
+        "note": "內政部關聖帝君信仰資料"
+      }
     ],
     "facts": [
-      {"text": "文化部資料記載大溪普濟堂關聖帝君聖誕為農曆六月二十四日，國曆日期每年依農曆換算。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001"}]},
-      {"text": "大溪慶典包含地方社頭參與的遶境，這是大溪地方組織與廟宇的活動脈絡，不是所有關帝廟都相同。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001"}]},
-      {"text": "關聖帝君的通用神明資料與大溪年度路線屬不同資料層次，起駕、交通與參與方式仍以普濟堂公告為準。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260"}]}
+      {
+        "text": "文化部資料記載大溪普濟堂關聖帝君聖誕為農曆六月二十四日，國曆日期每年依農曆換算。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001"
+          }
+        ]
+      },
+      {
+        "text": "大溪慶典包含地方社頭參與的遶境，這是大溪地方組織與廟宇的活動脈絡，不是所有關帝廟都相同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20111229000001"
+          }
+        ]
+      },
+      {
+        "text": "關聖帝君的通用神明資料與大溪年度路線屬不同資料層次，起駕、交通與參與方式仍以普濟堂公告為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=260"
+          }
+        ]
+      }
     ],
     "draft_week": 28,
     "published": "2026-08-12",
@@ -2954,7 +3942,11 @@
   {
     "slug": "draft-week-29-kouhu-qianshuizang",
     "name": "口湖牽水車藏與水災追思",
-    "aliases": ["牽水車藏", "口湖牽水車藏", "水災追思"],
+    "aliases": [
+      "牽水車藏",
+      "口湖牽水車藏",
+      "水災追思"
+    ],
     "season": "農曆六月",
     "lunar_date": "06-07",
     "question": "口湖牽水車藏是哪一天？牽水車藏在紀念什麼？",
@@ -2965,14 +3957,50 @@
     "image_key": "fangshuideng",
     "multi_day": true,
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001", "note": "文化部口湖牽水車藏資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269", "note": "內政部地方宗教文化資料"},
-      {"type": "gov", "ref": "https://www.yunlin.gov.tw/", "note": "雲林縣政府公告入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001",
+        "note": "文化部口湖牽水車藏資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269",
+        "note": "內政部地方宗教文化資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.yunlin.gov.tw/",
+        "note": "雲林縣政府公告入口"
+      }
     ],
     "facts": [
-      {"text": "文化部資料將口湖牽水車藏列為地方重要民俗，核心是追思道光二十五年水災罹難者與地方歷史記憶。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001"}]},
-      {"text": "常年資料以農曆六月初七至初九描述活動窗口，實際國曆日期和每日儀程仍須按當年度農曆及公告核對。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269"}]},
-      {"text": "牽水車藏的追思脈絡與一般中元普渡不同，觀看位置、交通與安全規則不可用其他祭典的資訊替代。", "sources": [{"type": "gov", "ref": "https://www.yunlin.gov.tw/"}]}
+      {
+        "text": "文化部資料將口湖牽水車藏列為地方重要民俗，核心是追思道光二十五年水災罹難者與地方歷史記憶。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20081125000001"
+          }
+        ]
+      },
+      {
+        "text": "常年資料以農曆六月初七至初九描述活動窗口，實際國曆日期和每日儀程仍須按當年度農曆及公告核對。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=269"
+          }
+        ]
+      },
+      {
+        "text": "牽水車藏的追思脈絡與一般中元普渡不同，觀看位置、交通與安全規則不可用其他祭典的資訊替代。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.yunlin.gov.tw/"
+          }
+        ]
+      }
     ],
     "draft_week": 29,
     "published": "2026-08-12",
@@ -2981,7 +4009,11 @@
   {
     "slug": "draft-week-30-donggang-xigang",
     "name": "東港迎王與西港香比較",
-    "aliases": ["東港迎王", "西港香", "王船祭比較"],
+    "aliases": [
+      "東港迎王",
+      "西港香",
+      "王船祭比較"
+    ],
     "season": "地方王醮",
     "question": "東港迎王和西港香一樣嗎？兩個祭典怎麼分？",
     "intent": "東港迎王、西港香的主辦廟與王醮差異",
@@ -2990,14 +4022,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004", "note": "文化部東港迎王資料"},
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010", "note": "文化部西港刈香資料"},
-      {"type": "temple", "ref": "https://www.66.org.tw/", "note": "東港東隆宮官方入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004",
+        "note": "文化部東港迎王資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010",
+        "note": "文化部西港刈香資料"
+      },
+      {
+        "type": "temple",
+        "ref": "https://www.66.org.tw/",
+        "note": "東港東隆宮官方入口"
+      }
     ],
     "facts": [
-      {"text": "東港迎王平安祭典的主辦廟是屏東東港東隆宮，文化資產資料將其列為王爺信仰的重要地方祭典。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"}]},
-      {"text": "西港香的主辦脈絡是臺南西港慶安宮及其聯境，刈香、王醮與路關資料不能放到東港頁當作同一活動。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010"}]},
-      {"text": "兩項祭典的科期、送王或王船處理、年度交通和參與規則由不同主辦方公告，不能用相同的「迎王」關鍵字推定細節。", "sources": [{"type": "temple", "ref": "https://www.66.org.tw/"}]}
+      {
+        "text": "東港迎王平安祭典的主辦廟是屏東東港東隆宮，文化資產資料將其列為王爺信仰的重要地方祭典。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"
+          }
+        ]
+      },
+      {
+        "text": "西港香的主辦脈絡是臺南西港慶安宮及其聯境，刈香、王醮與路關資料不能放到東港頁當作同一活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010"
+          }
+        ]
+      },
+      {
+        "text": "兩項祭典的科期、送王或王船處理、年度交通和參與規則由不同主辦方公告，不能用相同的「迎王」關鍵字推定細節。",
+        "sources": [
+          {
+            "type": "temple",
+            "ref": "https://www.66.org.tw/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 30,
@@ -3007,7 +4075,11 @@
   {
     "slug": "draft-week-31-nanguanxian-wangjiao",
     "name": "南關線王醮與地方王船祭典",
-    "aliases": ["南關線王醮", "南關線", "王醮祭典"],
+    "aliases": [
+      "南關線王醮",
+      "南關線",
+      "王醮祭典"
+    ],
     "season": "地方王醮",
     "question": "南關線王醮是什麼？和王船祭典怎麼分？",
     "intent": "南關線王醮、科期與地方聯境",
@@ -3016,14 +4088,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010", "note": "文化部地方王醮與刈香資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85", "note": "內政部王爺信仰資料"},
-      {"type": "gov", "ref": "https://culture.tainan.gov.tw/", "note": "臺南市政府文化局公告入口"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010",
+        "note": "文化部地方王醮與刈香資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85",
+        "note": "內政部王爺信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://culture.tainan.gov.tw/",
+        "note": "臺南市政府文化局公告入口"
+      }
     ],
     "facts": [
-      {"text": "王醮是地方王爺信仰與建醮、安境、遶境等活動的總稱之一，正式名稱仍要以各地文化資產或主辦廟資料確認。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85"}]},
-      {"text": "南關線的區域稱呼不能取代主辦廟與聯境識別，查活動時應先確認所在地、科期和正式祭典名稱。", "sources": [{"type": "gov", "ref": "https://culture.tainan.gov.tw/"}]},
-      {"text": "請王、建醮、遶境與送王可能是同一科期的不同階段，不能從詞彙直接推出固定天數或王船處理方式。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010"}]}
+      {
+        "text": "王醮是地方王爺信仰與建醮、安境、遶境等活動的總稱之一，正式名稱仍要以各地文化資產或主辦廟資料確認。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=85"
+          }
+        ]
+      },
+      {
+        "text": "南關線的區域稱呼不能取代主辦廟與聯境識別，查活動時應先確認所在地、科期和正式祭典名稱。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://culture.tainan.gov.tw/"
+          }
+        ]
+      },
+      {
+        "text": "請王、建醮、遶境與送王可能是同一科期的不同階段，不能從詞彙直接推出固定天數或王船處理方式。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000010"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 31,
@@ -3033,7 +4141,11 @@
   {
     "slug": "draft-week-32-mingjian-xuantian-pilgrimage",
     "name": "名間受天宮玄天上帝香期",
-    "aliases": ["受天宮香期", "名間玄天上帝", "松柏嶺進香"],
+    "aliases": [
+      "受天宮香期",
+      "名間玄天上帝",
+      "松柏嶺進香"
+    ],
     "season": "農曆三月",
     "lunar_date": "03-03",
     "question": "受天宮玄天上帝香期是哪一段？三月三和香期一樣嗎？",
@@ -3044,14 +4156,50 @@
     "image_key": "chongyang",
     "multi_day": true,
     "sources": [
-      {"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001", "note": "文化部受天宮玄天上帝香期資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1", "note": "內政部慶祭典資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=70557&IndexID=4&_t=0", "note": "受天宮參拜流程資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001",
+        "note": "文化部受天宮玄天上帝香期資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
+        "note": "內政部慶祭典資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=70557&IndexID=4&_t=0",
+        "note": "受天宮參拜流程資料"
+      }
     ],
     "facts": [
-      {"text": "文化部資料收錄南投名間受天宮玄天上帝香期，主體是受天宮與地方進香信仰的常年民俗脈絡。", "sources": [{"type": "gov_heritage", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001"}]},
-      {"text": "內政部資料把香期描述為農曆正月至三月初三前後，三月初三是玄天上帝萬壽慶典與進香高峰，不等於香期只有一天。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1"}]},
-      {"text": "受天宮參拜流程是該廟的個案動線，香期現場是否調整入口、交香與回駕安排仍要以廟方指示為準。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=70557&IndexID=4&_t=0"}]}
+      {
+        "text": "文化部資料收錄南投名間受天宮玄天上帝香期，主體是受天宮與地方進香信仰的常年民俗脈絡。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20120913000001"
+          }
+        ]
+      },
+      {
+        "text": "內政部資料把香期描述為農曆正月至三月初三前後，三月初三是玄天上帝萬壽慶典與進香高峰，不等於香期只有一天。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1"
+          }
+        ]
+      },
+      {
+        "text": "受天宮參拜流程是該廟的個案動線，香期現場是否調整入口、交香與回駕安排仍要以廟方指示為準。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Religion/GetUploadFile?UploadFileID=70557&IndexID=4&_t=0"
+          }
+        ]
+      }
     ],
     "draft_week": 32,
     "published": "2026-08-12",
@@ -3060,7 +4208,11 @@
   {
     "slug": "draft-week-33-qiu-pingan-shoujing-buyun",
     "name": "求平安、收驚與補運",
-    "aliases": ["求平安", "收驚", "補運"],
+    "aliases": [
+      "求平安",
+      "收驚",
+      "補運"
+    ],
     "season": "全年主題",
     "question": "求平安、收驚和補運有什麼不同？",
     "intent": "求平安、收驚、補運的信仰邊界",
@@ -3069,14 +4221,50 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/practices/", "note": "本站拜拜習俗索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"},
-      {"type": "gov", "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html", "note": "衛生福利部健康與就醫資訊"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/",
+        "note": "本站拜拜習俗索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部宗教民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html",
+        "note": "衛生福利部健康與就醫資訊"
+      }
     ],
     "facts": [
-      {"text": "求平安是泛稱的祈福需求，收驚與補運則是不同民俗服務名稱，不能只因都在廟裡進行就視為同一儀式。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/"}]},
-      {"text": "不同宮廟對收驚、補運的對象、流程、時段與供品可能有自己的說明，查詢時要使用主辦廟的官方資訊。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "民俗儀式不能取代醫療或心理專業評估；若症狀持續或影響生活，應依衛生福利部資訊尋求專業協助。", "sources": [{"type": "gov", "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html"}]}
+      {
+        "text": "求平安是泛稱的祈福需求，收驚與補運則是不同民俗服務名稱，不能只因都在廟裡進行就視為同一儀式。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/"
+          }
+        ]
+      },
+      {
+        "text": "不同宮廟對收驚、補運的對象、流程、時段與供品可能有自己的說明，查詢時要使用主辦廟的官方資訊。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      },
+      {
+        "text": "民俗儀式不能取代醫療或心理專業評估；若症狀持續或影響生活，應依衛生福利部資訊尋求專業協助。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 33,
@@ -3086,7 +4274,11 @@
   {
     "slug": "draft-week-34-qiu-yinyuan-qiuzi",
     "name": "求姻緣與求子：神明和儀式怎麼分",
-    "aliases": ["求姻緣", "求子", "月老"],
+    "aliases": [
+      "求姻緣",
+      "求子",
+      "月老"
+    ],
     "season": "全年主題",
     "question": "求姻緣和求子要拜哪位神明？怎麼查廟方做法？",
     "intent": "求姻緣、求子與神明服務分流",
@@ -3095,14 +4287,50 @@
     "source_status": "source_required",
     "image_key": "qixi",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/deities/", "note": "本站神明索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=240", "note": "內政部註生娘娘與生育信仰資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=13", "note": "內政部地方廟宇與月老信仰資料"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/deities/",
+        "note": "本站神明索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=240",
+        "note": "內政部註生娘娘與生育信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=13",
+        "note": "內政部地方廟宇與月老信仰資料"
+      }
     ],
     "facts": [
-      {"text": "求姻緣與求子是不同搜尋意圖，常見對象和服務名稱也不同，不能用一張通用供品清單涵蓋所有廟宇。", "sources": [{"type": "site", "ref": "https://folk.tw/deities/"}]},
-      {"text": "內政部資料把註生娘娘放在生育、孕產與褓幼信仰脈絡，這不代表每間供奉註生娘娘的廟都有相同服務。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=240"}]},
-      {"text": "紅線、添花、疏文、求子登記與參拜時間屬個別廟方服務資訊，應直接核對廟方公告，不以網路傳聞保證祈願結果。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=13"}]}
+      {
+        "text": "求姻緣與求子是不同搜尋意圖，常見對象和服務名稱也不同，不能用一張通用供品清單涵蓋所有廟宇。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/deities/"
+          }
+        ]
+      },
+      {
+        "text": "內政部資料把註生娘娘放在生育、孕產與褓幼信仰脈絡，這不代表每間供奉註生娘娘的廟都有相同服務。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=240"
+          }
+        ]
+      },
+      {
+        "text": "紅線、添花、疏文、求子登記與參拜時間屬個別廟方服務資訊，應直接核對廟方公告，不以網路傳聞保證祈願結果。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=13"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 34,
@@ -3112,7 +4340,11 @@
   {
     "slug": "draft-week-35-banjia-ruzhai-anshen",
     "name": "搬家入厝與安神位",
-    "aliases": ["搬家入厝", "入厝", "安神位"],
+    "aliases": [
+      "搬家入厝",
+      "入厝",
+      "安神位"
+    ],
     "season": "全年主題",
     "question": "搬家入厝和安神位要分開準備嗎？",
     "intent": "搬家入厝、安神位與家庭儀式",
@@ -3121,14 +4353,50 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/practices/", "note": "本站拜拜習俗索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239", "note": "內政部祖先與神位信仰資料"},
-      {"type": "gov", "ref": "https://www.nlma.gov.tw/ch/titlelist/1468", "note": "內政部國土管理署住宅搬遷與安全資訊"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/",
+        "note": "本站拜拜習俗索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239",
+        "note": "內政部祖先與神位信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.nlma.gov.tw/ch/titlelist/1468",
+        "note": "內政部國土管理署住宅搬遷與安全資訊"
+      }
     ],
     "facts": [
-      {"text": "入厝是居家搬遷與入宅語境，安神位則涉及神像、香火或牌位安置，兩者不應只用同一個吉日模板處理。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/"}]},
-      {"text": "祖先牌位與神位的移動牽涉家族傳承和原奉祀廟宇，公開資料不能取代家人及廟方對個案的確認。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239"}]},
-      {"text": "搬家除了民俗安排，也有搬運、電氣與住宅安全事項，應依主管機關的居住安全資訊處理實務風險。", "sources": [{"type": "gov", "ref": "https://www.nlma.gov.tw/ch/titlelist/1468"}]}
+      {
+        "text": "入厝是居家搬遷與入宅語境，安神位則涉及神像、香火或牌位安置，兩者不應只用同一個吉日模板處理。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/"
+          }
+        ]
+      },
+      {
+        "text": "祖先牌位與神位的移動牽涉家族傳承和原奉祀廟宇，公開資料不能取代家人及廟方對個案的確認。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239"
+          }
+        ]
+      },
+      {
+        "text": "搬家除了民俗安排，也有搬運、電氣與住宅安全事項，應依主管機關的居住安全資訊處理實務風險。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.nlma.gov.tw/ch/titlelist/1468"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 35,
@@ -3138,7 +4406,11 @@
   {
     "slug": "draft-week-36-shoujing-buyun",
     "name": "收驚、補運與祭解的民俗邊界",
-    "aliases": ["收驚補運", "祭解", "解厄"],
+    "aliases": [
+      "收驚補運",
+      "祭解",
+      "解厄"
+    ],
     "season": "全年主題",
     "question": "收驚、補運和祭解怎麼分？哪些情況要先看醫生？",
     "intent": "收驚、補運、祭解與健康邊界",
@@ -3147,14 +4419,50 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/practices/", "note": "本站民俗儀式索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"},
-      {"type": "gov", "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html", "note": "衛生福利部就醫與健康資訊"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/",
+        "note": "本站民俗儀式索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部宗教民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html",
+        "note": "衛生福利部就醫與健康資訊"
+      }
     ],
     "facts": [
-      {"text": "收驚、補運與祭解是不同民俗服務名稱，實際流程要依提供服務的宮廟說明，不能以詞語相近推定相同。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "民俗儀式可作為信仰與文化參考，但不應取代醫療診斷、心理支持或緊急處置。", "sources": [{"type": "gov", "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html"}]},
-      {"text": "廟方的服務時間、費用、預約和陪同規則是可變資訊，查詢時應保留公告日期和原始連結。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/"}]}
+      {
+        "text": "收驚、補運與祭解是不同民俗服務名稱，實際流程要依提供服務的宮廟說明，不能以詞語相近推定相同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      },
+      {
+        "text": "民俗儀式可作為信仰與文化參考，但不應取代醫療診斷、心理支持或緊急處置。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.mohw.gov.tw/cp-16-19239-1.html"
+          }
+        ]
+      },
+      {
+        "text": "廟方的服務時間、費用、預約和陪同規則是可變資訊，查詢時應保留公告日期和原始連結。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 36,
@@ -3164,7 +4472,11 @@
   {
     "slug": "draft-week-37-qixi-zuo16",
     "name": "七夕、七娘媽與做十六歲",
-    "aliases": ["七夕", "七娘媽生", "做十六歲"],
+    "aliases": [
+      "七夕",
+      "七娘媽生",
+      "做十六歲"
+    ],
     "season": "農曆七月",
     "lunar_date": "07-07",
     "question": "七夕和七娘媽生是哪一天？做十六歲又是什麼？",
@@ -3174,14 +4486,50 @@
     "source_status": "calendar_anchored",
     "image_key": "qixi",
     "sources": [
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8", "note": "內政部七娘媽信仰資料"},
-      {"type": "gov", "ref": "https://women.nmth.gov.tw/?p=1847", "note": "國立臺灣歷史博物館成年禮資料"},
-      {"type": "site", "ref": "https://folk.tw/practices/zuo16/", "note": "本站做十六歲習俗資料"}
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8",
+        "note": "內政部七娘媽信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://women.nmth.gov.tw/?p=1847",
+        "note": "國立臺灣歷史博物館成年禮資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/zuo16/",
+        "note": "本站做十六歲習俗資料"
+      }
     ],
     "facts": [
-      {"text": "七夕與七娘媽生常以農曆七月初七為日期基準，國曆日期依年度農曆換算。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8"}]},
-      {"text": "內政部資料把七娘媽放在兒童守護與成長信仰脈絡，做十六歲則是特定地區與家庭的成年禮，不是所有人都要參加。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8"}]},
-      {"text": "做十六歲的報名、供品、鑽亭與典禮時間依主辦廟和地區而異，本站習俗資料不替年度公告補填名額或流程。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/zuo16/"}]}
+      {
+        "text": "七夕與七娘媽生常以農曆七月初七為日期基準，國曆日期依年度農曆換算。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8"
+          }
+        ]
+      },
+      {
+        "text": "內政部資料把七娘媽放在兒童守護與成長信仰脈絡，做十六歲則是特定地區與家庭的成年禮，不是所有人都要參加。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=8"
+          }
+        ]
+      },
+      {
+        "text": "做十六歲的報名、供品、鑽亭與典禮時間依主辦廟和地區而異，本站習俗資料不替年度公告補填名額或流程。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/zuo16/"
+          }
+        ]
+      }
     ],
     "draft_week": 37,
     "published": "2026-08-12",
@@ -3190,7 +4538,11 @@
   {
     "slug": "draft-week-38-guimenkai-guide",
     "name": "鬼門開、開龕門與農曆七月",
-    "aliases": ["鬼門開", "開龕門", "起燈腳"],
+    "aliases": [
+      "鬼門開",
+      "開龕門",
+      "起燈腳"
+    ],
     "season": "農曆七月",
     "lunar_date": "07-01",
     "question": "鬼門開是哪一天？開龕門和起燈腳怎麼分？",
@@ -3200,14 +4552,50 @@
     "source_status": "calendar_anchored",
     "image_key": "guimenkai",
     "sources": [
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/", "note": "國史館臺灣文獻館基隆中元祭資料"},
-      {"type": "gov", "ref": "https://twh.boch.gov.tw/taiwan/learn_detail.aspx?id=111", "note": "文化資產局基隆中元祭資料"},
-      {"type": "site", "ref": "https://folk.tw/festivals/guimenkai/", "note": "本站鬼門開資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "note": "國史館臺灣文獻館基隆中元祭資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://twh.boch.gov.tw/taiwan/learn_detail.aspx?id=111",
+        "note": "文化資產局基隆中元祭資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/festivals/guimenkai/",
+        "note": "本站鬼門開資料"
+      }
     ],
     "facts": [
-      {"text": "鬼門開常用農曆七月初一作為日期基準，國曆日期需依當年度農曆換算。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"}]},
-      {"text": "基隆地方資料記錄老大公廟開龕門、起燈腳與月底關龕門的祭典序列，這是地方個案而非全臺固定流程。", "sources": [{"type": "gov", "ref": "https://twh.boch.gov.tw/taiwan/learn_detail.aspx?id=111"}]},
-      {"text": "基隆年度活動的時刻、參觀方式與交通管制要由主辦方公告，不能由農曆初一推定所有儀式都在同一時間開始。", "sources": [{"type": "site", "ref": "https://folk.tw/festivals/guimenkai/"}]}
+      {
+        "text": "鬼門開常用農曆七月初一作為日期基準，國曆日期需依當年度農曆換算。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"
+          }
+        ]
+      },
+      {
+        "text": "基隆地方資料記錄老大公廟開龕門、起燈腳與月底關龕門的祭典序列，這是地方個案而非全臺固定流程。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://twh.boch.gov.tw/taiwan/learn_detail.aspx?id=111"
+          }
+        ]
+      },
+      {
+        "text": "基隆年度活動的時刻、參觀方式與交通管制要由主辦方公告，不能由農曆初一推定所有儀式都在同一時間開始。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/festivals/guimenkai/"
+          }
+        ]
+      }
     ],
     "draft_week": 38,
     "published": "2026-08-12",
@@ -3216,7 +4604,11 @@
   {
     "slug": "draft-week-39-fangshuideng-guide",
     "name": "放水燈與普照陰光",
-    "aliases": ["放水燈", "基隆放水燈", "普照陰光"],
+    "aliases": [
+      "放水燈",
+      "基隆放水燈",
+      "普照陰光"
+    ],
     "season": "農曆七月",
     "lunar_date": "07-14",
     "question": "放水燈是哪一天？普照陰光和中元普渡有什麼關係？",
@@ -3226,14 +4618,50 @@
     "source_status": "calendar_anchored",
     "image_key": "fangshuideng",
     "sources": [
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/", "note": "國史館臺灣文獻館放水燈資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001", "note": "文化部雞籠中元祭資料"},
-      {"type": "site", "ref": "https://folk.tw/festivals/fangshuideng/", "note": "本站放水燈資料"}
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "note": "國史館臺灣文獻館放水燈資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "note": "文化部雞籠中元祭資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/festivals/fangshuideng/",
+        "note": "本站放水燈資料"
+      }
     ],
     "facts": [
-      {"text": "基隆放水燈常年日期脈絡為農曆七月十四，通常放在中元普渡前一天的地方祭典序列中。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"}]},
-      {"text": "文化資產資料把放水燈放在雞籠中元祭的地方文化與港口追思脈絡，不能改寫成全臺同日的水燈活動。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"}]},
-      {"text": "放水燈遊行、下水地點與水邊管制屬年度現場資訊，觀賞者應遵守主辦方公告，不自行進入管制區。", "sources": [{"type": "site", "ref": "https://folk.tw/festivals/fangshuideng/"}]}
+      {
+        "text": "基隆放水燈常年日期脈絡為農曆七月十四，通常放在中元普渡前一天的地方祭典序列中。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"
+          }
+        ]
+      },
+      {
+        "text": "文化資產資料把放水燈放在雞籠中元祭的地方文化與港口追思脈絡，不能改寫成全臺同日的水燈活動。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"
+          }
+        ]
+      },
+      {
+        "text": "放水燈遊行、下水地點與水邊管制屬年度現場資訊，觀賞者應遵守主辦方公告，不自行進入管制區。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/festivals/fangshuideng/"
+          }
+        ]
+      }
     ],
     "draft_week": 39,
     "published": "2026-08-12",
@@ -3242,7 +4670,11 @@
   {
     "slug": "draft-week-40-zhongyuan-guide",
     "name": "中元節、地官赦罪與普渡",
-    "aliases": ["中元", "中元普渡", "地官赦罪"],
+    "aliases": [
+      "中元",
+      "中元普渡",
+      "地官赦罪"
+    ],
     "season": "農曆七月",
     "lunar_date": "07-15",
     "question": "中元節是哪一天？地官赦罪和普渡要怎麼分？",
@@ -3252,14 +4684,50 @@
     "source_status": "calendar_anchored",
     "image_key": "zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部三官與中元信仰資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/", "note": "國史館臺灣文獻館中元民俗資料"},
-      {"type": "site", "ref": "https://folk.tw/practices/pudu/", "note": "本站普渡習俗資料"}
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部三官與中元信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "note": "國史館臺灣文獻館中元民俗資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/practices/pudu/",
+        "note": "本站普渡習俗資料"
+      }
     ],
     "facts": [
-      {"text": "中元節常以農曆七月十五為日期基準，地官赦罪是三官信仰中的宗教語境。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]},
-      {"text": "臺灣中元民俗同時包含普渡、祭厲與地方超薦等多重脈絡，家庭普渡和地方公普不能視為完全相同。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"}]},
-      {"text": "普渡的供品、金紙與步驟屬習俗操作問題，本站另以普渡頁承接，避免中元節日期頁複製完整流程。", "sources": [{"type": "site", "ref": "https://folk.tw/practices/pudu/"}]}
+      {
+        "text": "中元節常以農曆七月十五為日期基準，地官赦罪是三官信仰中的宗教語境。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      },
+      {
+        "text": "臺灣中元民俗同時包含普渡、祭厲與地方超薦等多重脈絡，家庭普渡和地方公普不能視為完全相同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"
+          }
+        ]
+      },
+      {
+        "text": "普渡的供品、金紙與步驟屬習俗操作問題，本站另以普渡頁承接，避免中元節日期頁複製完整流程。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/practices/pudu/"
+          }
+        ]
+      }
     ],
     "draft_week": 40,
     "published": "2026-08-12",
@@ -3268,7 +4736,12 @@
   {
     "slug": "draft-week-41-zhongyuan-local-rituals",
     "name": "雞籠中元、民雄大士爺、搶孤與義民節",
-    "aliases": ["地方中元", "雞籠中元祭", "民雄大士爺", "義民節"],
+    "aliases": [
+      "地方中元",
+      "雞籠中元祭",
+      "民雄大士爺",
+      "義民節"
+    ],
     "season": "農曆七月",
     "question": "雞籠中元、民雄大士爺、搶孤和義民節怎麼比較？",
     "intent": "四項地方中元民俗的日期、地點與文化差異",
@@ -3277,14 +4750,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001", "note": "文化部雞籠中元祭資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002", "note": "文化部民雄大士爺祭典資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001", "note": "文化部褒忠義民節資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001",
+        "note": "文化部雞籠中元祭資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002",
+        "note": "文化部民雄大士爺祭典資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001",
+        "note": "文化部褒忠義民節資料"
+      }
     ],
     "facts": [
-      {"text": "雞籠中元祭以基隆字姓輪值主普與農曆七月整月儀式序列辨識，不能用一般家庭普渡取代。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"}]},
-      {"text": "民雄大士爺祭典是嘉義地方的中元祭典，火化大士爺等儀式具有地方脈絡，不能泛化成全臺中元規矩。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002"}]},
-      {"text": "義民節與客家義民信仰、輪值主普相連，與雞籠中元、搶孤的主辦組織和文化資產名稱不同。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001"}]}
+      {
+        "text": "雞籠中元祭以基隆字姓輪值主普與農曆七月整月儀式序列辨識，不能用一般家庭普渡取代。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080129000001"
+          }
+        ]
+      },
+      {
+        "text": "民雄大士爺祭典是嘉義地方的中元祭典，火化大士爺等儀式具有地方脈絡，不能泛化成全臺中元規矩。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20090619000002"
+          }
+        ]
+      },
+      {
+        "text": "義民節與客家義民信仰、輪值主普相連，與雞籠中元、搶孤的主辦組織和文化資產名稱不同。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20150326000001"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 41,
@@ -3294,7 +4803,11 @@
   {
     "slug": "draft-week-42-dizang-ghost-gate",
     "name": "地藏王聖誕、鬼門關與農曆七月月底",
-    "aliases": ["地藏王聖誕", "地藏菩薩", "鬼門關"],
+    "aliases": [
+      "地藏王聖誕",
+      "地藏菩薩",
+      "鬼門關"
+    ],
     "season": "農曆七月",
     "lunar_date": "07-30",
     "question": "地藏王菩薩生日是哪一天？和鬼門關有什麼關係？",
@@ -3304,14 +4817,50 @@
     "source_status": "calendar_anchored",
     "image_key": "dizang",
     "sources": [
-      {"type": "gov", "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879", "note": "國家文化記憶庫地藏信仰資料"},
-      {"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/", "note": "國史館臺灣文獻館鬼門關資料"},
-      {"type": "site", "ref": "https://folk.tw/festivals/dizang/", "note": "本站地藏王聖誕資料"}
+      {
+        "type": "gov",
+        "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879",
+        "note": "國家文化記憶庫地藏信仰資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/",
+        "note": "國史館臺灣文獻館鬼門關資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/festivals/dizang/",
+        "note": "本站地藏王聖誕資料"
+      }
     ],
     "facts": [
-      {"text": "地藏王菩薩聖誕資料通常記作農曆七月三十，遇短月時要依實際農曆月末顯示七月廿九。", "sources": [{"type": "site", "ref": "https://folk.tw/festivals/dizang/"}]},
-      {"text": "國家文化記憶庫中的地藏形象與幽冥教主語境是信仰資料，不能直接證明某一地方的鬼門關儀式時間。", "sources": [{"type": "gov", "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879"}]},
-      {"text": "月底關龕門或鬼門關屬地方儀式脈絡，年度法會、關門時間與參拜規則要依寺廟或主辦方公告。", "sources": [{"type": "gov", "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"}]}
+      {
+        "text": "地藏王菩薩聖誕資料通常記作農曆七月三十，遇短月時要依實際農曆月末顯示七月廿九。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/festivals/dizang/"
+          }
+        ]
+      },
+      {
+        "text": "國家文化記憶庫中的地藏形象與幽冥教主語境是信仰資料，不能直接證明某一地方的鬼門關儀式時間。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=225879"
+          }
+        ]
+      },
+      {
+        "text": "月底關龕門或鬼門關屬地方儀式脈絡，年度法會、關門時間與參拜規則要依寺廟或主辦方公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.th.gov.tw/Epaper_Content/238/5723/"
+          }
+        ]
+      }
     ],
     "draft_week": 42,
     "published": "2026-08-12",
@@ -3320,7 +4869,11 @@
   {
     "slug": "draft-week-43-deity-birthday-variants",
     "name": "神明生日異說與日期核對",
-    "aliases": ["神明生日", "神明聖誕", "聖誕日期"],
+    "aliases": [
+      "神明生日",
+      "神明聖誕",
+      "聖誕日期"
+    ],
     "season": "全年主題",
     "question": "為什麼同一位神明有不同生日？神明聖誕要看哪個日期？",
     "intent": "神明生日異說、曆法與廟方版本",
@@ -3329,14 +4882,50 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258", "note": "內政部神明資料"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1", "note": "內政部慶祭典查詢"},
-      {"type": "site", "ref": "https://folk.tw/deities/birthdays/", "note": "本站神明聖誕資料"}
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "note": "內政部神明資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1",
+        "note": "內政部慶祭典查詢"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/deities/birthdays/",
+        "note": "本站神明聖誕資料"
+      }
     ],
     "facts": [
-      {"text": "神明生日可能同時存在神格通行日期、特定廟宇聖誕日與地方祭典正日，資料欄位應明確標示適用對象。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"}]},
-      {"text": "內政部慶祭典資料提供的是特定宮廟或地方活動登錄，不能直接當成同名神明在所有廟宇的統一生日。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1"}]},
-      {"text": "日期核對應保存原始公告與曆法格式，本站聖誕資料會把異說並列，不以單一熱門答案消除地方差異。", "sources": [{"type": "site", "ref": "https://folk.tw/deities/birthdays/"}]}
+      {
+        "text": "神明生日可能同時存在神格通行日期、特定廟宇聖誕日與地方祭典正日，資料欄位應明確標示適用對象。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"
+          }
+        ]
+      },
+      {
+        "text": "內政部慶祭典資料提供的是特定宮廟或地方活動登錄，不能直接當成同名神明在所有廟宇的統一生日。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Festival/Festival?ci=1"
+          }
+        ]
+      },
+      {
+        "text": "日期核對應保存原始公告與曆法格式，本站聖誕資料會把異說並列，不以單一熱門答案消除地方差異。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/deities/birthdays/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 43,
@@ -3346,7 +4935,11 @@
   {
     "slug": "draft-week-44-deity-comparison",
     "name": "神明比較：職司、稱號與信仰入口",
-    "aliases": ["神明比較", "神明職司", "拜哪位神明"],
+    "aliases": [
+      "神明比較",
+      "神明職司",
+      "拜哪位神明"
+    ],
     "season": "全年主題",
     "question": "不同神明要怎麼比較？可以只看職司選神明嗎？",
     "intent": "神明比較、職司差異與資料查證",
@@ -3355,14 +4948,50 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258", "note": "內政部神明資料入口"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285", "note": "內政部清水祖師資料示例"},
-      {"type": "site", "ref": "https://folk.tw/deities/", "note": "本站神明索引"}
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258",
+        "note": "內政部神明資料入口"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285",
+        "note": "內政部清水祖師資料示例"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/deities/",
+        "note": "本站神明索引"
+      }
     ],
     "facts": [
-      {"text": "比較神明時可先核對正式名稱、別名、職司、聖誕日期與主祀廟，避免把不同地方神明或同名封號混成一位。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"}]},
-      {"text": "同一神明的地方信仰可能有不同傳說、祭典和祈願服務，通用職司不能取代特定廟宇的官方說明。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285"}]},
-      {"text": "神明比較頁提供資料索引與差異，不對靈驗程度、祈願結果或個人命運做排名或保證。", "sources": [{"type": "site", "ref": "https://folk.tw/deities/"}]}
+      {
+        "text": "比較神明時可先核對正式名稱、別名、職司、聖誕日期與主祀廟，避免把不同地方神明或同名封號混成一位。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=258"
+          }
+        ]
+      },
+      {
+        "text": "同一神明的地方信仰可能有不同傳說、祭典和祈願服務，通用職司不能取代特定廟宇的官方說明。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=285"
+          }
+        ]
+      },
+      {
+        "text": "神明比較頁提供資料索引與差異，不對靈驗程度、祈願結果或個人命運做排名或保證。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/deities/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 44,
@@ -3372,7 +5001,11 @@
   {
     "slug": "draft-week-45-prayer-scenarios",
     "name": "求願情境：先找對信仰入口",
-    "aliases": ["求願", "祈福情境", "拜拜問題"],
+    "aliases": [
+      "求願",
+      "祈福情境",
+      "拜拜問題"
+    ],
     "season": "全年主題",
     "question": "不同求願情境要怎麼找神明和宮廟？",
     "intent": "求願情境、神明入口與廟宇資料",
@@ -3381,14 +5014,50 @@
     "source_status": "source_required",
     "image_key": "qixi",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/deities/", "note": "本站神明索引"},
-      {"type": "site", "ref": "https://folk.tw/temples/", "note": "本站宮廟索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教民俗資料"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/deities/",
+        "note": "本站神明索引"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/temples/",
+        "note": "本站宮廟索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部宗教民俗資料"
+      }
     ],
     "facts": [
-      {"text": "求願情境應先區分問題與信仰需求，再看神明、廟宇與服務資料，不能用單一神明排名回答所有人。", "sources": [{"type": "site", "ref": "https://folk.tw/deities/"}]},
-      {"text": "宮廟提供的服務名稱、時間與參拜規則屬個別廟宇資料，讀者應以廟方公告和現場指示為準。", "sources": [{"type": "site", "ref": "https://folk.tw/temples/"}]},
-      {"text": "民俗祈願是文化與信仰行動，不保證醫療、法律、財務或人際結果；涉及專業問題仍應找相應專業機構。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
+      {
+        "text": "求願情境應先區分問題與信仰需求，再看神明、廟宇與服務資料，不能用單一神明排名回答所有人。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/deities/"
+          }
+        ]
+      },
+      {
+        "text": "宮廟提供的服務名稱、時間與參拜規則屬個別廟宇資料，讀者應以廟方公告和現場指示為準。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/temples/"
+          }
+        ]
+      },
+      {
+        "text": "民俗祈願是文化與信仰行動，不保證醫療、法律、財務或人際結果；涉及專業問題仍應找相應專業機構。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 45,
@@ -3398,7 +5067,11 @@
   {
     "slug": "draft-week-46-almanac-yiji-guide",
     "name": "農民曆宜忌怎麼讀",
-    "aliases": ["農民曆", "黃曆宜忌", "宜忌"],
+    "aliases": [
+      "農民曆",
+      "黃曆宜忌",
+      "宜忌"
+    ],
     "season": "全年主題",
     "question": "農民曆的宜忌怎麼看？可以直接拿來決定所有事情嗎？",
     "intent": "農民曆宜忌、曆法欄位與民俗語境",
@@ -3407,14 +5080,50 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/almanac/", "note": "本站農民曆入口"},
-      {"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html", "note": "中央氣象署節氣資料"},
-      {"type": "gov", "ref": "https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2026.pdf", "note": "香港天文台曆法資料示例"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/almanac/",
+        "note": "本站農民曆入口"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html",
+        "note": "中央氣象署節氣資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2026.pdf",
+        "note": "香港天文台曆法資料示例"
+      }
     ],
     "facts": [
-      {"text": "農民曆同時呈現曆法、節氣與民俗欄位，宜忌、沖煞與節氣不能視為同一種資訊。", "sources": [{"type": "site", "ref": "https://folk.tw/almanac/"}]},
-      {"text": "節氣日期可由天文曆法資料核對，與不同版本農民曆中的民俗解釋應分開標示。", "sources": [{"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"}]},
-      {"text": "宜忌屬民俗參考，遇到醫療、法律、工程或安全問題時，不能用宜忌取代相關專業判斷。", "sources": [{"type": "gov", "ref": "https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2026.pdf"}]}
+      {
+        "text": "農民曆同時呈現曆法、節氣與民俗欄位，宜忌、沖煞與節氣不能視為同一種資訊。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/almanac/"
+          }
+        ]
+      },
+      {
+        "text": "節氣日期可由天文曆法資料核對，與不同版本農民曆中的民俗解釋應分開標示。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"
+          }
+        ]
+      },
+      {
+        "text": "宜忌屬民俗參考，遇到醫療、法律、工程或安全問題時，不能用宜忌取代相關專業判斷。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2026.pdf"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 46,
@@ -3424,7 +5133,11 @@
   {
     "slug": "draft-week-47-temple-selection-guide",
     "name": "如何選廟與讀宮廟資料",
-    "aliases": ["如何選廟", "宮廟選擇", "廟宇資料"],
+    "aliases": [
+      "如何選廟",
+      "宮廟選擇",
+      "廟宇資料"
+    ],
     "season": "全年主題",
     "question": "如何選適合自己的廟？宮廟資料要看哪些欄位？",
     "intent": "選廟方法、主祀神與官方資料查核",
@@ -3433,14 +5146,50 @@
     "source_status": "source_required",
     "image_key": "chongyang",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/temples/", "note": "本站宮廟索引"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Temple", "note": "內政部全國宗教資訊網宮廟資料"},
-      {"type": "gov", "ref": "https://taiwangods.moi.gov.tw/", "note": "內政部臺灣宗教文化地圖"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/temples/",
+        "note": "本站宮廟索引"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Temple",
+        "note": "內政部全國宗教資訊網宮廟資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://taiwangods.moi.gov.tw/",
+        "note": "內政部臺灣宗教文化地圖"
+      }
     ],
     "facts": [
-      {"text": "讀宮廟資料時應先確認主祀神、正式廟名與行政地址，避免把同名廟宇、分靈廟或地方稱呼混為一談。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Temple"}]},
-      {"text": "祭典日期、服務時間、費用與預約可能隨年度調整，常年廟宇資料不能取代當年度公告。", "sources": [{"type": "gov", "ref": "https://taiwangods.moi.gov.tw/"}]},
-      {"text": "本站宮廟索引是資料查找入口，不把評價、香火或靈驗傳聞當成選廟的客觀排名。", "sources": [{"type": "site", "ref": "https://folk.tw/temples/"}]}
+      {
+        "text": "讀宮廟資料時應先確認主祀神、正式廟名與行政地址，避免把同名廟宇、分靈廟或地方稱呼混為一談。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Temple"
+          }
+        ]
+      },
+      {
+        "text": "祭典日期、服務時間、費用與預約可能隨年度調整，常年廟宇資料不能取代當年度公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://taiwangods.moi.gov.tw/"
+          }
+        ]
+      },
+      {
+        "text": "本站宮廟索引是資料查找入口，不把評價、香火或靈驗傳聞當成選廟的客觀排名。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/temples/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 47,
@@ -3450,7 +5199,11 @@
   {
     "slug": "draft-week-48-local-heritage-guide",
     "name": "地方民俗文化資產怎麼看",
-    "aliases": ["民俗文化資產", "重要民俗", "文化資產登錄"],
+    "aliases": [
+      "民俗文化資產",
+      "重要民俗",
+      "文化資產登錄"
+    ],
     "season": "全年主題",
     "question": "地方民俗文化資產的登錄資料要怎麼讀？",
     "intent": "文化資產登錄、保存者與地方活動差異",
@@ -3459,14 +5212,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/", "note": "文化部國家文化資產網"},
-      {"type": "gov", "ref": "https://twh.boch.gov.tw/taiwan/", "note": "文化資產局臺灣文化資產資料"},
-      {"type": "site", "ref": "https://folk.tw/events/", "note": "本站民俗活動索引"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/",
+        "note": "文化部國家文化資產網"
+      },
+      {
+        "type": "gov",
+        "ref": "https://twh.boch.gov.tw/taiwan/",
+        "note": "文化資產局臺灣文化資產資料"
+      },
+      {
+        "type": "site",
+        "ref": "https://folk.tw/events/",
+        "note": "本站民俗活動索引"
+      }
     ],
     "facts": [
-      {"text": "文化資產網的正式名稱、類別、所在地與保存者是辨認一項民俗的基礎欄位，不能只看新聞標題。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/"}]},
-      {"text": "登錄理由與保存脈絡可以支持文化介紹，但不會自動提供今年的起駕時間、交通、報名或安全規則。", "sources": [{"type": "gov", "ref": "https://twh.boch.gov.tw/taiwan/"}]},
-      {"text": "民俗活動索引與文化資產資料應互相連結但不互相取代，活動頁仍需保存年度公告日期與主辦來源。", "sources": [{"type": "site", "ref": "https://folk.tw/events/"}]}
+      {
+        "text": "文化資產網的正式名稱、類別、所在地與保存者是辨認一項民俗的基礎欄位，不能只看新聞標題。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/"
+          }
+        ]
+      },
+      {
+        "text": "登錄理由與保存脈絡可以支持文化介紹，但不會自動提供今年的起駕時間、交通、報名或安全規則。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://twh.boch.gov.tw/taiwan/"
+          }
+        ]
+      },
+      {
+        "text": "民俗活動索引與文化資產資料應互相連結但不互相取代，活動頁仍需保存年度公告日期與主辦來源。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/events/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 48,
@@ -3476,7 +5265,11 @@
   {
     "slug": "draft-week-49-blessing-followup-guide",
     "name": "祈福事件後續如何查證",
-    "aliases": ["祈福查證", "活動後續", "平安消息查證"],
+    "aliases": [
+      "祈福查證",
+      "活動後續",
+      "平安消息查證"
+    ],
     "season": "全年主題",
     "question": "參加祈福或民俗活動後，後續消息要怎麼查證？",
     "intent": "祈福事件後續、官方公告與時間線查證",
@@ -3485,14 +5278,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/events/", "note": "本站民俗活動資料"},
-      {"type": "gov", "ref": "https://www.gov.tw/", "note": "政府官方資訊入口"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/", "note": "內政部官方公告入口"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/events/",
+        "note": "本站民俗活動資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.gov.tw/",
+        "note": "政府官方資訊入口"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/",
+        "note": "內政部官方公告入口"
+      }
     ],
     "facts": [
-      {"text": "後續查證應優先確認主辦廟、地方政府或主管機關的原始公告，並保存發布日期與公告版本。", "sources": [{"type": "gov", "ref": "https://www.gov.tw/"}]},
-      {"text": "社群貼文中的平安、圓滿或順利是祝願與敘事用語，不能單獨證明活動時間、路線或現場狀況。", "sources": [{"type": "site", "ref": "https://folk.tw/events/"}]},
-      {"text": "事件頁應把已核實、待核與沒有資料的欄位分開，避免用後來的摘要覆寫原始時間線。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/"}]}
+      {
+        "text": "後續查證應優先確認主辦廟、地方政府或主管機關的原始公告，並保存發布日期與公告版本。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.gov.tw/"
+          }
+        ]
+      },
+      {
+        "text": "社群貼文中的平安、圓滿或順利是祝願與敘事用語，不能單獨證明活動時間、路線或現場狀況。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/events/"
+          }
+        ]
+      },
+      {
+        "text": "事件頁應把已核實、待核與沒有資料的欄位分開，避免用後來的摘要覆寫原始時間線。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 49,
@@ -3502,7 +5331,11 @@
   {
     "slug": "draft-week-50-poem-reading-guide",
     "name": "籤詩與典故閱讀方法",
-    "aliases": ["籤詩", "解籤", "籤詩典故"],
+    "aliases": [
+      "籤詩",
+      "解籤",
+      "籤詩典故"
+    ],
     "season": "全年主題",
     "question": "籤詩要怎麼讀？籤號、籤系和典故要先看什麼？",
     "intent": "籤詩閱讀、籤系辨識與典故查證",
@@ -3511,14 +5344,50 @@
     "source_status": "source_required",
     "image_key": "baitiangong",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/fortune/", "note": "本站求籤入口"},
-      {"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233", "note": "內政部宗教與籤詩民俗資料"},
-      {"type": "gov", "ref": "https://www.ntl.edu.tw/", "note": "國家圖書館典籍查詢入口"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/fortune/",
+        "note": "本站求籤入口"
+      },
+      {
+        "type": "gov",
+        "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233",
+        "note": "內政部宗教與籤詩民俗資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.ntl.edu.tw/",
+        "note": "國家圖書館典籍查詢入口"
+      }
     ],
     "facts": [
-      {"text": "籤詩閱讀的第一步是確認抽籤廟宇與籤系，籤號相同不代表不同廟的原文、典故和解說相同。", "sources": [{"type": "site", "ref": "https://folk.tw/fortune/"}]},
-      {"text": "典故閱讀需要回到原詩、註解或可追溯典籍，不宜只以搜尋摘要或社群轉貼補出完整故事。", "sources": [{"type": "gov", "ref": "https://www.ntl.edu.tw/"}]},
-      {"text": "籤詩是民俗與信仰參考，不能替代醫療診斷、法律意見或投資決策；個別解籤應遵循原廟規則。", "sources": [{"type": "gov", "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"}]}
+      {
+        "text": "籤詩閱讀的第一步是確認抽籤廟宇與籤系，籤號相同不代表不同廟的原文、典故和解說相同。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/fortune/"
+          }
+        ]
+      },
+      {
+        "text": "典故閱讀需要回到原詩、註解或可追溯典籍，不宜只以搜尋摘要或社群轉貼補出完整故事。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.ntl.edu.tw/"
+          }
+        ]
+      },
+      {
+        "text": "籤詩是民俗與信仰參考，不能替代醫療診斷、法律意見或投資決策；個別解籤應遵循原廟規則。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=233"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 50,
@@ -3528,7 +5397,12 @@
   {
     "slug": "draft-week-51-ritual-vocabulary-guide",
     "name": "遶境、進香、刈香與迎王詞彙差異",
-    "aliases": ["遶境", "進香", "刈香", "迎王"],
+    "aliases": [
+      "遶境",
+      "進香",
+      "刈香",
+      "迎王"
+    ],
     "season": "全年主題",
     "question": "遶境、進香、刈香和迎王有什麼不同？",
     "intent": "民俗儀式詞彙、活動範圍與主辦廟辨識",
@@ -3537,14 +5411,50 @@
     "source_status": "source_required",
     "image_key": "jilong-zhongyuan",
     "sources": [
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008", "note": "文化部大甲媽祖進香資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002", "note": "文化部學甲上白礁暨刈香資料"},
-      {"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004", "note": "文化部東港迎王資料"}
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008",
+        "note": "文化部大甲媽祖進香資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002",
+        "note": "文化部學甲上白礁暨刈香資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004",
+        "note": "文化部東港迎王資料"
+      }
     ],
     "facts": [
-      {"text": "進香、刈香與迎王的正式意義要放回各自主辦廟、地理範圍和文化資產資料，不能只靠字面翻譯。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"}]},
-      {"text": "學甲上白礁暨刈香是特定地方聯境與祖廟遙祭脈絡，刈香不是所有遶境活動的通用別名。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002"}]},
-      {"text": "東港迎王資料把迎王、巡行與送王船放在東港個案中，不能用來替代其他地區王醮或王船祭典的流程。", "sources": [{"type": "gov", "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"}]}
+      {
+        "text": "進香、刈香與迎王的正式意義要放回各自主辦廟、地理範圍和文化資產資料，不能只靠字面翻譯。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20100618000008"
+          }
+        ]
+      },
+      {
+        "text": "學甲上白礁暨刈香是特定地方聯境與祖廟遙祭脈絡，刈香不是所有遶境活動的通用別名。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080627000002"
+          }
+        ]
+      },
+      {
+        "text": "東港迎王資料把迎王、巡行與送王船放在東港個案中，不能用來替代其他地區王醮或王船祭典的流程。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20190515000004"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 51,
@@ -3554,7 +5464,11 @@
   {
     "slug": "draft-week-52-taiwan-festivals-year",
     "name": "臺灣歲時年表：一年節日怎麼查",
-    "aliases": ["臺灣歲時", "節日年表", "民俗年曆"],
+    "aliases": [
+      "臺灣歲時",
+      "節日年表",
+      "民俗年曆"
+    ],
     "season": "全年主題",
     "question": "臺灣一年有哪些民俗節日？歲時年表要怎麼查？",
     "intent": "臺灣歲時年表、節日日期與地方活動查詢",
@@ -3563,14 +5477,50 @@
     "source_status": "source_required",
     "image_key": "september-solar-terms",
     "sources": [
-      {"type": "site", "ref": "https://folk.tw/festivals/", "note": "本站民俗節日曆"},
-      {"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html", "note": "中央氣象署節氣資料"},
-      {"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506", "note": "內政部官方節日資料"}
+      {
+        "type": "site",
+        "ref": "https://folk.tw/festivals/",
+        "note": "本站民俗節日曆"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html",
+        "note": "中央氣象署節氣資料"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.moi.gov.tw/cp.aspx?n=22506",
+        "note": "內政部官方節日資料"
+      }
     ],
     "facts": [
-      {"text": "民俗年表至少要區分農曆月日、節氣、固定國曆紀念日和地方活動公告，四種日期不能用同一換算規則。", "sources": [{"type": "site", "ref": "https://folk.tw/festivals/"}]},
-      {"text": "節氣日期依太陽位置計算，中央氣象署資料可用來核對白露、清明、冬至等節氣，與農曆節日日期分開。", "sources": [{"type": "gov", "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"}]},
-      {"text": "內政部節日資料提供官方節日日期基準，但地方祭典的路線、交通、報名和場次仍要回到各地主辦方公告。", "sources": [{"type": "gov", "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"}]}
+      {
+        "text": "民俗年表至少要區分農曆月日、節氣、固定國曆紀念日和地方活動公告，四種日期不能用同一換算規則。",
+        "sources": [
+          {
+            "type": "site",
+            "ref": "https://folk.tw/festivals/"
+          }
+        ]
+      },
+      {
+        "text": "節氣日期依太陽位置計算，中央氣象署資料可用來核對白露、清明、冬至等節氣，與農曆節日日期分開。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.cwa.gov.tw/V8/C/W/Season/season.html"
+          }
+        ]
+      },
+      {
+        "text": "內政部節日資料提供官方節日日期基準，但地方祭典的路線、交通、報名和場次仍要回到各地主辦方公告。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "https://www.moi.gov.tw/cp.aspx?n=22506"
+          }
+        ]
+      }
     ],
     "date_status": "source_required",
     "draft_week": 52,

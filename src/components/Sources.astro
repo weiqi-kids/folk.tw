@@ -8,7 +8,7 @@
 //    （本檔一向在 `parsed.length === 0` 時什麼都不畫）。
 //
 // 文字內容與分隔符自 2026-08-08 起一個字都沒動過（來源標示是授權條件，不動它）。
-import { parseSourceRef, type SourceRef } from '../lib/sources';
+import { parseSourceRef, isSameOrigin, type SourceRef } from '../lib/sources';
 
 /**
  * 版型＝呼叫端唯一要決定的事。
@@ -53,7 +53,15 @@ const wrapperProps = variant === 'bare' ? {} : { class: `src src-${variant}` };
       <span class="s">
         {i > 0 ? '；' : ''}
         {p.url ? (
-          <a href={p.url} rel="nofollow noopener" target="_blank">{p.label}</a>
+          /* 🔴 2026-08-20：同源連結不加 nofollow／target="_blank"。
+             這裡原本**無條件**當外部來源處理，而 festivals.json 有 46 筆 type:'site'
+             的自我引用（`https://folk.tw/practices/...`）——等於我們對自己的內部連結
+             下了 nofollow，還把自家頁面開在新分頁。兩者都是白白的自傷，
+             而且**不會有任何 gate 紅燈**（check:anchor-text 驗的是可見文字）。
+             判準用網址本身而不是 `type` 欄位：type 是人填的，網址是機器可驗的。 */
+          isSameOrigin(p.url)
+            ? <a href={p.url}>{p.label}</a>
+            : <a href={p.url} rel="nofollow noopener" target="_blank">{p.label}</a>
         ) : (
           p.label
         )}
