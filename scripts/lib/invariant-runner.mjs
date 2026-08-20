@@ -119,6 +119,13 @@ function sourceSpecs(ctx) {
       fileOf: (f) => `${DIST}/festivals/${f.slug}/index.html`,
       onMissing: (f, acc) => { acc.violate(`節日頁未建置：${f.slug}`); },
     },
+    // 習俗頁（2026-08-20 加）：辭典引文的逐字與掛源驗收需要走訪這一批產物。
+    practices: {
+      owner: 'practice/th-dict',
+      entities: () => ctx.data.practices.filter((x) => !x.draft),
+      fileOf: (x) => `${DIST}/practices/${x.id}/index.html`,
+      onMissing: (x, acc) => { acc.violate(`習俗頁未建置：${x.id}`); },
+    },
     poems: {
       owner: 'poem/share-card',
       entities: () => ctx.data.poems.filter((p) => !p.draft),

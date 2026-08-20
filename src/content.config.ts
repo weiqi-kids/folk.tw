@@ -523,6 +523,20 @@ const practices = defineCollection({
       .default([]),
     summary: z.string().optional(),
     sources: z.array(source).default([]),
+    // 國史館臺灣文獻館《臺灣民俗文物辭典》辭條引文（2026-08-20 起）。
+    // 規則與 deities 的同名欄位一模一樣：逐字引用、不改寫、必須標示資料來源連結；
+    // 是陣列，因為辭典常把同一套儀式拆成數條（安太歲與謝太歲、補運與祭解）。
+    // 由 scripts/import-th-dict.mjs 產生，**不要手改**。
+    th_dict: z
+      .array(
+        z.object({
+          url: z.string(),
+          title: z.string(),
+          excerpt: z.array(z.string()).min(1),
+        }),
+      )
+      .min(1)
+      .optional(),
     // 代表圖（Wikimedia Commons，CC／公有領域）：儀俗照；無合授權圖者留空、絕不杜撰。
     image: z
       .object({

@@ -22,6 +22,7 @@ import * as temple from './temple.mjs';
 import * as town from './town.mjs';
 import * as deity from './deity.mjs';
 import * as festival from './festival.mjs';
+import * as practice from './practice.mjs';
 import * as hubs from './hubs.mjs';
 import * as almanac from './almanac.mjs';
 import * as zodiac from './zodiac.mjs';
@@ -80,6 +81,7 @@ export const REGISTRY = [
   festival.festivalTitleDate,       // 5（日期往返）
   festival.festivalCrossLinks,      // （原本無編號）
   festival.festivalLocalCelebration,// 7③
+  practice.practiceThDict,           // 習俗頁的辭典引文（同 deity/th-dict 的授權條件）
   festival.festivalVerbatimSourceLink, // 逐字引用的來源連結必須在頁面上（授權條件）
   hubs.homeSeasonalCampaign,        // 5g（首頁戰役卡）
   hubs.festivalIndexVisuals,        // 5h

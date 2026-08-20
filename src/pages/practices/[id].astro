@@ -171,6 +171,29 @@ const jsonLd: object[] = [
     {p.offerings.length > 0 && <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>}
   </dl>
 
+  {/* 《臺灣民俗文物辭典》辭條引文（2026-08-20）：逐字引用、一個字不改寫。
+      授權條件就是「標示資料來源連結」，所以來源連結是這一段的必要組成，不是後設警語。
+      🔴 規則與神明頁那一段同源（src/pages/deities/[id].astro），改一邊要想到另一邊；
+      驗收在不變量 practice/th-dict（逐條驗逐字渲染＋每條各自的連結）。
+      擺在「儀節步驟」之前：辭典給的是這套儀式是什麼，讀者要先有定義再看步驟。 */}
+  {
+    p.th_dict && p.th_dict.length > 0 && (
+      <section class="th-dict">
+        <h2>辭典裡的{p.title}</h2>
+        {p.th_dict.map((q) => (
+          <>
+            <blockquote class="th-quote">
+              {q.excerpt.map((t) => <p>{t}</p>)}
+            </blockquote>
+            <p class="muted small th-src">
+              引自國史館臺灣文獻館《臺灣民俗文物辭典》<a href={q.url} rel="noopener">{q.title}</a>
+            </p>
+          </>
+        ))}
+      </section>
+    )
+  }
+
   <section>
     <h2>儀節步驟</h2>
     {
@@ -225,6 +248,12 @@ const jsonLd: object[] = [
   <Sources sources={p.sources} variant="footer" />
 
   <style>
+    /* 辭典引文：與神明頁的 .moi-quote 同一套視覺（同樣是逐字引文區塊）。 */
+    .th-quote { margin: 0.75rem 0 0.5rem; padding: 0 0 0 1rem;
+      border-left: 3px solid var(--line); color: var(--ink); }
+    .th-quote p { margin: 0 0 0.75rem; }
+    .th-quote p:last-child { margin-bottom: 0; }
+    .th-src { margin: 0; }
     .summary { font-size: var(--text-base); }
     .entry-photo { margin: 1.25rem 0; }
     .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }

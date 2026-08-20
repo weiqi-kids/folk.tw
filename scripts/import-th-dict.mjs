@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// 國史館臺灣文獻館《臺灣民俗文物辭典》辭條 → `deities.json` 的 `th_dict` 欄位。
+// 國史館臺灣文獻館《臺灣民俗文物辭典》辭條 → `deities.json`／`practices.json` 的 `th_dict` 欄位。
+// 兩個檔的欄位語意、授權條件與 gate 規則完全相同（deity/th-dict 與 practice/th-dict），
+// 所以走同一支腳本、同一份對映表：神明在 `items`，習俗在 `practice_items`。
 //
 // 🔴 逐字引用、一個字不改寫；授權條件＝**標示資料來源連結**（2026-08-19 站主確認，
 //    與內政部 2026-08-06、文化部 2026-08-09 那兩次同一條）。所以本檔一定寫入 `url`，
@@ -18,15 +20,16 @@
 //
 // 用法：
 //   node scripts/import-th-dict.mjs            # 乾跑（預設，不寫檔）
-//   node scripts/import-th-dict.mjs --write    # 實際寫入 src/data/deities.json
+//   node scripts/import-th-dict.mjs --write    # 實際寫入 deities.json 與 practices.json
 //   node scripts/import-th-dict.mjs --only baoyi,qixing
 //
-// ⚠️ 本檔會「就地」改寫 deities.json 的目標欄位，刻意不整檔重新序列化——
+// ⚠️ 本檔會「就地」改寫目標檔的欄位，刻意不整檔重新序列化——
 //    那個檔是混合縮排（部分陣列寫成單行），整檔 re-dump 會產生數千行假 diff。
 
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const DEITIES = 'src/data/deities.json';
+const PRACTICES = 'src/data/practices.json';
 const MAP = 'src/data/th-dict-map.json';
 const BASE = 'https://dict.th.gov.tw/detailPage.aspx';
 
@@ -63,19 +66,28 @@ function parseEntry(html) {
 }
 
 const map = JSON.parse(readFileSync(MAP, 'utf8'));
-const rows = map.items.filter((r) => !only || only.has(r.deity_id));
 const urlOf = (dictId) => `${BASE}?ID=${dictId}`;
-const raw = readFileSync(DEITIES, 'utf8');
-const deities = JSON.parse(raw);
-const byId = new Map(deities.map((d) => [d.id, d]));
+// 兩個目標檔共用同一套流程：對映表 → 抓辭條 → 驗名稱 → 寫 th_dict。
+// 欄位語意、授權條件與 gate 規則兩邊一模一樣，所以刻意不分成兩支腳本。
+const TARGETS = [
+  { file: DEITIES, label: '神明', rows: map.items ?? [] },
+  { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [] },
+];
 
 let ok = 0;
 const errors = [];
+const written = [];
+
+for (const target of TARGETS) {
+const rows = target.rows.filter((r) => !only || only.has(r.deity_id));
+if (rows.length === 0) continue;
+const raw = readFileSync(target.file, 'utf8');
+const byId = new Map(JSON.parse(raw).map((d) => [d.id, d]));
 const pending = [];
 
 for (const r of rows) {
   const d = byId.get(r.deity_id);
-  if (!d) { errors.push(`${r.deity_id}：deities.json 查無此神明`); continue; }
+  if (!d) { errors.push(`${r.deity_id}：${target.file} 查無此項目`); continue; }
   const entries = [];
   let bad = false;
   for (const ent of r.entries) {
@@ -105,16 +117,12 @@ for (const r of rows) {
   ok += 1;
 }
 
-for (const e of errors) console.log('✗', e);
-console.log(`\n可寫入 ${ok} 筆 / 對映表 ${rows.length} 筆${errors.length ? `（${errors.length} 筆被擋下）` : ''}`);
+console.log(`\n── ${target.label}：可寫入 ${pending.length} 筆 / 對映表 ${rows.length} 筆 ──`);
 for (const p of pending) {
   console.log(`  ${p.deity.id.padEnd(20)} ${p.entry.map((q) => `${q.title}（${q.excerpt.length} 段 / ${q.excerpt.join('').length} 字）`).join('　')}`);
 }
 
-if (!write) {
-  console.log('\n（乾跑，未寫檔。要實際寫入加 --write）');
-  process.exit(errors.length ? 1 : 0);
-}
+if (!write) { continue; }
 
 // 就地插入：把 th_dict 放在該神明物件的頂層 "sources" 之前（沒有就放 "draft" 之前）。
 //
@@ -153,6 +161,14 @@ for (const p of pending) {
 }
 const out = lines.join('\n');
 JSON.parse(out); // 壞了就當場炸，不要寫出壞檔
-writeFileSync(DEITIES, out);
-console.log(`\n✓ 已寫入 ${pending.length} 筆到 ${DEITIES}`);
+writeFileSync(target.file, out);
+written.push(`${target.file} ${pending.length} 筆`);
+}
+
+for (const e of errors) console.log('✗', e);
+if (!write) {
+  console.log('\n（乾跑，未寫檔。要實際寫入加 --write）');
+  process.exit(errors.length ? 1 : 0);
+}
+console.log(`\n✓ 已寫入：${written.join('、')}`);
 if (errors.length) process.exit(1);
