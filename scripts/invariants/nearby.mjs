@@ -6,8 +6,8 @@
 //
 // ⚠️ 這是全檔唯一驗**非 HTML 產物**的不變量（cells/*.json），
 //    所以 runner 的「產物」抽象不能寫死成「頁面 HTML」。
-// ⚠️ 切格與欄位規則一律用頁面用的那支 lib（見 render-context.mjs 的 buildCells／cellKey），
-//    gate 不重寫（重寫＝新的漂移源）。
+// ⚠️ 切格與欄位規則一律用頁面用的那支 lib（下面直接 import），gate 不重寫（重寫＝新的漂移源）。
+import { buildCells, cellKey } from '../../src/lib/nearby-grid.ts';
 
 export const nearbyPageSkeleton = {
   id: 'nearby/page-skeleton',
@@ -44,7 +44,6 @@ export const nearbyGridCells = {
   title: '格檔 ↔ 資料雙向逐筆相符，無多餘格檔，無座標的廟一間都不在格檔裡',
   source: 'none',
   run(ctx, acc) {
-    const { buildCells, cellKey } = ctx.lib;
     const expected = buildCells(ctx.data.temples);
     const cellDir = ctx.join(ctx.DIST, 'temples', 'nearby', 'cells');
     let nbRows = 0;

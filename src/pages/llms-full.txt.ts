@@ -95,7 +95,9 @@ export const GET: APIRoute = async () => {
   }
 
   const featuredTemples = temples.filter((t) => t.data.history);
-  const today = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
+  // 🔴 2026-08-21：本檔原本有**兩個** today——這裡自己算一份、L237 又呼叫 todayInTaipei()。
+  // 公式逐字等價，但那正是「跨午夜時同一份輸出用兩個日期」的形狀。收斂成同一個基準日。
+  const today = todayInTaipei().iso;
 
   const L: string[] = [];
   const push = (...lines: string[]) => L.push(...lines);

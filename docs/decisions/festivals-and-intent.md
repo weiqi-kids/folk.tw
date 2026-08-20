@@ -1,6 +1,12 @@
 # 節日・民俗活動・意圖頁（情境／比較／行業）
 
-> 節日日期一律由 `src/lib/lunar-date.ts` 在 build 時算、倒數由前端依台灣時區即時算，勿在頁面自行換算農曆。
+> 節日日期一律由 `src/lib/calendar-date.ts` 在 build 時算、倒數由前端依台灣時區即時算，勿在頁面自行換算農曆。
+>
+> ⚠️ **2026-08-20 更正**：該檔原名 `src/lib/lunar-date.ts`，因為它早就不只管農曆
+> （同時管國曆月日、節氣、回曆），已更名並收斂成 `CalendarDate` discriminated union
+> ＋ `nextOccurrence()` 單一入口（**行為未變**，改前改後全量比對 15,585 筆推導值逐一相同）。
+> 舊路徑 `src/lib/lunar-date.ts` 目前只是純轉出，移除條件寫在該檔檔頭。
+> **本檔下文出現的 `lunar-date.ts` 是更名前的原文，一律讀作 `calendar-date.ts`。**
 
 > 2026-08-06 自 `CLAUDE.md` 抽出後再依主題拆分，**原文一字未改**。
 > （中間曾短暫存在 `content-modules.md`，已於同日拆掉，該檔不存在。）

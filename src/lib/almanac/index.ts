@@ -15,11 +15,11 @@ import { activeShenSha } from './shensha.ts';
 import { dayTokens } from './daytokens.ts';
 import { huangHeiDao } from './huanghei.ts';
 import { resolveAffair } from './resolve.ts';
-import affairsData from './rules/affairs.json';
-import taishenData from './rules/taishen.json';
-import wuhouData from './rules/wuhou.json';
-import pengzuData from './rules/pengzu.json';
-import nayinData from './rules/nayin.json';
+import affairsData from './rules/affairs.json' with { type: 'json' };
+import taishenData from './rules/taishen.json' with { type: 'json' };
+import wuhouData from './rules/wuhou.json' with { type: 'json' };
+import pengzuData from './rules/pengzu.json' with { type: 'json' };
+import nayinData from './rules/nayin.json' with { type: 'json' };
 import type { DayRecord, GanZhi, Sourced, DayVerdict } from './types.ts';
 
 const AFFAIRS = (affairsData as { affairs: { id: string; name: string }[] }).affairs;

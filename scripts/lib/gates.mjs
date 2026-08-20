@@ -113,6 +113,22 @@ export const GATES = [
     why: '週期造句 golden 9 筆逐字＋全量 67 筆掃 7 種病句型態＋ke_rule 不得復活',
   },
   {
+    id: 'test:calendar-date',
+    label: '曆別日期換算 golden',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['calendar-date'],
+    // 2026-08-20 新增，**預防性**（與 test:event-cycle 不同，這一次沒有已發生的線上錯值：
+    // 建立當日全量比對 8,610 筆推導值，改前改後逐一相同）。它擋的是這個病灶：
+    //   lunarToNextSolar(mmdd, fromIso) 與 solarMdToNext(mmdd, fromIso) 簽章完全相同，
+    //   把農曆月日傳給國曆那一支會通過 astro check、回一個看起來合理的**錯日期**。
+    // 已收斂成 CalendarDate discriminated union ＋ nextOccurrence() 單一入口。
+    // 🔴 這道 gate 釘的是**算出來的日期與標籤**（golden 逐字），不是實作細節——
+    //    每一個值都是頁面上印給讀者看的日子，算錯不紅燈、只會安靜地宣稱一個沒發生的日期。
+    why: 'nextOccurrence 日期/標籤 golden 17 組＋回曆一律不換算＋地方慶典與節日全量逐筆（含 zod enum 與 union 的一致性）',
+  },
+  {
     id: 'test:page',
     label: 'Page（HTML 讀解層）迴歸',
     needs: 'source',
@@ -126,6 +142,40 @@ export const GATES = [
     //    而它的四個消費端全部要等 20 分鐘的 build:release 才跑得到。
     //    讀法壞掉在這裡就會紅，不必等產物層。
     why: 'Page 的 40 項讀法迴歸（title／meta／section／anchors／entity／JSON-LD），純字串輸入',
+  },
+  {
+    id: 'check:lib-loadable',
+    label: 'src/lib 可被 gate 載入',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['lib-loadable'],
+    // 2026-08-20 新增。這支擋的是**造成「同一條規則兩份實作」的那個條件**：
+    // gate 或匯入器載不進 src/lib 的模組，就會自己複製一份。已知病例三個，
+    // 其中 invariants/zodiac.mjs 的檔頭直接寫著「zodiac.ts 用無副檔名 import，
+    // bare node 解析不到，只能複製正則」——作者自己標註了這個因果。
+    // 🔴 為什麼不是去偵測「複製」本身：實際發生的複製**函式都是不同名的**
+    //    （fullWidth vs fullWidthLen、dayPillar vs ourDayPillar、
+    //    parseSourceRef vs sourceDisplay），同名偵測 0 真陽性、4 誤報（見 docs/adr/0002）。
+    //    擋條件比擋行為可行。
+    why: 'src/lib/*.ts 必須能被 bare node import（少副檔名／JSON 少 import attributes 都會擋）',
+  },
+  {
+    id: 'test:render-context',
+    label: 'render context 與不變量 adapter 的 fixture 測試',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['render-context'],
+    // 2026-08-21 新增。理由與 test:page 同一類、但擋的東西不同：
+    // Page 測的是「怎麼讀 HTML」，這支測的是「**不變量本身判得對不對**」。
+    // 在 buildContext() 可注入資料來源之前，那 42 條 adapter 一條都測不到——資料是硬讀
+    // src/data/*.json 的，要驗一條斷言抓不抓得到某種壞資料，得先把壞資料寫進正式資料檔
+    // 再跑 20 分鐘 build:release。代價太高於是沒人做，於是「gate 自己壞掉」只能靠 runner
+    // 的 section 命中率去猜（見 invariant-runner.mjs 檔頭記的兩次靜默失效事故）。
+    // 🔴 每條不變量都同時餵**該紅的**與**該綠的**輸入：只驗正例的話，一條永遠回 true
+    //    的斷言可以通過測試——那正是這道 gate 要擋的失效模式。
+    why: 'buildContext 契約（TODAY／derived／無 ctx.lib）＋ temple/lingqian 與 temple/town-context 的雙向 fixture，20 項',
   },
   {
     id: 'check:design',
@@ -448,12 +498,24 @@ export const CHANGED_RULES = {
   ],
   // 2026-08-19 新增：test:text 的實際輸入（`ui` 只認 .astro/.svelte/.css，吃不到這支 .ts）
   'text-lib': [/^src\/lib\/text\.ts$/, /^src\/lib\/text\.test\.ts$/],
+  // 2026-08-20 新增：check:lib-loadable 的輸入就是整個 src/lib
+  'lib-loadable': [/^src\/lib\//],
   // 2026-08-20 新增：test:page 的實際輸入（模組、測試，以及五個消費端）
   'page-lib': [
     /^scripts\/lib\/page\.mjs$/,
     /^scripts\/lib\/page\.test\.mjs$/,
     /^scripts\/lib\/invariant-runner\.mjs$/,
     /^scripts\/check-(canonical-links|anchor-text|discover-coverage|content-quality)\.mjs$/,
+  ],
+  // 2026-08-20 新增：test:calendar-date 的實際輸入。
+  // ⚠️ 含 `lunar-date.ts`（更名後留下的純轉出）與 `content-schemas.ts`
+  //    （地方慶典的 zod enum 住在那裡，測試會驗它與 union 沒有各自漂走）。
+  'calendar-date': [
+    /^src\/lib\/calendar-date\.ts$/,
+    /^src\/lib\/calendar-date\.test\.ts$/,
+    /^src\/lib\/lunar-date\.ts$/,
+    /^src\/content-schemas\.ts$/,
+    /^src\/data\/(festivals|local-celebrations)\.json$/,
   ],
   // 2026-08-20 新增：test:event-cycle 的實際輸入（模組、測試、以及它讀的資料與 schema）
   'event-cycle': [
@@ -470,6 +532,14 @@ export const CHANGED_RULES = {
   // 的 src/、docs/、scripts/ 與 CLAUDE.md。刻意不併進 `docs`（那類只認 .md，吃不到
   // docs/annual-release-evidence/*.json，而那裡正是掛 nchdb 個案網址的地方）。
   'source-refs': [/^src\/data\//, /^docs\//, /^CLAUDE\.md$/, /^scripts\//],
+  // 2026-08-21 新增：test:render-context 的實際輸入（共享 context、它測的 adapter、
+  // 以及基準日那支——ctx.TODAY 就是從它來的）。
+  'render-context': [
+    /^scripts\/lib\/render-context(\.test)?\.mjs$/,
+    /^scripts\/invariants\//,
+    /^src\/lib\/build-date\.ts$/,
+    /^src\/lib\/daily\.ts$/,
+  ],
   // manifest 與 expect 判定本身（含抽出來的共用模組與這道 gate 自己）。
   'manifest-expect': [/^docs\/intake-manifest\.json$/, /^scripts\/lib\/intake-expect\.mjs$/, /^scripts\/check-manifest-expect\.mjs$/],
 };

@@ -28,7 +28,7 @@
 //   5. **麵包屑不含首頁。** 全站 95% 的頁本來就沒有，首頁已由每頁的站徽與 nav 連過去；
 //      只有 `/qiugian/*` 與 `/line/` 那幾頁畫面上多一層「神酷」而 JSON-LD 沒有——
 //      那本身就是漂移的一種，統一成「不含」。
-import { breadcrumb } from './seo';
+import { breadcrumb } from './seo.ts';
 
 export type Crumb = { name: string; path: string };
 

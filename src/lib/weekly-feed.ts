@@ -2,13 +2,13 @@
 // 日期、節日與神明聖誕都沿用站內既有資料與換算函式；本檔只負責把每週資料整理成摘要，
 // 不另建一份日期表，也不自行補寫查無來源的祭拜說法。
 
-import festivalsData from '../data/festivals.json';
-import practicesData from '../data/practices.json';
-import { addDays } from './almanac/dates';
-import { upcomingDeityBirthdays } from './birthdays';
-import { festivalNextSolar, solarMd } from './lunar-date';
-import { mondayOf, rssDateForTaipeiMonday } from './weekly-date';
-import { releasedItems } from './release-schedule';
+import festivalsData from '../data/festivals.json' with { type: 'json' };
+import practicesData from '../data/practices.json' with { type: 'json' };
+import { addDays } from './almanac/dates.ts';
+import { upcomingDeityBirthdays } from './birthdays.ts';
+import { festivalNextSolar, solarMd } from './lunar-date.ts';
+import { mondayOf, rssDateForTaipeiMonday } from './weekly-date.ts';
+import { releasedItems } from './release-schedule.ts';
 
 const SITE = 'https://folk.tw';
 const practices = practicesData as Practice[];

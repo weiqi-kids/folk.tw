@@ -1,5 +1,4 @@
-import reviewed from '../data/poem-locales.reviewed.json';
-
+import reviewed from '../data/poem-locales.reviewed.json' with { type: 'json' };
 export const POEM_LOCALE_OPTIONS = [
   { code: 'ja', flag: '🇯🇵', label: '日本語' },
   { code: 'ko', flag: '🇰🇷', label: '한국어' },

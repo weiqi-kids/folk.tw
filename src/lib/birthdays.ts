@@ -8,10 +8,10 @@
 //    如此即使某天沒重新部署（每日收集 commit 帶 [skip ci] 不觸發 deploy），倒數仍永遠正確。
 
 import pkg from 'lunar-javascript';
-import { deityBirthdayIndex, getDeities, getSystems } from './queries';
-import { addDays } from './almanac/dates';
+import { deityBirthdayIndex, getDeities, getSystems } from './queries.ts';
+import { addDays } from './almanac/dates.ts';
 // 農曆換算原語集中在 ./lunar-date（零 Astro 依賴，scripts/ 的 gate 也 import 同一份）——本檔不另寫一套。
-import { isLunarMonthEnd, lunarDateLabel } from './lunar-date';
+import { isLunarMonthEnd, lunarDateLabel } from './lunar-date.ts';
 
 const { Solar } = pkg;
 
@@ -23,7 +23,7 @@ export interface BirthdayEntry {
 }
 
 // 轉出 ./lunar-date 的純函式，維持既有 import 路徑（llms-full.txt.ts／temples/[id].astro）不變。
-export { lunarDateLabel, lunarToNextSolar, solarMd } from './lunar-date';
+export { lunarDateLabel, lunarToNextSolar, solarMd } from './lunar-date.ts';
 
 /**
  * 自 fromIso（國曆）起 days 天內、依國曆日序排列的神明聖誕。

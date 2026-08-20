@@ -6,6 +6,11 @@ import { escText, escAttr } from '../lib/astro-escape.mjs';
 import { commonTempleName } from '../../src/lib/temple-name.ts';
 import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../src/lib/text-width.ts';
 import { checkEntityPhoto } from './entity-photo.mjs';
+// 代表祭典的挑選與造句：頁面、OG 卡、本 gate 走同一支 lib。
+import { pickMainFestival, festivalSentence } from '../../src/lib/temple-festival.ts';
+// ⚠️ 2026-08-20 這支正在更名為 calendar-date.ts，`lunar-date.ts` 暫留為純轉出。
+//    等那次更名落地，這裡連同其餘 import 一起改指 calendar-date.ts。
+import { lunarDateLabel } from '../../src/lib/lunar-date.ts';
 
 const SECTION_MARK = 'class="temple-lingqian"';
 const SUMMARY_MARK = 'class="summary"';
@@ -242,8 +247,8 @@ export const templeFestivals = {
     // 代表筆（農曆日期最早）必須進 meta description——那是這批資料的 CTR 目的。
     // 已查證 main_festival 的 21 間走原本的敘述句，不適用本檢查。
     if (t.main_festival) return;
-    const main = ctx.lib.pickMainFestival(templeFests);
-    const sentence = main ? ctx.lib.festivalSentence(t.name, main, ctx.TODAY) : '';
+    const main = pickMainFestival(templeFests);
+    const sentence = main ? festivalSentence(t.name, main, ctx.TODAY) : '';
     if (sentence && !page.description().includes(escAttr(sentence))) {
       acc.violate(`${t.id} meta description 未含代表祭典句：${sentence}`);
     }
@@ -473,7 +478,7 @@ export const templeLocalCelebration = {
     acc.count('sections');
     for (const x of want) {
       if (!page.html.includes(escText(x.name))) acc.violate(`廟頁 ${t.id} 地方宗教慶典未列出「${x.name}」`);
-      const label = x.calendar === 'lunar' ? ctx.lib.lunarDateLabel(x.date) : '';
+      const label = x.calendar === 'lunar' ? lunarDateLabel(x.date) : '';
       if (label && !page.html.includes(label)) {
         acc.violate(`廟頁 ${t.id} 地方宗教慶典「${x.name}」缺日期標籤「${label}」`);
       }

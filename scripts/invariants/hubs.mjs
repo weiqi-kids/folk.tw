@@ -2,6 +2,8 @@
 // 這三條原本各自是一個裸 `{ }` 區塊，其中兩個的 readFileSync **沒有 existsSync 守衛**
 // ——產物不存在會直接丟例外而不是回報違規。runner 的 singleton 載入器統一處理，那個坑消失。
 import { escText, escAttr } from '../lib/astro-escape.mjs';
+import { seasonalCampaigns } from '../../src/lib/seasonal-campaigns.ts';
+import { FESTIVAL_OG_SLUGS } from '../../src/lib/festival-og.ts';
 
 const FAQ_MARK = '"@type":"FAQPage"';
 
@@ -19,7 +21,7 @@ export const homeSeasonalCampaign = {
   onMissing: (file, acc) => acc.violate(`首頁未建置：${file}`),
   check(_file, page, ctx, acc) {
     const home = page.html;
-    const schedule = ctx.lib.seasonalCampaigns;
+    const schedule = seasonalCampaigns;
     const campaignEnd = schedule.at(-1)?.end ?? '';
     const current = schedule.find(({ start, end }) => start <= ctx.TODAY && ctx.TODAY <= end);
     if (current) {
@@ -50,7 +52,7 @@ export const festivalIndexVisuals = {
   singletons: ['dist/festivals/index.html'],
   onMissing: (file, acc) => acc.violate(`節日總覽未建置：${file}`),
   check(_file, page, ctx, acc) {
-    for (const slug of ctx.lib.FESTIVAL_OG_SLUGS) {
+    for (const slug of FESTIVAL_OG_SLUGS) {
       const image = `/og/festivals/${slug}.png`;
       if (!page.html.includes(`src="${escAttr(image)}"`)) acc.violate(`節日總覽缺少 ${slug} 主視覺`);
     }

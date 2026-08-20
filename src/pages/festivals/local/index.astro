@@ -11,10 +11,12 @@
 //    語文／攝影著作，授權不允許取用，所以本頁不會有任何介紹文字。**別替它們補寫簡介**，
 //    那就是杜撰（總紅線第 1 條）。授權脈絡見 docs/taiwan-intake-status.md §二。
 //
-// 日期換算：農曆走 lunarToNextSolar、國曆走 solarMdToNext，兩者都在 build 時算；
+// 日期換算：一律走 lib/calendar-date.ts 的 nextOccurrence()，在 build 時算；
 // 倒數由頁尾同一套前端腳本依台灣時區即時算，故 [skip ci] 的日子也不會過期。
 // ⚠️ **回曆 2 筆（開齋節）刻意不換算**：伊斯蘭曆與國曆的對應每年前移約 11 天，
 //    我們沒有可信的換算來源，硬算就是杜撰。這兩筆只照抄來源寫法並明說不換算。
+//    2026-08-20 起這件事由型別保證：`nextOccurrence()` 對 `cal:'hijri'` 回 null，
+//    本檔沒有辦法「不小心」把它送進國曆或農曆那一支（見該檔檔頭）。
 // ⚠️ **數年一科的慶典也不換算**（2026-08-19 加，同一條原則的第二個應用）：來源只給月日、
 //    沒給舉辦週期，照算就會替主辦廟宣稱一個不會發生的日期（線上實測蕭壟香／土城香／
 //    西港香三筆全錯，蕭壟香 2027 年根本不辦）。判定唯一入口＝lib/local-celebration-cycle.ts，
@@ -27,7 +29,7 @@ import Sources from '../../../components/Sources.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
 import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
-import { lunarDateLabel, lunarToNextSolar, solarMd, solarMdToNext } from '../../../lib/lunar-date';
+import { calendarDateLabelShort, nextOccurrence, parseCalendarDate, solarMd } from '../../../lib/calendar-date';
 import { celebrationCycle, celebrationDateDisowned, celebrationDateOverride } from '../../../lib/local-celebration-cycle';
 import { hasTimeline, timelineItems } from '../../../lib/celebration-occurrences';
 import OccurrenceTimeline from '../../../components/OccurrenceTimeline.astro';
@@ -48,32 +50,26 @@ const items = lc.items.map((raw) => {
   //    直接改 local-celebrations.json 會被下次匯入蓋回去，所以修正住在對帳檔。
   const ov = celebrationDateOverride(raw.id);
   const x = ov ? { ...raw, calendar: ov.calendar, date: ov.date } : raw;
+  // 曆別＋月日先進型別世界（唯一關口）。認不得的曆別回 null＝什麼都不陳述；
+  // 改動前這裡是 `x.calendar === 'lunar' ? … : x.calendar === 'solar' ? … : …`，
+  // 認不得的曆別會掉進最後一個分支被當成回曆印出去。schema 已擋，型別再擋一次。
+  const cd = parseCalendarDate(x.calendar, x.date);
   // 舉辦週期先問 lib：非每年的一律不算國曆日（理由見檔頭）。
   const cycle = celebrationCycle(x.id);
   // 🔴 有歷年紀錄＝我們已經查到它的日期**逐年不同**（數年一科、擲筊定日、或來源
   //    彼此矛盾），那就不要再算一個年度日期出來，改把讀者帶去下方的歷年紀錄。
   //    這比原本那句「以主辦單位公告為準」有用：免責換成內容（2026-08-19 站主裁示）。
   const tl = hasTimeline(x.id);
-  const iso = !cycle.annual || tl
-    ? null
-    : x.calendar === 'lunar'
-      ? lunarToNextSolar(x.date, today)
-      : x.calendar === 'solar'
-        ? solarMdToNext(x.date, today)
-        : null;
+  // 回曆：nextOccurrence() 回 null（不換算），與「算得出來但那年沒有這一天」
+  // （回 `{iso:null}`）是兩件事，見 calendar-date.ts 檔頭。這裡兩者都不顯示國曆日。
+  const iso = !cycle.annual || tl || !cd ? null : (nextOccurrence(cd, today)?.iso ?? null);
   const m = Number(x.date.slice(0, 2));
   const d = Number(x.date.slice(3));
   // 🔴 月日的**歸屬**錯了（來源把另一件事的日期掛在這一筆上）就整個不陳述——
   //    沒有正確值可以換，印出來等於替主辦方宣稱一個它沒公告過的日期。
   //    判定在 lib（date_disown），本檔不自己認定。實例＝lc_59 市府版鞦韆節。
   const disowned = celebrationDateDisowned(x.id) !== null;
-  const dateLabel = disowned
-    ? null
-    : x.calendar === 'lunar'
-      ? lunarDateLabel(x.date)
-      : x.calendar === 'solar'
-        ? `國曆 ${m}/${d}`
-        : `回曆 ${m} 月 ${d} 日`;
+  const dateLabel = disowned || !cd ? null : calendarDateLabelShort(cd);
   const temple = x.temple_ref ? templeById.get(x.temple_ref) : undefined;
   // 有時間軸就用短版：長版那句「以主辦單位公告為準」的用途是把讀者導去主辦方，
   // 但我們自己就列了歷年紀錄，留著只會讓同一行擠兩個訊息。

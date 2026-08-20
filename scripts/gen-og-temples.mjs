@@ -26,6 +26,9 @@ import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { C, esc, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
+// 卡面上的祭典／聖誕日期必須與頁面用同一個基準日算，否則跨午夜的 build 會產出
+// 「頁面寫今年、卡片寫明年」的一批卡。基準日唯一入口＝src/lib/build-date.ts。
+import { buildDate } from '../src/lib/build-date.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -148,7 +151,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const outIdx = args.indexOf('--out');
   const outDir = outIdx >= 0 ? args[outIdx + 1] : join(root, 'dist', 'og', 'temples');
-  const todayIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+  const todayIso = buildDate().iso; // 與頁面同一個基準日（見 src/lib/build-date.ts）
 
   const sampleIdx = args.indexOf('--sample');
   let list = temples;

@@ -37,6 +37,10 @@
 import { readFileSync, existsSync } from 'node:fs';
 // 🔴 資料集寫入、旗標解析、entity 解碼、合併鍵正規化**一律走這支**（唯一入口，見其檔頭）。
 import { cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
+// 寫檔前的 schema 驗證。🔴 只能指向 `src/content-schemas.ts`，不可改指 `src/content.config.ts`
+// ——後者 import `astro:content`（Vite 虛擬模組），bare node 載不動，整支匯入器會跑不起來。
+// 理由與抽出經過見 src/content-schemas.ts 檔頭。
+import { localCelebrationsSchema } from '../src/content-schemas.ts';
 
 const INBOX = '/root/.config/folk-tw/intake/inbox/misc';
 const PAGES = [
@@ -237,6 +241,8 @@ console.log(`  → 有 temple_ref 者 ${out.filter((x) => x.temple_ref).length} 
 commitDataset({
   path: OUT,
   data: payload, // 信封物件；差異量對 payload.items 逐筆比對
+  // 🔴 曆別必須是來源實際會出現的三種之一：頁面對「認不得的曆別」原本會當成回曆印出去。
+  schema: localCelebrationsSchema,
   write: WRITE,
   dryNote: '\n（乾跑，未寫檔。加 --write 才寫入。樣本：）',
   doneNote: `\n✓ 已寫入 ${OUT}`,

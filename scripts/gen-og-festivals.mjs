@@ -22,9 +22,9 @@ const festivals = JSON.parse(readFileSync(join(root, 'src/data/festivals.json'),
 // 的 festivals[].image 讀的是同一份，這裡不再自己抄一份（抄兩份會漂移，而且漂移了
 // build 仍然全綠，症狀只在使用者端顯示成破圖）。
 const { FESTIVAL_OG_SLUGS: CARD_SLUGS } = await import(join(root, 'src/lib/festival-og.ts'));
-const today = new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
-}).format(new Date());
+// 基準日與頁面共用（見 src/lib/build-date.ts）：跨午夜的 build 不可以讓卡片與頁面差一天。
+const { buildDate } = await import(join(root, 'src/lib/build-date.ts'));
+const today = buildDate().iso;
 function titleSize(name) {
   const width = visualWidth(name);
   return width <= 4 ? 92 : width <= 7 ? 78 : 68;

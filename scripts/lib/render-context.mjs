@@ -9,23 +9,29 @@
 //
 // ⚠️ adapter **不得** import 'node:fs'：檔案存在性與讀檔一律走這裡的 exists/read，
 //    否則「每種頁型只走一趟」這件事會在某次「順手加一條」時安靜退化成 25 趟。
+//
+// ⛔ **這裡沒有 `ctx.lib` 那個袋子了（2026-08-21 收掉）**，別再加回來。
+//    它曾裝 21 個名字，其中 9 個從來沒有人用 `ctx.lib.` 取過（templeCounty／templeTownship
+//    在 adapter 端使用次數是 0），而 escText／escAttr／num／commonTempleName／fullWidth／
+//    SERP_TITLE_MAX_WIDTH／TEMPLE_TITLE_DEITY_MAX_WIDTH 這 7 個 adapter 本來就**直接 import**
+//    ——同一個符號兩條到達路徑，讀 adapter 的人得先確認手上這條是哪一條。
+//    刪掉它是 pass-through 級的改動：Node 的 module cache 讓直接 import 零成本，
+//    「共用同一支 lib」這件事由 import 路徑保證，不需要一個袋子代為轉手。
+//    ✅ 真正在賺錢的是 `ctx.derived`（消滅重複計算）與 `ctx.exists/read/readdir/stat`
+//       （機械地保住「每種頁型只走一趟」）——那兩個留著，別跟這件事混為一談。
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
-// 千分位與頁面共用同一支（src/lib/format.ts）：頁面上的「收錄 10,704 間廟宇」與這裡的
-// 期望字串必須永遠一致，複製一份規則過來的話遲早會漂。本檔跑在 --experimental-strip-types
-// 底下，讀得動 .ts。
-import { num } from '../../src/lib/format.ts';
-import { commonTempleName } from '../../src/lib/temple-name.ts';
-import { seasonalCampaigns } from '../../src/lib/seasonal-campaigns.ts';
-import { FESTIVAL_OG_SLUGS, festivalDiscoverImagePath } from '../../src/lib/festival-og.ts';
+import { FESTIVAL_OG_SLUGS } from '../../src/lib/festival-og.ts';
 import { releasedItems } from '../../src/lib/release-schedule.ts';
-// 全形寬度與 title 上限：與 src/pages/temples/[id].astro 共用同一支，gate 不重寫規則。
-import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../src/lib/text-width.ts';
-// 「Astro 會輸出什麼」一律問 Astro 自己（見該檔檔頭：兩次假紅燈的教訓）。
-import { escText, escAttr } from './astro-escape.mjs';
+// 基準日的唯一入口（見該檔檔頭）。這裡要的是「**手上這份 dist** 是用哪一天建的」，
+// 所以是 distBuildDate 而不是 buildDate——單獨對著昨天的 dist 跑 gate 時，兩者不同。
+import { distBuildDate } from '../../src/lib/build-date.ts';
 
 const require = createRequire(import.meta.url);
+
+/** 本 context 讀哪些資料檔（repo 相對路徑）。預設走 require，測試可整組換掉。 */
+const defaultLoad = (path) => require(`../../${path}`);
 
 export const DIST = 'dist';
 export const SECTION_MARK = 'class="temple-lingqian"';
@@ -41,56 +47,43 @@ function normalize(j) {
   return Object.values(j);
 }
 
-/** 台北當日（單一來源；禁止各條自己再算一次 Intl.DateTimeFormat）。 */
-const taipeiToday = () => new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
-}).format(new Date());
-
-export async function buildContext() {
-  const sharp = require('sharp');
-  const { Solar } = require('lunar-javascript');
+/**
+ * @param {{ load?: (path: string) => unknown }} [options]
+ *   `load` 是資料來源的注入點（預設 require 真實的 src/data/*.json）。
+ *   🔴 為什麼要能注入（2026-08-21）：在此之前 buildContext 硬讀那 19 支 JSON，
+ *      所以 42 條不變量 adapter **沒有一條能在單元層被測**——要驗一條斷言會不會抓到
+ *      某種壞資料，唯一方法是把壞資料寫進真的 temples.json 再跑 20 分鐘的 build。
+ *      現在餵假資料＋假 HTML 就能直接跑 adapter，見 render-context.test.mjs。
+ */
+export async function buildContext(options = {}) {
+  const load = options.load ?? defaultLoad;
   // 地區解析一律用頁面同一支 lib，不在本檔重寫規則（初版自寫正則，12 處對不上）。
   const { templeCounty, templeTownship } = await import('../../src/lib/temple-region.ts');
-  // 農曆換算同理：用頁面用的同一支 lib（src/lib/lunar-date.ts 刻意零專案內 import）。
-  const { lunarDateLabel, isLunarMonthEnd, lunarToNextOccurrence, festivalNextSolar } =
-    await import('../../src/lib/lunar-date.ts');
-  // 廟宇年度祭典的代表筆挑選與句子生成同理：頁面、OG 卡、本 gate 走同一支 lib。
-  const { pickMainFestival, festivalSentence } = await import('../../src/lib/temple-festival.ts');
-  const { buildCells, cellKey } = await import('../../src/lib/nearby-grid.ts');
 
-  // 🔴 基準日要用「這次 build 當時的台北日期」，不是 gate 執行當下的。
-  //    完整 build 要 20 分鐘，只要跨過台北午夜，頁面用昨天算、gate 用今天重算，
-  //    所有「下一次國曆日期」的比對會整批對不上——2026-08-19 就這樣假紅燈擋住部署
-  //    （build 台北 23:45 開始、00:11 跑 gate，兩間廟的 meta description 被判未含祭典句，
-  //    因為農曆七月初七的下一次從今年變成明年）。
-  //    dist/.build-date 由 postbuild 的 gen-build-stamp.mjs 寫入；讀不到才退回當下日期
-  //    （例如有人直接跑 gate 而沒 build，那時本來就沒有「build 當時」可言）。
-  let TODAY = taipeiToday();
-  try {
-    const stamped = readFileSync('dist/.build-date', 'utf8').trim();
-    if (/^\d{4}-\d{2}-\d{2}$/.test(stamped)) TODAY = stamped;
-  } catch {
-    /* 沒有 dist 或沒有戳記就用當下日期 */
-  }
-  const temples = normalize(require('../../src/data/temples.json'));
-  const deities = normalize(require('../../src/data/deities.json'));
-  const poems = normalize(require('../../src/data/poems.json'));
-  const divinationSystems = normalize(require('../../src/data/divination-systems.json'));
-  const festivals = releasedItems(normalize(require('../../src/data/festivals.json')), TODAY);
-  const imagePriority = require('../../src/data/image-priority.json');
+  // 🔴 基準日要用「這次 build 當時的台北日期」，不是 gate 執行當下的（2026-08-19 假紅燈：
+  //    build 台北 23:45 開始、00:11 跑 gate，兩間廟的 meta description 被判未含祭典句，
+  //    因為農曆七月初七的下一次從今年變成明年）。判定收進 src/lib/build-date.ts，
+  //    本檔不再自己讀戳記檔、也不再自己算一份 Intl.DateTimeFormat。
+  const TODAY = distBuildDate().iso;
+  const temples = normalize(load('src/data/temples.json'));
+  const deities = normalize(load('src/data/deities.json'));
+  const poems = normalize(load('src/data/poems.json'));
+  const divinationSystems = normalize(load('src/data/divination-systems.json'));
+  const festivals = releasedItems(normalize(load('src/data/festivals.json')), TODAY);
+  const imagePriority = load('src/data/image-priority.json');
   // 不變量 5d 用：判斷某套儀式的主場節日是哪一頁（practices.json 的 home_festival）。
-  const practices = normalize(require('../../src/data/practices.json'));
+  const practices = normalize(load('src/data/practices.json'));
   // 不變量 5e 用：民俗活動的文資登錄明細該印在哪一頁（events.json 的 heritage.home_festival）。
-  const events = normalize(require('../../src/data/events.json'));
-  const localCelebrations = require('../../src/data/local-celebrations.json');
-  const artifacts = require('../../src/data/artifacts.json');
+  const events = normalize(load('src/data/events.json'));
+  const localCelebrations = load('src/data/local-celebrations.json');
+  const artifacts = load('src/data/artifacts.json');
   // 不變量 artifact/entry-page 用：文物辭條獨立頁的台帳（試點清單，非全量）。
-  const artifactPages = require('../../src/data/artifact-pages.json');
-  const goodDays = require('../../src/data/good-days.json');
-  const votes = require('../../src/lib/almanac/rules/votes.json');
-  const encourage = require('../../src/data/qian-encourage.json');
-  const personas = require('../../src/data/poem-personas.json');
-  const topical = require('../../src/data/topical.json');
+  const artifactPages = load('src/data/artifact-pages.json');
+  const goodDays = load('src/data/good-days.json');
+  const votes = load('src/lib/almanac/rules/votes.json');
+  const encourage = load('src/data/qian-encourage.json');
+  const personas = load('src/data/poem-personas.json');
+  const topical = load('src/data/topical.json');
 
   const deityById = new Map(deities.map((d) => [d.id, d]));
   const systemHrefById = new Map(divinationSystems.map((s) => [s.id, s.hub ?? `/systems/${s.id}/`]));
@@ -105,8 +98,8 @@ export async function buildContext() {
   // 不套這層就會對「頁面根本拿不到的神明」要求渲染。
   // ⚠️ 既有的 expectedSystems()（不變量 1）有同樣的潛在假設，刻意不動它（不在計畫範圍）。
   const publishableEntry = (e) => !e.draft && (e.sources ?? []).length > 0;
-  const scenariosData = normalize(require('../../src/data/scenarios.json')).filter(publishableEntry);
-  const concernsData = normalize(require('../../src/data/concerns.json'));
+  const scenariosData = normalize(load('src/data/scenarios.json')).filter(publishableEntry);
+  const concernsData = normalize(load('src/data/concerns.json'));
   const scenariosByDeity = new Map();
   for (const s of scenariosData) {
     for (const p of s.patrons ?? []) {
@@ -175,7 +168,7 @@ export async function buildContext() {
   // ⚠️ 這一段是 src/pages/festivals/[slug].astro 的鏡像，判準要一模一樣，否則 gate 會
   //    拿一份與頁面不同的期望值去驗（過與不過都沒有意義）。
   const disownedLcIds = new Set(
-    require('../../src/data/local-celebration-cases.json').items
+    load('src/data/local-celebration-cases.json').items
       .filter((x) => x.date_disown)
       .map((x) => x.lc_id),
   );
@@ -211,13 +204,6 @@ export async function buildContext() {
       allEntityImages,
       festivalOgSlugs: new Set(FESTIVAL_OG_SLUGS),
     },
-    lib: {
-      num, commonTempleName, seasonalCampaigns, FESTIVAL_OG_SLUGS, festivalDiscoverImagePath,
-      fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH,
-      escText, escAttr, templeCounty, templeTownship,
-      lunarDateLabel, isLunarMonthEnd, lunarToNextOccurrence, festivalNextSolar,
-      pickMainFestival, festivalSentence, buildCells, cellKey, Solar,
-    },
     marks: { SECTION_MARK, SUMMARY_MARK, FAQ_MARK },
     // ── I/O 原語（adapter 只准用這三個，不得自行 import fs）────────────────
     exists: (path) => existsSync(path),
@@ -225,9 +211,13 @@ export async function buildContext() {
     readdir: (path, options) => readdirSync(path, options),
     stat: (path) => statSync(path),
     join,
-    /** sharp 的薄包裝：唯一需要 async 的斷言（5i 的 1200×675）走這裡。 */
+    /**
+     * sharp 的薄包裝：唯一需要 async 的斷言（5i 的 1200×675）走這裡。
+     * 🔴 sharp 刻意 lazy require：它是原生模組、載入成本高，而絕大多數 adapter 用不到它。
+     *    在模組頂端 require 會讓「不碰圖片的單元測試」也被迫扛一個原生相依。
+     */
     imageSize: async (path) => {
-      const metadata = await sharp(path).metadata();
+      const metadata = await require('sharp')(path).metadata();
       return { width: metadata.width, height: metadata.height };
     },
   };

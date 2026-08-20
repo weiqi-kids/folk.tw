@@ -13,7 +13,7 @@ import { commonTempleName } from '../../lib/temple-name';
 import { hasEnrichment, hasHistorySection } from '../../lib/temple-enrichment.ts';
 import ImageCredit from '../../components/ImageCredit.astro';
 import { lunarDateLabel } from '../../lib/birthdays';
-import { festivalNextSolar } from '../../lib/lunar-date';
+import { calendarDateLabelShort, festivalNextSolar, parseCalendarDate } from '../../lib/calendar-date';
 import {
   pickMainFestival,
   sortFestivals,
@@ -23,6 +23,7 @@ import {
   festivalOwnerByLunarDate,
 } from '../../lib/temple-festival.ts';
 import { releasedItems } from '../../lib/release-schedule';
+import { todayInTaipei } from '../../lib/daily';
 import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../lib/text-width.ts';
 import festivalsData from '../../data/festivals.json';
 import localCelebrations from '../../data/local-celebrations.json';
@@ -213,8 +214,10 @@ const birthdayLabel = birthdayLunar ? lunarDateLabel(birthdayLunar) : '';
 // 🔴 台北日，勿改回 UTC（2026-08-15 修）：check-rendered 的 TODAY 是台北日，
 // 這裡原本是 UTC——每天台北 00:00–08:00 兩邊差一天，祭典國曆換算撞上「昨天正是祭典日」
 // 就紅（實例：run 31818156766，泉安府廟慶＝農曆七月初二＝國曆 8/14，CI 於台北 00:26 檢查）。
-const todayIso = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
-const publicFestivals = releasedItems(festivalsData);
+// 🔴 2026-08-21：這一行原本是全站第七份「今天是哪一天」的實作（公式與 daily.ts 逐字等價）。
+// 基準日改由 todayInTaipei() 出——它已 memoize 成整個 build 的同一天，跨午夜的 build 不會半段用昨天。
+const todayIso = todayInTaipei().iso;
+const publicFestivals = releasedItems(festivalsData, todayIso);
 const festivalList = sortFestivals(t.festivals ?? []);
 const mainFestival = pickMainFestival(t.festivals);
 // 該廟登記祭典 → 全站 /festivals/ 節日頁的正向連結（2026-08-02）：純日期比對，不做語意判斷
@@ -710,18 +713,15 @@ const jsonLd = [
                   lib/local-celebration-cycle.ts，本檔不自己認定。
                   ⚠️ 目前 disown 的那一筆 temple_ref 是 null、走不到這裡，但判準是綁在
                   「這一筆」而不是「這一頁」，所以三個消費端都要問過同一支。 */}
-              {!celebrationDateDisowned(x.id) && (
-                <span class="lcdate">
-                  {/* date 是 "MM-DD"：月取 slice(0,2)、日取 slice(3)。
-                      ⚠️ 別寫成 slice(0,3)——那會取到 "01-" → Number() 得 NaN，
-                      而目前這幾筆全是農曆、走不到後兩支，錯了也不會有人發現。 */}
-                  {x.calendar === 'lunar'
-                    ? lunarDateLabel(x.date)
-                    : x.calendar === 'solar'
-                      ? `國曆 ${Number(x.date.slice(0, 2))}/${Number(x.date.slice(3))}`
-                      : `回曆 ${Number(x.date.slice(0, 2))} 月 ${Number(x.date.slice(3))} 日`}
-                </span>
-              )}
+              {!celebrationDateDisowned(x.id) && (() => {
+                /* 🔴 2026-08-20：這裡原本是一段手抄的曆別分派，旁邊還留著作者自己標的
+                   缺口——「別寫成 slice(0,3)…而目前這幾筆全是農曆、走不到後兩支，
+                   錯了也不會有人發現」。同一段在 /festivals/local/ 還有一份，
+                   兩份措辭必須一致卻沒有東西保證。兩份都收進 calendarDateLabelShort()，
+                   月日的切法只剩一個地方會錯。**不要把它抄回來。** */
+                const cd = parseCalendarDate(x.calendar, x.date);
+                return cd && <span class="lcdate">{calendarDateLabelShort(cd)}</span>;
+              })()}
               <span class="lcname">{x.name}</span>
               <span class="muted small">{x.county}</span>
             </li>

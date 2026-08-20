@@ -3,6 +3,10 @@
 import { escText, escAttr } from '../lib/astro-escape.mjs';
 import { fullWidth, SERP_TITLE_MAX_WIDTH } from '../../src/lib/text-width.ts';
 import { checkEntityPhoto } from './entity-photo.mjs';
+// 農曆換算走頁面用的同一支 lib（原本經 ctx.lib 轉手一層，同一個符號兩條到達路徑）。
+// ⚠️ 2026-08-20 這支正在更名為 calendar-date.ts，`lunar-date.ts` 暫留為純轉出。
+//    等那次更名落地，這裡連同其餘 import 一起改指 calendar-date.ts。
+import { lunarToNextOccurrence, lunarDateLabel } from '../../src/lib/lunar-date.ts';
 
 /**
  * 原不變量 4（2026-07-30 加）：神明頁 title 的聖誕日期（往返驗證）。
@@ -73,7 +77,7 @@ export const deityShengdanTitle = {
     const nowYear = new Date().getUTCFullYear();
     const pairMatches = shengdanDates.some((dt) =>
       [nowYear, nowYear + 1, nowYear + 2].some((y) => {
-        const occurrence = ctx.lib.lunarToNextOccurrence(dt, `${y}-01-01`);
+        const occurrence = lunarToNextOccurrence(dt, `${y}-01-01`);
         return occurrence?.label === shownLabel
           && Number(occurrence.iso.slice(5, 7)) === mo
           && Number(occurrence.iso.slice(8, 10)) === day;
@@ -82,7 +86,7 @@ export const deityShengdanTitle = {
     if (!pairMatches) {
       acc.violate(
         `${d.id} title 的聖誕組合「${shownLabel}／國曆 ${mo}/${day}」不對應任何一筆資料`
-        + `（資料：${shengdanDates.map((x) => ctx.lib.lunarDateLabel(x)).join('、')}）`,
+        + `（資料：${shengdanDates.map((x) => lunarDateLabel(x)).join('、')}）`,
       );
     }
   },

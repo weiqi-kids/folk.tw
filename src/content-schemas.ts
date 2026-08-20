@@ -605,3 +605,30 @@ export const scenariosSchema = z.object({
   sources: z.array(source).default([]),
   draft: z.boolean().default(false),
 });
+// ── 地方宗教慶典（**不是 content collection**，是 raw JSON 資料集）──────────
+//
+// 🔴 為什麼它住在這裡：本檔已經是「寫端載得動的 zod schema」唯一的門
+// （`src/content.config.ts` import `astro:content`，匯入器載不動——見檔頭）。
+// `local-celebrations.json` 沒有走 content collection（頁面是 `import lc from
+// '../../../data/local-celebrations.json'`），所以**讀端一個字都沒驗**，
+// 寫端也沒驗——`calendar` 這個欄位在型別上只是 `string`。
+//
+// 2026-08-20 實測母體：lunar 57／solar 6／hijri 2，日期全部是 `MM-DD`。
+// 但那是**現在**的事實，不是被保證的事實。曆別多出一個沒人認得的值時，
+// 改動前的頁面會把它**當成回曆印出去**（`: 回曆 M 月 D 日` 是最後一個 else 分支），
+// 也就是替主辦方宣稱一個錯的曆別。enum 讓它在寫檔當下就炸。
+//
+// ⚠️ 這裡的 enum 是**來源實際會出現的曆別**，比 `CalendarDate` 的四種少一個 `solar_term`
+//    ——內政部這份清單不給節氣。`src/lib/calendar-date.test.ts` 會驗
+//    「enum 的每一個值都是 CalendarDate 認得的曆別」，兩邊不會各自漂走。
+// ⚠️ 日期的 regex 與 `parseCalendarDate()` 的 `^\d{2}-\d{2}$` 一致；同樣由那支測試釘住。
+export const LOCAL_CELEBRATION_CALENDARS = ['lunar', 'solar', 'hijri'] as const;
+export const localCelebrationsSchema = z.object({
+  id: z.string(), // `lc_<cid>`，cid 來自內政部詳情頁網址
+  name: z.string(),
+  county: z.string(),
+  calendar: z.enum(LOCAL_CELEBRATION_CALENDARS),
+  date: z.string().regex(/^\d{2}-\d{2}$/, '日期必須是 MM-DD（曆別由 calendar 欄位決定）'),
+  // 規則消歧失敗一律 null（寧缺勿假），**不是漏填**——見 import-local-celebrations.mjs 檔頭。
+  temple_ref: z.string().nullable(),
+});

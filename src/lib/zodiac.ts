@@ -12,9 +12,9 @@
 // ⚠️ 值太歲／沖太歲只取「同支」與「對沖」兩種。刑／害／破在通行黃曆裡寫法不一，
 //    站上的神煞投票表尚未涵蓋，**查證前不寫**——寧可少講兩種，不要湊滿五種。
 
-import { BRANCHES, ZODIACS, chongZodiac } from './almanac/ganzhi';
-import { computeDayRecord } from './almanac';
-import { lunarProvider } from './almanac/provider';
+import { BRANCHES, ZODIACS, chongZodiac } from './almanac/ganzhi.ts';
+import { computeDayRecord } from './almanac/index.ts';
+import { lunarProvider } from './almanac/provider.ts';
 
 export type ZodiacSlug =
   | 'rat' | 'ox' | 'tiger' | 'rabbit' | 'dragon' | 'snake'

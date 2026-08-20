@@ -1,5 +1,5 @@
 // C.2 S8 — 神煞集合：依 rules/shensha.json 定位規則，推當日生效之神煞。
-import shenshaData from './rules/shensha.json';
+import shenshaData from './rules/shensha.json' with { type: 'json' };
 import { BRANCHES } from './ganzhi.ts';
 
 interface ShenSha {

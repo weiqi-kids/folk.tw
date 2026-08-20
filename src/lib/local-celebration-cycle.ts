@@ -29,9 +29,8 @@
 // 🔴 改這支之前先想清楚：任何「顯示一個算出來的日期」的決定，都是在替主辦方
 //    宣稱那天有活動。寧可顯示「日期以主辦廟公告為準」，也不要顯示一個好看的錯日期。
 
-import cases from '../data/local-celebration-cases.json';
-import nchdb from '../data/nchdb-folklore-index.json';
-
+import cases from '../data/local-celebration-cases.json' with { type: 'json' };
+import nchdb from '../data/nchdb-folklore-index.json' with { type: 'json' };
 /** 官方 `holdPeriod` 判為「每年」的寫法。其餘一律不視為每年。 */
 const ANNUAL_PERIOD = /^每年(舉辦\d+次)?$/;
 

@@ -4,6 +4,11 @@
 //    能看出它們有沒有真的比對到東西。重構時全部給了語意 id。
 import { escText, escAttr } from '../lib/astro-escape.mjs';
 import { num } from '../../src/lib/format.ts';
+import { festivalDiscoverImagePath } from '../../src/lib/festival-og.ts';
+// ⚠️ 2026-08-20 這支正在更名為 calendar-date.ts，`lunar-date.ts` 暫留為純轉出。
+//    等那次更名落地，這裡連同其餘 import 一起改指 calendar-date.ts。
+import { festivalNextSolar, isLunarMonthEnd } from '../../src/lib/lunar-date.ts';
+import { Solar } from 'lunar-javascript';
 
 const FAQ_MARK = '"@type":"FAQPage"';
 
@@ -76,7 +81,7 @@ export const festivalDiscoverImage = {
   title: 'Discover 主圖是該節日自己的圖、檔案存在，且實際像素為 1200×675',
   source: 'festivals',
   async check(f, page, ctx, acc) {
-    const discoverImagePath = ctx.lib.festivalDiscoverImagePath(f.slug);
+    const discoverImagePath = festivalDiscoverImagePath(f.slug);
     const discoverImageUrl = discoverImagePath ? `https://folk.tw${discoverImagePath}` : '';
     if (!discoverImageUrl || !page.html.includes(`"image":"${discoverImageUrl}"`)) {
       acc.violate(`節日頁 ${f.slug} 的 Article 缺 Discover 主圖或網址與資料不符（應為 ${discoverImageUrl || '該節日專屬主圖'}）`);
@@ -231,7 +236,7 @@ export const festivalDateLabel = {
   title: 'festivalNextSolar 算出的日期標籤必須出現在頁面上',
   source: 'festivals',
   check(f, page, ctx, acc) {
-    const { label: wantLabel } = ctx.lib.festivalNextSolar(f, '2026-01-01');
+    const { label: wantLabel } = festivalNextSolar(f, '2026-01-01');
     if (wantLabel && !page.html.includes(wantLabel)) {
       acc.violate(`節日頁 ${f.slug} 未出現日期標籤「${wantLabel}」`);
     }
@@ -328,11 +333,11 @@ export const festivalTitleDate = {
       const nowYear = new Date().getUTCFullYear();
       const ok = [nowYear, nowYear + 1, nowYear + 2].some((y) => {
         let s;
-        try { s = ctx.lib.Solar.fromYmd(y, mo, day); } catch { return false; }
+        try { s = Solar.fromYmd(y, mo, day); } catch { return false; }
         const l = s.getLunar();
         if (l.getMonth() !== wantM) return false;
         if (l.getDay() === wantD) return true;
-        return wantD === 30 && l.getDay() === 29 && ctx.lib.isLunarMonthEnd(s.toYmd());
+        return wantD === 30 && l.getDay() === 29 && isLunarMonthEnd(s.toYmd());
       });
       if (!ok) acc.violate(`節日頁 ${f.slug} title 國曆 ${mo}/${day} 轉回農曆不等於 ${f.lunar_date}`);
     }

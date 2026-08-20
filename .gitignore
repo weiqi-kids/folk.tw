@@ -1,5 +1,7 @@
 # build output
 dist/
+# 這次 build 的基準日戳記（build 第一步寫、postbuild 最後一步收回；見 src/lib/build-date.ts）
+.build-date
 # generated types
 .astro/
 

@@ -9,6 +9,7 @@ import { getEvents, getDeities, templeNameById } from '../../lib/queries';
 import { faqPage, eventThing } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
+import { todayInTaipei } from '../../lib/daily';
 import festivalsData from '../../data/festivals.json';
 import { eventCycle, cycleLabel, scheduleSentence } from '../../lib/event-cycle.ts';
 
@@ -35,7 +36,10 @@ const destIsTemple = e.destination_temple ? templeName.has(e.destination_temple)
 // union 後 .includes(string) 會報 ts(2345)。deploy.yml 的「型別檢查」step 會跑 astro check，
 // 但 `pnpm build:release` 不含它——2026-08-03 的 reflect commit 194e665 因此推上一個 CI 擋門的錯，
 // 從 08:24 起所有部署失敗。改動 JSON 衍生欄位時一律顯式標型別（同 temples/[id].astro 的 deity_refs）。
-const linkedFestivals = releasedItems(festivalsData).filter((f) =>
+// 🔴 基準日顯式傳進去（2026-08-21）：不帶 today 等於再讀一次「今日」，
+// 而同一次 build 內不同頁在不同時刻 render，跨台北午夜就會有頁面用昨天、有頁面用今天。
+// 唯一入口＝src/lib/daily.ts 的 todayInTaipei()（已 memoize 成整個 build 的基準日）。
+const linkedFestivals = releasedItems(festivalsData, todayInTaipei().iso).filter((f) =>
   ((f as { event_refs?: string[] }).event_refs ?? []).includes(event.id),
 );
 

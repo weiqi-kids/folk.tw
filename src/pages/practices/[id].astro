@@ -7,6 +7,7 @@ import { getPractices, getDeities, eventsByDeity } from '../../lib/queries';
 import { faqPage, howTo } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
+import { todayInTaipei } from '../../lib/daily';
 import festivals from '../../data/festivals.json';
 
 export const getStaticPaths = (async () => {
@@ -27,7 +28,10 @@ const relatedEvents = [
 ];
 // 相關節日：festivals.json 的 practice_refs 是唯一對到本頁 id 的權威欄位；
 // p.festival_ref（上面「關聯節日」）是季節描述文字，非節日代稱，故另開一列放真連結，不動原欄位。
-const relatedFestivals = releasedItems(festivals).filter((f) => (f.practice_refs as readonly string[] | undefined)?.includes(practice.id));
+// 🔴 基準日顯式傳進去（2026-08-21）：不帶 today 等於再讀一次「今日」，
+// 而同一次 build 內不同頁在不同時刻 render，跨台北午夜就會有頁面用昨天、有頁面用今天。
+// 唯一入口＝src/lib/daily.ts 的 todayInTaipei()（已 memoize 成整個 build 的基準日）。
+const relatedFestivals = releasedItems(festivals, todayInTaipei().iso).filter((f) => (f.practice_refs as readonly string[] | undefined)?.includes(practice.id));
 
 // 正文代表圖優先使用本習俗自己的授權紀實照。缺圖時只有「栽花換斗」能安全退到
 // 已有授權的註生娘娘神像；收驚／入厝沒有足以代表儀式的可信圖，使用站內通用視覺，

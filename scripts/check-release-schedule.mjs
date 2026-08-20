@@ -9,13 +9,14 @@
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+// 基準日不在這裡再實作一次：唯一入口是 src/lib/build-date.ts（該檔檔頭有完整緣由）。
+// 這道 gate 掃的是**原始碼**，所以用 buildDate()（根戳記 → 時鐘），不是 distBuildDate()。
+import { buildDate } from '../src/lib/build-date.ts';
 
 const DATA = 'src/data/festivals.json';
 const DIST = 'dist';
 const requireDist = process.argv.includes('--require-dist');
-const today = process.env.RELEASE_DATE || new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit',
-}).format(new Date());
+const today = process.env.RELEASE_DATE || buildDate().iso;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 const isIsoDate = (value) => {

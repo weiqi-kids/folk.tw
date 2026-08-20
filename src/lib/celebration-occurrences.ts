@@ -15,8 +15,7 @@
 // ⚠️ 時間軸太短（少於 2 筆）就不要渲染成一個區塊——一筆孤零零的紀錄撐不起
 //    「歷年」這個說法，反而像資料沒做完。判斷用 `hasTimeline()`。
 
-import data from '../data/celebration-occurrences.json';
-
+import data from '../data/celebration-occurrences.json' with { type: 'json' };
 export type Occurrence = {
   /** 西元年。 */
   year: number;

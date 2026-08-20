@@ -9,7 +9,7 @@
 
 import { computeDayRecord } from './index.ts';
 import { lunarProvider } from './provider.ts';
-import affairsData from './rules/affairs.json';
+import affairsData from './rules/affairs.json' with { type: 'json' };
 import type { DayRecord } from './types.ts';
 
 const AFFAIRS = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
