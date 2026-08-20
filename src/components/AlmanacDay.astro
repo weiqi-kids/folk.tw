@@ -47,6 +47,16 @@ const relatedPractices = await practicesForDate(record.festivals, lunar?.month ?
 const P = record.pillars;
 const gz = (p: { value: { stem: string; branch: string } | null }) =>
   p.value ? `${p.value.stem}${p.value.branch}` : '—';
+// 🔴 2026-08-20 評估過「收斂回 <Sources> / parseSourceRef」，判定**不可以**，這裡刻意保留本地解析：
+//    本頁的 sources 是 votes.json 的字串，網址是
+//      https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷04
+//    而 src/lib/sources.ts 的 URL_CHARS 把**半形括號**列為終止字元（那是 2026-08-04 為了
+//    events 的「URL（說明）」寫法加的），於是 parseSourceRef 會把網址截在 `_` 之後 →
+//      https://zh.wikisource.org/wiki/欽定協紀辨方書_   ← 點不開，
+//    而殘餘的「(四庫全書本)/卷11」會被接回錨文字（括號成對，check:anchor-text 抓不到）。
+//    也就是說換過去是**沉默的壞連結**，不是升級。要收斂得先讓 URL_CHARS 支援「成對的半形括號」，
+//    那會動到全站既有 href，屬於另一件事、要另外驗（同一個類別現在已經在站上咬到 3 筆：
+//    deities.json 的 龍王廟_(臺南府)、practices.json 兩筆同樣的 wikisource 卷11）。
 const sourceDisplay = (source: string) => {
   const url = source.match(/https?:\/\/\S+/)?.[0] ?? '';
   const label = url ? source.replace(url, '').trim() : source;

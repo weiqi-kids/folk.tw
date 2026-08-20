@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
+import Sources from '../../components/Sources.astro';
 import { articleThing, faqPage } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 
@@ -52,10 +53,14 @@ const visual = 'qian-slips';
 
     <section class="sources">
       <h2>資料來源</h2>
+      {/* 連結原本在下面手寫（rel 還漏了 target，與全站 nofollow noopener _blank 不一致），
+          2026-08-20 收斂回 <Sources>：錨文字改走 parseSourceRef（維基網址會補成「維基百科〈條目〉」）。
+          版位用 bare＝只出文字，<li> 仍由本頁決定；（type）與「：note」刻意留在呼叫端，
+          那是本頁特有的欄位，<Sources> 的契約裡沒有它們，硬塞進去等於改變元件語意。 */}
       <ul>
         {a.sources.map((source) => (
           <li>
-            <a href={source.url} rel="noopener noreferrer">{source.ref}</a>
+            <Sources sources={[source]} prefix="" variant="bare" />
             <span class="muted">（{source.type}）</span>
             {source.note && <span>：{source.note}</span>}
           </li>

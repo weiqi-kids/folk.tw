@@ -10,6 +10,7 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
+import Sources from '../../../components/Sources.astro';
 import { memorialArticle } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 import topical from '../../../data/topical.json';
@@ -132,15 +133,12 @@ const visual = 'prayer-light';
           <li>
             {u.date && <span class="date">{u.date}</span>}
             <p class="utext">{u.text}</p>
+            {/* 這裡原本手寫 <a> 與分隔符，2026-08-20 收斂回 <Sources>（錨文字唯一入口＝parseSourceRef）。
+                外層 <p class="usources small muted"> 刻意保留、用 bare 版型：本頁每一段次要文字都是
+                small＋muted，換成 <Sources> 自己的 .src（--gold／--text-xs）會讓來源列在本頁內自相矛盾。 */}
             {u.sources && u.sources.length > 0 && (
               <p class="usources small muted">
-                來源：
-                {u.sources.map((s, i) => (
-                  <>
-                    {i > 0 && '、'}
-                    <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-                  </>
-                ))}
+                <Sources sources={u.sources} prefix="來源：" variant="bare" />
               </p>
             )}
           </li>
@@ -160,15 +158,10 @@ const visual = 'prayer-light';
         )}
       </div>
 
+      {/* 同上：原本手寫 <a>，2026-08-20 收斂回 <Sources>；外層 <p> 保留＝維持本頁的 small muted 語彙。 */}
       {item.sources && item.sources.length > 0 && (
         <p class="sources small muted">
-          事件出處：
-          {item.sources.map((s, i) => (
-            <>
-              {i > 0 && '、'}
-              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-            </>
-          ))}
+          <Sources sources={item.sources} prefix="事件出處：" variant="bare" />
         </p>
       )}
 
@@ -176,15 +169,10 @@ const visual = 'prayer-light';
     </>
   ) : isArchived ? (
     <>
+      {/* 同上：原本手寫 <a>，2026-08-20 收斂回 <Sources>；外層 <p> 保留＝維持本頁的 small muted 語彙。 */}
       {item.sources && item.sources.length > 0 && (
         <p class="sources small muted">
-          事件出處：
-          {item.sources.map((s, i) => (
-            <>
-              {i > 0 && '、'}
-              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-            </>
-          ))}
+          <Sources sources={item.sources} prefix="事件出處：" variant="bare" />
         </p>
       )}
 
@@ -201,15 +189,10 @@ const visual = 'prayer-light';
     </>
   ) : (
     <>
+      {/* 同上：原本手寫 <a>，2026-08-20 收斂回 <Sources>；外層 <p> 保留＝維持本頁的 small muted 語彙。 */}
       {item.sources && item.sources.length > 0 && (
         <p class="sources small muted">
-          事件出處：
-          {item.sources.map((s, i) => (
-            <>
-              {i > 0 && '、'}
-              <a href={s.url} rel="nofollow noopener" target="_blank">{s.ref}</a>
-            </>
-          ))}
+          <Sources sources={item.sources} prefix="事件出處：" variant="bare" />
         </p>
       )}
 
@@ -244,7 +227,10 @@ const visual = 'prayer-light';
     .incident-facts dd { margin: 0; }
     .incident-facts p { margin: 0.75rem 0 0; }
     .sources { margin: 0.5rem 0 0; }
-    .sources a { text-decoration: underline; text-underline-offset: 3px; }
+    /* 🔴 :global 是必要的，不是偷懶：<a> 現在由 Sources.astro 產出，帶的是**它的** scope 屬性，
+       而 Astro 會把 `.sources a` 編成 `.sources[cid-本頁] a[cid-本頁]`（2026-08-20 dev 實測輸出），
+       對子元件的 <a> 完全不命中 → 底線會靜默消失。 */
+    .sources :global(a) { text-decoration: underline; text-underline-offset: 3px; }
     .closing { font-size: var(--text-base); color: var(--ink-soft); margin: 2.5rem 0 0; }
 
     .hearth { margin-top: 2rem; border-radius: 1.125rem; padding: 1.5rem 1.5rem 1rem;
@@ -277,7 +263,8 @@ const visual = 'prayer-light';
       font-variant-numeric: tabular-nums; margin-bottom: 0.25rem; }
     .timeline .utext { font-size: var(--text-base); margin: 0 0 0.375rem; }
     .timeline .usources { margin: 0; }
-    .timeline .usources a { text-decoration: underline; text-underline-offset: 3px; }
+    /* 同上（子元件的 <a> 不帶本頁 scope）。 */
+    .timeline .usources :global(a) { text-decoration: underline; text-underline-offset: 3px; }
   </style>
 
   <script>

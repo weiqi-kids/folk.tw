@@ -10,6 +10,7 @@
 //    兩者用途不同；而且 /vocabulary/ 已近六百詞，再加兩千條會變成單頁十萬字。
 import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
+import Sources from '../../components/Sources.astro';
 import { HUB } from '../../lib/breadcrumbs';
 import data from '../../data/artifacts.json';
 import ledger from '../../data/artifact-pages.json';
@@ -68,9 +69,12 @@ const pageLinks = ledger.entries.filter((e) => e.category === cat.id);
           <dt id={t.term}>{t.term}</dt>
           <dd>
             {t.def}
-            <a class="src" href={t.source.ref.replace(/^.*\s(https?:)/, '$1')} rel="nofollow noopener" target="_blank">
-              來源
-            </a>
+            {/* 這裡原本自己寫一條正規式抽網址、錨文字寫死「來源」，2026-08-20 收斂回 <Sources>。
+                🔴 兩件事一起修好：① href 改由 parseSourceRef 抽（本頁 1,983 條實測 href 與舊式
+                   逐條相同，授權要的那個連結一個都沒變）；② 錨文字從「來源」變成辭條全名
+                   「國史館臺灣文獻館《臺灣民俗文物辭典》〈瓜皮帽〉」——授權條件要的是標示來源，
+                   說出是誰的辭書才算標示，「來源」兩個字誰都可以是。 */}
+            <Sources sources={[t.source]} prefix="　" variant="inline" />
           </dd>
         </div>
       ))
@@ -101,7 +105,6 @@ const pageLinks = ledger.entries.filter((e) => e.category === cat.id);
     .term { padding: 0.625rem 0; border-bottom: 1px dashed var(--line); }
     .term dt { font-weight: 700; color: var(--accent); }
     .term dd { margin: 0.25rem 0 0; line-height: 1.9; }
-    .src { margin-left: 0.5rem; font-size: var(--text-sm); white-space: nowrap; }
     .more ul { list-style: none; padding: 0; display: grid; gap: 0.375rem;
       grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); }
     .small { font-size: var(--text-sm); }
