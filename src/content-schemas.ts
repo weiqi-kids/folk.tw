@@ -632,3 +632,86 @@ export const localCelebrationsSchema = z.object({
   // 規則消歧失敗一律 null（寧缺勿假），**不是漏填**——見 import-local-celebrations.mjs 檔頭。
   temple_ref: z.string().nullable(),
 });
+
+// ── festivals.json ───────────────────────────────────────────────────────
+//
+// 🔴 **festivals.json 不是 content collection**（全站十餘處直接 `import` 原始 json），
+//    所以 `astro build` 從來不驗它。2026-08-20 之前它是**唯一一份完全沒有把關的資料集**：
+//    `scripts/import-th-dict.mjs` 對它做逐行文字插入，寫錯欄位不會拋例外，
+//    只會安靜產出壞資料。這份 schema 補的就是那個洞。
+//
+// ⚠️ 這裡**沒有**把它變成 collection——那要改十餘個 import 點，是另一件事。
+//    現階段用途是「寫入端驗證」與「gate 全量驗證」，讀取端維持原樣。
+//
+// ── 必填欄位怎麼決定的（避免把偶然的形狀寫成法律）────────────────────
+//   判準是「2026-08-20 實測 68 筆全部有」**且**語意上真的不可缺。只有 11 個欄位過關；
+//   其餘一律 optional，即使出現率很高（如 date_note 59/68）也不標必填。
+//
+// ── 三個受限欄位的值域是從哪來的（都不是我用樣本自創的）──────────────
+//   • `date_status`：沿用 `scripts/check-annual-release.mjs:91` 已宣告的四值詞彙。
+//     ⚠️ festivals.json 目前只出現 `source_required` 一種——**用 n=1 訂枚舉會把偶然
+//     寫成法律**，所以取 repo 自己已經宣告過的那組，不是取樣本。
+//   • `source_status`：2026-08-20 實測只有兩種，且語意互斥（有錨定日期／待補來源）。
+//   • `solar_term`：**刻意不列 24 節氣枚舉**。repo 裡沒有正規的節氣清單
+//     （`almanac/provider.ts` 只有 5 個簡繁對照），在這裡列一份等於新增第二個真實來源，
+//     而節氣的權威在農民曆引擎那邊。要收緊的話應該先在 almanac 立清單再引用。
+//
+// ⚠️ 三個日期欄位（lunar_date／solar_date／solar_term）**型別上互斥不了**。
+//    2026-08-20 實測 0 筆同時有值，該不變量由 `src/lib/calendar-date.test.ts` 全量斷言；
+//    zod 的 refine 只能擋單筆，擋不住「兩邊各自漂走」，所以留在測試那邊。
+//
+// 🔴 **`sources[].type` 的詞彙已經跟站上其他資料集分岔了**，而且是這份 schema 補上去
+//    才發現的（2026-08-20 全量實測 474 筆來源）：festivals 多出 `site`（46 筆）與
+//    `gov_heritage`（24 筆）兩種，共用的 `source` 片段沒有它們。
+//    這正是「沒有 schema 所以詞彙悄悄漂走」的實例。
+//    ⚠️ 這裡**如實記錄分岔，不做規範化**——把那 70 筆改成 gov/web 是資料決定
+//    （會動到已上線頁面的來源標註分類），要站主裁示。要收斂時改這個 enum 並改資料，
+//    兩件事同一回合做，不要只改一邊。
+const festivalSource = z.object({
+  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other', 'site', 'gov_heritage']),
+  ref: z.string(),
+  note: z.string().optional(),
+});
+
+export const FESTIVAL_DATE_STATUSES = ['source_required', 'verified', 'blocked', 'not_applicable'] as const;
+export const FESTIVAL_SOURCE_STATUSES = ['calendar_anchored', 'source_required'] as const;
+
+export const festivalsSchema = z.object({
+  // ── 11 個必填（實測 68/68 且語意不可缺）──
+  slug: z.string().regex(/^[a-z0-9-]+$/, 'slug 只能是小寫英數與連字號（它是永久網址承諾，見 CLAUDE.md 紅線 4）'),
+  name: z.string().min(1),
+  aliases: z.array(z.string()),
+  season: z.string().min(1), // 自由文字（「農曆七月」「九月節氣」…），不可枚舉
+  question: z.string().min(1),
+  intent: z.string().min(1), // 自由文字，長句
+  lead: z.string().min(1),
+  sources: z.array(festivalSource),
+  facts: z.array(z.object({ text: z.string().min(1), sources: z.array(festivalSource) })),
+  published: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+
+  // ── 選填 ──
+  date_note: z.string().optional(),
+  source_status: z.enum(FESTIVAL_SOURCE_STATUSES).optional(),
+  date_status: z.enum(FESTIVAL_DATE_STATUSES).optional(),
+  image_key: z.string().optional(),
+  draft_week: z.number().int().optional(),
+  multi_day: z.boolean().optional(),
+  lunar_date: z.string().regex(/^\d{2}-\d{2}$/).optional(),
+  solar_date: z.string().regex(/^\d{2}-\d{2}$/).optional(),
+  solar_term: z.string().min(1).optional(),
+  practice_refs: z.array(z.string()).optional(),
+  event_refs: z.array(z.string()).optional(),
+  deity_refs: z.array(z.string()).optional(),
+  vocab_refs: z.array(z.string()).optional(),
+  temple_refs: z.array(z.string()).optional(),
+  // 🔴 import-th-dict.mjs 寫的就是這個欄位；excerpt 是逐字引用，空陣列代表引了個寂寞。
+  th_dict: z.array(z.object({
+    url: z.string().url(),
+    title: z.string().min(1),
+    excerpt: z.array(z.string().min(1)).min(1),
+  })).optional(),
+  // ⚠️ 全站只有 1 筆有 checklist。**不照那一筆的形狀逐欄寫死**（n=1 訂規格＝過度擬合），
+  //    只驗真正被 PuduChecklist.astro 依賴的兩個欄位，其餘 passthrough。
+  checklist: z.object({ title: z.string().min(1), groups: z.array(z.unknown()) }).passthrough().optional(),
+});

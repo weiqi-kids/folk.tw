@@ -10,6 +10,12 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+// 🔴 festivals.json **不是 content collection**（全站十餘處直接 import 原始 json），
+//    所以 astro build 從來不驗它——2026-08-20 之前它是唯一一份完全沒有把關的資料集。
+//    這裡補上全量 schema 驗證：只在匯入時驗不夠，檔案被手改一樣要擋。
+//    ⚠️ 只能 import src/content-schemas.ts（bare node 載得動）；
+//    src/content.config.ts 會爆 "Received protocol 'astro:'"。
+import { festivalsSchema } from '../src/content-schemas.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const load = (name: string): any[] => JSON.parse(readFileSync(join(root, 'src/data', name), 'utf8'));
@@ -54,6 +60,25 @@ const softReport: string[] = [];
 function hard(msg: string) {
   hardErrors++;
   console.error(`  ✗ ${msg}`);
+}
+
+// ── festivals.json 全量 schema 驗證 ─────────────────────────────────────
+// 這份資料集沒有 content collection 幫它把關（見檔頭 import 處的說明），
+// 所以欄位寫錯不會有任何東西紅燈，只會安靜產出壞頁面。
+console.log('\n── festivals.json schema ──');
+{
+  let bad = 0;
+  for (const f of festivals) {
+    const r = festivalsSchema.safeParse(f);
+    if (r.success) continue;
+    bad += 1;
+    for (const issue of r.error.issues.slice(0, 3)) {
+      hard(`festivals.json ${f.slug ?? '(無 slug)'}：${issue.path.join('.')} — ${issue.message}`);
+    }
+  }
+  console.log(bad === 0
+    ? `  ✓ ${festivals.length} 筆全數符合 schema`
+    : `  ✗ ${bad}/${festivals.length} 筆不符`);
 }
 
 console.log('\n=== 硬性參照完整性（dangling ref → 會壞頁面）===');

@@ -35,7 +35,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 // ⚠️ schema 只能指向 src/content-schemas.ts（bare node 載得動）；
 //    src/content.config.ts 會爆 "Received protocol 'astro:'"。
 import { validateRecords } from './lib/dataset-commit.mjs';
-import { deitiesSchema, practicesSchema } from '../src/content-schemas.ts';
+import { deitiesSchema, practicesSchema, festivalsSchema } from '../src/content-schemas.ts';
 
 const DEITIES = 'src/data/deities.json';
 const PRACTICES = 'src/data/practices.json';
@@ -83,11 +83,10 @@ const TARGETS = [
   { file: DEITIES, label: '神明', rows: map.items ?? [], key: 'id', schema: deitiesSchema },
   { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [], key: 'id', schema: practicesSchema },
   // 🔴 節日的主鍵是 slug（festivals.json 沒有 id 欄位），不宣告 key 會整批查無此項目。
-  // ⚠️ schema 為 null 是因為 **festivals.json 根本不是 content collection**
-  //    （src/content-schemas.ts 裡沒有它，全站十餘處直接 import 原始 json）。
-  //    所以這個目標的寫入目前沒有任何 schema 把關——要補得先替它寫一份 schema，
-  //    那是新增規則而不是接線。查法：grep -n "festivals" src/content-schemas.ts
-  { file: FESTIVALS, label: '節日', rows: map.festival_items ?? [], key: 'slug', schema: null },
+  // ✅ 2026-08-20：festivalsSchema 已補上。festivals.json **仍然不是 content collection**
+  //    （全站十餘處直接 import 原始 json，astro build 不驗它），所以那份 schema 的用途是
+  //    「寫入端擋下 ＋ check:integrity 全量驗」兩條路，不是讓它變成 collection。
+  { file: FESTIVALS, label: '節日', rows: map.festival_items ?? [], key: 'slug', schema: festivalsSchema },
 ];
 
 let ok = 0;
