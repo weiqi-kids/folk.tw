@@ -9,7 +9,8 @@
     "候選產生方式：把辭典全部辭條的名稱與各神明的 name＋aliases 做雙向包含比對，人工逐筆看內文定案。",
     "rejected 段記的是**查過而判定不採用**的，不要再查一次。",
     "activity_placements 段記的是「民俗活動類辭條」的去向——那些不進 th_dict（那個欄位是神明頁專用），而是人工寫成對應節日／活動頁的 facts。unplaced 段是辭典有、但站上目前沒有對應頁的，將來要開頁時直接照著查。",
-    "practice_items 段＝習俗頁（practices.json）的對映，與 items（神明頁）同一套流程與規則，由同一支匯入器處理。"
+    "practice_items 段＝習俗頁（practices.json）的對映，與 items（神明頁）同一套流程與規則，由同一支匯入器處理。",
+    "受控詞彙（/vocabulary/）也吃這部辭典：既有 20 個詞補上辭條來源，另新增 95 個詞與兩個新群（求籤問筊與擇日、廟宇工藝與陳設）。那批不走 th_dict 欄位，是直接寫進 vocabulary.json 的 term/def/sources。"
   ],
   "source": "https://dict.th.gov.tw/ 國史館臺灣文獻館《臺灣民俗文物辭典》；2026-08-19 站主確認已取得授權，條件＝標示資料來源連結",
   "verified_on": "2026-08-20",
@@ -921,9 +922,13 @@
         {
           "dict_id": 2400,
           "dict_name": "點光明燈"
+        },
+        {
+          "dict_id": 1320,
+          "dict_name": "光明燈"
         }
       ],
-      "basis": "同名辭條。"
+      "basis": "同名辭條。另補「光明燈」一條——辭典把燈本身與點燈儀式分成兩條。"
     },
     {
       "deity_id": "buyun",

@@ -9,6 +9,10 @@ const groups: { key: keyof typeof vocab; label: string }[] = [
   { key: 'chen_tou', label: '陣頭' },
   { key: 'joss_paper', label: '金紙／紙錢' },
   { key: 'offerings', label: '供品' },
+  // 2026-08-20 加：求籤問筊與廟宇工藝兩群。來源是國史館臺灣文獻館《臺灣民俗文物辭典》，
+  // 逐詞掛回該辭條的公開網址——那是授權條件，不是裝飾。
+  { key: 'divination', label: '求籤、問筊與擇日' },
+  { key: 'temple_craft', label: '廟宇工藝與陳設' },
 ];
 type Term = { term: string; def: string; alias?: string[]; sources?: { ref: string }[] };
 ---
