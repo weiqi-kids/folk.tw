@@ -9,7 +9,9 @@ import { faqPage } from '../../../lib/seo';
 import { HUB } from '../../../lib/breadcrumbs';
 
 const affairs = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
-const terms = (termsData as { terms: Record<string, { def: string; note?: string }> }).terms;
+const terms = (termsData as {
+  terms: Record<string, { def: string; note?: string; practice?: { id: string; title: string } }>;
+}).terms;
 
 // 詞義頁：每個有詞義的宜忌事項一頁（slug = affair id，永久承諾）。
 // 注意：getStaticPaths 為隔離執行，不可用上方 frontmatter 的 const，需自 import 取資料。
@@ -79,6 +81,17 @@ const faq = faqPage([
     )}
   </section>
 
+  {/* 這個用事就是站上某一套習俗的儀節時，連過去。判斷寫在 src/data/yiji-terms.json 的
+      practice 欄（人工一對一，泛稱型如祭祀／祈福查無單一對象就留空，不硬湊）。
+      詞義頁答的是「這兩個字什麼意思、哪幾天宜」，儀節頁答的是「實際怎麼做」，兩邊不重疊。 */}
+  {
+    term.practice && (
+      <p class="to-practice">
+        要看實際怎麼做：<a href={`/practices/${term.practice.id}/`}>{term.practice.title}的儀節步驟 →</a>
+      </p>
+    )
+  }
+
   <nav class="more" aria-label="更多">
     <a href="/almanac/yiji/">回宜忌事項一覽 →</a>
     <a href="/almanac/">今日農民曆 →</a>
@@ -124,6 +137,8 @@ const faq = faqPage([
   .day-item .cd { font-size: var(--text-xs); color: var(--gold); }
   .more { margin-top: 2.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: var(--text-sm); }
   .more a { color: var(--accent); }
+  .to-practice { margin-top: 2rem; font-size: var(--text-base); }
+  .to-practice a { color: var(--accent); font-weight: 700; }
   .small { font-size: var(--text-sm); }
   .src { margin-top: 1.5rem; }
 </style>

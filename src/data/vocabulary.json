@@ -4360,6 +4360,75 @@
           "note": "辭條「虎頭獸牌」逐字節錄"
         }
       ]
+    },
+    {
+      "term": "天師壇",
+      "def": "天師壇是醮典傳統醮壇四大外壇之一，壇主為道教教主張天師，又稱為主會壇。",
+      "alias": [
+        "主會壇"
+      ],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈天師壇〉 https://dict.th.gov.tw/detailPage.aspx?ID=1416",
+          "note": "辭條「天師壇」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "北帝壇",
+      "def": "北帝壇是醮典傳統醮壇四大外壇之一，壇主為道教法主北極玄天上帝，又稱為主醮壇。",
+      "alias": [
+        "主醮壇"
+      ],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈北帝壇〉 https://dict.th.gov.tw/detailPage.aspx?ID=1417",
+          "note": "辭條「北帝壇」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "福德壇",
+      "def": "福德壇是醮典傳統醮壇四大外壇之一，壇主為福德正神，又稱為主普壇。",
+      "alias": [
+        "主普壇"
+      ],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈福德壇〉 https://dict.th.gov.tw/detailPage.aspx?ID=1418",
+          "note": "辭條「福德壇」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "觀音壇",
+      "def": "觀音壇是醮典傳統醮壇四大外壇之一，壇主為佛教四大菩薩之一的觀世音菩薩。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈觀音壇〉 https://dict.th.gov.tw/detailPage.aspx?ID=1419",
+          "note": "辭條「觀音壇」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "錫杖",
+      "def": "錫杖，又名智杖、德杖；為聖人之表徵、賢士之明記、道法之正幢，可除煩惱、出三界。",
+      "alias": [
+        "智杖",
+        "德杖"
+      ],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈錫杖〉 https://dict.th.gov.tw/detailPage.aspx?ID=1358",
+          "note": "辭條「錫杖」逐字節錄"
+        }
+      ]
     }
   ],
   "talisman": [
@@ -5082,6 +5151,44 @@
           "type": "gov",
           "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈功德用公庫錢〉 https://dict.th.gov.tw/detailPage.aspx?ID=1038",
           "note": "辭條「功德用公庫錢」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "紙厝",
+      "def": "紙厝是燒給亡魂住的。紙轎是地府用來載亡魂用的，男人坐白馬、女人坐蓮花。",
+      "alias": [
+        "紙轎"
+      ],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈紙厝〉 https://dict.th.gov.tw/detailPage.aspx?ID=1658",
+          "note": "辭條「紙厝」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "牒文",
+      "def": "牒文就是冥間支票一樣。一張給陰間庫官、一張給亡魂收執。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈牒文〉 https://dict.th.gov.tw/detailPage.aspx?ID=1661",
+          "note": "辭條「牒文」逐字節錄"
+        }
+      ]
+    },
+    {
+      "term": "厝契",
+      "def": "如有紙厝要燒給亡魂，則要填寫厝契。",
+      "alias": [],
+      "sources": [
+        {
+          "type": "gov",
+          "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈厝契〉 https://dict.th.gov.tw/detailPage.aspx?ID=1662",
+          "note": "辭條「厝契」逐字節錄"
         }
       ]
     }

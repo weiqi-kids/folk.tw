@@ -4,7 +4,20 @@
 // 憑證（私鑰，務必勿進 repo）讀取優先序：
 //   1. 環境變數 GOOGLE_SA_KEY        — 服務帳號 JSON 金鑰之「字串內容」
 //   2. 環境變數 GOOGLE_APPLICATION_CREDENTIALS — JSON 金鑰之「檔案路徑」
-//   3. /root/.config/folk-tw/ga4-sa.json — 本機金鑰檔（repo 外；2026-08-04 自 scripts/.google-sa-key.json 遷出）
+//   3. /root/.config/folk-tw/gsc-sa.json —— **folk.tw 自己的金鑰，站主指定之後一律用這把**
+//      （服務帳號 folk-indexing@folk-tw.iam.gserviceaccount.com，專案 folk-tw，2026-08-20 起）。
+//
+// 🔴 為什麼換（2026-08-20 事故）：那天把 folk.tw 的 GSC 與 Indexing 切到自己的 GCP 專案，
+//    在 GSC 加新服務帳號為擁有者的同時，舊的共用金鑰 ga4-sa 被移出 folk.tw 的使用者名單，
+//    **對 GSC 直接變成 403**。當時只改了 seo-ops 的 sites/folk.tw.json，
+//    沒想到還有一批工具是走本檔「預設值」拿金鑰的（folk-outreach、growth-48h、
+//    search-demand、temple-ctr-cohorts…），它們當天全部靜默壞掉。
+//    實測：`ga4-sa.json` 打 sc-domain:folk.tw 得「User does not have sufficient permission」，
+//    `gsc-sa.json` 正常回資料。
+//
+// ✅ 2026-08-20 收尾：站主已把該服務帳號加進 GA4 資源 542419964（檢視者），
+//    GSC 與 GA4 兩邊都實測通過，**folk.tw 只剩這一把金鑰**，過渡期的退回機制已移除。
+//    舊的共用金鑰 ga4-sa.json 仍留在主機供其他站台使用，folk.tw 不再碰它。
 //
 // 設定（非機密）讀取優先序：env GA4_PROPERTY_ID / GSC_SITE_URL，
 //   否則 scripts/.google-config.json（已 gitignore），GSC 預設 sc-domain:folk.tw。
@@ -20,11 +33,14 @@ const scriptsDir = join(here, '..');
 const b64url = (buf) =>
   Buffer.from(buf).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-export function loadCredentials() {
+// folk.tw 自己的金鑰（GSC／Indexing／GA4 全部走這一把）。env 一律優先於此。
+export const FOLK_KEY = '/root/.config/folk-tw/gsc-sa.json';
+
+export function loadCredentials(keyPath) {
   let raw;
-  if (process.env.GOOGLE_SA_KEY) raw = process.env.GOOGLE_SA_KEY;
+  if (!keyPath && process.env.GOOGLE_SA_KEY) raw = process.env.GOOGLE_SA_KEY;
   else {
-    const path = process.env.GOOGLE_APPLICATION_CREDENTIALS || '/root/.config/folk-tw/ga4-sa.json';
+    const path = keyPath || process.env.GOOGLE_APPLICATION_CREDENTIALS || FOLK_KEY;
     if (!existsSync(path)) {
       throw new Error(
         `找不到服務帳號金鑰。請設 GOOGLE_SA_KEY 環境變數，或把 JSON 金鑰存到 ${path}（已 gitignore）。`,
@@ -47,8 +63,8 @@ export function loadConfig() {
 }
 
 /** 服務帳號 JWT-bearer 流程 → 取存取權杖 */
-export async function getAccessToken(scopes) {
-  const { client_email, private_key } = loadCredentials();
+export async function getAccessToken(scopes, keyPath) {
+  const { client_email, private_key } = loadCredentials(keyPath);
   const now = Math.floor(Date.now() / 1000);
   const header = b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
   const claim = b64url(
@@ -82,8 +98,8 @@ export async function getAccessToken(scopes) {
 /** GA4 Data API runReport（唯讀） */
 export async function ga4RunReport(propertyId, body) {
   if (!propertyId) throw new Error('缺 GA4_PROPERTY_ID（GA4 數值資源 ID，非 G- 評量 ID）。');
-  const token = await getAccessToken('https://www.googleapis.com/auth/analytics.readonly');
   const id = String(propertyId).replace(/^properties\//, '');
+  const token = await getAccessToken('https://www.googleapis.com/auth/analytics.readonly');
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${id}:runReport`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
