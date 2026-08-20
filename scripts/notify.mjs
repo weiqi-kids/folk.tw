@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ⚠️ 這支已經變成薄包裝。實作在獨立專案 gsc-index（2026-08-20 抽出）：
-//   /root/gsc-index/bin/gsc-index.mjs notify　repo: https://github.com/LightChang/gsc-index
+//   /root/gsc-index/bin/gsc-index.mjs notify　repo: https://github.com/weiqi-kids/gsc-index
 //
 // 部署後「一鍵雙推」：同一組網址同時送 Google Indexing API ＋ IndexNow。
 // 設計不變：Google 配額有限（每日 200）先跑；IndexNow 無配額後跑；任一支失敗只記錄不中斷另一支。

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 全站索引涵蓋率稽核 cron 包裝（2026-07-28 建；2026-08-20 實作抽到 gsc-index）。
 #
-# ⚠️ 實作已不在本 repo：/root/gsc-index（https://github.com/LightChang/gsc-index），
+# ⚠️ 實作已不在本 repo：/root/gsc-index（https://github.com/weiqi-kids/gsc-index），
 #   對 14 個納管站台通用。本站的 scripts/audit-index-coverage.mjs 現在是薄包裝。
 #   **要改行為去 gsc-index 改**，改這裡只有 folk.tw 生效、其他站不會跟上。
 #

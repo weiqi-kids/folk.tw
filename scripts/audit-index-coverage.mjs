@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ⚠️ 這支已經變成薄包裝。實作在獨立專案 gsc-index（2026-08-20 抽出）：
-//   /root/gsc-index/lib/audit.mjs　repo: https://github.com/LightChang/gsc-index
+//   /root/gsc-index/lib/audit.mjs　repo: https://github.com/weiqi-kids/gsc-index
 //
 // 全站索引涵蓋率稽核：對站上每一個頁面逐一跑 GSC URL Inspection，全量記錄收錄狀態。
 // 進度檔仍在 /root/.config/folk-tw/index-audit.json（repo 外），行為完全不變。

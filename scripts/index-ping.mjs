@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ⚠️ 這支已經變成薄包裝。實作在獨立專案 gsc-index（2026-08-20 抽出）：
-//   /root/gsc-index/lib/ping.mjs　repo: https://github.com/LightChang/gsc-index
+//   /root/gsc-index/lib/ping.mjs　repo: https://github.com/weiqi-kids/gsc-index
 //
 // 為什麼抽出去：GSC 後台的「網頁未編入索引的原因」沒有公開 API，只能靠 urlInspection
 // 全掃自己建清單；而配額續送、佇列、尾斜線正規化這些坑對 14 個納管站台一模一樣。
