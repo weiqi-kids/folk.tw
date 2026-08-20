@@ -15,6 +15,9 @@
 //
 // 用法：`pnpm check:doc-numbers`（已串進 deploy.yml 與 pnpm build:release 前段）
 import { readFileSync, existsSync } from 'node:fs';
+// 語料涵蓋契約：CURRENT_DOCS 裡的檔案若不存在（改名／搬走），這道 gate 就少守一份文件
+// 卻照樣印綠字。2026-08-20 改成違規上報。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const CURRENT_DOCS = [
   'CLAUDE.md',
@@ -73,10 +76,13 @@ const ALLOW = [
 //   拿掉後全量只多出 4 處，全部都是真的該修的（已修）。
 const stripCode = (line) => line.replace(/`[^`]*`/g, ' ');
 
+const corpus = newCorpus('check:doc-numbers');
 const violations = [];
 const historical = [];
 for (const f of CURRENT_DOCS) {
-  if (!existsSync(f)) continue;
+  // 🔴 不可靜默跳過：CURRENT_DOCS 是「必須被守住的現況型文件」清單，
+  //    檔案不在了代表清單過期，而不是這份文件不必守。
+  if (!existsSync(f)) { corpus.missing('現況型文件', f, '檔案改名或搬移後 CURRENT_DOCS 沒跟著改'); continue; }
   const raw = readFileSync(f, 'utf8');
   const mark = raw.split('\n').slice(0, 20).join('\n').match(HISTORICAL_MARK);
   if (mark) { historical.push(`${f}（${mark[1]}）`); continue; }
@@ -107,6 +113,14 @@ if (violations.length) {
 
 🔴 為什麼擋這個：三輪獨立稽核抓出十幾條過期數字，每一條都是「當時對、後來爛掉」，
    而讀者會照著行動。逐條修是治症狀，這道 gate 才是治本。`);
+  process.exit(1);
+}
+corpus.track('現況型文件', CURRENT_DOCS.length - historical.length,
+  { why: 'CURRENT_DOCS 全部被標成歷史紀錄、或清單被清空，都會讓這道 gate 實際上不守任何東西' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:doc-numbers 的語料涵蓋有問題（gate 少守卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
   process.exit(1);
 }
 console.log(`✓ 文件數字檢查通過：${CURRENT_DOCS.length - historical.length} 份現況型文件無寫死的數量宣稱`);

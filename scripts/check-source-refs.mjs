@@ -43,6 +43,8 @@ import { existsSync, readFileSync } from 'node:fs';
 //    上限也硬編成 40 而不是 import 同名常數。那正是 text-width.ts 檔頭在講的
 //    「同一條規則兩份各自演化」的第五份。plain node（v22.18+ 預設剝離型別）可直接 import .ts。
 import { fullWidth, SOURCE_LABEL_MAX_WIDTH } from '../src/lib/text-width.ts';
+// 語料涵蓋契約：規則⑤掃的 JSON 若解析失敗就靜默跳過，等於少驗一整檔卻照樣印綠字。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const INDEX = 'src/data/nchdb-folklore-index.json';
 const STALE_DAYS = 120;
@@ -219,11 +221,14 @@ console.log(`規則②：${verbatimChecked} 處逐字來源，網域皆須屬於
 //   同一批還有 57 筆 note 超過 SOURCE_LABEL_MAX_WIDTH（40 全形字）而會退化成截斷標籤。
 //   這條在來源層跑，秒級回饋。
 
+const corpus = newCorpus('check:source-refs');
 let noteChecked = 0;
 let wideNotes = 0;
 for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith('.json'))) {
   let data;
-  try { data = JSON.parse(readFileSync(file, 'utf8')); } catch { continue; }
+  // 🔴 不可靜默跳過：JSON 壞掉代表這一檔的來源 note 完全沒被驗到。
+  try { data = JSON.parse(readFileSync(file, 'utf8')); }
+  catch (e) { corpus.missing('規則⑤ 的資料檔', file, `JSON 解析失敗（${e.message.split('\n')[0]}）`); continue; }
   walk(data, (o) => {
     if (typeof o.ref !== 'string' || typeof o.note !== 'string' || !o.note) return;
     // ⚠️ `note` 只有在 `ref` 是**純網址**時才會被 parseSourceRef 拿去當錨文字；
@@ -262,6 +267,9 @@ if (wideNotes > WIDE_NOTE_BASELINE) {
   warnings.push(`來源 note 超寬數已降到 ${wideNotes}（基準 ${WIDE_NOTE_BASELINE}）→ 請把 WIDE_NOTE_BASELINE 調降，鎖住成果`);
 }
 console.log(`規則⑤：${noteChecked} 筆來源 note（錨文字）皆不含網址；超寬 ${wideNotes}/${WIDE_NOTE_BASELINE}`);
+corpus.track('規則⑤ 掃過的來源 note', noteChecked,
+  { why: 'tracked 清單抓不到 src/data/*.json（例如 git ls-files 失敗）會讓規則⑤ 實際上不驗任何東西' });
+for (const c of corpus.problems()) errors.push(c);
 
 // ── 規則 ③：未授權來源的引用數只能降不能升 ────────────────────────────────
 const counts = Object.fromEntries(Object.keys(UNLICENSED).map((h) => [h, 0]));
