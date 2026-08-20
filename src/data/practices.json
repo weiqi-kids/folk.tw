@@ -438,6 +438,11 @@
     ],
     "sources": [
       {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=1708",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈收驚〉"
+      },
+      {
         "type": "web",
         "ref": "https://vocus.cc/article/67f68c35fd897800018d5e96",
         "note": "方格子：收驚的民俗奇幻冒險"
@@ -602,6 +607,21 @@
       }
     ],
     "sources": [
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=1305",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈公媽爐〉"
+      },
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=223",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈公媽龕〉"
+      },
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=1079",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈公媽牌〉"
+      },
       {
         "type": "web",
         "ref": "https://www.bailucky.com/anshen",
@@ -1921,6 +1941,16 @@
       }
     ],
     "sources": [
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=1303",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈天公爐〉"
+      },
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=2403",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈天公生〉"
+      },
       {
         "type": "web",
         "ref": "https://vocus.cc/article/67a1b8e0fd8978000164a647",
