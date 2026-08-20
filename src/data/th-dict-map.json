@@ -10,7 +10,8 @@
     "rejected 段記的是**查過而判定不採用**的，不要再查一次。",
     "activity_placements 段記的是「民俗活動類辭條」的去向——那些不進 th_dict（那個欄位是神明頁專用），而是人工寫成對應節日／活動頁的 facts。unplaced 段是辭典有、但站上目前沒有對應頁的，將來要開頁時直接照著查。",
     "practice_items 段＝習俗頁（practices.json）的對映，與 items（神明頁）同一套流程與規則，由同一支匯入器處理。",
-    "受控詞彙（/vocabulary/）也吃這部辭典：既有 20 個詞補上辭條來源，另新增 95 個詞與兩個新群（求籤問筊與擇日、廟宇工藝與陳設）。那批不走 th_dict 欄位，是直接寫進 vocabulary.json 的 term/def/sources。"
+    "受控詞彙（/vocabulary/）也吃這部辭典：既有 20 個詞補上辭條來源，另新增 95 個詞與兩個新群（求籤問筊與擇日、廟宇工藝與陳設）。那批不走 th_dict 欄位，是直接寫進 vocabulary.json 的 term/def/sources。",
+    "2026-08-20 追加：辭典有辭條、站上卻沒有神明頁的四尊（釋迦牟尼佛、阿彌陀佛、彌勒佛、南極仙翁）已補開頁。醫藥神、路頭神、山神爺、土地神、七福神、歡喜佛等辭條**不另開神明頁**：前四者與既有的保生大帝／財神爺／土地公重疊或屬醮典紙糊神像（已收進祭典用品詞彙），七福神是日本信仰、歡喜佛屬藏密，皆非本站範圍。"
   ],
   "source": "https://dict.th.gov.tw/ 國史館臺灣文獻館《臺灣民俗文物辭典》；2026-08-19 站主確認已取得授權，條件＝標示資料來源連結",
   "verified_on": "2026-08-20",
@@ -600,6 +601,96 @@
         }
       ],
       "basis": "本站的王爺（千歲）是信仰通論頁，辭條講的正是王爺信仰通論——這條**不可**掛到池府千歲那類特定千歲頁。"
+    },
+    {
+      "deity_id": "shijia",
+      "entries": [
+        {
+          "dict_id": 1222,
+          "dict_name": "佛祖"
+        }
+      ],
+      "basis": "辭條名稱「佛祖」即本站別稱，內文講的就是釋迦牟尼佛。"
+    },
+    {
+      "deity_id": "amituo",
+      "entries": [
+        {
+          "dict_id": 1223,
+          "dict_name": "阿彌陀佛"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "mile",
+      "entries": [
+        {
+          "dict_id": 1224,
+          "dict_name": "彌勒佛"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "nanji",
+      "entries": [
+        {
+          "dict_id": 1200,
+          "dict_name": "壽神(南極仙翁)"
+        }
+      ],
+      "basis": "辭條名稱即含本站名稱南極仙翁。"
+    },
+    {
+      "deity_id": "yanluo",
+      "entries": [
+        {
+          "dict_id": 1220,
+          "dict_name": "閻羅王"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "fengdu",
+      "entries": [
+        {
+          "dict_id": 1217,
+          "dict_name": "酆都大帝"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "zhongkui",
+      "entries": [
+        {
+          "dict_id": 1221,
+          "dict_name": "鍾馗爺"
+        }
+      ],
+      "basis": "辭條名稱即本站別稱鍾馗爺。"
+    },
+    {
+      "deity_id": "damo",
+      "entries": [
+        {
+          "dict_id": 1225,
+          "dict_name": "達摩祖師"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "fulushou",
+      "entries": [
+        {
+          "dict_id": 1206,
+          "dict_name": "福祿壽三星"
+        }
+      ],
+      "basis": "同名辭條。"
     }
   ],
   "rejected": [
@@ -1117,6 +1208,16 @@
         }
       ],
       "basis": "辭典把出生到週歲的幾個節點各立一條（剃頭、滿月、收涎餅、度晬、抓周），本站合為一頁。另把「命名」排在最前——那是這一串禮俗的起點。"
+    },
+    {
+      "deity_id": "shoujing",
+      "entries": [
+        {
+          "dict_id": 1708,
+          "dict_name": "收驚"
+        }
+      ],
+      "basis": "同名辭條。"
     }
   ]
 }
