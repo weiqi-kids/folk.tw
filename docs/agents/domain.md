@@ -9,8 +9,11 @@ How the engineering skills should consume this repo's domain documentation when 
   **兩者不一致時信程式碼**，並回頭在 docs 標上更正。見 CLAUDE.md §4 檔尾那段警語。
 - **改任何 `src/` 檔案前，先讀那個檔自己的檔頭註解**——場景限定的紅線刻意寫在那裡，不在總紅線區。
 - 動手前先照 **CLAUDE.md §4 文件地圖**對號入座：那不是參考資料，是動手前的強制步驟。
-- `CONTEXT.md` 與 `docs/adr/` 目前皆不存在，**這是預期狀態**，不要預先建空殼——
-  等 `/domain-modeling` 真的解決了某個詞彙或決策時再 lazily 建。
+- `CONTEXT.md` 目前不存在，**這是預期狀態**，不要預先建空殼——等真的解決了某個詞彙時再 lazily 建。
+- `docs/adr/` **已經有內容**（2026-08-20 起）。它只記「為什麼不做」與「為什麼這樣做」，
+  用途是讓下一次架構審查不必重新推導同一件事。動某塊之前先看那裡有沒有相關的 ADR；
+  🔴 **要推翻某份 ADR 是可以的，但要在該檔加一段說明是什麼新證據推翻了它**，
+  不要當它不存在。
 
 ## Before exploring, read these
 

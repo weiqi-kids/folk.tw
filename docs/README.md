@@ -71,6 +71,17 @@
 
 ---
 
+## adr/ — 架構決策紀錄
+
+只記**「為什麼不做」與「為什麼這樣做」**，讓下一次架構審查不必重新推導同一件事。
+🔴 一份 ADR 就是一個「別再提這個」的證據，所以**否定的理由要寫得比肯定的更清楚**。
+
+| 檔 | 決定 | 什麼情況下重開 |
+|---|---|---|
+| [`adr/0001-no-shared-ratchet-module.md`](adr/0001-no-shared-ratchet-module.md) | **不**抽共用 ratchet 模組——實查後 ratchet 語意只存在於 `check-source-refs.mjs` 一個檔，巡檢列的六個檔有五個是 ALLOW 清單或掃描範圍，不是同一回事 | 出現第二個真正的數值 ratchet 時（一個 adapter 是假想的 seam，兩個才是真的） |
+
+---
+
 ## agents/ — Agent skill 的 repo 設定
 
 `mattpocock-skills:*` 那組 skill 讀這裡決定「工單開在哪、標籤怎麼叫、domain 文件在哪」。
