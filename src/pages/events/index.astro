@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getEvents, getDeities } from '../../lib/queries';
 import { HUB } from '../../lib/breadcrumbs';
 import { imageCreditTitle } from '../../lib/image-credit';
+// 週期措辭的唯一入口；卡片用 cycleShort（長度可預期），詳情頁用 cycleLabel。
+import { eventCycle, cycleShort } from '../../lib/event-cycle.ts';
 
 const events = await getEvents();
 const deities = await getDeities();
@@ -12,11 +14,6 @@ const HERITAGE: Record<string, string> = {
   municipal: '直轄市定民俗',
   county: '縣市定民俗',
   none: '未登錄',
-};
-const CYCLE: Record<string, string> = {
-  annual: '每年',
-  n_year_ke: '數年一科',
-  irregular: '不定期',
 };
 // 依文資身分分三段（國家重要 → 直轄市定 → 縣市定），段內維持既有 curated 檔案序。
 const LEVELS = ['national_important', 'municipal', 'county', 'none'] as const;
@@ -48,7 +45,7 @@ const groups = LEVELS.map((level) => ({
             <a class:list={['card', 'ev', { 'card-photo': e.data.image }]} href={`/events/${e.id}/`}>
               <strong>{e.data.name}</strong>
               <div class="muted small when">
-                {CYCLE[e.data.cycle]}
+                {cycleShort(eventCycle(e.data))}
                 {e.data.date_note && `　·　${e.data.date_note}`}
               </div>
               <div class="muted small">

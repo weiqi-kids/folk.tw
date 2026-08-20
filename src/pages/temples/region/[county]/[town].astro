@@ -5,6 +5,7 @@ import { getTemples, getDeities } from '../../../../lib/queries';
 import { HUB } from '../../../../lib/breadcrumbs';
 import { ALL_COUNTIES, countyName, templeCounty, templeTownship } from '../../../../lib/temple-region';
 import { num } from '../../../../lib/format';
+import { hasEnrichment } from '../../../../lib/temple-enrichment.ts';
 import { templeDemandHrefFor } from '../../../../lib/temple-demand-pages';
 
 // 縣市二級：各鄉鎮市區一頁，化解單一縣市頁過大（台南/高雄/屏東逾 700-1076 間）。
@@ -57,7 +58,7 @@ export const getStaticPaths = (async () => {
           townCount: ranked.length,
           countyTotal: inCounty.length,
           // 有沿革／創建年代／官網的廟＝本鎮少數已逐間查證過的，值得單獨帶出；沒有就留空不硬湊。
-          documented: list.filter((t) => t.data.history || t.data.founded || t.data.website),
+          documented: list.filter((t) => hasEnrichment(t.data)),
         },
       });
     }

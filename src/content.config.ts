@@ -366,7 +366,13 @@ const events = defineCollection({
     type: z.array(z.enum(EVENT_TYPES)).default([]),
     chen_tou: z.array(z.string()).default([]), // 陣頭（受控詞彙 D.3）
     cycle: z.enum(['annual', 'n_year_ke', 'irregular']),
-    ke_rule: z.string().nullable().default(null), // 三年一科：丑辰未戌
+    // 🔴 2026-08-20 拆欄位：原本是一個 `ke_rule: z.string()`，註解寫「三年一科：丑辰未戌」，
+    //    意思是它只該放地支——但 10 筆有值的資料裡 8 筆塞了自由文字，而 z.string() 攔不住，
+    //    頁面樣板 `${ke_rule}年一科` 因此在線上輸出「三年一科年一科」這類病句。
+    //    拆成三個各自單一語意的欄位後，造句由 src/lib/event-cycle.ts 生成，結構上不可能再串壞。
+    ke_branches: z.array(z.enum(['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'])).default([]), // 逢這些地支年舉行
+    ke_period_text: z.string().nullable().default(null), // 週期怎麼講，如「三年一科」。⚠️ 來源沒說就留 null，不由地支數量推算
+    ke_note: z.string().nullable().default(null), // 其他補充（如「首科 1967 年」），不參與造句
     date_resolution: z.enum(['fixed_lunar', 'divined', 'undetermined']),
     date_note: z.string().optional(),
     route_mode: z.enum(['fixed', 'yearly_versioned', 'undetermined']),

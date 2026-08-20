@@ -10,6 +10,7 @@ import { faqPage, eventThing } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import festivalsData from '../../data/festivals.json';
+import { eventCycle, cycleLabel, scheduleSentence } from '../../lib/event-cycle.ts';
 
 export const getStaticPaths = (async () => {
   const events = await getEvents();
@@ -18,6 +19,8 @@ export const getStaticPaths = (async () => {
 
 const { event } = Astro.props;
 const e = event.data;
+// 週期判定與措辭的唯一入口（見 src/lib/event-cycle.ts 檔頭：2026-08-20 線上病句成因）。
+const evCycle = eventCycle(e);
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
 const deityById = new Map(deities.map((d) => [d.id, d.data]));
@@ -42,7 +45,7 @@ const HERITAGE: Record<string, string> = {
   county: '縣市定民俗',
   none: '未登錄',
 };
-const CYCLE: Record<string, string> = { annual: '年度', n_year_ke: '數年一科', irregular: '不定' };
+
 const ROUTE: Record<string, string> = {
   fixed: '固定路線', yearly_versioned: '逐年版本化', undetermined: '不定（臨場決定）',
 };
@@ -88,7 +91,7 @@ const faq = faqPage([
   {
     q: `${e.name}什麼時候舉行？`,
     a: e.date_note
-      ? `${e.name}約於${e.date_note}舉行${e.cycle === 'n_year_ke' ? `，${e.ke_rule ? `${e.ke_rule}年` : '數年'}一科` : e.cycle === 'annual' ? '，每年一次' : ''}${e.date_resolution === 'divined' ? '；確切日期由廟方擲筊擇定' : ''}。`
+      ? scheduleSentence(e.name, e.date_note, evCycle, e.date_resolution === 'divined')
       : '',
   },
   {
@@ -198,7 +201,8 @@ const jsonLd: object[] = [
         </dd>
       </div>
     )}
-    <div><dt>週期</dt><dd>{CYCLE[e.cycle]}{e.ke_rule && `（${e.ke_rule}）`}</dd></div>
+    {/* 週期措辭的唯一入口是 src/lib/event-cycle.ts；不要在這裡就地拼字串（2026-08-20 病句成因）。 */}
+    <div><dt>週期</dt><dd>{cycleLabel(evCycle)}{e.ke_note && `（${e.ke_note}）`}</dd></div>
     <div><dt>日期</dt><dd>{e.date_note ?? '—'}</dd></div>
     <div><dt>路線型態</dt><dd>{ROUTE[e.route_mode]}</dd></div>
     {e.region.length > 0 && <div><dt>地域</dt><dd>{e.region.join('、')}</dd></div>}

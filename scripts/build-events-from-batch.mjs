@@ -87,7 +87,13 @@ for (const it of batch.items ?? []) {
     type: it.type ?? [],
     chen_tou: [],
     cycle: it.cycle ?? 'annual',
-    ke_rule: it.ke_rule ?? null,
+    // 🔴 2026-08-20 拆欄位：舊的 ke_rule 一個欄位同時裝地支與自由文字，
+    //    頁面樣板串接它產出了線上病句（見 src/lib/event-cycle.ts 檔頭）。
+    //    這裡刻意**不**接受 ke_rule——批次來源若還帶那個 key，寧可留空由人補，
+    //    也不要把自由文字倒進只該放地支的欄位。
+    ke_branches: Array.isArray(it.ke_branches) ? it.ke_branches : [],
+    ke_period_text: it.ke_period_text ?? null,
+    ke_note: it.ke_note ?? null,
     date_resolution: it.date_resolution ?? 'undetermined',
     ...(it.date_note ? { date_note: it.date_note } : {}),
     route_mode: it.route_mode ?? 'undetermined',

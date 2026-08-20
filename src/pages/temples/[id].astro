@@ -10,6 +10,7 @@ import { faqPage, templePlace } from '../../lib/seo';
 import { templeCrumbs } from '../../lib/breadcrumbs';
 import { templeCounty, templeTownship } from '../../lib/temple-region';
 import { commonTempleName } from '../../lib/temple-name';
+import { hasEnrichment, hasHistorySection } from '../../lib/temple-enrichment.ts';
 import ImageCredit from '../../components/ImageCredit.astro';
 import { lunarDateLabel } from '../../lib/birthdays';
 import { festivalNextSolar } from '../../lib/lunar-date';
@@ -95,7 +96,7 @@ export const getStaticPaths = (async () => {
     const neighbors = inTown
       .filter((x) => x.id !== t.id)
       .sort((a, b) => {
-        const w = (x: typeof a) => (x.data.history || x.data.website || x.data.founded ? 0 : 1);
+        const w = (x: typeof a) => (hasEnrichment(x.data) ? 0 : 1);
         return w(a) - w(b) || a.data.name.localeCompare(b.data.name);
       })
       .slice(0, 5)
@@ -131,7 +132,7 @@ const refOk = t.main_deity_ref && deityName.has(t.main_deity_ref);
 const county = templeCounty(t.district);
 const township = templeTownship(t.district);
 // 名廟沿革（#1 內容豐化）：有沿革才顯示沿革區塊。
-const hasHistory = !!(t.founded || t.history || t.main_festival);
+const hasHistory = hasHistorySection(t);
 
 // P1-4 AEO：廟宇資料稀疏，僅就有資料者生問答。
 const mainDeity = t.main_deity_raw ?? (refOk ? deityName.get(t.main_deity_ref!) : '');

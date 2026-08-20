@@ -9,7 +9,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "divined",
     "date_note": "三月（廟方擲筊擇日）",
     "route_mode": "yearly_versioned",
@@ -148,7 +147,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:2021%E5%A4%A7%E7%94%B2%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83_02.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "baishatun",
@@ -165,7 +167,6 @@
       "媽祖鑾轎"
     ],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "divined",
     "date_note": "三月（前一年12/15擲筊定）",
     "route_mode": "undetermined",
@@ -260,7 +261,10 @@
       "license": "CC BY-SA 2.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Baishatun_Mazu_Pilgrimage_in_Huwei_2009_01.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "beigang",
@@ -272,7 +276,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "三月十九、二十",
     "route_mode": "fixed",
@@ -360,7 +363,10 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%9C%9D%E5%A4%A9%E5%AE%AE%E6%AD%A3%E6%AE%BF%E5%AA%BD%E7%A5%96%E8%81%96%E5%83%8F.JPG"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "donggang",
@@ -373,7 +379,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "丑辰未戌",
     "date_resolution": "fixed_lunar",
     "date_note": "九月",
     "route_mode": "fixed",
@@ -446,7 +451,15 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Ong-tsun_Taiwan.jpg"
-    }
+    },
+    "ke_branches": [
+      "丑",
+      "辰",
+      "未",
+      "戌"
+    ],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xigang",
@@ -458,7 +471,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "四月",
     "route_mode": "fixed",
@@ -555,7 +567,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E6%B8%AF%E9%A6%99%E8%AB%8B%E5%A4%A7%E9%81%93%E5%85%AC.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "jilong",
@@ -567,7 +582,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "七月",
     "route_mode": "fixed",
@@ -711,7 +725,10 @@
         "lunar": "每年固定農曆8月1日",
         "description": "於慶安宮媽祖神前舉行，本年主普宗親會將手爐交予明年輪值宗親會，展現出族群和諧與任務傳承的象徵意義。"
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "qingshan",
@@ -724,7 +741,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "十月廿、廿一暗訪，廿二正日",
     "route_mode": "fixed",
@@ -817,7 +833,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:2017%E8%89%8B%E8%88%BA%E9%9D%92%E5%B1%B1%E5%AE%AE%E9%9D%92%E5%B1%B1%E7%8E%8B%E7%A5%ADz.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "yanshui",
@@ -830,7 +849,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "元宵（正月十五前後）",
     "route_mode": "fixed",
@@ -903,7 +921,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Yanshui_Beehive_Fireworks_Festival_in_Taiwan.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "neimen",
@@ -918,7 +939,6 @@
       "宋江陣"
     ],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "二月觀音聖誕前後",
     "route_mode": "fixed",
@@ -986,7 +1006,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A7%E9%96%80%E5%AE%8B%E6%B1%9F%E9%99%A3%E8%97%9D%E9%99%A3%E8%A1%A8%E6%BC%9402.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "toucheng",
@@ -998,7 +1021,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "七月底（關鬼門前）",
     "route_mode": "fixed",
@@ -1107,7 +1129,10 @@
         "name": "醮典第三日",
         "description": "醮典第三日儀式，上午的叩答三界（拜天公）最為重要，以向上蒼稟告建醮功果祈求賜福，宿朝則是三朝醮典中最後的朝科。由於頭城開成寺慶讚中元活動源於感念吳沙墾蘭之功，因此在普度前有特殊的「祭拜吳沙公」儀式。傍晚則是壓軸的普度科儀，接續跳鍾馗完畢後，才進行搶孤的競賽活動。"
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "yimin",
@@ -1120,7 +1145,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "七月二十",
     "route_mode": "fixed",
@@ -1226,7 +1250,10 @@
         "name": "送駕",
         "description": "中元祭典後（數日），輪值祭典區恭送義民爺返回褒忠亭義民廟安座。"
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "dadaocheng_chenghuang",
@@ -1239,7 +1266,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆五月十一暗訪、五月十三正日遶境（俗諺「五月十三人看人」）",
     "route_mode": "fixed",
@@ -1307,7 +1333,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xuejia_shangbaijiao",
@@ -1320,7 +1349,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月十一於將軍溪畔遙祭福建白礁慈濟宮祖廟（刈香三年一科）",
     "route_mode": "fixed",
@@ -1368,7 +1396,10 @@
       "license": "Public domain",
       "license_url": "",
       "source": "https://commons.wikimedia.org/wiki/File:Baijiaoting,_Syuejia,_Tainan_County_2007-04.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "dalongdong_baosheng",
@@ -1381,7 +1412,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月十四遶境、三月十五保生大帝聖誕（放火獅、過火、家姓戲）",
     "route_mode": "fixed",
@@ -1424,7 +1454,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E9%BE%8D%E5%B3%92%E4%BF%9D%E5%AE%89%E5%AE%AE%E5%A4%9C%E6%99%AF_20190416.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "sanxia_qingshui",
@@ -1437,7 +1470,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆正月初五遊境、正月初六清水祖師聖誕（賽神豬）",
     "route_mode": "fixed",
@@ -1484,7 +1516,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%B3%BD%E7%A5%96%E5%B8%AB%E5%BB%9F%E6%AD%A3%E9%9D%A2_20200911.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "kouhu_qianshuizang",
@@ -1496,7 +1531,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆六月初七至初九（道光25年〔1845〕六七水災罹難者追思）",
     "route_mode": "fixed",
@@ -1544,7 +1578,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E7%89%BD%E6%B0%B4%E7%8B%80-%E5%BC%B5%E5%88%A9%E8%81%B0.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "taitung_handan",
@@ -1557,7 +1594,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "元宵（正月十五前後）；肉身寒單爺立於神轎受鞭炮轟炸",
     "route_mode": "fixed",
@@ -1600,7 +1636,10 @@
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E7%82%B8%E5%AF%92%E5%96%AE.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "mamingshan_wunian",
@@ -1614,7 +1653,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "寅午戌",
     "date_resolution": "fixed_lunar",
     "date_note": "逢農曆寅、午、戌年舉行五年大科（五年一醮，代天巡狩十二王爺）",
     "route_mode": "fixed",
@@ -1649,7 +1687,14 @@
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%BB%BA%E9%86%AE%E6%9C%9F%E9%96%93%E7%82%BA%E6%95%B8%E7%9C%BE%E5%A4%9A%E7%9A%84%E7%87%88%E7%AF%99.jpg"
-    }
+    },
+    "ke_branches": [
+      "寅",
+      "午",
+      "戌"
+    ],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "nankunshen_jinxiang",
@@ -1662,7 +1707,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "全年四大進香期；最盛為農曆四月（四月廿六大王李府千歲、四月廿七五王范府千歲聖誕）",
     "route_mode": "undetermined",
@@ -1698,7 +1742,10 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E9%AF%A4%E9%AF%93%E4%BB%A3%E5%A4%A9%E5%BA%9C%E5%BB%A3%E5%A0%B4.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "dongshan_yingfozu",
@@ -1710,7 +1757,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆十二月廿三送正二媽回關仔嶺碧雲寺過年、正月初十迎回碧軒寺",
     "route_mode": "fixed",
@@ -1741,7 +1787,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%B1%B1%E7%A2%A7%E8%BB%92%E5%AF%BA%E8%BF%8E%E4%BD%9B%E7%A5%96%E6%9A%A8%E9%81%B6%E5%A2%83.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "hanxi_mazu_shibazhuang",
@@ -1753,7 +1802,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月初一起駕、三月廿二回鑾（全臺遶境天數最長之一；三月廿三媽祖聖誕）",
     "route_mode": "fixed",
@@ -1789,7 +1837,10 @@
       "license": "CC BY 2.0",
       "license_url": "https://creativecommons.org/licenses/by/2.0",
       "source": "https://commons.wikimedia.org/wiki/File:10.17_%E5%89%AF%E7%B8%BD%E7%B5%B1%E5%87%BA%E5%B8%AD%E3%80%8C%E6%A8%82%E6%88%90%E5%AE%AE%E6%97%B1%E6%BA%AA%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E5%8D%81%E5%85%AB%E5%BA%84%E7%A5%88%E5%AE%89%E6%A4%8D%E7%A6%8F%E6%B4%BB%E5%8B%95%E8%B5%B7%E9%A7%95%E5%85%B8%E7%A6%AE%E3%80%8D_(50496492446).jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "daxi_pujitang_guangong",
@@ -1803,7 +1854,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆六月廿四日關聖帝君聖誕（前一日廿三起相關儀式）",
     "route_mode": "fixed",
@@ -1835,7 +1885,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:2021_Daxi_Puji_Temple_b.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "shetou_72zhuang_mazu",
@@ -1849,7 +1902,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月初赴鹿港進香、約三月廿三聖誕前後各莊遶境回鑾",
     "route_mode": "fixed",
@@ -1882,7 +1934,10 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%9E%8B%E6%A9%8B%E9%A0%AD%E4%B8%83%E5%8D%81%E4%BA%8C%E5%BA%84%E5%A4%A9%E9%96%80%E5%AE%AE.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "tonganliao_12zhuang_mazu",
@@ -1894,7 +1949,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月聖誕前兩三週的週六日（自鹿港請媽祖至同安寮二天一夜遶境）",
     "route_mode": "fixed",
@@ -1918,7 +1972,10 @@
         "note": "鏡像；主辦十五庄輪值故 host 留空"
       }
     ],
-    "draft": false
+    "draft": false,
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "mingjian_shoutiangong_xuantian",
@@ -1930,7 +1987,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆正月至三月（主在三月初三玄天上帝聖誕前後），形成約三個月香期",
     "route_mode": "undetermined",
@@ -1962,7 +2018,10 @@
       "license": "CC BY 3.0",
       "license_url": "https://creativecommons.org/licenses/by/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%90%8D%E9%96%93%E5%8F%97%E5%A4%A9%E5%AE%AE_Mingjian_Shoutian_Temple_-_panoramio.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xinzhuang_dizangan_dazhongye",
@@ -1976,7 +2035,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆五月初一日祭典，前一日（四月三十）暗訪",
     "route_mode": "fixed",
@@ -2008,7 +2066,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E8%8E%8A%E5%9C%B0%E8%97%8F%E5%BA%B5%E6%96%87%E6%AD%A6%E5%A4%A7%E7%9C%BE%E7%88%BA%E7%A5%AD%E5%85%B8_174402.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "houlong_ciyungong_paocheng",
@@ -2020,7 +2081,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆正月十三至十五（元宵節期間）",
     "route_mode": "undetermined",
@@ -2064,7 +2124,10 @@
       "license": "CC BY 3.0",
       "license_url": "https://creativecommons.org/licenses/by/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E5%BE%8C%E9%BE%8D%E6%85%88%E9%9B%B2%E5%AE%AE%E5%A4%A7%E9%96%80_20110203.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "wanhegong_laoerma_xitun",
@@ -2076,7 +2139,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "三年一科",
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月（每三年一次老二媽回西屯省親）",
     "route_mode": "fixed",
@@ -2108,7 +2170,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%87%BA%E4%B8%AD%E8%90%AC%E5%92%8C%E5%AE%AE%E8%83%8C%E9%9D%A2.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": "三年一科",
+    "ke_note": null
   },
   {
     "id": "minxiong_dashiye",
@@ -2120,7 +2185,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆7月21日至23日（中元普渡）",
     "route_mode": "fixed",
@@ -2199,7 +2263,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%B0%91%E9%9B%84%E5%A4%A7%E5%A3%AB%E7%88%BA%E7%A5%AD%E5%85%B8.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "hengchun_qianggu",
@@ -2211,7 +2278,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆7月15日中元普渡",
     "route_mode": "fixed",
@@ -2264,7 +2330,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E6%81%86%E6%98%A5%E6%90%B6%E5%AD%A4%E5%8F%8A%E7%88%AC%E5%AD%A4%E6%A3%9A.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "wugu_kaitai_guolu",
@@ -2275,7 +2344,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆正月十六日「鄭成功過股（過爐）」",
     "route_mode": "yearly_versioned",
@@ -2295,7 +2363,10 @@
         "note": "雲林縣定民俗；主祀國姓公（開臺尊王鄭成功）；雲嘉五股十二庄輪值過爐遶境"
       }
     ],
-    "draft": false
+    "draft": false,
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "kinmen_yingchenghuang",
@@ -2307,7 +2378,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆四月十二日（城隍爺遷治紀念日）",
     "route_mode": "fixed",
@@ -2366,7 +2436,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Memorybank2019-%E9%87%91%E9%96%80%E8%9C%88%E8%9A%A3%E9%99%A3.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xiaqieding_jinluangong_wangjiao",
@@ -2380,7 +2453,6 @@
     ],
     "chen_tou": [],
     "cycle": "irregular",
-    "ke_rule": "不定期，平均約每十年一科王船醮典",
     "date_resolution": "undetermined",
     "date_note": "不定期王醮；戰後曾於1948、1960、1969、1974、1982、1992、2000年舉行",
     "route_mode": "undetermined",
@@ -2407,7 +2479,10 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%8B%E8%8C%84%E8%90%A3%E9%87%91%E9%91%BE%E5%AE%AE.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": "不定期，平均約每十年一科王船醮典",
+    "ke_note": null
   },
   {
     "id": "nanguanxian_wangjiao",
@@ -2420,7 +2495,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "三大廟各約每12年一科慶成五朝王醮，非同步",
     "date_resolution": "undetermined",
     "date_note": "不定期；關廟山西宮戰後固定逢戌年（每12年），仁壽宮、保西代天府間隔約12年以上",
     "route_mode": "undetermined",
@@ -2447,7 +2521,10 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E9%97%9C%E5%BB%9F%E5%B1%B1%E8%A5%BF%E5%AE%AE.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": "三大廟各約每 12 年一科慶成五朝王醮，非同步",
+    "ke_note": null
   },
   {
     "id": "anding_zhenhugong_wangchuan",
@@ -2461,7 +2538,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "逢丑、辰、未、戌年三年一科（首科1967年）",
     "date_resolution": "fixed_lunar",
     "date_note": "逢丑辰未戌年三年一科，約農曆3月上旬前後",
     "route_mode": "undetermined",
@@ -2488,7 +2564,15 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:%E8%98%87%E5%8E%9D%E7%9C%9F%E8%AD%B7%E5%AE%AE.jpg"
-    }
+    },
+    "ke_branches": [
+      "丑",
+      "辰",
+      "未",
+      "戌"
+    ],
+    "ke_period_text": "三年一科",
+    "ke_note": "首科 1967 年"
   },
   {
     "id": "erjie_wanggong_guohuo",
@@ -2501,7 +2585,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆十一月十五日（古公三王千秋）",
     "route_mode": "fixed",
@@ -2560,7 +2643,10 @@
       "license": "CC BY 3.0 tw",
       "license_url": "https://creativecommons.org/licenses/by/3.0/tw/deed.en",
       "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%8C%E7%B5%90%E7%8E%8B%E5%85%AC%E9%81%8E%E7%81%AB_%E4%BA%94%E7%B5%90%E7%BE%A9%E6%B6%88_20100228.jpg"
-    }
+    },
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xiaolong",
@@ -2573,7 +2659,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "子、卯、午、酉年農曆正月中旬",
     "date_resolution": "divined",
     "date_note": "每三年一科，科年落在子、卯、午、酉年。2026 丙午科已於 3 月 4 日至 11 日舉行完畢，下一科是 2029 己酉年。確切日程由主辦廟擲筊請示決定，不是固定的農曆日。",
     "route_mode": "undetermined",
@@ -2639,7 +2724,15 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [
+      "子",
+      "卯",
+      "午",
+      "酉"
+    ],
+    "ke_period_text": null,
+    "ke_note": "農曆正月中旬"
   },
   {
     "id": "tucheng",
@@ -2652,7 +2745,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "丑、辰、未、戌年農曆三月中下旬",
     "date_resolution": "fixed_lunar",
     "date_note": "每三年一科，科年落在丑、辰、未、戌年，遶境三日、落在農曆三月中下旬。2027 丁未是科年，確切日期要等主辦廟公告。",
     "route_mode": "fixed",
@@ -2720,7 +2812,15 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [
+      "丑",
+      "辰",
+      "未",
+      "戌"
+    ],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "madou",
@@ -2733,7 +2833,6 @@
     ],
     "chen_tou": [],
     "cycle": "n_year_ke",
-    "ke_rule": "三年一科",
     "date_resolution": "fixed_lunar",
     "date_note": "每三年一科。下一科是 2027 丁未年，廟方公告的日期是國曆 4 月 30 日至 5 月 2 日（農曆三月廿四至廿六）。麻豆代天府另有十二年一次的祈安清醮，與三年一科的麻豆香不是同一件事。",
     "route_mode": "undetermined",
@@ -2787,7 +2886,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": "三年一科",
+    "ke_note": null
   },
   {
     "id": "baishakeng",
@@ -2799,7 +2901,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "每年農曆正月十三至十五舉行，2027 年的元宵為國曆 2 月 20 日。登錄資料的起始日欄位記農曆 1/14 是舊制；2020 年信徒大會議決自隔年恢復三日遶境。",
     "route_mode": "fixed",
@@ -2873,7 +2974,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "sanshan_kedi",
@@ -2882,7 +2986,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "主辦宮廟每年在縣內的三山國王廟之間擲筊輪替，日期與地點都逐年不同，要看當年度公告。",
     "route_mode": "yearly_versioned",
@@ -2907,7 +3010,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "xialutou_qiuqian",
@@ -2916,7 +3022,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "irregular",
-    "ke_rule": "每逢閏年、閏月的農曆三月初六前後",
     "date_resolution": "undetermined",
     "date_note": "每逢閏年、閏月的玄天上帝聖誕（農曆三月初六）前後舉辦，不是每年都有。嘉義市政府自 2008 年起每年辦理的「嘉義市鞦韆節」是另一個活動，登錄公告在 2020 年修正名稱時就是為了區別兩者。",
     "route_mode": "undetermined",
@@ -2983,7 +3088,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": "每逢閏年、閏月",
+    "ke_note": null
   },
   {
     "id": "taipei_yingwanggong",
@@ -2995,7 +3103,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "各庄頭的日期本來就不同——這個民俗是聚落之間輪庄祭祀、過頭輪祀，木柵忠順廟登記的是農曆四月初七遶境、四月初十聖誕千秋，木柵集應廟則在農曆二月初一。要參加請看各庄頭該年度的公告。",
     "route_mode": "undetermined",
@@ -3116,7 +3223,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "caotun_dunhe_caishen",
@@ -3128,7 +3238,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月十五日趙天君財神爺聖誕。2026 年廟方公告的遶境起駕時辰是國曆 5 月 1 日中午 12 時 30 分，遶境草屯市區；2027 年的公告尚未發布。",
     "route_mode": "undetermined",
@@ -3204,7 +3313,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "nanyao_benggang",
@@ -3216,7 +3328,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "divined",
     "date_note": "進香日期不是固定的，是前一年農曆十月十五日下元節擲筊決定的，擲筊前還要「置天台」稟告上蒼三天。古例本來在農曆正月十五上元節擲筊，2011 年起才改到前一年下元節。",
     "route_mode": "undetermined",
@@ -3347,7 +3458,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "dongshan_babao_guanjuan",
@@ -3357,7 +3471,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "每年七夕舉行。民眾在七夕帶孩子到石聖爺廟祈求佩帶絭牌，往後每年七夕再來換絭。廟方逐年的時刻表未見公告。",
     "route_mode": "undetermined",
@@ -3459,7 +3572,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "chiayi_chenghuang_yexun",
@@ -3471,7 +3587,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆八月初一，也就是城隍聖誕（農曆八月初二）的前夕。2026 年落在國曆 9 月 11 日。",
     "route_mode": "undetermined",
@@ -3557,7 +3672,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "jilong_chenghuang",
@@ -3570,7 +3688,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "夜巡在農曆八月十四、日巡在農曆八月十六，日巡同時是護國城隍安座大典紀念日。2025 年落在國曆 10 月 5 日與 10 月 7 日；2026 年的日期尚未公告。",
     "route_mode": "undetermined",
@@ -3661,7 +3778,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "changhua_mazu_qifu",
@@ -3672,7 +3792,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "divined",
     "date_note": "沒有固定的農曆日——日期每年由彰化縣長在當年的爐主宮廟擲筊請示媽祖決定。2026 年擇定國曆 10 月 9 日至 11 日連續三日，主辦權由縣內十三間媽祖廟輪值。",
     "route_mode": "undetermined",
@@ -3753,7 +3872,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "zhushan_zinangong_chidingjiu",
@@ -3763,7 +3885,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "每年農曆正月十六舉行。2026 年已於國曆 3 月 4 日辦畢，下一次是 2027 年 2 月 21 日。",
     "route_mode": "undetermined",
@@ -3878,7 +3999,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "toucheng_qianggui_laichao",
@@ -3888,7 +4012,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆二月初二福德正神誕辰前後舉行。2027 年的農曆二月初二是國曆 3 月 9 日，該年度的活動公告尚未發布。",
     "route_mode": "undetermined",
@@ -3989,7 +4112,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "matsu_mazu",
@@ -4001,7 +4127,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月廿三媽祖聖誕。2026 年的祭祀大典在國曆 5 月 9 日舉行。祭祀大典是「媽祖在馬祖」系列活動的其中一天，整個系列的起訖日逐年由縣府公告。",
     "route_mode": "undetermined",
@@ -4072,7 +4197,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "songshan_ciyou_mazu",
@@ -4084,7 +4212,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "農曆三月廿五、廿六遶境錫口十三街庄；農曆三月廿三媽祖聖誕當日先在廟內行三獻大禮。內政部地方宗教慶典記的農曆 03-25 對得上遶境首日。2026 年為 5 月 11、12 日（活動官網逐字寫「115年5月11、12日(農曆3月25、26日)」，與本站換算一致）。下一次＝2027-05-01。",
     "route_mode": "undetermined",
@@ -4165,7 +4292,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "jinbaoli_erma_yeliu",
@@ -4177,7 +4307,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "fixed_lunar",
     "date_note": "祭典固定在農曆四月十六，2026 年落在國曆 6 月 1 日。「北海岸傳奇媽祖文化祭」是活動品牌、涵蓋期比祭典當日長，2026 年整個文化祭是 5 月 15 日至 6 月 1 日，遶境祭典落在最後一天。",
     "route_mode": "undetermined",
@@ -4266,7 +4395,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "wanjin_shengmu",
@@ -4276,7 +4408,6 @@
     ],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "每年 12 月 8 日前後的週日舉行——12 月 8 日是萬金聖母聖殿的主保堂慶。遊行當天與前八天合稱「九日敬禮」。歷年落點：2013 年 12 月 8 日、2017 年 12 月 10 日、2022 年 12 月 11 日。",
     "route_mode": "undetermined",
@@ -4389,7 +4520,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "ntpc_xuantian_festival",
@@ -4398,7 +4532,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "沒有固定的年度日期。徒步會香多在國曆 9 至 10 月、主場遶境在 10 至 11 月，實際日期每年由主辦單位公告。2025 年因主辦單位另有宗教要務決議停辦。",
     "route_mode": "undetermined",
@@ -4524,7 +4657,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "north_taiwan_mazu",
@@ -4533,7 +4669,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "由北臺灣八縣市輪值，值東宮廟逐年更換，日期與地點都要看當年度公告。臺北市是 2004 年的發起地，不是固定的舉辦地。",
     "route_mode": "undetermined",
@@ -4639,7 +4774,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "taichung_mazu_festival",
@@ -4648,7 +4786,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "是橫跨數月的系列活動，不是單一天。2026 年的期程是國曆 2 月 20 日至 5 月 16 日，由臺中市政府文化局逐年公告。",
     "route_mode": "undetermined",
@@ -4774,7 +4911,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "songshan_cihuitang_muniang",
@@ -4784,7 +4924,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "錨點是主辦方公告的「弘揚母愛音樂會前一天」，也就是國曆母親節前的週末，不是固定的農曆日。2020 年延期、2022 年停辦。",
     "route_mode": "undetermined",
@@ -4915,7 +5054,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "dongshi_qiaosheng",
@@ -4925,7 +5067,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "以農曆五月初七巧聖仙師誕辰為核心，實際期程由主辦單位逐年公告。2022、2023、2025、2026 未查得辦理紀錄。",
     "route_mode": "undetermined",
@@ -5056,7 +5197,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "zhishanyan_huijigong_guohuo",
@@ -5066,7 +5210,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "農曆二月十五開漳聖王聖誕前夕暖壽過火，隔日二月十六正誕行三獻禮。這是本清單裡少數日期真的固定的一項。",
     "route_mode": "undetermined",
@@ -5172,7 +5315,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "pingxi_tiandeng",
@@ -5180,7 +5326,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "元宵節（農曆正月十五）前後；文化資產登錄的舉辦週期為每年、曆別為農曆",
     "route_mode": "undetermined",
@@ -5227,7 +5372,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "nantun_muji",
@@ -5235,7 +5383,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "臺灣光復後改在端午節舉行；文化資產登錄的舉辦週期記為「其他」、曆別為農曆",
     "route_mode": "undetermined",
@@ -5292,7 +5439,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "danshui_qingshui",
@@ -5300,7 +5450,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "農曆五月初六（端午節隔天）；文化資產登錄的舉辦週期為每年、曆別為農曆",
     "route_mode": "undetermined",
@@ -5367,7 +5516,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "yilan_chenghuang",
@@ -5375,7 +5527,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "農曆二月初八城隍聖誕出巡、初七暗訪；民國 52 年起與東嶽廟慶典改為隔年交互舉行",
     "route_mode": "undetermined",
@@ -5431,7 +5582,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "neihu_nongtudigong",
@@ -5439,7 +5593,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "元宵節（農曆正月十五）當天晚上",
     "route_mode": "undetermined",
@@ -5475,7 +5628,10 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   },
   {
     "id": "yeliu_jingang",
@@ -5483,7 +5639,6 @@
     "type": [],
     "chen_tou": [],
     "cycle": "annual",
-    "ke_rule": null,
     "date_resolution": "undetermined",
     "date_note": "元宵節（農曆正月十五）當天",
     "route_mode": "undetermined",
@@ -5530,6 +5685,9 @@
           }
         ]
       }
-    ]
+    ],
+    "ke_branches": [],
+    "ke_period_text": null,
+    "ke_note": null
   }
 ]

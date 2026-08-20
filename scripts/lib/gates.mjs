@@ -45,8 +45,17 @@
 // 🔴 不變量（本檔載入時自動驗，違反直接拋）：
 //   - needs:'dist' 的 gate 不得出現在 pre-push 或 ci-pre-build。
 //   - tier:'fast' 的 gate 必須 needs:'source'（pre-push 沒有 dist 可掃）。
-//   - viaBuild 的 gate 不得同時出現在 ci-pre-build／ci-post-build（會跑兩次）。
+//   ⚠️ 這裡原本還列了一條「viaBuild 的 gate 不得同時出現在 ci-pre-build／ci-post-build
+//      （會跑兩次）」——2026-08-20 查證後**刪除**，因為它是個沒人查的假宣稱：
+//      ① 整個不變量區塊從來沒有實作過它；
+//      ② 照字面補上去會立刻紅——check:doc-numbers 就是 viaBuild:true ＋
+//         stages:['pre-push','ci-pre-build']，而它旁邊的註解寫明那是刻意的
+//         （CI 仍明確跑，讓它在 20 分鐘 build 之前就擋下）。
+//      也就是說「跑兩次」在這裡不是缺陷而是設計。宣稱與資料矛盾時該修的是宣稱。
+//      這正是本檔存在的理由在自己身上的又一個實例：**沒有人查的宣稱會漂走。**
 //   - 每個 id 必須存在於 package.json 的 scripts。
+//   - viaBuild:true 必須在 package.json 的 build／postbuild 鏈裡找得到對應的腳本檔；
+//     反向：沒標 viaBuild 的 gate，其指令不得原封不動出現在該鏈裡。
 //
 // ⚠️ 新增／移除任何 gate：只改這支，然後跑 `node scripts/lib/gates.mjs table`
 //    確認四個消費端拿到的清單是你要的。deploy.yml 與 pre-push **不要再手抄**。
@@ -86,6 +95,22 @@ export const GATES = [
     // build:release。它們不讀 dist 也不讀資料，是純函式的 regression，2026-08-19 搬到
     // src/lib/text.test.ts，回饋週期從分鐘變毫秒。
     why: 'excerptAtBoundary／stripOuterParens／withoutTerminalPunctuation 的三個已知事故樣本',
+  },
+  {
+    id: 'test:event-cycle',
+    label: '民俗活動週期造句 golden',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['event-cycle'],
+    // 2026-08-20 新增，成因是**線上真的輸出了病句**（curl 實證）：
+    //   /events/wanhegong_laoerma_xitun/「…舉行，三年一科年一科。」
+    //   /events/nanguanxian_wangjiao/「…非同步年一科」
+    // 病灶是 events.json 的 ke_rule 一個欄位同時裝地支與自由文字，而頁面樣板直接串接。
+    // 已拆成 ke_branches／ke_period_text／ke_note，造句收進 src/lib/event-cycle.ts。
+    // 🔴 這道 gate 釘的是**產出的句子**（golden table 逐字），不是實作細節——
+    //    因為判準是對人寫的散文做正規式判定，正規式漂不漂亮無意義，句子對不對才有意義。
+    why: '週期造句 golden 9 筆逐字＋全量 67 筆掃 7 種病句型態＋ke_rule 不得復活',
   },
   {
     id: 'check:design',
@@ -408,6 +433,14 @@ export const CHANGED_RULES = {
   ],
   // 2026-08-19 新增：test:text 的實際輸入（`ui` 只認 .astro/.svelte/.css，吃不到這支 .ts）
   'text-lib': [/^src\/lib\/text\.ts$/, /^src\/lib\/text\.test\.ts$/],
+  // 2026-08-20 新增：test:event-cycle 的實際輸入（模組、測試、以及它讀的資料與 schema）
+  'event-cycle': [
+    /^src\/lib\/event-cycle\.ts$/,
+    /^src\/lib\/event-cycle\.test\.ts$/,
+    /^src\/data\/events\.json$/,
+    /^src\/content\.config\.ts$/,
+    /^src\/pages\/events\//,
+  ],
   // 2026-08-19 新增：原本 docs-only 改動在 build:changed 完全沒 gate，
   // 但 CI 會用 check:doc-numbers 擋 → 本機顯示 ✓ 而 CI 紅。補上這條把洞補起來。
   docs: [/^CLAUDE\.md$/, /^docs\/.*\.md$/, /^README\.md$/],
@@ -430,6 +463,35 @@ const PRE_BUILD_STAGES = new Set(['pre-push', 'ci-pre-build']);
   } catch {
     /* package.json 讀不到就跳過該項驗證，不讓 manifest 本身變成新的失敗點 */
   }
+
+  // ── viaBuild 宣稱的機器複驗（2026-08-20 補）───────────────────────────
+  // 🔴 為什麼要有這條：viaBuild 是**四個消費端據以「不跑」的唯一依據**（見欄位契約），
+  //    但在此之前它是一句沒有人查的話。上面那條「id 必須存在於 package.json」擋不到它——
+  //    檔頭缺陷②（check:festival-calendar）正是「script 存在、卻沒有任何東西跑它」，
+  //    亦即 package.json 有登記完全不代表指令鏈裡真的串了。viaBuild 標錯的後果是
+  //    **靜默漏跑**：manifest 說「build 會跑」，build 其實沒跑，而 CI 因為相信 manifest
+  //    也不跑，全綠。這正是本檔存在的理由（同一件事實手抄兩份、沒人比對）換一個形狀重演。
+  //    2026-08-20 首次跑這條時 16 道 viaBuild 全部屬實，所以它是防線不是修補。
+  //
+  // 兩邊沒有共用識別字（manifest 用 pnpm script id `check:discover`，build 鏈用檔案路徑
+  // `node scripts/check-discover-coverage.mjs`），所以只能靠 package.json 當翻譯層：
+  //   id → pkgScripts[id] → 抽出 scripts/*.{mjs,ts} 檔名 → 看它在不在 build+postbuild 串裡。
+  //
+  // ⚠️ 兩個方向刻意用**不同**的比對強度，不是筆誤：
+  //   正向（viaBuild ⇒ 在鏈裡）比**檔名**。build 鏈常帶不同旗標（check:release 在
+  //     postbuild 是 `--require-dist`、check:quality 是 `--dist dist`），比整串會誤判成漏接。
+  //   反向（沒標 viaBuild ⇒ 不在鏈裡）比**整串指令**（正規化空白後逐段比）。
+  //     這裡不能比檔名，否則 check:content:all（`node scripts/check-content.mjs --all`）
+  //     會被 build 鏈裡的 check:content（`node scripts/check-content.mjs`，無 --all）打中而誤報：
+  //     同一支腳本、不同旗標、不同 gate，鏈裡跑的那次並不涵蓋 --all。目前 repo 內就這一個
+  //     反例，但它證明檔名層級的反向比對必然誤報。代價是「鏈裡多帶一個旗標跑同一支」的
+  //     重複跑法抓不到——那是刻意讓步，寧可漏抓也不要製造假警報逼人加豁免清單。
+  const normCmd = (cmd) => cmd.trim().replace(/\s+/g, ' ');
+  const SCRIPT_FILE_RE = /scripts\/[\w./-]+\.(?:mjs|ts)/g;
+  // package.json 讀不到就整段跳過，理由同上面的 catch：manifest 不當新的失敗點。
+  const buildChain = pkgScripts ? [pkgScripts.build, pkgScripts.postbuild].filter(Boolean).join(' && ') : null;
+  const buildSegments = buildChain === null ? null : new Set(buildChain.split('&&').map(normCmd));
+
   for (const g of GATES) {
     if (seen.has(g.id)) problems.push(`重複的 gate id：${g.id}`);
     seen.add(g.id);
@@ -444,6 +506,20 @@ const PRE_BUILD_STAGES = new Set(['pre-push', 'ci-pre-build']);
     }
     if (g.stages.includes('pre-push') && g.tier !== 'fast') {
       problems.push(`${g.id} 排進 pre-push 但 tier=${g.tier}`);
+    }
+    if (buildChain !== null) {
+      const cmd = pkgScripts[g.id] ?? '';
+      const files = [...new Set(cmd.match(SCRIPT_FILE_RE) ?? [])];
+      if (g.viaBuild) {
+        if (!files.length) {
+          // 抽不出檔名就無從複驗；不可「查不出來就放行」，否則這條不變量等於自己關掉。
+          problems.push(`${g.id} 宣稱 viaBuild，但它的 npm script 抽不出 scripts/*.{mjs,ts} 檔名，無從複驗`);
+        } else if (!files.some((f) => buildChain.includes(f))) {
+          problems.push(`${g.id} 宣稱 viaBuild，但 build/postbuild 鏈裡沒有 ${files.join('／')}；消費端會因此漏跑它`);
+        }
+      } else if (cmd && buildSegments.has(normCmd(cmd))) {
+        problems.push(`${g.id} 沒標 viaBuild，但 build/postbuild 鏈裡有一模一樣的 \`${normCmd(cmd)}\`；不是漏標就是會跑兩次`);
+      }
     }
   }
   if (problems.length) {
