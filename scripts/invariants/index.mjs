@@ -45,6 +45,7 @@ export const REGISTRY = [
   deity.deityShengdanTitle,         // 4
   deity.deityIconography,           // 4b
   deity.deityMoiKnowledge,          // 4c
+  deity.deityThDict,               // 民俗文物辭典引文（同 4c 的授權條件）
   // ── 節日頁（一趟走訪）──
   festival.festivalSkeleton,        // 5
   festival.festivalOnDateTemples,   // 5b

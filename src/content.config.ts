@@ -111,6 +111,23 @@ const deities = defineCollection({
         excerpt: z.array(z.string()).min(1), // 逐字段落，段落邊界截斷（不切句）
       })
       .optional(),
+    // 國史館臺灣文獻館《臺灣民俗文物辭典》辭條引文（2026-08-20 起）。
+    // 規則與上面的 `moi_knowledge` **完全相同**：逐字引用、不改寫、必須標示資料來源連結
+    //（2026-08-19 站主確認該館授權，條件與內政部那次一致）。兩者分開存放是因為出處不同，
+    // 有些神明兩邊都有、有些只有一邊。由 scripts/import-th-dict.mjs 產生，**不要手改**。
+    // ⚠️ 是**陣列**（moi_knowledge 是單一物件，兩者刻意不同）：辭典把同一尊神明拆成
+    //    數個辭條的情況很常見（七爺／八爺各一條、另有「造型與執器」自成一條），
+    //    只留一條等於自己丟掉一半有授權的內容。
+    th_dict: z
+      .array(
+        z.object({
+          url: z.string(), // 辭條公開網址＝授權條件要求標示的那個連結
+          title: z.string(), // 辭條名稱（與辭典上的字面一致，供 gate 複驗）
+          excerpt: z.array(z.string()).min(1), // 逐字段落
+        }),
+      )
+      .min(1)
+      .optional(),
     draft: z.boolean().default(false), // 無源不發佈 gate（§5）
   }),
 });

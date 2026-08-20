@@ -152,6 +152,41 @@ export const deityMoiKnowledge = {
     `${acc.get('withMoi')} 尊宗教知識+ 引文逐字相符且**來源連結在**（授權條件），兩者其餘皆正確不渲染`,
 };
 
+/**
+ * 2026-08-20 加：《臺灣民俗文物辭典》辭條引文。規則與 4c **完全相同**：
+ * 逐字渲染、來源連結必須在（授權條件，2026-08-19 站主確認＝標示資料來源連結）。
+ * 分成兩條而不是共用一條，是因為兩者的資料欄位與出處措辭各自獨立，
+ * 合併會讓「哪一段缺了連結」變得看不出來。
+ */
+export const deityThDict = {
+  id: 'deity/th-dict',
+  title: '民俗文物辭典引文逐字渲染且來源連結在（授權條件），無資料不得渲染',
+  source: 'deities',
+  check(d, page, _ctx, acc) {
+    const td = d.th_dict ?? [];
+    const has = page.html.includes('class="th-dict"');
+    if (td.length === 0) {
+      if (has) acc.violate(`神明頁 ${d.id} 不該有辭典引文區塊（資料為空）`);
+      return;
+    }
+    if (!has) { acc.violate(`神明頁 ${d.id} 缺辭典引文區塊（資料有 ${td.length} 條辭條）`); return; }
+    for (const q of td) {
+      acc.count('withDict');
+      for (const p of q.excerpt) {
+        if (!page.html.includes(escText(p))) {
+          acc.violate(`神明頁 ${d.id} 辭典引文未逐字出現（辭條「${q.title}」段落開頭：${p.slice(0, 20)}…）`);
+        }
+      }
+      // 🔴 一頁多條辭條時，**每一條**都要有自己的連結——授權條件是逐筆掛源，
+      //    不是「這一頁有掛過一個就好」。
+      if (!page.html.includes(escAttr(q.url))) {
+        acc.violate(`神明頁 ${d.id} 辭條「${q.title}」缺來源連結 ${q.url}（授權條件，缺了就是違反授權）`);
+      }
+    }
+  },
+  summary: (acc) => `另民俗文物辭典引文 ${acc.get('withDict')} 條逐字相符且**每條的來源連結都在**（授權條件）`,
+};
+
 /** 原不變量 4d（2026-08-06 加）：神明代表圖與出處標示（規則與廟頁那條**同一支實作**）。 */
 export const deityPhotoCredit = {
   id: 'deity/photo-credit',

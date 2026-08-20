@@ -256,6 +256,29 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
     )
   }
 
+  {/* 《臺灣民俗文物辭典》辭條引文（2026-08-20）：與上面那段**規則完全相同**——逐字引用、
+      一個字不改寫，來源連結是授權條件的必要組成。兩段分開存在的理由是來源不同、
+      措辭與出處各自標示；有些神明兩邊都有（各講各的），有些只有其中一邊。
+      🔴 標題刻意分兩種：只有辭典時用直答型「X是什麼神？」（那時它就是本頁的答案段），
+      兩邊都有時退成「辭典裡的X」，避免同一頁出現兩個一模一樣的 h2。 */}
+  {
+    d.th_dict && d.th_dict.length > 0 && (
+      <section class="th-dict">
+        <h2>{d.moi_knowledge ? `辭典裡的${d.name}` : `${d.name}是什麼神？`}</h2>
+        {d.th_dict.map((q) => (
+          <>
+            <blockquote class="moi-quote">
+              {q.excerpt.map((p) => <p>{p}</p>)}
+            </blockquote>
+            <p class="muted small moi-src">
+              引自國史館臺灣文獻館《臺灣民俗文物辭典》<a href={q.url} rel="noopener">{q.title}</a>
+            </p>
+          </>
+        ))}
+      </section>
+    )
+  }
+
   {
     d.is_category && (
       <section>

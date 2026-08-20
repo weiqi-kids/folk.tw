@@ -1,0 +1,156 @@
+{
+  "_readme": [
+    "神明頁 ↔ 國史館臺灣文獻館《臺灣民俗文物辭典》辭條的人工對映表。",
+    "由 scripts/import-th-dict.mjs 讀取，抓回辭條逐字內容寫進 deities.json 的 th_dict。",
+    "🔴 對映是人工判斷，不是自動比名字：辭典的辭條名稱與本站神明名稱常常不同字",
+    "（例：本站『齊天大聖』對到辭典『大聖爺(齊天大聖)』）。每一筆都要有 basis。",
+    "🔴 判準是「這條辭條講的就是這尊神明」，不是「提到了它」——通用辭條不可掛到特定神明頭上",
+    "（如辭典的『王爺』『城隍爺』是信仰通論，不能掛到池府千歲或霞海城隍那種特定神明頁）。",
+    "候選產生方式：把辭典全部辭條的名稱與各神明的 name＋aliases 做雙向包含比對，人工逐筆看內文定案。",
+    "rejected 段記的是**查過而判定不採用**的，不要再查一次。"
+  ],
+  "source": "https://dict.th.gov.tw/ 國史館臺灣文獻館《臺灣民俗文物辭典》；2026-08-19 站主確認已取得授權，條件＝標示資料來源連結",
+  "verified_on": "2026-08-20",
+  "items": [
+    {
+      "deity_id": "qiyebaye",
+      "entries": [
+        { "dict_id": 2060, "dict_name": "七爺造型與執器" },
+        { "dict_id": 2061, "dict_name": "八爺造型與執器" }
+      ],
+      "basis": "本站『七爺八爺』是合稱，辭典拆成兩條各講一位的造型與執器，兩條都要掛才不缺一半。"
+    },
+    {
+      "deity_id": "yimin",
+      "entries": [{ "dict_id": 1240, "dict_name": "義民爺" }],
+      "basis": "同名辭條，內文即義民爺信仰源流（朱一貴、林爽文等事件的犧牲者集體收埋）。"
+    },
+    {
+      "deity_id": "qingshan",
+      "entries": [{ "dict_id": 1209, "dict_name": "青山公(靈安尊王)" }],
+      "basis": "辭條名稱同時含本站的名稱『青山王』之俗稱『青山公』與別稱『靈安尊王』。"
+    },
+    {
+      "deity_id": "kuixing",
+      "entries": [{ "dict_id": 1242, "dict_name": "魁斗星君" }],
+      "basis": "『魁斗星君』是本站 aliases 之一，辭條內文講的就是魁星。"
+    },
+    {
+      "deity_id": "yuelao",
+      "entries": [{ "dict_id": 1252, "dict_name": "月下老人" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "zhusheng",
+      "entries": [{ "dict_id": 1198, "dict_name": "註生娘娘" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "qixing",
+      "entries": [{ "dict_id": 1197, "dict_name": "七星娘娘" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "pojie",
+      "entries": [{ "dict_id": 2083, "dict_name": "十二婆姐陣造型與執器" }],
+      "basis": "辭條內文實質是十二婆姐本身（陳靖姑說與三十六婆姐說並陳，並列十二位名諱），不只講陣頭道具；本站『婆姐』的 aliases 即含十二婆姐、三十六婆姐。"
+    },
+    {
+      "deity_id": "dasheng",
+      "entries": [{ "dict_id": 1245, "dict_name": "大聖爺(齊天大聖)" }],
+      "basis": "辭條名稱直接標明齊天大聖。"
+    },
+    {
+      "deity_id": "taiyang",
+      "entries": [{ "dict_id": 1248, "dict_name": "太陽星君" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "leigongdianmu",
+      "entries": [{ "dict_id": 1253, "dict_name": "雷公電母" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "shidan",
+      "entries": [{ "dict_id": 1739, "dict_name": "石敢當" }],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "taisui",
+      "entries": [{ "dict_id": 1207, "dict_name": "太歲(六十六歲)" }],
+      "basis": "辭條內文講的是太歲星君通論（六十太歲輪值、犯太歲與沖太歲），本站 taisui 正是通論頁；⚠️ 不可掛到 taisui_jiazi 那類特定值年太歲頁。"
+    },
+    {
+      "deity_id": "guanping",
+      "entries": [{ "dict_id": 1187, "dict_name": "關平周倉" }],
+      "basis": "辭典把關平與周倉合為一條，兩尊的頁面掛同一條辭條（來源相同、各自掛源）。"
+    },
+    {
+      "deity_id": "zhoucang",
+      "entries": [{ "dict_id": 1187, "dict_name": "關平周倉" }],
+      "basis": "同上，與 guanping 共用同一條辭條。"
+    },
+    {
+      "deity_id": "zhao_gongming",
+      "entries": [{ "dict_id": 2496, "dict_name": "武財神" }],
+      "basis": "辭條首句即『武財神趙公明又稱趙公元帥』，講的就是本尊（含造型、五路財神的合祀說）。"
+    },
+    {
+      "deity_id": "baoyi",
+      "entries": [{ "dict_id": 1215, "dict_name": "保儀尊王" }],
+      "basis": "同名辭條（張巡或許遠兩說、北部氏族分靈、配祀雷萬春與南霽雲）。"
+    }
+  ],
+  "rejected": [
+    {
+      "deity_id": "qianliyan／shunfenger",
+      "candidate": "天上聖母(配祀千里眼、順風耳)#1192",
+      "why": "辭條講的是媽祖，千里眼順風耳只出現在標題的括號裡。"
+    },
+    {
+      "deity_id": "wangye_li／wangye_chi／wangye_wu／wangye_zhu／wangye_fan／wenwang_qiansui／shier_wenwang",
+      "candidate": "王爺#1196",
+      "why": "通用的王爺信仰通論，不是任何一位特定千歲；本站已有通用『王爺（千歲）』頁，那條屬於那裡而不是這些特定頁。"
+    },
+    {
+      "deity_id": "chenghuang_xiahai／chenghuang_tainanfu",
+      "candidate": "城隍爺#1208",
+      "why": "同上，城隍信仰通論不可掛到特定城隍。霞海城隍另有『霞海城隍爺暗訪#2429』，但那條講的是祭典活動，已改掛 /events/dadaocheng_chenghuang/。"
+    },
+    {
+      "deity_id": "taisui_jiazi／taisui_yichou／taisui_bingyin",
+      "candidate": "太歲(六十六歲)#1207",
+      "why": "那是太歲通論，沒有講到任何一位特定值年太歲的事蹟。"
+    },
+    {
+      "deity_id": "longwang",
+      "candidate": "龍王#1254",
+      "why": "辭條實質是瑞獸與吉祥圖案（龍形風箏、雙龍對燭、夔龍提耳香爐），不是四海龍王這尊神明；掛上去會把圖案辭條說成神明介紹。"
+    },
+    {
+      "deity_id": "shancai_longnv",
+      "candidate": "金童#1042／玉女#1041",
+      "why": "那兩條講的是喪葬紙紮的金童玉女紙像（隨靈厝火化），與觀音脅侍的善財龍女是兩回事。"
+    },
+    {
+      "deity_id": "tianpeng",
+      "candidate": "豬#2538",
+      "why": "生肖／動物圖案辭條，與天蓬元帥無關。"
+    },
+    {
+      "deity_id": "wangye_wu",
+      "candidate": "三王#2618",
+      "why": "『三王』指麒麟、鳳凰、牡丹三種吉祥圖案，與吳府三千歲無關。"
+    },
+    {
+      "deity_id": "huagong",
+      "candidate": "栽花換斗#2347",
+      "why": "辭條講改變胎兒性別的儀式，全文未提花公花婆。"
+    },
+    {
+      "deity_id": "kongzi／chitou／taiyin／zhuyi_shenjun／miaoying_xianfei",
+      "candidate": "（無）",
+      "why": "辭典全 2,819 條逐條比名皆無對應辭條，也無別稱可對。查無源留空。"
+    }
+  ]
+}
