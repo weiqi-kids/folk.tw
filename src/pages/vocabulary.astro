@@ -14,6 +14,9 @@ const groups: { key: keyof typeof vocab; label: string }[] = [
   { key: 'divination', label: '求籤、問筊與擇日' },
   { key: 'temple_craft', label: '廟宇工藝與陳設' },
   { key: 'ritual_items', label: '祭典與節俗用品' },
+  { key: 'talisman', label: '符咒與平安符' },
+  { key: 'ancestral', label: '祖先牌位與喪葬' },
+  { key: 'religious_specialists', label: '道士、法師與乩童' },
 ];
 type Term = { term: string; def: string; alias?: string[]; sources?: { ref: string }[] };
 ---
