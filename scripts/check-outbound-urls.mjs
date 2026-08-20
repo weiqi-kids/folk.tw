@@ -23,6 +23,9 @@
 // 用法：`pnpm check:outbound-urls`（CI 已串進 deploy.yml）。發現即 exit 1 → 不部署。
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+// 語料涵蓋契約：宣告掃了什麼、幾筆。掃到 0 代表這道 gate 對該語料實際上是關閉的，
+// 而它仍會印綠字——比沒有這道 gate 更糟。見 lib/gate-corpus.mjs 檔頭。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const ORIGIN = 'https://folk.tw';
 // 2026-08-19 加 `public`：靜態檔同樣會被 Google 抓走並當成網址來源，但它們不經過 dist、
@@ -114,4 +117,12 @@ if (problems.length) {
 }
 
 const scanned = ROOTS.flatMap((r) => [...jsFiles(r)]).length;
+const corpus = newCorpus('check:outbound-urls');
+corpus.track('scripts/ 底下的腳本', scanned, { why: '掃描清單抓不到 scripts/*.mjs 時會靜靜地一個網址都不驗' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:outbound-urls 的語料涵蓋有問題（gate 零覆蓋卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
 console.log(`✓ 送出網址檢查通過（掃 ${scanned} 個腳本，站內網址全部帶尾斜線）`);

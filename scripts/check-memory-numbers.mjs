@@ -20,6 +20,9 @@
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+// 語料涵蓋契約。⚠️ 這支的「目錄不存在就 exit 0」是**刻意的**（記憶目錄只在本機有，
+// CI 沒有），所以下限只在目錄存在時才有意義——目錄在卻掃到 0 份，代表副檔名或路徑變了。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const DIR = '/root/.claude/projects/-root-folk-tw/memory';
 
@@ -66,7 +69,16 @@ for (const f of readdirSync(DIR).filter((x) => x.endsWith('.md'))) {
 }
 
 if (!violations.length) {
-  console.log(`✓ 記憶檔數字檢查通過：掃 ${readdirSync(DIR).filter((x) => x.endsWith('.md')).length} 份，無寫死的數量宣稱`);
+  const mdCount = readdirSync(DIR).filter((x) => x.endsWith('.md')).length;
+  const corpus = newCorpus('check:memory-numbers');
+  corpus.track('記憶檔', mdCount, { why: '目錄存在卻掃到 0 份，代表路徑或副檔名變了（目錄不存在是另一回事，上面已 exit 0）' });
+  const corpusProblems = corpus.problems();
+  if (corpusProblems.length) {
+    console.error('✗ check:memory-numbers 的語料涵蓋有問題：');
+    for (const c of corpusProblems) console.error(`  ${c}`);
+    process.exit(1);
+  }
+  console.log(`✓ 記憶檔數字檢查通過：掃 ${mdCount} 份，無寫死的數量宣稱`);
   process.exit(0);
 }
 

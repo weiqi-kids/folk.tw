@@ -19,6 +19,9 @@ import { join } from 'node:path';
 // 🔴 **判準留在本檔**：什麼叫「裸露網址」、括號認哪幾種，都是這支自己的事——
 //    page.anchors() 只負責把可見文字取出來（刻意不 decode entity，理由見 page.mjs）。
 import { Page } from './lib/page.mjs';
+// 語料涵蓋契約：宣告掃了什麼、幾筆。掃到 0 代表這道 gate 對該語料實際上是關閉的，
+// 而它仍會印綠字——比沒有這道 gate 更糟。見 lib/gate-corpus.mjs 檔頭。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const DIST = 'dist';
 const MAX_REPORT = 25;
@@ -56,6 +59,15 @@ for (const file of htmlFiles(DIST)) {
 }
 
 if (violations.length === 0) {
+const corpus = newCorpus('check:anchor-text');
+corpus.track('dist 頁面', scanned, { why: 'dist 是空的或走訪路徑錯，這道吃產物的 gate 會零覆蓋通過' });
+corpus.track('<a> 標籤', anchors, { why: '頁面掃到了但一個錨點都沒解析出來，代表 Page.anchors() 壞了' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:anchor-text 的語料涵蓋有問題（gate 零覆蓋卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
   console.log(
     `\n✓ 錨文字檢查通過：掃 ${scanned} 頁、${anchors} 個 <a>，可見文字皆無裸露網址、括號皆成對。\n`,
   );

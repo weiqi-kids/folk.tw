@@ -11,6 +11,9 @@ import { join } from 'node:path';
 // ⚠️ 這支消費的是**全文的網址掃描**，不是欄位，所以 Page 對它主要是共用讀取與快取；
 //    判準（哪些屬性算內部網址、什麼算資產檔）仍留在本檔，見 page.mjs 檔頭「不負責判準」。
 import { Page } from './lib/page.mjs';
+// 語料涵蓋契約：宣告掃了什麼、幾筆。掃到 0 代表這道 gate 對該語料實際上是關閉的，
+// 而它仍會印綠字——比沒有這道 gate 更糟。見 lib/gate-corpus.mjs 檔頭。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const DIST = 'dist';
 const ORIGIN = 'https://folk.tw';
@@ -73,6 +76,14 @@ for (const file of htmlFiles(DIST)) {
 }
 
 if (violations.size === 0) {
+const corpus = newCorpus('check:canonical');
+corpus.track('dist 頁面', scanned, { why: 'dist 是空的或走訪路徑錯，這道吃產物的 gate 會零覆蓋通過' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:canonical 的語料涵蓋有問題（gate 零覆蓋卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
   console.log(`✓ canonical 連結檢查通過：掃 ${scanned} 頁，所有內部網址皆帶尾斜線（無 301 內鏈）。`);
   process.exit(0);
 }

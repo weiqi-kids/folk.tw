@@ -10,6 +10,9 @@
 // 6. --text-* 階梯下限：token 值一律 ≥18px（1.125rem）；clamp() 以最小值計
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, extname, relative, basename } from "node:path";
+// 語料涵蓋契約。🔴 這支原本連「掃了幾個檔」都沒印——走訪抓到 0 個檔也會印
+// 「設計規範檢查通過」。零覆蓋卻通過比沒有這道 gate 更糟，見 lib/gate-corpus.mjs。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const ROOT = "src";
 const TOKEN_FILE = join("src", "styles", "variables.css");
@@ -26,7 +29,9 @@ function walk(dir) {
   }
 }
 
+let scanned = 0;
 function scan(file) {
+  scanned += 1;
   const rel = relative(".", file);
   if (extname(file) === ".css") {
     const inStyles = rel.startsWith(join("src", "styles") + "/");
@@ -75,4 +80,13 @@ if (violations.length) {
   console.error(`設計規範違規 ${violations.length} 處：\n` + violations.join("\n"));
   process.exit(1);
 }
-console.log("設計規範檢查通過：css 白名單、無 px 字級、階梯 ≥18px、無 token 外顏色、無 !important、無外部 CDN。");
+const corpus = newCorpus('check:design');
+corpus.track('src/ 下的 .css/.astro/.svelte', scanned,
+  { why: '目錄走訪抓不到檔案時，這支會零覆蓋地印「檢查通過」' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:design 的語料涵蓋有問題（gate 零覆蓋卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
+console.log(`設計規範檢查通過：掃 ${scanned} 個檔——css 白名單、無 px 字級、階梯 ≥18px、無 token 外顏色、無 !important、無外部 CDN。`);

@@ -14,6 +14,9 @@
 // 用法：`node scripts/check-design-tokens.mjs`（CI build gate；本機 pnpm check:design-tokens）。
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+// 語料涵蓋契約：宣告掃了什麼、幾筆。掃到 0 代表這道 gate 對該語料實際上是關閉的，
+// 而它仍會印綠字——比沒有這道 gate 更糟。見 lib/gate-corpus.mjs 檔頭。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 const ROOTS = ['src/pages', 'src/components', 'src/layouts'];
 
@@ -81,6 +84,14 @@ for (const f of files) {
 }
 
 if (colorViolations.length === 0 && fontViolations.length === 0 && tokenViolations.length === 0) {
+const corpus = newCorpus('check:design-tokens');
+corpus.track('.astro 檔', files.length, { why: '目錄走訪抓不到 src/**/*.astro 時會靜靜地零覆蓋' });
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:design-tokens 的語料涵蓋有問題（gate 零覆蓋卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
   console.log(
     `✓ 設計 token 檢查通過：掃 ${files.length} 個 .astro，<style> 內無硬編顏色、font-size 全用 var(--text-*)、var(--…) 皆已定義。`,
   );
