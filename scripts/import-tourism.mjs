@@ -29,6 +29,11 @@ import {
 // 🔴 資料集寫入、旗標解析、來源標註**一律走這支**（唯一入口，見其檔頭）。
 // ⚠️ 對映與 intro 過濾規則仍然只在 lib/tourism-intro.mjs（與 check:integrity 共用），別搬過來。
 import { attachSource, cliFlags, commitDataset } from './lib/dataset-commit.mjs';
+// 寫檔前的 schema 驗證（2026-08-20 展開）。指向 `src/content-schemas.ts` 而非
+// `src/content.config.ts`——後者 import `astro:content`（Vite 虛擬模組），
+// bare node 會爆 "Received protocol 'astro:'"，整支匯入器跑不起來。
+// 理由與抽出經過見 src/content-schemas.ts 檔頭。
+import { templesSchema } from '../src/content-schemas.ts';
 
 const ZIP_URL = 'https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Attraction-json.zip';
 const TEMPLES = 'src/data/temples.json';
@@ -157,6 +162,7 @@ for (const c of changes.slice(0, 8)) {
 if (changes.length > 8) console.log(`  …其餘 ${changes.length - 8} 間略`);
 
 commitDataset({
+  schema: templesSchema,
   path: TEMPLES,
   data: temples,
   write: WRITE,

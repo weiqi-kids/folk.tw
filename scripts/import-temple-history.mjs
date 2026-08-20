@@ -45,6 +45,11 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { buildOwnerMap, makeResolver } from './lib/temple-owner.mjs';
 // 🔴 資料集寫入、旗標解析、來源標註、entity 解碼、合併鍵正規化**一律走這支**（唯一入口）。
 import { attachSource, cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
+// 寫檔前的 schema 驗證（2026-08-20 展開）。指向 `src/content-schemas.ts` 而非
+// `src/content.config.ts`——後者 import `astro:content`（Vite 虛擬模組），
+// bare node 會爆 "Received protocol 'astro:'"，整支匯入器跑不起來。
+// 理由與抽出經過見 src/content-schemas.ts 檔頭。
+import { templesSchema } from '../src/content-schemas.ts';
 
 const LIST_DIR = '/root/.config/folk-tw/intake/inbox/recon-service/foundation-list';
 // 🔴 內容 JSON **分散在多個 inbox 目錄**，因為 manifest 把它們拆成不同 job：
@@ -214,6 +219,7 @@ if (PHOTOS) {
   });
 }
 commitDataset({
+  schema: templesSchema,
   path: TEMPLES,
   data: temples,
   write: WRITE,

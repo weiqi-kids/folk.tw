@@ -29,6 +29,13 @@
 //    那個檔是混合縮排（部分陣列寫成單行），整檔 re-dump 會產生數千行假 diff。
 
 import { readFileSync, writeFileSync } from 'node:fs';
+// 寫檔前的 schema 驗證（2026-08-20 加）。本檔**不走 commitDataset**——它是對既有 JSON 做
+// 逐行文字插入以保留原格式，本質上不可能走那條路（見 lib/dataset-commit.mjs 檔頭的例外說明）。
+// 但驗證可以補在它自己那行 JSON.parse 之後，成本一樣。
+// ⚠️ schema 只能指向 src/content-schemas.ts（bare node 載得動）；
+//    src/content.config.ts 會爆 "Received protocol 'astro:'"。
+import { validateRecords } from './lib/dataset-commit.mjs';
+import { deitiesSchema, practicesSchema } from '../src/content-schemas.ts';
 
 const DEITIES = 'src/data/deities.json';
 const PRACTICES = 'src/data/practices.json';
@@ -73,10 +80,14 @@ const urlOf = (dictId) => `${BASE}?ID=${dictId}`;
 // 兩個目標檔共用同一套流程：對映表 → 抓辭條 → 驗名稱 → 寫 th_dict。
 // 欄位語意、授權條件與 gate 規則兩邊一模一樣，所以刻意不分成兩支腳本。
 const TARGETS = [
-  { file: DEITIES, label: '神明', rows: map.items ?? [], key: 'id' },
-  { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [], key: 'id' },
+  { file: DEITIES, label: '神明', rows: map.items ?? [], key: 'id', schema: deitiesSchema },
+  { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [], key: 'id', schema: practicesSchema },
   // 🔴 節日的主鍵是 slug（festivals.json 沒有 id 欄位），不宣告 key 會整批查無此項目。
-  { file: FESTIVALS, label: '節日', rows: map.festival_items ?? [], key: 'slug' },
+  // ⚠️ schema 為 null 是因為 **festivals.json 根本不是 content collection**
+  //    （src/content-schemas.ts 裡沒有它，全站十餘處直接 import 原始 json）。
+  //    所以這個目標的寫入目前沒有任何 schema 把關——要補得先替它寫一份 schema，
+  //    那是新增規則而不是接線。查法：grep -n "festivals" src/content-schemas.ts
+  { file: FESTIVALS, label: '節日', rows: map.festival_items ?? [], key: 'slug', schema: null },
 ];
 
 let ok = 0;
@@ -170,7 +181,11 @@ for (const p of pending) {
   }
 }
 const out = lines.join('\n');
-JSON.parse(out); // 壞了就當場炸，不要寫出壞檔
+const parsed = JSON.parse(out); // 壞了就當場炸，不要寫出壞檔
+// 🔴 語法沒壞不代表欄位對。本檔寫的正是 th_dict 這種有硬約束的欄位
+//    （excerpt 是 z.array(...).min(1)），寫錯不會拋例外、只會安靜產出壞資料。
+//    validateRecords 丟錯時 writeFileSync 還沒被呼叫，目標檔案不會被動到。
+if (target.schema) validateRecords(target.schema, parsed, target.key, target.file);
 writeFileSync(target.file, out);
 written.push(`${target.file} ${pending.length} 筆`);
 }
