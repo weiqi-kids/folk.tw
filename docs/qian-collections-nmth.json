@@ -12,8 +12,8 @@
     "   所以本檔是**我方內部的工作清單與申請依據**，不是拿來直接發佈成頁的資料集。",
     "   要把任何一件的內容放上站，先看 usability：",
     "     free         PDM／CC0 → 公眾領域，可自由使用",
-    "     noncommercial CC BY-NC → 非商業才可用，**要先確認站主的商業模式立場**",
-    "                   （站上不接受業配但不排除廣告投放，且規劃 NFC 抽籤產品，未必算非商業）",
+    "     noncommercial 已無此類：2026-08-20 站主確認 folk.tw 有商業行為，CC BY-NC 一律歸 blocked",
+    "                   （原文保留於各件的 blocked_reason，日後商業模式若變動再回頭重判）",
     "     blocked      僅限瀏覽 → 不可用",
     "     unmarked     頁上無授權標章 → 未知，要問館方，不可預設可用",
     "",
@@ -28,15 +28,11 @@
   "summary": [
     [
       "blocked",
-      10
+      11
     ],
     [
       "free",
       7
-    ],
-    [
-      "noncommercial",
-      1
     ],
     [
       "unmarked",
@@ -153,7 +149,7 @@
       "rno": "2003.008.0758",
       "name": "藥籤木刻印版共25面149首",
       "license_badge": "CC BY-NC 姓名標示─非商業性",
-      "usability": "noncommercial",
+      "usability": "blocked",
       "category": "器物類 > 宗教禮俗 > 其他",
       "period": "1683-1895（清代）",
       "creator": "廣濟宮",
@@ -162,7 +158,8 @@
       "size": "長度(X軸):10.8cm 寬度(Y軸):47.8cm 高度(Z軸):2.2cm 重量:10.75kg",
       "keywords": "藥籤解、藥籤筒、藥籤簿",
       "image_count": 2,
-      "nmth_url": "https://collections.nmth.gov.tw/CollectionContent.aspx?a=132&rno=2003.008.0758"
+      "nmth_url": "https://collections.nmth.gov.tw/CollectionContent.aspx?a=132&rno=2003.008.0758",
+      "blocked_reason": "CC BY-NC 禁商業使用；2026-08-20 站主確認 folk.tw 有商業行為，故本件不可用。"
     },
     {
       "rno": "2003.008.0760",
