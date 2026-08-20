@@ -13,8 +13,12 @@
 //
 // 判準（用戶原話）：`<a>` 的內容不能包含 http 字串。
 // 用法：pnpm build:release 後 `node scripts/check-anchor-text.mjs`（＝ pnpm check:anchor-text）。
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+// `<a>` 的切法與可見文字的取法走 scripts/lib/page.mjs（吃 dist 的 gate 家族共用的讀解層）。
+// 🔴 **判準留在本檔**：什麼叫「裸露網址」、括號認哪幾種，都是這支自己的事——
+//    page.anchors() 只負責把可見文字取出來（刻意不 decode entity，理由見 page.mjs）。
+import { Page } from './lib/page.mjs';
 
 const DIST = 'dist';
 const MAX_REPORT = 25;
@@ -27,20 +31,16 @@ function* htmlFiles(dir) {
   }
 }
 
-const ANCHOR = /<a\b[^>]*>([\s\S]*?)<\/a>/g;
-const TAGS = /<[^>]+>/g;
-
 const violations = [];
 let scanned = 0;
 let anchors = 0;
 
 for (const file of htmlFiles(DIST)) {
-  const html = readFileSync(file, 'utf8');
   scanned++;
-  for (const m of html.matchAll(ANCHOR)) {
+  // 只看可見文字（Page 已去掉巢狀標籤 <img>／<span> 並收斂空白）。
+  // 屬性裡的網址本來就該有，不算違規。
+  for (const { text } of Page.load(file).anchors()) {
     anchors++;
-    // 只看可見文字：去掉巢狀標籤（<img>、<span> 等）。屬性裡的網址本來就該有，不算違規。
-    const text = m[1].replace(TAGS, '').replace(/\s+/g, ' ').trim();
     const short = text.length > 90 ? `${text.slice(0, 90)}…` : text;
     if (/https?:\/\//i.test(text) || /\bhttp/i.test(text)) {
       violations.push({ file, text: short, why: '裸露網址' });

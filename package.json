@@ -23,6 +23,7 @@
     "test:dataset-commit": "node scripts/lib/dataset-commit.test.mjs",
     "test:text": "node --experimental-strip-types src/lib/text.test.ts",
     "test:event-cycle": "node --experimental-strip-types src/lib/event-cycle.test.ts",
+    "test:page": "node scripts/lib/page.test.mjs",
     "check:canonical": "node scripts/check-canonical-links.mjs",
     "check:rendered": "node --experimental-strip-types scripts/check-rendered.mjs",
     "check:discover": "node scripts/check-discover-coverage.mjs --strict",

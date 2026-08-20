@@ -5,8 +5,12 @@
 //       此檢查阻擋任何非斜線內部網址（導航 href/src、JSON-LD url/@id/item/target/urlTemplate、
 //       canonical、og:url）再度上線。發現即 exit 1 → deploy.yml 的 build job 失敗 → 不部署。
 // 用法：pnpm build:release 後 `node scripts/check-canonical-links.mjs`（CI 已串在 release 之後）。
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+// HTML 一律走 scripts/lib/page.mjs（吃 dist 的 gate 家族共用的讀解層），不自己 readFileSync。
+// ⚠️ 這支消費的是**全文的網址掃描**，不是欄位，所以 Page 對它主要是共用讀取與快取；
+//    判準（哪些屬性算內部網址、什麼算資產檔）仍留在本檔，見 page.mjs 檔頭「不負責判準」。
+import { Page } from './lib/page.mjs';
 
 const DIST = 'dist';
 const ORIGIN = 'https://folk.tw';
@@ -53,7 +57,7 @@ try {
 
 for (const file of htmlFiles(DIST)) {
   scanned++;
-  const html = readFileSync(file, 'utf8');
+  const html = Page.load(file).html;
   for (const { re, group } of PATTERNS) {
     re.lastIndex = 0;
     let m;

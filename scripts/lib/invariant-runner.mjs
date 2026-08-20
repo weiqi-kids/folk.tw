@@ -12,7 +12,7 @@
 //  2. **依 `source` 分組，每種頁型只走一趟**：讀檔一次 → 建一個 Page → 依登錄表順序
 //     呼叫該組所有 adapter。這是保住「11 條斷言 1 次 I/O」的機制，也是把原本
 //     重複讀 4~5 次 dist/temples/*/index.html 的四個走訪合併掉的機制。
-//  3. Page 的剖析 lazy + 快取（title/description/section）。
+//  3. Page 的剖析 lazy + 快取（title/description/section；實作見 page.mjs）。
 //  4. 拓撲排序 dependsOn；--only／--list。
 //  5. 把各 adapter 的 summary() join 起來，取代那個 3,000 字樣板。
 //
@@ -22,6 +22,10 @@
 //  會讓雙向的一半恆為真）。所以 runner 統計每個 section 名的命中率：
 //  **請求過但一次都沒命中 → 直接違規**。這條擋的不是資料錯，是檢查本身壞掉。
 import { buildContext } from './render-context.mjs';
+// Page（HTML 讀解）已抽成獨立 module：吃 dist 的 gate 家族（check-canonical-links／
+// check-anchor-text／check-discover-coverage／check-content-quality）與本 runner 共用同一份
+// 讀法。原本它是本檔的私有類別，「合併走訪」的好處就停在這個模組邊界上。見 page.mjs 檔頭。
+import { Page } from './page.mjs';
 
 /** 一條不變量的累加器：取代原本的 module-level let 與 globalThis.__*。 */
 class Acc {
@@ -38,44 +42,6 @@ class Acc {
 }
 
 const EMPTY_ACC = { get: () => 0, state: {} };
-
-/** runner 交給 adapter 的「一頁」：全文 + lazy 快取的剖析結果。 */
-class Page {
-  constructor(file, html, sectionStats) {
-    this.file = file;
-    this.html = html;
-    this._sections = new Map();
-    this._title = undefined;
-    this._description = undefined;
-    this._sectionStats = sectionStats;
-  }
-  /** `dist/temples/x/index.html` → `/temples/x/index.html` */
-  get route() { return this.file.slice('dist'.length) || '/'; }
-  title() {
-    if (this._title === undefined) this._title = this.html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
-    return this._title;
-  }
-  description() {
-    if (this._description === undefined) {
-      this._description = this.html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
-    }
-    return this._description;
-  }
-  /**
-   * 切出 `<section class="name" …>…</section>` 的內文；找不到回 undefined。
-   * 🔴 有區塊就**不准**退回全頁 includes：nav／頁尾每頁都渲染一堆連結，
-   *    全頁比對會讓雙向的「不應出現」那半邊恆為真＝gate 靜默失效。
-   */
-  section(name) {
-    if (this._sections.has(name)) return this._sections.get(name);
-    const found = this.html.match(new RegExp(`<section class="${name}"[^>]*>([\\s\\S]*?)</section>`))?.[1];
-    this._sections.set(name, found);
-    const stat = this._sectionStats.get(name) ?? { hit: 0, miss: 0 };
-    if (found === undefined) stat.miss += 1; else stat.hit += 1;
-    this._sectionStats.set(name, stat);
-    return found;
-  }
-}
 
 /** 每種走訪：要跑哪些 entity、entity 對應哪個產物、產物不存在時怎麼辦。 */
 function sourceSpecs(ctx) {
@@ -260,7 +226,7 @@ export async function runInvariants(registry, argv = []) {
         if (spec.onMissing && spec.onMissing(entity, ownerAcc)) missing += 1;
         continue;
       }
-      const page = new Page(file, ctx.read(file), sectionStats);
+      const page = new Page(file, ctx.read(file), { sectionStats });
       visited.set(name, (visited.get(name) ?? 0) + 1);
       for (const inv of group) await inv.check(entity, page, ctx, accs.get(inv.id));
     }
@@ -276,7 +242,7 @@ export async function runInvariants(registry, argv = []) {
         if (!ctx.exists(file)) { inv.onMissing?.(file, acc, ctx); continue; }
         // 同一個 singleton 可能有多個消費者（/about/ 有兩條），只讀一次。
         let page = singletonPages.get(file);
-        if (!page) { page = new Page(file, ctx.read(file), sectionStats); singletonPages.set(file, page); }
+        if (!page) { page = new Page(file, ctx.read(file), { sectionStats }); singletonPages.set(file, page); }
         await inv.check(file, page, ctx, acc);
       }
     } else if (inv.source === 'none') {

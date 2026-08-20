@@ -36,6 +36,12 @@
 import { readFileSync } from 'node:fs';
 // 🔴 資料集寫入、來源標註、合併鍵正規化、entity 解碼**一律走這支**（唯一入口，見其檔頭）。
 import { attachSource, cliFlags, commitDataset, decodeEntities, norm } from './lib/dataset-commit.mjs';
+// 寫檔前的 schema 驗證（2026-08-20 加）。這裡 import 的是 **`.ts`**：Node 22 起型別剝離預設開啟，
+// bare `node scripts/import-festivals.mjs` 直接載得動，不必加旗標、不必經 astro。
+// ⚠️ 只能指向 `src/content-schemas.ts`，**不可以改指 `src/content.config.ts`**——後者 import
+//    `astro:content`（Vite 虛擬模組），bare node 會爆 "Received protocol 'astro:'"，
+//    整支匯入器直接跑不起來。理由與抽出經過見 src/content-schemas.ts 檔頭。
+import { templesSchema } from '../src/content-schemas.ts';
 
 const HTML = '/root/.config/folk-tw/intake/inbox/religion-festival/festival-entry.html';
 const XML = '/root/.config/folk-tw/temple.xml';
@@ -301,10 +307,16 @@ for (const t of temples.filter((x) => x.festivals?.length).slice(0, SAMPLE)) {
   }
 }
 
+// 🔴 `schema` 讓「寫出來的東西合不合 collection schema」在**這一刻**就被擋下，
+//    而不是等 20 分鐘的 astro build（那時資料已經落地、可能已經 commit）。
+//    本檔會動到 `festivals[]` 的 `calendar`（lunar/solar 列舉）與 `date`（MM-DD 正規式），
+//    兩者都是「寫錯不會拋例外、只會安靜產出壞資料」的欄位——正是這道驗證要守的東西。
+//    乾跑一樣會驗（見 lib/dataset-commit.mjs 檔頭 ⑨）。
 commitDataset({
   path: TEMPLES,
   data: temples,
   write: WRITE,
+  schema: templesSchema,
   dryNote: '\n（乾跑，未寫檔。確認上面數字後加 --write）',
   doneNote: `\n✅ 已寫回 ${TEMPLES}`,
 });

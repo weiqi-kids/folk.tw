@@ -1,8 +1,16 @@
-// 匯入器寫入資料集的**唯一入口**。六支 `scripts/import-*.mjs` 一律走這裡，別再各寫一份。
+// 匯入器寫入資料集的**唯一入口**。`scripts/import-*.mjs` 一律走這裡，別再各寫一份。
+//
+// ⚠️ 2026-08-20 查證更正：這行原本寫「六支一律走這裡」，實際上是**八支，而且有兩支繞過去
+//    自己 writeFileSync**——`import-th-dict.mjs:174`（對既有 JSON 做逐行文字插入以保留格式，
+//    本質上不可能走這裡）與 `import-artifact-photos.mjs:108`（寫 artifacts.json，
+//    而 artifacts **不在 content collections 裡**，所以連 build 都不會驗它，
+//    是目前完全沒有把關的一份）。
+//    🔴 「一律」這個詞如果沒有東西在查，它就只是個願望。數量不寫死，要知道現況跑：
+//       grep -ln "writeFileSync" scripts/import-*.mjs
 //
 // 為什麼要這支（2026-08-19 抽出。與 lib/temple-owner.mjs 同一個理由：
 // 「多一份就多一個會漂的真實來源」，那條規矩對檔案成立，對程式碼一樣成立）：
-// 抽出前六支匯入器各自重新實作了同一件事，且已經漂開了——
+// 抽出前，各匯入器各自重新實作了同一件事，且已經漂開了——
 //   ・`--write` 判定：4 支讀 `args`、2 支讀 `process.argv`（同一支檔案裡兩種混用的也有）
 //   ・JSON 序列化：三種寫法（模板字串／字串相加／不同縮排），沒有一支是原子寫入
 //   ・`&nbsp;` 這段 entity 解碼：同一段複製四次，其中三份**沒有**數值型 entity 的解碼，
@@ -51,6 +59,19 @@
 // ⑧ 匯入器只負責「解析來源、提出候選紀錄」，**寫不寫由本模組依 `write` 決定**。
 //    ⚠️ 所以匯入器內部不要再出現 `if (WRITE) t.foo = ...`——那會讓乾跑看到的物件與
 //    實際寫入的物件不是同一個，差異量就永遠是 0。`import-tourism.mjs` 原本正是這樣。
+//
+// ⑨ **`schema` 參數：寫檔當下就驗 Zod，違規就丟錯**（2026-08-20 加）。
+//    在這之前，「匯入器寫出來的東西合不合 collection schema」的唯一把關是 `astro build`
+//    ——一輪約 20 分鐘，而且是在資料**已經落地、可能已經 commit** 之後才紅燈。
+//    本模組原本只守住「**怎麼**寫檔」（原子性、idempotent、差異量），沒守住「寫的**是什麼**」，
+//    兩層混在一起很容易讓人以為已經有把關了。
+//    schema 從 `src/content-schemas.ts` 取（那支是唯一真實來源，讀端 `src/content.config.ts`
+//    與寫端本模組共用同一份定義；為什麼要抽出來見該檔檔頭）。
+//    🔴 **違規一律 throw，不可降級成 warn。** 判準與本檔第 8 項測試（缺 path 直接丟錯）
+//    同一條：寫入落點／內容錯必須炸，不能安靜成功——本 repo 記過的失敗模式是
+//    「安靜成功、隔天才發現沒資料」。warn 會被淹在匯入器上百行的統計輸出裡。
+//    ⚠️ **乾跑也驗**。乾跑的用途正是「看這次跑下去會寫成什麼樣」，把驗證留到 `--write`
+//    等於讓人先看一份沒驗過的報告再決定要不要落地，順序是反的。
 
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { basename, dirname } from 'node:path';
@@ -189,6 +210,53 @@ export function diffRecords(prev, next, idKey = 'id') {
   return out;
 }
 
+// ── Schema 驗證 ─────────────────────────────────────────────────────────────
+/** 錯誤訊息裡最多列幾筆（其餘只報總數）。全列出來會把終端機洗掉，反而看不到第一筆。 */
+const MAX_REPORTED = 5;
+
+/**
+ * 逐筆對 Zod schema 驗證；有任何一筆違規就 **throw**（見本檔頭 ⑨，不可改成 warn）。
+ *
+ * 用 `safeParse` 而非 `parse` 是為了**一次收齊所有違規再報**：匯入器一跑動輒上千筆，
+ * 一次只吐第一筆會變成「修一筆、重跑、再修一筆」的來回。
+ *
+ * ⚠️ **只取 `success`，丟掉 `data`。** Zod 的 `.default()` 會補值、`reference()` 會把
+ *    字串轉成 `{ id, collection }`——那是**讀端**（astro content layer）要的形狀，
+ *    不是我們要寫進 JSON 的形狀。把 parse 結果寫回去會讓資料集長出一堆 build 期才有的
+ *    衍生欄位，且下次乾跑的差異量全部變成「更新」。**驗證只回答「合不合法」。**
+ *
+ * @param {*} schema  單筆紀錄的 Zod schema（來自 src/content-schemas.ts）
+ * @param {*} data    要寫的資料（陣列或帶 `items` 的信封）
+ * @param {string} idKey
+ * @param {string} path 只用於錯誤訊息
+ */
+export function validateRecords(schema, data, idKey = 'id', path = '') {
+  const items = pickItems(data);
+  // 傳了 schema 卻拿不到可逐筆驗的陣列＝呼叫端弄錯了資料形狀，這種情況必須炸，
+  // 不能默默跳過驗證——「以為驗過了」比「知道沒驗」更危險。
+  if (!items) {
+    throw new Error(
+      `commitDataset：傳了 schema 但 ${path || '資料'} 不是陣列、也沒有 items 陣列，無法逐筆驗證`,
+    );
+  }
+  const bad = [];
+  for (let i = 0; i < items.length; i++) {
+    const r = schema.safeParse(items[i]);
+    if (r.success) continue;
+    const who = items[i]?.[idKey] ?? `第 ${i + 1} 筆`;
+    for (const issue of r.error.issues) {
+      bad.push(`${who}：${issue.path.join('.') || '(整筆)'} — ${issue.message}`);
+    }
+  }
+  if (!bad.length) return items.length;
+  const shown = bad.slice(0, MAX_REPORTED).map((b) => `  ・${b}`).join('\n');
+  throw new Error(
+    `commitDataset：${path || '資料集'} 有 ${bad.length} 筆欄位不符 content collection schema，已中止寫入。\n`
+    + `${shown}${bad.length > MAX_REPORTED ? `\n  …其餘 ${bad.length - MAX_REPORTED} 項略` : ''}\n`
+    + '（schema 定義在 src/content-schemas.ts；這是寫檔前的驗證，src/data/ 沒有被動到）',
+  );
+}
+
 // ── 提交 ────────────────────────────────────────────────────────────────────
 const readJson = (p) => {
   try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return null; }
@@ -196,7 +264,7 @@ const readJson = (p) => {
 
 /**
  * 把一份資料集提交到 `path`：算差異 → 印報告 → （`write` 為真時）原子寫入。
- * **六支匯入器寫檔一律走這裡**，不要自己 `writeFileSync` 資料集。
+ * **匯入器寫檔一律走這裡**，不要自己 `writeFileSync` 資料集（例外見檔頭 2026-08-20 那段）。
  *
  * @param {object} o
  * @param {string} o.path      輸出路徑（必填，見本檔頭 ①：不可寫死在本模組裡）
@@ -204,6 +272,9 @@ const readJson = (p) => {
  * @param {boolean} o.write    false ＝ 乾跑，只算差異與印報告，不碰硬碟
  * @param {number} [o.indent]  縮排，預設 2；照片候選這類 sidecar 傳 1（見本檔頭 ④）
  * @param {string} [o.idKey]   逐筆比對用的鍵，預設 `id`
+ * @param {*} [o.schema]       單筆紀錄的 Zod schema（`src/content-schemas.ts`）。
+ *        給了就在**寫檔前**逐筆 `safeParse`，任何一筆違規直接 throw（見本檔頭 ⑨）。
+ *        省略＝維持舊行為（不驗），但新匯入器一律要傳。
  * @param {boolean} [o.reportDiff] 是否印差異行，預設 true
  * @param {string|null} [o.dryNote]  乾跑時印的整句（含括號）。null ＝ 不印
  * @param {string|null} [o.doneNote] 寫入後印的整句。null ＝ 不印（呼叫端自己印）
@@ -217,12 +288,16 @@ export function commitDataset({
   write,
   indent = 2,
   idKey = 'id',
+  schema,
   reportDiff = true,
   dryNote = '（乾跑，未寫檔。加 --write 才實際寫入）',
   doneNote,
   log = console.log,
 }) {
   if (!path) throw new Error('commitDataset：缺 path（輸出路徑必須由呼叫端傳入，見 lib/dataset-commit.mjs 檔頭 ①）');
+
+  // 🔴 驗證排在最前面：在序列化、印報告、碰硬碟之前。丟錯時 `path` 一定原封不動。
+  if (schema) validateRecords(schema, data, idKey, basename(path));
 
   const serialized = `${JSON.stringify(data, null, indent)}\n`;
   const existed = existsSync(path);

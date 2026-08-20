@@ -17,6 +17,9 @@
 // exit 1 只代表 ERROR；WARN 會保留在輸出，方便把存量逐月補齊。
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+// dist 那一段的 HTML 欄位走 scripts/lib/page.mjs（吃 dist 的 gate 家族共用的讀解層）。
+// 🔴 判準（title/h1 要不要有、description 幾字算太短、來源怎麼算「有渲染」）留在本檔。
+import { Page } from './lib/page.mjs';
 
 const args = process.argv.slice(2);
 const strictFlag = args.includes('--strict');
@@ -313,10 +316,11 @@ for (const festival of festivals) {
   // 沒有 dist 時不失敗，因為此支也會在 Astro build 前置執行。
   const htmlFile = contentUrl(slug);
   if (existsSync(htmlFile)) {
-    const html = readFileSync(htmlFile, 'utf8');
-    const title = html.match(/<title>([^<]*)<\/title>/iu)?.[1]?.trim() ?? '';
-    const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/iu)?.[1]?.replace(/<[^>]+>/gu, '').trim() ?? '';
-    const description = html.match(/<meta\s+name="description"\s+content="([^"]*)"/iu)?.[1] ?? '';
+    const page = Page.load(htmlFile);
+    const html = page.html;
+    const title = page.title().trim();
+    const h1 = page.h1();
+    const description = page.description();
     if (!title) failOrWarn('dist 頁面缺少 <title>');
     if (!h1) failOrWarn('dist 頁面缺少 <h1>');
     if (description.length < 50) failOrWarn(`dist meta description 僅 ${description.length} 字`);

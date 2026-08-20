@@ -17,6 +17,13 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+// HTML 欄位一律走 scripts/lib/page.mjs（吃 dist 的 gate 家族共用的讀解層）：
+// title／meta／canonical／<main> 可見文字／h1／img／JSON-LD @type 原本在本檔各有一份。
+// 🔴 判準（哪些路徑算候選頁、幾字算薄、og 尺寸怎麼算合格）仍留在本檔。
+// ⚠️ description 這一欄本檔用的是 `page.meta('name','description')`（先切 <meta> 標籤再讀屬性），
+//    與 runner／check-content-quality 用的 `page.description()`（字面屬性擷取）在
+//    「內文含未跳脫角括號」的 4 個廟頁上會讀到不同長度——**維持原行為，未統一**，見 page.mjs 檔頭。
+import { decode, Page } from './lib/page.mjs';
 
 const DIST = valueAfter('--dist') || 'dist';
 const STRICT = process.argv.includes('--strict');
@@ -47,45 +54,6 @@ function* htmlFiles(dir) {
   }
 }
 
-function attr(tag, name) {
-  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = tag.match(new RegExp(`\\b${escaped}\\s*=\\s*["']([^"']*)`, 'i'));
-  return match?.[1] ?? '';
-}
-
-function firstTag(html, re) {
-  return html.match(re)?.[0] ?? '';
-}
-
-function meta(html, key, value) {
-  const tags = html.match(/<meta\b[^>]*>/gi) ?? [];
-  return (
-    tags.find((tag) => attr(tag, key).toLowerCase() === value.toLowerCase())
-      ? attr(tags.find((tag) => attr(tag, key).toLowerCase() === value.toLowerCase()), 'content')
-      : ''
-  );
-}
-
-function decode(value) {
-  return String(value ?? '')
-    .replace(/&nbsp;/giu, ' ')
-    .replace(/&amp;/giu, '&')
-    .replace(/&lt;/giu, '<')
-    .replace(/&gt;/giu, '>')
-    .replace(/&quot;/giu, '"')
-    .replace(/&#39;|&apos;/giu, "'");
-}
-
-function visibleText(html) {
-  return decode(String(html ?? ''))
-    .replace(/<script[\s\S]*?<\/script>/giu, ' ')
-    .replace(/<style[\s\S]*?<\/style>/giu, ' ')
-    .replace(/<[^>]+>/gu, ' ')
-    .replace(/[\u200b-\u200d\ufeff]/gu, '')
-    .replace(/\s+/gu, ' ')
-    .trim();
-}
-
 function pageUrl(file) {
   const rel = relative(DIST, file).split(sep).join('/');
   if (rel === 'index.html') return '/';
@@ -98,32 +66,6 @@ function localPath(url) {
   let decoded = rawPath;
   try { decoded = decodeURIComponent(rawPath); } catch { /* 用原值繼續，下面會報不存在 */ }
   return join(DIST, decoded.split(/[?#]/u)[0]);
-}
-
-function jsonLdTypes(html) {
-  const types = [];
-  const blocks = html.matchAll(
-    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/giu,
-  );
-  for (const match of blocks) {
-    try {
-      const value = JSON.parse(match[1]);
-      const visit = (node) => {
-        if (!node) return;
-        if (Array.isArray(node)) return node.forEach(visit);
-        if (typeof node !== 'object') return;
-        if (node['@type']) {
-          const list = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-          types.push(...list.map(String));
-        }
-        if (node['@graph']) visit(node['@graph']);
-      };
-      visit(value);
-    } catch {
-      // JSON-LD syntax is checked elsewhere; this report only needs readable types.
-    }
-  }
-  return [...new Set(types)].sort();
 }
 
 function sitemapPaths() {
@@ -196,21 +138,19 @@ function decodedPath(url) {
 
 const rows = [];
 for (const file of htmlFiles(DIST)) {
-  const html = readFileSync(file, 'utf8');
+  const page = Page.load(file);
   const url = pageUrl(file);
-  const robots = meta(html, 'name', 'robots');
-  const canonicalTag = firstTag(html, /<link\b[^>]*rel=["'][^"']*canonical[^"']*["'][^>]*>/iu);
-  const canonical = attr(canonicalTag, 'href');
-  const title = decode(html.match(/<title>([\s\S]*?)<\/title>/iu)?.[1] ?? '').trim();
-  const description = meta(html, 'name', 'description');
-  const ogImage = meta(html, 'property', 'og:image');
-  const ogWidth = meta(html, 'property', 'og:image:width');
-  const ogHeight = meta(html, 'property', 'og:image:height');
-  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/iu)?.[1] ?? '';
-  const bodyText = visibleText(main);
-  const h1Count = (main.match(/<h1\b/giu) ?? []).length;
-  const imageTags = main.match(/<img\b[^>]*>/giu) ?? [];
-  const jsonLd = jsonLdTypes(html);
+  const robots = page.meta('name', 'robots');
+  const canonical = page.canonical();
+  const title = decode(page.title()).trim();
+  const description = page.meta('name', 'description');
+  const ogImage = page.meta('property', 'og:image');
+  const ogWidth = page.meta('property', 'og:image:width');
+  const ogHeight = page.meta('property', 'og:image:height');
+  const bodyText = page.mainText();
+  const h1Count = page.mainH1Count();
+  const imageTags = page.mainImages();
+  const jsonLd = page.jsonLdTypes();
   const indexable = !/\bnoindex\b/iu.test(robots);
   rows.push({
     file,

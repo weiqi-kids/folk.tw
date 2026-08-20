@@ -113,6 +113,21 @@ export const GATES = [
     why: '週期造句 golden 9 筆逐字＋全量 67 筆掃 7 種病句型態＋ke_rule 不得復活',
   },
   {
+    id: 'test:page',
+    label: 'Page（HTML 讀解層）迴歸',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['page-lib'],
+    // 2026-08-20 新增。Page 原本是 invariant-runner 的私有類別，「把重複走訪合併成一次」
+    // 的好處停在它自己的模組邊界上——邊界外有四支吃 dist 的 gate 各自剖析 HTML。
+    // 抽成 scripts/lib/page.mjs 之後，五支消費端共用同一份讀法。
+    // 🔴 這道 gate 是 source 層、秒級：Page 吃字串吐結構，測它不需要 dist，
+    //    而它的四個消費端全部要等 20 分鐘的 build:release 才跑得到。
+    //    讀法壞掉在這裡就會紅，不必等產物層。
+    why: 'Page 的 40 項讀法迴歸（title／meta／section／anchors／entity／JSON-LD），純字串輸入',
+  },
+  {
     id: 'check:design',
     label: '設計規範 v2',
     needs: 'source',
@@ -433,6 +448,13 @@ export const CHANGED_RULES = {
   ],
   // 2026-08-19 新增：test:text 的實際輸入（`ui` 只認 .astro/.svelte/.css，吃不到這支 .ts）
   'text-lib': [/^src\/lib\/text\.ts$/, /^src\/lib\/text\.test\.ts$/],
+  // 2026-08-20 新增：test:page 的實際輸入（模組、測試，以及五個消費端）
+  'page-lib': [
+    /^scripts\/lib\/page\.mjs$/,
+    /^scripts\/lib\/page\.test\.mjs$/,
+    /^scripts\/lib\/invariant-runner\.mjs$/,
+    /^scripts\/check-(canonical-links|anchor-text|discover-coverage|content-quality)\.mjs$/,
+  ],
   // 2026-08-20 新增：test:event-cycle 的實際輸入（模組、測試、以及它讀的資料與 schema）
   'event-cycle': [
     /^src\/lib\/event-cycle\.ts$/,
