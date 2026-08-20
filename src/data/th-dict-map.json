@@ -793,48 +793,111 @@
       "dict_id": 1501,
       "dict_name": "大士爺",
       "page": "event:minxiong_dashiye"
+    },
+    {
+      "dict_id": 2410,
+      "dict_name": "平溪天燈",
+      "page": "event:pingxi_tiandeng（新開頁，含 nchdb 登錄個案）"
+    },
+    {
+      "dict_id": 2430,
+      "dict_name": "台中南屯犁頭店木屐賽",
+      "page": "event:nantun_muji（新開頁，含登錄個案）"
+    },
+    {
+      "dict_id": 2428,
+      "dict_name": "淡水迎清水祖師",
+      "page": "event:danshui_qingshui（新開頁，含登錄個案）"
+    },
+    {
+      "dict_id": 2404,
+      "dict_name": "宜蘭迎城隍",
+      "page": "event:yilan_chenghuang（新開頁，無登錄個案）"
+    },
+    {
+      "dict_id": 2409,
+      "dict_name": "內湖夜弄土地公",
+      "page": "event:neihu_nongtudigong（新開頁，無登錄個案）"
+    },
+    {
+      "dict_id": 2415,
+      "dict_name": "請神洗港",
+      "page": "event:yeliu_jingang（新開頁，含登錄個案 20080917000003）"
+    },
+    {
+      "dict_id": 2405,
+      "dict_name": "乞龜",
+      "page": "festival:draft-week-15-yuanxiao-guide"
+    },
+    {
+      "dict_id": 2406,
+      "dict_name": "聽香",
+      "page": "festival:draft-week-15-yuanxiao-guide"
+    },
+    {
+      "dict_id": 2407,
+      "dict_name": "鑽燈腳",
+      "page": "festival:draft-week-15-yuanxiao-guide"
+    },
+    {
+      "dict_id": 2408,
+      "dict_name": "燈謎",
+      "page": "festival:draft-week-15-yuanxiao-guide"
+    },
+    {
+      "dict_id": 2416,
+      "dict_name": "新丁粄",
+      "page": "festival:draft-week-15-yuanxiao-guide"
+    },
+    {
+      "dict_id": 2401,
+      "dict_name": "迎春牛",
+      "page": "festival:draft-week-15-yuanxiao-guide（立春與元宵相近，辭條本身即這樣寫）"
+    },
+    {
+      "dict_id": 2453,
+      "dict_name": "吃冬至圓",
+      "page": "festival:draft-week-10-dongzhi-guide"
+    },
+    {
+      "dict_id": 2452,
+      "dict_name": "補冬",
+      "page": "festival:draft-week-10-dongzhi-guide"
+    },
+    {
+      "dict_id": 2451,
+      "dict_name": "謝冬",
+      "page": "festival:draft-week-10-dongzhi-guide"
+    },
+    {
+      "dict_id": 2455,
+      "dict_name": "謝平安戲",
+      "page": "festival:draft-week-10-dongzhi-guide"
+    },
+    {
+      "dict_id": 2457,
+      "dict_name": "送神",
+      "page": "festival:draft-week-11-songshen-xietaisui"
+    },
+    {
+      "dict_id": 2459,
+      "dict_name": "辭年",
+      "page": "festival:draft-week-12-chuxi-ancestors"
+    },
+    {
+      "dict_id": 2460,
+      "dict_name": "圍爐",
+      "page": "festival:draft-week-12-chuxi-ancestors"
     }
   ],
   "unplaced": {
-    "_why": "辭典有這些辭條、內容也可用，但站上目前沒有對應頁面；開頁時直接來這裡取源，不必重查。",
-    "元宵類": [
-      "乞龜#2405",
-      "聽香#2406",
-      "鑽燈腳#2407",
-      "燈謎#2408",
-      "新丁粄#2416",
-      "平溪天燈#2410"
-    ],
-    "年節類": [
-      "迎春牛#2401",
-      "開市(迎財神)#2399",
-      "頭牙#2419",
-      "尾牙宴#2456",
-      "送神#2457",
-      "辭年#2459",
-      "圍爐#2460",
-      "補冬#2452",
-      "吃冬至圓#2453",
-      "謝冬#2451"
-    ],
-    "祭改類": [
-      "拜斗#2391",
-      "祭元辰#2393",
-      "祭安度#2394",
-      "祭星#2395",
-      "掩魂#2396",
-      "打城法事#2397",
-      "替身#2432"
-    ],
-    "地方活動": [
-      "宜蘭迎城隍#2404",
-      "內湖夜弄土地公#2409",
-      "台中南屯犁頭店木屐賽#2430",
-      "淡水迎清水祖師#2428",
-      "請神洗港#2415",
-      "乞墓粿#2427",
-      "謝平安戲#2455",
-      "作總忌#2449"
+    "_why": "辭典有這些辭條、內容也可用，但站上目前沒有對應頁面；開頁時直接來這裡取源，不必重查。2026-08-20 這一輪把原本 unplaced 的四類幾乎清空——新開了 6 個活動頁與 5 個習俗頁，其餘併入既有的元宵／冬至／送神／除夕頁。",
+    "剩下的": [
+      "茶酒#2390（酒禮通論，無對應頁）",
+      "祭解#2392（已在 buyun）",
+      "炮台#2414、煙火#2417（器物通論）",
+      "乞巧#2436 已置於七夕",
+      "富貴的圖文母題#2461 等吉祥圖案類（本站無圖案頁型）"
     ]
   },
   "practice_items": [
@@ -872,9 +935,13 @@
         {
           "dict_id": 2392,
           "dict_name": "祭解"
+        },
+        {
+          "dict_id": 2432,
+          "dict_name": "替身"
         }
       ],
-      "basis": "本站這一頁的標題就是「補運/祭解/改運」，辭典把補運與祭解各立一條。"
+      "basis": "本站這一頁的標題就是「補運/祭解/改運」，辭典把補運與祭解各立一條。另補「替身」一條——替身是補運與祭改都會用到的替代物，辭典另立專條。"
     },
     {
       "deity_id": "zuo16",
@@ -905,6 +972,92 @@
         }
       ],
       "basis": "同名辭條；普渡的主場節日是中元節，但這條講的是儀式本身，屬於習俗頁。"
+    },
+    {
+      "deity_id": "baidou",
+      "entries": [
+        {
+          "dict_id": 2391,
+          "dict_name": "拜斗"
+        },
+        {
+          "dict_id": 2393,
+          "dict_name": "祭元辰"
+        },
+        {
+          "dict_id": 2395,
+          "dict_name": "祭星"
+        }
+      ],
+      "basis": "同一組本命／星辰觀念的三條辭條：拜斗（禮斗法會）、祭元辰（本命元辰）、祭星（九曜值日），本站合為一頁。"
+    },
+    {
+      "deity_id": "jieguan",
+      "entries": [
+        {
+          "dict_id": 2394,
+          "dict_name": "祭安度"
+        },
+        {
+          "dict_id": 2396,
+          "dict_name": "掩魂"
+        }
+      ],
+      "basis": "祭安度即祭關限（命帶關煞），掩魂（掩卦）是每九年走刑運的祭改，兩者都以生辰推算、性質同類。"
+    },
+    {
+      "deity_id": "dacheng",
+      "entries": [
+        {
+          "dict_id": 2397,
+          "dict_name": "打城法事"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "zuoya",
+      "entries": [
+        {
+          "dict_id": 2419,
+          "dict_name": "頭牙"
+        },
+        {
+          "dict_id": 2456,
+          "dict_name": "尾牙宴"
+        }
+      ],
+      "basis": "作牙的頭尾兩端各有一條辭條；頭牙那條同時說明作牙與土地公千秋的關係。"
+    },
+    {
+      "deity_id": "kaishi",
+      "entries": [
+        {
+          "dict_id": 2399,
+          "dict_name": "開市(迎財神)"
+        }
+      ],
+      "basis": "同名辭條（含五路財神的部屬名單）。"
+    },
+    {
+      "deity_id": "saomu",
+      "entries": [
+        {
+          "dict_id": 2427,
+          "dict_name": "乞墓粿"
+        }
+      ],
+      "basis": "乞墓粿是掃墓（培墓）當場的習俗，屬於本站掃墓頁。"
+    },
+    {
+      "deity_id": "baizuxian",
+      "entries": [
+        {
+          "dict_id": 2449,
+          "dict_name": "作總忌"
+        }
+      ],
+      "basis": "作總忌是年節祭祖之外的合併忌日祭祖，屬於本站祭祖頁。"
     }
   ]
 }

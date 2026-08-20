@@ -5173,5 +5173,363 @@
         ]
       }
     ]
+  },
+  {
+    "id": "pingxi_tiandeng",
+    "name": "平溪天燈節",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "元宵節（農曆正月十五）前後；文化資產登錄的舉辦週期為每年、曆別為農曆",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "verified": true,
+      "case_id": "20080528000001",
+      "authority": "新北市政府"
+    },
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080528000001",
+        "note": "新北市登錄民俗「平溪天燈節」，舉辦週期每年、農曆"
+      },
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈平溪天燈〉 https://dict.th.gov.tw/detailPage.aspx?ID=2410",
+        "note": "辭條：天燈的由來、結構與孔明燈之名"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "放天燈原本不是節慶：平溪、十分一帶早年位處偏遠山區、交通不便，入山開拓的漢人常遭殺害或土匪打劫，墾拓的鄉民便以施放天燈互報平安，後來才逐漸演變成當地元宵節特有的習俗，流傳到今天變成祈求上蒼賜福。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈平溪天燈〉 https://dict.th.gov.tw/detailPage.aspx?ID=2410",
+            "note": "辭條：施放天燈原為山區互報平安"
+          }
+        ]
+      },
+      {
+        "text": "天燈又稱「孔明燈」，一說傳為諸葛亮發明作軍事通信之用，另一說是外型像孔明畫像中的帽子而得名。結構分主體與支架：主體多用棉紙或油皮紙糊成，支架用竹篾組成；底層支架中間綁一塊沾上煤油的粗布或金紙，放飛前點燃，燈內熱空氣使整座燈升空，天氣好時煤油燒完會自動下降。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈平溪天燈〉 https://dict.th.gov.tw/detailPage.aspx?ID=2410",
+            "note": "辭條：孔明燈的兩種得名說法與天燈的結構"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nantun_muji",
+    "name": "犁頭店穿木屐躦鯪鯉",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "臺灣光復後改在端午節舉行；文化資產登錄的舉辦週期記為「其他」、曆別為農曆",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "verified": true,
+      "case_id": "20080812000002",
+      "authority": "臺中市政府"
+    },
+    "region": [
+      "臺中"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080812000002",
+        "note": "臺中市登錄民俗「犁頭店穿木屐躦鯪鯉」"
+      },
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈台中南屯犁頭店木屐賽〉 https://dict.th.gov.tw/detailPage.aspx?ID=2430",
+        "note": "辭條：犁頭店的地名由來、穿山甲穴之說與活動改期"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "「犁頭店」這個地名來自打造農具的商店群：臺中最早開發的南屯原是平埔族舊居地，漢人入墾後因農業需要出現許多打造農具的店，形成一條專賣農具的街。清雍正九年（1731）犁頭店是臺中最繁榮的地區，巡檢司也設在這裡。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈台中南屯犁頭店木屐賽〉 https://dict.th.gov.tw/detailPage.aspx?ID=2430",
+            "note": "辭條：犁頭店的地名由來與雍正九年的繁榮"
+          }
+        ]
+      },
+      {
+        "text": "穿木屐的理由是「震醒穿山甲」：穿山甲全身覆有似龍紋的瓦狀鱗片，自古被視為靈獸，而犁頭店被認為正位在穿山甲穴上，因此每年開春之後要用巨大的響聲把牠震醒，以期帶動地方一年的蓬勃發展；擇定日期後村民穿木屐來回重踏土地，發出巨大的喀喀聲。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈台中南屯犁頭店木屐賽〉 https://dict.th.gov.tw/detailPage.aspx?ID=2430",
+            "note": "辭條：穿山甲穴之說與開春踏地震醒的作法"
+          }
+        ]
+      },
+      {
+        "text": "臺灣光復後因社會結構改變，穿木屐的活動改在每年端午節舉行，並為增加趣味用兩塊長木板釘成扣環、做成四人一起穿的連環木屐，形式也改成四人一隊的競走比賽，現在多由社區內自由參加、參加者多半是兒童。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈台中南屯犁頭店木屐賽〉 https://dict.th.gov.tw/detailPage.aspx?ID=2430",
+            "note": "辭條：光復後改端午舉行、連環木屐與競賽化"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "danshui_qingshui",
+    "name": "淡水清水巖清水祖師遶境",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "農曆五月初六（端午節隔天）；文化資產登錄的舉辦週期為每年、曆別為農曆",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "verified": true,
+      "case_id": "20130130000002",
+      "authority": "新北市政府"
+    },
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20130130000002",
+        "note": "新北市登錄民俗「淡水清水巖清水祖師遶境」，每年、農曆"
+      },
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈淡水迎清水祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=2428",
+        "note": "辭條：蓬萊老祖的渡臺兩說、御匾訴訟與五月初六的由來"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "淡水清水巖建於日治昭和六年（1931），主神是清代渡臺的泉州府安溪縣蓬萊山清水寺清水祖師金身，尊稱「蓬萊老祖」。神像渡臺的經過有兩說：一說滬尾街上開店的翁種玉遇到旅費被竊的安溪清水寺僧人，募款資助後和尚把神像留給翁家；一說淡水山區興福寮幾名挑菅芒草維生的人，連續三日在碼頭遇見安溪僧人化緣，以三擔菅草換得神像，後來神像才被翁家買斷。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈淡水迎清水祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=2428",
+            "note": "辭條：蓬萊老祖神像渡臺的兩種說法"
+          }
+        ]
+      },
+      {
+        "text": "「落鼻祖」之名來自祖師以落鼻示警指醒蒼生災厄。光緒十年（1884）中法戰爭期間蓬萊老祖被認為庇祐福建陸路提督孫開華擊退法軍，光緒帝因而頒賜「功資拯濟」御匾；這面匾卻引發淡水與艋舺兩地爭奪神像，日治時代對簿公堂，判決神像每年雙月駐蹕淡水、單月駐蹕艋舺，後因淡水的慶典在五月，協調成五月駐淡水、六月在艋舺。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈淡水迎清水祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=2428",
+            "note": "辭條：落鼻祖之名、功資拯濟御匾與兩地爭像的判決"
+          }
+        ]
+      },
+      {
+        "text": "祭典訂在五月初六的理由，據吳勝雄《北門鎖鑰》：日治時期瘟疫肆虐，信徒請祖師公出巡掃除災疫，地方頭人決議擇在端午節隔天舉行——這樣可以利用準備端午的供品祭拜、減少居民負擔，當時又正逢農閒，準備時間較充裕。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈淡水迎清水祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=2428",
+            "note": "辭條引吳勝雄《北門鎖鑰》：擇端午隔天的兩個理由"
+          }
+        ]
+      },
+      {
+        "text": "暗訪開始前，廟方會關起老三祖的輦轎，先在廟埕安五營，再與法師預先巡視遶境範圍，並在範圍的四個角落焚燒紙錢——有燒給兵將的金紙，以及安奠孤魂用的經衣、銀紙與信徒的替身和補運錢，法師作法後象徵把凶煞結界於境外。不論暗訪或日巡，老三祖輦轎尚未通過之前，陣頭都不能前進。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈淡水迎清水祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=2428",
+            "note": "辭條：暗訪前的安五營、四角焚紙結界與陣頭次序"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yilan_chenghuang",
+    "name": "宜蘭迎城隍",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "農曆二月初八城隍聖誕出巡、初七暗訪；民國 52 年起與東嶽廟慶典改為隔年交互舉行",
+    "route_mode": "undetermined",
+    "region": [
+      "宜蘭"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈宜蘭迎城隍〉 https://dict.th.gov.tw/detailPage.aspx?ID=2404",
+        "note": "辭條：宜蘭城隍廟沿革、配祀規制與二月初八祭典"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "宜蘭城隍廟建於嘉慶年間：清政府設立噶瑪蘭廳後，翌年由通判翟淦捐俸與紳民在西門附近興建，此後歷經道光十年、咸豐八年、同治七年與日治明治三十年四次大修。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈宜蘭迎城隍〉 https://dict.th.gov.tw/detailPage.aspx?ID=2404",
+            "note": "辭條：噶瑪蘭廳設立翌年建廟與四次大修"
+          }
+        ]
+      },
+      {
+        "text": "城隍為一方邑主、掌燮理境內陰陽，所以廟中的規制比照陽間官廳：配祀文武判官、左右排爺、謝范將軍、日夜遊巡協助審案與緝察善惡，並設「吏、戶、禮、兵、刑、工」六司官備查案件；左堂另設「夫人宮」，供奉城隍夫人、少爺和小姐。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈宜蘭迎城隍〉 https://dict.th.gov.tw/detailPage.aspx?ID=2404",
+            "note": "辭條：比照官廳的配祀規制與夫人宮"
+          }
+        ]
+      },
+      {
+        "text": "城隍千秋是農曆二月初八：初七先暗訪，由廟中神將神明會分工（興安社的謝范將軍會、牛馬將軍會，保安社的左右排爺會、日夜遊巡會，文武會的文武判官，以及大二小姐會、少爺會）；暗訪結束後子時以三獻禮祝壽，初八正午城隍爺乘白馬拖曳的神輿出巡。這與農曆三月廿八日東嶽廟慶典並稱「宜蘭大拜拜」，民國五十二年後因「節約拜拜」政策改為兩廟隔年交互舉行。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈宜蘭迎城隍〉 https://dict.th.gov.tw/detailPage.aspx?ID=2404",
+            "note": "辭條：初七暗訪的神明會分工、初八出巡與隔年交互舉行"
+          }
+        ]
+      },
+      {
+        "text": "隨香客的改運方式很具體：為了改運或還願者會戴紙枷、頭繫黑色頭巾、身著白裙隨侍神轎旁，或手持掃帚在轎前掃路象徵掃除厄運；在城隍爺進廟前由道士行刈鬮儀式，脫去紙枷或鐵鎖，再以雞蛋脫殼並跨過金火，才結束隨香。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈宜蘭迎城隍〉 https://dict.th.gov.tw/detailPage.aspx?ID=2404",
+            "note": "辭條：紙枷、掃路與刈鬮脫枷的隨香儀式"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neihu_nongtudigong",
+    "name": "內湖夜弄土地公",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "元宵節（農曆正月十五）當天晚上",
+    "route_mode": "undetermined",
+    "region": [
+      "臺北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈內湖夜弄土地公〉 https://dict.th.gov.tw/detailPage.aspx?ID=2409",
+        "note": "辭條：北投與內湖的弄土地公、乞龜與夜弄流程"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "「弄土地公」是元宵的地方活動，臺北北投、內湖自日治以來便有。廟中事先備許多平安龜供信眾許願還願，稱為「乞龜」。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈內湖夜弄土地公〉 https://dict.th.gov.tw/detailPage.aspx?ID=2409",
+            "note": "辭條：北投與內湖自日治以來的弄土地公與乞龜"
+          }
+        ]
+      },
+      {
+        "text": "元宵當晚由四名年輕壯丁抬著石雕的土地公，先迎請到中型神轎上牢牢綁在四攆轎內，自內湖土地公廟出發遶境；沿途民家提前捐獻大量鞭炮擺在商家門口，由廟方安排的專人把整箱鞭炮傾倒或掛在石刻土地公身上點燃。民間俗信土地公越炸越發、也會更加高興，因而庇佑信眾與商家事業興隆、闔家平安。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈內湖夜弄土地公〉 https://dict.th.gov.tw/detailPage.aspx?ID=2409",
+            "note": "辭條：四攆轎夜弄的流程與「越炸越發」的俗信"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yeliu_jingang",
+    "name": "野柳神明淨港",
+    "type": [],
+    "chen_tou": [],
+    "cycle": "annual",
+    "ke_rule": null,
+    "date_resolution": "undetermined",
+    "date_note": "元宵節（農曆正月十五）當天",
+    "route_mode": "undetermined",
+    "heritage": {
+      "level": "municipal",
+      "verified": true,
+      "case_id": "20080917000003",
+      "authority": "新北市政府"
+    },
+    "region": [
+      "新北"
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://nchdb.boch.gov.tw/assets/overview/folklore/20080917000003",
+        "note": "新北市登錄民俗「野柳神明淨港」，每年、農曆"
+      },
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈請神洗港〉 https://dict.th.gov.tw/detailPage.aspx?ID=2415",
+        "note": "辭條：野柳保安宮諸神遶境後躍港洗港的流程"
+      }
+    ],
+    "draft": false,
+    "facts": [
+      {
+        "text": "洗港的用意是請神清淨海域，庇佑人船均安、魚貨豐收：野柳漁港居民恭請保安宮諸神安奉神轎遶境後，扛轎者連人帶轎躍入港中。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈請神洗港〉 https://dict.th.gov.tw/detailPage.aspx?ID=2415",
+            "note": "辭條：請神清淨海域、庇佑人船均安與魚貨豐收"
+          }
+        ]
+      },
+      {
+        "text": "元宵當天一早，境內信眾備豐盛祭品到廟中祭祀，廟方工作人員把諸神的分身分請到四頂神轎上，由紅頭師公調五營神兵護駕；每頂神轎由四位壯丁扛起，先在野柳村中遶境，回到保安宮前神轎起乩，隨即連人帶轎躍入漁港，游過一百多公尺到對面登岸——一頂登岸，這邊馬上又有一頂躍入海中，直到四頂神轎全部洗港完畢。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈請神洗港〉 https://dict.th.gov.tw/detailPage.aspx?ID=2415",
+            "note": "辭條：四頂神轎依序躍港、游過百餘公尺的流程"
+          }
+        ]
+      }
+    ]
   }
 ]
