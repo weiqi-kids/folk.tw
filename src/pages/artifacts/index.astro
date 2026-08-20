@@ -2,6 +2,7 @@
 // 民俗文物樞紐（2026-08-20 開）。各分類頁的入口與條數。
 // 資料與授權條件見 src/data/artifacts.json 的 _readme 與 /artifacts/<id>/ 檔頭。
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import data from '../../data/artifacts.json';
 
 const total = data.categories.reduce((s, c) => s + c.items.length, 0);
@@ -18,6 +19,9 @@ const total = data.categories.reduce((s, c) => s + c.items.length, 0);
     《臺灣民俗文物辭典》，每一條都附原辭條網址。這一區是辭書內容的呈現，與全站共用的
     <a href="/vocabulary/">受控詞彙</a>用途不同——後者是活動類型、陣頭、金紙、供品那些會被其他頁引用的定義。
   </p>
+
+  <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
+  <p class="muted small">本區為辭書內容的呈現，圖為本站識別圖，非特定文物照片。</p>
 
   <ul class="cats">
     {

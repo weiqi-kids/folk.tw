@@ -9,6 +9,7 @@
 //    陣頭、金紙、供品那些會被其他頁引用的詞），而文物辭條是**辭書內容的呈現**，
 //    兩者用途不同；而且 /vocabulary/ 已近六百詞，再加兩千條會變成單頁十萬字。
 import Base from '../../layouts/Base.astro';
+import LeadVisual from '../../components/LeadVisual.astro';
 import { HUB } from '../../lib/breadcrumbs';
 import data from '../../data/artifacts.json';
 
@@ -30,6 +31,9 @@ const others = data.categories.filter((c) => c.id !== cat.id);
     這一類收錄 {cat.items.length} 條文物辭條。每一條的定義都逐字節錄自國史館臺灣文獻館
     《臺灣民俗文物辭典》，並附上該辭條的原始網址；本站不改寫官方辭書的敘述。
   </p>
+
+  <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
+  <p class="muted small">本區為辭書內容的呈現，圖為本站識別圖，非特定文物照片。</p>
 
   <dl class="terms">
     {

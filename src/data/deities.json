@@ -7028,7 +7028,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈佛祖〉 https://dict.th.gov.tw/detailPage.aspx?ID=1222",
+        "note": "辭條「佛祖」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7058,7 +7064,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈阿彌陀佛〉 https://dict.th.gov.tw/detailPage.aspx?ID=1223",
+        "note": "辭條「阿彌陀佛」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7086,7 +7098,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈彌勒佛〉 https://dict.th.gov.tw/detailPage.aspx?ID=1224",
+        "note": "辭條「彌勒佛」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7117,7 +7135,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈壽神(南極仙翁)〉 https://dict.th.gov.tw/detailPage.aspx?ID=1200",
+        "note": "辭條「壽神(南極仙翁)」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7150,7 +7174,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈閻羅王〉 https://dict.th.gov.tw/detailPage.aspx?ID=1220",
+        "note": "辭條「閻羅王」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7179,7 +7209,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈酆都大帝〉 https://dict.th.gov.tw/detailPage.aspx?ID=1217",
+        "note": "辭條「酆都大帝」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7210,7 +7246,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈鍾馗爺〉 https://dict.th.gov.tw/detailPage.aspx?ID=1221",
+        "note": "辭條「鍾馗爺」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7239,7 +7281,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈達摩祖師〉 https://dict.th.gov.tw/detailPage.aspx?ID=1225",
+        "note": "辭條「達摩祖師」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   },
   {
@@ -7269,7 +7317,13 @@
         ]
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈福祿壽三星〉 https://dict.th.gov.tw/detailPage.aspx?ID=1206",
+        "note": "辭條「福祿壽三星」；2026-08-19 站主確認授權，條件為標示資料來源連結"
+      }
+    ],
     "draft": false
   }
 ]
