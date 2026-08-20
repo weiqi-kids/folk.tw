@@ -122,6 +122,64 @@ for (const e of events) {
   ok(`${e.id}：annual 不應有 ke_branches`, !(e.cycle === 'annual' && (e.ke_branches ?? []).length > 0));
 }
 
+// ── D. 跨資料集一致性：lc verdict ↔ event cycle ─────────────────────────
+//
+// 🔴 為什麼要這條：2026-08-20 發現同一件事在兩頁講不同的話——
+//    /festivals/local/ 說學甲香「數年一科」，/events/xuejia_shangbaijiao/ 說「每年一次」。
+//    兩份資料互不知情：local-celebration-cases.json 有 verdict，events.json 有 cycle，
+//    中間有 celebration-occurrences.json 的 page_ref 連著，卻沒有任何東西比對過它們。
+//
+// ⚠️ 豁免不是「跳過」，是「必須寫下理由」。範圍不一致是真實存在的情形
+//    （一個 event 可能同時涵蓋每年的祭典與數年一次的香科），硬擋會誤殺；
+//    但**新出現的**不一致必須紅燈。
+console.log('D. lc verdict ↔ event cycle 一致性：');
+
+const occ = JSON.parse(readFileSync(join(root, 'src/data/celebration-occurrences.json'), 'utf8'));
+const cases = JSON.parse(readFileSync(join(root, 'src/data/local-celebration-cases.json'), 'utf8'));
+const occArr = (Array.isArray(occ) ? occ : Object.values(occ).flat()) as { lc_id: string; page_ref?: { type: string; id: string } }[];
+const caseArr = (Array.isArray(cases) ? cases : Object.values(cases).flat()) as { lc_id: string; name: string; verdict?: string }[];
+const verdictOf = new Map(caseArr.map((c) => [c.lc_id, c]));
+
+/** verdict → 相容的 event.cycle。unknown 代表 lc 端沒判定，不構成矛盾。 */
+const COMPATIBLE: Record<string, string[]> = {
+  n_year: ['n_year_ke'],
+  annual: ['annual'],
+  unknown: ['annual', 'n_year_ke', 'irregular'],
+};
+
+/**
+ * 已知且已解釋的範圍不一致。key 是 lc_id，值是理由。
+ * 🔴 要加一筆進來，必須先確認那**真的是範圍差異**，而不是資料錯誤。
+ */
+const SCOPE_EXEMPT: Record<string, string> = {
+  lc_61:
+    'lc_61「學甲香」指的是刈香（香科本身，verdict=n_year）；'
+    + 'events/xuejia_shangbaijiao「學甲上白礁暨刈香」同時涵蓋每年的上白礁謁祖祭典與數年一次的刈香，'
+    + '故 cycle=annual 對前半而言正確。兩者是範圍差異，不是矛盾。'
+    + '⚠️ 但這筆另有一個**尚未解決的事實爭議**：events.json 的 date_note 寫「刈香三年一科」（無掛源），'
+    + '而 lc_61 的 basis 引 nchdb 20080627000002 逐字「亦每隔4年舉行一次刈香」，'
+    + '且該筆列的維基年份（1988/1992/1996/2000/2004/2008/2012/2016）也是四年間隔。'
+    + '三年與四年只能有一個對，需要站主裁示後改掉 date_note 並補來源——'
+    + '在那之前這行註解就是這個未決問題的存放處，不要刪。',
+};
+
+let pairs = 0;
+for (const o of occArr) {
+  if (o.page_ref?.type !== 'event') continue;
+  const ev = byId.get(o.page_ref.id);
+  const cs = verdictOf.get(o.lc_id);
+  if (!ev || !cs?.verdict) continue;
+  pairs += 1;
+  const okList = COMPATIBLE[cs.verdict];
+  if (!okList || okList.includes(ev.cycle)) continue;
+  ok(
+    `${o.lc_id}「${cs.name}」verdict=${cs.verdict} 與 events/${ev.id} cycle=${ev.cycle} 不一致`,
+    Boolean(SCOPE_EXEMPT[o.lc_id]),
+    '若確為範圍差異，加進 SCOPE_EXEMPT 並寫下理由；若是資料錯誤，改資料而不是加豁免。',
+  );
+}
+console.log(`   比對 ${pairs} 組 page_ref 連結（豁免 ${Object.keys(SCOPE_EXEMPT).length} 筆，理由寫在 SCOPE_EXEMPT）`);
+
 console.log(failed === 0
   ? `\n✓ event-cycle 測試通過：golden ${GOLDEN.length} 筆逐字相符、${scanned} 筆答句無病句型態、結構不變量全數成立`
   : `\n✗ event-cycle 測試失敗 ${failed} 項`);
