@@ -430,3 +430,36 @@ export const festivalVerbatimSourceLink = {
   },
   summary: (acc) => `另節日頁 ${acc.get('verbatim')} 處逐字引用的來源連結皆確實渲染在同一頁（授權條件）`,
 };
+
+/**
+ * 2026-08-20 加：節日頁的辭典引文（國史館臺灣文獻館《臺灣民俗文物辭典》）。
+ * 🔴 與 deity/th-dict、practice/th-dict 同一條規則：授權條件是標示資料來源連結，
+ *    逐條掛源，缺連結是不會有錯誤訊息的違反，所以要逐頁驗。
+ * ⚠️ 「無資料不得渲染」那半邊也要驗：空區塊會讓讀者以為我們有引用而其實沒有。
+ */
+export const festivalThDict = {
+  id: 'festival/th-dict',
+  title: '節日頁辭典引文逐字渲染且每條來源連結都在（授權條件），無資料不得渲染',
+  source: 'festivals',
+  check(f, page, _ctx, acc) {
+    const td = f.th_dict ?? [];
+    const has = page.html.includes('class="th-dict"');
+    if (td.length === 0) {
+      if (has) acc.violate(`節日頁 ${f.slug} 不該有辭典引文區塊（資料為空）`);
+      return;
+    }
+    if (!has) { acc.violate(`節日頁 ${f.slug} 缺辭典引文區塊（資料有 ${td.length} 條辭條）`); return; }
+    for (const q of td) {
+      acc.count('festThDict');
+      for (const t of q.excerpt) {
+        if (!page.html.includes(escText(t))) {
+          acc.violate(`節日頁 ${f.slug} 辭典引文未逐字出現（辭條「${q.title}」段落開頭：${t.slice(0, 20)}…）`);
+        }
+      }
+      if (!page.html.includes(escAttr(q.url))) {
+        acc.violate(`節日頁 ${f.slug} 辭條「${q.title}」缺來源連結 ${q.url}（授權條件，缺了就是違反授權）`);
+      }
+    }
+  },
+  summary: (acc) => `另節日頁辭典引文 ${acc.get('festThDict')} 條逐字相符且**每條的來源連結都在**（授權條件）`,
+};

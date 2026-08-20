@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-// 國史館臺灣文獻館《臺灣民俗文物辭典》辭條 → `deities.json`／`practices.json` 的 `th_dict` 欄位。
-// 兩個檔的欄位語意、授權條件與 gate 規則完全相同（deity/th-dict 與 practice/th-dict），
-// 所以走同一支腳本、同一份對映表：神明在 `items`，習俗在 `practice_items`。
+// 國史館臺灣文獻館《臺灣民俗文物辭典》辭條 → `deities.json`／`practices.json`／`festivals.json`
+// 的 `th_dict` 欄位。三個檔的欄位語意、授權條件與 gate 規則完全相同
+// （deity/th-dict、practice/th-dict、festival/th-dict），所以走同一支腳本、同一份對映表：
+// 神明在 `items`、習俗在 `practice_items`、節日在 `festival_items`。
+// ⚠️ 節日的主鍵是 `slug` 不是 `id`，所以 TARGETS 每一列都要宣告 `key`。
 //
 // 🔴 逐字引用、一個字不改寫；授權條件＝**標示資料來源連結**（2026-08-19 站主確認，
 //    與內政部 2026-08-06、文化部 2026-08-09 那兩次同一條）。所以本檔一定寫入 `url`，
@@ -30,6 +32,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 const DEITIES = 'src/data/deities.json';
 const PRACTICES = 'src/data/practices.json';
+const FESTIVALS = 'src/data/festivals.json';
 const MAP = 'src/data/th-dict-map.json';
 const BASE = 'https://dict.th.gov.tw/detailPage.aspx';
 
@@ -70,8 +73,10 @@ const urlOf = (dictId) => `${BASE}?ID=${dictId}`;
 // 兩個目標檔共用同一套流程：對映表 → 抓辭條 → 驗名稱 → 寫 th_dict。
 // 欄位語意、授權條件與 gate 規則兩邊一模一樣，所以刻意不分成兩支腳本。
 const TARGETS = [
-  { file: DEITIES, label: '神明', rows: map.items ?? [] },
-  { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [] },
+  { file: DEITIES, label: '神明', rows: map.items ?? [], key: 'id' },
+  { file: PRACTICES, label: '習俗', rows: map.practice_items ?? [], key: 'id' },
+  // 🔴 節日的主鍵是 slug（festivals.json 沒有 id 欄位），不宣告 key 會整批查無此項目。
+  { file: FESTIVALS, label: '節日', rows: map.festival_items ?? [], key: 'slug' },
 ];
 
 let ok = 0;
@@ -79,15 +84,17 @@ const errors = [];
 const written = [];
 
 for (const target of TARGETS) {
-const rows = target.rows.filter((r) => !only || only.has(r.deity_id));
+// 對映表的識別欄位：神明／習俗是 deity_id，節日是 slug。統一取一個 rowKey 用。
+const rowKey = (r) => r.deity_id ?? r.slug;
+const rows = target.rows.filter((r) => !only || only.has(rowKey(r)));
 if (rows.length === 0) continue;
 const raw = readFileSync(target.file, 'utf8');
-const byId = new Map(JSON.parse(raw).map((d) => [d.id, d]));
+const byId = new Map(JSON.parse(raw).map((d) => [d[target.key], d]));
 const pending = [];
 
 for (const r of rows) {
-  const d = byId.get(r.deity_id);
-  if (!d) { errors.push(`${r.deity_id}：${target.file} 查無此項目`); continue; }
+  const d = byId.get(rowKey(r));
+  if (!d) { errors.push(`${rowKey(r)}：${target.file} 查無此項目`); continue; }
   const entries = [];
   let bad = false;
   for (const ent of r.entries) {
@@ -95,19 +102,19 @@ for (const r of rows) {
     let html;
     try {
       const res = await fetch(url, { headers: { 'User-Agent': 'folk.tw importer (contact lightman.chang@gmail.com)' } });
-      if (!res.ok) { errors.push(`${r.deity_id}：HTTP ${res.status} ${url}`); bad = true; break; }
+      if (!res.ok) { errors.push(`${rowKey(r)}：HTTP ${res.status} ${url}`); bad = true; break; }
       html = await res.text();
     } catch (e) {
-      errors.push(`${r.deity_id}：抓取失敗 ${e.message}`); bad = true; break;
+      errors.push(`${rowKey(r)}：抓取失敗 ${e.message}`); bad = true; break;
     }
     const parsed = parseEntry(html);
-    if (!parsed) { errors.push(`${r.deity_id}：詳情頁解析失敗（版面變了？）${url}`); bad = true; break; }
+    if (!parsed) { errors.push(`${rowKey(r)}：詳情頁解析失敗（版面變了？）${url}`); bad = true; break; }
     // 🔴 ID 漂移防線：名稱對不上就整筆拒絕，不猜。
     if (parsed.name !== ent.dict_name) {
-      errors.push(`${r.deity_id}：辭條名稱不符——map 記「${ent.dict_name}」，實際抓到「${parsed.name}」（${url}）`);
+      errors.push(`${rowKey(r)}：辭條名稱不符——map 記「${ent.dict_name}」，實際抓到「${parsed.name}」（${url}）`);
       bad = true; break;
     }
-    if (!parsed.paragraphs.length) { errors.push(`${r.deity_id}：辭條簡介為空 ${url}`); bad = true; break; }
+    if (!parsed.paragraphs.length) { errors.push(`${rowKey(r)}：辭條簡介為空 ${url}`); bad = true; break; }
     entries.push({ url, title: parsed.name, excerpt: parsed.paragraphs });
     await new Promise((r2) => setTimeout(r2, 250)); // 對外站限速
   }
@@ -119,7 +126,7 @@ for (const r of rows) {
 
 console.log(`\n── ${target.label}：可寫入 ${pending.length} 筆 / 對映表 ${rows.length} 筆 ──`);
 for (const p of pending) {
-  console.log(`  ${p.deity.id.padEnd(20)} ${p.entry.map((q) => `${q.title}（${q.excerpt.length} 段 / ${q.excerpt.join('').length} 字）`).join('　')}`);
+  console.log(`  ${String(p.deity[target.key]).padEnd(20)} ${p.entry.map((q) => `${q.title}（${q.excerpt.length} 段 / ${q.excerpt.join('').length} 字）`).join('　')}`);
 }
 
 if (!write) { continue; }
@@ -134,12 +141,15 @@ if (!write) { continue; }
 //    頂層 key 的縮排固定是 4 個空白，巢狀的都 6 個以上，用這個分辨。
 const TOP = '    '; // 頂層 key 的縮排
 const lines = raw.split('\n');
-const objStart = (id) => lines.findIndex((l) => l === `${TOP}"id": ${JSON.stringify(id)},`);
+// 🔴 主鍵欄位名依目標檔而異（神明／習俗是 "id"，節日是 "slug"），不可寫死 "id"——
+//    寫死的話節日那一批會全部「找不到頂層物件」而安靜跳過。
+const KEY = target.key;
+const objStart = (id) => lines.findIndex((l) => l === `${TOP}"${KEY}": ${JSON.stringify(id)},`);
 for (const p of pending) {
-  const start = objStart(p.deity.id);
-  if (start < 0) { errors.push(`${p.deity.id}：寫入時找不到頂層物件（"id" 那一行）`); continue; }
-  // 物件結束＝下一個頂層 "id" 行（或檔尾）
-  let end = lines.findIndex((l, k) => k > start && l.startsWith(`${TOP}"id": `));
+  const start = objStart(p.deity[KEY]);
+  if (start < 0) { errors.push(`${p.deity[KEY]}：寫入時找不到頂層物件（"${KEY}" 那一行）`); continue; }
+  // 物件結束＝下一個頂層主鍵行（或檔尾）
+  let end = lines.findIndex((l, k) => k > start && l.startsWith(`${TOP}"${KEY}": `));
   if (end < 0) end = lines.length;
   const topKey = (name) => lines.findIndex((l, k) => k > start && k < end && l.startsWith(`${TOP}"${name}":`));
   const block = JSON.stringify(p.entry, null, 2)
@@ -155,7 +165,7 @@ for (const p of pending) {
     lines.splice(existing, close - existing + 1, field);
   } else {
     const anchor = topKey('sources') >= 0 ? topKey('sources') : topKey('draft');
-    if (anchor < 0) { errors.push(`${p.deity.id}：找不到可插入的錨點（sources／draft）`); continue; }
+    if (anchor < 0) { errors.push(`${p.deity[KEY]}：找不到可插入的錨點（sources／draft）`); continue; }
     lines.splice(anchor, 0, field);
   }
 }

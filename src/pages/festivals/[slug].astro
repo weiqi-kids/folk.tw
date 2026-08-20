@@ -490,6 +490,31 @@ const jsonLd = [article];
     )
   }
 
+  {/* 辭典引文（2026-08-20 起）：國史館臺灣文獻館《臺灣民俗文物辭典》的辭條，逐字節錄。
+      🔴 每一條都必須把該辭條自己的網址渲染在同一頁——那是授權條件，不是排版裝飾
+      （同 deities／practices 的規矩，不變量 festival/th-dict 逐頁驗）。
+      🔴 擺在文資登錄之前：辭典給的是「這個節日／儀式是什麼」，文資登錄給的是
+      「哪一個個案被登錄」，讀者要先有前者才讀得懂後者。
+      ⚠️ 這一段對鬼門開、雞籠中元祭、義民節特別重要——那幾頁長期與中元節主場頁重複，
+      而辭典給的正是只屬於它們自己的事實（老大公廟開龕門、十五字姓輪普、林爽文事件）。 */}
+  {
+    (f as { th_dict?: { url: string; title: string; excerpt: string[] }[] }).th_dict?.length && (
+      <section class="th-dict">
+        <h2>辭典裡的{f.name}</h2>
+        {(f as { th_dict?: { url: string; title: string; excerpt: string[] }[] }).th_dict!.map((q) => (
+          <>
+            <blockquote class="th-quote">
+              {q.excerpt.map((t) => <p>{t}</p>)}
+            </blockquote>
+            <p class="muted small th-src">
+              引自國史館臺灣文獻館《臺灣民俗文物辭典》<a href={q.url} rel="noopener">{q.title}</a>
+            </p>
+          </>
+        ))}
+      </section>
+    )
+  }
+
   {/* 文資登錄：各節日真正獨有的事實（層級＋公告文號），此前完全沒渲染。
       🔴 措辭界線：只說「被登錄為什麼、文號是什麼」，不推論「所以當天有辦什麼」。 */}
   {
@@ -851,6 +876,14 @@ const jsonLd = [article];
   </script>
 
   <style>
+  .th-dict { margin: 1.75rem 0; }
+  /* 與 /practices/ 的辭典引文樣式一致——同一種內容不該長得不一樣。 */
+  .th-quote { margin: 0.75rem 0 0.5rem; padding: 0 0 0 1rem;
+    border-left: 3px solid var(--line); color: var(--ink); }
+  .th-quote p { margin: 0 0 0.75rem; line-height: 1.95; }
+  .th-quote p:last-child { margin-bottom: 0; }
+  .th-src { margin: 0 0 1rem; }
+
     .dh h1 { margin: 0.25rem 0 0.5rem; }
     .when { margin: 0 0 0.375rem; }
     .when strong { color: var(--accent); font-size: var(--text-lg); }

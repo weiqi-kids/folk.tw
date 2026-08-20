@@ -86,6 +86,7 @@ export const REGISTRY = [
   artifact.artifactEntryPage,        // 文物辭條獨立頁（試點）逐字渲染＋掛源
   practice.practiceThDict,           // 習俗頁的辭典引文（同 deity/th-dict 的授權條件）
   festival.festivalVerbatimSourceLink, // 逐字引用的來源連結必須在頁面上（授權條件）
+  festival.festivalThDict,          // 節日頁辭典引文逐字＋掛源（同一條授權條件）
   hubs.homeSeasonalCampaign,        // 5g（首頁戰役卡）
   hubs.festivalIndexVisuals,        // 5h
   share.shareRowNotOn404,           // 11（404 反向）
