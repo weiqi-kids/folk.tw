@@ -7,7 +7,8 @@
     "🔴 判準是「這條辭條講的就是這尊神明」，不是「提到了它」——通用辭條不可掛到特定神明頭上",
     "（如辭典的『王爺』『城隍爺』是信仰通論，不能掛到池府千歲或霞海城隍那種特定神明頁）。",
     "候選產生方式：把辭典全部辭條的名稱與各神明的 name＋aliases 做雙向包含比對，人工逐筆看內文定案。",
-    "rejected 段記的是**查過而判定不採用**的，不要再查一次。"
+    "rejected 段記的是**查過而判定不採用**的，不要再查一次。",
+    "activity_placements 段記的是「民俗活動類辭條」的去向——那些不進 th_dict（那個欄位是神明頁專用），而是人工寫成對應節日／活動頁的 facts。unplaced 段是辭典有、但站上目前沒有對應頁的，將來要開頁時直接照著查。"
   ],
   "source": "https://dict.th.gov.tw/ 國史館臺灣文獻館《臺灣民俗文物辭典》；2026-08-19 站主確認已取得授權，條件＝標示資料來源連結",
   "verified_on": "2026-08-20",
@@ -15,90 +16,568 @@
     {
       "deity_id": "qiyebaye",
       "entries": [
-        { "dict_id": 2060, "dict_name": "七爺造型與執器" },
-        { "dict_id": 2061, "dict_name": "八爺造型與執器" }
+        {
+          "dict_id": 2060,
+          "dict_name": "七爺造型與執器"
+        },
+        {
+          "dict_id": 2061,
+          "dict_name": "八爺造型與執器"
+        }
       ],
       "basis": "本站『七爺八爺』是合稱，辭典拆成兩條各講一位的造型與執器，兩條都要掛才不缺一半。"
     },
     {
       "deity_id": "yimin",
-      "entries": [{ "dict_id": 1240, "dict_name": "義民爺" }],
+      "entries": [
+        {
+          "dict_id": 1240,
+          "dict_name": "義民爺"
+        }
+      ],
       "basis": "同名辭條，內文即義民爺信仰源流（朱一貴、林爽文等事件的犧牲者集體收埋）。"
     },
     {
       "deity_id": "qingshan",
-      "entries": [{ "dict_id": 1209, "dict_name": "青山公(靈安尊王)" }],
+      "entries": [
+        {
+          "dict_id": 1209,
+          "dict_name": "青山公(靈安尊王)"
+        }
+      ],
       "basis": "辭條名稱同時含本站的名稱『青山王』之俗稱『青山公』與別稱『靈安尊王』。"
     },
     {
       "deity_id": "kuixing",
-      "entries": [{ "dict_id": 1242, "dict_name": "魁斗星君" }],
+      "entries": [
+        {
+          "dict_id": 1242,
+          "dict_name": "魁斗星君"
+        }
+      ],
       "basis": "『魁斗星君』是本站 aliases 之一，辭條內文講的就是魁星。"
     },
     {
       "deity_id": "yuelao",
-      "entries": [{ "dict_id": 1252, "dict_name": "月下老人" }],
+      "entries": [
+        {
+          "dict_id": 1252,
+          "dict_name": "月下老人"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "zhusheng",
-      "entries": [{ "dict_id": 1198, "dict_name": "註生娘娘" }],
+      "entries": [
+        {
+          "dict_id": 1198,
+          "dict_name": "註生娘娘"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "qixing",
-      "entries": [{ "dict_id": 1197, "dict_name": "七星娘娘" }],
+      "entries": [
+        {
+          "dict_id": 1197,
+          "dict_name": "七星娘娘"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "pojie",
-      "entries": [{ "dict_id": 2083, "dict_name": "十二婆姐陣造型與執器" }],
+      "entries": [
+        {
+          "dict_id": 2083,
+          "dict_name": "十二婆姐陣造型與執器"
+        }
+      ],
       "basis": "辭條內文實質是十二婆姐本身（陳靖姑說與三十六婆姐說並陳，並列十二位名諱），不只講陣頭道具；本站『婆姐』的 aliases 即含十二婆姐、三十六婆姐。"
     },
     {
       "deity_id": "dasheng",
-      "entries": [{ "dict_id": 1245, "dict_name": "大聖爺(齊天大聖)" }],
+      "entries": [
+        {
+          "dict_id": 1245,
+          "dict_name": "大聖爺(齊天大聖)"
+        }
+      ],
       "basis": "辭條名稱直接標明齊天大聖。"
     },
     {
       "deity_id": "taiyang",
-      "entries": [{ "dict_id": 1248, "dict_name": "太陽星君" }],
+      "entries": [
+        {
+          "dict_id": 1248,
+          "dict_name": "太陽星君"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "leigongdianmu",
-      "entries": [{ "dict_id": 1253, "dict_name": "雷公電母" }],
+      "entries": [
+        {
+          "dict_id": 1253,
+          "dict_name": "雷公電母"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "shidan",
-      "entries": [{ "dict_id": 1739, "dict_name": "石敢當" }],
+      "entries": [
+        {
+          "dict_id": 1739,
+          "dict_name": "石敢當"
+        }
+      ],
       "basis": "同名辭條。"
     },
     {
       "deity_id": "taisui",
-      "entries": [{ "dict_id": 1207, "dict_name": "太歲(六十六歲)" }],
+      "entries": [
+        {
+          "dict_id": 1207,
+          "dict_name": "太歲(六十六歲)"
+        }
+      ],
       "basis": "辭條內文講的是太歲星君通論（六十太歲輪值、犯太歲與沖太歲），本站 taisui 正是通論頁；⚠️ 不可掛到 taisui_jiazi 那類特定值年太歲頁。"
     },
     {
       "deity_id": "guanping",
-      "entries": [{ "dict_id": 1187, "dict_name": "關平周倉" }],
+      "entries": [
+        {
+          "dict_id": 1187,
+          "dict_name": "關平周倉"
+        }
+      ],
       "basis": "辭典把關平與周倉合為一條，兩尊的頁面掛同一條辭條（來源相同、各自掛源）。"
     },
     {
       "deity_id": "zhoucang",
-      "entries": [{ "dict_id": 1187, "dict_name": "關平周倉" }],
+      "entries": [
+        {
+          "dict_id": 1187,
+          "dict_name": "關平周倉"
+        }
+      ],
       "basis": "同上，與 guanping 共用同一條辭條。"
     },
     {
       "deity_id": "zhao_gongming",
-      "entries": [{ "dict_id": 2496, "dict_name": "武財神" }],
+      "entries": [
+        {
+          "dict_id": 2496,
+          "dict_name": "武財神"
+        }
+      ],
       "basis": "辭條首句即『武財神趙公明又稱趙公元帥』，講的就是本尊（含造型、五路財神的合祀說）。"
     },
     {
       "deity_id": "baoyi",
-      "entries": [{ "dict_id": 1215, "dict_name": "保儀尊王" }],
+      "entries": [
+        {
+          "dict_id": 1215,
+          "dict_name": "保儀尊王"
+        }
+      ],
       "basis": "同名辭條（張巡或許遠兩說、北部氏族分靈、配祀雷萬春與南霽雲）。"
+    },
+    {
+      "deity_id": "mazu",
+      "entries": [
+        {
+          "dict_id": 1192,
+          "dict_name": "天上聖母(配祀千里眼、順風耳)"
+        }
+      ],
+      "basis": "辭條名稱即本站別稱「天上聖母」。"
+    },
+    {
+      "deity_id": "xuantian",
+      "entries": [
+        {
+          "dict_id": 1188,
+          "dict_name": "玄天上帝"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "shuixian",
+      "entries": [
+        {
+          "dict_id": 1191,
+          "dict_name": "水仙尊王"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "tudigong",
+      "entries": [
+        {
+          "dict_id": 1249,
+          "dict_name": "福德正神(土地公)"
+        },
+        {
+          "dict_id": 1064,
+          "dict_name": "后土"
+        }
+      ],
+      "basis": "辭條名稱含本站名稱與別稱土地公；「后土」亦為本站別稱（墓地的土地神），辭典另立一條。"
+    },
+    {
+      "deity_id": "chenghuang",
+      "entries": [
+        {
+          "dict_id": 1208,
+          "dict_name": "城隍爺"
+        }
+      ],
+      "basis": "本站的城隍爺是信仰通論頁，辭條講的正是通論（起源、職責、文武判與牛馬爺），與霞海城隍那種特定城隍頁不同。"
+    },
+    {
+      "deity_id": "dongyue",
+      "entries": [
+        {
+          "dict_id": 1219,
+          "dict_name": "東嶽大帝"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "guanyin",
+      "entries": [
+        {
+          "dict_id": 1226,
+          "dict_name": "觀音菩薩"
+        },
+        {
+          "dict_id": 1259,
+          "dict_name": "觀音大士"
+        }
+      ],
+      "basis": "兩條辭條名稱皆為本站別稱（觀音菩薩、觀音大士）。"
+    },
+    {
+      "deity_id": "baosheng",
+      "entries": [
+        {
+          "dict_id": 1190,
+          "dict_name": "保生大帝"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "kaizhang",
+      "entries": [
+        {
+          "dict_id": 1210,
+          "dict_name": "開漳聖王"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "guangze",
+      "entries": [
+        {
+          "dict_id": 1211,
+          "dict_name": "廣澤尊王"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "sanshan",
+      "entries": [
+        {
+          "dict_id": 1212,
+          "dict_name": "三山國王"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "qingshui",
+      "entries": [
+        {
+          "dict_id": 1213,
+          "dict_name": "清水祖師"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "fazhu",
+      "entries": [
+        {
+          "dict_id": 1214,
+          "dict_name": "法主公"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "guangong",
+      "entries": [
+        {
+          "dict_id": 1186,
+          "dict_name": "關聖帝君"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "wenchang",
+      "entries": [
+        {
+          "dict_id": 1185,
+          "dict_name": "文昌帝君"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "shennong",
+      "entries": [
+        {
+          "dict_id": 1189,
+          "dict_name": "神農大帝(五谷先獅)"
+        }
+      ],
+      "basis": "辭條名稱含本站名稱。"
+    },
+    {
+      "deity_id": "luban",
+      "entries": [
+        {
+          "dict_id": 1205,
+          "dict_name": "巧聖先師"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "xiqin",
+      "entries": [
+        {
+          "dict_id": 1202,
+          "dict_name": "西秦王爺"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "tiandu",
+      "entries": [
+        {
+          "dict_id": 1201,
+          "dict_name": "田都元帥"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "nazha",
+      "entries": [
+        {
+          "dict_id": 1195,
+          "dict_name": "中壇元帥"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "jiutian",
+      "entries": [
+        {
+          "dict_id": 1230,
+          "dict_name": "九天玄女"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "linshui",
+      "entries": [
+        {
+          "dict_id": 1216,
+          "dict_name": "臨水夫人"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "huye",
+      "entries": [
+        {
+          "dict_id": 1244,
+          "dict_name": "虎爺"
+        },
+        {
+          "dict_id": 1701,
+          "dict_name": "虎將軍"
+        }
+      ],
+      "basis": "兩條同指一神：辭典的「虎將軍」首句即「又稱為下壇將軍，民間暱稱為虎爺」，下壇將軍亦為本站別稱。"
+    },
+    {
+      "deity_id": "yuhuang",
+      "entries": [
+        {
+          "dict_id": 1183,
+          "dict_name": "玉皇上帝(天公)"
+        }
+      ],
+      "basis": "辭條名稱含本站名稱之俗稱天公。"
+    },
+    {
+      "deity_id": "sanguan",
+      "entries": [
+        {
+          "dict_id": 1184,
+          "dict_name": "三官大帝(三界公)"
+        },
+        {
+          "dict_id": 1256,
+          "dict_name": "三官大帝"
+        }
+      ],
+      "basis": "辭典有兩條，一條標三界公、一條為三官大帝，皆同指本尊。"
+    },
+    {
+      "deity_id": "sanqing",
+      "entries": [
+        {
+          "dict_id": 1228,
+          "dict_name": "三清道祖"
+        },
+        {
+          "dict_id": 1255,
+          "dict_name": "三清道祖"
+        },
+        {
+          "dict_id": 1229,
+          "dict_name": "太上老君"
+        }
+      ],
+      "basis": "三清道祖有兩條；太上老君（道德天尊）亦為本站別稱，辭典另立一條。"
+    },
+    {
+      "deity_id": "wangmu",
+      "entries": [
+        {
+          "dict_id": 1193,
+          "dict_name": "瑤池金母(王母娘娘)"
+        }
+      ],
+      "basis": "辭條名稱含本站名稱與別稱王母娘娘。"
+    },
+    {
+      "deity_id": "dashugong",
+      "entries": [
+        {
+          "dict_id": 1247,
+          "dict_name": "大樹公"
+        }
+      ],
+      "basis": "同名辭條。"
+    },
+    {
+      "deity_id": "haoxiongdi",
+      "entries": [
+        {
+          "dict_id": 1243,
+          "dict_name": "有應公"
+        }
+      ],
+      "basis": "「有應公」為本站別稱之一，辭條講的即無主孤魂的奉祀。"
+    },
+    {
+      "deity_id": "dizang",
+      "entries": [
+        {
+          "dict_id": 1218,
+          "dict_name": "地藏王"
+        }
+      ],
+      "basis": "辭條名稱「地藏王」為本站別稱。"
+    },
+    {
+      "deity_id": "caishen",
+      "entries": [
+        {
+          "dict_id": 1199,
+          "dict_name": "財神(文財神、武財神)"
+        },
+        {
+          "dict_id": 2497,
+          "dict_name": "文財神"
+        }
+      ],
+      "basis": "本站財神爺是通論頁；辭典的「財神」條即文武財神通論，另有「文財神」專條。武財神條已掛在趙公明頁，不重複掛。"
+    },
+    {
+      "deity_id": "shitougong",
+      "entries": [
+        {
+          "dict_id": 1251,
+          "dict_name": "石頭公"
+        },
+        {
+          "dict_id": 1741,
+          "dict_name": "石將軍"
+        }
+      ],
+      "basis": "石頭公同名；「石將軍」辭條講的是同一類石頭信仰的別稱。"
+    },
+    {
+      "deity_id": "baxian",
+      "entries": [
+        {
+          "dict_id": 1231,
+          "dict_name": "八仙"
+        }
+      ],
+      "basis": "同名辭條（另一條同名者僅 36 字且內容為前者子集，不掛）。"
+    },
+    {
+      "deity_id": "zaojun",
+      "entries": [
+        {
+          "dict_id": 1204,
+          "dict_name": "司命灶君"
+        }
+      ],
+      "basis": "「司命灶君」為本站別稱（九天司命灶君）。"
+    },
+    {
+      "deity_id": "zhangtianshi",
+      "entries": [
+        {
+          "dict_id": 1257,
+          "dict_name": "天師"
+        }
+      ],
+      "basis": "「天師」即本站別稱天師爺、天師公。"
+    },
+    {
+      "deity_id": "wangye",
+      "entries": [
+        {
+          "dict_id": 1196,
+          "dict_name": "王爺"
+        }
+      ],
+      "basis": "本站的王爺（千歲）是信仰通論頁，辭條講的正是王爺信仰通論——這條**不可**掛到池府千歲那類特定千歲頁。"
     }
   ],
   "rejected": [
@@ -151,6 +630,211 @@
       "deity_id": "kongzi／chitou／taiyin／zhuyi_shenjun／miaoying_xianfei",
       "candidate": "（無）",
       "why": "辭典全 2,819 條逐條比名皆無對應辭條，也無別稱可對。查無源留空。"
+    },
+    {
+      "deity_id": "yuefei",
+      "candidate": "王爺#1196",
+      "why": "岳武穆王雖有『岳府王爺』之稱，但那條是王爺信仰通論，沒有講到岳飛。"
+    },
+    {
+      "deity_id": "wufu_dadi",
+      "candidate": "福#2465",
+      "why": "吉祥字辭條，與五福大帝無關。"
+    },
+    {
+      "deity_id": "pangu",
+      "candidate": "盤#112",
+      "why": "器物辭條（盤），與盤古無關。"
+    },
+    {
+      "deity_id": "zushen",
+      "candidate": "公媽牌#1079／公媽龕#223",
+      "why": "那些是祖先牌位與神龕等文物辭條，講的是器物不是祖神信仰本身。"
+    },
+    {
+      "deity_id": "guanyin",
+      "candidate": "大士爺#1501",
+      "why": "大士爺是普度鬼王（道士點睛後由觀音神力附之），與觀音本尊分屬兩件事；該條已改掛 /events/minxiong_dashiye/。"
+    },
+    {
+      "deity_id": "caishen",
+      "candidate": "武財神#2496",
+      "why": "同一條已掛在趙公明頁（辭條首句即『武財神趙公明』），不重複掛兩頁。"
     }
-  ]
+  ],
+  "activity_placements": [
+    {
+      "dict_id": 2442,
+      "dict_name": "開鬼門",
+      "page": "festival:guimenkai"
+    },
+    {
+      "dict_id": 2443,
+      "dict_name": "關鬼門",
+      "page": "festival:dizang"
+    },
+    {
+      "dict_id": 2447,
+      "dict_name": "盂蘭盆會",
+      "page": "festival:zhongyuan"
+    },
+    {
+      "dict_id": 2445,
+      "dict_name": "基隆中元祭",
+      "page": "festival:jilong-zhongyuan（2 筆）"
+    },
+    {
+      "dict_id": 2446,
+      "dict_name": "新埔義民節",
+      "page": "festival:yimin（3 筆）"
+    },
+    {
+      "dict_id": 2435,
+      "dict_name": "七娘媽生",
+      "page": "festival:qixi"
+    },
+    {
+      "dict_id": 2436,
+      "dict_name": "乞巧",
+      "page": "festival:qixi"
+    },
+    {
+      "dict_id": 2438,
+      "dict_name": "魁星會",
+      "page": "festival:qixi"
+    },
+    {
+      "dict_id": 2403,
+      "dict_name": "天公生",
+      "page": "festival:baitiangong"
+    },
+    {
+      "dict_id": 2426,
+      "dict_name": "寒食",
+      "page": "festival:qingming"
+    },
+    {
+      "dict_id": 2418,
+      "dict_name": "客家人掛紙(掃墓)",
+      "page": "festival:qingming"
+    },
+    {
+      "dict_id": 2431,
+      "dict_name": "大甲鐵砧山劍井午時水",
+      "page": "festival:duanwu"
+    },
+    {
+      "dict_id": 2411,
+      "dict_name": "鹽水蜂炮",
+      "page": "event:yanshui"
+    },
+    {
+      "dict_id": 2412,
+      "dict_name": "台東炸寒單爺",
+      "page": "event:taitung_handan"
+    },
+    {
+      "dict_id": 2421,
+      "dict_name": "大甲媽祖繞境",
+      "page": "event:dajia"
+    },
+    {
+      "dict_id": 2422,
+      "dict_name": "白沙屯媽祖繞境",
+      "page": "event:baishatun"
+    },
+    {
+      "dict_id": 2423,
+      "dict_name": "台南學甲慈濟宮上白醮祭",
+      "page": "event:xuejia_shangbaijiao"
+    },
+    {
+      "dict_id": 2424,
+      "dict_name": "大龍峒保生大帝出巡",
+      "page": "event:dalongdong_baosheng"
+    },
+    {
+      "dict_id": 2425,
+      "dict_name": "西港燒王船",
+      "page": "event:xigang"
+    },
+    {
+      "dict_id": 2402,
+      "dict_name": "三峽清水祖師神誕",
+      "page": "event:sanxia_qingshui"
+    },
+    {
+      "dict_id": 2434,
+      "dict_name": "雲林口湖牽水車藏",
+      "page": "event:kouhu_qianshuizang"
+    },
+    {
+      "dict_id": 2448,
+      "dict_name": "東港王船祭",
+      "page": "event:donggang"
+    },
+    {
+      "dict_id": 2413,
+      "dict_name": "後龍攻炮城",
+      "page": "event:houlong_ciyungong_paocheng"
+    },
+    {
+      "dict_id": 2429,
+      "dict_name": "霞海城隍爺暗訪",
+      "page": "event:dadaocheng_chenghuang（3 筆）"
+    },
+    {
+      "dict_id": 2450,
+      "dict_name": "萬華青山王夜巡",
+      "page": "event:qingshan（3 筆）"
+    },
+    {
+      "dict_id": 1501,
+      "dict_name": "大士爺",
+      "page": "event:minxiong_dashiye"
+    }
+  ],
+  "unplaced": {
+    "_why": "辭典有這些辭條、內容也可用，但站上目前沒有對應頁面；開頁時直接來這裡取源，不必重查。",
+    "元宵類": [
+      "乞龜#2405",
+      "聽香#2406",
+      "鑽燈腳#2407",
+      "燈謎#2408",
+      "新丁粄#2416",
+      "平溪天燈#2410"
+    ],
+    "年節類": [
+      "迎春牛#2401",
+      "開市(迎財神)#2399",
+      "頭牙#2419",
+      "尾牙宴#2456",
+      "送神#2457",
+      "辭年#2459",
+      "圍爐#2460",
+      "補冬#2452",
+      "吃冬至圓#2453",
+      "謝冬#2451"
+    ],
+    "祭改類": [
+      "拜斗#2391",
+      "祭元辰#2393",
+      "祭安度#2394",
+      "祭星#2395",
+      "掩魂#2396",
+      "打城法事#2397",
+      "替身#2432"
+    ],
+    "地方活動": [
+      "宜蘭迎城隍#2404",
+      "內湖夜弄土地公#2409",
+      "台中南屯犁頭店木屐賽#2430",
+      "淡水迎清水祖師#2428",
+      "請神洗港#2415",
+      "乞墓粿#2427",
+      "謝平安戲#2455",
+      "作總忌#2449"
+    ],
+    "⚠️ 習俗頁(practices)": "安太歲#2398、謝太歲#2458、點光明燈#2400、補運#2433、祭解#2392、作十六歲#2437、栽花換斗#2347、普渡#2441 都對得上既有習俗頁，但 practices.json 沒有 facts 欄位、頁面也沒有掛源引文區塊——要補得先加那個區塊與對應 gate，屬於功能不是內容。"
+  }
 }
