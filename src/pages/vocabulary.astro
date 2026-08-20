@@ -13,6 +13,7 @@ const groups: { key: keyof typeof vocab; label: string }[] = [
   // 逐詞掛回該辭條的公開網址——那是授權條件，不是裝飾。
   { key: 'divination', label: '求籤、問筊與擇日' },
   { key: 'temple_craft', label: '廟宇工藝與陳設' },
+  { key: 'ritual_items', label: '祭典與節俗用品' },
 ];
 type Term = { term: string; def: string; alias?: string[]; sources?: { ref: string }[] };
 ---
