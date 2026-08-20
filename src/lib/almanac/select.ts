@@ -7,10 +7,10 @@
 // build 內共用快取：月份樞紐（~103 月 × ~30 天）與行業頁（7 業 × 60 天）大量重疊，
 // computeDayRecord 為決定性純函式，memo 後全站一次遍歷。
 
-import { computeDayRecord } from './index';
-import { lunarProvider } from './provider';
+import { computeDayRecord } from './index.ts';
+import { lunarProvider } from './provider.ts';
 import affairsData from './rules/affairs.json';
-import type { DayRecord } from './types';
+import type { DayRecord } from './types.ts';
 
 const AFFAIRS = (affairsData as { affairs: { id: string; name: string; group: string }[] }).affairs;
 const AFFAIR_NAME = new Map(AFFAIRS.map((a) => [a.id, a.name]));

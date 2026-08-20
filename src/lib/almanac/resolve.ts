@@ -1,8 +1,8 @@
 // C.7.6 宜忌從違裁決（Resolve）
 import votesData from './rules/votes.json';
 import restrainData from './rules/restrain.json';
-import { jianchuTone } from './jianchu';
-import type { DayVerdict } from './types';
+import { jianchuTone } from './jianchu.ts';
+import type { DayVerdict } from './types.ts';
 
 interface Vote {
   shensha: string;

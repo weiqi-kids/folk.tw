@@ -1,6 +1,6 @@
 // C.2 S7 — 黃黑道十二神（依 rules/huanghei.json：月支→青龍起神，順行十二辰）
 import huanghei from './rules/huanghei.json';
-import { BRANCHES } from './ganzhi';
+import { BRANCHES } from './ganzhi.ts';
 
 interface MonthTable {
   month_branch: string;

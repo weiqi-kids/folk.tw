@@ -1,5 +1,5 @@
 // C.2 S5 — 建除十二神（確定，依月建支 + 日支 + 交節重值）
-import { BRANCHES } from './ganzhi';
+import { BRANCHES } from './ganzhi.ts';
 
 export const JIANCHU = [
   '建', '除', '滿', '平', '定', '執', '破', '危', '成', '收', '開', '閉',

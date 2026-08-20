@@ -37,6 +37,12 @@
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
+// 🔴 寬度規則與上限只有一個來源：src/lib/text-width.ts。
+//    2026-08-20 之前這裡自帶一份 `fullWidthLen`，字元類別寫成 /[\x00-\x7F]/ 而非
+//    /[\x00-\xff]/——Latin-1 區（é ü 等）兩份算法不同（實測「café」一邊 4 一邊 5），
+//    上限也硬編成 40 而不是 import 同名常數。那正是 text-width.ts 檔頭在講的
+//    「同一條規則兩份各自演化」的第五份。plain node（v22.18+ 預設剝離型別）可直接 import .ts。
+import { fullWidth, SOURCE_LABEL_MAX_WIDTH } from '../src/lib/text-width.ts';
 
 const INDEX = 'src/data/nchdb-folklore-index.json';
 const STALE_DAYS = 120;
@@ -212,8 +218,7 @@ console.log(`規則②：${verbatimChecked} 處逐字來源，網域皆須屬於
 //   「（實測 HTTP 200）」就被判成裸露網址，**而那道 gate 吃 dist、要等 20 分鐘 build 才報**。
 //   同一批還有 57 筆 note 超過 SOURCE_LABEL_MAX_WIDTH（40 全形字）而會退化成截斷標籤。
 //   這條在來源層跑，秒級回饋。
-const NOTE_WIDTH_MAX = 40;
-const fullWidthLen = (s) => [...s].reduce((n, c) => n + (/[\x00-\x7F]/.test(c) ? 0.5 : 1), 0);
+
 let noteChecked = 0;
 let wideNotes = 0;
 for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith('.json'))) {
@@ -230,7 +235,7 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
       errors.push(`${file}：來源 note「${o.note.slice(0, 30)}…」含 http 字樣。note 會被拿去當 <a> 的可見文字，`
         + 'check:anchor-text 會把它判成裸露網址（那道吃 dist，要等完整 build 才報）。把網址與實測備註拿掉，只留來源單位名稱。');
     }
-    if (fullWidthLen(o.note) > NOTE_WIDTH_MAX) wideNotes += 1;
+    if (fullWidth(o.note) > SOURCE_LABEL_MAX_WIDTH) wideNotes += 1;
     // 括號必須成對——check:anchor-text 也擋這個，但它吃 dist、要 20 分鐘才報。
     // 🔴 2026-08-19 實際發生：我為了收短 note 而截字，把「（」「「」切成單邊，
     //    自己製造出這種標籤。所以收短之後一定要重新平衡括號。
@@ -250,7 +255,7 @@ for (const file of tracked.filter((f) => f.startsWith('src/data/') && f.endsWith
 //    check:anchor-text 紅燈，且目前是 0 筆、沒有既存包袱。
 const WIDE_NOTE_BASELINE = 36;
 if (wideNotes > WIDE_NOTE_BASELINE) {
-  errors.push(`來源 note 超過 ${NOTE_WIDTH_MAX} 全形字的有 ${wideNotes} 筆，超過基準 ${WIDE_NOTE_BASELINE}`
+  errors.push(`來源 note 超過 ${SOURCE_LABEL_MAX_WIDTH} 全形字的有 ${wideNotes} 筆，超過基準 ${WIDE_NOTE_BASELINE}`
     + `（+${wideNotes - WIDE_NOTE_BASELINE}）。note 是 <a> 的可見文字，太長會被截斷；`
     + '查證備註不該放在 note。改短了就把基準往下調。');
 } else if (wideNotes < WIDE_NOTE_BASELINE) {

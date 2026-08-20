@@ -1,5 +1,5 @@
 // C.2 S6 — 廿八宿（方法確定、錨定常數待校準 C.5）
-import { ganzhiFromIndex } from './ganzhi';
+import { ganzhiFromIndex } from './ganzhi.ts';
 
 export const XIU_28 = [
   '角', '亢', '氐', '房', '心', '尾', '箕', // 東方蒼龍
@@ -10,7 +10,8 @@ export const XIU_28 = [
 
 // 值宿 =（JDN + XIU_ANCHOR）mod 28。採通行之「七政廿八宿」值日（同香港天文台/通書）。
 // 校準來源（C.5）：以 lunar-javascript（壽星天文曆算法，對齊香港天文台）跨 6 個分散日期
-// 交叉驗證，皆得 ANCHOR = 11（見 calibration.test.mjs）。
+// 交叉驗證，皆得 ANCHOR = 11（驗證在 scripts/verify-almanac.ts，該支 import 本模組、
+// 對 1901–2099 全範圍比對 lunar-javascript）。
 //   例：2026-06-21=星宿、2024-02-10=氐宿、2000-01-01=胃宿，本公式與之一致。
 // 註：早期單一通書站（wannianrili）曾得 13，係採不同廿八宿起例；今以對齊官方曆之
 //   lunar-javascript 為準並修正。

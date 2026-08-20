@@ -18,18 +18,23 @@ const solarlunar = (solarlunarPkg as { default?: typeof solarlunarPkg }).default
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-// ── 本站確定性公式（與 ganzhi.ts / ershiba.ts 一致）──
-const STEMS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
-const BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
-const XIU_28 = ['角','亢','氐','房','心','尾','箕','斗','牛','女','虛','危','室','壁','奎','婁','胃','昴','畢','觜','參','井','鬼','柳','星','張','翼','軫'];
-const DAY_GANZHI_ANCHOR = 49;
-const XIU_ANCHOR = 11;
-function gregorianToJDN(y: number, m: number, d: number): number {
-  const a = Math.floor((14 - m) / 12), yy = y + 4800 - a, mm = m + 12 * a - 3;
-  return d + Math.floor((153 * mm + 2) / 5) + 365 * yy + Math.floor(yy / 4) - Math.floor(yy / 100) + Math.floor(yy / 400) - 32045;
-}
-const ourDayPillar = (jdn: number) => { const i = (((jdn + DAY_GANZHI_ANCHOR) % 60) + 60) % 60; return STEMS[i % 10] + BRANCHES[i % 12]; };
-const ourXiu = (jdn: number) => XIU_28[(((jdn + XIU_ANCHOR) % 28) + 28) % 28];
+// ── 本站確定性公式：直接 import 出貨模組，不得在此重寫 ────────────────
+//
+// 🔴 2026-08-20 改：這裡原本是 STEMS／BRANCHES／XIU_28／DAY_GANZHI_ANCHOR／
+//    XIU_ANCHOR ＋ gregorianToJDN／ourDayPillar／ourXiu 的**私有副本**。
+//    副本的後果是這支「驗證器」驗的是它自己那份公式對不對，**不是網站出貨的那份**：
+//    `src/lib/almanac/ganzhi.ts` 的錨定常數漂掉，這裡照樣印 100%。
+//    改成 import 之後，7.2 萬天的三方比對才真的蓋在出貨模組上。
+//
+// ⚠️ 連帶不變量：`src/lib/almanac/*.ts` 的相對 import 必須帶 `.ts` 副檔名，
+//    否則 bare node（`--experimental-strip-types`）解析不到（ERR_MODULE_NOT_FOUND），
+//    這支就只能退回去複製公式。**改那個目錄的 import 形式前先跑這支。**
+import { gregorianToJDN } from '../src/lib/almanac/jdn.ts';
+import { dayPillar } from '../src/lib/almanac/ganzhi.ts';
+import { ershiba } from '../src/lib/almanac/ershiba.ts';
+
+const ourDayPillar = (jdn: number) => { const p = dayPillar(jdn); return p.stem + p.branch; };
+const ourXiu = (jdn: number) => ershiba(jdn);
 // 簡→繁（lunar-javascript / solarlunar 部分回簡體；建除/廿八宿/節氣共用）
 const S2T: Record<string, string> = {
   闭: '閉', 满: '滿', 执: '執', 开: '開', 虚: '虛', 娄: '婁', 毕: '畢', 参: '參', 张: '張', 轸: '軫',

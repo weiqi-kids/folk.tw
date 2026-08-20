@@ -16,7 +16,7 @@
 pnpm install --frozen-lockfile
 pnpm check:integrity      # 參照完整性＋對映率報表（硬錯誤須為 0）
 pnpm exec astro check     # 型別檢查（須 0 errors）
-node --experimental-strip-types src/lib/almanac/calibration.test.mjs   # M3 校準（46/46）
+pnpm verify:almanac                                                    # M3 全範圍三方交叉驗證＋官方錨點
 pnpm verify:almanac       # 農民曆全範圍交叉驗證＋官方錨點（官方須 100%）
 pnpm build:release        # 靜態建置＋Pagefind 索引（postbuild）
 ```
@@ -81,7 +81,7 @@ pnpm build:release        # 靜態建置＋Pagefind 索引（postbuild）
 - 部署：`.github/workflows/deploy.yml`、`public/CNAME`
 - Schema：`src/content.config.ts`
 - 跨文本追蹤：`src/lib/queries.ts`
-- 農民曆引擎：`src/lib/almanac/`（`provider.ts` 接天文資料；`rules/*.json` 規則表；`calibration.test.mjs`）
+- 農民曆引擎：`src/lib/almanac/`（`provider.ts` 接天文資料；`rules/*.json` 規則表；驗證見 `scripts/verify-almanac.ts`）
 - 農民曆日期瀏覽：`src/components/AlmanacDay.astro`（單日視圖＋日期導覽）、`src/pages/almanac/[date].astro`（±1 年日期頁，每日 cron 滾動）、`src/lib/almanac/dates.ts`（視窗與日期工具）
 - 校驗工具：`scripts/check-integrity.ts`、`scripts/verify-almanac.ts`、`scripts/import-temples.ts`
 - 授權：`LICENSE`（程式 MIT；內容資料逐條標源）

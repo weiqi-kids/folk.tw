@@ -7,20 +7,20 @@
 // 未接資料前一律 verified=false、不對外顯示（C.4-5、§5）。本檔提供 AstronomicalProvider
 // 介面，待接官方資料源即可點亮進階層。
 
-import { gregorianToJDN } from './jdn';
-import { dayPillar, hourPillar, chongZodiac, monthPillar, BRANCHES } from './ganzhi';
-import { jianchu } from './jianchu';
-import { ershiba } from './ershiba';
-import { activeShenSha } from './shensha';
-import { dayTokens } from './daytokens';
-import { huangHeiDao } from './huanghei';
-import { resolveAffair } from './resolve';
+import { gregorianToJDN } from './jdn.ts';
+import { dayPillar, hourPillar, chongZodiac, monthPillar, BRANCHES } from './ganzhi.ts';
+import { jianchu } from './jianchu.ts';
+import { ershiba } from './ershiba.ts';
+import { activeShenSha } from './shensha.ts';
+import { dayTokens } from './daytokens.ts';
+import { huangHeiDao } from './huanghei.ts';
+import { resolveAffair } from './resolve.ts';
 import affairsData from './rules/affairs.json';
 import taishenData from './rules/taishen.json';
 import wuhouData from './rules/wuhou.json';
 import pengzuData from './rules/pengzu.json';
 import nayinData from './rules/nayin.json';
-import type { DayRecord, GanZhi, Sourced, DayVerdict } from './types';
+import type { DayRecord, GanZhi, Sourced, DayVerdict } from './types.ts';
 
 const AFFAIRS = (affairsData as { affairs: { id: string; name: string }[] }).affairs;
 const AFFAIR_NAME = new Map(AFFAIRS.map((a) => [a.id, a.name]));
@@ -42,9 +42,9 @@ function moonPhaseOf(day: number): string {
   return '殘月';
 }
 
-export * from './types';
-export { gregorianToJDN, jdnToGregorian } from './jdn';
-export { dayPillar, hourPillar, ganzhiFromIndex } from './ganzhi';
+export * from './types.ts';
+export { gregorianToJDN, jdnToGregorian } from './jdn.ts';
+export { dayPillar, hourPillar, ganzhiFromIndex } from './ganzhi.ts';
 
 /** 待接的官方天文資料源（定朔/節氣/閏月）。回 null 表示該日資料未涵蓋（C.8 有效年限）。 */
 export interface AstronomicalProvider {
@@ -189,13 +189,13 @@ export function computeDayRecord(
     pillars: {
       year: sourced(yearGZ, connected, connected ? ['立春分年（C.2 S4）；' + SRC_LUNAR[0]] : []),
       month: sourced(monthGZ, connected, connected ? ['節分月＋五虎遁（C.2 S4）'] : []),
-      day: sourced(day干, true, ['日干支序公式，已以官方農民曆＋lunar-javascript 跨6日校準（calibration.test）']),
+      day: sourced(day干, true, ['日干支序公式，已以官方農民曆＋lunar-javascript 全範圍（1901–2099，約 7.2 萬日）交叉驗證（scripts/verify-almanac.ts）']),
       hour: sourced(null, false, ['需真太陽時（經度＋均時差），C.6 發佈後增補']),
     },
-    // 建除：本站公式 + 真月支；與 lunar-javascript 一致（calibration.test 交叉驗證）
+    // 建除：本站公式 + 真月支；與 lunar-javascript 一致（scripts/verify-almanac.ts 全範圍交叉驗證）
     jianchu: sourced(jianchuVal, connected, connected ? ['建除義例（C.2 S5）；交叉驗證 lunar-javascript'] : []),
     // 廿八宿：錨定常數已以 lunar-javascript 跨6日校準（C.5）
-    ershiba: sourced(xiu, true, ['七政廿八宿值日，錨定常數已校準（calibration.test）']),
+    ershiba: sourced(xiu, true, ['七政廿八宿值日，錨定常數已校準（scripts/verify-almanac.ts 全範圍交叉驗證）']),
     // 黃黑道／宜忌（進階層，C.6 考據化）：引擎已產出，verified 取規則表，未驗證者頁面不顯示
     huangHeiDao: huangHei,
     yi,

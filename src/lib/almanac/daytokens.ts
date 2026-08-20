@@ -14,7 +14,7 @@
 // ⚠️ 這裡**不做任何宜忌判斷**——只陳述「今天是平日」「今天日支為亥」這類事實。
 //   哪個事項忌哪一種，一律寫在 votes.json 並逐條掛《協紀》原文（與神煞同一套規矩）。
 
-import type { ActiveShenSha } from './shensha';
+import type { ActiveShenSha } from './shensha.ts';
 
 const JIANCHU_ID: Record<string, string> = {
   建: 'jianchu_jian', 除: 'jianchu_chu', 滿: 'jianchu_man', 平: 'jianchu_ping',

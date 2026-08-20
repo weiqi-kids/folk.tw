@@ -6,9 +6,9 @@
 // 「進階層」宜忌/神煞/黃黑道/胎神仍須《協紀辨方書》考據化（C.6），不由本 provider 提供。
 
 import { Solar } from 'lunar-javascript';
-import { jdnToGregorian, gregorianToJDN } from './jdn';
-import { BRANCHES } from './ganzhi';
-import type { AstronomicalProvider, GanZhi } from './index';
+import { jdnToGregorian, gregorianToJDN } from './jdn.ts';
+import { BRANCHES } from './ganzhi.ts';
+import type { AstronomicalProvider, GanZhi } from './index.ts';
 
 // lunar-javascript 之節氣／節日名回簡體；本站為繁體（zh-Hant-TW），逐一正規化。
 // 二十四節氣僅 5 個簡繁有別，其餘同形。

@@ -18,7 +18,10 @@
 農曆、節氣、年柱（立春分年）、月柱（節分月＋五虎遁）、日柱、建除、廿八宿、沖煞、節日、神明聖誕 join。
 
 - **錨定常數已校準**：`DAY_GANZHI_ANCHOR=49`、`XIU_ANCHOR=11`，經 lunar-javascript 跨 12 日
-  ＋ wannianrili 錨點交叉驗證（`calibration.test.mjs`，38 項全綠）。日柱／建除／廿八宿公式與權威來源一致。
+  ＋ wannianrili 錨點交叉驗證。日柱／建除／廿八宿公式與權威來源一致。
+  🔴 驗證入口是 `scripts/verify-almanac.ts`（`pnpm verify:almanac`，ci-pre-build gate）——
+  它**直接 import 本目錄的模組**，不再自帶公式副本；2026-08-20 之前它與 `calibration.test.mjs`
+  各持一份私有副本，驗的是副本而不是出貨模組（錨定常數漂掉也照樣全綠），該檔已於同日刪除。
 - **發佈前**：建議再對中央氣象署官方農民曆抽查（C.4-4）。
 
 ## 進階層：◑ 考據化待人工核（C.6）
