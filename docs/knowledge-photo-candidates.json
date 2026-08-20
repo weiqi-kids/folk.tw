@@ -1,1 +1,57 @@
-[]
+[
+ {
+  "deity_id": "amituo",
+  "cid": "257",
+  "name": "阿彌陀佛",
+  "src": "/WebCtrl/FileStore/CKUpload/P44%e9%98%bf%e5%bd%8c%e9%99%80%e4%bd%9b-1%e8%87%ba%e5%8d%97%e5%b8%82%e6%9d%b1%e5%8d%80%e5%bd%8c%e9%99%80%e5%af%ba%ef%bc%88%e9%99%b3%e7%be%8e%e8%8f%af%e6%94%9d%ef%bc%89DSC05055-(1).jpg",
+  "alt": "臺南市東區彌陀寺阿彌陀佛",
+  "caption": "臺南市東區彌陀寺阿彌陀佛（陳美華攝）",
+  "photographer": "陳美華",
+  "credit_role": "攝",
+  "page": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=257"
+ },
+ {
+  "deity_id": "damo",
+  "cid": "268",
+  "name": "達摩祖師",
+  "src": "/WebCtrl/FileStore/CKUpload/P56%e9%81%94%e6%91%a9%e7%a5%96%e5%b8%ab-%e8%87%ba%e5%8d%97%e5%b8%82%e5%8c%97%e5%8d%80%e9%96%8b%e5%85%83%e5%af%ba%ef%bc%88%e9%99%b3%e7%be%8e%e8%8f%af%e6%94%9d%ef%bc%89DSC05692-.jpg",
+  "alt": "臺南市北區開元寺達摩祖師",
+  "caption": "臺南市北區開元寺達摩祖師（陳美華攝）",
+  "photographer": "陳美華",
+  "credit_role": "攝",
+  "page": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=268"
+ },
+ {
+  "deity_id": "mile",
+  "cid": "273",
+  "name": "彌勒佛",
+  "src": "/WebCtrl/FileStore/CKUpload/P61%e5%bd%8c%e5%8b%92%e4%bd%9b-%e8%87%ba%e5%8d%97%e5%b8%82%e5%8c%97%e5%8d%80%e9%96%8b%e5%85%83%e5%af%ba%ef%bc%88%e9%99%b3%e7%be%8e%e8%8f%af%e6%94%9d%ef%bc%89DSC05705%e6%97%8b-.jpg",
+  "alt": "臺南市北區開元寺彌勒佛",
+  "caption": "臺南市北區開元寺彌勒佛（陳美華攝）",
+  "photographer": "陳美華",
+  "credit_role": "攝",
+  "page": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=273"
+ },
+ {
+  "deity_id": "shijia",
+  "cid": "275",
+  "name": "釋迦牟尼佛",
+  "src": "/WebCtrl/FileStore/CKUpload/P64%e9%87%8b%e8%bf%a6%e7%89%9f%e5%b0%bc%e4%bd%9b-1%e8%87%ba%e5%8d%97%e5%b8%82%e5%8c%97%e5%8d%80%e9%96%8b%e5%85%83%e5%af%ba%ef%bc%88%e9%99%b3%e7%be%8e%e8%8f%af%e6%94%9d%ef%bc%89DSC05688%e6%97%8b--.jpg",
+  "alt": "臺南市北區開元寺釋迦牟尼佛",
+  "caption": "臺南市北區開元寺釋迦牟尼佛（陳美華攝）",
+  "photographer": "陳美華",
+  "credit_role": "攝",
+  "page": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=275"
+ },
+ {
+  "deity_id": "yanluo",
+  "cid": "615",
+  "name": "閻羅王",
+  "src": "/WebCtrl/FileStore/CKUpload/220%e9%96%bb%e7%be%85%e5%a4%a9%e5%ad%90%20%e6%96%b0%e5%8c%97%e5%b8%82%e6%96%b0%e5%ba%97%e5%8d%80%e5%a4%a9%e8%81%96%e8%a7%80%e5%a4%aa%e4%b8%8a%e6%b7%b7%e5%85%83%e9%81%93%e5%ba%9c%ef%bc%88%e9%99%b3%e7%be%8e%e8%8f%af%e6%94%9d%ef%bc%89DSC06178-.jpg",
+  "alt": "新北市新店區天聖觀太上混元道府閻羅天子",
+  "caption": "新北市新店區天聖觀太上混元道府閻羅天子（陳美華攝）",
+  "photographer": "陳美華",
+  "credit_role": "攝",
+  "page": "https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=615"
+ }
+]
