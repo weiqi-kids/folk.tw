@@ -2703,7 +2703,7 @@
         "note": "國史館臺灣文獻館送神民俗資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/antaisui/",
         "note": "本站太歲儀式資料入口"
       }
@@ -2722,7 +2722,7 @@
         "text": "謝太歲是對太歲信仰與安太歲服務的回謝語境，並不等同於送神；是否需要辦理、何時辦理要依各廟說明。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/antaisui/"
           }
         ]
@@ -2854,7 +2854,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/antaisui/",
         "note": "本站安太歲儀式資料"
       },
@@ -2869,7 +2869,7 @@
         "text": "安太歲通常指依太歲信仰辦理年度登記或祈福服務，是否屬於某人的犯太歲判定與辦理方式要看廟方規則。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/antaisui/"
           }
         ]
@@ -2917,7 +2917,7 @@
         "note": "內政部玉皇上帝與天公生資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/baitiangong/",
         "note": "本站拜天公資料"
       }
@@ -2945,7 +2945,7 @@
         "text": "本站拜天公資料把流程、供品與禁忌標示為民俗參考，不把祭拜做法轉寫成所有家庭都必須遵守的規定。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/baitiangong/"
           }
         ]
@@ -3429,7 +3429,7 @@
     "image_key": "qingming",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/saomu/",
         "note": "本站掃墓資料"
       },
@@ -3449,7 +3449,7 @@
         "text": "掃墓是清明祭祖與墓地整理的總稱，實際工作可能包含除草、清潔、獻供與家族祭拜等不同段落。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/saomu/"
           }
         ]
@@ -4222,7 +4222,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/",
         "note": "本站拜拜習俗索引"
       },
@@ -4242,7 +4242,7 @@
         "text": "求平安是泛稱的祈福需求，收驚與補運則是不同民俗服務名稱，不能只因都在廟裡進行就視為同一儀式。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/"
           }
         ]
@@ -4288,7 +4288,7 @@
     "image_key": "qixi",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/deities/",
         "note": "本站神明索引"
       },
@@ -4308,7 +4308,7 @@
         "text": "求姻緣與求子是不同搜尋意圖，常見對象和服務名稱也不同，不能用一張通用供品清單涵蓋所有廟宇。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/deities/"
           }
         ]
@@ -4354,7 +4354,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/",
         "note": "本站拜拜習俗索引"
       },
@@ -4374,7 +4374,7 @@
         "text": "入厝是居家搬遷與入宅語境，安神位則涉及神像、香火或牌位安置，兩者不應只用同一個吉日模板處理。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/"
           }
         ]
@@ -4420,7 +4420,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/",
         "note": "本站民俗儀式索引"
       },
@@ -4458,7 +4458,7 @@
         "text": "廟方的服務時間、費用、預約和陪同規則是可變資訊，查詢時應保留公告日期和原始連結。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/"
           }
         ]
@@ -4497,7 +4497,7 @@
         "note": "國立臺灣歷史博物館成年禮資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/zuo16/",
         "note": "本站做十六歲習俗資料"
       }
@@ -4525,7 +4525,7 @@
         "text": "做十六歲的報名、供品、鑽亭與典禮時間依主辦廟和地區而異，本站習俗資料不替年度公告補填名額或流程。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/zuo16/"
           }
         ]
@@ -4563,7 +4563,7 @@
         "note": "文化資產局基隆中元祭資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/festivals/guimenkai/",
         "note": "本站鬼門開資料"
       }
@@ -4591,7 +4591,7 @@
         "text": "基隆年度活動的時刻、參觀方式與交通管制要由主辦方公告，不能由農曆初一推定所有儀式都在同一時間開始。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/festivals/guimenkai/"
           }
         ]
@@ -4629,7 +4629,7 @@
         "note": "文化部雞籠中元祭資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/festivals/fangshuideng/",
         "note": "本站放水燈資料"
       }
@@ -4657,7 +4657,7 @@
         "text": "放水燈遊行、下水地點與水邊管制屬年度現場資訊，觀賞者應遵守主辦方公告，不自行進入管制區。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/festivals/fangshuideng/"
           }
         ]
@@ -4695,7 +4695,7 @@
         "note": "國史館臺灣文獻館中元民俗資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/practices/pudu/",
         "note": "本站普渡習俗資料"
       }
@@ -4723,7 +4723,7 @@
         "text": "普渡的供品、金紙與步驟屬習俗操作問題，本站另以普渡頁承接，避免中元節日期頁複製完整流程。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/practices/pudu/"
           }
         ]
@@ -4828,7 +4828,7 @@
         "note": "國史館臺灣文獻館鬼門關資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/festivals/dizang/",
         "note": "本站地藏王聖誕資料"
       }
@@ -4838,7 +4838,7 @@
         "text": "地藏王菩薩聖誕資料通常記作農曆七月三十，遇短月時要依實際農曆月末顯示七月廿九。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/festivals/dizang/"
           }
         ]
@@ -4893,7 +4893,7 @@
         "note": "內政部慶祭典查詢"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/deities/birthdays/",
         "note": "本站神明聖誕資料"
       }
@@ -4921,7 +4921,7 @@
         "text": "日期核對應保存原始公告與曆法格式，本站聖誕資料會把異說並列，不以單一熱門答案消除地方差異。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/deities/birthdays/"
           }
         ]
@@ -4959,7 +4959,7 @@
         "note": "內政部清水祖師資料示例"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/deities/",
         "note": "本站神明索引"
       }
@@ -4987,7 +4987,7 @@
         "text": "神明比較頁提供資料索引與差異，不對靈驗程度、祈願結果或個人命運做排名或保證。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/deities/"
           }
         ]
@@ -5015,12 +5015,12 @@
     "image_key": "qixi",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/deities/",
         "note": "本站神明索引"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/temples/",
         "note": "本站宮廟索引"
       },
@@ -5035,7 +5035,7 @@
         "text": "求願情境應先區分問題與信仰需求，再看神明、廟宇與服務資料，不能用單一神明排名回答所有人。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/deities/"
           }
         ]
@@ -5044,7 +5044,7 @@
         "text": "宮廟提供的服務名稱、時間與參拜規則屬個別廟宇資料，讀者應以廟方公告和現場指示為準。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/temples/"
           }
         ]
@@ -5081,7 +5081,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/almanac/",
         "note": "本站農民曆入口"
       },
@@ -5101,7 +5101,7 @@
         "text": "農民曆同時呈現曆法、節氣與民俗欄位，宜忌、沖煞與節氣不能視為同一種資訊。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/almanac/"
           }
         ]
@@ -5147,7 +5147,7 @@
     "image_key": "chongyang",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/temples/",
         "note": "本站宮廟索引"
       },
@@ -5185,7 +5185,7 @@
         "text": "本站宮廟索引是資料查找入口，不把評價、香火或靈驗傳聞當成選廟的客觀排名。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/temples/"
           }
         ]
@@ -5223,7 +5223,7 @@
         "note": "文化資產局臺灣文化資產資料"
       },
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/events/",
         "note": "本站民俗活動索引"
       }
@@ -5251,7 +5251,7 @@
         "text": "民俗活動索引與文化資產資料應互相連結但不互相取代，活動頁仍需保存年度公告日期與主辦來源。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/events/"
           }
         ]
@@ -5279,7 +5279,7 @@
     "image_key": "jilong-zhongyuan",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/events/",
         "note": "本站民俗活動資料"
       },
@@ -5308,7 +5308,7 @@
         "text": "社群貼文中的平安、圓滿或順利是祝願與敘事用語，不能單獨證明活動時間、路線或現場狀況。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/events/"
           }
         ]
@@ -5345,7 +5345,7 @@
     "image_key": "baitiangong",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/fortune/",
         "note": "本站求籤入口"
       },
@@ -5365,7 +5365,7 @@
         "text": "籤詩閱讀的第一步是確認抽籤廟宇與籤系，籤號相同不代表不同廟的原文、典故和解說相同。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/fortune/"
           }
         ]
@@ -5478,7 +5478,7 @@
     "image_key": "september-solar-terms",
     "sources": [
       {
-        "type": "site",
+        "type": "web",
         "ref": "https://folk.tw/festivals/",
         "note": "本站民俗節日曆"
       },
@@ -5498,7 +5498,7 @@
         "text": "民俗年表至少要區分農曆月日、節氣、固定國曆紀念日和地方活動公告，四種日期不能用同一換算規則。",
         "sources": [
           {
-            "type": "site",
+            "type": "web",
             "ref": "https://folk.tw/festivals/"
           }
         ]

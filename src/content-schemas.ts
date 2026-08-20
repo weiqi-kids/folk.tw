@@ -43,17 +43,15 @@ const reference = createReference() as unknown as typeof import('astro:content')
 /**
  * 來源標註（§5 provenance 鐵律的最小單位）
  *
- * 🔴 `site` 是 2026-08-20 收進來的，**不是**「一般網站」的意思——
- *    它專指**指向本站自己的交叉引用**（`https://folk.tw/...`），用途是導覽入口而非舉證。
- *    收進共用 enum 的理由：festivals.json 原本自己用了這個值 46 筆，而共用片段沒有它，
- *    等於同一個概念有兩套詞彙、且沒有任何東西在比對（那份資料集當時連 schema 都沒有）。
- *    ⚠️ **不可以把它併進 `web`**：自我引用被標成外部網站來源，就是替事實製造假的溯源，
- *    違反「逐筆掛源、來源要能被機器複驗」（CLAUDE.md 紅線 1）。
- *    ⚠️ 渲染端要據此分辨：同源連結不加 `nofollow`／`target="_blank"`
- *    （見 src/components/Sources.astro，2026-08-20 之前它對自家連結也加 nofollow）。
+ * ⚠️ 2026-08-20 詞彙標準化：festivals.json 曾自己多出 `site`（46 筆，指向 folk.tw 自己的
+ *    交叉引用）與 `gov_heritage`（24 筆，皆 nchdb）兩種值。站主裁示**兩種都併入既有詞彙**
+ *    （`gov_heritage`→`gov`、`site`→`web`），所以這裡維持原本的七值，不再擴充。
+ *    ⚠️ 那 46 筆的 `ref` 仍然指向本站自己——**「是不是同源」不看這個欄位**，
+ *    看網址（`isSameOrigin()`，`src/lib/sources.ts`）。渲染端據此決定要不要加
+ *    `nofollow`／`target="_blank"`，與 type 值無關，所以這次合併不影響那個行為。
  */
 const source = z.object({
-  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other', 'site']),
+  type: z.enum(['book', 'temple', 'gov', 'web', 'field', 'paper', 'other']),
   ref: z.string(), // 書名+頁碼 / 廟方官網 / 資料集 ID …
   note: z.string().optional(),
 });
@@ -672,12 +670,9 @@ export const localCelebrationsSchema = z.object({
 //    zod 的 refine 只能擋單筆，擋不住「兩邊各自漂走」，所以留在測試那邊。
 //
 // ✅ 2026-08-20 已標準化：原本 festivals 自己多出 `site`（46 筆）與 `gov_heritage`（24 筆）
-//    兩種值，是這份 schema 補上去才發現的分岔。處理方式**兩種不同**：
-//    • `gov_heritage` → 併入 `gov`（全部 24 筆都是 nchdb.boch.gov.tw，就是政府來源，
-//      多一個值沒有承載任何額外資訊）。
-//    • `site` → **收進共用 enum，不併入 `web`**（它承載「本站自我引用」這個真實區別，
-//      併掉就是製造假的溯源）。定義見上面 `source` 片段的檔頭。
-//    所以這裡直接用共用的 `source`，不再有 festivals 專屬片段。
+//    兩種值，是這份 schema 補上去才發現的分岔——那份資料集當時連 schema 都沒有。
+//    站主裁示兩種都併入既有詞彙：`gov_heritage`→`gov`（皆 nchdb，逐筆經網域確認）、
+//    `site`→`web`。全站現在一套七值詞彙，festivals 不再有專屬片段。
 export const FESTIVAL_DATE_STATUSES = ['source_required', 'verified', 'blocked', 'not_applicable'] as const;
 export const FESTIVAL_SOURCE_STATUSES = ['calendar_anchored', 'source_required'] as const;
 

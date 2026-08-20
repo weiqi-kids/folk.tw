@@ -74,15 +74,19 @@ discriminated union 與單一入口。
 
 ## 來源型別（source type）
 
-`sources[].type` 標示這筆來源是什麼性質。
+`sources[].type` 標示這筆來源是什麼性質。七值：
+`book`／`temple`／`gov`／`web`／`field`／`paper`／`other`。
 
-🔴 **`site` 不是「一般網站」**，它專指**指向本站自己的交叉引用**，用途是導覽入口而非舉證。
-**不可併進 `web`**——自我引用被標成外部來源，就是替事實製造假的溯源。
-渲染端據此分辨：同源連結不加 `nofollow`／`target="_blank"`。
+⚠️ **`web` 裡混著本站自己的頁面。** festivals.json 有一批 `ref` 指向 `folk.tw` 的
+交叉引用（note 寫「本站◯◯資料入口」），用途是導覽入口而非舉證。
+2026-08-20 站主裁示併入 `web`（此前它們自成一個 `site` 值）。
 
-⚠️ 判定同源用**網址**而不是這個欄位：type 是人填的，網址是機器可驗的。
+🔴 **所以「是不是同源」不可以看 `type`，要看網址。** 併入之後型別上再也分不出來，
+而這個區別有實際後果：同源連結不該加 `nofollow`／`target="_blank"`
+（2026-08-20 之前渲染端無條件當外部處理，等於對自家內部連結下 nofollow，
+而且不會有任何 gate 紅燈——`check:anchor-text` 驗的是可見文字不是 `rel`）。
 
-**唯一入口**：`src/content-schemas.ts` 的 `source` 片段；渲染判定 `src/lib/sources.ts`
+**唯一入口**：判定 `isSameOrigin()`（`src/lib/sources.ts`）；渲染 `src/components/Sources.astro`
 
 ## 基準日（build date）
 
