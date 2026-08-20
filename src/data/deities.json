@@ -7012,12 +7012,17 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "佛教創始者",
+      "三世佛中的現在佛"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "端坐蓮臺（蓮花為淨土象徵，後世佛與菩薩像皆以蓮花為座）"
+    ],
     "system": "佛教",
     "groups": [],
-    "summary": "佛教的教主，民間又稱如來佛或佛祖，在三世佛中為現在佛。臺灣廟宇常見與觀音、彌勒同祀，也有專祀的佛寺；本站只陳述辭典與官方來源記載的部分，其餘留空。",
+    "summary": "佛教的創始者，民間又稱如來佛或佛祖，在三世佛中為現在佛。原為古印度迦毗羅王國的王子，十九歲入山修道、三十五歲於菩提樹下悟道，此後傳教四十餘年。佛像端坐蓮臺，源自蓮花作為淨土象徵的說法。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1222",
@@ -7047,12 +7052,18 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "西方極樂世界教主",
+      "接引眾生往生淨土"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "「西方接引圖」：中立阿彌陀佛、一手下垂作接引狀",
+      "與觀世音、大勢至合稱西方三聖"
+    ],
     "system": "佛教",
     "groups": [],
-    "summary": "西方極樂世界的教主，本意為無量光、無量壽，因而又稱無量光佛或無量壽佛。民間念佛與往生信仰多以其為對象。",
+    "summary": "西方極樂世界的教主，本意為無量光、無量壽，因而又稱無量光佛或無量壽佛。常見的形象是「西方接引圖」，中立阿彌陀佛一手下垂作接引眾生狀，兩旁為觀世音與大勢至，三者合稱西方三聖。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1223",
@@ -7083,12 +7094,17 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "三世佛中的未來佛"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "佛教造像：左手掌當胸向外、右手持蓮上安瓶，結跏蓮花座",
+      "民間常見造型：笑口常開、袒胸露腹，起源於布袋和尚"
+    ],
     "system": "佛教",
     "groups": [],
-    "summary": "三世佛中的未來佛。今日常見笑口常開、袒胸露腹的造型與早期佛教造像不同，辭典對兩種形象各有記載。",
+    "summary": "三世佛中的未來佛，往生兜率天，相傳人間五十六億萬年後再度降生普渡世人。今日常見笑口常開、袒胸露腹的形象並非原本的佛教造像，而是起源於唐末的布袋和尚——一般認為布袋和尚即彌勒化身。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1224",
@@ -7118,12 +7134,18 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "主司人之出生福壽"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "長鬚白髮老人、凸額頂頭、面色紅潤",
+      "左手持拐、右手捧桃",
+      "有時騎仙鶴、有時騎梅花鹿"
+    ],
     "system": "道教",
     "groups": [],
-    "summary": "起源於古代星宿信仰的南極老人星，即民間所稱的壽星，主司人的出生與福壽，常見於祝壽場合的圖像與神像。",
+    "summary": "起源於古代星宿信仰的南極老人星，即民間所稱的壽星，主司人的出生與福壽。《史記封禪書》記「壽星，蓋南極老人星，祀之以祈福壽」；自周秦以降歷代列於國家祀典，至明代始廢。臺灣多為配祀。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1200",
@@ -7155,12 +7177,16 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "佛教的地獄王",
+      "民間信仰中的冥司主宰",
+      "十殿閻王中居第五殿"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "system": "佛教",
     "groups": [],
-    "summary": "佛教的地獄王、民間信仰中的冥司主宰。唐末興起地府十殿之說後，民間稱十殿閻王，臺灣多附祀於城隍廟。",
+    "summary": "佛教的地獄王、民間信仰中的冥司主宰。「閻羅」是古梵語「閻魔羅闍」的音譯，義為地獄的統治者。唐末興起地府十殿之說後民間稱十殿閻王，傳說閻羅王本居第一殿、因同情屈死者而被貶至第五殿；臺灣的十殿閻王多附祀於城隍廟。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1220",
@@ -7193,12 +7219,15 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "道教系統的陰間主宰",
+      "掌羅酆地獄內外六宮"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "system": "道教",
     "groups": [],
-    "summary": "道教系統的陰間主宰，所轄羅酆地獄分設內外六宮。與佛教系統的地藏王、閻羅王分屬不同譜系，不宜混為一神。",
+    "summary": "道教系統的陰間主宰，又稱酆都北陰大帝、北太帝君，所轄的羅酆地獄分設內外六宮，關押十惡不赦者。與佛教系統的地藏王、閻羅王分屬不同譜系，不宜混為一神；辭典並指出自古世俗將「羅酆」誤為「酆都」。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1217",
@@ -7229,12 +7258,17 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "驅魔逐鬼",
+      "專司逐魔食鬼"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "端午以朱墨畫鍾馗圖像、用雞血點眼，俗稱「硃砂判」"
+    ],
     "system": "道教",
     "groups": [],
-    "summary": "民間著名的驅魔逐鬼之神，正史並無其事蹟記載。普渡場合常請其在旁監督，最後押走孤魂。",
+    "summary": "民間著名的驅魔逐鬼之神，正史並無其事蹟記載。傳說捉鬼時有含冤、負屈二鬼為副手，並以蝙蝠為先遣；民間每到端午以朱墨畫鍾馗像、雞血點眼（俗稱硃砂判）掛於廳堂驅邪。明代顧炎武等人考證其名應來自驅鬼大儺所用的木枝「終葵」，是由器物演變的擬人化神明。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1221",
@@ -7265,12 +7299,14 @@
     "category": "開拓神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "中國禪宗初祖"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "system": "佛教",
     "groups": [],
-    "summary": "禪宗東土初祖，臺灣民間亦有奉祀，常見於禪寺與武館。",
+    "summary": "全名菩提達摩，本為南天竺香至國王子，受法於印度禪宗第二十七祖，泛舟渡海至廣州，後於嵩山少林寺面壁九年，以壁觀禪定、直指人心的修行方式成為中國禪宗的初祖。晚年傳衣缽予慧可後雲遊四方，各地多有其現身傳道的傳說。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1225",
@@ -7302,12 +7338,18 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "福：五福臨門",
+      "祿：高官厚祿",
+      "壽：長命百歲"
+    ],
     "birthday_lunar": [],
-    "iconography": [],
+    "iconography": [
+      "常見於廟宇、宗祠的正脊之上"
+    ],
     "system": "道教",
     "groups": [],
-    "summary": "福、祿、壽三位星神的合稱，是民間祝壽與吉祥圖像中最常見的組合。",
+    "summary": "福、祿、壽三位吉星的合稱，也常以「三公」暱稱。福意謂五福臨門、祿寓意高官厚祿、壽代表長命百歲，是民間祝壽與吉祥圖像中最常見的組合，也常見於廟宇與宗祠的正脊之上。",
     "th_dict": [
       {
         "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1206",

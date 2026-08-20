@@ -1739,7 +1739,15 @@
             "note": "辭條「角缽」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/attire.webp",
+        "alt": "服飾與隨身用品示意圖：Chinese Ladies Footbinding Shoes QM r",
+        "author": "Queensland Museum",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chinese_Ladies_Footbinding_Shoes_QM_r.jpg"
+      }
     },
     {
       "id": "kitchenware",
@@ -3245,7 +3253,15 @@
             "note": "辭條「火管」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/furniture.webp",
+        "alt": "家具與陳設示意圖：Interior of the Lukang Folk Arts Museum-13.2023-07-13",
+        "author": "阿道",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Lukang_Folk_Arts_Museum-13.2023-07-13.jpg"
+      }
     },
     {
       "id": "fire",
@@ -4151,7 +4167,15 @@
             "note": "辭條「玻璃捕蟲器」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/fire.webp",
+        "alt": "火具與照明示意圖：Bilian Temple, stone lantern, Shoufeng Township, Hualien County (Taiwan)",
+        "author": "Mk2010",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bilian_Temple,_stone_lantern,_Shoufeng_Township,_Hualien_County_(Taiwan).jpg"
+      }
     },
     {
       "id": "farming",
@@ -5936,7 +5960,15 @@
             "note": "辭條「石碖」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/fishing.webp",
+        "alt": "漁具與水上用具示意圖：小林村大武壠族魚笱",
+        "author": "Benson Fang",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E6%9E%97%E6%9D%91%E5%A4%A7%E6%AD%A6%E5%A3%A0%E6%97%8F%E9%AD%9A%E7%AC%B1.jpg"
+      }
     },
     {
       "id": "tools",
@@ -7661,7 +7693,15 @@
             "note": "辭條「和尚衫」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/tools.webp",
+        "alt": "工具與容器示意圖：內柵國民小學古物-046 0194",
+        "author": "林高志",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E5%85%A7%E6%9F%B5%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8%E5%8F%A4%E7%89%A9-046_0194.jpg"
+      }
     },
     {
       "id": "lifecycle",
@@ -9383,7 +9423,14 @@
             "note": "辭條「拖塔天王」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/currency.webp",
+        "alt": "錢幣與財寶示意圖：100 yen banknote Taiwan 1933",
+        "author": "as shown on banknote",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:100_yen_banknote_Taiwan_1933.jpg"
+      }
     },
     {
       "id": "ritual-objects",
@@ -13094,7 +13141,15 @@
             "note": "辭條「四塊」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/architecture.webp",
+        "alt": "建築構件與工藝示意圖：保安宮龍柱 Dragon Pillars of Baoan Temple - panoramio",
+        "author": "lienyuan lee",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E4%BF%9D%E5%AE%89%E5%AE%AE%E9%BE%8D%E6%9F%B1_Dragon_Pillars_of_Baoan_Temple_-_panoramio.jpg"
+      }
     },
     {
       "id": "instruments",
@@ -15230,7 +15285,15 @@
             "note": "辭條「滿煎糕(金門)」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/opera-toys.webp",
+        "alt": "戲曲、偶戲與童玩示意圖：台灣酬神布袋戲1",
+        "author": "安可",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E7%81%A3%E9%85%AC%E7%A5%9E%E5%B8%83%E8%A2%8B%E6%88%B21.jpg"
+      }
     },
     {
       "id": "foodways",
@@ -15803,7 +15866,15 @@
             "note": "辭條「製作材質與方式」逐字節錄"
           }
         }
-      ]
+      ],
+      "image": {
+        "src": "/artifacts/foodways.webp",
+        "alt": "飲食示意圖：Traditional Taiwanese Food",
+        "author": "M. Weitzel",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Traditional_Taiwanese_Food.jpg"
+      }
     },
     {
       "id": "artisans",

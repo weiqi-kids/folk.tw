@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import LeadVisual from '../components/LeadVisual.astro';
 import { HUB } from '../lib/breadcrumbs';
 import { getEvents, getDeities, getTemples, getPractices } from '../lib/queries';
+import artifacts from '../data/artifacts.json';
 
 // 🔴 隱私段**不可再寫「本站不販售亦不用於廣告投放」這類商業模式承諾**（2026-08-12 用戶裁示移除）。
 //    那句是建站時的誤解，站主的實際立場是：**不接受業配文，但不排除廣告投放**，
@@ -35,6 +36,11 @@ const creditGroups = [
   { label: '廟宇', items: creditOf(await getTemples()) },
   { label: '民俗活動', items: creditOf(await getEvents()) },
   { label: '拜拜習俗', items: creditOf(await getPractices(), 'title') },
+  // 民俗文物分類頁的示意圖（2026-08-20）。不是 content collection，故直接讀資料檔。
+  {
+    label: '民俗文物',
+    items: artifacts.categories.filter((c) => c.image).map((c) => ({ name: c.title, ...(c.image as any) })),
+  },
 ].filter((g) => g.items.length > 0);
 
 // 常見問答（AEO：問答友善＋FAQPage schema）
