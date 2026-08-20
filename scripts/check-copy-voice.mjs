@@ -12,6 +12,9 @@
 // 用法：`node scripts/check-copy-voice.mjs`（本機 pnpm check:copy-voice；CI 已串在 build gate 前）。
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+// 語料涵蓋契約：宣告要掃什麼、掃到幾筆；掃到 0 或輸入缺漏就是違規，不是備註。
+// 這支存在的直接理由就寫在本檔 scanProseJson() 裡那兩行警告。
+import { newCorpus } from './lib/gate-corpus.mjs';
 
 // 種子＝記憶列出的地雷 ＋ 歷來被用戶抓到的句子。誤傷時：先改寫文案；確認真的是誤傷才在此收斂
 // pattern（縮小、加界，別整條刪）。新增禁語直接往下加一列。
@@ -154,11 +157,20 @@ function resolveField(obj, spec) {
 }
 
 // 掃白名單資料 JSON 的散文欄位（AI 產製，非公有領域古文）。
-function scanProseJson(hits) {
+function scanProseJson(hits, corpus) {
+  let scannedFields = 0;
   for (const { file, fields } of PROSE_JSON) {
-    if (!existsSync(file)) continue;
+    // 🔴 白名單指到不存在的檔＝這道 gate 對該檔實際上是關閉的，而且會印綠字。
+    //    原本是 `continue`（靜默跳過），2026-08-20 改成違規上報。
+    if (!existsSync(file)) { corpus.missing('PROSE_JSON 白名單檔', file, '改名或搬移後白名單沒跟著改'); continue; }
     let rows;
-    try { rows = JSON.parse(readFileSync(file, 'utf8')); } catch { continue; }
+    try {
+      rows = JSON.parse(readFileSync(file, 'utf8'));
+    } catch (e) {
+      // 同上：JSON 壞掉不能靜默跳過。
+      corpus.missing('PROSE_JSON 白名單檔', file, `JSON 解析失敗（${e.message.split('\n')[0]}）`);
+      continue;
+    }
     // 根是物件的檔（如 poem-personas.json）包成單列，讓 a.b 路徑穿進去掃；
     // 原本 !Array.isArray 直接 continue 會把整檔靜默跳過——正是上面警告過的「加了白名單卻沒掃」。
     if (!Array.isArray(rows)) rows = [rows];
@@ -169,6 +181,7 @@ function scanProseJson(hits) {
         // 加了白名單卻什麼都沒掃，比沒加更糟（誤以為有守）。
         for (const { path, value } of resolveField(row, k)) {
           if (typeof value !== 'string') continue;
+          scannedFields += 1;
           for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS, ...MAINTENANCE_LEAKS]) {
             const m = value.match(b.re);
             if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0].trim(), why: b.why });
@@ -177,6 +190,7 @@ function scanProseJson(hits) {
       }
     }
   }
+  return scannedFields;
 }
 
 function walk(dir) {
@@ -209,7 +223,20 @@ for (const f of files) {
   });
 }
 
-scanProseJson(hits);
+const corpus = newCorpus('check:copy-voice');
+corpus.track('.astro 檔', files.length);
+const scannedFields = scanProseJson(hits, corpus);
+corpus.track(
+  'PROSE_JSON 散文欄位',
+  scannedFields,
+  { why: 'PROSE_JSON 的檔案改名、或欄位路徑寫錯（巢狀取到 undefined），都會讓它安靜地掃到 0' },
+);
+const corpusProblems = corpus.problems();
+if (corpusProblems.length) {
+  console.error('✗ check:copy-voice 的語料涵蓋有問題（gate 少掃卻通過，比沒有這道 gate 更糟）：');
+  for (const c of corpusProblems) console.error(`  ${c}`);
+  process.exit(1);
+}
 
 if (hits.length) {
   console.error(`✗ 文案 AI 味 ${hits.length} 處（面向使用者的字要像真人；規則見記憶 copy-voice-no-ai-speak）：`);
@@ -218,4 +245,4 @@ if (hits.length) {
   console.error('確認是誤傷才在 scripts/check-copy-voice.mjs 收斂該條 pattern。');
   process.exit(1);
 }
-console.log(`✓ check:copy-voice：掃 ${files.length} 個 .astro，無 AI 味禁語`);
+console.log(`✓ check:copy-voice：掃 ${corpus.summary()}，無 AI 味禁語`);
