@@ -35,9 +35,16 @@
     "   2026-08-20 的 GSC 分析顯示「儀式怎麼做／禁忌」型查詢是站上排名最差、需求訊號卻最強的一塊",
     "   （/practices/ 僅 19 頁、均排名 pos 24.3，入厝儀式在 pos 77 仍拿到 26 次曝光），而該分類的授權",
     "   在 2026-08-06 內政部同意時就已涵蓋（條件＝標示資料來源連結，逐筆掛回條目頁自己的網址）。",
-    "   ⚠️ 這 14 個 job **每個只有 1 次請求**（只抓列表頁），對節流沒有影響；條目全文要另外產 url_list 清單。"
+    "   ⚠️ 這 14 個 job **每個只有 1 次請求**（只抓列表頁），對節流沒有影響；條目全文要另外產 url_list 清單。",
+    "🔴 v19（2026-08-20）：修 v18 的 expect.contains——寫成未跳脫的 `?ci=2&cid=`，",
+    "   而來源 HTML 逐字輸出 `?ci=2&amp;cid=`，於是 14 個 knowledge-list job 全部驗不過、",
+    "   一個 byte 都沒落地。**同一條 expect 套在早就收到的 cid=3 上一樣會失敗**（基準檔實測：",
+    "   未跳脫 0 次、跳脫 212 次）——也就是說 v18 那條從來沒被驗證過，是我方單方面寫錯。",
+    "   ⚠️ 副作用不只是收不到：台灣端 fetch 依規則「連續 5 次失敗提前收工」，",
+    "   於是排在後面的 job（local-celebration 那批與五個批次型）**每天都被餓死**。",
+    "   目前它們都在 max_age_days 內所以無實害，但這是 v19 必須立刻發的理由。"
   ],
-  "version": 18,
+  "version": 19,
   "updated": "2026-08-20",
   "politeness": {
     "min_interval_ms": 1000,
@@ -189,11 +196,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=1",
       "dest": "misc/knowledge-list-cid1.html",
       "max_age_days": 90,
-      "note": "宗教知識+「臺灣宗教」分類列表（cid=1）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「臺灣宗教」分類列表（cid=1）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -201,11 +211,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=2",
       "dest": "misc/knowledge-list-cid2.html",
       "max_age_days": 90,
-      "note": "宗教知識+「世界宗教」分類列表（cid=2）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「世界宗教」分類列表（cid=2）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -213,11 +226,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=4",
       "dest": "misc/knowledge-list-cid4.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教人物」分類列表（cid=4）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教人物」分類列表（cid=4）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -225,11 +241,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=5",
       "dest": "misc/knowledge-list-cid5.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教符號」分類列表（cid=5）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教符號」分類列表（cid=5）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -237,11 +256,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=6",
       "dest": "misc/knowledge-list-cid6.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教經典」分類列表（cid=6）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教經典」分類列表（cid=6）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -249,11 +271,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=7",
       "dest": "misc/knowledge-list-cid7.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教器物」分類列表（cid=7）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教器物」分類列表（cid=7）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -261,11 +286,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=8",
       "dest": "misc/knowledge-list-cid8.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教禁忌」分類列表（cid=8）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教禁忌」分類列表（cid=8）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -273,11 +301,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=9",
       "dest": "misc/knowledge-list-cid9.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教稱謂」分類列表（cid=9）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教稱謂」分類列表（cid=9）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -285,11 +316,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=10",
       "dest": "misc/knowledge-list-cid10.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教儀式」分類列表（cid=10）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教儀式」分類列表（cid=10）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -297,11 +331,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=11",
       "dest": "misc/knowledge-list-cid11.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教活動」分類列表（cid=11）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教活動」分類列表（cid=11）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -309,11 +346,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=12",
       "dest": "misc/knowledge-list-cid12.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教節日」分類列表（cid=12）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教節日」分類列表（cid=12）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -321,11 +361,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=13",
       "dest": "misc/knowledge-list-cid13.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教建築」分類列表（cid=13）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教建築」分類列表（cid=13）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -333,11 +376,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=14",
       "dest": "misc/knowledge-list-cid14.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教藝術」分類列表（cid=14）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教藝術」分類列表（cid=14）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {
@@ -345,11 +391,14 @@
       "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=15",
       "dest": "misc/knowledge-list-cid15.html",
       "max_age_days": 90,
-      "note": "宗教知識+「宗教學術」分類列表（cid=15）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "note": "宗教知識+「宗教學術」分類列表（cid=15）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。 🔴 expect.contains 的 &amp; 是**故意的**：來源 HTML 逐字輸出 &amp;（基準檔 cid=3 實測未跳脫 0 次、跳脫 212 次），改成 & 會讓這個 job 永遠驗不過。 ⚠️ 分頁是假的（頁面自報「共 N 頁」但第 1 頁 HTML 就含該分類全部條目，台灣端 15 個分類逐一驗過自報筆數＝相異 cid 數），不要加 paginate。",
       "expect": {
         "http_status": 200,
         "min_bytes": 20000,
-        "contains": "Knowledge/Content?ci=2&cid="
+        "contains": "Knowledge/Content?ci=2&amp;cid=",
+        "min_occurrences": {
+          "Knowledge/Content?ci=2&amp;cid=": 5
+        }
       }
     },
     {

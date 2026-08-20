@@ -64,7 +64,8 @@
     "check:search-demand": "node scripts/check-search-demand.mjs",
     "check:seasonal": "node --experimental-strip-types scripts/check-seasonal-campaigns.mjs",
     "check:temple-demand": "node --experimental-strip-types scripts/check-temple-demand-pages.mjs",
-    "check:rss": "node --experimental-strip-types scripts/check-rss.mjs"
+    "check:rss": "node --experimental-strip-types scripts/check-rss.mjs",
+    "check:manifest-expect": "node scripts/check-manifest-expect.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

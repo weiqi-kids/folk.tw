@@ -166,6 +166,19 @@ export const GATES = [
     why: '節日的 Google Calendar URL 與 ICS 必須與 festivalNextSolar 同源（含短月退日的農曆標籤）',
   },
   {
+    // 2026-08-20 新增，起因是同日的自造事故：manifest v18 的 14 個 knowledge-list job
+    // 把 expect.contains 寫成未跳脫的 `?ci=2&cid=`，而來源 HTML 輸出 `?ci=2&amp;cid=`
+    // → 台灣端抓到檔卻一個 byte 都不落地，還因為「連續 5 次失敗提前收工」每天餓死後面的 job。
+    // 而基準檔就在本機 inbox 裡，那條規則從發出去到被對方指出，**從沒被任何東西跑過**。
+    id: 'check:manifest-expect',
+    label: 'manifest expect 回測',
+    needs: 'source',
+    tier: 'fast',
+    stages: ['pre-push', 'ci-pre-build'],
+    changed: ['manifest-expect'],
+    why: 'manifest 的每條 expect 都要拿本機真的有的樣本（自身或結構同型者）實跑一次，不准送出沒驗過的規則',
+  },
+  {
     id: 'check:source-refs',
     label: '來源可複驗',
     needs: 'source',
@@ -402,6 +415,8 @@ export const CHANGED_RULES = {
   // 的 src/、docs/、scripts/ 與 CLAUDE.md。刻意不併進 `docs`（那類只認 .md，吃不到
   // docs/annual-release-evidence/*.json，而那裡正是掛 nchdb 個案網址的地方）。
   'source-refs': [/^src\/data\//, /^docs\//, /^CLAUDE\.md$/, /^scripts\//],
+  // manifest 與 expect 判定本身（含抽出來的共用模組與這道 gate 自己）。
+  'manifest-expect': [/^docs\/intake-manifest\.json$/, /^scripts\/lib\/intake-expect\.mjs$/, /^scripts\/check-manifest-expect\.mjs$/],
 };
 
 // ── 不變量自我驗證 ──────────────────────────────────────────────────────
