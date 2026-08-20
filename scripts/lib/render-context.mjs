@@ -83,6 +83,7 @@ export async function buildContext() {
   // 不變量 5e 用：民俗活動的文資登錄明細該印在哪一頁（events.json 的 heritage.home_festival）。
   const events = normalize(require('../../src/data/events.json'));
   const localCelebrations = require('../../src/data/local-celebrations.json');
+  const artifacts = require('../../src/data/artifacts.json');
   const goodDays = require('../../src/data/good-days.json');
   const votes = require('../../src/lib/almanac/rules/votes.json');
   const encourage = require('../../src/data/qian-encourage.json');
@@ -195,7 +196,7 @@ export async function buildContext() {
     TODAY,
     data: {
       temples, deities, poems, divinationSystems, festivals, practices, events,
-      localCelebrations, goodDays, imagePriority, votes, encourage, personas, topical,
+      localCelebrations, artifacts, goodDays, imagePriority, votes, encourage, personas, topical,
       scenariosData, concernsData,
     },
     derived: {

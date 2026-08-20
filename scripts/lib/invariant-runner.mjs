@@ -119,6 +119,13 @@ function sourceSpecs(ctx) {
       fileOf: (f) => `${DIST}/festivals/${f.slug}/index.html`,
       onMissing: (f, acc) => { acc.violate(`節日頁未建置：${f.slug}`); },
     },
+    // 民俗文物分類頁（2026-08-20 加）。
+    artifacts: {
+      owner: 'artifact/source-link',
+      entities: () => ctx.data.artifacts.categories,
+      fileOf: (c) => `${DIST}/artifacts/${c.id}/index.html`,
+      onMissing: (c, acc) => { acc.violate(`民俗文物頁未建置：${c.id}`); },
+    },
     // 習俗頁（2026-08-20 加）：辭典引文的逐字與掛源驗收需要走訪這一批產物。
     practices: {
       owner: 'practice/th-dict',

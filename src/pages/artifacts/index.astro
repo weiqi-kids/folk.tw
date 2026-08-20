@@ -1,0 +1,39 @@
+---
+// 民俗文物樞紐（2026-08-20 開）。各分類頁的入口與條數。
+// 資料與授權條件見 src/data/artifacts.json 的 _readme 與 /artifacts/<id>/ 檔頭。
+import Base from '../../layouts/Base.astro';
+import data from '../../data/artifacts.json';
+
+const total = data.categories.reduce((s, c) => s + c.items.length, 0);
+---
+
+<Base
+  title="臺灣民俗文物"
+  description={`臺灣民俗文物辭條總覽：服飾、飲食器具、家具、農漁具、信仰器物、建築構件、樂器、戲曲與童玩等 ${data.categories.length} 類共 ${total} 條，逐條掛回國史館臺灣文獻館的原辭條。`}
+  answer="lead"
+>
+  <h1>臺灣民俗文物</h1>
+  <p class="lead">
+    共 {data.categories.length} 類、{total} 條文物辭條。定義逐字節錄自國史館臺灣文獻館
+    《臺灣民俗文物辭典》，每一條都附原辭條網址。這一區是辭書內容的呈現，與全站共用的
+    <a href="/vocabulary/">受控詞彙</a>用途不同——後者是活動類型、陣頭、金紙、供品那些會被其他頁引用的定義。
+  </p>
+
+  <ul class="cats">
+    {
+      data.categories.map((c) => (
+        <li>
+          <a href={`/artifacts/${c.id}/`}>{c.title}</a>
+          <span class="muted small">　{c.items.length} 條</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <style>
+    .cats { list-style: none; padding: 0; display: grid; gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+    .cats li { padding: 0.5rem 0; border-bottom: 1px dashed var(--line); }
+    .small { font-size: var(--text-sm); }
+  </style>
+</Base>

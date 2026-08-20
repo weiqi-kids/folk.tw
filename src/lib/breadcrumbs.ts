@@ -56,6 +56,7 @@ export const HUB = {
   practices: { name: '拜拜習俗', path: '/practices/' },
   events: { name: '民俗活動', path: '/events/' },
   guides: { name: '主題文章', path: '/guides/' },
+  artifacts: { name: '民俗文物', path: '/artifacts/' },
   almanac: { name: '農民曆', path: '/almanac/' },
   yiji: { name: '宜忌事項', path: '/almanac/yiji/' },
   zodiac: { name: '生肖', path: '/zodiac/' },

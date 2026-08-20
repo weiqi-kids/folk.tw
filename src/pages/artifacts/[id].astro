@@ -1,0 +1,67 @@
+---
+// 民俗文物分類頁（2026-08-20 開）。
+//
+// 資料是國史館臺灣文獻館《臺灣民俗文物辭典》的文物辭條，逐條**逐字節錄**首句並掛回
+// 該辭條的公開網址。🔴 那個連結是授權條件的一部分，不是排版裝飾——拿掉就是違反授權。
+// 驗收在不變量 artifact/source-link（逐頁驗每一條的連結都渲染在同一頁）。
+//
+// 🔴 為什麼另立頁型、不塞進 /vocabulary/：受控詞彙是**全站共用的定義表**（活動類型、
+//    陣頭、金紙、供品那些會被其他頁引用的詞），而文物辭條是**辭書內容的呈現**，
+//    兩者用途不同；而且 /vocabulary/ 已近六百詞，再加兩千條會變成單頁十萬字。
+import Base from '../../layouts/Base.astro';
+import { HUB } from '../../lib/breadcrumbs';
+import data from '../../data/artifacts.json';
+
+export function getStaticPaths() {
+  return data.categories.map((c) => ({ params: { id: c.id }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: (typeof data.categories)[number] };
+const others = data.categories.filter((c) => c.id !== cat.id);
+---
+
+<Base
+  title={`${cat.title}｜臺灣民俗文物`}
+  description={`臺灣民俗文物中的${cat.title}共 ${cat.items.length} 條，逐條節錄國史館臺灣文獻館《臺灣民俗文物辭典》的辭條定義並掛回原辭條網址。`}
+  answer="lead"
+  crumbs={[HUB.artifacts]}
+>
+  <h1>{cat.title}</h1>
+  <p class="lead">
+    這一類收錄 {cat.items.length} 條文物辭條。每一條的定義都逐字節錄自國史館臺灣文獻館
+    《臺灣民俗文物辭典》，並附上該辭條的原始網址；本站不改寫官方辭書的敘述。
+  </p>
+
+  <dl class="terms">
+    {
+      cat.items.map((t) => (
+        <div class="term">
+          <dt>{t.term}</dt>
+          <dd>
+            {t.def}
+            <a class="src" href={t.source.ref.replace(/^.*\s(https?:)/, '$1')} rel="nofollow noopener" target="_blank">
+              來源
+            </a>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <nav class="more">
+    <h2>其他分類</h2>
+    <ul>
+      {others.map((c) => <li><a href={`/artifacts/${c.id}/`}>{c.title}</a><span class="muted small">　{c.items.length}</span></li>)}
+    </ul>
+  </nav>
+
+  <style>
+    .terms { margin: 1.5rem 0; }
+    .term { padding: 0.625rem 0; border-bottom: 1px dashed var(--line); }
+    .term dt { font-weight: 700; color: var(--accent); }
+    .term dd { margin: 0.25rem 0 0; line-height: 1.9; }
+    .src { margin-left: 0.5rem; font-size: var(--text-sm); white-space: nowrap; }
+    .more ul { list-style: none; padding: 0; display: grid; gap: 0.375rem;
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); }
+    .small { font-size: var(--text-sm); }
+  </style>
+</Base>
