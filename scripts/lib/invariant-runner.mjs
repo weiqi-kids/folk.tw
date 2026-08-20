@@ -126,6 +126,15 @@ function sourceSpecs(ctx) {
       fileOf: (c) => `${DIST}/artifacts/${c.id}/index.html`,
       onMissing: (c, acc) => { acc.violate(`民俗文物頁未建置：${c.id}`); },
     },
+    // 民俗文物辭條的獨立頁（2026-08-20 加，試點）。台帳＝src/data/artifact-pages.json。
+    // 🔴 走「台帳」而不是「dist 有什麼」：台帳有、dist 沒有＝頁掉了，要紅燈；
+    //    反過來用 dist 當母體的話，頁掉了會安靜通過。
+    artifactPages: {
+      owner: 'artifact/entry-page',
+      entities: () => ctx.data.artifactPages.entries,
+      fileOf: (e) => `${DIST}/artifacts/${e.category}/${e.slug}/index.html`,
+      onMissing: (e, acc) => { acc.violate(`文物辭條頁未建置：${e.category}/${e.slug}`); },
+    },
     // 習俗頁（2026-08-20 加）：辭典引文的逐字與掛源驗收需要走訪這一批產物。
     practices: {
       owner: 'practice/th-dict',

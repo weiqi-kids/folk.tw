@@ -1,0 +1,223 @@
+{
+  "_readme": [
+    "文物辭條的獨立頁台帳（2026-08-20 開，先做試點）。",
+    "為什麼是台帳而不是全開：辭典共有近兩千條辭條，但站上已有反例——保生大帝藥籤 330 頁",
+    "全數收錄卻只換到極少曝光，因為沒有人用「大人科第 1 首」這種字搜。所以逐條開頁的前提是",
+    "「條目名本身就是使用者會打進搜尋框的字」，而這件事在頁還沒開之前量測不到（GSC 只看得到",
+    "已經有頁的題目）。故先開一批最可能被搜、且辭條定義夠長的，兩週後看 GSC 再決定要不要擴。",
+    "🔴 選件標準（缺一不可）：① 是具體的物件或作法，不是人名、也不是抽象概念",
+    "（「財寶文物」「民俗經驗」「臺灣的民俗研究」這類一律不收）；② 辭條定義 ≥ 80 全形字，",
+    "低於此的頁太薄，正踩「薄頁互相重複」那個坑；③ 該詞在廟裡或老屋看得到、看了會想查。",
+    "🔴 slug 一旦上線就是永久承諾（CLAUDE.md 紅線 4），不可改、不可 404。",
+    "要移除某一條的頁，必須先確認它從未被收錄，否則只能留著。",
+    "slug 規則：辭條原文，括號改為連字號（魚灶(澎湖) → 魚灶-澎湖）。"
+  ],
+  "created": "2026-08-20",
+  "entries": [
+    {
+      "category": "ritual-objects",
+      "term": "黑令旗",
+      "slug": "黑令旗"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "五老冠",
+      "slug": "五老冠"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "劍獅獸牌",
+      "slug": "劍獅獸牌"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "卍字不斷",
+      "slug": "卍字不斷"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "天地掃",
+      "slug": "天地掃"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "法冠(額眉)",
+      "slug": "法冠-額眉"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "硃筆",
+      "slug": "硃筆"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "天皇尺",
+      "slug": "天皇尺"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "丁蘭尺",
+      "slug": "丁蘭尺"
+    },
+    {
+      "category": "ritual-objects",
+      "term": "文檢",
+      "slug": "文檢"
+    },
+    {
+      "category": "architecture",
+      "term": "人物柱",
+      "slug": "人物柱"
+    },
+    {
+      "category": "architecture",
+      "term": "國姓糯米橋",
+      "slug": "國姓糯米橋"
+    },
+    {
+      "category": "architecture",
+      "term": "馬祖閩東式民居",
+      "slug": "馬祖閩東式民居"
+    },
+    {
+      "category": "misc",
+      "term": "三界亭",
+      "slug": "三界亭"
+    },
+    {
+      "category": "misc",
+      "term": "財子壽",
+      "slug": "財子壽"
+    },
+    {
+      "category": "misc",
+      "term": "招財進寶",
+      "slug": "招財進寶"
+    },
+    {
+      "category": "misc",
+      "term": "歡喜佛",
+      "slug": "歡喜佛"
+    },
+    {
+      "category": "misc",
+      "term": "暗訪物品",
+      "slug": "暗訪物品"
+    },
+    {
+      "category": "misc",
+      "term": "天地禡",
+      "slug": "天地禡"
+    },
+    {
+      "category": "currency",
+      "term": "舊台灣銀行券",
+      "slug": "舊台灣銀行券"
+    },
+    {
+      "category": "currency",
+      "term": "舊台幣",
+      "slug": "舊台幣"
+    },
+    {
+      "category": "foodways",
+      "term": "四神湯",
+      "slug": "四神湯"
+    },
+    {
+      "category": "foodways",
+      "term": "壓腹雞",
+      "slug": "壓腹雞"
+    },
+    {
+      "category": "kitchenware",
+      "term": "三件桌",
+      "slug": "三件桌"
+    },
+    {
+      "category": "kitchenware",
+      "term": "太師椅",
+      "slug": "太師椅"
+    },
+    {
+      "category": "kitchenware",
+      "term": "芋冰杓",
+      "slug": "芋冰杓"
+    },
+    {
+      "category": "furniture",
+      "term": "博古架",
+      "slug": "博古架"
+    },
+    {
+      "category": "lifecycle",
+      "term": "玻璃吸奶器",
+      "slug": "玻璃吸奶器"
+    },
+    {
+      "category": "lifecycle",
+      "term": "蓮花金",
+      "slug": "蓮花金"
+    },
+    {
+      "category": "tools",
+      "term": "魚灶(澎湖)",
+      "slug": "魚灶-澎湖"
+    },
+    {
+      "category": "tools",
+      "term": "私名章",
+      "slug": "私名章"
+    },
+    {
+      "category": "tools",
+      "term": "壓紙台",
+      "slug": "壓紙台"
+    },
+    {
+      "category": "tools",
+      "term": "金銀箔",
+      "slug": "金銀箔"
+    },
+    {
+      "category": "tools",
+      "term": "印版",
+      "slug": "印版"
+    },
+    {
+      "category": "fire",
+      "term": "鐵貓(補獸鋏)",
+      "slug": "鐵貓-補獸鋏"
+    },
+    {
+      "category": "fire",
+      "term": "臉盆架",
+      "slug": "臉盆架"
+    },
+    {
+      "category": "fishing",
+      "term": "腳踢木架轆轤",
+      "slug": "腳踢木架轆轤"
+    },
+    {
+      "category": "fishing",
+      "term": "編草鞋器",
+      "slug": "編草鞋器"
+    },
+    {
+      "category": "attire",
+      "term": "大甲帽",
+      "slug": "大甲帽"
+    },
+    {
+      "category": "attire",
+      "term": "繞線花",
+      "slug": "繞線花"
+    },
+    {
+      "category": "instruments",
+      "term": "拱樂社劇本",
+      "slug": "拱樂社劇本"
+    }
+  ]
+}

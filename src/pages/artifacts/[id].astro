@@ -12,12 +12,15 @@ import Base from '../../layouts/Base.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import { HUB } from '../../lib/breadcrumbs';
 import data from '../../data/artifacts.json';
+import ledger from '../../data/artifact-pages.json';
 
 export function getStaticPaths() {
   return data.categories.map((c) => ({ params: { id: c.id }, props: { cat: c } }));
 }
 const { cat } = Astro.props as { cat: (typeof data.categories)[number] };
 const others = data.categories.filter((c) => c.id !== cat.id);
+// 本類中已有獨立頁的辭條（台帳＝src/data/artifact-pages.json，是試點清單不是全量）。
+const pageLinks = ledger.entries.filter((e) => e.category === cat.id);
 ---
 
 <Base
@@ -60,7 +63,9 @@ const others = data.categories.filter((c) => c.id !== cat.id);
     {
       cat.items.map((t) => (
         <div class="term">
-          <dt>{t.term}</dt>
+          {/* 錨點：文物詳情頁的交叉連結會指到這裡（尚未單獨成頁的辭條只能連錨點）。
+              🔴 id 用辭條原文，別改成流水號——連結是別頁寫死的，改了就是製造 404 錨點。 */}
+          <dt id={t.term}>{t.term}</dt>
           <dd>
             {t.def}
             <a class="src" href={t.source.ref.replace(/^.*\s(https?:)/, '$1')} rel="nofollow noopener" target="_blank">
@@ -71,6 +76,15 @@ const others = data.categories.filter((c) => c.id !== cat.id);
       ))
     }
   </dl>
+
+  {pageLinks.length > 0 && (
+    <nav class="more">
+      <h2>這一類已單獨成頁的文物</h2>
+      <ul>
+        {pageLinks.map((e) => <li><a href={`/artifacts/${cat.id}/${e.slug}/`}>{e.term}</a></li>)}
+      </ul>
+    </nav>
+  )}
 
   <nav class="more">
     <h2>其他分類</h2>

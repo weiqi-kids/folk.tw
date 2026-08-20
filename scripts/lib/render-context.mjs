@@ -84,6 +84,8 @@ export async function buildContext() {
   const events = normalize(require('../../src/data/events.json'));
   const localCelebrations = require('../../src/data/local-celebrations.json');
   const artifacts = require('../../src/data/artifacts.json');
+  // 不變量 artifact/entry-page 用：文物辭條獨立頁的台帳（試點清單，非全量）。
+  const artifactPages = require('../../src/data/artifact-pages.json');
   const goodDays = require('../../src/data/good-days.json');
   const votes = require('../../src/lib/almanac/rules/votes.json');
   const encourage = require('../../src/data/qian-encourage.json');
@@ -196,7 +198,7 @@ export async function buildContext() {
     TODAY,
     data: {
       temples, deities, poems, divinationSystems, festivals, practices, events,
-      localCelebrations, artifacts, goodDays, imagePriority, votes, encourage, personas, topical,
+      localCelebrations, artifacts, artifactPages, goodDays, imagePriority, votes, encourage, personas, topical,
       scenariosData, concernsData,
     },
     derived: {

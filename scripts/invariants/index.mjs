@@ -83,6 +83,7 @@ export const REGISTRY = [
   festival.festivalCrossLinks,      // （原本無編號）
   festival.festivalLocalCelebration,// 7③
   artifact.artifactSourceLink,       // 民俗文物頁逐條掛源（同一條授權條件）
+  artifact.artifactEntryPage,        // 文物辭條獨立頁（試點）逐字渲染＋掛源
   practice.practiceThDict,           // 習俗頁的辭典引文（同 deity/th-dict 的授權條件）
   festival.festivalVerbatimSourceLink, // 逐字引用的來源連結必須在頁面上（授權條件）
   hubs.homeSeasonalCampaign,        // 5g（首頁戰役卡）

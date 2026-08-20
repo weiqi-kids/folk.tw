@@ -1,0 +1,122 @@
+---
+// 文物辭條的獨立頁（2026-08-20 開，**試點**）。
+//
+// 🔴 這不是「一條辭條一頁」的全開，是 41 條的試點。理由寫在 src/data/artifact-pages.json
+//    的 _readme：站上已有反例——藥籤 330 頁全數收錄卻只換到極少曝光，因為沒有人用
+//    「大人科第 1 首」這種字搜。逐條開頁只在「條目名本身就是使用者會打的字」時才有效，
+//    而這件事在頁還沒開之前量測不到（GSC 只看得到已經有頁的題目）。所以先開一批、量兩週。
+//    ⚠️ 要擴到全量之前，先跑 GSC 看這 41 頁有沒有拿到曝光；沒有就不要擴。
+//
+// 🔴 授權條件：定義是《臺灣民俗文物辭典》的**逐字節錄**，每一條都必須把該辭條自己的
+//    原始網址渲染在同一頁。那個連結是授權的一部分，不是排版裝飾——拿掉就是違反授權。
+//    （同 /artifacts/[id].astro 的規矩，不變量 artifact/source-link 逐頁驗。）
+//
+// 🔴 slug 是永久承諾（CLAUDE.md 紅線 4）。台帳在 src/data/artifact-pages.json，
+//    只准增不准改；要移除某一條，先確認它從未被 Google 收錄。
+import Base from '../../../layouts/Base.astro';
+import { HUB } from '../../../lib/breadcrumbs';
+import data from '../../../data/artifacts.json';
+import ledger from '../../../data/artifact-pages.json';
+
+type Item = (typeof data.categories)[number]['items'][number];
+
+// 來源欄位裡網址與說明是連在一起的（「…〈瓜皮帽〉 https://…」），取網址那一段。
+const sourceUrl = (it: Item) => it.source.ref.replace(/^.*\s(https?:)/, '$1');
+
+export function getStaticPaths() {
+  const bySlug = new Map(ledger.entries.map((e) => [`${e.category}/${e.slug}`, e]));
+  return ledger.entries.map((e) => {
+    const cat = data.categories.find((c) => c.id === e.category)!;
+    const item = cat.items.find((i) => i.term === e.term)!;
+    // 交叉連結：這條定義裡提到的其他辭條。⚠️ 只在**同一份辭典裡真的有那一條**時才連，
+    // 不是關鍵字比對出來的聯想；連到有獨立頁的就連詳情頁，其餘連分類頁的錨點。
+    const mentioned = data.categories
+      .flatMap((c) => c.items.map((i) => ({ cat: c, item: i })))
+      .filter(({ item: other }) =>
+        other.term !== item.term &&
+        [...other.term].length >= 2 &&
+        (item.def ?? '').includes(other.term))
+      .slice(0, 8)
+      .map(({ cat: c, item: other }) => {
+        const own = bySlug.get(`${c.id}/${other.term.replace(/[（(]/g, '-').replace(/[）)]/g, '')}`);
+        return {
+          term: other.term,
+          href: own ? `/artifacts/${c.id}/${own.slug}/` : `/artifacts/${c.id}/#${encodeURIComponent(other.term)}`,
+          catTitle: c.title,
+        };
+      });
+    // 同類的其他辭條裡，也有獨立頁的那些（供讀者橫向走）。
+    const siblings = ledger.entries
+      .filter((x) => x.category === e.category && x.term !== e.term)
+      .slice(0, 12);
+    return { params: { category: e.category, slug: e.slug }, props: { cat, item, mentioned, siblings } };
+  });
+}
+
+const { cat, item, mentioned, siblings } = Astro.props as {
+  cat: (typeof data.categories)[number];
+  item: Item;
+  mentioned: { term: string; href: string; catTitle: string }[];
+  siblings: { term: string; slug: string }[];
+};
+
+// 摘要取定義首句，句末標點保留；沒有句末標點就整段截到 78 全形字以內（SERP 截斷點）。
+// 🔴 不中途硬切：找不到標點邊界就不補「…」，直接用整段（定義本身已 ≥80 字、≤330 字）。
+const firstSentence = (() => {
+  const s = (item.def ?? '').replace(/\s+/g, '');
+  const m = s.match(/^[^。！？]{1,78}[。！？]/);
+  return m ? m[0] : s.slice(0, 78);
+})();
+---
+
+<Base
+  title={`${item.term}｜${cat.title}・臺灣民俗文物`}
+  description={firstSentence}
+  answer="lead"
+  crumbs={[HUB.artifacts, { name: cat.title, path: `/artifacts/${cat.id}/` }, { name: item.term, path: `/artifacts/${cat.id}/${Astro.params.slug}/` }]}
+>
+  <h1>{item.term}</h1>
+  <p class="muted small">臺灣民俗文物・{cat.title}</p>
+
+  <div class="def">
+    <p>{item.def}</p>
+    <p class="muted small">
+      本條定義逐字節錄自國史館臺灣文獻館《臺灣民俗文物辭典》，本站不改寫官方辭書的敘述。
+      {'　'}
+      <a href={sourceUrl(item)} rel="nofollow noopener" target="_blank">辭條原文</a>
+    </p>
+  </div>
+
+  {mentioned.length > 0 && (
+    <section class="rel">
+      <h2>這一條提到的其他文物</h2>
+      <ul>
+        {mentioned.map((m) => (
+          <li><a href={m.href}>{m.term}</a><span class="muted small">　{m.catTitle}</span></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="rel">
+    <h2>同類的其他文物</h2>
+    <ul>
+      {siblings.map((s) => (
+        <li><a href={`/artifacts/${cat.id}/${s.slug}/`}>{s.term}</a></li>
+      ))}
+    </ul>
+    <p class="muted small">
+      {cat.title}這一類的完整辭條（含尚未單獨成頁者）在
+      <a href={`/artifacts/${cat.id}/`}>{cat.title}</a>。
+    </p>
+  </section>
+
+  <style>
+    .def { margin: 1.25rem 0 1.75rem; }
+    .def p { line-height: 1.95; }
+    .rel { margin: 1.5rem 0; }
+    .rel ul { list-style: none; padding: 0; display: grid; gap: 0.375rem;
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+    .small { font-size: var(--text-sm); }
+  </style>
+</Base>
