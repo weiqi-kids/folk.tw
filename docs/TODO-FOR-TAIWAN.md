@@ -177,11 +177,25 @@ done
 2026-08-08 台灣端主動提醒「那節現在會讓人以為還有待辦」——**他是對的**，
 這正是 inbox 那份 `TODO-FOR-REMOTE.md` 的同一個病：**做完的東西留在待辦區會誤導下一個人**。
 
-### 目前：台灣端沒有待辦
+### 進行中：宗教知識+ 其餘分類的列表頁（manifest v18，2026-08-20）
 
-2026-08-08 積壓全清（`religion-yange` 4,351/4,351、`religion-jianzhu` 3,123/3,123、
-`religion-photos` 19/19，皆 0 失敗且逐檔 sha256 驗過），已回到 cron 04:17。
-所有 job 都在 `max_age_days` 內，**預期每輪不會產生請求**（停擺的 crgis 每輪重試一次除外）——那是對的不是壞了。
+**這一項純機械、不需要判斷**，所以沒有另外開 prompt——照 cron 04:17 抓 manifest 就會跑到。
+job id 是 `knowledge-list-cid<N>`（N＝分類編號，缺 3 是因為 cid=3 早就收了），**每個只有 1 次請求**。
+數量與進度跑 `node scripts/intake-status.mjs` 看，別引用這裡。
+
+為什麼突然要收：2026-08-20 的 GSC 分析發現「儀式怎麼做／禁忌」型查詢是站上**需求訊號最強、
+排名卻最差**的一塊，而宗教知識+ 的分類我們 2026-08-05 只收了「宗教神祇」一個
+（分類對照見 `scripts/gen-intake-urls-knowledge.mjs` 的 `CATEGORIES`）。
+授權在 2026-08-06 內政部同意時就已涵蓋整站，條件＝標示資料來源連結。
+
+👉 **列表頁收到之後，這邊要做的下一步**（不是台灣端的事）：
+`node scripts/gen-intake-urls-knowledge.mjs --cid <N>` 逐分類看條目數，
+**先看數量與題材再決定要不要逐條開頁**，然後才產清單、才加 url_list job。
+🔴 **清單檔還沒 push 就不要加那個 url_list job**——台灣端抓不到清單會 404、整個 job 停擺
+（`religion-yange` 踩過）。
+
+前一批積壓 2026-08-08 全清（`religion-yange`、`religion-jianzhu`、`religion-photos` 皆 0 失敗且逐檔
+sha256 驗過），已回到 cron 04:17。
 
 要新增待辦時：寫在這一節，**同時**在給用戶的回覆裡附上完整 prompt。
 

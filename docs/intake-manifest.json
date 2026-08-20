@@ -29,10 +29,16 @@
     "2026-08-07：v14 新增 religion-photos（url_list，22 項，二進位）。清單 docs/intake-urls-photos.json 與本次 manifest 同一個 commit 上 raw，不會出現「job 有、清單 404」的情形。",
     "2026-08-07：v15 修正 religion-photos 的 dest_dir（religion-photos/ → photos/）。理由見該 job 的 _why 第一條。除此之外與 v14 相同。",
     "2026-08-07：v16 **只改清單與註解，不改欄位契約**——religion-photos 的清單移除 /ReligionSys/FileStore/ 一族（來源本身 404，且那網址是 GetUploadFile 的 JSON 自報的，沒有別的網址可產）。jobs 的數量、順序、url、politeness 全部與 v15 相同。",
-    "2026-08-08：v17 啟用台灣端實作的 **magic_any_of**（只加在 religion-photos）。這是全新欄位，台灣端已先實作＋自測＋投遞規格（inbox 的 MAGIC-SPEC.md）才由我方發版，順序不可顛倒。理由見該 job 的 _why。"
+    "2026-08-08：v17 啟用台灣端實作的 **magic_any_of**（只加在 religion-photos）。這是全新欄位，台灣端已先實作＋自測＋投遞規格（inbox 的 MAGIC-SPEC.md）才由我方發版，順序不可顛倒。理由見該 job 的 _why。",
+    "🔴 v18（2026-08-20）：加 14 個 knowledge-list-cid<N> job＝宗教知識+ 其餘 14 個分類的**列表頁**。",
+    "   為什麼：宗教知識+ 共 15 個分類（1 臺灣宗教…15 宗教學術），我們 2026-08-05 只收了 cid=3 宗教神祇（96 條）。",
+    "   2026-08-20 的 GSC 分析顯示「儀式怎麼做／禁忌」型查詢是站上排名最差、需求訊號卻最強的一塊",
+    "   （/practices/ 僅 19 頁、均排名 pos 24.3，入厝儀式在 pos 77 仍拿到 26 次曝光），而該分類的授權",
+    "   在 2026-08-06 內政部同意時就已涵蓋（條件＝標示資料來源連結，逐筆掛回條目頁自己的網址）。",
+    "   ⚠️ 這 14 個 job **每個只有 1 次請求**（只抓列表頁），對節流沒有影響；條目全文要另外產 url_list 清單。"
   ],
-  "version": 17,
-  "updated": "2026-08-08",
+  "version": 18,
+  "updated": "2026-08-20",
   "politeness": {
     "min_interval_ms": 1000,
     "user_agent": "folk.tw-intake/1.0 (+https://folk.tw; contact via site)",
@@ -179,6 +185,174 @@
       }
     },
     {
+      "id": "knowledge-list-cid1",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=1",
+      "dest": "misc/knowledge-list-cid1.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「臺灣宗教」分類列表（cid=1）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid2",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=2",
+      "dest": "misc/knowledge-list-cid2.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「世界宗教」分類列表（cid=2）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid4",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=4",
+      "dest": "misc/knowledge-list-cid4.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教人物」分類列表（cid=4）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid5",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=5",
+      "dest": "misc/knowledge-list-cid5.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教符號」分類列表（cid=5）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid6",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=6",
+      "dest": "misc/knowledge-list-cid6.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教經典」分類列表（cid=6）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid7",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=7",
+      "dest": "misc/knowledge-list-cid7.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教器物」分類列表（cid=7）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid8",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=8",
+      "dest": "misc/knowledge-list-cid8.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教禁忌」分類列表（cid=8）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid9",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=9",
+      "dest": "misc/knowledge-list-cid9.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教稱謂」分類列表（cid=9）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid10",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=10",
+      "dest": "misc/knowledge-list-cid10.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教儀式」分類列表（cid=10）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid11",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=11",
+      "dest": "misc/knowledge-list-cid11.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教活動」分類列表（cid=11）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid12",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=12",
+      "dest": "misc/knowledge-list-cid12.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教節日」分類列表（cid=12）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid13",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=13",
+      "dest": "misc/knowledge-list-cid13.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教建築」分類列表（cid=13）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid14",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=14",
+      "dest": "misc/knowledge-list-cid14.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教藝術」分類列表（cid=14）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
+      "id": "knowledge-list-cid15",
+      "url": "https://religion.moi.gov.tw/Knowledge/List?ci=2&cid=15",
+      "dest": "misc/knowledge-list-cid15.html",
+      "max_age_days": 90,
+      "note": "宗教知識+「宗教學術」分類列表（cid=15）。與已收的 cid=3 神祇同型，只抓列表頁，條目全文另由 url_list job 收。",
+      "expect": {
+        "http_status": 200,
+        "min_bytes": 20000,
+        "contains": "Knowledge/Content?ci=2&cid="
+      }
+    },
+    {
       "id": "local-celebration",
       "url": "https://religion.moi.gov.tw/LocalCelebration/Index?ci=96",
       "dest": "misc/local-celebration-ci96.html",
@@ -266,7 +440,10 @@
       "expect_per_item": {
         "http_status": 200,
         "min_bytes": 4096,
-        "magic_any_of": ["FFD8FF", "89504E470D0A1A0A"]
+        "magic_any_of": [
+          "FFD8FF",
+          "89504E470D0A1A0A"
+        ]
       },
       "_why": [
         "🔴 dest_dir 必須是 `photos/` 不是 `religion-photos/`：匯入器 scripts/import-photos.mjs 讀的是 inbox/photos/（它比本 job 早存在，契約以它為準）。2026-08-07 初版寫成 religion-photos/，照片會落到匯入器永遠看不到的地方——加 job 的當天就抓到，未進到台灣端。",
@@ -279,22 +456,22 @@
         "⚠️ 只收站上還沒有圖的對象（候選檔產生時就已過濾）：已有 Commons 授權圖者不覆蓋，",
         "   那些授權更明確且已在 /about 標示。",
         "排序：小批次，故排在 96 項的 knowledge-deity-entries 之前（見 _readme 的 job 順序規則）。項數看清單檔，別在這裡寫死。",
-   "🔴 v16（2026-08-07）：清單移除 /ReligionSys/FileStore/ 一族＝GetUploadFile 的**廟宇照片**。",
-   "   來源本身 404（646 B 的 IIS 錯誤頁，台灣端 22:05／22:12 兩次複驗，非暫時性），",
-   "   而那個網址是 GetUploadFile 回傳的 JSON 自己的 `URL` 欄位給的絕對路徑——**沒有別的網址可以產**，",
-   "   所以是在 gen-intake-urls-photos.mjs 濾掉整族，不是改抓法。台灣端請**停止重試那 3 項**。",
-   "   沿革／參拜流程／建築特色全量到齊後這族候選會長到數百筆，濾在產生器才擋得住整批。",
-   "   本 job 因此變成純神明照；要廟宇照片得另找來源。",
-   "🔴 v17（2026-08-08）：加上 magic_any_of＝比對檔案開頭實際 bytes（JPEG FFD8FF／PNG 89504E470D0A1A0A），命中任一即過。",
-   "   堵的縫：min_bytes 4096 擋得住 646 B 的 404 錯誤頁，卻擋不住「302 導回 200 的 HTML 頁」——台灣端實測，",
-   "   religion.moi.gov.tw 的知識+ 頁（71 KB）與神明列表（115 KB）在只有 min_bytes 時**會被當成合格圖片存下來**。",
-   "   為什麼驗 bytes 不驗 content_type：header 是來源說了算。台灣端讓每一份測試樣本都謊報 content-type: image/jpeg，magic 照樣擋下。",
-   "   🔴 必須擋在**台灣端的 writeFile 之前**：我方 inbox 是 write-only（rrsync -wo -no-del），存進去的檔刪不掉。",
-   "   台灣端已確認驗不過時連 .sha256／.meta.json 側檔都不產生（專門測試斷言三個檔名一個都不存在）。",
-   "   ⚠️ 值列了 JPEG **與 PNG** 兩種：目前 19 張都是 JPEG，但內政部圖庫確實有 .PNG（那 3 個 404 的廟宇附件就是），",
-   "   只列 JPEG 會在日後某張 PNG 神明照上線時把它擋掉＝自己造一個假的「來源壞了」。",
-   "   ⚠️ **只加在本 job**：其餘 18 個 job 都是文字內容且已有 contains 逐份驗字串，magic 對它們沒有意義。",
-   "   欄位規格全文：台灣端投遞的 MAGIC-SPEC.md（inbox 根目錄）。"
+        "🔴 v16（2026-08-07）：清單移除 /ReligionSys/FileStore/ 一族＝GetUploadFile 的**廟宇照片**。",
+        "   來源本身 404（646 B 的 IIS 錯誤頁，台灣端 22:05／22:12 兩次複驗，非暫時性），",
+        "   而那個網址是 GetUploadFile 回傳的 JSON 自己的 `URL` 欄位給的絕對路徑——**沒有別的網址可以產**，",
+        "   所以是在 gen-intake-urls-photos.mjs 濾掉整族，不是改抓法。台灣端請**停止重試那 3 項**。",
+        "   沿革／參拜流程／建築特色全量到齊後這族候選會長到數百筆，濾在產生器才擋得住整批。",
+        "   本 job 因此變成純神明照；要廟宇照片得另找來源。",
+        "🔴 v17（2026-08-08）：加上 magic_any_of＝比對檔案開頭實際 bytes（JPEG FFD8FF／PNG 89504E470D0A1A0A），命中任一即過。",
+        "   堵的縫：min_bytes 4096 擋得住 646 B 的 404 錯誤頁，卻擋不住「302 導回 200 的 HTML 頁」——台灣端實測，",
+        "   religion.moi.gov.tw 的知識+ 頁（71 KB）與神明列表（115 KB）在只有 min_bytes 時**會被當成合格圖片存下來**。",
+        "   為什麼驗 bytes 不驗 content_type：header 是來源說了算。台灣端讓每一份測試樣本都謊報 content-type: image/jpeg，magic 照樣擋下。",
+        "   🔴 必須擋在**台灣端的 writeFile 之前**：我方 inbox 是 write-only（rrsync -wo -no-del），存進去的檔刪不掉。",
+        "   台灣端已確認驗不過時連 .sha256／.meta.json 側檔都不產生（專門測試斷言三個檔名一個都不存在）。",
+        "   ⚠️ 值列了 JPEG **與 PNG** 兩種：目前 19 張都是 JPEG，但內政部圖庫確實有 .PNG（那 3 個 404 的廟宇附件就是），",
+        "   只列 JPEG 會在日後某張 PNG 神明照上線時把它擋掉＝自己造一個假的「來源壞了」。",
+        "   ⚠️ **只加在本 job**：其餘 18 個 job 都是文字內容且已有 contains 逐份驗字串，magic 對它們沒有意義。",
+        "   欄位規格全文：台灣端投遞的 MAGIC-SPEC.md（inbox 根目錄）。"
       ]
     },
     {

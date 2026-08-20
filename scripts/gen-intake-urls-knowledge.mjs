@@ -17,19 +17,53 @@
 //    自己讀（每頁 <title> 就有），否則清單檔與實際內容會各自漂移——
 //    那正是 CLAUDE.md 反覆講的「同一事實兩個真實來源」。
 //
+// 2026-08-20 泛化成「任一分類」：宗教知識+ 共 **15 個分類**（cid=1..15，分類名見下方 CATEGORIES），
+// 我們原本只收 cid=3（宗教神祇，96 條）。其餘 14 個分類的列表頁已加進 manifest
+// （job id `knowledge-list-cid<N>`）。這支腳本因此改吃 `--cid <N>`，
+// **不帶參數時行為與 2026-08-20 之前完全相同**（cid=3、輸出 docs/intake-urls-knowledge.json），
+// 免得既有流程與文件裡的指令一夕失效。
+//
+// 🔴 `cid` 在這個站有**兩種語意**，別混：`Knowledge/List?ci=2&cid=<分類>` 的 cid 是分類編號（1..15），
+//    `Knowledge/Content?ci=2&cid=<條目>` 的 cid 是**全站唯一的條目編號**（例：灶神＝265）。
+//    本檔的 `--cid` 指的是**分類**，產出的 url 內嵌的則是條目編號。
+//
 // 用法：
-//   node scripts/gen-intake-urls-knowledge.mjs           # 乾跑（預設）：印統計與樣本
-//   node scripts/gen-intake-urls-knowledge.mjs --write   # 實際寫 docs/intake-urls-knowledge.json
+//   node scripts/gen-intake-urls-knowledge.mjs              # 乾跑（預設）：cid=3，印統計與樣本
+//   node scripts/gen-intake-urls-knowledge.mjs --write      # 實際寫 docs/intake-urls-knowledge.json
+//   node scripts/gen-intake-urls-knowledge.mjs --cid 10     # 宗教儀式分類，乾跑
+//   node scripts/gen-intake-urls-knowledge.mjs --cid 10 --write
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
-const LIST = '/root/.config/folk-tw/intake/inbox/misc/knowledge-deities-list-cid3.html';
-const OUT = 'docs/intake-urls-knowledge.json';
+// 分類編號 → 名稱。來源＝已抓回的 cid=3 列表頁自己的側欄連結（不是我猜的，也不是寫死的外部知識）。
+const CATEGORIES = {
+  1: '臺灣宗教', 2: '世界宗教', 3: '宗教神祇', 4: '宗教人物', 5: '宗教符號',
+  6: '宗教經典', 7: '宗教器物', 8: '宗教禁忌', 9: '宗教稱謂', 10: '宗教儀式',
+  11: '宗教活動', 12: '宗教節日', 13: '宗教建築', 14: '宗教藝術', 15: '宗教學術',
+};
+
 const WRITE = process.argv.includes('--write');
+const cidArg = process.argv[process.argv.indexOf('--cid') + 1];
+const CID = process.argv.includes('--cid') ? String(Number(cidArg)) : '3';
+if (!CATEGORIES[CID]) {
+  console.error(`✗ --cid 只接受 1..15（宗教知識+ 的分類編號），收到：${cidArg}`);
+  console.error(`  分類對照：${Object.entries(CATEGORIES).map(([k, v]) => `${k}=${v}`).join('、')}`);
+  process.exit(1);
+}
+
+// cid=3 的落點與輸出檔名沿用原本的（已寫進 manifest、文件與台灣端流程，改了會斷）；
+// 其餘分類走 2026-08-20 新增的 `knowledge-list-cid<N>` 命名。
+const LIST = CID === '3'
+  ? '/root/.config/folk-tw/intake/inbox/misc/knowledge-deities-list-cid3.html'
+  : `/root/.config/folk-tw/intake/inbox/misc/knowledge-list-cid${CID}.html`;
+const OUT = CID === '3'
+  ? 'docs/intake-urls-knowledge.json'
+  : `docs/intake-urls-knowledge-cid${CID}.json`;
+const JOB = CID === '3' ? 'knowledge-deities-list' : `knowledge-list-cid${CID}`;
 
 if (!existsSync(LIST)) {
   console.error(`✗ 找不到列表頁：${LIST}`);
-  console.error('  它由 manifest 的 knowledge-deities-list job 抓取，跑 node scripts/intake-status.mjs 看現況。');
+  console.error(`  它由 manifest 的 ${JOB} job 抓取，跑 node scripts/intake-status.mjs 看現況。`);
   process.exit(1);
 }
 
@@ -79,7 +113,7 @@ if (bad.length) {
   process.exit(1);
 }
 
-console.log(`\n宗教知識+／宗教神祇條目：${items.length} 筆`);
+console.log(`\n宗教知識+／${CATEGORIES[CID]}（cid=${CID}）條目：${items.length} 筆`);
 console.log(`  樣本：`);
 for (const it of items.slice(0, 4)) console.log(`    ${it.key}  ${it._name}`);
 console.log(`    …`);

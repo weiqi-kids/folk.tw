@@ -111,6 +111,34 @@ const LEDGER = [
     upstream: join(INBOX, 'misc/knowledge-zaoshen-cid265.html'),
   },
   {
+    // 2026-08-20 加。宗教知識+ 共 15 個分類，2026-08-05 只收了 cid=3（宗教神祇）。
+    // 其餘 14 個分類的**列表頁**這輪一次加齊（每個 job 只有 1 次請求，對節流無影響）。
+    // 🔴 這一筆只管「列表頁收到沒」。條目全文要先用 gen-intake-urls-knowledge.mjs --cid <N>
+    //    產出清單、再開對應的 url_list job——**清單檔不存在就不要加那個 job**
+    //    （台灣端抓清單會 404 而整個 job 停擺，religion-yange 那次的教訓）。
+    stage: 'pending', id: 'knowledge-list-cid10',
+    goal: '宗教知識+ 其餘 14 個分類的條目（儀式／禁忌／器物／稱謂…）→ 問題型內容頁',
+    blocker:
+      '✅ 授權已涵蓋（2026-08-06 內政部同意的是整個 religion.moi.gov.tw，條件＝標示資料來源連結）。' +
+      '⛔ 等台灣端抓列表頁（manifest v18 新增）。' +
+      '為什麼要收：2026-08-20 的 GSC 分析顯示「儀式怎麼做／禁忌」型查詢是需求訊號最強、' +
+      '而站上排名最差的一塊——/practices/ 只有 19 頁、均排名 pos 24.3，' +
+      '「入厝儀式」排在 pos 77 仍拿到 26 次曝光。' +
+      '🔴 收回來之後**先看條目數再決定要不要逐條開頁**：站上已有反例——' +
+      '藥籤 330 頁全數收錄卻只換到 170 次曝光，因為沒人用「大人科第 1 首」這種字搜。',
+    metric: () => {
+      const want = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+      const got = want.filter((c) => existsSync(join(INBOX, `misc/knowledge-list-cid${c}.html`)));
+      return `列表頁已收 ${got.length}/${want.length}（缺 cid=${want.filter((c) => !got.includes(c)).join(',') || '無'}）`;
+    },
+    covers: [
+      'knowledge-list-cid1', 'knowledge-list-cid2', 'knowledge-list-cid4', 'knowledge-list-cid5',
+      'knowledge-list-cid6', 'knowledge-list-cid7', 'knowledge-list-cid8', 'knowledge-list-cid9',
+      'knowledge-list-cid11', 'knowledge-list-cid12', 'knowledge-list-cid13', 'knowledge-list-cid14',
+      'knowledge-list-cid15',
+    ],
+  },
+  {
     stage: 'pending', id: 'knowledge-deities-list',
     goal: '用 96 個神祇條目擴充 iconography',
     blocker:
