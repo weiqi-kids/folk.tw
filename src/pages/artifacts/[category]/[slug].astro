@@ -14,6 +14,7 @@
 // 🔴 slug 是永久承諾（CLAUDE.md 紅線 4）。台帳在 src/data/artifact-pages.json，
 //    只准增不准改；要移除某一條，先確認它從未被 Google 收錄。
 import Base from '../../../layouts/Base.astro';
+import LeadVisual from '../../../components/LeadVisual.astro';
 import { HUB } from '../../../lib/breadcrumbs';
 import data from '../../../data/artifacts.json';
 import ledger from '../../../data/artifact-pages.json';
@@ -78,6 +79,31 @@ const firstSentence = (() => {
   <h1>{item.term}</h1>
   <p class="muted small">臺灣民俗文物・{cat.title}</p>
 
+  {/* 🔴 這張圖**不是這件文物的照片**，圖說必須講清楚（同 /artifacts/[id].astro 的規矩）。
+      有合授權的分類示意圖就掛它、逐張標作者與授權；沒有的退回站台識別圖。
+      逐條文物的實照要另外找合授權來源，沒有就不掛——寧可沒圖，不可掛一張沒署名的別人的作品。 */}
+  {
+    cat.image ? (
+      <figure class="cat-photo">
+        <img src={cat.image.src} alt={cat.image.alt} loading="lazy" decoding="async" width="1200" height="800" />
+        <figcaption class="muted small">
+          {cat.title}的分類示意圖，非「{item.term}」本身的照片。
+          {'　'}
+          <a href={cat.image.source} target="_blank" rel="noopener nofollow">{cat.image.alt.replace(/^.*：/, '')}</a>
+          {' — '}{cat.image.author}{'，'}
+          {cat.image.license_url
+            ? <a href={cat.image.license_url} target="_blank" rel="noopener nofollow">{cat.image.license}</a>
+            : cat.image.license}
+        </figcaption>
+      </figure>
+    ) : (
+      <>
+        <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
+        <p class="muted small">本站識別圖，非「{item.term}」的文物照片。</p>
+      </>
+    )
+  }
+
   <div class="def">
     <p>{item.def}</p>
     <p class="muted small">
@@ -112,6 +138,9 @@ const firstSentence = (() => {
   </section>
 
   <style>
+    .cat-photo { margin: 1.25rem 0; }
+    .cat-photo img { display: block; width: min(100%, 40rem); height: auto; border-radius: 0.5rem; }
+    .cat-photo figcaption { margin-top: 0.375rem; }
     .def { margin: 1.25rem 0 1.75rem; }
     .def p { line-height: 1.95; }
     .rel { margin: 1.5rem 0; }
