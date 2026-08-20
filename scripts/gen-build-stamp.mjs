@@ -37,8 +37,20 @@ if (process.argv.includes('--publish')) {
   rmSync(ROOT_STAMP, { force: true });
   console.log(`✓ 建置基準日 ${iso} → ${DIST_STAMP}（已收回 ${ROOT_STAMP}）`);
 } else {
-  // 寫入者只能看時鐘：讀既有戳記會讓「上一次 build 的日期」黏在這一次身上。
-  const { iso } = taipeiDateOf(new Date());
+  // 寫入者**不讀既有戳記**：那會讓「上一次 build 的日期」黏在這一次身上。
+  //
+  // 🔴 但 `BUILD_DATE` 要吃（2026-08-21 修）：那是明示的覆寫，不是殘留。
+  //    原本這裡只看時鐘，於是用 `BUILD_DATE` 重現 build 時會分裂成兩個日期——
+  //    頁面與來源層 gate 讀 env（priority 1）用覆寫的那天，而戳記寫的是牆上時鐘，
+  //    postbuild 再把那個錯的日期搬進 `dist/.build-date`。
+  //    結果是 `distBuildDate()` 回報的「那份 dist 是用哪一天建的」與事實不符，
+  //    吃 dist 的 gate 會拿錯的基準日去比對——**正是這整套機制要消滅的那種假紅燈，
+  //    只是發生在逃生口這條路徑上**。逃生口自己漏水，就不是逃生口。
+  const override = process.env.BUILD_DATE?.trim();
+  if (override && !/^\d{4}-\d{2}-\d{2}$/.test(override)) {
+    throw new Error(`BUILD_DATE 不是 YYYY-MM-DD：${override}`);
+  }
+  const iso = override || taipeiDateOf(new Date()).iso;
   writeFileSync(ROOT_STAMP, `${iso}\n`);
-  console.log(`✓ 建置基準日（台北）：${iso} → ${ROOT_STAMP}`);
+  console.log(`✓ 建置基準日（台北）：${iso} → ${ROOT_STAMP}${override ? '（BUILD_DATE 覆寫）' : ''}`);
 }
