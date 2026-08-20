@@ -169,3 +169,29 @@ build 前跑等於掃一份舊產物空過，乾淨工作目錄則直接拋錯�
 
 **專案脈絡與用戶偏好** → 自動記憶 `/root/.claude/projects/-root-folk-tw/memory/`（`MEMORY.md` 為索引）。
 **主機維運與工作方法** → `/root/CLAUDE.md` 與 `/root/.claude/doctrine/`。
+
+---
+
+## 5. Agent skills（mattpocock skills 的 repo 設定）
+
+> 這三份設定檔是 `mattpocock-skills:*` 那組 skill 的**唯一真實來源**，
+> 動到工單流程／標籤／domain 文件時改那裡，不要改這一節的摘要。
+> 目前啟用了哪幾支 skill 用可用 skills 清單查，別讀死值。
+
+### Issue tracker
+
+GitHub Issues（`gh` CLI，repo＝`weiqi-kids/folk.tw`）；本 repo 無 PR 流程，PR 不當工單來源。
+🔴 **repo 為 public，個資不進 issue**；`weekly-report` 標籤的 issue 是機器自動開的，不是人工工單。
+見 [`docs/agents/issue-tracker.md`](docs/agents/issue-tracker.md)。
+
+### Triage labels
+
+沿用五個預設角色標籤（`needs-triage`／`needs-info`／`ready-for-agent`／`ready-for-human`／`wontfix`）；
+⚠️ 多數尚未在 GitHub 建立，第一次套用時 `gh label create`，**別改套語意不同的既有標籤**。
+見 [`docs/agents/triage-labels.md`](docs/agents/triage-labels.md)。
+
+### Domain docs
+
+Single-context。⚠️ 本站的 domain 脈絡目前在 `docs/decisions/` 與 `src/` 檔頭註解，
+**不在** `CONTEXT.md`／`docs/adr/`（兩者尚未建立，不預先建空殼）。
+見 [`docs/agents/domain.md`](docs/agents/domain.md)。

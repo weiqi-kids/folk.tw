@@ -71,6 +71,19 @@
 
 ---
 
+## agents/ — Agent skill 的 repo 設定
+
+`mattpocock-skills:*` 那組 skill 讀這裡決定「工單開在哪、標籤怎麼叫、domain 文件在哪」。
+摘要在 `CLAUDE.md` §5，**唯一真實來源是這三份檔**。
+
+| 檔 | 用途 | 現況 |
+|---|---|---|
+| [`agents/issue-tracker.md`](agents/issue-tracker.md) | 工單＝GitHub Issues（`gh` CLI）；PR 不當工單來源。🔴 含 repo 特有前提：public repo 個資不進 issue、`weekly-report` 是機器開的 | **活的**。換 tracker 才改 |
+| [`agents/triage-labels.md`](agents/triage-labels.md) | 五個 triage 角色 → 實際標籤字串的對照。⚠️ 多數標籤尚未在 GitHub 建立，標籤現況跑 `gh label list` | **活的**。`triage` skill 目前未啟用 |
+| [`agents/domain.md`](agents/domain.md) | domain 文件的消費規則＋single-context 佈局。⚠️ 本站脈絡實際在 `decisions/` 與 `src/` 檔頭註解，`CONTEXT.md`／`docs/adr/` 尚未建（刻意不預建空殼） | **活的** |
+
+---
+
 ## repo 根目錄（不在 docs/ 但相關）
 
 | 檔 | 用途 | 現況 |
