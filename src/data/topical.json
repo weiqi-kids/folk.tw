@@ -255,8 +255,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 1
+      "last_checked": "2026-08-20",
+      "empty_runs": 2
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -557,8 +557,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 12
+      "last_checked": "2026-08-20",
+      "empty_runs": 13
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -3100,8 +3100,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 1
+      "last_checked": "2026-08-20",
+      "empty_runs": 2
     }
   },
   {
@@ -3155,8 +3155,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 0
+      "last_checked": "2026-08-20",
+      "empty_runs": 1
     }
   },
   {
@@ -3217,11 +3217,35 @@
         ],
         "added": "2026-08-19T12:36:14.500Z",
         "hash": "1e4c4f3d1373"
+      },
+      {
+        "date": "2026-08-19",
+        "text": "千葉市綠區因道路坍塌受損的自來水管完成搶修，先前斷水地區已陸續恢復供水。",
+        "sources": [
+          {
+            "ref": "NHK",
+            "url": "https://news.web.nhk/newsweb/na/nd-20260819de45158"
+          }
+        ],
+        "added": "2026-08-20T12:36:40.903Z",
+        "hash": "81edef376c24"
+      },
+      {
+        "date": "2026-08-20",
+        "text": "千葉豪雨屆滿一週，當地志工協助居民清理受災住宅的行動已全面展開，部分托兒所也已恢復收托幼童。",
+        "sources": [
+          {
+            "ref": "NHK",
+            "url": "https://news.web.nhk/newsweb/na/nd-20260820de45235"
+          }
+        ],
+        "added": "2026-08-20T12:36:40.998Z",
+        "hash": "439b15d486ba"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
+      "last_checked": "2026-08-20",
       "empty_runs": 0
     }
   },
@@ -3250,8 +3274,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 2
+      "last_checked": "2026-08-20",
+      "empty_runs": 3
     }
   },
   {
@@ -3302,8 +3326,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-19",
-      "empty_runs": 0
+      "last_checked": "2026-08-20",
+      "empty_runs": 1
     }
   }
 ]
