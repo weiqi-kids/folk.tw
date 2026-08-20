@@ -29,10 +29,35 @@ export interface ParsedSource {
 // ⚠️ 終止字元要含**全形標點**：資料裡有「URL（說明）」這種網址後面直接接全形括號、中間無空格的寫法
 //    （events 的 polyline_source）。若只用 \S+ 會把「（大甲媽祖即時衛星定位服務…」一起吃進網址，
 //    產生點不開的 href（2026-08-04 線上實測 3 個活動頁的即時軌跡連結都是死的）。
-const URL_CHARS = String.raw`[^\s（）()「」『』【】〔〕，、；。？！]`;
+// 🔴 2026-08-20 修正：半形括號**移出**終止字元集。
+//    當初（2026-08-04）把全形與半形括號一起列進來，是為了擋 events 的
+//    「URL（說明）」——那種寫法用的是**全形**括號。半形括號則是合法的網址字元，
+//    維基／維基文庫的消歧義條目大量使用（`龍王廟_(臺南府)`、`欽定協紀辨方書_(四庫全書本)`）。
+//    一起擋掉的後果是**指錯條目而不是連不到**：`龍王廟_(臺南府)` 被截成 `龍王廟_`，
+//    維基把它正規化到通用的〈龍王廟〉（pageid 3358460）而不是原意的〈龍王廟 (臺南府)〉
+//    （pageid 3358459）——連結能開、括號成對、check:anchor-text 抓不到，
+//    但引的是錯的來源。2026-08-20 用維基 API 實證，站上有 3 筆長這樣。
+//    現在改成：全形括號仍終止；半形括號只有**成對**時算網址的一部分（見 trimUrlTail）。
+//    全站 13,051 筆帶網址的 ref 實跑新舊規則比對，只有那 3 筆改變，其餘 13,048 筆 href 不動。
+const URL_CHARS = String.raw`[^\s（）「」『』【】〔〕，、；。？！]`;
 const URL_RE = new RegExp(`https?://${URL_CHARS}+`);
 const URL_RE_G = new RegExp(`https?://(${URL_CHARS}+)`, 'g');
-const TRAIL_PUNCT = /[)\]）」』】。，、；,.;]+$/;
+
+/**
+ * 網址尾端的分隔標點要剝掉，但**成對的半形括號是網址的一部分**。
+ * 先剝非括號的尾標點，再逐個檢查尾端的 `)`——只有在右括號多於左括號時才剝，
+ * 這樣 `.../龍王廟_(臺南府)` 完整保留，而 `…(說明)。` 這種尾隨標點仍會被清掉。
+ */
+function trimUrlTail(u: string): string {
+  let out = u.replace(/[\]）」』】。，、；,.;]+$/, '');
+  while (out.endsWith(')')) {
+    const open = (out.match(/\(/g) ?? []).length;
+    const close = (out.match(/\)/g) ?? []).length;
+    if (close > open) out = out.slice(0, -1);
+    else break;
+  }
+  return out;
+}
 /** 前後成對的全形／半形括號當標籤時是雜訊（「（說明）」→「說明」）。 */
 const WRAP_PARENS = /^[（(]([\s\S]*)[）)]$/;
 
@@ -122,9 +147,10 @@ function cleanLabel(s: string): string {
   });
   // 抽掉網址後可能留下空括號：「文化部國家文化資產網（https://…）」→「…（）」。
   out = out.replace(/[（(]\s*[）)]/g, '').trim();
-  // ⚠️ 尾端只清**分隔用**標點。**不可**連收括號一起清——`TRAIL_PUNCT` 含「）」，
+  // ⚠️ 尾端只清**分隔用**標點。**不可**連收括號一起清——
   // 用在 label 上會把「台灣民間信仰（行業神）」削成「台灣民間信仰（行業神」，
   // 全站數十筆合法的括號註記都會變成沒配對（2026-08-04 我自己引入過這個回歸，實測抓到）。
+  // 網址那邊的對應處理在 trimUrlTail()，判準不同：那裡的收括號只有在**未配對**時才剝。
   out = out.replace(/[。，、；,.;]+$/g, '').trim();
   out = balanceParens(out);
   return out.replace(/\s+/g, ' ').trim();
@@ -169,7 +195,7 @@ export function parseSourceRef(s: SourceRef): ParsedSource {
   }
   const m = s.ref.match(URL_RE);
   if (!m) return { label: cleanLabel(s.ref), url: null };
-  const url = m[0].replace(TRAIL_PUNCT, '');
+  const url = trimUrlTail(m[0]);
   const label = cleanLabel(s.ref.slice(0, m.index) + s.ref.slice(m.index! + m[0].length));
   return { label: withWikiTitle(label || labelFromNote(s.note) || labelFromUrl(url), url), url };
 }
