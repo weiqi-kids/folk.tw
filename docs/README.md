@@ -54,6 +54,7 @@
 | [`search-demand.md`](search-demand.md) | 站內搜尋零結果需求、結果點擊與個資保護規則 | **活的**。執行 `pnpm growth:search-demand` |
 | [`temple-ctr-cohorts.md`](temple-ctr-cohorts.md) | GSC 宮廟 page×query 全量分頁、意圖／排名帶 CTR cohort 與高曝低 CTR 行動門檻 | **活的**。執行 `pnpm seo:temple-ctr`；不逐廟自動改 title |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
+| [`th-dict-uncollected.json`](th-dict-uncollected.json) | 《臺灣民俗文物辭典》裡本站尚未使用的辭條（含大量儀式詞）＝擴 /practices/ 與神明頁 th_dict 的素材庫。🔴 工作用素材，不是可直接發佈的資料集 | **活的**。要用先在 `th-dict-map.json` 加對映再跑 `import-th-dict.mjs` |
 | [`qian-systems-sources.md`](qian-systems-sources.md) | 擴籤系的原料：臺史博籤詩藏品的逐件授權盤點（PDM／CC0／僅限瀏覽／未標）、兩層授權要分開看、臺史博申請管道 | **活的**。逐件結果在 `qian-collections-nmth.json` |
 | [`temple-partner-links.md`](temple-partner-links.md) | 宮廟合作連結：`?temple=` 歸因＋GA4 `temple` 維度＋`_temples` 聚合；P1–P3 分期與紅線 | **活的**。發連結給廟方前必讀 |
 | [`qian-interactive.md`](qian-interactive.md) | 求籤互動迴圈：選擇題／pulse 儀表板／籤詩人格／同籤留言（送審制）＋門檻紅線 | **活的**。改互動機制前必讀 |
