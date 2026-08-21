@@ -171,8 +171,7 @@ const visual = 'calendar-compass';
           </p>
         ) : (
           <p>
-            本站只算日子，不收店家資料。這個連結是把搜尋交給地圖，由你的裝置定位，
-            我們不經手也不記錄。
+            這個連結把搜尋交給地圖，由你的裝置定位，位置不會傳到這裡。
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.next_step.query ?? '')}`}
               rel="nofollow noopener"
