@@ -222,26 +222,28 @@ const faq = faqPage(faqItems);
       }
     </section>
 
-    {/* 分項解（八項） */}
-    <section>
-      <h2>分項解</h2>
-      {
-        hasAnyInterp ? (
-          <>
-            <dl class="interp">
-              {ASPECTS.map((a) => (
-                <div class="row">
-                  <dt>{a}</dt>
-                  <dd>{interpVals[a] ?? <span class="pending">待撰</span>}</dd>
-                </div>
-              ))}
-            </dl>
-          </>
-        ) : (
-          <p class="pending">八項分項解待撰。</p>
-        )
-      }
-    </section>
+    {/* 分項解（九項）
+        🔴 2026-08-21：原本一項都沒有時印「八項分項解待撰。」、個別缺項印「待撰」。
+        兩個都拿掉了，而且**不是**改成藏起來就算——那只是把缺口蓋住：
+        ① 一項都沒有的 55 首＝月老籤 27 ＋ 紫竹寺觀音籤 28，它們**根本不缺**：
+           這兩套的籤版本身就印了分項判語，站上照錄在上面「籤版所印的分項解」區塊
+           （見 /about/ §解籤文字的撰寫原則）。對它們說「待撰」是錯的訊息。
+        ② 真正缺的是關帝靈籤 100 首的「六甲」——那是後來才加的項目。
+           已於同一輪逐首補齊，不是靠隱藏解決。
+        所以這裡只列真的有值的項；九項全無才整個區塊不出現（月老／觀音就是這種）。 */}
+    {hasAnyInterp && (
+      <section>
+        <h2>分項解</h2>
+        <dl class="interp">
+          {ASPECTS.filter((a) => interpVals[a]?.trim()).map((a) => (
+            <div class="row">
+              <dt>{a}</dt>
+              <dd>{interpVals[a]}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )}
 
     {personaType && personaAssign && (
       <section class="persona" id="persona">
