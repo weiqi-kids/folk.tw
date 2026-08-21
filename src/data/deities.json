@@ -6372,7 +6372,19 @@
     "office": [
       "驅逐邪煞"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "09-28",
+        "kind": "聖誕",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=239",
+            "note": "條目原文「農曆九月二十八日是五顯大帝的聖誔」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
@@ -6487,7 +6499,30 @@
       "三皇五帝之首",
       "開創中華文明"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "03-03",
+        "kind": "聖誕",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=289",
+            "note": "條目原文「3月3日黃帝聖誕」"
+          }
+        ]
+      },
+      {
+        "date": "09-09",
+        "kind": "飛昇",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=289",
+            "note": "條目原文「9月9日黃帝昇天」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
@@ -6539,7 +6574,19 @@
       "鸞書地母真經",
       "護祐信眾"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "10-18",
+        "kind": "聖誕",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=248",
+            "note": "條目原文「以每年農曆十月十八日為地母聖誔」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
@@ -6592,7 +6639,20 @@
       "靖魔大帝",
       "精忠報國"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "02-15",
+        "kind": "聖誕",
+        "note": "宜蘭碧霞宮聖誕祭典日",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=251",
+            "note": "條目原文「每年農曆 2 月 15 日為聖誕祭典」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
@@ -7019,7 +7079,32 @@
       "武將神",
       "治水"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "06-24",
+        "kind": "聖誕",
+        "note": "各廟祭祀日期不一，以此日與九月十二為多",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=229",
+            "note": "條目原文「各廟祭祀日期不盡相同，但以農曆六月廿四日及九月十二日兩日為多」"
+          }
+        ]
+      },
+      {
+        "date": "09-12",
+        "kind": "聖誕",
+        "note": "各廟祭祀日期不一，以此日與六月廿四為多",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=229",
+            "note": "條目原文「各廟祭祀日期不盡相同，但以農曆六月廿四日及九月十二日兩日為多」"
+          }
+        ]
+      }
+    ],
     "iconography": [],
     "divination_systems": [],
     "groups": [],
@@ -7230,7 +7315,19 @@
       "佛教創始者",
       "三世佛中的現在佛"
     ],
-    "birthday_lunar": [],
+    "birthday_lunar": [
+      {
+        "date": "12-08",
+        "kind": "成道",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "內政部全國宗教資訊網・宗教知識+ https://religion.moi.gov.tw/Knowledge/Content?ci=2&cid=275",
+            "note": "條目原文「農曆十二月初八是佛陀成道日」"
+          }
+        ]
+      }
+    ],
     "iconography": [
       "端坐蓮臺（蓮花為淨土象徵，後世佛與菩薩像皆以蓮花為座）"
     ],
