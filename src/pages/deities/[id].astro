@@ -96,7 +96,7 @@ if (realBdays.length > 0) {
   faqItems.push({
     q: `${d.name}的聖誕（生日）是哪一天？`,
     a: shengdanPick
-      ? `${d.name}的聖誕為${shengdanLunarLabel}，下一次落在國曆 ${shengdanPick.iso.slice(0, 4)} 年 ${solarMd(shengdanPick.iso)}。${realBdays.length > 1 ? `本站收錄的日期共：${parts}。` : ''}`
+      ? `${d.name}的聖誕為${shengdanLunarLabel}，下一次落在國曆 ${shengdanPick.iso.slice(0, 4)} 年 ${solarMd(shengdanPick.iso)}。${realBdays.length > 1 ? `站上收錄的日期共：${parts}。` : ''}`
       : `${d.name}的聖誕日為${parts}。`,
   });
 }

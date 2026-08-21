@@ -35,7 +35,7 @@ const faq = faqPage([
   ...(warned.length
     ? [{
         q: `${meta.name}裡有哪些是典藏本身標註不可使用的？`,
-        a: `共 ${warned.length} 首，籤號為：${warned.map((s) => `第${s.no}首`).join('、')}。該警語出自原始典藏，非本站加註。`,
+        a: `共 ${warned.length} 首，籤號為：${warned.map((s) => `第${s.no}首`).join('、')}。該警語出自原始典藏，不是我們加的。`,
       }]
     : []),
 ]);
@@ -83,7 +83,7 @@ const visual = 'medicine-manuscript';
     <h2>藥材說明是誰寫的</h2>
     <p>
       上面每一首的藥材說明，都<strong>引自衛生福利部國家中醫藥研究所</strong>的數位典藏（授權 OGDL 1.0），
-      不是本站撰寫。藥方數位物件為公眾領域標章（PDM）。
+      不是我們寫的。藥方的數位物件掛公眾領域標章（PDM）。
     </p>
   </section>
 
