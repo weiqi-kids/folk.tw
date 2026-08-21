@@ -5,6 +5,7 @@ import Sources from '../../components/Sources.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity, systemHref } from '../../lib/queries';
+import { fullWidth, SERP_TITLE_MAX_WIDTH } from '../../lib/text-width';
 import { deityThing, faqPage } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
@@ -106,9 +107,24 @@ const birthdayLabel = shengdanLunarLabel ? `，聖誕${shengdanLunarLabel}${sola
 // 只用主名、不再塞首別名：別名仍完整留在 description／頁面，避免長神名加別名後把日期截掉。
 // shengdanPick 仍是同一筆農曆／國曆資料；無聖誕者維持既有「主名（首別名）」標題，不硬加生日。
 const baseTitle = d.aliases.length > 0 && d.aliases[0] !== d.name ? `${d.name}（${d.aliases[0]}）` : d.name;
-const deityTitle = shengdanLunarLabel
+// 🔴 2026-08-21：標題尾端補一個「點進來才有」的鉤子。
+//    起因是 GSC 診斷：「○○生日」這一類整批 1,098 曝光只換到 18 點擊（CTR 1.64%），
+//    而且 pos 4.4 的「七星娘娘生日」、pos 5.4 的「齊天大聖生日」都是**零點擊**。
+//    原因不是排名不好，是**答案已經寫在標題裡**——使用者在 SERP 讀完
+//    「聖誕農曆七月廿三（國曆 9/4）」需求就滿足了，不必點進來。
+//    （8/10–8/19 曾判定「title 已完整命中查詢字面、非可修缺口」：觀察對，結論反了。）
+//    ⚠️ 日期**不能拿掉**——那是排名精準匹配的來源，拿掉會連曝光都沒有。
+//    做法是保留日期、另外給一個下一步的理由。
+//    🔴 鉤子只能寫**頁面真的有**的東西：這裡對應的是下方 <h2>主祀此神之廟宇</h2>，
+//    沒有主祀廟宇的神明就不加，不誘騙點擊。
+//    ⚠️ SERP 標題上限 30 全形字（scripts/invariants/deity.mjs 硬擋），加不下就不加。
+const titleHook = temples.length > 0 ? '｜哪裡拜' : '';
+const titleWithDate = shengdanLunarLabel
   ? `${d.name}生日｜聖誕${shengdanLunarLabel}${solarPart}`
   : baseTitle;
+const deityTitle = titleHook && fullWidth(titleWithDate + titleHook) <= SERP_TITLE_MAX_WIDTH
+  ? titleWithDate + titleHook
+  : titleWithDate;
 
 // 職司／是什麼神：以 category＋office＋summary 答覆（answer-first）。
 {
