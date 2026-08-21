@@ -166,12 +166,15 @@ const visual = 'calendar-compass';
         <h2>日子挑好之後</h2>
         {item.next_step.kind === 'site' ? (
           <p>
-            本站收錄全台登記在案的宮廟，可以直接查你要去的那一間。
+            {/* 🔴 這裡原本有「本站收錄全台登記在案的宮廟，可以直接查你要去的那一間。」，
+                2026-08-21 站主裁示移除：頁面不自述本站怎麼做。連結文字本身就說明了要去哪。 */}
             <a href={item.next_step.href}>{item.next_step.label} →</a>
           </p>
         ) : (
           <p>
-            這個連結把搜尋交給地圖，由你的裝置定位，位置不會傳到這裡。
+            {/* 🔴 這裡原本有「這個連結把搜尋交給地圖，由你的裝置定位，位置不會傳到這裡。」，
+                2026-08-21 站主裁示移除。⚠️ 那句話裡的**隱私事實**（地圖搜尋由裝置端發動、
+                座標不經過本站）不能就此消失，已改由 /about/ §資料與統計 統一交代。 */}
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.next_step.query ?? '')}`}
               rel="nofollow noopener"

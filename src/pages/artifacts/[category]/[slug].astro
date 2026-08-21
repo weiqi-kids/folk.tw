@@ -15,6 +15,7 @@
 //    只准增不准改；要移除某一條，先確認它從未被 Google 收錄。
 import Base from '../../../layouts/Base.astro';
 import LeadVisual from '../../../components/LeadVisual.astro';
+import Sources from '../../../components/Sources.astro';
 import { HUB } from '../../../lib/breadcrumbs';
 import data from '../../../data/artifacts.json';
 import ledger from '../../../data/artifact-pages.json';
@@ -22,7 +23,6 @@ import ledger from '../../../data/artifact-pages.json';
 type Item = (typeof data.categories)[number]['items'][number];
 
 // 來源欄位裡網址與說明是連在一起的（「…〈瓜皮帽〉 https://…」），取網址那一段。
-const sourceUrl = (it: Item) => it.source.ref.replace(/^.*\s(https?:)/, '$1');
 
 export function getStaticPaths() {
   const bySlug = new Map(ledger.entries.map((e) => [`${e.category}/${e.slug}`, e]));
@@ -99,18 +99,19 @@ const firstSentence = (() => {
     ) : (
       <>
         <LeadVisual src="/og.png" alt="神酷台灣民俗信仰知識系統" />
-        <p class="muted small">本站識別圖，非「{item.term}」的文物照片。</p>
+        <p class="muted small">示意圖，非「{item.term}」的文物照片。</p>
       </>
     )
   }
 
   <div class="def">
     <p>{item.def}</p>
-    <p class="muted small">
-      本條定義逐字節錄自國史館臺灣文獻館《臺灣民俗文物辭典》。
-      {'　'}
-      <a href={sourceUrl(item)} rel="nofollow noopener" target="_blank">辭條原文</a>
-    </p>
+    {/* 🔴 這裡原本是一句散文式的歸屬「本條定義逐字節錄自國史館臺灣文獻館《臺灣民俗文物辭典》。」
+        ＋一個錨文字寫死「辭條原文」的連結。2026-08-21 收斂回 <Sources>，與分類頁一致：
+        ① 頁面不再自述本站怎麼作業（站主裁示）；
+        ② 授權條件（標示資料來源連結）由 <Sources> 印出的**辭書全名＋辭條名**履行——
+           「辭條原文」四個字誰都可以是，說出是誰的辭書才算標示（同 [id].astro 2026-08-20 的收斂）。 */}
+    <Sources sources={[item.source]} variant="block" />
   </div>
 
   {mentioned.length > 0 && (
