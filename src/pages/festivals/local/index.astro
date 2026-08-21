@@ -191,7 +191,7 @@ const faq = faqPage([
                   {i.iso && <span class="lsolar">國曆 {solarMd(i.iso)}</span>}
                   {i.note && <span class="lsolar">{i.note}</span>}
                   {i.tl && <a class="lsolar ltl" href={`#tl-${i.id}`}>歷年舉辦紀錄</a>}
-                  {i.calendar === 'hijri' && <span class="lsolar">國曆日期逐年不同</span>}
+                  {i.calendar === 'hijri' && <span class="lsolar">國曆日期逐年不同，不換算</span>}
                   {i.temple && (
                     <a class="ltemple" href={`/temples/${i.temple_ref}/`}>{i.temple.name}</a>
                   )}
