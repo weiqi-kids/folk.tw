@@ -110,7 +110,7 @@ if (problems.length) {
     console.error(`  ${p.file}:${p.line}  [${p.rule}]  ${p.found}`);
     console.error(`     → 應為 ${p.want}`);
   }
-  console.error('\n本站是 GitHub Pages，不帶尾斜線的網址一律 301。把它送給 Google／IndexNow');
+  console.error('\n這個站是 GitHub Pages，不帶尾斜線的網址一律 301。把它送給 Google／IndexNow');
   console.error('等於主動請搜尋引擎收錄一個會重新導向的網址，浪費爬取預算也髒了索引報告。');
   console.error('（頁面內鏈由 check-canonical-links.mjs 守；這支守的是腳本送出去的網址。）');
   process.exit(1);

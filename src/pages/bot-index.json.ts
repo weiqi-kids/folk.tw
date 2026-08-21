@@ -14,7 +14,7 @@
 //   - 邊界安全：/almanac/<date>/ 只預生到 today+FUTURE_DAYS（730 天，見
 //     src/lib/almanac/dates.ts），365 天遠低於這個上限，不會產出死連結；下方仍留一道
 //     執行期斷言防止未來有人把 WINDOW_DAYS 調大到超過 FUTURE_DAYS 而不自知。
-//   - 重產頻率：window 是「今天起」的滾動窗，本站每日 cron 重建一次（deploy.yml 的
+//   - 重產頻率：window 是「今天起」的滾動窗，站上每日 cron 重建一次（deploy.yml 的
 //     schedule），bot 端 ETL 也應每日抓一次——見契約文件「bot 端怎麼拿」一節。不重產的話
 //     window 只會越來越短，最後 days 全部落在過去。
 import type { APIRoute } from 'astro';
@@ -61,7 +61,7 @@ interface GoodDayItem {
 
 /**
  * 白話賞析（interpretation md body）取第一句、≤80 字、斷在句讀。
- * 策略：先取第一個句號/驚嘆號/問號前的完整句；若那一句本身就超過 80 字（本站賞析偶有長句），
+ * 策略：先取第一個句號/驚嘆號/問號前的完整句；若那一句本身就超過 80 字（站上賞析偶有長句），
  * 退而求其次在 80 字內找最後一個逗號/頓號/分號當斷點；連這個斷點都找不到就整欄不輸出——
  * 不硬切成半句、不杜撰。與 src/pages/allusions/[id].astro 的 storySummary 同一種「取首句」思路，
  * 差別是這裡額外處理「首句過長」的情況（籤詩白話賞析比典故故事常見更長的複句）。

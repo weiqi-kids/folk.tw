@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 印出本站的「高槓桿路徑」，一行一個——給 gsc-index 的 `coreUrlsCommand` 吃。
+// 印出站上的「高槓桿路徑」，一行一個——給 gsc-index 的 `coreUrlsCommand` 吃。
 //
 // 為什麼是一支獨立的印表機：收錄推送那一整套 2026-08-20 抽成了獨立專案 gsc-index
 // （對 14 個納管站台通用），而「哪些是高槓桿網址」本來就是各站自己的事。

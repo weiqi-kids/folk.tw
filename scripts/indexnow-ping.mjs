@@ -30,7 +30,7 @@ const SITE = gscSiteUrl.startsWith('sc-domain:')
   : gscSiteUrl.replace(/\/$/, '');
 const HOST = new URL(SITE).host;
 
-// ⚠️ 一律帶尾斜線（同 index-ping.mjs）：本站是 GitHub Pages，`/poems` 會 301 到 `/poems/`。
+// ⚠️ 一律帶尾斜線（同 index-ping.mjs）：這個站是 GitHub Pages，`/poems` 會 301 到 `/poems/`。
 // 🔴 CORE 從檔案系統推導，唯一來源在 scripts/lib/core-urls.mjs——
 //    以前這裡是寫死陣列，兩支腳本各一份，且新增模組後沒人記得回來加。
 //    2026-08-07 實查：16 個模組樞紐只有 6 個在清單裡。別再改回寫死。

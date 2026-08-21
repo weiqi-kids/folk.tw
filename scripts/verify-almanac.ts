@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // C.4-4 農民曆全範圍交叉驗證：不只抽 20 日，而是掃描全有效年限（1901–2099，約 7.2 萬天），
-// 對每一天三方交叉驗證——本站公式 × lunar-javascript（壽星天文曆）× solarlunar（獨立實作）。
+// 對每一天三方交叉驗證——站上公式 × lunar-javascript（壽星天文曆）× solarlunar（獨立實作）。
 // 另以官方 ≥20 日參考集（scripts/almanac-reference.json）作人類可讀錨點。
 //
 // 用法：
 //   node --experimental-strip-types scripts/verify-almanac.ts            # 全掃 1901–2099
 //   node --experimental-strip-types scripts/verify-almanac.ts 2020 2030  # 指定年範圍
 //
-// 兩套獨立農曆庫＋本站公式三方一致 → 農曆/節氣/干支/建除/廿八宿經數萬日比對全中。
+// 兩套獨立農曆庫＋站上公式三方一致 → 農曆/節氣/干支/建除/廿八宿經數萬日比對全中。
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -18,7 +18,7 @@ const solarlunar = (solarlunarPkg as { default?: typeof solarlunarPkg }).default
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-// ── 本站確定性公式：直接 import 出貨模組，不得在此重寫 ────────────────
+// ── 站上確定性公式：直接 import 出貨模組，不得在此重寫 ────────────────
 //
 // 🔴 2026-08-20 改：這裡原本是 STEMS／BRANCHES／XIU_28／DAY_GANZHI_ANCHOR／
 //    XIU_ANCHOR ＋ gregorianToJDN／ourDayPillar／ourXiu 的**私有副本**。
@@ -83,11 +83,11 @@ for (let y = Y0; y <= Y1; y++) {
       if (ljJ === slJ) stat.jieqi.ok++;
       else cap('jieqi', `${date}: lunar-js「${ljJ}」 vs solarlunar「${slJ}」`);
 
-      // 日柱：本站公式 vs lunar-js vs solarlunar（三方）
+      // 日柱：站上公式 vs lunar-js vs solarlunar（三方）
       stat.dayGZ.total++;
       const ours = ourDayPillar(jdn), ljD = lj.getDayInGanZhi(), slD = s2t(sl.gzDay);
       if (ours === ljD && ljD === slD) stat.dayGZ.ok++;
-      else cap('dayGZ', `${date}: 本站 ${ours} / lunar-js ${ljD} / solarlunar ${slD}`);
+      else cap('dayGZ', `${date}: 站上 ${ours} / lunar-js ${ljD} / solarlunar ${slD}`);
 
       // 年柱（立春分年）：lunar-js vs solarlunar
       stat.yearGZ.total++;
@@ -101,18 +101,18 @@ for (let y = Y0; y <= Y1; y++) {
       if (ljM === slM) stat.monthGZ.ok++;
       else cap('monthGZ', `${date}: lunar-js ${ljM} vs solarlunar ${slM}`);
 
-      // 廿八宿：本站公式 vs lunar-js
+      // 廿八宿：站上公式 vs lunar-js
       stat.xiu.total++;
       const oX = ourXiu(jdn), ljX = norm(lj.getXiu());
       if (oX === ljX) stat.xiu.ok++;
-      else cap('xiu', `${date}: 本站 ${oX} vs lunar-js ${ljX}`);
+      else cap('xiu', `${date}: 站上 ${oX} vs lunar-js ${ljX}`);
     }
   }
 }
 
 const LABEL: Record<string, string> = { lunar: '農曆', jieqi: '節氣', dayGZ: '日柱(三方)', yearGZ: '年柱', monthGZ: '月柱', xiu: '廿八宿' };
 console.log(`\n=== C.4-4 全範圍交叉驗證 ${Y0}–${Y1}（${days.toLocaleString()} 日）===`);
-console.log('  來源：本站公式 × lunar-javascript（壽星天文曆/香港天文台）× solarlunar（獨立實作）\n');
+console.log('  來源：站上公式 × lunar-javascript（壽星天文曆/香港天文台）× solarlunar（獨立實作）\n');
 let totalMiss = 0;
 for (const f of fields) {
   const s = stat[f];
@@ -121,11 +121,11 @@ for (const f of fields) {
   totalMiss += s.total - s.ok;
 }
 if (totalMiss > 0) {
-  console.log('\n--- 兩庫差異樣本（各欄至多 8 筆；屬獨立庫於天文邊界之歧異，非本站公式錯誤）---');
+  console.log('\n--- 兩庫差異樣本（各欄至多 8 筆；屬獨立庫於天文邊界之歧異，不是站上公式錯誤）---');
   for (const f of fields) for (const m of stat[f].miss) console.log(`  ${m}`);
-  console.log('  說明：本站確定性公式（日柱/廿八宿）三方/雙源 100%；農曆/節氣/月柱之差異集中於');
-  console.log('  1933 閏月排法（solarlunar 與 lunar-javascript 歧異，1933 實為閏五月，本站採 lunar-javascript 正確）');
-  console.log('  及交節時刻落午夜邊界之少數日（節氣精度，本站採對齊香港天文台之壽星曆，C.8 節氣採官方天文）。');
+  console.log('  說明：站上確定性公式（日柱/廿八宿）三方/雙源 100%；農曆/節氣/月柱之差異集中於');
+  console.log('  1933 閏月排法（solarlunar 與 lunar-javascript 歧異，1933 實為閏五月，站上採 lunar-javascript 正確）');
+  console.log('  及交節時刻落午夜邊界之少數日（節氣精度，站上採對齊香港天文台之壽星曆，C.8 節氣採官方天文）。');
 }
 
 // ── 官方 ≥20 日參考錨點（C.4-4 判定依據）──
@@ -146,19 +146,19 @@ try {
         jieqi: norm(lj.getJieQi() || ''), yearGZ: lj.getYearInGanZhiByLiChun(), monthGZ: lj.getMonthInGanZhi(),
         dayGZ: ourDayPillar(jdn), jianchu: norm(lj.getZhiXing()), xiu: ourXiu(jdn),
       };
-      // 廿八宿值日另有約定（本站採七政/香港天文台，已於全掃 100%；萬年曆採他系），不計入官方符合率
+      // 廿八宿值日另有約定（站上採七政/香港天文台，已於全掃 100%；萬年曆採他系），不計入官方符合率
       for (const k of ['lunar', 'jieqi', 'yearGZ', 'monthGZ', 'dayGZ', 'jianchu']) {
         if (r[k] === undefined) continue;
         at++;
         const want = k === 'lunar' ? { y: (r.lunar as any).y, m: (r.lunar as any).m, d: (r.lunar as any).d, leap: !!(r.lunar as any).leap } : r[k];
         if (JSON.stringify(ours[k]) === JSON.stringify(want)) ao++;
-        else miss.push(`${r.date} ${k}: 本站 ${JSON.stringify(ours[k])} vs 官方 ${JSON.stringify(want)}（${r.source}）`);
+        else miss.push(`${r.date} ${k}: 站上 ${JSON.stringify(ours[k])} vs 官方 ${JSON.stringify(want)}（${r.source}）`);
       }
     }
     officialMiss = at - ao;
     console.log(`  欄位符合（農曆/節氣/四柱/建除）：${ao}/${at}（${((ao / at) * 100).toFixed(1)}%）${ao === at ? '✓' : '✗'}`);
     miss.forEach((m) => console.log(`  ✗ ${m}`));
-    console.log('  註：廿八宿值日另有約定（本站採七政/香港天文台，全掃 7.2 萬日對 lunar-javascript 100%；部分通書站採他系），不列入官方符合率。');
+    console.log('  註：廿八宿值日另有約定（站上採七政/香港天文台，全掃 7.2 萬日對 lunar-javascript 100%；部分通書站採他系），不列入官方符合率。');
   } else {
     console.log('\n（scripts/almanac-reference.json 尚為樣本，官方錨點待 agent 填入真實值）');
   }
@@ -166,6 +166,6 @@ try {
   console.log('\n（無 scripts/almanac-reference.json，略過官方錨點）');
 }
 
-// C.4-4 判定以「對官方農民曆」為準（全掃之兩庫天文邊界差異不算本站錯誤）
+// C.4-4 判定以「對官方農民曆」為準（全掃之兩庫天文邊界差異不算站上錯誤）
 console.log('');
 process.exit(officialMiss > 0 ? 1 : 0);

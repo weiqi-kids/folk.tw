@@ -94,7 +94,7 @@ export async function allusionNameById(): Promise<Map<string, string>> {
   return new Map((await getCollection('allusions')).map((e) => [e.id, e.data.name]));
 }
 
-/** poemId → 該籤之白話賞析＋八項分項解（依 id join；本站原創，§6） */
+/** poemId → 該籤之白話賞析＋八項分項解（依 id join；站上原創，§6） */
 export async function interpretationById(): Promise<Map<string, CollectionEntry<'interpretations'>>> {
   const items = await getInterpretations();
   return new Map(items.map((e) => [e.id, e]));

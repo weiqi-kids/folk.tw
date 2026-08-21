@@ -4,7 +4,7 @@ How the engineering skills should consume this repo's domain documentation when 
 
 ## 🔴 本 repo 特有的前提（先讀這段）
 
-- **本站的 domain 脈絡目前不在 `CONTEXT.md`**，而在兩個地方：
+- **站上的 domain 脈絡目前不在 `CONTEXT.md`**，而在兩個地方：
   `docs/decisions/*.md`（決策的歷史脈絡，原文保留當時判斷）與 **`src/` 各檔的檔頭註解**（現況）。
   **兩者不一致時信程式碼**，並回頭在 docs 標上更正。見 CLAUDE.md §4 檔尾那段警語。
 - **改任何 `src/` 檔案前，先讀那個檔自己的檔頭註解**——場景限定的紅線刻意寫在那裡，不在總紅線區。
@@ -61,7 +61,7 @@ When your output names a domain concept (in an issue title, a refactor proposal,
 
 If the concept you need isn't in the glossary yet, that's a signal — either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/domain-modeling`).
 
-⚠️ 在本站，**民俗詞彙的措辭界線本身就是紅線**（例：「有在辦安太歲」vs「有太歲殿」不可混用；
+⚠️ 在站上，**民俗詞彙的措辭界線本身就是紅線**（例：「有在辦安太歲」vs「有太歲殿」不可混用；
 判定唯一入口 `src/lib/zodiac.ts`）。改用詞前先看該領域對應的 `docs/decisions/` 檔。
 
 ## Flag ADR conflicts

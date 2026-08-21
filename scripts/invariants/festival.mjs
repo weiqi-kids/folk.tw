@@ -15,7 +15,7 @@ const FAQ_MARK = '"@type":"FAQPage"';
 /**
  * 原不變量 5（2026-07-30 加）：節日頁骨架。
  * 每個 festivals.json 條目都必須有頁、有 answer-first .lead、有 FAQPage 與 Article 結構化資料。
- * 節日知識頁不是本站主辦的線下活動，故**反向擋住 Event**（避免連帶宣稱 EventScheduled、
+ * 節日知識頁不是站上主辦的線下活動，故**反向擋住 Event**（避免連帶宣稱 EventScheduled、
  * OfflineEventAttendanceMode 與 folk.tw organizer）。
  */
 export const festivalSkeleton = {
@@ -60,7 +60,7 @@ export const festivalFreshness = {
       acc.violate(`節日頁 ${f.slug} 的 Article 缺 dateModified 或與資料不符（應為 ${f.updated}）`);
     }
     if (!/"author":\{"@type":"Organization"/.test(page.html)) {
-      acc.violate(`節日頁 ${f.slug} 的 Article 缺 author（須為 Organization——本站無具名撰稿者，掛人名即杜撰署名）`);
+      acc.violate(`節日頁 ${f.slug} 的 Article 缺 author（須為 Organization——這個站沒有具名撰稿者，掛人名即杜撰署名）`);
     }
     if (!page.html.includes(`本頁資料更新：<time datetime="${f.updated}"`)) {
       acc.violate(`節日頁 ${f.slug} 缺可見更新日或標籤／日期不符（應為「本頁資料更新：${f.updated}」）`);

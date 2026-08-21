@@ -54,7 +54,7 @@
 | [`search-demand.md`](search-demand.md) | 站內搜尋零結果需求、結果點擊與個資保護規則 | **活的**。執行 `pnpm growth:search-demand` |
 | [`temple-ctr-cohorts.md`](temple-ctr-cohorts.md) | GSC 宮廟 page×query 全量分頁、意圖／排名帶 CTR cohort 與高曝低 CTR 行動門檻 | **活的**。執行 `pnpm seo:temple-ctr`；不逐廟自動改 title |
 | [`yaoqian-physician-spec.md`](yaoqian-physician-spec.md) | 保生大帝藥籤 330 首的產製規格與紅線措辭 | **活的** |
-| [`th-dict-uncollected.json`](th-dict-uncollected.json) | 《臺灣民俗文物辭典》裡本站尚未使用的辭條（含大量儀式詞）＝擴 /practices/ 與神明頁 th_dict 的素材庫。🔴 工作用素材，不是可直接發佈的資料集 | **活的**。要用先在 `th-dict-map.json` 加對映再跑 `import-th-dict.mjs` |
+| [`th-dict-uncollected.json`](th-dict-uncollected.json) | 《臺灣民俗文物辭典》裡站上尚未使用的辭條（含大量儀式詞）＝擴 /practices/ 與神明頁 th_dict 的素材庫。🔴 工作用素材，不是可直接發佈的資料集 | **活的**。要用先在 `th-dict-map.json` 加對映再跑 `import-th-dict.mjs` |
 | [`qian-systems-sources.md`](qian-systems-sources.md) | 擴籤系的原料：臺史博籤詩藏品的逐件授權盤點（PDM／CC0／僅限瀏覽／未標）、兩層授權要分開看、臺史博申請管道 | **活的**。逐件結果在 `qian-collections-nmth.json` |
 | [`temple-partner-links.md`](temple-partner-links.md) | 宮廟合作連結：`?temple=` 歸因＋GA4 `temple` 維度＋`_temples` 聚合；P1–P3 分期與紅線 | **活的**。發連結給廟方前必讀 |
 | [`qian-interactive.md`](qian-interactive.md) | 求籤互動迴圈：選擇題／pulse 儀表板／籤詩人格／同籤留言（送審制）＋門檻紅線 | **活的**。改互動機制前必讀 |
@@ -91,7 +91,7 @@
 |---|---|---|
 | [`agents/issue-tracker.md`](agents/issue-tracker.md) | 工單＝GitHub Issues（`gh` CLI）；PR 不當工單來源。🔴 含 repo 特有前提：public repo 個資不進 issue、`weekly-report` 是機器開的 | **活的**。換 tracker 才改 |
 | [`agents/triage-labels.md`](agents/triage-labels.md) | 五個 triage 角色 → 實際標籤字串的對照。⚠️ 多數標籤尚未在 GitHub 建立，標籤現況跑 `gh label list` | **活的**。`triage` skill 目前未啟用 |
-| [`agents/domain.md`](agents/domain.md) | domain 文件的消費規則＋single-context 佈局。⚠️ 本站脈絡實際在 `decisions/` 與 `src/` 檔頭註解，`CONTEXT.md`／`docs/adr/` 尚未建（刻意不預建空殼） | **活的** |
+| [`agents/domain.md`](agents/domain.md) | domain 文件的消費規則＋single-context 佈局。⚠️ 站上脈絡實際在 `decisions/` 與 `src/` 檔頭註解，`CONTEXT.md`／`docs/adr/` 尚未建（刻意不預建空殼） | **活的** |
 
 ---
 
@@ -99,7 +99,7 @@
 
 | 檔 | 用途 | 現況 |
 |---|---|---|
-| [`../CONTEXT.md`](../CONTEXT.md) | **領域詞彙表**：本站在講民俗時每個詞精確指什麼、哪些相近詞不可互換（舉辦週期／香科／曆別／豐化／來源型別／基準日／逐字引用／verified）。只收「弄錯會產生錯誤陳述」的詞 | **活的**。命名新模組用到沒收錄的概念就加進去；與程式碼不一致信程式碼 |
+| [`../CONTEXT.md`](../CONTEXT.md) | **領域詞彙表**：站上在講民俗時每個詞精確指什麼、哪些相近詞不可互換（舉辦週期／香科／曆別／豐化／來源型別／基準日／逐字引用／verified）。只收「弄錯會產生錯誤陳述」的詞 | **活的**。命名新模組用到沒收錄的概念就加進去；與程式碼不一致信程式碼 |
 | `../README.md` | 對外技術概覽 | 全 repo 無任何 .md 指向它 |
 | `../RELEASE-CHECKLIST.md` | 發佈檢查清單與交接文件 | ⚠️ **待裁示**：全 repo 無人引用；且其開頭寫「專案規格見上傳之 `SPEC.md`」，而 **`SPEC.md` 不在 repo 裡** |
 

@@ -371,7 +371,7 @@ const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
 const addToGoogleCalendar = iso ? googleCalendarUrl(f, iso, lunarLabel) : '';
 const festivalIcsUrl = `/festivals/${f.slug}.ics`;
 
-// 節日頁是對節日與節俗的知識整理，不是本站主辦的線下活動。
+// 節日頁是對節日與節俗的知識整理，不是站上主辦的線下活動。
 // 因此用 Article，不宣稱 EventScheduled、OfflineEventAttendanceMode 或 folk.tw organizer。
 // datePublished/dateModified 來自 festivals.json 的 published/updated（Google Discover 吃新鮮度訊號，
 // 缺日期的 Article 幾乎不進 Discover）。🔴 這兩個值是「該筆資料實際變動日」（由 git 歷史回推、
@@ -388,7 +388,7 @@ const article = {
   inLanguage: 'zh-Hant-TW',
   about: { '@type': 'Thing', name: f.name },
   publisher: ORG,
-  // author 用 Organization（Google 明確接受）。🔴 不掛個人姓名——本站條目是彙整＋逐條掛源，
+  // author 用 Organization（Google 明確接受）。🔴 不掛個人姓名——站上條目是彙整＋逐條掛源，
   // 沒有具名撰稿者，掛一個人名就是杜撰署名（同廟宇代表圖「查不到署名就不採用」那條）。
   author: ORG,
   mainEntityOfPage: `https://folk.tw/festivals/${f.slug}/`,

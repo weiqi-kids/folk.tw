@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 部署 gate：掃 build 產物 dist/**/*.html，確認「所有內部網址皆為帶斜線 canonical」。
-// 背景：本站 build format 為 directory、canonical/sitemap 皆帶尾斜線；不帶斜線的內部網址
+// 背景：站上 build format 為 directory、canonical/sitemap 皆帶尾斜線；不帶斜線的內部網址
 //       會被 GitHub Pages 301 轉向帶斜線版 → 內鏈權重卡在 301 來源、爬蟲多繞一跳。
 //       此檢查阻擋任何非斜線內部網址（導航 href/src、JSON-LD url/@id/item/target/urlTemplate、
 //       canonical、og:url）再度上線。發現即 exit 1 → deploy.yml 的 build job 失敗 → 不部署。

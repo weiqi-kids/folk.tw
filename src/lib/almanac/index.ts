@@ -59,7 +59,7 @@ export interface AstronomicalProvider {
   shaDirection?(jdn: number): string | null;
   /** 節日（農曆節 + 節氣節）；可選 */
   festivals?(jdn: number): string[];
-  /** 建除十二神（含交節重值，C.2 S5）；可選——優先於本站公式 */
+  /** 建除十二神（含交節重值，C.2 S5）；可選——優先於站上公式 */
   zhiXing?(jdn: number): string;
   /** 七十二候：當前節氣（繁體）與候序 index（C 豐化）；可選 */
   houInfo?(jdn: number): { term: string; index: number } | null;
@@ -107,7 +107,7 @@ export function computeDayRecord(
 
   // 月柱、建除依月支（節分月）→ 依天文資料；月柱由年干＋月支序組裝（五虎遁）
   const monthBranch = monthBranchIdx != null ? BRANCHES[monthBranchIdx % 12] : null;
-  // 建除：優先用 provider（含交節重值，C.2 S5）；無 provider 時退本站公式（不含重值）
+  // 建除：優先用 provider（含交節重值，C.2 S5）；無 provider 時退站上公式（不含重值）
   const jianchuVal = connected && astro?.zhiXing
     ? astro.zhiXing(jdn)
     : monthBranch
@@ -192,7 +192,7 @@ export function computeDayRecord(
       day: sourced(day干, true, ['日干支序公式，已以官方農民曆＋lunar-javascript 全範圍（1901–2099，約 7.2 萬日）交叉驗證（scripts/verify-almanac.ts）']),
       hour: sourced(null, false, ['需真太陽時（經度＋均時差），C.6 發佈後增補']),
     },
-    // 建除：本站公式 + 真月支；與 lunar-javascript 一致（scripts/verify-almanac.ts 全範圍交叉驗證）
+    // 建除：站上公式 + 真月支；與 lunar-javascript 一致（scripts/verify-almanac.ts 全範圍交叉驗證）
     jianchu: sourced(jianchuVal, connected, connected ? ['建除義例（C.2 S5）；交叉驗證 lunar-javascript'] : []),
     // 廿八宿：錨定常數已以 lunar-javascript 跨6日校準（C.5）
     ershiba: sourced(xiu, true, ['七政廿八宿值日，錨定常數已校準（scripts/verify-almanac.ts 全範圍交叉驗證）']),

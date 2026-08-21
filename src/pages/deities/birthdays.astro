@@ -12,7 +12,7 @@ const { iso } = todayInTaipei();
 const all = await upcomingDeityBirthdays(iso, 400, { uniqueDeity: true });
 const totalDeities = new Set(all.flatMap((e) => e.deities.map((d) => d.deityId))).size;
 
-// FAQ（AEO）：僅就既有掛源資料生成，日期為本站農民曆引擎推算之國曆（無源不杜撰）。
+// FAQ（AEO）：僅就既有掛源資料生成，日期為站上農民曆引擎推算之國曆（無源不杜撰）。
 // ⚠️ 取前 3 **尊**，不是前 3 個**日期**——同一天常有多尊聖誕（農曆六月廿四就有三尊），
 // 用日期切會讓答案句爆成六七個名字，answer-first 就失去「一句話回答」的作用。
 const soon = all

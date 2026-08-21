@@ -118,7 +118,7 @@ const eventLocation =
   (e.host_temple ? templeName.get(e.host_temple) ?? e.host_temple : undefined) ??
   (e.destination_temple ? templeName.get(e.destination_temple) ?? e.destination_temple : undefined) ??
   e.route?.stops[0]?.name ?? e.region[0];
-// startDate 一律省略：本站活動多為 fixed_lunar／divined／undetermined，無真實國曆 ISO 日期，
+// startDate 一律省略：站上活動多為 fixed_lunar／divined／undetermined，無真實國曆 ISO 日期，
 // 避免杜撰國曆日期（日期資訊已由頁面內文與 FAQ 承載）。
 const eventLd = eventThing({
   name: e.name,

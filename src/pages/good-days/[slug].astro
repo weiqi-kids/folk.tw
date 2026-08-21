@@ -158,7 +158,7 @@ const visual = 'calendar-compass';
     </p>
   </section>
 
-  {/* 挑好日子之後那一步。🔴 本站**不存任何店家資料**——kind=map 只組地圖搜尋深連結、
+  {/* 挑好日子之後那一步。🔴 站上**不存任何店家資料**——kind=map 只組地圖搜尋深連結、
       交給使用者的裝置定位；kind=site 連站內既有的廟宇資料。理由見 good-days.json 的 _next_step。 */}
   {
     item.next_step && (
@@ -167,14 +167,14 @@ const visual = 'calendar-compass';
         {item.next_step.kind === 'site' ? (
           <p>
             {/* 🔴 這裡原本有「本站收錄全台登記在案的宮廟，可以直接查你要去的那一間。」，
-                2026-08-21 站主裁示移除：頁面不自述本站怎麼做。連結文字本身就說明了要去哪。 */}
+                2026-08-21 站主裁示移除：頁面不自述站上怎麼做。連結文字本身就說明了要去哪。 */}
             <a href={item.next_step.href}>{item.next_step.label} →</a>
           </p>
         ) : (
           <p>
             {/* 🔴 這裡原本有「這個連結把搜尋交給地圖，由你的裝置定位，位置不會傳到這裡。」，
                 2026-08-21 站主裁示移除。⚠️ 那句話裡的**隱私事實**（地圖搜尋由裝置端發動、
-                座標不經過本站）不能就此消失，已改由 /about/ §資料與統計 統一交代。 */}
+                座標不經過站上）不能就此消失，已改由 /about/ §資料與統計 統一交代。 */}
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.next_step.query ?? '')}`}
               rel="nofollow noopener"

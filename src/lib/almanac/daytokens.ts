@@ -4,7 +4,7 @@
 // 而是「建除十二神的某一值」或「某個日干／日支」。例如：
 //   嫁娶忌「…平日 收日 閉日 … 亥日」、剃頭忌「月建 … 丁日 每月十二日十五日」。
 // 原本的投票表 votes.json 只認神煞 id，於是這些條目**完全落在判定之外**——實測後果：
-// 2026-08-17 建除為「平」（協紀明列嫁娶忌平日），本站卻把它列為「宜嫁娶」。
+// 2026-08-17 建除為「平」（協紀明列嫁娶忌平日），站上卻把它列為「宜嫁娶」。
 //
 // 解法刻意選「把它們包裝成與神煞同形的 token」而不是在 resolve.ts 開特例分支：
 //   token 具備 id / class / sources / verified，直接併進 activeShenSha 集合，
@@ -41,7 +41,7 @@ const STEM_ID: Record<string, string> = {
 // 日干支由 ganzhi.ts 的確定性公式推定（verify-almanac.ts 全掃 1901–2099 三方比對全中）。
 // 兩者皆屬**曆算事實**而非考據推論，故 verified=true；來源記其推定依據。
 const SRC_JIANCHU = [
-  '建除十二神：本站 C.2 S5 建除義例（月建×日支），與 lunar-javascript（壽星天文曆）交叉驗證；' +
+  '建除十二神：站上 C.2 S5 建除義例（月建×日支），與 lunar-javascript（壽星天文曆）交叉驗證；' +
     '宜忌歸屬另見《欽定協紀辨方書》卷十一用事 https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11',
 ];
 const SRC_LUNAR = [
@@ -50,7 +50,7 @@ const SRC_LUNAR = [
     'https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11',
 ];
 const SRC_GANZHI = [
-  '日干支：本站 C.2 確定性公式，scripts/verify-almanac.ts 全掃 1901–2099 與 lunar-javascript、' +
+  '日干支：站上 C.2 確定性公式，scripts/verify-almanac.ts 全掃 1901–2099 與 lunar-javascript、' +
     'solarlunar 三方比對一致；宜忌歸屬另見《欽定協紀辨方書》卷十一用事 ' +
     'https://zh.wikisource.org/wiki/欽定協紀辨方書_(四庫全書本)/卷11',
 ];

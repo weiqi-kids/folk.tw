@@ -41,7 +41,7 @@ const deityById = new Map(deities.map((d) => [d.id, d.data]));
 // 抽籤資料集：本情境對映籤系的每一籤 → 四句 + 對映面向（既有籤解，零杜撰）。
 const poems = await getPoems();
 const interps = await interpretationById();
-// slip_prefix＝此情境靠**籤版原印的分項解**作答（月老籤），不是本站自撰的白話解籤。
+// slip_prefix＝此情境靠**籤版原印的分項解**作答（月老籤），不是站上自撰的白話解籤。
 // 取法是照抄籤版該項的原文（如「婚姻好」），不改寫、不重新歸類——選哪一項給哪個情境是「挑選」，
 // 把籤版的話改寫成我們的句子才是「詮釋」，後者不做。
 const slipPrefix: string | undefined = (concern as { slip_prefix?: string }).slip_prefix;
@@ -295,7 +295,7 @@ const visual = 'qian-slips';
     #result .reading p { font-size: var(--text-base); margin: 0 0 0.75rem; }
     #result .reading .more { font-size: var(--text-sm); color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
     /* 籤版原印的分項解（月老籤）：答案很短（「婚姻好」三個字），放大並標明出處，
-       不要看起來像本站寫的白話解籤。#result 命名空間內，注入 DOM 也套得到。 */
+       不要看起來像站上寫的白話解籤。#result 命名空間內，注入 DOM 也套得到。 */
     #result .reading .slip { font-size: var(--text-lg); color: var(--ink); display: flex; align-items: baseline; gap: 0.625rem; flex-wrap: wrap; }
     #result .reading .slip .slip-tag { font-size: var(--text-sm); color: var(--ink-soft); border: 1px solid var(--line); border-radius: 0.25rem; padding: 0.125rem 0.5rem; }
     #result .reading .slip-none { color: var(--ink-soft); }

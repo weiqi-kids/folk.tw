@@ -147,7 +147,7 @@ const lingqianSystems = lingqianOverride
   : refOk ? (deityData.get(t.main_deity_ref!)?.divination_systems ?? []) : [];
 
 // ── 地方宗教慶典（2026-08-06）───────────────────────────────────────────────
-// 內政部「地方宗教慶典」＝**縣市層級**登錄的慶典清單，其中少數幾項的名稱裡有本站廟名
+// 內政部「地方宗教慶典」＝**縣市層級**登錄的慶典清單，其中少數幾項的名稱裡有站上廟名
 // 且在所在縣市可唯一辨識（消歧規則見 scripts/import-local-celebrations.mjs，對不上一律留空）。
 // 🔴 措辭界線（同本檔上方年度祭典那條，也同 docs/decisions/temples.md）：
 //    可以說「這份清單收錄了以本廟為名的項目」＝陳述那份官方清單的內容；
@@ -197,7 +197,7 @@ const deityNodeName = refOk ? (deityName.get(t.main_deity_ref!) ?? '') : '';
 const qifuScenarios = refOk ? (scenariosByDeity.get(t.main_deity_ref!) ?? []) : [];
 const qifuConcerns = refOk ? (concernsByDeity.get(t.main_deity_ref!) ?? []) : [];
 
-// GA4 近 28 天流量優先宮廟（名單與擷取日見 image-priority.json）。沒有授權實景照者顯示本站資料卡，
+// GA4 近 28 天流量優先宮廟（名單與擷取日見 image-priority.json）。沒有授權實景照者顯示站上資料卡，
 // 並明確標示「非廟宇實景」，避免把生成式卡片誤認為現場照片。
 const topTrafficTempleIds = new Set(imagePriority.top_temples.map((x) => x.id));
 const showTrafficCard = topTrafficTempleIds.has(t.id) && !t.image;

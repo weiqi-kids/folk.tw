@@ -28,7 +28,7 @@ const chineseAudioSrc = poemAudioPath(poem.id, 'zh-TW');
 import partners from '../../data/temple-partners.json';
 // 籤型（2026-08-15 以「籤詩人格」上線；2026-08-16 用戶裁示改名——「人格」沒人看得懂，
 // 且區塊尾那行「本站原創撰寫…授權說明」是被多次裁示禁止的內容頁後設警語，已刪，
-// 撰寫原則只放 /about/）。本站原創的分型閱讀框架，不是籤意權威解釋；
+// 撰寫原則只放 /about/）。站上原創的分型閱讀框架，不是籤意權威解釋；
 // 關鍵字取自籤文原句（check:integrity 硬擋，抽詞不造詞）。
 import personas from '../../data/poem-personas.json';
 const personaAssign = (personas.poems as Record<string, { type: string; keywords: string[] }>)[poem.id];
@@ -165,8 +165,8 @@ const faq = faqPage(faqItems);
       <PoemLocaleTabs entries={localeEntries} />
     </div>
 
-    {/* 籤版原印的分項解：**照抄籤版、不改寫**，與本站自撰的九項分項解分開陳列。
-        各籤版項目名稱與數量都不同（月老籤有福祿/生意/風水），硬套本站九項會變成我們的詮釋。 */}
+    {/* 籤版原印的分項解：**照抄籤版、不改寫**，與站上自撰的九項分項解分開陳列。
+        各籤版項目名稱與數量都不同（月老籤有福祿/生意/風水），硬套站上九項會變成我們的詮釋。 */}
     {
       d.official_interpretation.length > 0 && (
         <section class="official">

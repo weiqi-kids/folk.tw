@@ -90,7 +90,7 @@ export const localCelebrationOverview = {
     // 🔴 這句話**不是可有可無的註記**：沒有它，讀者只會看到一個沒有日期的項目，
     //    分不出「我們漏了」還是「本來就換不出來」。所以驗的是「有沒有明示」，
     //    不是排版偏好。2026-08-21 字串動過一次：原本是「國曆日期逐年不同，本站不換算」，
-    //    站主裁示頁面不得自述本站怎麼作業（記憶 no-meta-disclaimers-on-pages），
+    //    站主裁示頁面不得自述站上怎麼作業（記憶 no-meta-disclaimers-on-pages），
     //    去掉「本站」兩字成為現在這句。**「不換算」三個字不可以再省**——
     //    省掉就只剩事實陳述、失去明示，那時這道 gate 應該擋下來而不是再改一次字串。
     for (const x of items.filter((i) => i.calendar === 'hijri')) {

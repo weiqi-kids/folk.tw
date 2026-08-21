@@ -46,7 +46,7 @@ const reference = createReference() as unknown as typeof import('astro:content')
  * ⚠️ 2026-08-20 詞彙標準化：festivals.json 曾自己多出 `site`（46 筆，指向 folk.tw 自己的
  *    交叉引用）與 `gov_heritage`（24 筆，皆 nchdb）兩種值。站主裁示**兩種都併入既有詞彙**
  *    （`gov_heritage`→`gov`、`site`→`web`），所以這裡維持原本的七值，不再擴充。
- *    ⚠️ 那 46 筆的 `ref` 仍然指向本站自己——**「是不是同源」不看這個欄位**，
+ *    ⚠️ 那 46 筆的 `ref` 仍然指向這個站自己——**「是不是同源」不看這個欄位**，
  *    看網址（`isSameOrigin()`，`src/lib/sources.ts`）。渲染端據此決定要不要加
  *    `nofollow`／`target="_blank"`，與 type 值無關，所以這次合併不影響那個行為。
  */
@@ -242,7 +242,7 @@ export const poemsSchema = z.object({
   // 籤版本身所印的分項解（如「功名至」「婚姻好」）。**逐條照抄籤版、不改寫、不重新歸類**：
   // 各籤版的項目名稱與數量都不同（月老籤有福祿/生意/風水，六十甲子籤沒有），
   // 硬套 interpretations 的九項會變成我們的詮釋而非籤版原文。
-  // 本站自撰的白話賞析與九項分項解仍走 interpretations collection，兩者並存不混。
+  // 站上自撰的白話賞析與九項分項解仍走 interpretations collection，兩者並存不混。
   official_interpretation: z.array(z.string()).default([]),
   lines: z.array(z.string()).min(4).max(4), // 四句本文（公有領域）
   // 典故連結可多筆並陳、各掛源（A.0 各廟版本不一）
@@ -261,13 +261,13 @@ export const poemsSchema = z.object({
   draft: z.boolean().default(false),
 });
 
-// 籤詩白話賞析＋八項分項解（本站原創；§6）。每篇獨立 md，檔名 stem = poem id（依 id join）。
+// 籤詩白話賞析＋八項分項解（站上原創；§6）。每篇獨立 md，檔名 stem = poem id（依 id join）。
 // frontmatter = 八項分項解（次級，可選）；body = 白話賞析（版面主角，§0.5）。
 export const interpretationsSchema = z.object({
   運勢: z.string().optional(),
   求財: z.string().optional(),
   姻緣: z.string().optional(),
-  六甲: z.string().optional(), // 求子／胎孕（民俗問事類別，依傳統六十甲子籤六甲/求兒解，本站語氣撰寫）
+  六甲: z.string().optional(), // 求子／胎孕（民俗問事類別，依傳統六十甲子籤六甲/求兒解，站上語氣撰寫）
   功名: z.string().optional(),
   訴訟: z.string().optional(),
   疾病: z.string().optional(),

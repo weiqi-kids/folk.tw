@@ -59,7 +59,7 @@ const MAINTENANCE_LEAKS = [
   { re: /🔴|⛔|🅤/, why: '維護註記符號（🔴／⛔／🅤 是給維護者的標記，不是給讀者的）' },
   { re: /caseId|holdPeriod|holdCalendarType|registerReason|historyDevelopment/, why: '資料來源的欄位名稱' },
   { re: /(?:^|[^A-Za-z])repo(?:[^A-Za-z]|$)/, why: '「repo」是內部語彙' },
-  { re: /不可沿用|不要照它換算|逐字照抄|本站鐵則/, why: '對維護者的指示語' },
+  { re: /不可沿用|不要照它換算|逐字照抄|站上鐵則/, why: '對維護者的指示語' },
   { re: /lunar-javascript|nchdb|data\.boch/, why: '工具或端點名稱（讀者不需要知道我們用什麼查的）' },
 ];
 
@@ -111,7 +111,7 @@ const SOURCE_CLAIM = [
   { re: /[（(]內政部[^）)]{0,12}開放資料[）)]/, why: '全站級單一來源宣告（屬 /about/；且資料為複合來源）' },
   { re: /資料來源[：:]\s*內政部/, why: '同上' },
   { re: /資料源自內政部/, why: '同上' },
-  { re: /本站(的)?資料(來源|源自)/, why: '全站級來源宣告，屬 /about/' },
+  { re: /站上(的)?資料(來源|源自)/, why: '全站級來源宣告，屬 /about/' },
   // 🔴 2026-08-21 補的三條。前四條擋的是**那幾句字面**，而 2026-08-21 在
   //    `temples/region/[county]/[town]/[deity].astro` 抓到的是
   //    「宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。」——沒有括號、

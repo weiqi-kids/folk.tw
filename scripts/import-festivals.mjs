@@ -291,7 +291,7 @@ console.log(`  廟名唯一命中       ${stat.matched_unique_name}`);
 console.log(`  行政區消歧命中     ${stat.matched_by_region}`);
 console.log(`  電話橋命中         ${stat.matched_by_phone}`);
 console.log(`  同名無法消歧(捨棄) ${stat.unresolved_same_name}`);
-console.log(`  本站未收錄此廟     ${stat.not_in_our_db}`);
+console.log(`  站上未收錄此廟     ${stat.not_in_our_db}`);
 console.log(`  同廟重複列(去重)   ${stat.duplicate_within_temple}`);
 console.log('── 結果 ──');
 console.log(`  取得祭典的廟       ${touched} / ${temples.length}`);

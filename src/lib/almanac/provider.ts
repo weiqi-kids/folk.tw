@@ -10,7 +10,7 @@ import { jdnToGregorian, gregorianToJDN } from './jdn.ts';
 import { BRANCHES } from './ganzhi.ts';
 import type { AstronomicalProvider, GanZhi } from './index.ts';
 
-// lunar-javascript 之節氣／節日名回簡體；本站為繁體（zh-Hant-TW），逐一正規化。
+// lunar-javascript 之節氣／節日名回簡體；這個站是繁體（zh-Hant-TW），逐一正規化。
 // 二十四節氣僅 5 個簡繁有別，其餘同形。
 const TERM_TRAD: Record<string, string> = { 惊蛰: '驚蟄', 谷雨: '穀雨', 小满: '小滿', 芒种: '芒種', 处暑: '處暑' };
 const tt = (n: string) => TERM_TRAD[n] ?? n;

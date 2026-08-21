@@ -43,7 +43,7 @@ const idx = all.findIndex((s) => s.no === Number(no));
 const prev = idx > 0 ? all[idx - 1] : null;
 const next = idx < all.length - 1 ? all[idx + 1] : null;
 
-// 典藏本身即帶警語者——那是機構寫的，不是本站加的。措辭必須守住這個區別。
+// 典藏本身即帶警語者——那是機構寫的，不是站上加的。措辭必須守住這個區別。
 const warned = /請勿使用|毒劇|有毒/.test(slip.formula + slip.institute_note);
 
 const note = noteById.get(slip.id) ?? null;

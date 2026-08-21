@@ -61,14 +61,14 @@ function trimUrlTail(u: string): string {
 /** 前後成對的全形／半形括號當標籤時是雜訊（「（說明）」→「說明」）。 */
 const WRAP_PARENS = /^[（(]([\s\S]*)[）)]$/;
 
-/** 本站 origin。與 astro.config.mjs 的 `site` 一致。 */
+/** 站上 origin。與 astro.config.mjs 的 `site` 一致。 */
 export const SITE_ORIGIN = 'https://folk.tw';
 
 /**
- * 這個網址是不是指向本站自己。
+ * 這個網址是不是指向這個站自己。
  *
  * 🔴 用途：來源列的連結原本**無條件**加 `rel="nofollow" target="_blank"`，
- *    而 festivals.json 有一批 `type:'site'` 的自我引用（本站頁面當導覽入口）。
+ *    而 festivals.json 有一批 `type:'site'` 的自我引用（站上頁面當導覽入口）。
  *    結果是我們對自己的內部連結下 nofollow、還開新分頁——兩者都是白白的自傷，
  *    且不會有任何 gate 紅燈（check:anchor-text 驗的是可見文字，不是 rel）。
  *

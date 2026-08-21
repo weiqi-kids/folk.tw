@@ -28,7 +28,7 @@
 //  會把每個名字的命中／落空記進外部傳入的 sectionStats，由 runner 統計後擋下。
 import { readFileSync } from 'node:fs';
 
-/** HTML entity 還原：只還原本站產物實際會出現的那幾個。 */
+/** HTML entity 還原：只還原站上產物實際會出現的那幾個。 */
 export function decode(value) {
   return String(value ?? '')
     .replace(/&nbsp;/giu, ' ')

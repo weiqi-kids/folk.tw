@@ -46,7 +46,7 @@ function scan(file) {
     const loc = `${rel}:${i + 1}`;
     if (/font-size\s*:\s*[0-9.]+px/i.test(line))
       violations.push(`${loc} px 字級（改用 var(--text-*)）: ${line.trim()}`);
-    // 本站例外（沿用舊 check:design-tokens 已文件化規則）：<meta name="theme-color">
+    // 站上例外（沿用舊 check:design-tokens 已文件化規則）：<meta name="theme-color">
     // 依 HTML 規格 content 只能是字面色、無法用 var(--…)，不掃該行顏色。
     const isThemeColorMeta = /<meta\s+name="theme-color"/.test(line);
     if (!isTokenFile && !isThemeColorMeta && /(#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\()/.test(line) && !/url\(/.test(line))

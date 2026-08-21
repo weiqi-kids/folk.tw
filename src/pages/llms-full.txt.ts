@@ -1,4 +1,4 @@
-// llms-full.txt — 供 AI 助手（ChatGPT／Claude／Perplexity）一次取得本站主要內容全文。
+// llms-full.txt — 供 AI 助手（ChatGPT／Claude／Perplexity）一次取得站上主要內容全文。
 //
 // 與 public/llms.txt 的分工（勿混淆）：
 //   llms.txt      ＝「目錄」：站台簡介＋分區連結（靜態檔，維護於 public/llms.txt）。
@@ -8,7 +8,7 @@
 // 每則條目附來源 ref）。站台說明段直接內嵌 public/llms.txt 正文，避免兩處各寫一份而漂移。
 //
 // 規模控制：廟宇約 7.9k 筆、農民曆逐日頁上萬，樣板化且對 AI 無增益 → 只給「代表名廟（有沿革考據者）」
-// ＋ sitemap 連結；籤詩收公有領域四句本文，白話賞析／八項分項解（本站原創、篇幅大）留在各籤頁。
+// ＋ sitemap 連結；籤詩收公有領域四句本文，白話賞析／八項分項解（站上原創、篇幅大）留在各籤頁。
 import type { APIRoute } from 'astro';
 // 站台說明取自 public/llms.txt 本文（?raw 於 build 期內嵌；勿改用 fs 相對路徑讀取——
 // 產物 chunk 的 import.meta.url 指向 dist/，會 ENOENT）。
@@ -176,8 +176,8 @@ export const GET: APIRoute = async () => {
   }
   push(
     '',
-    '籤詩本文屬公有領域，本站收錄並標版本；現代解籤文字有著作權，本站不抄錄。' +
-      '各籤的白話賞析與八項分項解（運勢／求財／姻緣／六甲／功名／訴訟／疾病／行人／失物）為本站原創，' +
+    '籤詩本文屬公有領域，站上收錄並標版本；現代解籤文字有著作權，站上不抄錄。' +
+      '各籤的白話賞析與八項分項解（運勢／求財／姻緣／六甲／功名／訴訟／疾病／行人／失物）為站上原創，' +
       `見各籤頁 ${SITE}/poems/<籤 id>/。`,
     '',
   );

@@ -43,7 +43,7 @@ https://folk.tw/poems/<poem_id>/?temple=<temple_id>
 ```
 
 - 合作白名單＝`src/data/temple-partners.json`（`active` 者生效；`check:integrity` 硬擋廟/籤系/素材檔）。
-- 命中白名單：籤詩頁換該廟背景（素材路徑在 `theme.bg`，**目前是本站設計的裝飾素材**，
+- 命中白名單：籤詩頁換該廟背景（素材路徑在 `theme.bg`，**目前是站上設計的裝飾素材**，
   廟方授權照片到貨後替換檔案即可、路徑不動）；前後籤導覽帶著參數走。
   **不放落款 banner**（2026-08-15 用戶裁示：授權已確認，頁面不需聲明；`theme.credit` 僅作資料層記錄）。
 - 不論是否白名單，`?temple=` 合法即送 `poem_open` 事件（temple 維度）；聚合進 `_temples.<id>.poem_opens`。

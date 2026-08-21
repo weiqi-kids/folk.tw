@@ -11,7 +11,7 @@ export const ORG = {
 };
 
 /** 首頁發布者 Organization JSON-LD（GEO 實體錨定，P2-7）：獨立節點、帶 @context 與 logo。
- *  sameAs 僅放本站真實實體連結（GitHub 專案；本站無社群帳號，來源稀疏故僅此一項）。 */
+ *  sameAs 僅放站上真實實體連結（GitHub 專案；這個站沒有社群帳號，來源稀疏故僅此一項）。 */
 export function orgNode() {
   return {
     '@context': 'https://schema.org',
@@ -194,7 +194,7 @@ export function articleThing(a: {
 }
 
 /** 時事祈福「事件記錄頁」（Article）JSON-LD（P3 歷史記錄態）。
- *  刻意用保守的一般 Article（非 NewsArticle/LiveBlogPosting）：本站為民俗祈福站、非新聞機構，
+ *  刻意用保守的一般 Article（非 NewsArticle/LiveBlogPosting）：這個站是民俗祈福站、非新聞機構，
  *  不宜宣稱新聞屬性；只做事實記錄。有值才帶欄位；citation 收斂事件出處與各後續發展來源之 url（去重去空）。 */
 export function memorialArticle(a: {
   id: string;

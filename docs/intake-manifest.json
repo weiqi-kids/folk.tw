@@ -1,7 +1,7 @@
 {
   "_readme": [
     "台灣端資料投遞清單。台灣主機的抓取腳本每輪先取這份最新版，照 jobs 逐項抓，",
-    "把原始 bytes（不解析）＋.sha256 送回本站主機的 inbox。完整交接說明見 docs/taiwan-host-handoff.md。",
+    "把原始 bytes（不解析）＋.sha256 送回站上主機的 inbox。完整交接說明見 docs/taiwan-host-handoff.md。",
     "本檔刻意放 public repo：內容只有政府公開資料的網址，無任何機密。",
     "取得方式：curl -fsSL https://raw.githubusercontent.com/weiqi-kids/folk.tw/main/docs/intake-manifest.json",
     "維護者＝境外主機（folk.tw 專案）。台灣端不要改這份檔——改了下輪會被覆蓋。",

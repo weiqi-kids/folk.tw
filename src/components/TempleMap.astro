@@ -1,8 +1,8 @@
 ---
 // 廟宇位置與 Google 評論外連（方案 3「輕連結」）。
-// 政策紅線：不抓取、不快取 Google 評論，不對非本站擁有的商家標 aggregateRating（Google 明文禁止 self-serving 評論標記）。
+// 政策紅線：不抓取、不快取 Google 評論，不對不是站上擁有的商家標 aggregateRating（Google 明文禁止 self-serving 評論標記）。
 // 只做：① 免 API key 的地圖嵌入（output=embed，靜態站零金鑰）② 導去 Google 商家看評論／導航的外連。
-// 評論資料與責任皆留在 Google 端；本站只提供入口。
+// 評論資料與責任皆留在 Google 端；站上只提供入口。
 interface Props {
   name: string;
   lat: number;

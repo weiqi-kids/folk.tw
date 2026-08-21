@@ -25,8 +25,8 @@ publish_at: annual-source-check
 
 查「籤詩怎麼看」「六十甲子籤和關帝籤差別」「籤詩典故是什麼」「藥籤能不能治病」的人，需要版本、籤數、取籤方式、典故和安全界線。
 
-1. 既有資料把六十甲子籤定義為六十首、以干支甲子到癸亥編排，並結合易經卦與卦頭故事；閱讀時應先辨識籤系再解籤。[本站資料〈六十甲子籤〉](https://folk.tw/systems/liushi_jiazi/)
-2. 關帝靈籤資料記載雷雨師百首共一百首，每籤以歷史人物典故命題，與六十甲子籤不能混用。[本站資料〈關聖帝君靈籤〉](https://folk.tw/systems/guandi_lingqian/)
+1. 既有資料把六十甲子籤定義為六十首、以干支甲子到癸亥編排，並結合易經卦與卦頭故事；閱讀時應先辨識籤系再解籤。[站上資料〈六十甲子籤〉](https://folk.tw/systems/liushi_jiazi/)
+2. 關帝靈籤資料記載雷雨師百首共一百首，每籤以歷史人物典故命題，與六十甲子籤不能混用。[站上資料〈關聖帝君靈籤〉](https://folk.tw/systems/guandi_lingqian/)
 3. 臺南祀典大天后宮的月老籤為二十七首，取籤方式是三次筊杯組合，不是一般抽籤支；這是廟方版本的具體規則。[臺南祀典大天后宮〈月下老人靈籤〉](https://www.gtainanmazu.org.tw/?act=menuinfo&ml_id=20220121003)
 4. 保生大帝藥籤資料指向衛生福利部國家中醫藥研究所典藏，並明確區分歷史藥籤和現代醫療使用；例如外科第一首有獨立的典藏物件頁。[國家文化記憶庫〈保生大帝藥籤外科第一首〉](https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=487841)
 
@@ -67,8 +67,8 @@ publish_at: annual-source-check
 
 ## 來源
 
-- [本站資料〈六十甲子籤〉](https://folk.tw/systems/liushi_jiazi/)
-- [本站資料〈關聖帝君靈籤〉](https://folk.tw/systems/guandi_lingqian/)
+- [站上資料〈六十甲子籤〉](https://folk.tw/systems/liushi_jiazi/)
+- [站上資料〈關聖帝君靈籤〉](https://folk.tw/systems/guandi_lingqian/)
 - [臺南祀典大天后宮〈月下老人靈籤〉](https://www.gtainanmazu.org.tw/?act=menuinfo&ml_id=20220121003)
 - [國家文化記憶庫〈保生大帝藥籤外科第一首〉](https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=487841)
 
