@@ -395,13 +395,21 @@ export const GATES = [
     why: '季節性活動頁的檔期設定與資料一致',
   },
   {
+    // 🔴 2026-08-21 改分類：原本是 `tier: 'full'` ＋ `stages: []`，等於**只有 CI build 會跑**。
+    //    實測 0.29／0.30 秒——比多數 fast gate 還快，那個 full 是誤分類。
+    //    代價已經付過一次：改需求頁模板的那句措辭界線時，本機 18 道 gate 全綠、
+    //    push 之後 CI build 才紅（`需求頁模板缺必要不變量`），白等一輪 build。
+    //    ⚠️ 它守的是**措辭界線**（「宮廟資料裡有這筆登記」≠「這間廟今年有在辦」），
+    //       這種 gate 特別需要在本機就擋——改文案的人通常不知道有一道 gate 綁著那句話。
+    //    viaBuild 維持 true：`pnpm build` 鏈裡已經有一份，CI 端不重複掛。
     id: 'check:temple-demand',
     label: '廟宇需求頁',
     needs: 'source',
-    tier: 'full',
-    stages: [],
+    tier: 'fast',
+    stages: ['pre-push'],
     viaBuild: true,
-    why: '鄉鎮×主祀需求頁白名單須回讀 GSC 快照、宮廟數與精確主祀對映硬驗',
+    changed: ['ui', 'data'],
+    why: '需求頁模板的措辭界線不變量（登記在案／以廟方公告為準）＋回讀 GSC 快照、宮廟數與精確主祀對映硬驗',
   },
   {
     id: 'check:temple-ctr',

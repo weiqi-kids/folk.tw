@@ -89,10 +89,20 @@ for (const page of TEMPLE_DEMAND_PAGES) {
 }
 
 const template = readFileSync(resolve(root, 'src/pages/temples/region/[county]/[town]/[deity].astro'), 'utf8');
-for (const required of ['class="lead"', '主祀{deityName}的宮廟名單', '有這筆登記祭典', 'templeDemandHref']) {
+// 🔴 這組不變量守的是**措辭界線**（「宮廟資料裡有這筆登記」≠「這間廟今年有在辦」），
+//    不是任何一句話的字面。2026-08-21 動過一次：那句免責原本寫成
+//    「下列內容只表示宮廟資料中有這筆登記祭典，**不代表本站確認**當年度實際舉辦情形。」，
+//    站主裁示頁面不得自述本站怎麼作業（見記憶 no-meta-disclaimers-on-pages），
+//    改寫成「下列是宮廟登記在案的祭典；當年度是否舉辦、日期有無異動，以廟方公告為準。」
+//    ——語意一字未讓，但字面換了，於是這道 gate 紅燈（**它該紅，這正是它的職責**）。
+//    改不變量時的判準：新字串必須同時承載「登記」與「未經確認」兩層意思；
+//    只要有人把它簡化成「這些廟的祭典」就會失去界線，那時應該擋下來而不是再改一次 gate。
+for (const required of ['class="lead"', '主祀{deityName}的宮廟名單', '登記在案的祭典', '以廟方公告為準', 'templeDemandHref']) {
   if (!template.includes(required)) violations.push(`需求頁模板缺必要不變量：${required}`);
 }
-if (/實際舉辦|舉辦.*活動|這些廟.*過/.test(template.replace('不代表本站確認當年度實際舉辦情形', '')))
+// 先把那句合法的界線說明整段拿掉再測，否則它自己會觸發下面的關鍵詞。
+if (/實際舉辦|舉辦.*活動|這些廟.*過/.test(
+  template.replace('當年度是否舉辦、日期有無異動，以廟方公告為準', '')))
   violations.push('需求頁模板疑似替廟方宣稱活動');
 
 if (violations.length) {
