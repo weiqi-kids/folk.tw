@@ -2705,7 +2705,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/antaisui/",
-        "note": "站上太歲儀式資料入口"
+        "note": "太歲儀式資料入口"
       }
     ],
     "facts": [
@@ -2856,7 +2856,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/antaisui/",
-        "note": "站上安太歲儀式資料"
+        "note": "安太歲儀式資料"
       },
       {
         "type": "gov",
@@ -2919,7 +2919,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/baitiangong/",
-        "note": "站上拜天公資料"
+        "note": "拜天公資料"
       }
     ],
     "facts": [
@@ -2942,7 +2942,7 @@
         ]
       },
       {
-        "text": "站上拜天公資料把流程、供品與禁忌標示為民俗參考，不把祭拜做法轉寫成所有家庭都必須遵守的規定。",
+        "text": "拜天公的流程、供品與禁忌是民俗參考，不是每個家庭都必須照辦的規定。",
         "sources": [
           {
             "type": "web",
@@ -3431,7 +3431,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/saomu/",
-        "note": "站上掃墓資料"
+        "note": "掃墓資料"
       },
       {
         "type": "gov",
@@ -4224,7 +4224,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/",
-        "note": "站上拜拜習俗索引"
+        "note": "拜拜習俗索引"
       },
       {
         "type": "gov",
@@ -4290,7 +4290,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/deities/",
-        "note": "站上神明索引"
+        "note": "神明索引"
       },
       {
         "type": "gov",
@@ -4356,7 +4356,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/",
-        "note": "站上拜拜習俗索引"
+        "note": "拜拜習俗索引"
       },
       {
         "type": "gov",
@@ -4422,7 +4422,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/",
-        "note": "站上民俗儀式索引"
+        "note": "民俗儀式索引"
       },
       {
         "type": "gov",
@@ -4499,7 +4499,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/zuo16/",
-        "note": "站上做十六歲習俗資料"
+        "note": "做十六歲習俗資料"
       }
     ],
     "facts": [
@@ -4522,7 +4522,7 @@
         ]
       },
       {
-        "text": "做十六歲的報名、供品、鑽亭與典禮時間依主辦廟和地區而異，站上習俗資料不替年度公告補填名額或流程。",
+        "text": "做十六歲的報名、供品、鑽亭與典禮時間依主辦廟和地區而異，當年度的名額與流程以主辦廟公告為準。",
         "sources": [
           {
             "type": "web",
@@ -4565,7 +4565,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/festivals/guimenkai/",
-        "note": "站上鬼門開資料"
+        "note": "鬼門開資料"
       }
     ],
     "facts": [
@@ -4631,7 +4631,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/festivals/fangshuideng/",
-        "note": "站上放水燈資料"
+        "note": "放水燈資料"
       }
     ],
     "facts": [
@@ -4697,7 +4697,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/practices/pudu/",
-        "note": "站上普渡習俗資料"
+        "note": "普渡習俗資料"
       }
     ],
     "facts": [
@@ -4720,7 +4720,7 @@
         ]
       },
       {
-        "text": "普渡的供品、金紙與步驟屬習俗操作問題，站上另以普渡頁承接，避免中元節日期頁複製完整流程。",
+        "text": "普渡的供品、金紙與步驟屬於習俗操作，完整流程見普渡頁。",
         "sources": [
           {
             "type": "web",
@@ -4830,7 +4830,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/festivals/dizang/",
-        "note": "站上地藏王聖誕資料"
+        "note": "地藏王聖誕資料"
       }
     ],
     "facts": [
@@ -4895,7 +4895,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/deities/birthdays/",
-        "note": "站上神明聖誕資料"
+        "note": "神明聖誕資料"
       }
     ],
     "facts": [
@@ -4918,7 +4918,7 @@
         ]
       },
       {
-        "text": "日期核對應保存原始公告與曆法格式，站上聖誕資料會把異說並列，不以單一熱門答案消除地方差異。",
+        "text": "日期核對應保存原始公告與曆法格式；聖誕日期各地說法不一，並列呈現，不用單一熱門答案蓋掉地方差異。",
         "sources": [
           {
             "type": "web",
@@ -4961,7 +4961,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/deities/",
-        "note": "站上神明索引"
+        "note": "神明索引"
       }
     ],
     "facts": [
@@ -5017,12 +5017,12 @@
       {
         "type": "web",
         "ref": "https://folk.tw/deities/",
-        "note": "站上神明索引"
+        "note": "神明索引"
       },
       {
         "type": "web",
         "ref": "https://folk.tw/temples/",
-        "note": "站上宮廟索引"
+        "note": "宮廟索引"
       },
       {
         "type": "gov",
@@ -5083,7 +5083,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/almanac/",
-        "note": "站上農民曆入口"
+        "note": "農民曆入口"
       },
       {
         "type": "gov",
@@ -5141,7 +5141,7 @@
     "season": "全年主題",
     "question": "如何選適合自己的廟？宮廟資料要看哪些欄位？",
     "intent": "選廟方法、主祀神與官方資料查核",
-    "lead": "選廟不應只看網路星等或一句靈驗評價，先確認主祀神、地址、開放時間、服務內容、資料來源與自己要處理的問題，通常更能避免走錯入口。這一頁教讀者讀宮廟資料：主祀與陪祀、祭典日期、是否提供特定服務、交通與聯絡方式要分欄核對；活動公告、費用與預約是會變動的資訊，必須回到廟方官方渠道。站上索引提供查找工具，不替讀者做信仰或消費決定。",
+    "lead": "選廟不應只看網路星等或一句靈驗評價，先確認主祀神、地址、開放時間、服務內容、資料來源與自己要處理的問題，通常更能避免走錯入口。這一頁教讀者讀宮廟資料：主祀與陪祀、祭典日期、是否提供特定服務、交通與聯絡方式要分欄核對；活動公告、費用與預約是會變動的資訊，必須回到廟方官方渠道。索引是查找工具，不替你做信仰或消費上的決定。",
     "date_note": "全年主題，沒有固定日期；宮廟地址、開放時間與服務公告需逐廟更新。",
     "source_status": "source_required",
     "image_key": "chongyang",
@@ -5149,7 +5149,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/temples/",
-        "note": "站上宮廟索引"
+        "note": "宮廟索引"
       },
       {
         "type": "gov",
@@ -5182,7 +5182,7 @@
         ]
       },
       {
-        "text": "站上宮廟索引是資料查找入口，不把評價、香火或靈驗傳聞當成選廟的客觀排名。",
+        "text": "宮廟索引是資料查找入口；評價、香火與靈驗傳聞都不是選廟的客觀排名。",
         "sources": [
           {
             "type": "web",
@@ -5225,7 +5225,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/events/",
-        "note": "站上民俗活動索引"
+        "note": "民俗活動索引"
       }
     ],
     "facts": [
@@ -5281,7 +5281,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/events/",
-        "note": "站上民俗活動資料"
+        "note": "民俗活動資料"
       },
       {
         "type": "gov",
@@ -5347,7 +5347,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/fortune/",
-        "note": "站上求籤入口"
+        "note": "求籤入口"
       },
       {
         "type": "gov",
@@ -5480,7 +5480,7 @@
       {
         "type": "web",
         "ref": "https://folk.tw/festivals/",
-        "note": "站上民俗節日曆"
+        "note": "民俗節日曆"
       },
       {
         "type": "gov",
