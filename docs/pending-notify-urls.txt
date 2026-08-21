@@ -3,6 +3,13 @@
 #   pnpm notify $(grep -v '^#' docs/pending-notify-urls.txt | tr '\n' ' ')
 # 🔴 Google Indexing API 每日 200 筆；本清單 134 筆，一次送得完。
 # 推送完成後刪掉這個檔。
+#
+# ⚠️ 2026-08-21 更新：這批**沒有一次送完**（撞 429），剩下的落在
+#   /root/.config/folk-tw/index-ping-queue.json 佇列裡。當時沒有排程會清佇列，於是就卡住了。
+#   現已建 cron 每日台北 16:00 自動續送（見 docs/seo-automation.md）。
+#   👉 所以這個檔已經不是「待辦清單」——佇列才是真實來源。查還剩幾筆：
+#      node -e "console.log(require('/root/.config/folk-tw/index-ping-queue.json').length)"
+#   佇列清空後這個檔就可以刪。
 
 https://folk.tw/events/pingxi_tiandeng/
 https://folk.tw/events/nantun_muji/

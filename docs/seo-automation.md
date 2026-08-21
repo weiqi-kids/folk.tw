@@ -54,6 +54,23 @@ sessions、PV 或推估月速率替代目標，因此不會悄悄降低門檻。
 - `scripts/notify.mjs`（`pnpm notify` 一鍵雙推）
 - `/root/.config/folk-tw/ga4-sa.json`（收集/週報用；SA 須為 GSC 擁有者；2026-08-04 自 scripts/.google-sa-key.json 遷出 repo 樹）
 
+### 送收錄佇列每日自動續送（2026-08-21 建）
+
+Google Indexing API 每日配額 200（`MAX_PER_RUN` 190 留餘裕），一次送不完的網址存進
+`/root/.config/folk-tw/index-ping-queue.json`，下次執行**優先送佇列**。
+
+⚠️ **在此之前沒有任何排程會去清那個佇列**——只有人手動跑 `pnpm notify` 才會續。實際後果：
+8/20 那批新頁（辭典文物頁型等）推到一半撞配額，剩下的就一直躺在佇列裡，
+`docs/pending-notify-urls.txt` 的註解寫著「Google 佇列待配額續送」而沒有人續。
+
+現在由 `/etc/cron.d/folk-qiugian` 每日 **UTC 08:00（台北 16:00）** 續送，
+排在配額重置（PT 午夜＝台北 15:00）之後、避開台北 15:30 的 seo-collect。
+
+🔴 **cron 用的子命令是 `ping` 不是 `notify`**：`notify` 會連 IndexNow 一起送，而 IndexNow
+那半邊**無參數時的預設是全站 sitemap**——2026-08-21 建這條時實測，一次送出 15,505 筆。
+每天對 Bing/Yandex 全站重推是濫發訊號，不是「續送佇列」該有的行為。
+部署後的人工推送仍然用 `pnpm notify <url...>`（帶明確網址，兩邊都送，這是對的）。
+
 ## 部署紅線（保留）
 
 - `git push origin main` 即自動觸發 `deploy.yml on:push`；**絕不再 `gh workflow run deploy.yml` 補跑**
