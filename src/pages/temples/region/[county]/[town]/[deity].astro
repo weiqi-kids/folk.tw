@@ -93,7 +93,14 @@ const description = `整理${cName}${demand.town}主祀${deityName}的 ${temples
   )}
 
   <p class="back-link"><a href={`/temples/region/${demand.county}/${demand.town}/`}>查看{demand.town}全部宮廟 →</a></p>
-  <p class="src small">宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。</p>
+  {/* 🔴 這裡原本有一句「宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。」，2026-08-21 移除。
+      兩個理由，任一個都足以拿掉：
+      ① **資料集級宣稱不放在內容頁**——`/about/` §版權與授權已經逐條在講，這是 2026-08-07
+         就裁示過的界線（當時擋掉的原句是「資料來源：內政部全國宗教資訊網開放資料。」，
+         這一句只是換了主詞，躲過了 check:copy-voice 的 SOURCE_CLAIM）。
+      ② **那句話本身是錯的**：本頁的祭典資料是內政部 8203 ＋ 慶(祭)典查詢逐筆掛源的複合結果，
+         主祀還經過 main_deity_ref 精確比對，宣稱單一來源違反總紅線 1。
+      逐筆掛源仍由 <Sources> 在各廟宇頁負責，那是授權義務、不受這條影響。 */}
 
   <style>
     .lead { line-height: 1.8; margin-bottom: 1.75rem; }

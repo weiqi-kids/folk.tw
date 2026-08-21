@@ -8,7 +8,7 @@
 //    （本檔一向在 `parsed.length === 0` 時什麼都不畫）。
 //
 // 文字內容與分隔符自 2026-08-08 起一個字都沒動過（來源標示是授權條件，不動它）。
-import { parseSourceRef, isSameOrigin, type SourceRef } from '../lib/sources';
+import { parseSourceRef, isSameOrigin, isDatasetLevelClaim, type SourceRef } from '../lib/sources';
 
 /**
  * 版型＝呼叫端唯一要決定的事。
@@ -36,7 +36,12 @@ const TAG: Record<SourcesVariant, unknown> = {
 // 所以「版型必須指定」靠下面那行 runtime 守——漏傳會在 build 當場炸掉，不會安靜掉樣式。
 const { sources = [], prefix = '來源：', variant } = Astro.props as Props;
 if (!variant || !(variant in TAG)) throw new Error(`<Sources> 必須指定 variant（${Object.keys(TAG).join('／')}），收到：${variant}`);
-const parsed = sources.map(parseSourceRef);
+// 資料集級整包宣稱（如「內政部全國宗教資訊網（data.gov.tw/dataset/8203）」）不渲染：
+// `/about/` §版權與授權已經逐條在講，每頁再重複一次是雜訊，且它沒有連結、
+// 對「標示資料來源連結」的授權條件無貢獻。判準與緣由見 src/lib/sources.ts 的 DATASET_LEVEL_CLAIMS。
+// ⚠️ 過濾放在**渲染入口**而不是資料層：sources 欄位要完整保留供機器複驗，
+//    而且匯入器每次重跑都會把那筆寫回來，改資料是治不好的。
+const parsed = sources.filter((s) => !isDatasetLevelClaim(s)).map(parseSourceRef);
 
 const Wrapper = TAG[variant] as 'p' | 'div' | 'span';
 // Fragment 不吃 class；其餘版型統一由本檔的 scoped style 上色與排版。

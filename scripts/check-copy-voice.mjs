@@ -112,6 +112,16 @@ const SOURCE_CLAIM = [
   { re: /資料來源[：:]\s*內政部/, why: '同上' },
   { re: /資料源自內政部/, why: '同上' },
   { re: /本站(的)?資料(來源|源自)/, why: '全站級來源宣告，屬 /about/' },
+  // 🔴 2026-08-21 補的三條。前四條擋的是**那幾句字面**，而 2026-08-21 在
+  //    `temples/region/[county]/[town]/[deity].astro` 抓到的是
+  //    「宮廟、主祀與祭典資料：內政部全國宗教資訊網開放資料。」——沒有括號、
+  //    主詞從「資料來源」換成「宮廟、主祀與祭典資料」，四條規則一條都沒中。
+  //    這是本檔開頭那句教訓（「禁語要擋**句型**，不是擋那一句字面」）在來源宣告上的重演。
+  { re: /內政部[^。，\n]{0,20}開放資料/, why: '全站級單一來源宣告（不論有無括號）；屬 /about/' },
+  { re: /[^。\n]{0,14}資料[：:]\s*(內政部|交通部|文化部|衛生福利部)/, why: '「某某資料：某部會」＝資料集級宣稱，屬 /about/' },
+  // 資料集級整包宣稱的字面（＝ src/lib/sources.ts 的 DATASET_LEVEL_CLAIMS）。
+  // 那兩句由 <Sources> 在渲染時濾掉，這裡擋的是「有人又把它寫死進 .astro」。
+  { re: /data\.gov\.tw\/dataset\/(8203|7777)/, why: '資料集級整包宣稱，屬 /about/（見 sources.ts DATASET_LEVEL_CLAIMS）' },
 ];
 // 例外：**針對單一區塊**的來源說明，不是全站級宣稱。加新例外前先確認它真的只描述該區塊。
 const SOURCE_CLAIM_ALLOW = new Set([
@@ -206,6 +216,13 @@ function walk(dir) {
 const files = walk('src');
 const hits = [];
 for (const f of files) {
+  // 🔴 2026-08-21：註解判定改成**區塊狀態機**。原本是單行 `/^\s*(\/\/|\/\*|\*)/`，
+  //    抓不到 Astro 自己的註解語法 `{/* … */}`——行首是 `{`，不是 `/*`——
+  //    也抓不到多行註解裡「不以 * 開頭」的續行。後果是**註解裡的字被當成會渲染的內容在掃**，
+  //    等於逼人不敢在註解裡寫下病灶原文，而那正是本檔開頭說要保護的事。
+  //    抓到的當下：移除 region 深頁那句全站級宣稱時，我把原句寫進 `{/* … */}` 留證，
+  //    新規則立刻對自己的註解紅燈。
+  let inBlockComment = false;
   readFileSync(f, 'utf8').split('\n').forEach((line, i) => {
     for (const b of BANNED) {
       const m = line.match(b.re);
@@ -213,7 +230,14 @@ for (const f of files) {
     }
     // 只掃會渲染出去的行：**註解不擋**。否則沒人敢在註解裡記下病灶原文
     // （本檔自身與 temples/[id].astro:271 的沿革註解就是靠原文才看得懂當初改了什麼）。
-    const isComment = /^\s*(\/\/|\/\*|\*)/.test(line);
+    const wasInBlock = inBlockComment;
+    // 同一行內開了又關的（`{/* … */}` 單行）不進入區塊狀態，但該行本身算註解。
+    const opens = (line.match(/\{?\/\*/g) ?? []).length;
+    const closes = (line.match(/\*\//g) ?? []).length;
+    if (opens > closes) inBlockComment = true;
+    else if (closes > opens) inBlockComment = false;
+    const isComment = wasInBlock || inBlockComment || opens > 0
+      || /^\s*(\/\/|\/\*|\*)/.test(line);
     if (!isComment && !SOURCE_CLAIM_ALLOW.has(f)) {
       for (const b of SOURCE_CLAIM) {
         const m = line.match(b.re);
