@@ -251,12 +251,24 @@
         ],
         "added": "2026-08-18T12:31:43.588Z",
         "hash": "c91e6c20cadb"
+      },
+      {
+        "date": "2026-08-20",
+        "text": "栃木縣政府決定對足利市適用災害救助法，住宅緊急修繕與土砂清除等費用將由國家與縣政府全額負擔",
+        "sources": [
+          {
+            "ref": "足利市公式網站",
+            "url": "https://www.city.ashikaga.tochigi.jp/disaster-prevension/000001/p008682.html"
+          }
+        ],
+        "added": "2026-08-21T12:31:30.944Z",
+        "hash": "66e04bddb19b"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 2
+      "last_checked": "2026-08-21",
+      "empty_runs": 0
     },
     "bless_snapshot": 1,
     "lat": 36.3400358,
@@ -556,9 +568,9 @@
       }
     ],
     "followup": {
-      "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 13
+      "sealed": true,
+      "last_checked": "2026-08-21",
+      "empty_runs": 14
     },
     "lat": 29.2962877,
     "lon": 108.1610845,
@@ -3096,12 +3108,24 @@
         ],
         "added": "2026-08-18T12:34:51.030Z",
         "hash": "35f30f357eba"
+      },
+      {
+        "date": "2026-08-20",
+        "text": "菲律賓官方最新災情彙報顯示，西南季風及一連串颱風系列災情的罹難與失聯人數再度上修，仍有為數不少災民在收容中心待援，基礎建設與農業損失評估已彙整完成，善後復原作業持續進行，氣象單位同時持續監測新一波熱帶系統動向。",
+        "sources": [
+          {
+            "ref": "NewsWatch Plus",
+            "url": "https://www.newswatchplus.ph/2026/08/20/habagat-tropical-cyclone-death-toll-reaches-29-over-6-5-million-filipinos-affected/"
+          }
+        ],
+        "added": "2026-08-21T12:34:25.011Z",
+        "hash": "f7fc9b44144b"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 2
+      "last_checked": "2026-08-21",
+      "empty_runs": 0
     }
   },
   {
@@ -3155,8 +3179,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 1
+      "last_checked": "2026-08-21",
+      "empty_runs": 2
     }
   },
   {
@@ -3241,11 +3265,23 @@
         ],
         "added": "2026-08-20T12:36:40.998Z",
         "hash": "439b15d486ba"
+      },
+      {
+        "date": "2026-08-21",
+        "text": "千葉市開放受災嚴重的住戶申請入住市營住宅與UR都市再生機構租賃住宅作為臨時安置處所",
+        "sources": [
+          {
+            "ref": "千葉市",
+            "url": "https://www.city.chiba.jp/sogoseisaku/kikikanri/bosai/oamejoho20260813.html"
+          }
+        ],
+        "added": "2026-08-21T12:35:54.574Z",
+        "hash": "0955ee4528a6"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
+      "last_checked": "2026-08-21",
       "empty_runs": 0
     }
   },
@@ -3274,8 +3310,8 @@
     "updates": [],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 3
+      "last_checked": "2026-08-21",
+      "empty_runs": 4
     }
   },
   {
@@ -3326,8 +3362,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-20",
-      "empty_runs": 1
+      "last_checked": "2026-08-21",
+      "empty_runs": 2
     }
   }
 ]
