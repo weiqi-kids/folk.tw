@@ -5971,7 +5971,9 @@
     ],
     "category": "開拓神信仰",
     "is_category": true,
-    "instances": [],
+    "instances": [
+      "yimin"
+    ],
     "office": [
       "有求必應",
       "無主孤魂奉祀",

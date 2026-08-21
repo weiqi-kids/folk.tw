@@ -34,7 +34,7 @@ const articles = (await getCollection('seoArticles', ({ data }) => !data.draft))
         ))}
       </div>
     ) : (
-      <p class="pending">第一批主題文章整理中。</p>
+      <p class="pending">目前沒有已發佈的主題文章。</p>
     )
   }
 

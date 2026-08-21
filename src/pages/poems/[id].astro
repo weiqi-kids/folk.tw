@@ -194,7 +194,7 @@ const faq = faqPage(faqItems);
       <h2>卦頭故事 · 典故</h2>
       {
         d.allusions.length === 0 ? (
-          <p class="pending">本籤典故待補。</p>
+          <p class="pending">這一首沒有可掛源的卦頭故事。</p>
         ) : (
           d.allusions.map((a) => {
             const node = allusionById.get(a.ref.id);
@@ -212,7 +212,7 @@ const faq = faqPage(faqItems);
                 {node && (node.body ?? '').trim().length > 0 ? (
                   <p class="muted small"><a href={`/allusions/${a.ref.id}/`}>讀白話故事與跨籤反查 →</a></p>
                 ) : (
-                  <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架）。</p>
+                  <p class="pending">這則典故還沒有白話故事。</p>
                 )}
                 <Sources sources={a.sources} variant="block" />
               </div>

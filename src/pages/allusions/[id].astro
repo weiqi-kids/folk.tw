@@ -55,7 +55,7 @@ const visual = 'qian-slips';
     hasStory ? (
       <div class="story prose"><Content /></div>
     ) : (
-      <p class="pending">白話故事撰寫中（公有領域題材，自行敘述後上架；不抄特定改寫本）。</p>
+      <p class="pending">這則典故還沒有白話故事。</p>
     )
   }
 
@@ -64,7 +64,7 @@ const visual = 'qian-slips';
     <p class="muted small">同一典故橫跨多支籤者，正是跨文本追蹤的價值點（去重節點）。</p>
     {
       poems.length === 0 ? (
-        <p class="pending">尚無已發佈籤詩關聯此典故。</p>
+        <p class="pending">沒有籤詩關聯到這個典故。</p>
       ) : (
         <ul class="poem-refs">
           {poems.map((p) => (

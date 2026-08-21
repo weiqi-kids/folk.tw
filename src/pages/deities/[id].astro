@@ -184,14 +184,14 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
   <div class="cols2">
     <section>
       <h2>職司</h2>
-      {d.office.length ? <p>{d.office.map((o) => <span class="tag">{o}</span>)}</p> : <p class="pending">待補</p>}
+      {d.office.length ? <p>{d.office.map((o) => <span class="tag">{o}</span>)}</p> : <p class="pending">目前引用的來源沒有記載職司。</p>}
     </section>
 
     <section>
       <h2>聖誕（農曆）</h2>
       {
         d.birthday_lunar.length === 0 ? (
-          <p class="pending">聖誕待查（無源不顯示）。</p>
+          <p class="pending">目前引用的來源都沒有記載聖誕日期，因此不列出。</p>
         ) : (
           <ul class="bdays">
             {d.birthday_lunar.map((b) => (
@@ -298,7 +298,7 @@ const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
             ))}
           </ul>
         ) : (
-          <p class="pending">具名實例節點建置中。</p>
+          <p class="pending">這個類別底下目前沒有可掛源的具名神明。</p>
         )}
       </section>
     )
