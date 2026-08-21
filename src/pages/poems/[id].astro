@@ -58,6 +58,12 @@ const poemLabel = (p: typeof poem) => `第 ${p.data.no} 籤${(p.data.ganzhi || p
 // 白話賞析（版面主角，§0.5）＝ interpretation md body；八項分項解 ＝ frontmatter（次級）
 const ai = interp?.data ?? {};
 const ASPECTS = ['運勢', '求財', '姻緣', '六甲', '功名', '訴訟', '疾病', '行人', '失物'] as const;
+// 現代處境（2026-08-21）：與 ASPECTS 分開陳列，因為它們是同一份解讀的兩種說法——
+// 上面用傳統詞（功名／姻緣／求財），這裡用使用者實際會打的字（換工作／復合／買房搬家）。
+// 🔴 分開的理由是**搜尋詞彙**，不是內容不同；合併會讓九項傳統分項的字面被稀釋。
+const SCENARIOS = ['換工作', '求職面試', '創業開店', '投資理財', '考試升學', '告白追求', '復合挽回', '分手離婚', '買房搬家'] as const;
+const scenarioVals = ai as Record<string, string | undefined>;
+const hasAnyScenario = SCENARIOS.some((a) => scenarioVals[a]?.trim());
 const interpVals = ai as Record<string, string | undefined>;
 const hasAnyInterp = ASPECTS.some((a) => interpVals[a]);
 const hasShangxi = interp ? (interp.body ?? '').trim().length > 0 : false;
@@ -239,6 +245,22 @@ const faq = faqPage(faqItems);
             <div class="row">
               <dt>{a}</dt>
               <dd>{interpVals[a]}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )}
+
+    {/* 現代處境：同一份解讀換成使用者實際會打的字。
+        🔴 這一區**不加任何說明或免責文字**（站主 2026-08-21 明示：那些都在 /about/）。 */}
+    {hasAnyScenario && (
+      <section>
+        <h2>不同處境怎麼看</h2>
+        <dl class="interp">
+          {SCENARIOS.filter((a) => scenarioVals[a]?.trim()).map((a) => (
+            <div class="row">
+              <dt>{a}</dt>
+              <dd>{scenarioVals[a]}</dd>
             </div>
           ))}
         </dl>
