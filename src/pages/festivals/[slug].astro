@@ -334,9 +334,16 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
     title: `${year} 放水燈是 ${solarMd(iso)}｜由來、對象與基隆中元祭`,
     description: `${year} 放水燈為國曆 ${solarMd(iso)}（${lunarLabel}）。說明「普照陰光」的用意、海上罹難者的祭祀對象，以及放水燈與基隆海港、雞籠中元祭的關係。`,
   },
+  // 🔴 2026-08-21：title／description 補上「基隆」。正式登錄名是「雞籠中元祭」，
+  //    但使用者搜的是「基隆中元祭」——GSC 實測這兩個查詢**曝光都是 0**。
+  //    內文出現「基隆」26 次，title 與 description 卻一次都沒有。
+  //    「基隆中元祭」是 festivals.json 既有的 aliases，不是新事實。
+  //    ⚠️ 同一天還修掉一個更致命的：這頁的 year 原本算成 2027（multi_day 的節日
+  //    在進行中卻跳明年，見 calendar-date.ts 的 nextOccurrence）。年份錯的話，
+  //    補再多別名也沒用——Google 會認為這頁在講明年。
   'jilong-zhongyuan': {
-    title: `${year} 雞籠中元祭｜開龕門、放水燈與字姓輪值`,
-    description: `${year} 雞籠中元祭自${lunarLabel}起，橫跨整個農曆七月。整理開龕門、豎燈篙、放水燈、公普、關龕門的儀式順序，以及字姓輪值與文化資產登錄。`,
+    title: `${year} 基隆中元祭（雞籠中元祭）｜放水燈與字姓輪值`,
+    description: `${year} 基隆中元祭（正式登錄名雞籠中元祭）自${lunarLabel}起，橫跨整個農曆七月。整理開龕門、豎燈篙、放水燈、公普、關龕門的儀式順序，以及字姓輪值與文化資產登錄。`,
   },
   qianggu: {
     title: `${year} 搶孤｜頭城、恆春日期與文化資產`,
@@ -362,6 +369,7 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
     title: `${year} 金門博狀元餅｜六顆骰子規則與活動日期`,
     description: `${year} 金門中秋博狀元餅官方檔期列為 9/1–9/25。整理六顆骰子、一秀至狀元的科名彩號、紅四判定與洪旭起源傳說。`,
   },
+
 };
 const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
