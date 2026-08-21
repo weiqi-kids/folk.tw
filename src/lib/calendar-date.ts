@@ -189,8 +189,10 @@ export type CalendarKind = (typeof CALENDAR_KINDS)[number];
  *    也不可能把節氣名當成月日傳進去（結構不同 → 型別直接擋）。
  */
 export type CalendarDate =
-  /** 農曆月日「MM-DD」。卅日遇短月的退日規則見 `lunarToNextOccurrence()`。 */
-  | { cal: 'lunar'; mmdd: string }
+  /** 農曆月日「MM-DD」。卅日遇短月的退日規則見 `lunarToNextOccurrence()`。
+   *  `multiDay`＝這個節日橫跨多日（如雞籠中元祭整個農曆七月）。帶著它，
+   *  `nextOccurrence()` 才知道「已經開始但還沒結束」時要回今年那一次，而不是跳明年。 */
+  | { cal: 'lunar'; mmdd: string; multiDay?: boolean }
   /** 國曆（西曆）月日「MM-DD」。 */
   | { cal: 'solar'; mmdd: string }
   /** 節氣名（「清明」「冬至」…）。由太陽黃經定，逐年國曆日期不同。 */
@@ -233,12 +235,13 @@ export function parseCalendarDate(calendar: string, value: string): CalendarDate
  *    要真正讓「同時存在」不可能，得改 `festivals.json` 的欄位結構＝另一個題目。
  */
 export function festivalCalendarDate(f: {
+  multi_day?: boolean;
   lunar_date?: string | null;
   solar_date?: string | null;
   solar_term?: string | null;
 }): CalendarDate | null {
   if (f.solar_term) return { cal: 'solar_term', term: f.solar_term };
-  if (f.lunar_date) return { cal: 'lunar', mmdd: f.lunar_date };
+  if (f.lunar_date) return { cal: 'lunar', mmdd: f.lunar_date, multiDay: f.multi_day === true };
   if (f.solar_date) return { cal: 'solar', mmdd: f.solar_date };
   return null;
 }
@@ -275,6 +278,30 @@ export function calendarDateLabelShort(d: CalendarDate): string {
 }
 
 /**
+ * multi_day 專用：今年的那一次是否「已經開始、而且今天還在同一個農曆月裡」。
+ * 是就回傳今年那一次（讓標題顯示今年），否則回 null 交還給 nextOccurrence 走「下一次」。
+ */
+function ongoingLunarOccurrence(mmdd: string, fromIso: string): Occurrence | null {
+  if (!/^\d{2}-\d{2}$/.test(mmdd)) return null;
+  const wantM = Number(mmdd.slice(0, 2));
+  const wantD = Number(mmdd.slice(3));
+  const todayLunar = solarOf(fromIso).getLunar();
+  // 今天必須就在這個節日起始日所屬的農曆月裡；不同月就不算「進行中」。
+  if (todayLunar.getMonth() !== wantM) return null;
+  // 從今天往回找該農曆月的起始日（同一個農曆月最多 30 天）。
+  const start = solarOf(fromIso);
+  for (let i = 0; i <= 30; i++) {
+    const s = i === 0 ? start : start.next(-i);
+    const l = s.getLunar();
+    if (l.getMonth() !== wantM) break;      // 退出這個農曆月就停
+    if (l.getDay() === wantD) {
+      return { iso: s.toYmd(), label: labelOf(lunarKeyOf(l)), lunar: lunarKeyOf(l) };
+    }
+  }
+  return null;
+}
+
+/**
  * **下一次發生日的唯一入口**：任何「這個日期下次是國曆哪一天」都走這支。
  *
  * 🔴 回曆一律回 `null`（不換算，不丟錯、不回假日期）——理由見檔頭。
@@ -290,6 +317,20 @@ export function nextOccurrence(d: CalendarDate, fromIso: string): Occurrence | n
     case 'solar':
       return { iso: solarMdToNext(d.mmdd, fromIso), label: calendarDateLabel(d), lunar: null };
     case 'lunar': {
+      // 🔴 2026-08-21：跨多日的節日**還在進行中就不能跳到明年**。
+      //    實際踩到：雞籠中元祭 `lunar_date: '07-01'`、`multi_day: true`，祭典橫跨整個農曆七月
+      //    （初一開龕門到月底關龕門）。8/21 當天農曆七月初九、祭典正在進行，而這裡只看
+      //    **起始日**，七月初一已過就給 2027-08-02 → 頁面標題成了「2027 雞籠中元祭」。
+      //    後果不只是顯示錯：GSC 實測「基隆中元祭」「雞籠中元祭」**完全沒有曝光**，
+      //    Google 認為那頁在講明年；對照組搶孤（07-15 未過、標題「2026 搶孤」）
+      //    同期 810 曝光、平均排名 3.7。
+      //    ⚠️ 這段刻意放在 nextOccurrence 而不是 festivalNextSolar：後者是**純包裝**，
+      //    calendar-date.test.ts 有一條斷言「相容包裝必須恰好等於 nextOccurrence」，
+      //    把邏輯加在包裝層會長出第二份分派（我第一版就是這樣寫的，測試當場擋下）。
+      if (d.multiDay === true) {
+        const ongoing = ongoingLunarOccurrence(d.mmdd, fromIso);
+        if (ongoing) return ongoing;
+      }
       // 短月退日時 label 要用**實際**落日的農曆日（地藏王七月卅 → 該年七月廿九）；
       // 算不出來就退回名目標籤，頁面仍顯示「農曆七月卅」但不顯示國曆日。
       const occurrence = lunarToNextOccurrence(d.mmdd, fromIso);
@@ -311,10 +352,22 @@ export function nextOccurrence(d: CalendarDate, fromIso: string): Occurrence | n
  *    ⚠️ `festivals.json` 不會有回曆，故 `nextOccurrence()` 的 null 分支在這裡等同「無日期」。
  */
 export function festivalNextSolar(
-  f: { lunar_date?: string; solar_date?: string; solar_term?: string },
+  f: { lunar_date?: string; solar_date?: string; solar_term?: string; multi_day?: boolean },
   fromIso: string,
 ): { iso: string | null; label: string } {
   const d = festivalCalendarDate(f);
+  // 🔴 2026-08-21：跨多日的節日，**還在進行中就不能跳到明年**。
+  //    實際踩到：雞籠中元祭 `lunar_date: '07-01'`、`multi_day: true`，祭典橫跨整個農曆七月
+  //    （初一開龕門到月底關龕門）。8/21 當天農曆七月初九、祭典正在進行，
+  //    而 nextOccurrence 只看**起始日**，七月初一已過就給 2027-08-02 →
+  //    頁面標題變成「2027 雞籠中元祭」。後果不只是顯示錯：GSC 實測
+  //    「基隆中元祭」「雞籠中元祭」**完全沒有曝光**，Google 認為那頁在講明年；
+  //    對照組搶孤（lunar_date 07-15 未過、標題「2026 搶孤」）同期 810 曝光、排名 3.7。
+  //    判準：multi_day 且今年的起始日已過、但仍在**同一個農曆月**內，就回傳今年那一次。
+  //    ⚠️ 只認同農曆月，不自己假設持續天數——雞籠中元祭的期間正好是整個農曆七月
+  //    （資料層 date_note 寫明「農曆七月整月」）。若日後有跨月的 multi_day 節日，
+  //    要在資料層補明確的結束日，不要把這裡的月界推論擴大解釋。
   const occurrence = d ? nextOccurrence(d, fromIso) : null;
   return occurrence ? { iso: occurrence.iso, label: occurrence.label } : { iso: null, label: '' };
 }
+
