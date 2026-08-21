@@ -5972,7 +5972,11 @@
     "category": "開拓神信仰",
     "is_category": true,
     "instances": [],
-    "office": [],
+    "office": [
+      "有求必應",
+      "無主孤魂奉祀",
+      "部分升格為地方守護神"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "system": "中元普渡",
@@ -6203,7 +6207,11 @@
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "中部山區地方信仰",
+      "保境安民",
+      "持戒修行"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6411,7 +6419,11 @@
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "雙忠忠義",
+      "安溪移民保護神",
+      "地方守護"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6522,7 +6534,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "大地之母",
+      "鸞書地母真經",
+      "護祐信眾"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6571,7 +6587,11 @@
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "武神",
+      "靖魔大帝",
+      "精忠報國"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6728,7 +6748,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "管理男仙登錄",
+      "全真道傳承祖",
+      "東方陽氣"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -7089,7 +7113,11 @@
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "智謀輔國",
+      "發明利生",
+      "通曉三才"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
