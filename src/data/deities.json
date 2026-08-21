@@ -6254,7 +6254,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "驅除妖鬼",
+      "符咒濟世",
+      "天師道統傳承"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6306,7 +6310,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "瘟部神明",
+      "驅瘟除疫",
+      "捨身救民"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6353,7 +6361,9 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "驅逐邪煞"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6461,7 +6471,10 @@
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "三皇五帝之首",
+      "開創中華文明"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6608,7 +6621,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "救苦救難",
+      "度亡濟幽",
+      "尋聲赴感"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6659,7 +6676,10 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "開天闢地",
+      "創世"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6760,7 +6780,11 @@
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "八卦祖師",
+      "古代聖王",
+      "開創文明"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6806,7 +6830,10 @@
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "財富",
+      "利益"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6897,7 +6924,11 @@
     "category": "自然神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "出入平安",
+      "孩童健康",
+      "安產"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -6960,7 +6991,10 @@
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "武將神",
+      "治水"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -7005,7 +7039,10 @@
     "category": "族群神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "三一教教主",
+      "三教合一"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
@@ -7094,7 +7131,10 @@
     "category": "行業神信仰",
     "is_category": false,
     "instances": [],
-    "office": [],
+    "office": [
+      "八位仙真",
+      "福祿壽喜象徵"
+    ],
     "birthday_lunar": [],
     "iconography": [],
     "divination_systems": [],
