@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 籤詩頁與神明頁的社群分享卡（og:image）產生器。
+// 籤詩頁與神明頁的 Discover 分享卡（og:image）產生器。
 //
 // 為什麼要做（2026-08-08）：全站只有廟宇頁有專屬分享卡，其餘一萬多頁共用
 // `public/og.png` 一張品牌卡。在加上全站分享按鈕之前，先把「分享出去有東西看」補起來——
@@ -26,7 +26,7 @@
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { C, esc, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
+import { C, esc, uniqueMotif, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -38,7 +38,7 @@ const systems = JSON.parse(readFileSync(join(root, 'src/data/divination-systems.
 const systemName = new Map(systems.map((s) => [s.id, s.name]));
 
 /** 共用外框：暖紙底＋硃紅頂邊與左邊條＋右下角出處小字。 */
-const frame = (inner) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+const frame = (inner) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
   <style>
     .lbl  { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:30px; fill:${C.inkSoft}; }
     .tag  { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:28px; fill:${C.paper2}; }
@@ -47,11 +47,11 @@ const frame = (inner) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" h
     .sub  { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:36px; fill:${C.inkSoft}; }
     .mark { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:26px; fill:${C.gold}; }
   </style>
-  <rect width="1200" height="630" fill="${C.paper}"/>
+  <rect width="1200" height="675" fill="${C.paper}"/>
   <rect x="0" y="0" width="1200" height="16" fill="${C.accent}"/>
-  <rect x="0" y="16" width="18" height="614" fill="${C.accent}"/>
+  <rect x="0" y="16" width="18" height="659" fill="${C.accent}"/>
   ${inner}
-  <text x="1140" y="592" class="mark" text-anchor="end">folk.tw</text>
+  <text x="1140" y="637" class="mark" text-anchor="end">folk.tw</text>
 </svg>`;
 
 /**
@@ -74,11 +74,11 @@ export function poemCardSvg(p) {
   const head = [sys, `第 ${p.no} 籤`, label].filter(Boolean).join('　·　');
   const lines = (p.lines ?? []).slice(0, 4);
 
-  // 版面高度是固定的 630，所以**行距由可用高度反推**，不從字級推——
+  // 版面高度是固定的 675，所以**行距由可用高度反推**，不從字級推——
   // 反過來做（gap = size × 係數）在四句時會把最後一句推到卡片外，
   // 或讓標題與第一句的字身重疊（初版就是這樣：標題 baseline 140、第一句 76px 從 134 起）。
-  const FIRST = 232; // 第一句 baseline：與標題（y=144）之間留得下一個字身
-  const LAST = 536; // 最後一句 baseline：與右下角出處小字（y=592）不打架
+  const FIRST = 248; // 第一句 baseline：與標題（y=144）之間留得下一個字身
+  const LAST = 578; // 最後一句 baseline：與右下角出處小字（y=637）不打架
   const gap = lines.length > 1 ? Math.floor((LAST - FIRST) / (lines.length - 1)) : 0;
 
   // 字級取「句長容得下」與「行距容得下」兩者較小的——只看句長會讓四句黏在一起。
@@ -93,7 +93,8 @@ export function poemCardSvg(p) {
     .map((ln, i) => `<text x="96" y="${top + i * gap}" class="ln" font-size="${size}px">${esc(ln)}</text>`)
     .join('\n  ');
 
-  return frame(`<rect x="60" y="104" width="6" height="${bottom - 68}" fill="${C.gold}"/>
+  return frame(`${uniqueMotif(p.id, { x: 820, y: 168, width: 300, height: 405, variant: 'poem' })}
+  <rect x="60" y="104" width="6" height="${bottom - 68}" fill="${C.gold}"/>
   <text x="96" y="144" class="lbl">${esc(head)}</text>
   ${fortuneBadge(p.fortune, 110)}
   ${lineEls}`);
@@ -124,7 +125,8 @@ export function deityCardSvg(d) {
     .map((t, i) => `<text x="96" y="${subY + 76 + i * 60}" class="sub">${esc(wrap(t, 26)[0] ?? '')}</text>`)
     .join('\n  ');
 
-  return frame(`<rect x="60" y="${barTop}" width="6" height="${Math.round(subY + 12 - barTop)}" fill="${C.gold}"/>
+  return frame(`${uniqueMotif(d.id, { x: 820, y: 110, width: 300, height: 490, variant: 'deity' })}
+  <rect x="60" y="${barTop}" width="6" height="${Math.round(subY + 12 - barTop)}" fill="${C.gold}"/>
   ${nameEls}
   ${sub ? `<text x="96" y="${subY}" class="sub">${esc(sub)}</text>` : ''}
   ${extraEls}`);

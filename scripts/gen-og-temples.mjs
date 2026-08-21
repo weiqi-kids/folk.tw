@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 廟宇頁社群分享卡（og:image）產生器：每間廟一張 1200×630 PNG。
+// 廟宇頁 Discover 分享卡（og:image）產生器：每間廟一張 1200×675 PNG。
 //
 // 為什麼要做：分享廟宇連結給廟方（宮廟開發外撥流程）時，原本 12,018 頁共用同一張
 // `public/og.png`＝神酷品牌卡，廟方主委看到的是別人的招牌而不是自己的廟。
@@ -25,7 +25,7 @@
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { C, esc, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
+import { C, esc, uniqueMotif, visualWidth, wrap, assertCjkFont, toPng } from './lib/og-card.mjs';
 // 卡面上的祭典／聖誕日期必須與頁面用同一個基準日算，否則跨午夜的 build 會產出
 // 「頁面寫今年、卡片寫明年」的一批卡。基準日唯一入口＝src/lib/build-date.ts。
 import { buildDate } from '../src/lib/build-date.ts';
@@ -114,16 +114,17 @@ export function cardSvg(t, todayIso) {
   const barTop = Math.round(y - nameSize * 0.9);
   const barH = Math.round(subY + 12 - barTop);
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
   <style>
     .nm  { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-weight:700; font-size:${nameSize}px; fill:${C.ink}; }
     .sub { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:38px; fill:${C.inkSoft}; }
     .lbl { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-size:28px; fill:${C.paper2}; }
     .act { font-family:'Noto Serif CJK TC','Noto Serif TC',serif; font-weight:700; font-size:40px; fill:${C.ink}; }
   </style>
-  <rect width="1200" height="630" fill="${C.paper}"/>
+  <rect width="1200" height="675" fill="${C.paper}"/>
   <rect x="0" y="0" width="1200" height="16" fill="${C.accent}"/>
-  <rect x="0" y="16" width="18" height="614" fill="${C.accent}"/>
+  <rect x="0" y="16" width="18" height="659" fill="${C.accent}"/>
+  ${uniqueMotif(t.id, { x: 820, y: 112, width: 300, height: 490, variant: 'temple' })}
   <rect x="60" y="${barTop}" width="6" height="${barH}" fill="${C.gold}"/>
   ${nameEls}
   ${subBits ? `<text x="96" y="${subY}" class="sub">${esc(subBits)}</text>` : ''}
@@ -165,12 +166,23 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   let n = 0;
   let withFest = 0;
   let withBday = 0;
-  for (const t of list) {
-    const act = recentActivity(t, todayIso);
-    if (act?.label === '主要祭典') withFest++;
-    else if (act) withBday++;
-    bytes += await renderCard(t, outDir, todayIso);
-    if (++n % 1000 === 0) console.log(`  …${n}/${list.length}`);
+  // Sharp 的 librsvg 光柵化彼此獨立；以小批次並行，避免 10,000+ 張卡被單工渲染拖慢，
+  // 同時限制 in-flight 數量，讓記憶體與 CI CPU 使用量可預期。
+  const CONCURRENCY = 8;
+  for (let i = 0; i < list.length; i += CONCURRENCY) {
+    const batch = list.slice(i, i + CONCURRENCY);
+    const rendered = await Promise.all(batch.map(async (t) => ({
+      t,
+      bytes: await renderCard(t, outDir, todayIso),
+    })));
+    for (const { t, bytes: size } of rendered) {
+      const act = recentActivity(t, todayIso);
+      if (act?.label === '主要祭典') withFest++;
+      else if (act) withBday++;
+      bytes += size;
+      n++;
+    }
+    if (n % 1000 < CONCURRENCY || n === list.length) console.log(`  …${n}/${list.length}`);
   }
   console.log(
     `✓ 產出 ${n} 張分享卡 → ${outDir}（共 ${(bytes / 1048576).toFixed(1)} MB；` +

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">求籤分布通用視覺</title>
+  <desc id="desc">抽象圓軌、籤條與分布柱狀圖構成的求籤統計插圖</desc>
+  <rect width="1200" height="630" fill="#f2ead8"/>
+  <circle cx="870" cy="312" r="250" fill="#d9c9a7" opacity=".42"/>
+  <circle cx="870" cy="312" r="178" fill="none" stroke="#927846" stroke-width="4" stroke-dasharray="14 17" opacity=".52"/>
+  <circle cx="870" cy="312" r="118" fill="none" stroke="#9a3835" stroke-width="5" opacity=".42"/>
+  <path d="M610 460c75-76 160-116 260-116 96 0 168 34 242 90" fill="none" stroke="#554f48" stroke-width="4" stroke-linecap="round" opacity=".3"/>
+  <g transform="translate(150 86) rotate(-8 170 235)">
+    <rect x="0" y="0" width="68" height="470" rx="28" fill="#7f5833"/>
+    <rect x="88" y="-22" width="68" height="492" rx="28" fill="#9a6d3e"/>
+    <rect x="176" y="14" width="68" height="456" rx="28" fill="#75502f"/>
+    <path d="M22 110h24M110 92h24M198 124h24M22 360h24M110 350h24M198 378h24" stroke="#eadcbe" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-18 184h280M-18 326h280" stroke="#9c2f2f" stroke-width="17" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(590 420)">
+    <rect x="0" y="-70" width="32" height="70" rx="8" fill="#927846" opacity=".75"/>
+    <rect x="54" y="-126" width="32" height="126" rx="8" fill="#9a3835" opacity=".78"/>
+    <rect x="108" y="-92" width="32" height="92" rx="8" fill="#927846" opacity=".7"/>
+    <rect x="162" y="-182" width="32" height="182" rx="8" fill="#9a3835" opacity=".82"/>
+    <rect x="216" y="-112" width="32" height="112" rx="8" fill="#927846" opacity=".68"/>
+    <path d="M-20 0h300" stroke="#554f48" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+  </g>
+  <g fill="#9a3835" opacity=".52">
+    <circle cx="730" cy="142" r="7"/><circle cx="1018" cy="190" r="8"/><circle cx="1050" cy="450" r="6"/>
+  </g>
+</svg>

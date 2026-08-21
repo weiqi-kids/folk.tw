@@ -16,6 +16,7 @@ const visuals = {
   'calendar-compass': 'calendar-compass.svg',
   'medicine-manuscript': 'medicine-manuscript.svg',
   'zodiac-wheel': 'zodiac-wheel.svg',
+  'pulse-orbit': 'pulse-orbit.svg',
 };
 
 mkdirSync(outDir, { recursive: true });

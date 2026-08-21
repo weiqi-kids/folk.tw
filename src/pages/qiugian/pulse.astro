@@ -34,6 +34,8 @@ const total = rows.reduce((n, r) => n + r.draws, 0);
 const baoxiTotal = rows.reduce((n, r) => n + r.baoxi, 0);
 const showPct = total >= 30;
 const maxDraws = Math.max(...rows.map((r) => r.draws), 1);
+// 本頁專屬視覺：不與一般求籤頁共用 qian-slips，避免不同內容落到同一張 Discover 圖。
+const visual = 'pulse-orbit';
 
 const desc = `近 7 天全站 ${total} 次求籤的真實分布：大家在為什麼求籤、哪支籤最多人抽到。數字是真實計數，不灌水。`;
 ---
@@ -41,11 +43,13 @@ const desc = `近 7 天全站 ${total} 次求籤的真實分布：大家在為�
 <Base
   title="大家在問什麼｜近 7 天求籤分布"
   description={desc}
+  og={{ family: 'visual', stem: visual }}
+  ogImageAlt="求籤分布、籤條與統計圓軌構成的求籤儀表板插圖"
   crumbs={[HUB.qiugian, { name: '大家在問什麼', path: '/qiugian/pulse/' }]}
 >
 
   <h1>大家在問什麼</h1>
-  <LeadVisual compact visual="qian-slips" alt="竹籤、紙卷與印記構成的線上求籤通用插圖" />
+  <LeadVisual compact visual={visual} alt="求籤分布、籤條與統計圓軌構成的求籤儀表板插圖" />
 
   <p class="lead">
     近 7 天，這裡一共有 <b>{total}</b> 次求籤{baoxiTotal > 0 && <>，{baoxiTotal} 個人回來報喜</>}。

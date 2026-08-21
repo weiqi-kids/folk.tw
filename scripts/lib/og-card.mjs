@@ -10,6 +10,7 @@
 //    值必須與 src/styles/variables.css 的 token 對應，改一邊就要改另一邊。
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 
 /** 站台設計 token（src/styles/variables.css 的 oklch 對應 hex）。 */
@@ -40,6 +41,69 @@ export function wrap(s, maxUnits) {
   }
   if (line) out.push(line);
   return out;
+}
+
+/**
+ * 內容卡的唯一紋樣：由資料 id 穩定推導，不依賴隨機數，也不添加未經來源支持的文字。
+ *
+ * 這個小圖騰有兩個目的：讓同一張模板上的不同內容仍是不同的 raster asset，
+ * 以及在大卡面留下一個安靜的視覺錨點。所有可讀文字仍由各產圖器從既有資料欄位繪出。
+ */
+export function uniqueMotif(seed, { x = 820, y = 120, width = 300, height = 460, variant = 'card' } = {}) {
+  const digest = createHash('sha256').update(String(seed)).digest();
+  const palettes = [
+    [C.accent, C.gold],
+    [C.gold, C.accent],
+    [C.inkSoft, C.gold],
+    [C.accent, C.inkSoft],
+  ];
+  const [primary, secondary] = palettes[digest[0] % palettes.length];
+  const cx = x + Math.round(width * (0.43 + (digest[1] % 20) / 100));
+  const cy = y + Math.round(height * (0.42 + (digest[2] % 16) / 100));
+  const baseR = Math.round(Math.min(width, height) * (0.22 + (digest[3] % 10) / 100));
+  const ringCount = 3 + (digest[4] % 3);
+  const rayCount = 7 + (digest[5] % 6);
+  const rotate = digest[6] % 360;
+  const dash = 8 + (digest[7] % 12);
+
+  const rings = Array.from({ length: ringCount }, (_, i) => {
+    const r = baseR - i * 21;
+    return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${i % 2 ? secondary : primary}" stroke-width="${i === 0 ? 5 : 3}" stroke-dasharray="${dash + i * 3} ${dash + 9 + i * 2}" opacity="${0.16 + i * 0.035}"/>`;
+  }).join('');
+
+  const rays = Array.from({ length: rayCount }, (_, i) => {
+    const angle = ((i * 360) / rayCount + rotate) * (Math.PI / 180);
+    const inner = baseR + 22;
+    const outer = baseR + 54 + (digest[8 + (i % 8)] % 22);
+    const x1 = (cx + Math.cos(angle) * inner).toFixed(1);
+    const y1 = (cy + Math.sin(angle) * inner).toFixed(1);
+    const x2 = (cx + Math.cos(angle) * outer).toFixed(1);
+    const y2 = (cy + Math.sin(angle) * outer).toFixed(1);
+    return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${secondary}" stroke-width="3" stroke-linecap="round" opacity=".22"/>`;
+  }).join('');
+
+  const dots = Array.from({ length: 12 }, (_, i) => {
+    const px = x + 28 + ((digest[16 + i] * 3 + i * 19) % Math.max(40, width - 56));
+    const py = y + 24 + ((digest[4 + i] * 5 + i * 31) % Math.max(40, height - 48));
+    const r = 2 + (digest[20 + (i % 12)] % 4);
+    return `<circle cx="${px}" cy="${py}" r="${r}" fill="${i % 3 ? secondary : primary}" opacity=".22"/>`;
+  }).join('');
+
+  // 64 個細小的二進位刻痕：不可讀、不改變內容，但讓每個 id 產生不同的可驗證像素指紋。
+  const fingerprint = Array.from({ length: 64 }, (_, i) => {
+    const bit = (digest[Math.floor(i / 8)] >> (i % 8)) & 1;
+    const px = x + width - 112 + (i % 32) * 3;
+    const py = y + height - 28 - Math.floor(i / 32) * 10;
+    return `<rect x="${px}" y="${py - (bit ? 6 : 2)}" width="2" height="${bit ? 8 : 4}" fill="${i % 2 ? secondary : primary}" opacity=".34"/>`;
+  }).join('');
+
+  const center = variant === 'poem'
+    ? `<path d="M${cx - 26} ${cy - 32}h52v64h-52z M${cx - 12} ${cy - 12}h24 M${cx - 12} ${cy + 4}h24" fill="none" stroke="${primary}" stroke-width="5" opacity=".32"/>`
+    : variant === 'deity'
+      ? `<path d="M${cx} ${cy - 38}l34 24v40l-34 20-34-20v-40z" fill="none" stroke="${primary}" stroke-width="5" opacity=".32"/>`
+      : `<path d="M${cx - 28} ${cy}h56 M${cx} ${cy - 28}v56" stroke="${primary}" stroke-width="5" stroke-linecap="round" opacity=".32"/>`;
+
+  return `<g aria-hidden="true" class="unique-motif">${rings}${rays}${dots}${center}${fingerprint}</g>`;
 }
 
 /**

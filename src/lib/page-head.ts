@@ -3,10 +3,10 @@
 // 為什麼要有這一層（2026-08-19 重構前的實況，每一條都是「配錯不會有任何東西擋」）：
 //   ① `ogImage` 與 `ogImageWidth/Height` 是三個各自獨立的字串／數字 prop，
 //      而**尺寸其實由圖族決定**：站內 5 張通用 SVG 轉出的 `/og/discover/<stem>.webp`
-//      是 1200×675（見 scripts/gen-og-discover.mjs），廟宇／神明／籤詩／節日分享卡
-//      則一律 1200×630（gen-og-temples / gen-og-content / gen-og-festivals）。
+//      是 1200×675（見 scripts/gen-og-discover.mjs），廟宇／神明／籤詩 Discover 卡
+//      也一律輸出 1200×675（gen-og-temples / gen-og-content）；節日社群分享卡仍保留 1200×630。
 //      重構前 16 個頁面各自手抄「圖 ＋ 1200 ＋ 675」三行，`deities/[id]` 甚至把
-//      `d.image ? 630 : 675` 這個分支手寫在 head 裡——挑錯族配錯尺寸沒有任何 gate 會紅。
+//      內容卡與通用圖的尺寸分支手寫在 head 裡——挑錯族配錯尺寸沒有任何 gate 會紅。
 //      現在圖族是一個 discriminated union，**尺寸由 union 帶著走，呼叫端寫不出來**。
 //   ② 正文主視覺 `/visuals/<stem>.svg` 與分享圖 `/og/discover/<stem>.webp` 必須同源
 //      （同一張圖的兩種輸出），重構前是兩個毫無關聯的字串字面值。現在兩邊都吃
@@ -25,6 +25,7 @@ export const VISUAL_STEMS = [
   'calendar-compass',
   'medicine-manuscript',
   'zodiac-wheel',
+  'pulse-orbit',
 ] as const;
 
 export type VisualStem = (typeof VISUAL_STEMS)[number];
@@ -40,7 +41,7 @@ export const visualOgPath = (stem: VisualStem): string => `/og/discover/${stem}.
  *
  * - `site`     全站品牌卡 `/og.png`
  * - `visual`   站內通用視覺 `/og/discover/<stem>.webp`（1200×675，Discover 建議的 16:9）
- * - `temple` / `deity` / `poem`  build 產生的分享卡 PNG（1200×630）
+ * - `temple` / `deity` / `poem`  build 產生的 Discover 卡 PNG（1200×675）
  * - `festival` 節日分享卡（1200×630）；**沒有卡的節日 path 為 undefined**，退回站徽
  * - `custom`   🔴 逃生口：只有當圖不屬於任何 build 產生的圖族時才用。
  *              用它就等於自己保證尺寸——所以它強制你把 width/height 一起寫出來，
@@ -64,6 +65,7 @@ export interface ResolvedOgImage {
 
 /** 一般分享卡（Facebook/LINE/Twitter summary_large_image）的實際輸出尺寸。 */
 const CARD = { width: 1200, height: 630 } as const;
+const CONTENT_CARD = { width: 1200, height: 675 } as const;
 /** Discover／Article 主視覺的實際輸出尺寸（16:9，無字）。 */
 const DISCOVER = { width: 1200, height: 675 } as const;
 
@@ -75,11 +77,11 @@ export function resolveOgImage(spec?: OgImageSpec): ResolvedOgImage {
     case 'visual':
       return { path: visualOgPath(spec.stem), ...DISCOVER };
     case 'temple':
-      return { path: `/og/temples/${encodeURIComponent(spec.id)}.png`, ...CARD };
+      return { path: `/og/temples/${encodeURIComponent(spec.id)}.png`, ...CONTENT_CARD };
     case 'deity':
-      return { path: `/og/deities/${spec.id}.png`, ...CARD };
+      return { path: `/og/deities/${spec.id}.png`, ...CONTENT_CARD };
     case 'poem':
-      return { path: `/og/poems/${spec.id}.png`, ...CARD };
+      return { path: `/og/poems/${spec.id}.png`, ...CONTENT_CARD };
     // 節日分享卡的有無由 lib/festival-og.ts 判定（那裡是 slug ↔ 檔案的唯一真實來源），
     // 這裡只負責「它是 630 那一族」。沒有卡時 path 為 undefined → Base 退回站徽，仍是 630。
     case 'festival':
