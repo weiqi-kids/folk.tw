@@ -11,7 +11,8 @@ import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import { todayInTaipei } from '../../lib/daily';
 import festivalsData from '../../data/festivals.json';
-import { eventCycle, cycleLabel, scheduleSentence } from '../../lib/event-cycle.ts';
+import { eventCycle, cycleLabel, cycleShort, scheduleSentence } from '../../lib/event-cycle.ts';
+import { fullWidth, SERP_TITLE_MAX_WIDTH } from '../../lib/text-width.ts';
 
 export const getStaticPaths = (async () => {
   const events = await getEvents();
@@ -54,9 +55,61 @@ const ROUTE: Record<string, string> = {
   fixed: '固定路線', yearly_versioned: '逐年版本化', undetermined: '不定（臨場決定）',
 };
 const HERITAGE_D: Record<string, string> = { national_important: '國家重要民俗', municipal: '直轄市定民俗', county: '縣市定民俗', none: '' };
+// ── SERP 標題與摘要（2026-08-22）──────────────────────────────────────────
+// 🔴 在此之前 title 是**裸名詞**（線上實測「頭城搶孤｜神酷」「民雄大士爺祭典｜神酷」
+//    「艋舺青山王祭（暗訪）｜神酷」），連年份都沒有；description 則是機器逗號串
+//    （「頭城搶孤：搶孤，主神好兄弟，縣市定民俗，宜蘭。七月底（關鬼門前）」）。
+//    而本站唯一被實測證實會贏的查詢形態是 `<地方><活動><年份>`——GSC 2026-07-25~08-21：
+//      頭城搶孤2026 pos 4.1／恆春搶孤2026 pos 4.2／青山王祭2026 pos 5.6／2026下元節 pos 3.7，
+//    四個都有點擊；而 /events/ 全部頁面同期合計只有 90 曝光、加權排名第 11.6 名。
+//    對照組是同一批資料做成 /festivals/ 深頁的搶孤：pos 4.7、CTR 5.9%。
+//    ⚠️ 同一類修正 2026-08-21 做過神明生日頁、08-22 做過 20 個習俗頁與 52 個草稿頁，
+//    **events 是漏掉的最後一批**。
+// 🔴 年份只掛在 `cycle === 'annual'` 的活動上。科年型（逢子卯午酉一科）與不定期型掛上
+//    當年年份就是杜撰——那些年份未必有一科，而 date_note 已經寫明下一科是哪一年。
+//    非年度型改掛週期短語當鉤子（cycleShort 是既有的固定短語，不吃自由文字）。
+// ⚠️ 只動 title 與 description，**不動 h1 與麵包屑**——那兩處是實體名稱（同 /festivals/）。
+const twYear = Number(new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' }).slice(0, 4));
+// 🔴 `cycle: 'annual'` 還不夠：有活動的名稱把「每年的」與「幾年一科的」綁在一起。
+//    實例（2026-08-22 實測，全量 67 筆掃過只有這一筆）：學甲上白礁暨刈香 cycle 記 annual
+//    ——上白礁確實每年農曆三月十一舉行——但 date_note 寫明「刈香四年一科，逢子、辰、申年」，
+//    而 2026 是丙午年、午不在子辰申裡，那一年**沒有刈香**。標題掛「2026 …暨刈香」
+//    等於告訴搜「刈香」的人今年有一科，那是杜撰。
+//    ⚠️ 判準刻意用窄的「一科」字面，不用 event-cycle 的 noteStatesCycle()——後者連「每年」
+//    都算「已交代週期」，實測會誤殺 10 筆真正每年舉行的活動（平溪天燈節、冬山八寶綰絭…）。
+const noteStatesKeYear = /一科/.test(e.date_note ?? '');
+const yearSafe = evCycle.kind === 'annual' && !noteStatesKeYear;
+const eventFacts = (e as { facts?: { text: string }[] }).facts ?? [];
+const hasHeritage = Boolean(e.heritage && e.heritage.level !== 'none');
+// 鉤子只指向這一頁**真的有**的區塊：日期／遶境路線／活動特色與查證資料／文化資產登錄資料。
+const titleHooks = [
+  ...(yearSafe ? [] : [cycleShort(evCycle)]),
+  '日期',
+  e.route?.stops.length ? '遶境路線' : eventFacts.length >= 3 ? '活動特色' : '',
+  hasHeritage ? '文資登錄' : '',
+].filter(Boolean);
+const titleHead = yearSafe ? `${twYear} ${e.name}` : e.name;
+// 站名「｜神酷」由 Base.astro 附加，但要先算進預算才不會被截在頓號後面等於白寫。
+// 從最多鉤子往下砍到放得下為止；全砍完仍超寬就只留名稱（長名活動的保底）。
+let pageTitle = titleHead;
+for (let n = titleHooks.length; n >= 1; n -= 1) {
+  const candidate = `${titleHead}｜${titleHooks.slice(0, n).join('、')}`;
+  if (fullWidth(`${candidate}｜神酷`) <= SERP_TITLE_MAX_WIDTH) { pageTitle = candidate; break; }
+}
+// 摘要把使用者要的「什麼時候」排到最前面，其餘屬性接在後面。
+// scheduleSentence 是既有的造句入口（golden table 釘住全量 67 筆），不在這裡另拼日期字串。
+const eventScheduleLine = e.date_note
+  ? scheduleSentence(e.name, e.date_note, evCycle, e.date_resolution === 'divined')
+  : '';
+const descClauses = [
+  hasHeritage ? `已登錄為${HERITAGE_D[e.heritage!.level]}` : '',
+  e.region.length ? `流傳於${e.region.join('、')}` : '',
+  e.type.length ? `屬${e.type.join('、')}` : '',
+  e.main_deity && deityName.has(e.main_deity) ? `主神${deityName.get(e.main_deity)}` : '',
+].filter(Boolean);
 const pageDesc =
-  `${e.name}：${e.type.join('、')}${e.main_deity && deityName.has(e.main_deity) ? `，主神${deityName.get(e.main_deity)}` : ''}` +
-  `${e.heritage ? `，${HERITAGE_D[e.heritage.level]}` : ''}${e.region.length ? `，${e.region.join('、')}` : ''}。${e.date_note ?? ''}`;
+  `${eventScheduleLine || `${e.name}的舉行日期依主辦單位公告。`}` +
+  `${descClauses.length ? `${descClauses.join('，')}。` : ''}`;
 
 type EventFact = {
   text: string;
@@ -140,7 +193,7 @@ const jsonLd: object[] = [
 ---
 
 <Base
-  title={e.name}
+  title={pageTitle}
   description={pageDesc}
   kind="detail"
   og={{ family: 'visual', stem: 'prayer-light' }}
