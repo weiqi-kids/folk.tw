@@ -3365,5 +3365,51 @@
       "last_checked": "2026-08-21",
       "empty_runs": 2
     }
+  },
+  {
+    "id": "news-fire-20260820-fce445",
+    "eventType": "fire",
+    "title": "為秦皇島市海港區火災平安祈福",
+    "event": "願受影響的鄉親都平安、家園早日復原。",
+    "sources": [
+      {
+        "ref": "Newtalk新聞",
+        "url": "https://newtalk.tw/news/view/2026-08-20/1054527"
+      },
+      {
+        "ref": "中國新聞網",
+        "url": "https://www.chinanews.com.cn/sh/2026/08-20/10680818.shtml"
+      }
+    ],
+    "place": "河北省秦皇島市海港區",
+    "time": "2026-08-20",
+    "lat": 40.0689463,
+    "lon": 119.576706,
+    "detector": "news",
+    "since": "2026-08-22",
+    "status": "active"
+  },
+  {
+    "id": "news-rail-20260820-c8833a",
+    "eventType": "rail",
+    "title": "為栃木縣鹿沼市鐵路事故平安祈福",
+    "event": "日本栃木縣鹿沼市東武日光線新鹿沼站附近，一列特急列車撞擊正在除草作業的工人，造成人員傷亡；願逝者安息、生者早日走出傷痛。",
+    "sources": [
+      {
+        "ref": "日テレNEWS（Yahoo!ニュース）",
+        "url": "https://news.yahoo.co.jp/articles/160cff7b9ed827b604d953f2b5901f74bb87ab0e"
+      },
+      {
+        "ref": "時事通信",
+        "url": "https://www.jiji.com/jc/article?k=2026082000629&g=soc"
+      }
+    ],
+    "place": "栃木縣鹿沼市",
+    "time": "2026-08-20",
+    "lat": 36.5682281,
+    "lon": 139.7457781,
+    "detector": "news",
+    "since": "2026-08-22",
+    "status": "active"
   }
 ]
