@@ -608,6 +608,60 @@
       "status": "resolved",
       "verdict": "loss",
       "verdict_date": "2026-08-02"
+    },
+    {
+      "id": "2026-08-22-events-title-year",
+      "placed_date": "2026-08-22",
+      "cohort": "calendarGaps",
+      "target": {
+        "page": "/events/ 全 67 頁",
+        "query": "<地方><活動><年份>（頭城搶孤2026、青山王祭2026…）"
+      },
+      "hypothesis": "/events/ 全部 67 頁的 title 原為裸名詞（「頭城搶孤｜神酷」）、連年份都沒有，而本站唯一實測會贏的查詢形態是 <地方><活動><年份>（頭城搶孤2026 pos 4.1／青山王祭2026 pos 5.6，皆有點擊）。改成「{年} {名稱}｜{日期、遶境路線／活動特色、文資登錄}」後，該頁組的曝光與 CTR 提升。年份只掛每年一次的活動，科年型與 date_note 含「一科」者不掛。",
+      "factual": true,
+      "change_commit": "24dd252",
+      "change_files": [
+        "src/pages/events/[id].astro"
+      ],
+      "deploy_date": "2026-08-22",
+      "expected_first_signal_date": "2026-08-26",
+      "expected_full_window_date": "2026-09-02",
+      "baseline": {
+        "impr": 90,
+        "clicks": 7,
+        "pos": 11.64,
+        "ctr": 0.0778,
+        "scope": "page-group｜/events/ 全頁組，GSC 2026-08-08..08-21（14 天）"
+      },
+      "checks": [],
+      "status": "open"
+    },
+    {
+      "id": "2026-08-22-poems-scenario-groups",
+      "placed_date": "2026-08-22",
+      "cohort": "highImpZeroClick",
+      "target": {
+        "page": "/poems/ 全 215 頁",
+        "query": "<籤詩首句>+感情／感情發展"
+      },
+      "hypothesis": "籤詩情境查詢有 407 個字以情境詞結尾（1,479 曝光，GSC 2026-06-01..08-21），其中「感情」178 字 804 曝光、「感情發展」22 字 141 曝光合計佔 64%，而站上九個情境用的是告白追求／復合挽回／分手離婚，**沒有「感情」二字**，故該叢查詢卡在 pos 12.4。把九項按使用者的詞分成感情／工作與事業／錢財與置產／考試四組並加 h3 組標題（零新增解讀），該叢查詢的排名與 CTR 提升。",
+      "factual": true,
+      "change_commit": "226ae69",
+      "change_files": [
+        "src/pages/poems/[id].astro"
+      ],
+      "deploy_date": "2026-08-22",
+      "expected_first_signal_date": "2026-08-26",
+      "expected_full_window_date": "2026-09-02",
+      "baseline": {
+        "impr": 945,
+        "clicks": 61,
+        "pos": 12.5,
+        "ctr": 0.0646,
+        "scope": "query-cluster｜以「感情」或「感情發展」結尾的籤詩查詢，GSC 2026-06-01..08-21（82 天）"
+      },
+      "checks": [],
+      "status": "open"
     }
   ]
 }
