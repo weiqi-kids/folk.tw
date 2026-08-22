@@ -67,6 +67,7 @@ export const REGISTRY = [
   // ── 以下皆 summary:false（原本就不進成功摘要；顯式宣告，不讓「忘了寫」長得像「刻意不寫」）──
   temple.templeLegalPrefix,         // 1h（法人前綴）
   temple.templeDescriptionPunct,    // 1e
+  temple.templeLingqianInSerp,      // 求籤句必須在 SERP 截斷點之前（2026-08-22）
   temple.templeSerpUniqueness,      // 1i（SERP 唯一性；reduce 型）
   temple.templeLocalCelebration,    // 7②
   temple.templeShareRow,            // 11（廟頁分享列）

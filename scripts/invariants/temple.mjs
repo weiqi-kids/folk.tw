@@ -4,7 +4,9 @@
 // ⚠️ 改任何一條之前先看它自己的檔頭註解：每一條都是拿線上事故換來的。
 import { escText, escAttr } from '../lib/astro-escape.mjs';
 import { commonTempleName } from '../../src/lib/temple-name.ts';
-import { fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH } from '../../src/lib/text-width.ts';
+import {
+  fullWidth, SERP_TITLE_MAX_WIDTH, TEMPLE_TITLE_DEITY_MAX_WIDTH, SERP_DESC_TRUNCATION_WIDTH,
+} from '../../src/lib/text-width.ts';
 import { checkEntityPhoto } from './entity-photo.mjs';
 // 代表祭典的挑選與造句：頁面、OG 卡、本 gate 走同一支 lib。
 import { pickMainFestival, festivalSentence } from '../../src/lib/temple-festival.ts';
@@ -15,6 +17,9 @@ import { lunarDateLabel } from '../../src/lib/lunar-date.ts';
 const SECTION_MARK = 'class="temple-lingqian"';
 const SUMMARY_MARK = 'class="summary"';
 const FAQ_MARK = '"@type":"FAQPage"';
+// 求籤句在 meta description 裡的字面。🔴 與 src/pages/temples/[id].astro 的 lingqianLine 同字面；
+// 兩邊不一致這條 gate 會直接算成「沒有求籤句」而靜默略過，故改任一邊都要一起改。
+const LINGQIAN_DESC_MARK = '可線上求籤，附白話解籤。';
 
 /** 原不變量 1：求籤 · 主祀神靈籤區塊（雙向）。本檔最早的一條。 */
 export const templeLingqian = {
@@ -179,6 +184,45 @@ export const templeDescriptionPunct = {
     );
   },
   summary: false,
+};
+
+/**
+ * 2026-08-22 加。**求籤句必須落在 Google 中文摘要的截斷點之前。**
+ *
+ * 🔴 為什麼要有這一條：這條規則 2026-08-03 就立過（把求籤句與鄉鎮統計句對調），
+ *    但那次是在只有 22/7891 間廟有沿革時量的。內政部沿革匯入之後，沿革首句
+ *    ＋祭典句又把求籤句推回截斷點之後，**而且推掉的正是流量最大的那批**
+ *    （沿革是內政部給名廟的，有沿革＝有名）：2026-08-22 實測 3,672 間有籤系的廟裡
+ *    1,241 間（33.8%）的求籤句 SERP 上根本看不到，大甲鎮瀾宮／白沙屯拱天宮／
+ *    北港朝天宮／松山慈祐宮全在裡面。
+ *    也就是說：**一次資料匯入把一條被實測立過的規則靜默推翻了三分之一，沒有任何東西會擋。**
+ *    這一條就是那個「東西」。判準綁在**產物**上，不綁在模板怎麼寫——
+ *    模板的排序邏輯以後怎麼改都行，改壞了這裡會紅燈。
+ * ⚠️ 只驗「有輸出求籤句的頁」；沒有籤系對映的廟不該有這句（那是 temple/lingqian 的事）。
+ */
+export const templeLingqianInSerp = {
+  id: 'temple/lingqian-in-serp',
+  legacyIds: [],
+  title: '有求籤句的廟宇頁，該句必須起始於 SERP 摘要截斷點之前',
+  source: 'temples',
+  check(t, page, ctx, acc) {
+    const desc = page.description();
+    if (!desc) return;
+    const at = desc.indexOf(LINGQIAN_DESC_MARK);
+    if (at < 0) return;
+    acc.count('withLingqian');
+    const width = fullWidth(desc.slice(0, at));
+    if (width > SERP_DESC_TRUNCATION_WIDTH) {
+      acc.violate(
+        `${t.id} 的「${LINGQIAN_DESC_MARK}」起始於第 ${width} 全形字，超過截斷點 `
+        + `${SERP_DESC_TRUNCATION_WIDTH}，SERP 上看不到：…${desc.slice(Math.max(0, at - 20), at + 12)}…`,
+      );
+    } else {
+      acc.count('visible');
+    }
+  },
+  summary: (acc) =>
+    `${acc.get('withLingqian')} 間廟頁輸出求籤句，${acc.get('visible')} 間落在截斷點（${SERP_DESC_TRUNCATION_WIDTH} 全形）之前`,
 };
 
 /**
