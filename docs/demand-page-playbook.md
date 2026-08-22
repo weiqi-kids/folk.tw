@@ -48,6 +48,20 @@ curl -s https://folk.tw/practices/pudu/ | grep -oE '<title>[^<]*</title>'
 
 ## 2. 對需求：這個題目有人搜嗎、我們現在拿到多少
 
+🔴 **有檔期的題目先跑這支**——它把「哪一檔快到了、那一檔的頁排第幾」變成每天算得出來的事，
+不再靠人記得。輸出同時是大腦層每天的第一優先候選（掛在 `brain.preCommands`）：
+
+```bash
+pnpm growth:calendar-gaps                 # 未來 120 天
+pnpm growth:calendar-gaps -- --days 45    # 只看近期
+pnpm growth:calendar-gaps -- --write      # 另寫 data/seo-daily/<日期>-calendar-gaps.json
+```
+
+判讀欄（沒進候選池／在第二頁以後／在第一頁下緣／有曝光零點擊）是**編輯提示不是及格線**，
+一律回到下面 §3 的三條件判。⚠️ `events.json` 的日期是**散文**（`date_note`，筆數自己跑指令查），
+本支刻意不推算它們的國曆日——推算散文日期正是杜撰的溫床；要納入排程請先在資料層補結構化日期。
+
+
 ```bash
 # 現成的每日快照（collect 台北 15:30 自動產）
 node -e "const d=require('./data/seo-daily/<日期>.json');console.log(d.gsc.range,JSON.stringify(d.gsc.totals))"

@@ -71,7 +71,8 @@
     "check:scenario-text": "node scripts/check-scenario-text.mjs",
     "check:temple-demand": "node --experimental-strip-types scripts/check-temple-demand-pages.mjs",
     "check:rss": "node --experimental-strip-types scripts/check-rss.mjs",
-    "check:manifest-expect": "node scripts/check-manifest-expect.mjs"
+    "check:manifest-expect": "node scripts/check-manifest-expect.mjs",
+    "growth:calendar-gaps": "node scripts/growth-calendar-gaps.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

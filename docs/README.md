@@ -28,7 +28,7 @@
 
 | 檔 | 用途 | 什麼時候讀 |
 |---|---|---|
-| [`demand-page-playbook.md`](demand-page-playbook.md) 🔴 | 需求 → 掛源頁的固定流程：先盤站內資料露出（`scripts/growth-field-exposure.mjs`）、對 GSC 需求、決定補版位或開新頁、節日深頁的完整同步清單、上線驗證 | **要開新頁、補內容、找成長題目之前**——這份存在的目的就是不用每次重談 |
+| [`demand-page-playbook.md`](demand-page-playbook.md) 🔴 | 需求 → 掛源頁的固定流程：先盤站內資料露出（`scripts/growth-field-exposure.mjs`）、對 GSC 需求與檔期倒推（`scripts/growth-calendar-gaps.mjs`）、決定補版位或開新頁、節日深頁的完整同步清單、上線驗證 | **要開新頁、補內容、找成長題目之前**——這份存在的目的就是不用每次重談 |
 
 ---
 
