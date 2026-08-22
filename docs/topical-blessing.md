@@ -123,8 +123,24 @@
 |---|---|---|---|
 | P1 結構化偵測 | `topical-orchestrate.mjs` | `*/20`（每 20 分） | USGS 地震＋GDACS 全球災害 → 去重 → 正向閘 → 開頁；逾 14 天歸檔 |
 | P2 新聞掃描 | `topical-news-scan.mjs` | `13 3,11,19`（每 8h） | LLM+WebSearch 掃新聞型長尾（天災＋人為重大意外兩族）→ 機器複驗 → 開頁 |
-| P4 後續追蹤 | `topical-followup.mjs` | `30 12`（每日） | 追蹤中事件找新進展 → 機器複驗 → 掛源接時間軸；archived 有後續→memorial；**颱風事後補名**（見 §3.7） |
+| P4 後續追蹤 | `topical-followup.mjs` | `30 0,4,12`（每日三輪） | 追蹤中事件找新進展 → 機器複驗 → 掛源接時間軸；archived 有後續→memorial；**颱風事後補名**（見 §3.7） |
 | （集氣聚合） | `qiugian-aggregate.mjs` | `7 */3`（每 3 小時） | GA4 → 集氣人數；峰值凍結回寫 `bless_snapshot` |
+
+🔴 **2026-08-22 P4 由每日一輪改成三輪**（`30 12` → `30 0,4,12`）。理由：P2 在 03:13／11:13／19:13
+開頁，而 P4 只在 12:30 跑 → 19:13 開的頁最久要等 **17.3 小時**才有第一筆後續，
+而那正是事件最熱、流量最大的窗口，讀者當下看到的是一條空時間軸。
+改成三輪後每輪開頁最久 5.3 小時內被追蹤（03:13→04:30、11:13→12:30、19:13→00:30）。
+⚠️ 分鐘固定用 `:30`——P1 是 `*/20`（跑在 :00/:20/:40），錯開才不會每次都撞 flock。
+三支共用同一把 flock、撞到就跳過本輪，所以加輪次是安全的。
+
+⚠️ **`followup.sealed` 佔比高不等於追蹤壞掉**（2026-08-22 查證，別再誤判一次）：
+當時 47 筆裡 38 筆 sealed，其中 30 筆是 **2026-08-05 站主裁示全數撤下**那一批
+（`retracted_reason` 逐筆寫著原因）、2026-08-22 另有 5 筆是 GDACS 野火／青島倉庫同批撤下，
+2026-08-22 真正走 `empty_runs >= 14` 自然放棄的只有 3 筆。要看現況跑：
+```bash
+node -e "const a=require('./src/data/topical.json');const s=a.filter(x=>x.followup?.sealed);\
+console.log('sealed',s.length,'/',a.length,'｜其中有 retracted_reason 的',s.filter(x=>x.retracted_reason).length)"
+```
 
 三支腳本共用的部分都在 `scripts/lib/`（2026-08-19 抽出，**改規則只改這裡，別在腳本裡再開一份**）：
 
