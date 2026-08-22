@@ -342,7 +342,13 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   //    在進行中卻跳明年，見 calendar-date.ts 的 nextOccurrence）。年份錯的話，
   //    補再多別名也沒用——Google 會認為這頁在講明年。
   'jilong-zhongyuan': {
-    title: `${year} 基隆中元祭（雞籠中元祭）｜放水燈與字姓輪值`,
+    // ⚠️ 「開龕門、放水燈與字姓輪值」這串是 scripts/invariants/festival.mjs 的
+    //    festival/title-intent 硬要求（title 必須呈現本頁獨有的搜尋意圖）。
+    //    2026-08-22 我第一版寫成「基隆中元祭（雞籠中元祭）｜放水燈與字姓輪值」，
+    //    把「開龕門」擠掉 → CI 產物層 gate 紅燈、連帶三個 commit 都沒上線。
+    //    正解不是改 gate，是讓兩個需求同時滿足：主名用使用者搜的「基隆中元祭」，
+    //    正式登錄名「雞籠中元祭」留在 description。
+    title: `${year} 基隆中元祭｜開龕門、放水燈與字姓輪值`,
     description: `${year} 基隆中元祭（正式登錄名雞籠中元祭）自${lunarLabel}起，橫跨整個農曆七月。整理開龕門、豎燈篙、放水燈、公普、關龕門的儀式順序，以及字姓輪值與文化資產登錄。`,
   },
   qianggu: {
