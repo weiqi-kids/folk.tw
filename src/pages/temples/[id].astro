@@ -387,10 +387,11 @@ const introBits = [regionLabel && `位於${regionLabel}`, mainDeity && `主祀${
 //    改成**逐頁判斷**——放得下就維持 8/03 的順序（沿革在前，那是這頁獨有的內容），
 //    放不下才把它插到沿革之前。目前約三分之二的頁面順序完全不變。
 const lingqianLine = lingqianSystems.length > 0 ? '可線上求籤，附白話解籤。' : '';
+const descFestivalLine = festivalLine
+  || (birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '');
 const descBodyBeforeQian = [
   historyFirstSentence ? historyFirstSentence : '',
-  festivalLine,
-  !festivalLine && birthdayLabel && mainDeity ? `${mainDeity}聖誕為${birthdayLabel}。` : '',
+  descFestivalLine,
 ].filter(Boolean);
 // 前綴＝`${t.name}${introBits}。`，與下方 templeDesc 的組法一致；求籤句要連同前綴一起算才準。
 const descPrefixWidth = fullWidth(`${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}`);
@@ -398,9 +399,15 @@ const lingqianFitsInPlace =
   descPrefixWidth
   + fullWidth(descBodyBeforeQian.join(''))
   + fullWidth(lingqianLine) <= SERP_DESC_TRUNCATION_WIDTH;
+// 🔴 放不下那條分支**不是**「求籤句插到最前面就好」——2026-08-22 第一版就是那樣寫，
+//    CI 的 `temple/festival-block` 當場擋下：`moi_4325_財團法人蚵子寮朝` 的廟名長達三十幾字，
+//    加上求籤句與長沿革之後，**代表祭典句被 Base 的 160 字截斷吃掉**（那條不變量要求它必須在
+//    meta description 裡，因為那是這批祭典資料的 CTR 目的）。等於把一種截斷換成另一種。
+//    正解是同時把最長也最可截的那一段（沿革首句，上限 60 全形）降到祭典句之後：
+//    順序變成「求籤 → 祭典 → 沿革 → 鄉鎮」，兩條不變量才同時成立。
 const descTail = (lingqianFitsInPlace
   ? [...descBodyBeforeQian, lingqianLine, townContext]
-  : [lingqianLine, ...descBodyBeforeQian, townContext])
+  : [lingqianLine, descFestivalLine, historyFirstSentence, townContext])
   .filter(Boolean)
   .join('');
 const templeDesc = `${t.name}${introBits.length ? introBits.join('，') + '。' : '。'}${
