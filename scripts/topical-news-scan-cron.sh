@@ -31,6 +31,11 @@ done
 echo "$OUT" | grep '^SCAN_RECOVERED' | while IFS=$'\t' read -r _ n; do
   notify_scan "✅ 時事祈福的新聞掃描（P2）已恢復（先前連續失敗 ${n} 次）。"
 done
+# 候選連續過不了機器複驗（2026-08-22 加）。SCAN_FAILED 管「整支掛掉」，這條管「掃得到卻吃不下」
+# ——後者才是「人為災害沒有入選」的實際漏法，而在此之前它完全靜音。
+echo "$OUT" | grep '^CANDIDATE_STUCK' | while IFS=$'\t' read -r _ place rounds reason; do
+  notify_scan "⚠️ 時事祈福：「${place}」連續 ${rounds} 輪過不了機器複驗（原因：${reason}）。若它是真事件，代表我們一直吃不下它，請看 log 判斷是來源抓不到還是地名對不上。"
+done
 
 cw_commit_push "[news-scan-cron]" "feat(topical): 新聞掃描自動編排 $(date -u +%FT%H:%MZ)" || { echo "[news-scan-cron] 無變更"; exit 0; }
 

@@ -18,7 +18,7 @@ import { createHash } from 'node:crypto';
 import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
 import { findDuplicate, normPlace, officialCycloneName, eventText, findTitleClash } from './lib/topical-dedup.mjs';
-import { VALID_EVENT_TYPES, stripHtml, normText } from './lib/topical-text.mjs';
+import { VALID_EVENT_TYPES, stripHtml, normText, foldHan } from './lib/topical-text.mjs';
 import { readFileSync as _readSt, writeFileSync as _writeSt, mkdirSync as _mkdirSt } from 'node:fs';
 
 // 偵測器健康狀態（2026-08-22）。**刻意放 repo 外**：cron 在 sparse worktree 執行，
@@ -31,7 +31,55 @@ const writeHealth = (h) => {
 };
 import { gateAndFrame } from './lib/topical-gate.mjs';
 import { readTopical, writeTopical, makeBlessingRecord } from './lib/topical-record.mjs';
-import { reportPublished, reportScanFailed, reportScanRecovered } from './lib/topical-report.mjs';
+import { reportPublished, reportScanFailed, reportScanRecovered, reportCandidateStuck } from './lib/topical-report.mjs';
+
+// ── 候選連續被丟棄的健康記錄（2026-08-22）────────────────────────────────────
+// 🔴 為什麼要有：掃描器好好的、候選也回報了，卻每一輪都被複驗丟掉——而這一路上**完全沒有訊號**。
+//    log 實據：`fire@台中市中區（西北大飯店舊址）` 連 3 輪判「存活來源不足 2」，
+//    彰化旭光路氣爆、台南關廟、南投竹山同型，全部靜音。整份 log 137 次複驗有 85 次丟棄，
+//    人為類通過率 25%（天災 41%）——「人為災害沒有入選」是從這裡漏的，不是類型表。
+// ⚠️ 寫在**repo 外**的同一個健康檔（cron 跑在 sparse worktree，寫進 repo 會被硬檢查擋下）。
+//    以「正規化地名」為鍵，因為偵察員每輪的 place 字串可能小幅不同。
+//    只保留最近 30 天，否則這個檔會無限長大。
+const REJ_ALERT_ROUNDS = 3;
+function noteRejected(place, reason) {
+  if (DRY) return;                       // --dry 一律不寫任何狀態（含 repo 外的健康檔）
+  const key = normPlace(String(place ?? '')).slice(0, 24);
+  if (!key) return;
+  const h = readHealth();
+  const rej = h.rejected ?? {};
+  const prev = rej[key] ?? { rounds: 0 };
+  rej[key] = { rounds: prev.rounds + 1, reason, last: today, alerted: prev.alerted ?? false };
+  h.rejected = rej;
+  writeHealth(h);
+}
+/** 複驗通過就把該地名的連續丟棄歸零——否則同一地名的下一個事件會帶著舊帳。 */
+function clearRejected(place) {
+  if (DRY) return;
+  const key = normPlace(String(place ?? '')).slice(0, 24);
+  if (!key) return;
+  const h = readHealth();
+  if (h.rejected?.[key]) { delete h.rejected[key]; writeHealth(h); }
+}
+/**
+ * 掃完一輪後統一報告：達門檻且尚未報過的才印，避免每輪重複刷同一則。
+ * ⚠️ **讀與印在 --dry 也照跑**（手動驗證時要看得到有什麼卡住），
+ *    但 `alerted` 標記與過期清理只在正式跑時寫回——否則一次 dry 就把告警吃掉。
+ */
+function reportStuckCandidates() {
+  const h = readHealth();
+  const rej = h.rejected ?? {};
+  const cutoff = new Date(Date.parse(today) - 30 * 86400000).toISOString().slice(0, 10);
+  let changed = false;
+  for (const [key, v] of Object.entries(rej)) {
+    if ((v.last ?? '') < cutoff) { delete rej[key]; changed = true; continue; }
+    if (v.rounds >= REJ_ALERT_ROUNDS && !v.alerted) {
+      reportCandidateStuck(key, v.rounds, v.reason);
+      v.alerted = true; changed = true;
+    }
+  }
+  if (changed && !DRY) { h.rejected = rej; writeHealth(h); }
+}
 
 const DRY = process.argv.includes('--dry');
 const today = new Date().toISOString().slice(0, 10);
@@ -50,14 +98,18 @@ function scanNews() {
 
 嚴格規則：
 - **只回你實際在搜尋結果中找到、且能點開閱讀的真實事件**。查無合適事件就回空陣列 []。
-- **嚴禁虛構**：不得編造網址、不得編造傷亡數字、不得杜撰不存在的事件。每筆至少附 2 個「彼此獨立」的真實新聞來源網址（不同媒體），且那些網址必須是你搜尋時真的看到的。
+- **嚴禁虛構**：不得編造網址、不得編造傷亡數字、不得杜撰不存在的事件。每筆請附 **3–4 個**「彼此獨立」的真實新聞來源網址（不同媒體），且那些網址必須是你搜尋時真的看到的。
+  （機器複驗只需要 2 個能抓得到的；多給幾個是因為新聞網站常擋機房 IP 或臨時抓不到，
+  只給 2 個時**一個抓不到整筆事件就被丟掉**——這是目前候選被丟棄的最大單一原因。）
+- **不要用 ettoday.net 當來源**：該站擋本機的機房 IP，一定抓不到，等於白給一個來源。
+  台灣新聞請優先用 cna.com.tw、udn.com、ltn.com.tw、chinatimes.com、setn.com、newtalk.tw（皆實測可抓）。
 - 地名用**來源原文**（中文來源如「重慶市彭水縣」直接沿用原漢字，不另譯）。
 - placeEn 只在來源本身是外文時填，且**必須照抄來源裡出現的拼法**（如 Geoje、Luzon、Munich）；
   不得自己音譯中文地名，不確定就留空字串——它只用於機器複驗比對，填錯會讓真事件被丟掉。
 - summary 只寫一句可查證的事實，勿誇大。
 
 只輸出**嚴格單行 JSON 陣列**，每筆物件格式：
-{"eventType":"landslide|bridge-collapse|gas-explosion|fire|flood|storm|volcano|cyclone|wildfire|aviation|rail|maritime|building-collapse|crowd-crush|industrial|other","place":"來源原文地名","placeEn":"來源若為外文，寫該來源使用的英文／羅馬拼音地名；中文來源或不確定就給空字串","time":"YYYY-MM-DD","summary":"一句事實","sources":[{"ref":"媒體名","url":"https://…"},{"ref":"媒體名","url":"https://…"}]}
+{"eventType":"landslide|bridge-collapse|gas-explosion|fire|flood|storm|volcano|cyclone|wildfire|aviation|rail|maritime|building-collapse|crowd-crush|industrial|other","place":"來源原文地名","placeEn":"來源若為外文，寫該來源使用的英文／羅馬拼音地名；中文來源或不確定就給空字串","time":"YYYY-MM-DD","summary":"一句事實","sources":[{"ref":"媒體名","url":"https://…"},{"ref":"媒體名","url":"https://…"},{"ref":"媒體名","url":"https://…"}]}
 除了這行 JSON 陣列外不要輸出任何其他文字。查無則輸出：[]`;
 
   const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
@@ -99,21 +151,44 @@ function scanNews() {
 // ── (b) 機器層複驗（防杜撰硬關卡，不信任 LLM 自述）───────────────────────────────
 // stripHtml／normText（去標籤後正規化，供關鍵詞比對）見 lib/topical-text.mjs。
 
+// 🔴 2026-08-22：對本機**結構性不可達**的來源網域。實測（node fetch＋curl -4／-6 皆試）：
+//    ettoday.net 的 DNS 只有 IPv4（219.85.79.131），連首頁都 ECONNRESET／000，
+//    ＝對方擋機房 IP，不是偶發、重試也救不回。它是台灣災害新聞最大宗來源之一，
+//    偵察員很愛選它，於是**台灣本地災害特別容易死在「存活來源不足 2」**——
+//    log 實據：台中西北大飯店舊址火災連 3 輪、彰化旭光路氣爆、台南關廟、南投竹山全是這樣沒的。
+//    列在這裡有兩個作用：① prompt 明講不要用 ② log 標成「已知不可達」而不是一般失敗，
+//    以免下一個人又把它當偶發網路問題查一次。
+//    ⚠️ 這是**觀測清單不是黑名單**：對方哪天放行，把它從這裡拿掉即可，沒有其他地方依賴它。
+const UNREACHABLE_HOSTS = ['ettoday.net', 'www.ettoday.net'];
+
+const hostOf = (url) => { try { return new URL(url).hostname; } catch { return ''; } };
+
+/**
+ * 抓來源頁。**失敗會重試一次**（2026-08-22 加）。
+ * 🔴 為什麼要重試：整份 log 137 次複驗裡有 34 次死在「存活來源不足 2」，佔全部丟棄的 40%。
+ *    2026-08-22 拿 log 裡失敗過的網址重跑，`bjnews.com.cn` 與 `news.yahoo.co.jp` **當場都回 200**
+ *    ——那些是暫時性失敗，而舊版一次失敗就把整個候選判死。
+ * ⚠️ 只重試**網路例外**，不重試 4xx／5xx：對方明講拒絕（如 mb.com.ph 常態 403）再打一次
+ *    只是多花 15 秒，而 P2 每輪要抓十幾個網址。
+ */
 async function fetchOk(url) {
-  try {
-    const r = await fetch(url, {
-      headers: { 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' },
-      redirect: 'follow',
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!r.ok) { console.error(`[news-scan]   ✗ fetch ${r.status} ${url}`); return null; }
-    const html = await r.text();
-    console.error(`[news-scan]   ✓ fetch ${r.status} ${url}`);
-    return html;
-  } catch (e) {
-    console.error(`[news-scan]   ✗ fetch 例外 ${url}：${e.message}`);
-    return null;
+  const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
+  const known = UNREACHABLE_HOSTS.includes(hostOf(url));
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const r = await fetch(url, { headers: { 'user-agent': UA }, redirect: 'follow', signal: AbortSignal.timeout(15000) });
+      if (!r.ok) { console.error(`[news-scan]   ✗ fetch ${r.status} ${url}`); return null; }
+      const html = await r.text();
+      console.error(`[news-scan]   ✓ fetch ${r.status} ${url}${attempt > 1 ? '（重試後成功）' : ''}`);
+      return html;
+    } catch (e) {
+      const tag = known ? '已知不可達（擋機房 IP，重試無用）' : e.message;
+      if (known || attempt === 2) { console.error(`[news-scan]   ✗ fetch 例外 ${url}：${tag}`); return null; }
+      console.error(`[news-scan]   … fetch 例外 ${url}：${e.message}，2 秒後重試`);
+      await new Promise((res) => setTimeout(res, 2000));
+    }
   }
+  return null;
 }
 
 // 行政區單位字：地名切段的邊界。缺了它，全漢字長地名會整串當成單一片段。
@@ -153,6 +228,17 @@ export function adminPieces(run) {
     const seg = run.slice(start, i + 1);
     out.push(seg);
     if (seg.length > 2) out.push(seg.slice(0, -1));
+    // 🔴 2026-08-22 第二輪修：**單位字不足時，本層段會整串黏在一起**。
+    //    實測案例＝`河北石家庄新华区`（燃氣爆燃、有人罹難的人為災害）：整串只有句尾一個「区」，
+    //    `石家庄` 沒有「市」字可切，於是只產出「河北石家庄新华区」與「河北石家庄新华」兩個片段，
+    //    而新華網／央視寫的是「石家庄市新华区」——兩個來源都 fetch 200、內容也真的在講那件事，
+    //    卻被判「無存活來源內容含關鍵詞」而丟棄。
+    //    補法：本層段長於 3 時，額外吐出**以單位字收尾的 3～6 字尾段**（新华区／家庄新华区／
+    //    石家庄新华区）。多出來的中間切點（家庄新华区）不會在真實文字裡出現，命中不了也無害；
+    //    真正要救的是最短的那個行政區名。
+    //    ⚠️ 仍受下方 `length >= 2` 與 `BARE_ADMIN` 過濾，且比對端另有 3 字下限——
+    //    這裡不放寬任何一道，只是把「切不出來」變成「切得出來」。
+    for (let n = 3; n <= 6 && n < seg.length; n++) out.push(seg.slice(seg.length - n));
     start = i + 1;
   }
   if (start > 0 && start < run.length) out.push(run.slice(start));
@@ -255,7 +341,8 @@ async function verifyCandidate(cand) {
   const declared = Array.isArray(cand.sources) ? cand.sources.filter((s) => s && typeof s.url === 'string') : [];
   const httpSrc = declared.filter((s) => /^https?:\/\//i.test(s.url));
   if (httpSrc.length < 2) {
-    console.error(`[news-scan]   丟棄：http(s) 來源不足 2（有 ${httpSrc.length}）`); return null;
+    console.error(`[news-scan]   丟棄：http(s) 來源不足 2（有 ${httpSrc.length}）`);
+    noteRejected(cand.place, 'http(s) 來源不足 2'); return null;
   }
 
   // 逐一 fetch，保留最終 2xx 者。
@@ -266,7 +353,8 @@ async function verifyCandidate(cand) {
     if (html != null) { alive.push(s); aliveHtml.push(html); }
   }
   if (alive.length < 2) {
-    console.error(`[news-scan]   丟棄：存活來源不足 2（存活 ${alive.length}）`); return null;
+    console.error(`[news-scan]   丟棄：存活來源不足 2（存活 ${alive.length}）`);
+    noteRejected(cand.place, '存活來源不足 2'); return null;
   }
 
   // 內容對得上：至少 1 個存活頁 HTML 含事件關鍵詞（擋「真 URL＋假內容」）。
@@ -275,18 +363,23 @@ async function verifyCandidate(cand) {
   const latin = latinKeywordsOf(cand);
   let matched = false, matchInfo = '';
   for (let i = 0; i < aliveHtml.length; i++) {
-    const body = normText(stripHtml(aliveHtml[i]));
+    // 🔴 兩邊都摺過字形再比（2026-08-22）：偵察員常把地名寫成正體，而來源是簡體或日文新字體。
+    //    實據＝`靜岡市清水區三保` vs 日文來源的 `静岡市清水区三保`，四個來源全 200、
+    //    內容也在講那件事，只因 `靜`≠`静`、`區`≠`区` 就被判「內容對不上」。見 lib/topical-text.mjs。
+    //    ⚠️ 摺完只用於比對，`matchInfo` 印的仍是原始關鍵詞，log 才看得懂。
+    const body = foldHan(normText(stripHtml(aliveHtml[i])));
     // 門檻 3（2026-08-22 由 2 提高）：2 字片段如「中和」「仁愛」「清水」「三民」
     // 在任何中文頁面都可能出現，稽核實測會讓假內容矇混過關。
-    const hit = kws.find((k) => k.length >= 3 && body.includes(k))
+    const hit = kws.find((k) => k.length >= 3 && body.includes(foldHan(k)))
       || latin.find((k) => body.includes(k));
     if (hit) { matched = true; matchInfo = `「${hit}」命中 ${alive[i].url}`; break; }
   }
   if (!matched) {
     console.error(`[news-scan]   丟棄：無存活來源內容含關鍵詞（kws=${kws.join('/')}${latin.length ? `｜en=${latin.join('/')}` : '｜en=（無 placeEn）'}）`);
-    return null;
+    noteRejected(cand.place, '無存活來源內容含關鍵詞'); return null;
   }
   console.error(`[news-scan]   ✓ 通過複驗：存活來源 ${alive.length}，內容 ${matchInfo}`);
+  clearRejected(cand.place);
   return { ...cand, sources: alive };
 }
 
@@ -373,6 +466,8 @@ async function main() {
   }
 
   if (changed && !DRY) writeTopical(list);
+  // 掃完一輪統一報告卡住的候選。--dry 也照跑（只讀不寫，見該函式檔頭）。
+  reportStuckCandidates();
 }
 
 // 被直接執行才跑；被 import 時只提供上面那些函式、不產生任何副作用

@@ -64,3 +64,21 @@ export const normText = (s) => String(s || '').toLowerCase()
 export const zh = (s) => typeof s === 'string'
   ? s.replace(/([一-鿿])\s*,/g, '$1，').replace(/([一-鿿])\s*;/g, '$1；')
   : s;
+
+// ── 字形對摺（2026-08-22）──────────────────────────────────────────────────
+// 🔴 **只用於機器比對**，絕不用於任何面向使用者的文字——本站一律正體中文。
+//    把繁／簡／日文新字體摺到同一個字形，讓「關鍵詞」與「來源內文」可以在同一個平面上比對。
+//
+// 為什麼需要（2026-08-22 實跑抓到的實據）：P2 偵察員把地名寫成 `靜岡市清水區三保`（正體），
+// 而日文來源寫的是 `静岡市清水区三保`——`靜`≠`静`、`區`≠`区`，四個來源全部 fetch 200、
+// 內容也真的在講那場造船廠油輪火災，卻被判「無存活來源內容含關鍵詞」而丟棄。
+// 兩邊都摺過之後（`静冈市清水区`）就對得上。
+// ⚠️ 我一度根據 4 個歷史樣本判定「對摺沒有貢獻」（那些樣本的地名剛好有共通字），
+//    是這次實跑的第 5 個樣本推翻了它——**歷史 log 的樣本數不足以否證這件事**。
+// ⚠️ 這**不涵蓋所有日文新字體**（`縣`↔`県`、`澤`↔`沢` 不在 OpenCC 的繁簡表裡）；
+//    那類要靠 ADMIN_UNIT 已經同時收 `県/縣`、`区/區` 這種逐字並列來處理。
+// 重產字表：讀 /usr/local/lib/python3.12/dist-packages/opencc/dictionary/TSCharacters.txt，
+//    取單字對單字、一對多取第一個，寫進 scripts/lib/zh-fold.json。
+import { readFileSync as _readFold } from 'node:fs';
+const FOLD = JSON.parse(_readFold(new URL('./zh-fold.json', import.meta.url), 'utf8')).map;
+export const foldHan = (s) => [...String(s ?? '')].map((c) => FOLD[c] ?? c).join('');

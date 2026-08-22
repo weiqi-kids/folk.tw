@@ -44,6 +44,21 @@ export const reportScanFailed = (consecutive, detail) => line('SCAN_FAILED', Str
 /** 偵測器恢復正常（前一輪還在失敗狀態）。cron：發一則恢復通知，讓人知道洞補起來了。 */
 export const reportScanRecovered = (afterFailures) => line('SCAN_RECOVERED', String(afterFailures));
 
+/**
+ * 同一個候選連續多輪過不了機器複驗。cron：發 ⚠️ Slack。
+ *
+ * 🔴 為什麼要有這一條（2026-08-22）：SCAN_FAILED 只管「掃描器整支掛掉」，
+ *    但更常見的失敗是**掃描器好好的、候選也回報了，卻每一輪都被複驗丟掉**，
+ *    而那一路上完全沒有訊號——log 實據：`fire@台中市中區（西北大飯店舊址）`
+ *    連 3 輪被判「存活來源不足 2」，彰化旭光路氣爆、台南關廟、南投竹山同型，
+ *    全部靜音。整份 log 137 次複驗有 85 次丟棄（62%），人為類通過率只有 25%
+ *    （天災 41%）——「人為災害沒有入選」正是從這裡漏掉的，而不是類型表。
+ * ⚠️ 門檻定 3 輪（≈24 小時）而不是 2：偵察員每輪未必回報同一個候選，
+ *    連 3 輪都出現同一個地名才代表它是真事件而我們一直吃不下。
+ */
+export const reportCandidateStuck = (place, rounds, reason) =>
+  line('CANDIDATE_STUCK', place, String(rounds), reason);
+
 /** 新開祈福頁（P1／P2）。cron：commit＋push 觸發部署，並對每頁發 Slack。 */
 export const reportPublished = (id, title) => line('PUBLISHED', id, title, blessingUrl(id));
 
