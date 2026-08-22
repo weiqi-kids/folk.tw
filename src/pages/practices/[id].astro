@@ -97,6 +97,37 @@ const faq = faqPage([
   },
 ]);
 
+// 問題型 title／description（2026-08-22）。**零新增事實**：只重組本頁已經渲染的欄位。
+// 病灶：原本 `title={p.title}`，20 個習俗頁全是裸名詞（線上實測「普渡｜神酷」「做十六歲｜神酷」），
+// 而這批頁正是全站唯一放「怎麼做」的地方——20/20 都有 steps 或 offerings。
+// GSC 8/01–8/21 實測：/practices/ 全族最高只到 115 曝光（收驚）、pudu 只有 5 曝光，
+// 而「普渡供品」「普渡流程」「中元普渡怎麼拜」這些詞全站 0 曝光。
+// 判準來自 2026-08-20 用戶拍板的需求母體轉向：CTR 由「Google 能不能自己在 SERP 上答完」決定，
+// 裸名詞是事實型（AI Overview 一行答完），問題型才必須點進來。
+// ⚠️ 只改 <title> 與 description，**不動 h1 與麵包屑**——那兩處是實體名稱，
+//    與 /festivals/ 的作法一致（h1 是節日名、title 是問題）。
+const primaryName = p.title.split(/[／/（(]/)[0].trim() || p.title;
+const seoCovers: string[] = [];
+if (p.offerings.length) seoCovers.push(p.joss_paper.length ? '供品與金紙' : '供品');
+if (p.steps.length) seoCovers.push('流程步驟');
+if (!p.offerings.length && p.joss_paper.length) seoCovers.push('金紙');
+if (p.taboo.length) seoCovers.push('禁忌');
+if (p.regional.length) seoCovers.push('地區差異');
+// 取前三項：title 超過約 30 個全形字會被 Google 截斷，截在「、」後面等於白寫。
+const seoLead = p.offerings.length ? `${primaryName}要準備什麼？` : `${primaryName}怎麼做？`;
+const seoTitle = seoCovers.length ? `${seoLead}${seoCovers.slice(0, 3).join('、')}` : seoLead;
+const seoDescription = [
+  seoLead,
+  seoCovers.length ? `整理${seoCovers.join('、')}。` : '',
+  p.summary,
+  p.occasion ? `多於${p.occasion}進行。` : '',
+].filter(Boolean).join('');
+
+// 禁忌彙整（2026-08-22）：p.taboo 與各步驟的 s.taboo 原本**只餵進 FAQPage／HowTo 的 JSON-LD**，
+// 頁面上一個字都看不到——線上實測 /practices/pudu/ 的可見 h2 只有「辭典裡的普渡／儀節步驟／
+// 地區差異／相關民俗活動」。資料早就在，缺的是版位。
+const pageTaboos = [...new Set([...p.taboo, ...sortedSteps.flatMap((s) => s.taboo)])];
+
 // ⚠️ 這一頁的 FAQPage 排在 HowTo **之前**（歷史寫法），與 Base 的 `faq` prop（一律接在最後）
 // 位置不同，改用它會動到線上輸出，故維持自組陣列。
 const jsonLd: object[] = [
@@ -106,8 +137,8 @@ const jsonLd: object[] = [
 ---
 
 <Base
-  title={p.title}
-  description={p.occasion ? `${p.summary}｜${p.occasion}` : p.summary}
+  title={seoTitle}
+  description={seoDescription}
   kind="detail"
   og={{ family: 'visual', stem: 'prayer-light' }}
   jsonLd={jsonLd}
@@ -171,8 +202,6 @@ const jsonLd: object[] = [
         </div>
       )
     }
-    {p.joss_paper.length > 0 && <div><dt>金紙</dt><dd>{p.joss_paper.map((j) => <span class="tag">{j}</span>)}</dd></div>}
-    {p.offerings.length > 0 && <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>}
   </dl>
 
   {/* 《臺灣民俗文物辭典》辭條引文（2026-08-20）：逐字引用、一個字不改寫。
@@ -217,6 +246,41 @@ const jsonLd: object[] = [
       )
     }
   </section>
+
+  {/* 供品與金紙（2026-08-22 從無標題的 <dl> 標籤列升成獨立區塊）。
+      🔴 零新增事實：品項完全是 p.offerings／p.joss_paper 原值，一個字沒動。
+      改的是版位——原本它們是 <dl> 裡的 .tag，頁面上沒有任何標題寫著「供品」或「金紙」，
+      而 GSC 8/01–8/21 實測「普渡供品」「中元金紙」這類詞全站 0 曝光。
+      ⚠️ 品項本身的地區差異（北部刈金／中部四方金／南部九金那類）留在「地區差異」段，
+      這裡不重述，也不把任一組寫成全台通則。 */}
+  {
+    (p.offerings.length > 0 || p.joss_paper.length > 0) && (
+      <section>
+        <h2>{p.offerings.length > 0 && p.joss_paper.length > 0 ? '供品與金紙' : p.offerings.length > 0 ? '供品' : '金紙'}</h2>
+        <dl class="regional">
+          {p.offerings.length > 0 && (
+            <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>
+          )}
+          {p.joss_paper.length > 0 && (
+            <div><dt>金紙</dt><dd>{p.joss_paper.map((j) => <span class="tag">{j}</span>)}</dd></div>
+          )}
+        </dl>
+      </section>
+    )
+  }
+
+  {/* 禁忌（2026-08-22 新增版位）。🔴 零新增事實：pageTaboos 全部來自 p.taboo 與各步驟的
+      s.taboo，那些值原本**只餵進 FAQPage／HowTo 的 JSON-LD**，讀者在頁面上一個字都看不到
+      （線上實測 /practices/pudu/ 的可見 h2 只有辭典／儀節步驟／地區差異／相關民俗活動）。
+      ⚠️ 無禁忌資料的習俗不印空段，也不印「查無」——沒有就是沒有，不需要向讀者交代。 */}
+  {
+    pageTaboos.length > 0 && (
+      <section>
+        <h2>{primaryName}的禁忌</h2>
+        <ul>{pageTaboos.map((t) => <li>{t}</li>)}</ul>
+      </section>
+    )
+  }
 
   <section>
     <h2>地區差異</h2>
