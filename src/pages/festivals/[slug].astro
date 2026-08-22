@@ -12,6 +12,7 @@ import { getDeities, getEvents, getPractices, getTemples } from '../../lib/queri
 import { faqPage, ORG } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { festivalNextSolar, lunarDateLabel, solarMd as formatSolarMd } from '../../lib/lunar-date';
+import { nextOccurrence, festivalCalendarDate } from '../../lib/calendar-date';
 import { googleCalendarUrl } from '../../lib/festival-calendar';
 import { templeCounty } from '../../lib/temple-region';
 import { festivalOwnerByLunarDate } from '../../lib/temple-festival.ts';
@@ -421,6 +422,32 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
 // Record 只會讓這支檔案更難讀，資料層才是它們該待的地方。
 const pageTitle = campaignSeo[f.slug]?.title ?? (f as { seo_title?: string }).seo_title ?? defaultPageTitle;
 const pageDesc = campaignSeo[f.slug]?.description ?? (f as { seo_description?: string }).seo_description ?? defaultPageDesc;
+// ── 近年日期：去年／今年／明年（2026-08-22，站主指定）────────────────────────
+// 🔴 為什麼要有：節日一過，`festivalNextSolar` 就指向下一次，於是農曆七月都還沒結束、
+//    「鬼門開」（七月初一）才過幾天，那頁的標題與日期就整個變成明年——而 GSC 當週仍然有人
+//    在搜「8/13鬼門開」「鬼門開是哪一天」。單看一個年份無法同時服務「今年是幾號」與
+//    「明年是幾號」兩種問法，所以三年並列。
+// ⚠️ 逐年各自換算，**不是把今年的國曆日加減 11 天**——農曆與國曆的對應每年不同，
+//    而且會遇到短月退日：實測地藏（農曆七月三十）2025 是 9/21（七月三十）、
+//    2026 因當年七月只有廿九日而落在 9/10（七月廿九）、2027 又回到 8/31（七月三十）。
+//    農曆標籤逐年分別顯示，就是為了讓那一年的實際落日看得出來。
+// ⚠️ 回曆與無日期（待公告）的節日算不出來，整段不顯示——`nextOccurrence` 對回曆一律回 null。
+// 🔴 錨在**今年**（台灣時區），不是 `year`。`year` 是「下一次發生」的年份：節日一過就跳明年，
+//    於是鬼門開（七月初一，2026-08-13 剛過）的 `year` 已經是 2027，
+//    照它算會列出 2027/2028 這種對「今年是幾號」毫無幫助的組合。實測就是這樣才發現的。
+const thisYear = Number(todayInTaipei().iso.slice(0, 4));
+const calDate = festivalCalendarDate(f);
+const nearbyYears = calDate
+  ? [thisYear - 1, thisYear, thisYear + 1]
+      .map((y) => {
+        const occ = nextOccurrence(calDate, `${y}-01-01`);
+        return occ?.iso && occ.iso.slice(0, 4) === String(y)
+          ? { year: y, md: formatSolarMd(occ.iso), label: occ.label }
+          : null;
+      })
+      .filter(Boolean)
+  : [];
+
 const festivalOgImage = festivalOgPath(f.slug);
 const festivalDiscoverImage = festivalDiscoverImageUrl(f.slug);
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
@@ -553,6 +580,22 @@ const jsonLd = [article];
       「哪一個個案被登錄」，讀者要先有前者才讀得懂後者。
       ⚠️ 這一段對鬼門開、雞籠中元祭、義民節特別重要——那幾頁長期與中元節主場頁重複，
       而辭典給的正是只屬於它們自己的事實（老大公廟開龕門、十五字姓輪普、林爽文事件）。 */}
+  {
+    nearbyYears.length > 1 && (
+      <section>
+        <h2>{f.name}近年是哪一天</h2>
+        <dl class="near-years">
+          {nearbyYears.map((y) => (
+            <div class="row">
+              <dt>{y!.year}</dt>
+              <dd>國曆 {y!.md}{y!.label ? `（${y!.label}）` : ''}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
   {
     (f as { th_dict?: { url: string; title: string; excerpt: string[] }[] }).th_dict?.length && (
       <section class="th-dict">
@@ -967,6 +1010,10 @@ const jsonLd = [article];
     .quoted h3 { color: var(--gold); font-size: var(--text-sm); margin-bottom: 0.35rem; }
     .quoted p { line-height: 1.8; margin: 0 0 0.5rem; }
     .facts li { line-height: 1.9; margin-bottom: 0.4rem; }
+    .near-years { margin: 0.625rem 0; }
+    .near-years .row { display: grid; grid-template-columns: 4rem 1fr; gap: 0.625rem; padding: 0.4375rem 0; border-bottom: 1px dashed var(--line); }
+    .near-years dt { font-weight: 700; color: var(--accent); }
+    .near-years dd { margin: 0; }
     .regional dt { font-weight: 700; margin-top: 0.75rem; }
     .regional dd { margin: 0.25rem 0 0; color: var(--ink-soft); }
     .small { font-size: var(--text-sm); }
