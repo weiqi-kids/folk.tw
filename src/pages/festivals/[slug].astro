@@ -420,8 +420,6 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
 // → festivals.json 的 seo_title／seo_description（靜態問題型，寫在資料層）
 // → 通用模板。中間這層是為了 52 個草稿頁：它們不需要動態年份，把 52 筆文案塞進上面那個
 // Record 只會讓這支檔案更難讀，資料層才是它們該待的地方。
-const pageTitle = campaignSeo[f.slug]?.title ?? (f as { seo_title?: string }).seo_title ?? defaultPageTitle;
-const pageDesc = campaignSeo[f.slug]?.description ?? (f as { seo_description?: string }).seo_description ?? defaultPageDesc;
 // ── 近年日期：去年／今年／明年（2026-08-22，站主指定）────────────────────────
 // 🔴 為什麼要有：節日一過，`festivalNextSolar` 就指向下一次，於是農曆七月都還沒結束、
 //    「鬼門開」（七月初一）才過幾天，那頁的標題與日期就整個變成明年——而 GSC 當週仍然有人
@@ -448,6 +446,22 @@ const nearbyYears = calDate
       .filter(Boolean)
   : [];
 
+const pageTitle = campaignSeo[f.slug]?.title ?? (f as { seo_title?: string }).seo_title ?? defaultPageTitle;
+const baseDesc = campaignSeo[f.slug]?.description ?? (f as { seo_description?: string }).seo_description ?? defaultPageDesc;
+// 🔴 2026-08-22（站主指定）：描述尾巴補三年日期。
+//    起因：`festivalNextSolar` 指的是「下一次發生」，節日一過標題就跳明年——鬼門開才過幾天，
+//    SERP 上的標題已經是「2027 鬼門開是 8/2」，而 GSC 當週仍有人在搜「8/13鬼門開」。
+//    標題不動（那是排名精準匹配的來源、且動它要碰有 golden test 釘住的 nextOccurrence），
+//    改由描述補上今年與去年的國曆日，讓那類查詢至少在摘要裡命中。
+// ⚠️ **有長度閘**：Base.astro 以 `excerptAtBoundary(desc, 160)` 截斷，
+//    硬接上去會把既有描述的尾句擠掉（廟宇頁 2026-08-22 就是這樣把代表祭典句擠出截斷點、
+//    被 CI 的 temple/festival-block 當場擋下）。放不下就整段不加——寧可不加，不可擠掉別的。
+const nearbyYearLine = nearbyYears.length > 1
+  ? `近年日期：${nearbyYears.map((y) => `${y!.year} 年 ${y!.md}`).join('、')}。`
+  : '';
+const pageDesc = nearbyYearLine && baseDesc.length + nearbyYearLine.length <= 158
+  ? `${baseDesc}${nearbyYearLine}`
+  : baseDesc;
 const festivalOgImage = festivalOgPath(f.slug);
 const festivalDiscoverImage = festivalDiscoverImageUrl(f.slug);
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;
