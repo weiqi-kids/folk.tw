@@ -11,11 +11,26 @@ import { readFileSync, readdirSync } from 'node:fs';
 
 const KEYS = ['換工作', '求職面試', '創業開店', '投資理財', '考試升學', '告白追求', '復合挽回', '分手離婚', '買房搬家'];
 const dir = 'src/content/interpretations';
+// 這個 collection 既有的其他欄位（不是情境，但合法）。
+const KNOWN_OTHER = ['運勢', '求財', '姻緣', '六甲', '功名', '訴訟', '疾病', '行人', '失物', 'draft'];
 const violations = [];
 let checked = 0;
 
 for (const f of readdirSync(dir).filter((x) => x.endsWith('.md'))) {
   const fm = (readFileSync(`${dir}/${f}`, 'utf8').split('---')[1] ?? '');
+  // 🔴 欄位**名稱**也要驗：2026-08-21 實際踩到——guandi_lingqian-31 的 key 被打成
+  //    「換жи作」（俄文字母混進 key），而第一版只比對已知 key 的**值**，
+  //    於是那一整段靜默消失、總數少一段也沒人發現。
+  //    這裡先抓「長得像情境 key 但不在清單裡」的行，再驗值。
+  for (const line of fm.split('\n')) {
+    const looksLikeKey = line.match(/^([^\s:"]{2,6}):\s*"/);
+    if (looksLikeKey) {
+      const k = looksLikeKey[1];
+      if (!KEYS.includes(k) && !KNOWN_OTHER.includes(k)) {
+        violations.push(`${f}：未知欄位名「${k}」——是不是打錯字？`);
+      }
+    }
+  }
   for (const line of fm.split('\n')) {
     const m = line.match(new RegExp(`^(${KEYS.join('|')}):\\s*"(.*)"\\s*$`));
     if (!m) continue;
