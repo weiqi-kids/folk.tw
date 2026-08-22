@@ -393,8 +393,12 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   },
 
 };
-const pageTitle = campaignSeo[f.slug]?.title ?? defaultPageTitle;
-const pageDesc = campaignSeo[f.slug]?.description ?? defaultPageDesc;
+// 優先序（2026-08-22）：campaignSeo（要動態年份與日期的戰役頁，寫在本檔）
+// → festivals.json 的 seo_title／seo_description（靜態問題型，寫在資料層）
+// → 通用模板。中間這層是為了 52 個草稿頁：它們不需要動態年份，把 52 筆文案塞進上面那個
+// Record 只會讓這支檔案更難讀，資料層才是它們該待的地方。
+const pageTitle = campaignSeo[f.slug]?.title ?? (f as { seo_title?: string }).seo_title ?? defaultPageTitle;
+const pageDesc = campaignSeo[f.slug]?.description ?? (f as { seo_description?: string }).seo_description ?? defaultPageDesc;
 const festivalOgImage = festivalOgPath(f.slug);
 const festivalDiscoverImage = festivalDiscoverImageUrl(f.slug);
 const canonicalUrl = `https://folk.tw/festivals/${f.slug}/`;

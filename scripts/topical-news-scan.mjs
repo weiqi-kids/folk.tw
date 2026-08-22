@@ -93,13 +93,29 @@ async function fetchOk(url) {
 // 行政區單位字：地名切段的邊界。缺了它，全漢字長地名會整串當成單一片段。
 const ADMIN_UNIT = /[省市縣県区區鄉郷鎮镇村里屯州府道都郡島岛]/;
 
+// 國名／地區前綴。⚠️ 2026-08-22 稽核抓到：`adminPieces('日本千葉縣')` 產不出「千葉縣」
+// （整串沒有行政區單位字可切在「千葉縣」之前），而 log 裡被誤殺最多次的正是這種寫法
+// （「菲律賓碧瑤市」連四輪）。命中前綴時額外把去掉國名的餘段再切一次。
+const COUNTRY_PREFIX = ['日本', '韓國', '南韓', '北韓', '中國', '美國', '菲律賓', '印尼', '印度',
+  '越南', '泰國', '緬甸', '寮國', '柬埔寨', '馬來西亞', '新加坡', '尼泊爾', '孟加拉', '巴基斯坦',
+  '阿富汗', '伊朗', '土耳其', '俄羅斯', '墨西哥', '巴西', '智利', '秘魯', '義大利', '法國',
+  '德國', '西班牙', '希臘', '台灣', '臺灣'];
+
+// 只有一層行政區的裸名稱：太常見，單獨命中不構成「這頁在講這件事」。
+// 稽核實測：`新北市中和區` 產出的「新北市」在中時即時新聞首頁就命中，等於守門失效。
+const BARE_ADMIN = new Set(['台北市', '臺北市', '新北市', '桃園市', '台中市', '臺中市', '台南市',
+  '臺南市', '高雄市', '基隆市', '新竹市', '新竹縣', '苗栗縣', '彰化縣', '南投縣', '雲林縣',
+  '嘉義市', '嘉義縣', '屏東縣', '宜蘭縣', '花蓮縣', '台東縣', '臺東縣', '澎湖縣', '金門縣', '連江縣']);
+
 /**
  * 把一段全漢字地名拆成可比對的行政層級片段。
  * 🔴 2026-08-22 修：原本只做 `place.match(/[一-鿿]{2,}/g)`，那個 regex 對「廣西南丹縣芒場鎮拉麻村
  * 黃祥坡屯」只會吐回**整串**（中間沒有非漢字可切），而新聞寫的是「廣西南丹縣」，於是永遠對不上。
- * 實據：2026-08-17 廣西南丹山崩連三輪被丟「無存活來源內容含關鍵詞」，第四輪 LLM 剛好把 place
- * 寫短成「廣西南丹縣」才通過（見 seo-ops/logs/folk.tw-topical-news.log）。同期韓國巨濟、菲律賓、
- * 千葉縣、四川宜賓也都是兩個來源 fetch 200 卻被丟掉。
+ * 🔴 **原本這裡寫的實據是編的（2026-08-22 稽核打回）**：初版寫「廣西南丹連三輪被丟、第四輪 LLM
+ * 把 place 寫短成『廣西南丹縣』才通過」。log 實際上是第 831 行丟過**一次**，第 855 行就用**同一個
+ * 長地名**通過（命中整串、來源 ntdtv）並開了頁；877 之後那幾次被丟都發生在頁面開好之後。
+ * 站得住的實據只有這句：廣西南丹、韓國巨濟、菲律賓、千葉縣、四川宜賓、河北石家庄**六筆都是
+ * 兩個來源 `✓ fetch 200` 之後才被判「無存活來源內容含關鍵詞」**——那才是這個修法要解的問題。
  * 產出三種片段：累積前綴（廣西南丹縣）、本層段（芒場鎮）、去單位字的本層段（芒場）。
  */
 export function adminPieces(run) {
@@ -114,7 +130,15 @@ export function adminPieces(run) {
     start = i + 1;
   }
   if (start > 0 && start < run.length) out.push(run.slice(start));
-  return out.filter((x) => x.length >= 2);
+  // 去掉國名前綴後再切一次（日本千葉縣 → 千葉縣 → 千葉）。
+  for (const c of COUNTRY_PREFIX) {
+    if (run.startsWith(c) && run.length > c.length) {
+      const rest = run.slice(c.length);
+      out.push(rest, ...adminPieces(rest));
+      break;
+    }
+  }
+  return out.filter((x) => x.length >= 2 && !BARE_ADMIN.has(x));
 }
 
 // 泛詞：切段時會掉出來的通用尾巴（「呂宋島為主」→「為主」），單獨出現不具辨識力，
@@ -145,17 +169,32 @@ export function keywordsOf(cand) {
   const re = /[一-鿿]{3,}/g;
   let m;
   while ((m = re.exec(summary)) !== null) {
+    // ⚠️ 2026-08-22 稽核打回首版：首版是「命中量詞頭就丟掉整段」，而中文摘要寫
+    // 「8月15日本州東北部發生規模6山崩」是常態，`日` 在量詞表裡 → 整句地名陪葬
+    // （實測 `2026年8月20日台南市永康區發生氣爆` 只剩「波及數棟民宅」）。
+    // 改成**只剝掉開頭的量詞字**，剩下的照收：`人死亡`→`死亡`（<3 丟）、
+    // `日本州東北部發生規模`→`本州東北部發生規模`（留）。
     const afterDigit = m.index > 0 && /[0-9０-９]/.test(summary[m.index - 1]);
-    if (afterDigit && COUNTER_HEAD.test(m[0])) continue;
-    kws.add(normText(m[0]));
+    const seg = afterDigit ? m[0].replace(new RegExp(`^${COUNTER_HEAD.source.slice(1)}+`), '') : m[0];
+    if (seg.length < 3) continue;
+    kws.add(normText(seg));
   }
   return [...kws].filter((k) => k && !ZH_STOP.has(k));
 }
 
 // 外文來源比對用的通用詞，單獨出現不具辨識力。
-const LATIN_STOP = new Set(['city', 'province', 'island', 'county', 'region', 'state', 'district',
-  'town', 'village', 'north', 'south', 'east', 'west', 'central', 'northern', 'southern', 'eastern',
-  'western', 'airport', 'national', 'park', 'area', 'areas', 'near', 'from', 'that', 'with', 'their']);
+// ⚠️ 2026-08-22 稽核實測，首版這份名單漏了國名與 `prefecture`，導致
+// `placeEn='Chiba Prefecture'` 在 japantimes **首頁**就命中「japan」→ 守門形同關閉。
+// normText 會去掉所有空白、比對是子字串，所以無法用單字邊界，只能靠名單與長度下限。
+const LATIN_STOP = new Set(['city', 'province', 'prefecture', 'island', 'islands', 'county',
+  'region', 'state', 'district', 'town', 'village', 'north', 'south', 'east', 'west', 'central',
+  'northern', 'southern', 'eastern', 'western', 'airport', 'national', 'park', 'area', 'areas',
+  'mount', 'mountain', 'river', 'valley', 'coast', 'municipality', 'barangay',
+  // 國名／大區：出現在任何一篇該國新聞（甚至首頁）都不奇怪，不具辨識力
+  'japan', 'china', 'korea', 'taiwan', 'philippines', 'indonesia', 'vietnam', 'thailand',
+  'malaysia', 'singapore', 'india', 'nepal', 'myanmar', 'cambodia', 'russia', 'turkey',
+  'mexico', 'brazil', 'chile', 'peru', 'italy', 'france', 'germany', 'spain', 'greece',
+  'america', 'american', 'asia', 'asian', 'europe']);
 
 /**
  * placeEn → 拉丁字關鍵詞。
@@ -167,7 +206,8 @@ const LATIN_STOP = new Set(['city', 'province', 'island', 'county', 'region', 's
 export function latinKeywordsOf(cand) {
   const en = String(cand.placeEn || '');
   if (!en) return [];
-  const toks = en.toLowerCase().match(/[a-z]{4,}/g) || [];
+  // 下限 5：4 字的拉丁片段太容易在無關頁面裡出現。Geoje／Luzon／Chiba／Baguio 皆 ≥5。
+  const toks = en.toLowerCase().match(/[a-z]{5,}/g) || [];
   return [...new Set(toks.filter((t) => !LATIN_STOP.has(t)))];
 }
 
@@ -210,7 +250,9 @@ async function verifyCandidate(cand) {
   let matched = false, matchInfo = '';
   for (let i = 0; i < aliveHtml.length; i++) {
     const body = normText(stripHtml(aliveHtml[i]));
-    const hit = kws.find((k) => k.length >= 2 && body.includes(k))
+    // 門檻 3（2026-08-22 由 2 提高）：2 字片段如「中和」「仁愛」「清水」「三民」
+    // 在任何中文頁面都可能出現，稽核實測會讓假內容矇混過關。
+    const hit = kws.find((k) => k.length >= 3 && body.includes(k))
       || latin.find((k) => body.includes(k));
     if (hit) { matched = true; matchInfo = `「${hit}」命中 ${alive[i].url}`; break; }
   }

@@ -2071,7 +2071,9 @@
     ],
     "draft_week": 1,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "白露和秋分差在哪？節氣日期與農事的關係",
+    "seo_description": "白露是秋季第三個節氣，秋分是秋季中點；頁面說明日期怎麼換算，以及露水、晝夜長短與作物觀察各自能講到哪裡。"
   },
   {
     "slug": "draft-week-02-zhongqiu-guide",
@@ -2123,7 +2125,9 @@
     ],
     "draft_week": 2,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "中秋拜月娘和秋報土地公差在哪？供品為何各家不同",
+    "seo_description": "中秋節以農曆八月十五為基準，這頁分開說明賞月拜月娘的家庭語境、家庭祭祖，以及農作收成後答謝土地公的秋報脈絡，供品時間會因家庭與地區而異。"
   },
   {
     "slug": "draft-week-03-kinmen-bo-bing-guide",
@@ -2189,7 +2193,9 @@
     ],
     "draft_week": 3,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "金門博狀元餅怎麼玩？六顆骰子與科名彩號",
+    "seo_description": "六顆骰子怎麼對應狀元到一秀，獎項分配依主辦規則；洪旭起源屬地方傳說，年度檔期與場地看金門縣政府公告。"
   },
   {
     "slug": "draft-week-04-kongzi-teachers-day",
@@ -2255,7 +2261,9 @@
     ],
     "draft_week": 4,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "教師節和孔子誕辰同一天嗎？祭孔釋奠在做什麼",
+    "seo_description": "國曆九月二十八日是行政與紀念日的日期基準，民間另有農曆八月廿七等說法；釋奠的初獻、亞獻、終獻與佾舞、禮生各是什麼，典禮時間依主辦機關公告。"
   },
   {
     "slug": "draft-week-05-chongyang-guide",
@@ -2321,7 +2329,9 @@
     ],
     "draft_week": 5,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "重陽節要做什麼？敬老、祭祖與登高怎麼分",
+    "seo_description": "農曆九月九日的重陽，有家庭祭祖、有地方登高或辦敬老活動；頁面說明節俗與老人節政策是不同層次，也不把登高說成健康保證。"
   },
   {
     "slug": "draft-week-06-qingshan-king-festival",
@@ -2387,7 +2397,9 @@
     ],
     "draft_week": 6,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "艋舺青山王祭暗訪和遶境差在哪？大拜拜怎麼看",
+    "seo_description": "青山王聖誕以農曆十月二十二日為正日，這頁說明夜間暗訪與正日公開遶境不是同一時段，路線與交通管制要看青山宮及臺北市政府的年度公告。"
   },
   {
     "slug": "draft-week-07-xiayuan",
@@ -2439,7 +2451,9 @@
     ],
     "draft_week": 7,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "下元節是什麼？水官解厄和上元中元差在哪",
+    "seo_description": "農曆十月十五的三元日期系統，天官賜福、地官赦罪與水官解厄的信仰分層；各廟法會時間仍依年度公告。"
   },
   {
     "slug": "draft-week-08-wangjiao-differences",
@@ -2505,7 +2519,9 @@
     "date_status": "source_required",
     "draft_week": 8,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "王醮、王船祭和迎王差在哪？先看地點和主辦廟",
+    "seo_description": "三個名稱不能互換：王醮偏地方建醮的儀式框架，王船祭著重送王船，迎王常指迎請王爺入境；東港個案不等於所有王醮的流程。"
   },
   {
     "slug": "draft-week-09-dongshan-yingfozu",
@@ -2567,7 +2583,9 @@
     ],
     "draft_week": 9,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "東山迎佛祖是什麼？佛祖回鑾與遶境怎麼看",
+    "seo_description": "臺南東山碧軒寺的地方民俗，農曆十二月歲末的起駕、駐駕與回鑾脈絡；路線與交通仍以碧軒寺當年度公告為準。"
   },
   {
     "slug": "draft-week-10-dongzhi-guide",
@@ -2673,7 +2691,9 @@
     ],
     "draft_week": 10,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "冬至為什麼叫亞歲？冬節圓、補冬和謝冬怎麼分",
+    "seo_description": "冬至是依太陽位置計算的節氣，這頁說明拜神明與拜祖先的供品差別、立冬起的熱補涼補，以及年尾謝平安請戲、吃平安宴的地方傳統。"
   },
   {
     "slug": "draft-week-11-songshen-xietaisui",
@@ -2749,7 +2769,9 @@
     ],
     "draft_week": 11,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "送神日拜什麼？謝太歲和年末還願怎麼分",
+    "seo_description": "農曆十二月二十四送灶神的供品與神位位置、送神早接神晚的說法，以及謝太歲與還願為何不是同一件事。"
   },
   {
     "slug": "draft-week-12-chuxi-ancestors",
@@ -2835,7 +2857,9 @@
     ],
     "draft_week": 12,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "除夕祭祖幾點拜？辭年、圍爐與拜公媽的差別",
+    "seo_description": "辭年在傍晚前祭拜玉皇上帝、三界神明、灶神、床母、地基主與祖先，圍爐菜色多取諧音；實際時間仍看家族傳承與長輩的決定。"
   },
   {
     "slug": "draft-week-13-antaisui-deng",
@@ -2887,7 +2911,9 @@
     "date_status": "source_required",
     "draft_week": 13,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "安太歲和點燈差在哪？要去哪裡辦、怎麼登記",
+    "seo_description": "安太歲是太歲信仰的年度祈福服務，光明燈、平安燈、文昌燈則依廟方命名分用途；費用與受理期限看各廟當年度公告。"
   },
   {
     "slug": "draft-week-14-baitiangong-guide",
@@ -2953,7 +2979,9 @@
     ],
     "draft_week": 14,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "拜天公要在子時嗎？供桌和供品為什麼各家不同",
+    "seo_description": "天公生常以農曆正月初九為基準，這頁把玉皇上帝信仰、家庭祭拜與廟宇法會分開整理，供桌高度、金紙和是否在戶外依地方與長輩傳承。"
   },
   {
     "slug": "draft-week-15-yuanxiao-guide",
@@ -3079,7 +3107,9 @@
     ],
     "draft_week": 15,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "元宵節怎麼過？乞龜、聽香與鑽燈腳的由來",
+    "seo_description": "擲筊乞龜為何要加倍奉還、少女聽香問婚事怎麼問、鑽燈腳求丁的諧音，還有燈謎與東勢新丁粄。"
   },
   {
     "slug": "draft-week-16-yanshui-handan",
@@ -3145,7 +3175,9 @@
     ],
     "draft_week": 16,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "鹽水蜂炮和臺東寒單一樣嗎？兩地規則不共用",
+    "seo_description": "兩者都在農曆正月十五前後，但地點、儀式對象與安全規則不同；蜂炮在臺南鹽水武廟，寒單以寒單爺出巡與炮炸辨識，路線每年依公告。"
   },
   {
     "slug": "draft-week-17-dajia-baishatun-pilgrimage",
@@ -3211,7 +3243,9 @@
     "date_status": "source_required",
     "draft_week": 17,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "大甲媽祖和白沙屯媽祖進香差在哪？路線怎麼定",
+    "seo_description": "兩項進香分屬大甲鎮瀾宮與白沙屯拱天宮，白沙屯以鑾轎臨場決定路線；日期、起駕與回鑾都回主辦廟當年度公告。"
   },
   {
     "slug": "draft-week-18-beigang-mazu-pilgrimage",
@@ -3277,7 +3311,9 @@
     "date_status": "source_required",
     "draft_week": 18,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "北港迎媽祖南巡北巡和進香差在哪？和大甲不同",
+    "seo_description": "常年資料記農曆三月十九南巡、二十北巡，這頁說明迎媽祖遶境與跨庄進香不是同一層次，起駕停駕與交通仍以北港朝天宮公告為準。"
   },
   {
     "slug": "draft-week-19-neimen-songjiang",
@@ -3343,7 +3379,9 @@
     "date_status": "source_required",
     "draft_week": 19,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "內門宋江陣和羅漢門迎佛祖是同一件事嗎",
+    "seo_description": "文化資產登錄的正式名稱是羅漢門迎佛祖，宋江陣是其中的陣頭；內門紫竹寺與年度路線公告怎麼查。"
   },
   {
     "slug": "draft-week-20-qingming-guide",
@@ -3409,7 +3447,9 @@
     ],
     "draft_week": 20,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "清明是節氣還是節日？掃墓為什麼挑這幾天",
+    "seo_description": "清明依太陽位置計算，國曆通常落在四月初；掃墓、掛紙與返鄉的日子受家族傳承、墓園與交通影響，不能用連假第一天推定。"
   },
   {
     "slug": "draft-week-21-qingming-tomb-practice",
@@ -3475,7 +3515,9 @@
     ],
     "draft_week": 21,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "掃墓、培墓和掛紙差在哪？清明祭祖怎麼分",
+    "seo_description": "掃墓是墓地整理與祭祖的總稱，培墓著重培土修補，掛紙是部分地區放置墓紙的做法；焚燒與清潔規定看墓園公告。"
   },
   {
     "slug": "draft-week-22-baosheng-birthday",
@@ -3541,7 +3583,9 @@
     ],
     "draft_week": 22,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "保安宮放火獅、過火和家姓戲是什麼？保生大帝聖誕",
+    "seo_description": "大龍峒保安宮以農曆三月十五為正日，這頁只談這一間廟的地方儀程，神明職司回到保生大帝條目，年度路線與開放方式依廟方公告。"
   },
   {
     "slug": "draft-week-23-sanxia-qingshui",
@@ -3607,7 +3651,9 @@
     ],
     "draft_week": 23,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "三峽祖師公生日和其他清水祖師廟一樣嗎",
+    "seo_description": "內政部記載長福巖聖誕為農曆正月初六，遶境路線、封街與參觀規則要回查廟方與新北市政府年度公告。"
   },
   {
     "slug": "draft-week-24-dadaocheng-chenghuang",
@@ -3673,7 +3719,9 @@
     ],
     "draft_week": 24,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "霞海城隍暗訪和遶境差在哪？五月十三怎麼走",
+    "seo_description": "常年資料以農曆五月十三為正日、五月十一暗訪；這是大稻埕的地方祭典，不是所有城隍廟共用的生日，路線與交管依公告。"
   },
   {
     "slug": "draft-week-25-xuejia-shangbaijiao",
@@ -3739,7 +3787,9 @@
     ],
     "draft_week": 25,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "學甲上白礁和學甲香差在哪？科期怎麼看",
+    "seo_description": "上白礁以農曆三月十一為常年基準、在白礁亭遙祭；學甲香是三年一科擴大的聯境祭典，路關與起駕依慈濟宮公告。"
   },
   {
     "slug": "draft-week-26-mazu-pilgrimage-differences",
@@ -3805,7 +3855,9 @@
     "date_status": "source_required",
     "draft_week": 26,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "大甲、白沙屯、北港媽祖進香差在哪？先看路線",
+    "seo_description": "三場的主辦廟、進香對象與路線決定方式都不同：大甲有年度駐駕行程，白沙屯以鑾轎臨場路線聞名，北港則分南巡北巡，要參加得看各廟公告。"
   },
   {
     "slug": "draft-week-27-duanwu-guide",
@@ -3871,7 +3923,9 @@
     ],
     "draft_week": 27,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "端午香包、掛艾草和龍舟是同一套習俗嗎",
+    "seo_description": "國史館把掛草、佩香包與屈原傳說分開整理；祭祖、午時水、洗港與地方龍舟賽程各有不同脈絡。"
   },
   {
     "slug": "draft-week-28-daxi-guangong",
@@ -3937,7 +3991,9 @@
     ],
     "draft_week": 28,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "關帝聖誕農曆幾月幾日？大溪社頭遶境怎麼看",
+    "seo_description": "文化部資料記載大溪普濟堂關聖帝君聖誕為農曆六月二十四日；前後的社頭遶境是大溪個案，不是所有關帝廟都相同，起駕依公告。"
   },
   {
     "slug": "draft-week-29-kouhu-qianshuizang",
@@ -4004,7 +4060,9 @@
     ],
     "draft_week": 29,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "口湖牽水車藏在紀念什麼？和中元普渡的差別",
+    "seo_description": "雲林沿海追思道光二十五年水災罹難者的地方民俗，常年活動窗口在農曆六月初七至初九；場地與交通依官方公告。"
   },
   {
     "slug": "draft-week-30-donggang-xigang",
@@ -4070,7 +4128,9 @@
     "date_status": "source_required",
     "draft_week": 30,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "東港迎王和西港香一樣嗎？主辦廟與王醮怎麼分",
+    "seo_description": "兩邊都有王爺、王船與遶境刈香，但東港由屏東東隆宮主辦、西港是臺南慶安宮及聯境，科期與流程不能互套，年度是否舉行看各主辦廟公告。"
   },
   {
     "slug": "draft-week-31-nanguanxian-wangjiao",
@@ -4136,7 +4196,9 @@
     "date_status": "source_required",
     "draft_week": 31,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "南關線王醮是什麼？請王、送王和王船怎麼分",
+    "seo_description": "王醮、建醮與遶境的詞彙界線，聯境和主辦廟怎麼認；科期沒有全區固定日期，要回查地方公告。"
   },
   {
     "slug": "draft-week-32-mingjian-xuantian-pilgrimage",
@@ -4203,7 +4265,9 @@
     ],
     "draft_week": 32,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "受天宮香期只有三月三嗎？進香高峰怎麼看",
+    "seo_description": "內政部資料把松柏嶺受天宮的香期描述為農曆正月至三月初三前後，三月初三是玄天上帝萬壽與進香高峰；接駕動線仍依廟方指示。"
   },
   {
     "slug": "draft-week-33-qiu-pingan-shoujing-buyun",
@@ -4269,7 +4333,9 @@
     "date_status": "source_required",
     "draft_week": 33,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "收驚和補運差在哪？求平安要找哪種廟方服務",
+    "seo_description": "三個詞的對象與儀式語境不同：求平安偏一般祈福，收驚處理受驚不安，補運各廟做法不一；不保證效果，不代替醫療。"
   },
   {
     "slug": "draft-week-34-qiu-yinyuan-qiuzi",
@@ -4335,7 +4401,9 @@
     "date_status": "source_required",
     "draft_week": 34,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "求姻緣和求子拜的神明一樣嗎？怎麼查廟方做法",
+    "seo_description": "月老、註生娘娘與觀音在各廟有不同信仰脈絡，這頁不排神力高低，只說明怎麼確認紅線、疏文、添花與求子登記這些服務是否存在。"
   },
   {
     "slug": "draft-week-35-banjia-ruzhai-anshen",
@@ -4401,7 +4469,9 @@
     "date_status": "source_required",
     "draft_week": 35,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "入厝和安神位可以挑同一個吉日嗎",
+    "seo_description": "入厝是入宅、安神位涉及神像香火與祖先牌位，決策者不同；跨縣市搬遷或分靈該先問誰。"
   },
   {
     "slug": "draft-week-36-shoujing-buyun",
@@ -4467,7 +4537,9 @@
     "date_status": "source_required",
     "draft_week": 36,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "收驚、補運和祭解差在哪？哪些狀況要先看醫生",
+    "seo_description": "三個名稱的對象與流程不同，實際要看提供服務的宮廟說明；儀式不能取代醫療、心理支持或緊急處置，費用與預約依各廟公告。"
   },
   {
     "slug": "draft-week-37-qixi-zuo16",
@@ -4533,7 +4605,9 @@
     ],
     "draft_week": 37,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "七夕和七娘媽生是同一天嗎？做十六歲又是什麼",
+    "seo_description": "兩者都以農曆七月初七為基準，但七娘媽是兒童守護信仰，做十六歲是臺南等地的成年禮；報名與流程看主辦廟公告。"
   },
   {
     "slug": "draft-week-38-guimenkai-guide",
@@ -4599,7 +4673,9 @@
     ],
     "draft_week": 38,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "鬼門開和基隆開龕門一樣嗎？起燈腳又是什麼",
+    "seo_description": "鬼門開常以農曆七月初一為民間說法，基隆老大公廟另有開龕門、起燈腳到月底關龕門的祭典序列，那是地方個案，不是全臺統一規則。"
   },
   {
     "slug": "draft-week-39-fangshuideng-guide",
@@ -4665,7 +4741,9 @@
     ],
     "draft_week": 39,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "基隆放水燈為什麼叫普照陰光？和普渡差在哪",
+    "seo_description": "農曆七月十四、普渡前一晚的港口追思脈絡，與家庭普渡的分別；遊行路線和水邊管制依主辦公告。"
   },
   {
     "slug": "draft-week-40-zhongyuan-guide",
@@ -4731,7 +4809,9 @@
     ],
     "draft_week": 40,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "地官赦罪和普渡差在哪？中元節的信仰層次",
+    "seo_description": "中元以農曆七月十五為日期基準，同時包含普渡、祭厲與地方超薦；家庭普渡和地方公普不能視為相同，供品與步驟見普渡頁。"
   },
   {
     "slug": "draft-week-41-zhongyuan-local-rituals",
@@ -4798,7 +4878,9 @@
     "date_status": "source_required",
     "draft_week": 41,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "雞籠中元、大士爺、搶孤和義民節差在哪？",
+    "seo_description": "四項地方中元民俗的地點、主辦與歷史記憶都不同：基隆整月字姓輪值主普、嘉義大士爺、頭城與恆春搶孤、客家義民。"
   },
   {
     "slug": "draft-week-42-dizang-ghost-gate",
@@ -4864,7 +4946,9 @@
     ],
     "draft_week": 42,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "地藏王聖誕遇七月短月怎麼算？和鬼門關的關係",
+    "seo_description": "聖誕資料記作農曆七月三十，短月時依實際農曆月末顯示廿九。這頁把佛教信仰、幽冥教主語境與地方鬼門關月底儀式分開，法會時間依寺院公告。"
   },
   {
     "slug": "draft-week-43-deity-birthday-variants",
@@ -4930,7 +5014,9 @@
     "date_status": "source_required",
     "draft_week": 43,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "同一位神明為什麼有好幾個生日？該看哪個",
+    "seo_description": "農曆國曆混用、分靈傳承與廟方祭典正日造成的日期差異，以及核對聖誕日期的先後順序。"
   },
   {
     "slug": "draft-week-44-deity-comparison",
@@ -4996,7 +5082,9 @@
     "date_status": "source_required",
     "draft_week": 44,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "拜哪位神明？先比職司和稱號，不是比誰靈",
+    "seo_description": "比對正式名稱、別名、職司、聖誕與主祀廟，才不會把同名封號混成一位；地方傳承可能讓職司擴展，靈驗程度不做排名。"
   },
   {
     "slug": "draft-week-45-prayer-scenarios",
@@ -5062,7 +5150,9 @@
     "date_status": "source_required",
     "draft_week": 45,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "求姻緣、求子、求學業該拜誰？先找對信仰入口",
+    "seo_description": "與其照排行榜選神明，不如先描述自己的問題，再查廟宇有沒有相關信仰與服務；本頁把情境分流到神明、習俗與廟宇資料。"
   },
   {
     "slug": "draft-week-46-almanac-yiji-guide",
@@ -5128,7 +5218,9 @@
     "date_status": "source_required",
     "draft_week": 46,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "農民曆宜忌可以拿來決定所有事嗎？欄位怎麼讀",
+    "seo_description": "日柱、節氣、沖煞與宜忌要分開讀，還得確認版本、時區、閏月與曆書編校來源；搬家開工結婚還牽涉場地與安全條件，不能只截一張宜忌圖。"
   },
   {
     "slug": "draft-week-47-temple-selection-guide",
@@ -5194,7 +5286,9 @@
     "date_status": "source_required",
     "draft_week": 47,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "怎麼選廟？主祀神、祭典日期這些欄位怎麼讀",
+    "seo_description": "星等與靈驗傳聞不是客觀排名；主祀陪祀、正式廟名、地址、服務與聯絡方式要分欄核對。"
   },
   {
     "slug": "draft-week-48-local-heritage-guide",
@@ -5260,7 +5354,9 @@
     "date_status": "source_required",
     "draft_week": 48,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "重要民俗和一般地方活動差在哪？登錄資料怎麼讀",
+    "seo_description": "先看正式名稱、類別、所在地、保存者與公告日期；登錄理由能支持文化介紹，但不會給你今年的起駕時間、交通與報名。"
   },
   {
     "slug": "draft-week-49-blessing-followup-guide",
@@ -5326,7 +5422,9 @@
     "date_status": "source_required",
     "draft_week": 49,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "遶境法會結束後，怎麼查證活動的後續消息",
+    "seo_description": "圓滿、平安這類字眼不能證明活動如期完成；先看主辦廟與地方政府公告、發布時間與原始紀錄，未證實的轉貼標成待核。"
   },
   {
     "slug": "draft-week-50-poem-reading-guide",
@@ -5392,7 +5490,9 @@
     "date_status": "source_required",
     "draft_week": 50,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "籤詩怎麼讀？同一個籤號在不同廟意思會一樣嗎",
+    "seo_description": "先確認抽籤的廟宇與籤系，再看原文、典故和註解。這頁給閱讀順序與來源標記方式，不替廟方下個人斷語，細節仍要回到原廟的解籤規則。"
   },
   {
     "slug": "draft-week-51-ritual-vocabulary-guide",
@@ -5459,7 +5559,9 @@
     "date_status": "source_required",
     "draft_week": 51,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "遶境、進香、刈香和迎王差在哪？怎麼分辨",
+    "seo_description": "巡行、往祖廟參拜、聯境香科與迎請代天巡狩的差別，以學甲上白礁刈香和東港迎王為例。"
   },
   {
     "slug": "draft-week-52-taiwan-festivals-year",
@@ -5525,7 +5627,9 @@
     "date_status": "source_required",
     "draft_week": 52,
     "published": "2026-08-12",
-    "updated": "2026-08-12"
+    "updated": "2026-08-12",
+    "seo_title": "臺灣一年有哪些民俗節日？四種日期別混用",
+    "seo_description": "農曆月日、節氣、國曆紀念日與地方活動公告各用不同規則換算；歲時年表提供查找入口，往年路線不能當成今年的事實。"
   },
   {
     "slug": "haoxiongdi-dijizhu-zuxian",
@@ -5539,7 +5643,7 @@
     "lunar_date": "07-15",
     "question": "中元普渡拜好兄弟、拜地基主和拜祖先差在哪？供桌位置、供品與金紙各要怎麼分？",
     "intent": "三個祭拜對象的供桌位置、供品豐盛度與金紙差異",
-    "lead": "農曆七月常被一起提到的三個祭拜對象其實是分開的：好兄弟拜在門口、供桌向外；地基主的供桌可設在門口或後門，但向著屋內；祖先則設在神明廳的祖先牌位前。供品的豐盛度也照這個順序遞增，金紙更是南北中三地各用各的。這一頁把《臺灣民俗文物辭典》講到這三者的辭條並排放，逐條標出它講的是哪一個對象、以及那段話原本說的是什麼時節——年節祭祖與除夕拜地基主的做法不能直接當成中元的規矩。",
+    "lead": "農曆七月常被一起提到的三個祭拜對象其實是分開的：好兄弟拜在門口、供桌向外；地基主的供桌可設在門口或後門，但向著屋內；祖先則設在神明廳的祖先牌位前。《臺灣民俗文物辭典》〈五味碗〉把祭祖列為要比拜地基主、拜門口好兄弟來得豐盛，後兩者則同屬「較不講究」的一級。地基主與祭祖的金紙另有北中南各自的用法，而辭典講好兄弟時只寫經衣與銀紙、沒有地域分法。⚠️ 辭典講地基主與祭祖的那兩條，原文說的是除夕與年節、不是中元，兩者的做法不能直接當成中元的規矩。",
     "date_note": "中元節為農曆七月十五；拜門口好兄弟另有初一與月底兩次，各地與各家慣例不同。",
     "image_key": "zhongyuan",
     "practice_refs": [
@@ -5608,22 +5712,22 @@
     "multi_day": false,
     "facts": [
       {
-        "text": "拜門口好兄弟的供桌設在門口向外，辭典記的供品是五味碗、糕、粿、酒、水果、米粉、米飯，另備臉盆裝水、毛巾、牙刷、牙膏這類盥洗用具；上香時以米筒裝米七分滿當「浮爐」插三炷香，其餘每件供品各插一炷香。",
+        "text": "拜門口好兄弟的供桌設在門口、向外拜。辭典記農曆七月初一拜門口的供品是五味碗、糕、粿、酒、水果、米粉、米飯，另備臉盆裝水、毛巾、牙刷、牙膏這類盥洗用具；上香時以米筒裝米七分滿當「浮爐」插三炷香，其餘每件供品各插一炷香。祭拜順序上，辭典寫的是先燒經衣給孤魂替換衣服再吃飯，飯畢再燒銀紙。",
         "sources": [
           {
             "type": "gov",
             "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜門口祭品〉 https://dict.th.gov.tw/detailPage.aspx?ID=1445",
-            "note": "辭條記載七月初一拜門口的供桌位置、五味碗與盥洗用具，以及浮爐插三炷香、每件供品各插一炷香的作法"
+            "note": "辭條記載七月初一拜門口的供桌方向、供品、插香法與先經衣後銀紙的順序"
           }
         ]
       },
       {
-        "text": "拜地基主的供桌可以設在門口或後門，但方向是朝屋內拜，與拜好兄弟朝外相反；金紙則是北部用刈金與銀紙、中部用四方金、南部用九金，同一件事三地三種用法。辭典這一條講的是除夕或年前幾日的祭拜，不是中元專屬的規矩。",
+        "text": "拜地基主的供桌可以設在門口或後門，但方向是朝屋內拜，與拜好兄弟朝外相反。辭典寫平時祭拜備五味碗與米飯即可，金紙則北部民眾用刈金與銀紙、中部用四方金、南部用九金，同一件事三地三種用法；舊屋平時拜地基主另記用經衣與銀紙。⚠️ 該辭條開頭講的是除夕或年前幾日的祭拜，金紙那段講的是平時，兩者都不是中元專屬的規矩。",
         "sources": [
           {
             "type": "gov",
             "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜地基主祭品〉 https://dict.th.gov.tw/detailPage.aspx?ID=1444",
-            "note": "辭條記載地基主供桌設於門口或後門而向屋內，並列出北部刈金銀紙、中部四方金、南部九金的地域差異；文中時節為除夕或前幾日"
+            "note": "辭條記載地基主供桌方向、平時供品與北中南金紙差異；文中時節為除夕與平時"
           }
         ]
       },
@@ -5663,7 +5767,7 @@
     "lunar_date": "07-15",
     "question": "中元普渡要燒什麼金紙？經衣、銀紙和金紙差在哪？各地用的一樣嗎？",
     "intent": "中元金紙與銀紙的種類、用途與南北中差異",
-    "lead": "中元普渡燒的紙錢不是同一種東西：敬神明的叫金紙，燒給好兄弟與祖先的叫銀紙，另有一種印著衣物與梳洗用具、給好兄弟換洗的「經衣」。更麻煩的是同一個用途在各地用的種類不一樣——刈金只有北部用、九金只有南部有、四方金南北的圖案還不同。這一頁把《臺灣民俗文物辭典》逐條講到中元會用到的紙錢並排放，標明每一種原文說的用途與流通地區，不把任何一地的用法寫成全台通則。",
+    "lead": "中元普渡燒的紙錢不是同一種東西：敬神明的叫金紙，燒給好兄弟與祖先的叫銀紙，另有一種印著衣物與梳洗用具、給好兄弟換洗的「經衣」。更麻煩的是同一個用途在各地用的種類不一樣——刈金只有北部用、九金只有南部有、四方金南北的圖案還不同。《臺灣民俗文物辭典》對每一種紙錢都寫明用途與流通地區，以下逐條照錄，任何一地的用法都不當成全台通則。",
     "date_note": "中元節為農曆七月十五；紙錢種類與份量各地與各家慣例不同，本頁只列辭典記載的種類與流通地區。",
     "image_key": "zhongyuan",
     "practice_refs": [
@@ -5829,7 +5933,7 @@
     "lunar_date": "07-15",
     "question": "中元普渡的公普和私普差在哪？拜門口要拜幾次？為什麼大家都在同一天？",
     "intent": "公普私普的分類、拜門口次數與統一拜拜的由來",
-    "lead": "中元普渡分成公普與私普：公普是公眾的中元拜拜，依主辦單位再分廟普、行業普、姓氏普與角頭普；私普是私家普渡，一家一族各自舉行。以前不是大家都在同一天——各聚落輪流普渡，從七月初一一路排到八月初一，直到民國四十年代政府推動「統一拜拜」才集中到中元節當天。鹿港至今還流傳一首把輪普日程逐日唱完的「普度歌」，這一頁把它逐字收錄。",
+    "lead": "中元普渡分成公普與私普：公普是公眾的中元拜拜，依主辦單位再分廟普、行業普、姓氏普與角頭普；私普是私家普渡，一家一族各自舉行。以前不是大家都在同一天——各聚落輪流普渡，從七月初一一路排到八月初一，直到民國四十年代政府推動「統一拜拜」才集中到中元節當天。鹿港至今還流傳一首把輪普日程逐日唱完的「普度歌」，以下逐字收錄。",
     "date_note": "中元節為農曆七月十五；輪普日程與是否遵照傳統祭日各地不同，本頁只記文獻記載。",
     "image_key": "zhongyuan",
     "practice_refs": [

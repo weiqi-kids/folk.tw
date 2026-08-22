@@ -2,7 +2,7 @@
 
 這份是實際寫作交付記錄，不是候選題目清單。52 個週槽都必須有真正的內容意圖與可審核段落；GA4、GSC、工具維護與發布作業不算主題。每個月與補稿／通用主題都寫入 markdown 證據包，包含可放進正文的 lead／段落、官方來源、FAQ、canonical 分流與重複風險。依本次明確需求，52 個週槽現在都已轉成 `festivals.json` 的獨立 `draft-week-XX-*` 節日頁；這些固定草稿路由不是年度活動日期的保證，也不取代它們連回的既有 canonical。
 
-目前的正確進度是：52/52 週已有內容 packet、52/52 個 `draft-week` 路由、`festivals.json` 共 68 筆（16 個既有頁＋52 個草稿頁），68 張分享卡與 68 張 Discover 無字主圖。所有草稿頁都能進 Astro build、sitemap、Pagefind 與 IndexNow；`source_required` 只表示年度日期、活動檔期或廟方服務仍要等一手公告，不會拿猜測日期填頁。逐句人工審核與 production deployment 仍是後續 release 工作，不把本地 repo gate 誤稱為已上線。
+目前的正確進度是：52/52 週已有內容 packet、52/52 個 `draft-week` 路由。⚠️ `festivals.json` 的總筆數、分享卡與 Discover 無字主圖張數**不寫死在這裡**（2026-08-22 起本檔已新增問題型深頁、筆數會再變）——要現況跑：`node -e "console.log(require('./src/data/festivals.json').length)"`，分享卡清單見 `src/lib/festival-og.ts` 的 `FESTIVAL_OG_SLUGS`。所有草稿頁都能進 Astro build、sitemap、Pagefind 與 IndexNow；`source_required` 只表示年度日期、活動檔期或廟方服務仍要等一手公告，不會拿猜測日期填頁。逐句人工審核與 production deployment 仍是後續 release 工作，不把本地 repo gate 誤稱為已上線。
 
 | 月份 | 實際交付 | 檔案 | 狀態 |
 |---|---|---|---|

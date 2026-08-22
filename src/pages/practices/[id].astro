@@ -116,9 +116,15 @@ if (p.regional.length) seoCovers.push('地區差異');
 // 取前三項：title 超過約 30 個全形字會被 Google 截斷，截在「、」後面等於白寫。
 const seoLead = p.offerings.length ? `${primaryName}要準備什麼？` : `${primaryName}怎麼做？`;
 const seoTitle = seoCovers.length ? `${seoLead}${seoCovers.slice(0, 3).join('、')}` : seoLead;
+// ⚠️ `primaryName` 砍掉了括號與斜線後面的別名（「作牙（頭牙、尾牙）」→「作牙」），
+// 那些**本身就是查詢詞**（尾牙、抓周、迎財神、安公媽、改運、拜公媽、平安燈）。
+// title 放不下就得在 description 補回來，否則這次改版是「增加一種露出、減少另一種」。
+const otherNames = p.title.split(/[／/（()]/).slice(1).join('、')
+  .replace(/[）)]/g, '').split(/[、,]/).map((x) => x.trim()).filter(Boolean);
 const seoDescription = [
   seoLead,
   seoCovers.length ? `整理${seoCovers.join('、')}。` : '',
+  otherNames.length ? `又稱${otherNames.join('、')}。` : '',
   p.summary,
   p.occasion ? `多於${p.occasion}進行。` : '',
 ].filter(Boolean).join('');
@@ -126,7 +132,15 @@ const seoDescription = [
 // 禁忌彙整（2026-08-22）：p.taboo 與各步驟的 s.taboo 原本**只餵進 FAQPage／HowTo 的 JSON-LD**，
 // 頁面上一個字都看不到——線上實測 /practices/pudu/ 的可見 h2 只有「辭典裡的普渡／儀節步驟／
 // 地區差異／相關民俗活動」。資料早就在，缺的是版位。
-const pageTaboos = [...new Set([...p.taboo, ...sortedSteps.flatMap((s) => s.taboo)])];
+// ⚠️ **只取頁層 `p.taboo`，不併步驟層 `s.taboo`**（2026-08-22 首版併了，當天稽核打回）。
+// 步驟層的禁忌是寫給那一步看的，抽離脈絡就壞掉，實例：
+//   ・`anchuang`「不讓新郎一人獨眠」是**這一步**的重點 → 「這一步」指向的步驟不在本段裡
+//   ・`pudu`「順序不可顛倒」→ 什麼的順序？離開步驟就無法判讀
+//   ・`qicuo` 的三條與該頁 `th_dict` 引文**逐字重複**，而這裡是純 <li>、沒有來源連結
+//     ——th.gov.tw 的授權條件正是「標示資料來源連結」，等於第二次出現時違反授權
+//   ・`qicuo`「破土與陽宅動土是兩件事」根本是名詞辨析，不是禁忌
+// 代價是只有頁層真的填了 taboo 的習俗才會出現這一段，但寧可少印，不印壞的。
+const pageTaboos = [...new Set(p.taboo)];
 
 // ⚠️ 這一頁的 FAQPage 排在 HowTo **之前**（歷史寫法），與 Base 的 `faq` prop（一律接在最後）
 // 位置不同，改用它會動到線上輸出，故維持自組陣列。
@@ -257,7 +271,7 @@ const jsonLd: object[] = [
     (p.offerings.length > 0 || p.joss_paper.length > 0) && (
       <section>
         <h2>{p.offerings.length > 0 && p.joss_paper.length > 0 ? '供品與金紙' : p.offerings.length > 0 ? '供品' : '金紙'}</h2>
-        <dl class="regional">
+        <dl class="rec">
           {p.offerings.length > 0 && (
             <div><dt>供品</dt><dd>{p.offerings.map((o) => <span class="tag">{o}</span>)}</dd></div>
           )}

@@ -18,7 +18,7 @@ export const TYPE_LABEL = {
   // 人為重大意外（2026-08-22 補；在此之前整族缺席，見下方註記）
   'bridge-collapse': '橋樑坍塌', fire: '火災', 'gas-explosion': '氣爆',
   aviation: '航空事故', rail: '鐵路事故', maritime: '海難',
-  'building-collapse': '建物倒塌', 'crowd-crush': '群眾推擠事故', industrial: '工安事故',
+  'building-collapse': '建物倒塌', 'crowd-crush': '踩踏事故', industrial: '工安事故',
   other: '重大事件',
 };
 
@@ -30,6 +30,11 @@ export const TYPE_LABEL = {
 // ⚠️ 補進來**不代表這些事件就會開頁**：是否值得集體祈福仍由 topical-gate.mjs 的正向閘判定
 // （docs/topical-blessing.md §3.8「沒有災害就不用祈福」——VN34 無人罹難，補了類型它照樣該被擋）。
 // 這裡修的是「看不見」，不是「該不該開」。
+// 🔴 **改本表就要同步改 topical-gate.mjs 的 (c) 條**（2026-08-22 稽核抓到：首版只補了表與
+//    偵察 prompt，閘裡那份「哪些事件發生即是災害」的列舉沒跟上，等於新類型可能被 LLM
+//    歸進「天然符合」那一類直接放行）。閘裡已把這一族明列為「必須有人員傷亡或失聯」。
+// ⚠️ 標籤用台灣媒體的說法：`crowd-crush` 是「踩踏事故」不是「群眾推擠事故」——
+//    標籤會逐字進標題模板（「為○○踩踏事故平安祈福」）。
 
 /** 合法 eventType 集合（P2 用來丟棄 LLM 亂回的類型）。 */
 export const VALID_EVENT_TYPES = new Set(Object.keys(TYPE_LABEL));

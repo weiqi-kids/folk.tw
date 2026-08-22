@@ -733,4 +733,12 @@ export const festivalsSchema = z.object({
   // ⚠️ 全站只有 1 筆有 checklist。**不照那一筆的形狀逐欄寫死**（n=1 訂規格＝過度擬合），
   //    只驗真正被 PuduChecklist.astro 依賴的兩個欄位，其餘 passthrough。
   checklist: z.object({ title: z.string().min(1), groups: z.array(z.unknown()) }).passthrough().optional(),
+  // 問題型 title／description（2026-08-22）。通用模板只產得出「{name}{年}是哪一天？」，
+  // 那正是 AI Overview 一句話答得完、CTR 最低的形態（2026-08-20 需求母體轉向的判準）。
+  // 🔴 這兩欄**只准重組本頁已有的欄位**（name／aliases／question／intent／lead／facts），
+  //    不得帶入任何新事實——它們不掛源，掛不了。
+  // ⚠️ title 全形字含「｜神酷」上限 30；沒有國曆 M/D 時該筆一定要有 date_note
+  //    （不變量 festival/title-date）。
+  seo_title: z.string().min(1).optional(),
+  seo_description: z.string().min(1).optional(),
 });
