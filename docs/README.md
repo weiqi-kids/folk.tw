@@ -28,6 +28,7 @@
 
 | 檔 | 用途 | 什麼時候讀 |
 |---|---|---|
+| [`growth-worklist.md`](growth-worklist.md) 🔴 | 成長工作清單的**單一交接單**：A 機制（會自己運作的）／B 內容（要人去寫的），各自三態對帳＋查現況的指令 | **接手新 session、或問「現在做到哪」時第一份讀的** |
 | [`demand-page-playbook.md`](demand-page-playbook.md) 🔴 | 需求 → 掛源頁的固定流程：先盤站內資料露出（`scripts/growth-field-exposure.mjs`）、對 GSC 需求與檔期倒推（`scripts/growth-calendar-gaps.mjs`）、決定補版位或開新頁、節日深頁的完整同步清單、上線驗證 | **要開新頁、補內容、找成長題目之前**——這份存在的目的就是不用每次重談 |
 
 ---
