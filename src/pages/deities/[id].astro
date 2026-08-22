@@ -5,7 +5,7 @@ import Sources from '../../components/Sources.astro';
 import LeadVisual from '../../components/LeadVisual.astro';
 import RelatedSeasonalCampaign from '../../components/RelatedSeasonalCampaign.astro';
 import { getDeities, getSystems, relationsOf, templesByDeity, poemsBySystem, practicesByDeity, eventsByDeity, tradesByDeity, systemHref } from '../../lib/queries';
-import { fullWidth, SERP_TITLE_MAX_WIDTH } from '../../lib/text-width';
+import { fullWidth, SERP_TITLE_MAX_WIDTH, DEITY_ALIAS_META_MAX_WIDTH } from '../../lib/text-width';
 import { deityThing, faqPage } from '../../lib/seo';
 import { HUB } from '../../lib/breadcrumbs';
 import { lunarDateLabel, lunarToNextOccurrence, solarMd } from '../../lib/lunar-date';
@@ -169,7 +169,21 @@ const jsonLd = [
     sameAs: d.sameAs,
   }),
 ];
-const aliasesForMeta = d.aliases.map(stripOuterParens).filter(Boolean);
+// 別名只取「放得進 SERP 摘要」的前幾個（2026-08-22）。
+// 🔴 在此之前是全部塞進去：`guanyin` 的 30 個別名讓前綴就佔 185 全形，
+//    而 Google 中文摘要約 78 全形就截斷 → 聖誕日與職司說明一個字都露不出來。
+//    103 尊裡有 9 尊踩到（觀世音菩薩、王母娘娘、神農大帝、玄天上帝…）。
+// ⚠️ 不是拿掉別名——使用者真的會搜「觀音佛祖」——是**照原順序加到放不下為止**，
+//    其餘別名仍完整出現在頁面上的「別名／封號」與 FAQ 裡。
+const aliasesAll = d.aliases.map(stripOuterParens).filter(Boolean);
+const aliasesForMeta: string[] = [];
+let aliasWidth = 0;
+for (const alias of aliasesAll) {
+  const next = aliasWidth + fullWidth(alias) + (aliasesForMeta.length ? 1 : 0); // 1＝分隔號「·」
+  if (next > DEITY_ALIAS_META_MAX_WIDTH) break;
+  aliasesForMeta.push(alias);
+  aliasWidth = next;
+}
 ---
 
 <Base

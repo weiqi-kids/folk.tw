@@ -39,6 +39,16 @@ export const SERP_TITLE_MAX_WIDTH = 30;
  */
 export const TEMPLE_TITLE_DEITY_MAX_WIDTH = 8;
 
+/**
+ * 神明頁 meta description 裡「（別名·別名·…）」那一段的寬度上限（全形字）。
+ * 🔴 2026-08-22 實測：103 尊神明裡有 9 尊的「名稱＋別名＋分類」前綴就超過 50 全形，
+ *    而 Google 中文摘要約 78 全形就截斷——`guanyin` 光前綴就 185 全形（30 個別名），
+ *    等於整段摘要全是別名，聖誕日與職司說明**一個字都露不出來**。
+ *    別名對搜尋有用（使用者可能搜「觀音佛祖」），所以不是拿掉，是**截到放得下為止**：
+ *    照原順序逐一加，加不下就停，後面的別名仍完整出現在頁面上與 FAQ。
+ */
+export const DEITY_ALIAS_META_MAX_WIDTH = 16;
+
 /** 來源錨文字寬度上限（全形字）。超過就退到「：」前的機構／條目名，再不行才截字（src/lib/sources.ts）。 */
 export const SOURCE_LABEL_MAX_WIDTH = 40;
 

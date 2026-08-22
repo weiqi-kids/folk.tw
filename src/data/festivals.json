@@ -6008,5 +6008,100 @@
     ],
     "published": "2026-08-22",
     "updated": "2026-08-22"
+  },
+  {
+    "slug": "zhongqiu-yuelao",
+    "name": "中秋夜拜月下老人",
+    "aliases": [
+      "中秋拜月老",
+      "月下老人聖誕",
+      "月老聖誕"
+    ],
+    "season": "農曆八月",
+    "lunar_date": "08-15",
+    "question": "中秋夜為什麼可以拜月老？和拜月娘、拜土地公是同一件事嗎？",
+    "intent": "中秋夜拜月下老人的由來，以及它與拜月娘、秋報土地公的分別",
+    "lead": "同一個中秋夜，台灣民間其實有三種不同的祭拜對象：拜月娘、祭謝土地公，以及到廟裡拜月下老人。《臺灣民俗文物辭典》記中秋之夜也是月下老人聖誕之日，有情男女會到廟中祭拜月老。三者的對象、脈絡與供品各自不同，不必混成一桌；實際做法仍依各家與各廟慣例，廟裡的時間以廟方公告為準。",
+    "date_note": "中秋節為農曆八月十五；各廟的月老祭祀時間與是否另辦活動，以廟方公告為準。",
+    "image_key": "zhongqiu",
+    "practice_refs": [],
+    "deity_refs": [
+      "yuelao",
+      "taiyin",
+      "tudigong"
+    ],
+    "vocab_refs": [],
+    "temple_refs": [],
+    "th_dict": [
+      {
+        "url": "https://dict.th.gov.tw/detailPage.aspx?ID=1510",
+        "title": "中秋月餅",
+        "excerpt": [
+          "而中秋之夜，也是月下老人聖誕之日，所以有情男女也會到廟中祭拜月下老人，以祈圓滿幸福的婚姻。"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?ID=1510",
+        "note": "《臺灣民俗文物辭典》〈中秋月餅〉：中秋夜亦為月老聖誕"
+      },
+      {
+        "type": "gov",
+        "ref": "https://dict.th.gov.tw/detailPage.aspx?Ca=300&ID=1443",
+        "note": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜土地公祭品〉：八月十五祭土地公與供品"
+      },
+      {
+        "type": "gov",
+        "ref": "https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+        "note": "行政院國情簡介〈傳統節慶〉：八月半、拜月娘、月餅柚子、春祈秋報"
+      }
+    ],
+    "multi_day": false,
+    "facts": [
+      {
+        "text": "《臺灣民俗文物辭典》記：而中秋之夜，也是月下老人聖誕之日，所以有情男女也會到廟中祭拜月下老人，以祈圓滿幸福的婚姻。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈中秋月餅〉 https://dict.th.gov.tw/detailPage.aspx?ID=1510",
+            "note": "逐字引該辭條談中秋夜與月下老人聖誕的那一句"
+          }
+        ]
+      },
+      {
+        "text": "同一部辭典記中秋夜的另一種祭拜是拜月娘（太陰娘娘）：不少家庭會在院中擺月餅、瓜果、甜點等祭拜，並註明現已罕見拜月娘之俗。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈中秋月餅〉 https://dict.th.gov.tw/detailPage.aspx?ID=1510",
+            "note": "該辭條記拜月娘的供品與「現已罕見」的現況"
+          }
+        ]
+      },
+      {
+        "text": "八月十五也是秋收後祭謝土地公的日子。民家可備三牲、水果、餅乾等到福德祠上香或在家敬奉，中秋供品常再加入月餅與柚子。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "國史館臺灣文獻館《臺灣民俗文物辭典》〈拜土地公祭品〉 https://dict.th.gov.tw/detailPage.aspx?Ca=300&ID=1443",
+            "note": "該辭條記八月十五祭土地公的供品"
+          }
+        ]
+      },
+      {
+        "text": "行政院國情簡介把中秋放在春祈秋報的脈絡：八月半除了賞月，也祭祀當境土神以答謝一年的收成。",
+        "sources": [
+          {
+            "type": "gov",
+            "ref": "行政院國情簡介〈傳統節慶〉 https://www.ey.gov.tw/state/181E881F469CCF98/f03f96de-350e-47ec-acf6-5cff9bc7cd65",
+            "note": "該頁記八月半、拜月娘與祭當境土神的春祈秋報脈絡"
+          }
+        ]
+      }
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-22"
   }
 ]

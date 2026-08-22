@@ -18,6 +18,7 @@ export const FESTIVAL_OG_SLUGS = [
   'guimenkai', 'qixi', 'fangshuideng', 'zhongyuan', 'jilong-zhongyuan', 'qianggu', 'yimin', 'dizang',
   'september-solar-terms', 'zhongqiu', 'kinmen-bo-bing', 'kongzi-birthday', 'baitiangong', 'qingming',
   'chongyang', 'duanwu', 'haoxiongdi-dijizhu-zuxian', 'zhongyuan-jinzhi', 'gongpu-sipu',
+  'zhongqiu-yuelao',
   'draft-week-01-september-solar-terms', 'draft-week-02-zhongqiu-guide', 'draft-week-03-kinmen-bo-bing-guide',
   'draft-week-04-kongzi-teachers-day', 'draft-week-05-chongyang-guide', 'draft-week-06-qingshan-king-festival',
   'draft-week-07-xiayuan', 'draft-week-08-wangjiao-differences', 'draft-week-09-dongshan-yingfozu',
