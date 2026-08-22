@@ -34,7 +34,9 @@ const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400
  *   **把最該示警的「有頁卻拿不到任何曝光」整批吃掉**。而七夕在 2026-08-01 正是這個狀態，
  *   等於這支工具就算當時存在也不會把它標出來——回測的意義就在抓出這種事。
  */
-export function computeCalendarGaps({ festivals, festivalNextSolar, pageRows = [], hasGsc = true, todayIso, horizon = 120 }) {
+export function computeCalendarGaps({
+  festivals, events = [], festivalNextSolar, pageRows = [], hasGsc = true, todayIso, horizon = 120,
+}) {
   const stats = new Map();
   for (const r of pageRows) {
     stats.set(r.keys[0].replace('https://folk.tw', ''), {
@@ -42,17 +44,25 @@ export function computeCalendarGaps({ festivals, festivalNextSolar, pageRows = [
     });
   }
 
+  // 節日頁與地方民俗活動頁走同一份清單。
+  // 🔴 events 那半邊 2026-08-22 才進得來：在此之前 `events.json` 的日期只存在 `date_note`
+  //    散文裡，於是 67 筆掛好源的地方慶典**完全不在檔期雷達上**。現在只有明確標了
+  //    `lunar_date` 的才算（收錄界線見 src/content-schemas.ts 的 eventsSchema 檔頭），
+  //    沒標的維持看不見——**寧可漏，不可把模糊表述算成確定日期**。
+  const sources = [
+    ...festivals.map((f) => ({ rec: f, slug: f.slug, name: f.name, url: `/festivals/${f.slug}/`, kind: 'festival', isDraftWeek: Number.isInteger(f.draft_week) })),
+    ...events.filter((e) => e.lunar_date).map((e) => ({ rec: e, slug: e.id, name: e.name, url: `/events/${e.id}/`, kind: 'event', isDraftWeek: false })),
+  ];
   const upcoming = [];
-  for (const f of festivals) {
-    const { iso, label } = festivalNextSolar(f, todayIso);
+  for (const item of sources) {
+    const { iso, label } = festivalNextSolar(item.rec, todayIso);
     if (!iso) continue;
     const tMinus = daysBetween(todayIso, iso);
     if (tMinus < 0 || tMinus > horizon) continue;
-    const url = `/festivals/${f.slug}/`;
-    const s = stats.get(url) ?? { impressions: 0, clicks: 0, position: null };
+    const s = stats.get(item.url) ?? { impressions: 0, clicks: 0, position: null };
     upcoming.push({
-      slug: f.slug, name: f.name, url, iso, label, tMinus,
-      isDraftWeek: Number.isInteger(f.draft_week),
+      slug: item.slug, name: item.name, url: item.url, kind: item.kind, iso, label, tMinus,
+      isDraftWeek: item.isDraftWeek,
       impressions: s.impressions, clicks: s.clicks,
       position: s.position ?? null,
       verdict: hasGsc ? verdictOf({ impressions: s.impressions, clicks: s.clicks, position: s.position ?? null }) : '—',

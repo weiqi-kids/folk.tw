@@ -402,6 +402,18 @@ export const eventsSchema = z.object({
   ke_note: z.string().nullable().default(null), // 其他補充（如「首科 1967 年」），不參與造句
   date_resolution: z.enum(['fixed_lunar', 'divined', 'undetermined']),
   date_note: z.string().optional(),
+  // 🔴 2026-08-22 加。**只給「來源明講單一農曆日」的活動**，供檔期倒推
+  //    （scripts/growth-calendar-gaps.mjs）算 T-minus；`date_note` 全文仍是讀者看到的權威敘述。
+  //    為什麼要有：在此之前 events 的日期只存在散文裡，於是 67 筆掛好源的地方慶典
+  //    **完全不在檔期雷達上**——中秋前後的嘉義城隍夜巡、雞籠城隍文化祭都沒人在盯。
+  // ⚠️ 三條收錄界線（2026-08-22 逐筆覆核 44 筆 fixed_lunar 後定的，共收 27 筆）：
+  //    ① 來源寫「前後／約／上旬／中下旬」一律**不收**——那是模糊表述，寫成確定日期就是杜撰
+  //       （元宵前後／約三月廿三聖誕前後／約農曆3月上旬前後…）。
+  //    ② `cycle !== 'annual'` **不收**：麻豆香三年一科、下一科 2027，給了會每年被算成「今年」。
+  //    ③ 多日活動取**起始日**（站主 2026-08-22 裁示）：檔期雷達要的是提前量，
+  //       判準是「date_note 裡第一個明確的農曆日」。全程仍寫在 date_note。
+  //    🔴 抽不出或不合上述界線的一律留空——留空只是不進雷達，寫錯是把推論當事實。
+  lunar_date: z.string().regex(/^\d{2}-\d{2}$/).optional(),
   route_mode: z.enum(['fixed', 'yearly_versioned', 'undetermined']),
   heritage: z
     .object({

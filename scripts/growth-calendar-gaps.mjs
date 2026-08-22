@@ -86,11 +86,12 @@ if (!noGsc) {
     startDate: ymd(new Date(base - 29 * 86400000)),
     endDate: ymd(new Date(base - 86400000)),
     dimensions: ['page'], rowLimit: 25000,
-    dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'contains', expression: '/festivals/' }] }],
+    // 兩個頁型都要抓：檔期清單同時涵蓋 /festivals/ 深頁與 /events/ 地方民俗頁。
+    dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'includingRegex', expression: '/(festivals|events)/' }] }],
   })).rows ?? [];
 }
 
-const upcoming = computeCalendarGaps({ festivals, festivalNextSolar, pageRows, hasGsc: !noGsc, todayIso, horizon: HORIZON });
+const upcoming = computeCalendarGaps({ festivals, events, festivalNextSolar, pageRows, hasGsc: !noGsc, todayIso, horizon: HORIZON });
 
 // events.json 那半邊：日期是散文（date_note），本支**不推算**它的國曆日——
 // 推算散文日期正是杜撰的溫床。要納入排程就到資料層補結構化日期。
@@ -161,6 +162,8 @@ if (doWrite) {
   console.log(`\n值得看一眼的 ${gaps.length} 檔（依 T-minus）：`);
   for (const u of gaps) console.log(`  T-${u.tMinus}  ${u.name}（${u.verdict}）  ${u.url}`);
   console.log('\n⚠️ 這是提示不是判決。要不要開頁／補強照 docs/demand-page-playbook.md §3 的三條件判。');
-  console.log(`\n另有 ${eventNote.length} 筆 events.json 條目掛源 ≥3 條但只有 /events/ 頁（弱頁型，2026-08-22 實測 pos 11.6）；`);
-  console.log('   它們的日期是散文，本支刻意不推算——要納入排程請先在資料層補結構化日期。');
+  const noDate = events.filter((e) => !e.lunar_date).length;
+  console.log(`\n另有 ${noDate} 筆 events.json 條目沒有 lunar_date，故不在上表`);
+  console.log('   （來源寫「元宵前後／七月底／三月上旬」這類模糊表述，或只有月份、或是科年型）。');
+  console.log('   🔴 那是刻意留空：寧可漏，不可把模糊表述算成確定日期。收錄界線見 eventsSchema 檔頭。');
 }

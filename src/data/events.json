@@ -366,7 +366,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-19"
   },
   {
     "id": "donggang",
@@ -846,7 +847,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "10-20"
   },
   {
     "id": "yanshui",
@@ -1263,7 +1265,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "07-20"
   },
   {
     "id": "dadaocheng_chenghuang",
@@ -1346,7 +1349,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "05-11"
   },
   {
     "id": "xuejia_shangbaijiao",
@@ -1414,7 +1418,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-11"
   },
   {
     "id": "dalongdong_baosheng",
@@ -1472,7 +1477,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-14"
   },
   {
     "id": "sanxia_qingshui",
@@ -1534,7 +1540,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "01-05"
   },
   {
     "id": "kouhu_qianshuizang",
@@ -1596,7 +1603,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "06-07"
   },
   {
     "id": "taitung_handan",
@@ -1805,7 +1813,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "12-23"
   },
   {
     "id": "hanxi_mazu_shibazhuang",
@@ -1855,7 +1864,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-01"
   },
   {
     "id": "daxi_pujitang_guangong",
@@ -1903,7 +1913,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "06-24"
   },
   {
     "id": "shetou_72zhuang_mazu",
@@ -2084,7 +2095,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "05-01"
   },
   {
     "id": "houlong_ciyungong_paocheng",
@@ -2142,7 +2154,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "01-13"
   },
   {
     "id": "wanhegong_laoerma_xitun",
@@ -2281,7 +2294,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "07-21"
   },
   {
     "id": "hengchun_qianggu",
@@ -2348,7 +2362,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "07-15"
   },
   {
     "id": "wugu_kaitai_guolu",
@@ -2381,7 +2396,8 @@
     "draft": false,
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "01-16"
   },
   {
     "id": "kinmen_yingchenghuang",
@@ -2454,7 +2470,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "04-12"
   },
   {
     "id": "xiaqieding_jinluangong_wangjiao",
@@ -2661,7 +2678,8 @@
     },
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "11-15"
   },
   {
     "id": "xiaolong",
@@ -3012,7 +3030,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "01-13"
   },
   {
     "id": "sanshan_kedi",
@@ -3351,7 +3370,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-15"
   },
   {
     "id": "nanyao_benggang",
@@ -3710,7 +3730,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "08-01"
   },
   {
     "id": "jilong_chenghuang",
@@ -3816,7 +3837,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "08-14"
   },
   {
     "id": "changhua_mazu_qifu",
@@ -4037,7 +4059,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "01-16"
   },
   {
     "id": "toucheng_qianggui_laichao",
@@ -4150,7 +4173,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "02-02"
   },
   {
     "id": "matsu_mazu",
@@ -4235,7 +4259,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-23"
   },
   {
     "id": "songshan_ciyou_mazu",
@@ -4330,7 +4355,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "03-25"
   },
   {
     "id": "jinbaoli_erma_yeliu",
@@ -4433,7 +4459,8 @@
     ],
     "ke_branches": [],
     "ke_period_text": null,
-    "ke_note": null
+    "ke_note": null,
+    "lunar_date": "04-16"
   },
   {
     "id": "wanjin_shengmu",
