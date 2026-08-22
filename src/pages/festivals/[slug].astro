@@ -310,6 +310,14 @@ const defaultPageDesc = /[。！？…]$/u.test(defaultPageDescRaw)
 // 把「日期＋這頁真正回答的問題」放進 title/description。其他節日仍走通用模板。
 // ⚠️ 不在這裡補新事實；下列字詞均來自 festivals.json 的 lead/question 或已渲染區塊。
 const campaignSeo: Record<string, { title: string; description: string }> = {
+  // 問題型深頁（2026-08-22）。通用模板會產出「拜好兄弟、地基主與祖先2026是哪一天？」這種
+  // 對不上需求的 title——這一頁回答的不是日期，是三個祭拜對象怎麼分。
+  // ⚠️ title 刻意不放國曆 M/D：不變量 festival/title-date 允許「無 M/D 但有 date_note」，
+  //    本筆已備 date_note；日期本身在 h1 下方的日期句與 date_note 都看得到。
+  'haoxiongdi-dijizhu-zuxian': {
+    title: '拜好兄弟、地基主、祖先怎麼分？供桌位置與供品對照',
+    description: `中元普渡常一起提到的三個祭拜對象其實分開：好兄弟拜門口向外、地基主向屋內、祖先在神明廳牌位前，供品豐盛度與金紙也各不同。逐條引《臺灣民俗文物辭典》並標明原文講的是哪個時節。`,
+  },
   chongyang: {
     title: `${year} 重陽節是 ${solarMd(iso)}｜敬老、祭祖與登高習俗`,
     description: `${year} 重陽節為國曆 ${solarMd(iso)}（${lunarLabel}）。整理農曆九月九日的節日脈絡、敬老意義，以及各地祭祖、登高與秋祭的差異。`,
