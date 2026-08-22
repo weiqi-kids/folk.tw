@@ -27,7 +27,14 @@ const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400
  * @param festivalNextSolar  src/lib/lunar-date.ts 的同名函式（呼叫端注入，避免本檔綁 TS 載入方式）
  * @param pageRows   GSC page 維度的列（keys[0] 為完整網址）；不打 GSC 時給空陣列
  */
-export function computeCalendarGaps({ festivals, festivalNextSolar, pageRows = [], todayIso, horizon = 120 }) {
+/**
+ * @param hasGsc 有沒有真的查過 GSC。🔴 **不可以用 `pageRows.length` 代替它**——
+ *   2026-08-22 回測（`--as-of 2026-08-01`）當場抓到：那個窗口 `/festivals/` 整批 0 曝光，
+ *   於是 `pageRows` 是空陣列，舊寫法就把每一檔都判成「—」（＝沒查 GSC），
+ *   **把最該示警的「有頁卻拿不到任何曝光」整批吃掉**。而七夕在 2026-08-01 正是這個狀態，
+ *   等於這支工具就算當時存在也不會把它標出來——回測的意義就在抓出這種事。
+ */
+export function computeCalendarGaps({ festivals, festivalNextSolar, pageRows = [], hasGsc = true, todayIso, horizon = 120 }) {
   const stats = new Map();
   for (const r of pageRows) {
     stats.set(r.keys[0].replace('https://folk.tw', ''), {
@@ -48,7 +55,7 @@ export function computeCalendarGaps({ festivals, festivalNextSolar, pageRows = [
       isDraftWeek: Number.isInteger(f.draft_week),
       impressions: s.impressions, clicks: s.clicks,
       position: s.position ?? null,
-      verdict: pageRows.length ? verdictOf({ impressions: s.impressions, clicks: s.clicks, position: s.position ?? null }) : '—',
+      verdict: hasGsc ? verdictOf({ impressions: s.impressions, clicks: s.clicks, position: s.position ?? null }) : '—',
     });
   }
   upcoming.sort((a, b) => a.tMinus - b.tMinus || a.slug.localeCompare(b.slug));

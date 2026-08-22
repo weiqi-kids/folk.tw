@@ -52,10 +52,25 @@ curl -s https://folk.tw/practices/pudu/ | grep -oE '<title>[^<]*</title>'
 不再靠人記得。輸出同時是大腦層每天的第一優先候選（掛在 `brain.preCommands`）：
 
 ```bash
-pnpm growth:calendar-gaps                 # 未來 120 天
-pnpm growth:calendar-gaps -- --days 45    # 只看近期
-pnpm growth:calendar-gaps -- --write      # 另寫 data/seo-daily/<日期>-calendar-gaps.json
+pnpm growth:calendar-gaps                      # 未來 120 天
+pnpm growth:calendar-gaps -- --days 45         # 只看近期
+pnpm growth:calendar-gaps -- --write           # 寫檔＋T-21 內有新缺口就發 Slack
+pnpm growth:calendar-gaps -- --as-of 2026-08-01  # 🔁 回測：假裝今天是那天（T-minus 與 GSC 一起撥回去）
 ```
+
+🔴 **T-21 內的缺口會發 Slack，而且只在狀態改變時發**（同一檔的同一種判讀不重複刷）。
+為什麼非有不可：缺口原本只寫進檔案給大腦層讀，而大腦層天天 no-op 時**沒有任何人看得到**；
+每日 📊 Slack 又是 collect 層（07:30 UTC）發的，比大腦層（08:40）早，橋接不到。
+狀態記在 repo 外的 `/root/.config/folk-tw/calendar-gap-alerts.json`，檔期過了自動清掉。
+⚠️ 發送失敗時**刻意不記狀態**，否則那一則就永遠消失了。
+
+🔁 **回測是這支工具的驗收方式**（2026-08-22 站主要求：機制要拿過去真的錯過的事件驗過才算數）。
+`--as-of 2026-08-01`（七夕 T-18）實跑會把 `/festivals/qixi/` 標成「沒進候選池」並列入清單
+——也就是說，這支工具若當時存在，七夕有 18 天的提前量。
+🔴 **回測當場抓到工具自己的一個 bug**，寫下來當防線：原本用 `pageRows.length` 判斷「有沒有查 GSC」，
+而那個窗口 `/festivals/` 整批 0 曝光 → 空陣列 → 每一檔都被判成「—」，
+**把最該示警的「有頁卻拿不到任何曝光」整批吃掉**。已改成獨立的 `hasGsc` 旗標。
+⚠️ 回測有個天生限制：GSC 只看得到「當時已經有頁」的題目，驗不了「我們根本沒開的題目」。
 
 判讀欄（沒進候選池／在第二頁以後／在第一頁下緣／有曝光零點擊）是**編輯提示不是及格線**，
 一律回到下面 §3 的三條件判。⚠️ `events.json` 的日期是**散文**（`date_note`，筆數自己跑指令查），

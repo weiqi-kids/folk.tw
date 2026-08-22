@@ -1,6 +1,6 @@
 {
   "_readme": "檔期倒推：未來 N 天的節慶檔期與各自的 GSC 表現。判讀欄是編輯提示不是及格線；要不要開頁／補強照 folk.tw 的 docs/demand-page-playbook.md §3 三條件判。產生器：scripts/growth-calendar-gaps.mjs（唯一運算入口在 scripts/lib/calendar-gaps.mjs）。",
-  "generatedAt": "2026-08-22T04:19:45.087Z",
+  "generatedAt": "2026-08-22T06:28:36.504Z",
   "todayIso": "2026-08-22",
   "horizonDays": 120,
   "upcoming": [
@@ -224,6 +224,19 @@
       "clicks": 2,
       "position": 31.217391304347824,
       "verdict": "在第二頁以後"
+    },
+    {
+      "slug": "zhongqiu-yuelao",
+      "name": "中秋夜拜月下老人",
+      "url": "/festivals/zhongqiu-yuelao/",
+      "iso": "2026-09-25",
+      "label": "農曆八月十五",
+      "tMinus": 34,
+      "isDraftWeek": false,
+      "impressions": 0,
+      "clicks": 0,
+      "position": null,
+      "verdict": "沒進候選池"
     },
     {
       "slug": "draft-week-04-kongzi-teachers-day",
@@ -499,6 +512,19 @@
       "clicks": 2,
       "position": 31.217391304347824,
       "verdict": "在第二頁以後"
+    },
+    {
+      "slug": "zhongqiu-yuelao",
+      "name": "中秋夜拜月下老人",
+      "url": "/festivals/zhongqiu-yuelao/",
+      "iso": "2026-09-25",
+      "label": "農曆八月十五",
+      "tMinus": 34,
+      "isDraftWeek": false,
+      "impressions": 0,
+      "clicks": 0,
+      "position": null,
+      "verdict": "沒進候選池"
     },
     {
       "slug": "kongzi-birthday",
