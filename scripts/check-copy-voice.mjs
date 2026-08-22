@@ -38,7 +38,13 @@ const PROSE_JSON = [
   // scripts/lib/tourism-intro.mjs 的同一份規則硬驗，兩道互補。
   { file: 'src/data/temples.json', fields: ['intro'] },
   // 2026-08-09：節日頁「逐句掛源的補充事實」。同樣是存在 JSON 裡、直接渲染給讀者看的散文。
-  { file: 'src/data/festivals.json', fields: ['facts.text'] },
+  // 2026-08-22：`lead` 是節日頁正文第一段、也被塞進 FAQPage 的 answer；`date_note` 渲染在 header；
+  // `seo_description` 進 meta。三個都直接面向讀者，卻一直不在掃描範圍內——當天實查
+  // 54 個 lead 全部帶著「本頁先說明日期，再把祭祖、登高分開」這種**自我指涉的導覽句**
+  // （見下方 SELF_REFERENCE）。我當時還拿「54 頁都這樣寫＝既有慣例」當作不修的理由，
+  // 被站主打回：「你看過那個問題文章這樣宣告的？不是要去 AI 味嗎？」——
+  // 🔴 **同一個 AI 腔犯 54 次是 54 個問題，不是慣例。數量從來不是不修的理由。**
+  { file: 'src/data/festivals.json', fields: ['facts.text', 'lead', 'date_note', 'seo_description'] },
   // 2026-08-16：籤後選擇題的鼓勵語（籤型×選擇 64 段原創文案，直接渲染給使用者）。
   { file: 'src/data/qian-encourage.json', fields: ['text'] },
   // 2026-08-16：籤型（八型）的描述散文，渲染於籤詩頁。根是物件不是陣列，
@@ -50,6 +56,9 @@ const PROSE_JSON = [
   // 當天實際發生：17 筆 date_note 全部混進維護註記，其中 5 筆**已經上線**，
   // 讀者在列表頁看得到「🔴 repo 的 solar 12-12 是假的固定日」。
   { file: 'src/data/events.json', fields: ['date_note', 'facts.text'] },
+  // 2026-08-22：同一輪清 SELF_REFERENCE 時發現這兩處也中招，一併納管。
+  { file: 'src/data/good-days.json', fields: ['note'] },
+  { file: 'src/data/practices.json', fields: ['steps.note'] },
 ];
 
 // 維護筆記殘留（2026-08-19 加）。這些是**寫給維護者的語彙**，不該出現在讀者眼前。
@@ -73,6 +82,33 @@ const MARKDOWN_ARTIFACTS = [
   { re: /\[[^\]]+\]\([^)]+\)/, why: 'Markdown 連結殘留（同上）' },
   { re: /^#{1,6}\s/m, why: 'Markdown 標題殘留（同上）' },
 ];
+// 自我指涉的導覽句（2026-08-22 加）。
+// 「本頁先說明 A，再把 B、C 分開」這種宣告自己章節安排的寫法**只有 AI 會寫**，
+// 真人寫的文章不會這樣自我介紹。它常常和一句該留的措辭界線黏在一起
+// （「…，不把單一地區做法當成全臺規則」），所以**修法是拆開**：導覽的部分刪掉，
+// 界線的部分改寫成不提「本頁」的正常說法。整句刪會連界線一起弄丟。
+// ⚠️ 刻意**不禁「本文」**：`poems.json` 的「籤詩本文」是名詞（指籤詩正文本身），不是自我指涉。
+// ⚠️ 也不禁單獨的「以下」（「以下是傳統常見版本」讀起來像人話），只禁「以下逐條…」這種宣告編排。
+const SELF_REFERENCE = [
+  // 兩個放行（2026-08-22 實測必要）：
+  //   ・`本頁資料更新：` 是不變量 festival/discover-freshness **逐字要求**的可見標籤
+  //     （Google 建議 Article 的 dateModified 要在頁面上看得到），改掉會讓產物層 gate 紅燈。
+  //   ・`把這頁存起來` 這種「這頁」是正常人話（指瀏覽器裡的這一頁），不是宣告章節安排。
+  { re: /本頁(?!資料更新)|這一頁|(?<![把存])這頁/, why: '自我指涉的導覽句（真人寫的文章不會宣告自己的章節安排；界線要留，改成不提「本頁」的說法）' },
+  { re: /以下逐條/, why: '同上：宣告編排方式' },
+];
+
+/**
+ * SELF_REFERENCE 在 .astro 比對前要先剝掉的兩種**不是散文**的東西（2026-08-22，實測誤傷）：
+ *   ① 行尾 `//` 註解——`iso: string; // 本頁日期（YYYY-MM-DD）`。上面那台註解狀態機只認
+ *      **行首**的 `//`，行尾的接在程式碼後面，它看不到。⚠️ 負向前瞻擋 `https://`。
+ *   ② `aria-label="分享這一頁"`——無障礙標籤指的是瀏覽器裡的這一頁，不是在跟讀者宣告章節安排。
+ * 這兩種剝掉之後剩下的才是真的會被讀者看到的字。
+ */
+const stripNonProse = (line) => line
+  .replace(/(?<![:/])\/\/.*$/, '')
+  .replace(/aria-label="[^"]*"/g, '');
+
 // 一般 AI 腔套語。只作用於 PROSE_JSON（.astro 的產品文案另有下方 BANNED 的專屬地雷）。
 const AI_TELLS = [
   { re: /總的來說/, why: 'AI 套語' },
@@ -192,7 +228,7 @@ function scanProseJson(hits, corpus) {
         for (const { path, value } of resolveField(row, k)) {
           if (typeof value !== 'string') continue;
           scannedFields += 1;
-          for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS, ...MAINTENANCE_LEAKS]) {
+          for (const b of [...AI_TELLS, ...MARKDOWN_ARTIFACTS, ...MAINTENANCE_LEAKS, ...SELF_REFERENCE]) {
             const m = value.match(b.re);
             if (m) hits.push({ f: `${file} → ${row.id ?? row.slug ?? '?'}.${path}`, line: 0, phrase: m[0].trim(), why: b.why });
           }
@@ -241,6 +277,18 @@ for (const f of files) {
     if (!isComment && !SOURCE_CLAIM_ALLOW.has(f)) {
       for (const b of SOURCE_CLAIM) {
         const m = line.match(b.re);
+        if (m) hits.push({ f, line: i + 1, phrase: m[0], why: b.why });
+      }
+    }
+    // 2026-08-22：SELF_REFERENCE 一併套到 .astro——自我指涉的導覽句在 JSON 與模板裡是同一個病
+    // （當天實查 zodiac/[slug].astro、zodiac/index.astro 與 festivals/index.astro 各有一句
+    // 渲染給讀者看的「本頁…」）。
+    // ⚠️ 必須放在 `!isComment` 這一側：BANNED 那一段刻意不排除註解（沒人會在註解裡寫療癒腔），
+    //    但註解裡講「本頁的通用視覺是…」是完全正常的維護語言，擋它等於逼人不敢寫註解。
+    if (!isComment) {
+      const prose = stripNonProse(line);
+      for (const b of SELF_REFERENCE) {
+        const m = prose.match(b.re);
         if (m) hits.push({ f, line: i + 1, phrase: m[0], why: b.why });
       }
     }

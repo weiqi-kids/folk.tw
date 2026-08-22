@@ -465,7 +465,7 @@ const faq = faqPage([
     // 不是可被擷取的文字答案）。只用既有欄位：行政區／完整地址／有無座標，不補新事實。
     q: `${t.name}怎麼去？`,
     a: t.district
-      ? `${t.name}的地址是${t.district}${t.lat && t.lng ? '，本頁下方附地圖位置' : ''}。`
+      ? `${t.name}的地址是${t.district}${t.lat && t.lng ? '，下方附地圖位置' : ''}。`
       : '',
   },
   {

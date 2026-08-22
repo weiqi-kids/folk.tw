@@ -299,7 +299,7 @@ const covers = [
   heritages.length > 0 ? '文化資產登錄層級與公告文號' : '',
 ].filter(Boolean);
 const defaultPageDescRaw = covers.length
-  ? `${dateSentence}本頁說明${covers.join('、')}，逐條掛出處。${excerptAtBoundary(f.lead, 40)}`
+  ? `${dateSentence}以下說明${covers.join('、')}，逐條掛出處。${excerptAtBoundary(f.lead, 40)}`
   : `${dateSentence}${excerptAtBoundary(f.lead, 90)}`;
 
 const defaultPageDesc = /[。！？…]$/u.test(defaultPageDescRaw)
@@ -344,7 +344,7 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   },
   qixi: {
     title: `${year} 七夕是 ${solarMd(iso)}｜七娘媽生、做十六歲與祭拜`,
-    description: `${year} 七夕為國曆 ${solarMd(iso)}（${lunarLabel}）。台灣七夕也是七娘媽生，本頁整理七娘媽、做十六歲、七娘媽亭與台南開隆宮的現有掛源資料。`,
+    description: `${year} 七夕為國曆 ${solarMd(iso)}（${lunarLabel}）。台灣七夕也是七娘媽生。七娘媽、做十六歲、七娘媽亭與台南開隆宮的現有掛源資料都整理在這裡。`,
   },
   fangshuideng: {
     title: `${year} 放水燈是 ${solarMd(iso)}｜由來、對象與基隆中元祭`,
@@ -369,11 +369,11 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   },
   qianggu: {
     title: `${year} 搶孤｜頭城、恆春日期與文化資產`,
-    description: `${year} 搶孤日期不只一天：恆春於農曆七月十五，頭城於七月底關鬼門前。本頁整理兩地的現有掛源資料與文化資產登錄。`,
+    description: `${year} 搶孤日期不只一天：恆春於農曆七月十五，頭城於七月底關鬼門前。兩地的現有掛源資料與文化資產登錄都整理在這裡。`,
   },
   dizang: {
     title: `${year} 地藏王菩薩聖誕是 ${solarMd(iso)}｜短月日期與鬼門關`,
-    description: `${f.name}傳統日期為${nominalLunarLabel}；${year} 農曆七月只有廿九日，因此落在國曆 ${solarMd(iso)}（${lunarLabel}）。本頁整理地藏信仰與鬼門關的現有掛源資料。`,
+    description: `${f.name}傳統日期為${nominalLunarLabel}；${year} 農曆七月只有廿九日，因此落在國曆 ${solarMd(iso)}（${lunarLabel}）。地藏信仰與鬼門關的現有掛源資料都整理在這裡。`,
   },
   zhongqiu: {
     title: `${year} 中秋節是 ${solarMd(iso)}｜拜月娘、土地公供品與四天連假`,
@@ -381,7 +381,7 @@ const campaignSeo: Record<string, { title: string; description: string }> = {
   },
   'kongzi-birthday': {
     title: `${year} 教師節是 9/28｜孔子誕辰與祭孔釋奠典禮`,
-    description: `${year} 孔子誕辰紀念日／教師節為 9/28。本頁說明祭孔釋奠、初獻亞獻終獻、六佾舞，以及國曆紀念日與農曆聖誕表的差別。`,
+    description: `${year} 孔子誕辰紀念日／教師節為 9/28。祭孔釋奠、初獻亞獻終獻、六佾舞，以及國曆紀念日與農曆聖誕表的差別都在這裡。`,
   },
   'september-solar-terms': {
     title: `${year} 白露與秋分日期｜9/7、9/23 節氣與農漁產`,
@@ -481,7 +481,7 @@ const jsonLd = [article];
     <section class="calendar-reminder" aria-labelledby="calendar-reminder-title">
     <div>
       <h2 id="calendar-reminder-title">提醒我</h2>
-      <p>把 {year} 年國曆 {solarMd(iso)} 加入行事曆；多日或異地日期差異請以本頁說明為準。</p>
+      <p>把 {year} 年國曆 {solarMd(iso)} 加入行事曆；多日或異地的日期差異以上面的說明為準。</p>
     </div>
     <div class="calendar-actions">
       <a class="btn btn-primary" href={addToGoogleCalendar} target="_blank" rel="noreferrer"
