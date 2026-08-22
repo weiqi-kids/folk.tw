@@ -11,6 +11,7 @@ import { HUB } from '../../lib/breadcrumbs';
 import { releasedItems } from '../../lib/release-schedule';
 import { todayInTaipei } from '../../lib/daily';
 import festivalsData from '../../data/festivals.json';
+import vocabularyData from '../../data/vocabulary.json';
 import { eventCycle, cycleLabel, cycleShort, scheduleSentence } from '../../lib/event-cycle.ts';
 import { fullWidth, SERP_TITLE_MAX_WIDTH } from '../../lib/text-width.ts';
 
@@ -23,6 +24,31 @@ const { event } = Astro.props;
 const e = event.data;
 // 週期判定與措辭的唯一入口（見 src/lib/event-cycle.ts 檔頭：2026-08-20 線上病句成因）。
 const evCycle = eventCycle(e);
+
+// ── 相關詞彙／同地域民俗（2026-08-22）──────────────────────────────────────
+// 🔴 為什麼補這兩塊：`/events/` 這 67 頁的頁型比 `/festivals/` 深頁薄很多
+//    （2026-08-22 GSC 實測：events 加權排名第 11.6 名，同一批資料做成深頁的搶孤是第 4.7 名）。
+//    差別不在素材，在深頁有「辭典引文／相關詞彙／相關宮廟／同季節其他節日」這些區塊。
+//    ⚠️ 這裡**零新增事實**：兩塊都是既有欄位的重新組合。
+//
+// ① 相關詞彙：`type[]` 的每一個值都正好是 vocabulary.json 的詞條
+//    （2026-08-22 實測 15/15 全對得上，50/67 個活動至少命中一個），
+//    連過去等於把「遶境／刈香／迎王」這些讀者未必懂的行話就地解釋。
+// ② 同地域的其他登錄民俗：2026-08-03 讓 `/festivals/` 那批互連時的實據是
+//    **`qianggu` 原本零內鏈、GSC 實查「URL is unknown to Google」＝形同孤兒**；
+//    events 這批同樣只各自連回 `/events/` 樞紐，彼此不相連。
+type VocabEntry = { term: string; def: string; alias?: string[] };
+const allVocab = Object.values(vocabularyData as Record<string, VocabEntry[]>).flat();
+const vocabByTerm = new Map<string, VocabEntry>();
+for (const v of allVocab) {
+  vocabByTerm.set(v.term, v);
+  for (const a of v.alias ?? []) vocabByTerm.set(a, v);
+}
+const linkedVocab = [...new Set((e.type ?? []).map((t) => vocabByTerm.get(t)).filter((v): v is VocabEntry => Boolean(v)))];
+const allEvents = await getEvents();
+const sameRegionEvents = allEvents
+  .filter((x) => x.id !== event.id && (x.data.region ?? []).some((r) => (e.region ?? []).includes(r)))
+  .slice(0, 8);
 const deities = await getDeities();
 const deityName = new Map(deities.map((d) => [d.id, d.data.name]));
 const deityById = new Map(deities.map((d) => [d.id, d.data]));
@@ -435,9 +461,41 @@ const jsonLd: object[] = [
     )
   }
 
+  {
+    linkedVocab.length > 0 && (
+      <section>
+        <h2>相關詞彙</h2>
+        <dl class="ev-vocab">
+          {linkedVocab.map((t) => (
+            <>
+              <dt><a href={`/vocabulary/#${t!.term}`}>{t!.term}</a></dt>
+              <dd>{t!.def}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
+  {
+    sameRegionEvents.length > 0 && (
+      <section>
+        <h2>{e.region.join('、')}的其他登錄民俗</h2>
+        <ul class="festival-links">
+          {sameRegionEvents.map((x) => (
+            <li><a href={`/events/${x.id}/`}>{x.data.name}</a></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <Sources sources={e.sources} variant="footer" />
 
   <style>
+    .ev-vocab { margin: 0.625rem 0; }
+    .ev-vocab dt { font-weight: 700; color: var(--accent); margin-top: 0.5rem; }
+    .ev-vocab dd { margin: 0 0 0.25rem; }
     .summary { font-size: var(--text-base); }
     .entry-photo { margin: 1.25rem 0; }
     .entry-photo img { display: block; width: min(100%, 30rem); height: auto; border-radius: 0.5rem; }
