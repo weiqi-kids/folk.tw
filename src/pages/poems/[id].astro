@@ -61,7 +61,21 @@ const ASPECTS = ['運勢', '求財', '姻緣', '六甲', '功名', '訴訟', '�
 // 現代處境（2026-08-21）：與 ASPECTS 分開陳列，因為它們是同一份解讀的兩種說法——
 // 上面用傳統詞（功名／姻緣／求財），這裡用使用者實際會打的字（換工作／復合／買房搬家）。
 // 🔴 分開的理由是**搜尋詞彙**，不是內容不同；合併會讓九項傳統分項的字面被稀釋。
-const SCENARIOS = ['換工作', '求職面試', '創業開店', '投資理財', '考試升學', '告白追求', '復合挽回', '分手離婚', '買房搬家'] as const;
+// 🔴 分組用的是**使用者打進搜尋框的字**，不是我們的分類名（2026-08-22 實測，GSC
+//    2026-06-01~08-21，只認「情境詞出現在查詢結尾」以排除籤詩原句本身含該字的誤判）：
+//    以「感情」結尾 178 個查詢／804 曝光、「感情發展」22 個／141 曝光——合計 945 曝光，
+//    是籤詩情境查詢裡最大的一塊（佔 64%），平均排第 12.4 名（第二頁），
+//    而**站上九個情境一個字都沒有「感情」**：我們寫的是告白追求／復合挽回／分手離婚。
+//    同一批數字裡「工作」132 曝光排 17.9、「事業」12 曝光，站上也只有換工作／創業開店。
+//    ⚠️ 這一層**不新增任何一段解讀**，只是把既有九項按使用者的詞歸類並加上組標題；
+//    九項本身的字面（換工作／復合挽回…）刻意保留，那是 2026-08-21 那批實測要的字。
+const SCENARIO_GROUPS = [
+  { label: '感情', keys: ['告白追求', '復合挽回', '分手離婚'] },
+  { label: '工作與事業', keys: ['換工作', '求職面試', '創業開店'] },
+  { label: '錢財與置產', keys: ['投資理財', '買房搬家'] },
+  { label: '考試', keys: ['考試升學'] },
+] as const;
+const SCENARIOS = SCENARIO_GROUPS.flatMap((g) => g.keys);
 const scenarioVals = ai as Record<string, string | undefined>;
 const hasAnyScenario = SCENARIOS.some((a) => scenarioVals[a]?.trim());
 const interpVals = ai as Record<string, string | undefined>;
@@ -77,7 +91,7 @@ const firstAllusionNote = d.allusions[0]?.note ?? '';
 const pageDesc =
   `${sysName}第 ${d.no} 籤${label ? `「${label}」` : ''}${d.fortune ? `（${d.fortune}）` : ''}：` +
   `${d.lines.join('，')}。` +
-  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${withoutTerminalPunctuation(firstAllusionNote)}` : ''}。` : ''}白話賞析與八項分項解。`;
+  `${firstAllusionName ? `卦頭典故「${firstAllusionName}」${firstAllusionNote ? `，${withoutTerminalPunctuation(firstAllusionNote)}` : ''}。` : ''}白話賞析、八項分項解，以及感情、工作、錢財與考試等處境分開解讀。`;
 const ld: object[] = [
   poemWork({ id: poem.id, no: d.no, label, systemName: sysName, lines: d.lines, fortune: d.fortune }),
 ];
@@ -256,14 +270,19 @@ const faq = faqPage(faqItems);
     {hasAnyScenario && (
       <section>
         <h2>不同處境怎麼看</h2>
-        <dl class="interp">
-          {SCENARIOS.filter((a) => scenarioVals[a]?.trim()).map((a) => (
-            <div class="row">
-              <dt>{a}</dt>
-              <dd>{scenarioVals[a]}</dd>
-            </div>
-          ))}
-        </dl>
+        {SCENARIO_GROUPS.filter((g) => g.keys.some((k) => scenarioVals[k]?.trim())).map((g) => (
+          <div class="sgroup">
+            <h3>{g.label}</h3>
+            <dl class="interp">
+              {g.keys.filter((k) => scenarioVals[k]?.trim()).map((k) => (
+                <div class="row">
+                  <dt>{k}</dt>
+                  <dd>{scenarioVals[k]}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
       </section>
     )}
 
@@ -371,6 +390,8 @@ const faq = faqPage(faqItems);
     .jiaobei { letter-spacing: 0.08em; }
     .oi { list-style: none; padding: 0; margin: 0.625rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.875rem; }
     .oi li { padding: 0.25rem 0.625rem; border: 1px solid var(--line); border-radius: 0.25rem; font-size: var(--text-sm); }
+    .sgroup + .sgroup { margin-top: 1rem; }
+    .sgroup h3 { margin: 0; font-size: var(--text-base); }
     .interp { margin: 0.625rem 0; }
     .interp .row { display: grid; grid-template-columns: 5rem 1fr; gap: 0.625rem; padding: 0.4375rem 0; border-bottom: 1px dashed var(--line); }
     .interp dt { font-weight: 700; color: var(--accent); }
