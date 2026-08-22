@@ -150,3 +150,14 @@ console.log(s.bets.filter(b=>b.status==='open').map(b=>b.id+' 首訊 '+b.expecte
 ⚠️ 2026-08-22 一天內改了很多面向（籤詩情境、events 標題與模板、廟宇求籤句、神明別名、
 節日三年日期、習俗禁忌），**都還沒被重爬**。同時改多個變數的代價是事後難以歸因——
 下判斷前先確認該頁的 `lastCrawlTime` 已經在改動之後。
+
+## D. 長期資產基礎（2026-08-22）
+
+本輪先把友站可移植的長期規劃結構改成 folk.tw 的四條資產線；不把流量／收入預測當成承諾：
+
+- 計畫書：[2026-08-22-folk-calendar-authority-plan.md](content-plan/2026-08-22-folk-calendar-authority-plan.md)
+- 來源契約：[source-authority-matrix.md](source-authority-matrix.md)
+- 真人台帳：[human-authority-ledger.md](human-authority-ledger.md)
+- 反思入口：`/root/seo-ops/playbooks/folk.tw.md` 的 `playbook:strategy` 區塊（待同步本輪目標）
+
+四條線的完成判準：年曆以既有 canonical／年度 manifest 跨年刷新；來源逐 claim 可追溯；真人姓名與背書未取得同意前留空；反思每次改動以 deploy、重爬與 scoreboard 對帳，不提前歸因。
