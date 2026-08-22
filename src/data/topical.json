@@ -263,11 +263,23 @@
         ],
         "added": "2026-08-21T12:31:30.944Z",
         "hash": "66e04bddb19b"
+      },
+      {
+        "date": "2026-08-21",
+        "text": "足利市正式公告七月豪雨災害適用被災者生活重建支援法，受災住戶可依住宅受損程度申請生活重建支援金。",
+        "sources": [
+          {
+            "ref": "足利市公式網站",
+            "url": "https://www.city.ashikaga.tochigi.jp/environment/000073/000405/000803/p008690.html"
+          }
+        ],
+        "added": "2026-08-22T12:31:19.648Z",
+        "hash": "71c35d69d2d7"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-22",
       "empty_runs": 0
     },
     "bless_snapshot": 1,
@@ -3181,8 +3193,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-21",
-      "empty_runs": 2
+      "last_checked": "2026-08-22",
+      "empty_runs": 3
     }
   },
   {
@@ -3279,11 +3291,23 @@
         ],
         "added": "2026-08-21T12:35:54.574Z",
         "hash": "0955ee4528a6"
+      },
+      {
+        "date": "2026-08-22",
+        "text": "千葉市部分社區大樓因豪雨導致地下電力設施泡水，停電、斷水情形持續未解，部分建物復原恐需逾一個月，居民生活持續受影響。",
+        "sources": [
+          {
+            "ref": "読売新聞（Yahoo!ニュース）",
+            "url": "https://news.yahoo.co.jp/articles/fdf0b0329d98a40369f96c1681ff55c36700782b"
+          }
+        ],
+        "added": "2026-08-22T12:32:42.106Z",
+        "hash": "64e10597b723"
       }
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-21",
+      "last_checked": "2026-08-22",
       "empty_runs": 0
     }
   },
@@ -3366,8 +3390,8 @@
     ],
     "followup": {
       "sealed": false,
-      "last_checked": "2026-08-21",
-      "empty_runs": 2
+      "last_checked": "2026-08-22",
+      "empty_runs": 3
     }
   },
   {
@@ -3391,7 +3415,13 @@
     "lon": 119.576706,
     "detector": "news",
     "since": "2026-08-22",
-    "status": "active"
+    "status": "active",
+    "updates": [],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-22",
+      "empty_runs": 1
+    }
   },
   {
     "id": "news-rail-20260820-c8833a",
@@ -3414,6 +3444,49 @@
     "lon": 139.7457781,
     "detector": "news",
     "since": "2026-08-22",
-    "status": "active"
+    "status": "active",
+    "updates": [
+      {
+        "date": "2026-08-20",
+        "text": "罹難作業人員身分經警方查證後已對外公布，家屬皆已獲得通知",
+        "sources": [
+          {
+            "ref": "Yahoo!ニュース",
+            "url": "https://news.yahoo.co.jp/articles/b5367260fbac414c489dafa782ac17e18ec06b0f"
+          }
+        ],
+        "added": "2026-08-22T12:34:09.713Z",
+        "hash": "96de70b83e78"
+      },
+      {
+        "date": "2026-08-20",
+        "text": "日本運輸安全委員會已派調查官赴事故現場，釐清作業人員與列車間通報聯繫是否確實",
+        "sources": [
+          {
+            "ref": "日本経済新聞",
+            "url": "https://www.nikkei.com/article/DGXZQOUF203FH0Q6A820C2000000/"
+          }
+        ],
+        "added": "2026-08-22T12:34:10.309Z",
+        "hash": "aebd6d91eefa"
+      },
+      {
+        "date": "2026-08-21",
+        "text": "栃木縣警方以業務過失致死罪嫌成立專案小組，傳喚現場見張人員了解事發時的通報聯繫狀況",
+        "sources": [
+          {
+            "ref": "時事通信",
+            "url": "https://www.jiji.com/jc/article?k=2026082100505&g=soc"
+          }
+        ],
+        "added": "2026-08-22T12:34:10.101Z",
+        "hash": "91d5d97fd9ed"
+      }
+    ],
+    "followup": {
+      "sealed": false,
+      "last_checked": "2026-08-22",
+      "empty_runs": 0
+    }
   }
 ]
