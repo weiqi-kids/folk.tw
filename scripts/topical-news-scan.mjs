@@ -33,16 +33,21 @@ const GATE_OPT = { logTag: '[news-scan]', cadenceNote: 'P2 每 8 小時掃一次
 
 // ── (a) LLM 掃描：要求 claude 用 WebSearch 實際搜尋、只回找得到且點得開的事件 ──────────
 function scanNews() {
-  const PROMPT = `你是台灣民俗祈福站的新聞偵察員。請**用 WebSearch 實際搜尋**「過去約 72 小時內，台灣人可能會想集體祈福的重大天災或重大意外」，範圍含台灣、中國、日本、東南亞等地，事件類型如：山崩、土石流、橋樑坍塌、氣爆、重大火災、水災、風災、火山、熱帶氣旋等（地震已有其他來源，可略）。
+  const PROMPT = `你是台灣民俗祈福站的新聞偵察員。請**用 WebSearch 實際搜尋**「過去約 72 小時內，台灣人可能會想集體祈福的重大天災或重大意外」，範圍含台灣、中國、日本、東南亞等地。
+事件類型分兩族，**兩族都要搜，不要只搜天災**（2026-08-22 補：在此之前只列了天災，整族人為意外從未被搜到）：
+・天災：山崩、土石流、水災、風災、火山、熱帶氣旋、野火（地震已有其他來源，可略）
+・人為重大意外：航空事故、鐵路事故、海難、建物倒塌、橋樑坍塌、氣爆、重大火災、群眾推擠（踩踏）、工安事故
 
 嚴格規則：
 - **只回你實際在搜尋結果中找到、且能點開閱讀的真實事件**。查無合適事件就回空陣列 []。
 - **嚴禁虛構**：不得編造網址、不得編造傷亡數字、不得杜撰不存在的事件。每筆至少附 2 個「彼此獨立」的真實新聞來源網址（不同媒體），且那些網址必須是你搜尋時真的看到的。
 - 地名用**來源原文**（中文來源如「重慶市彭水縣」直接沿用原漢字，不另譯）。
+- placeEn 只在來源本身是外文時填，且**必須照抄來源裡出現的拼法**（如 Geoje、Luzon、Munich）；
+  不得自己音譯中文地名，不確定就留空字串——它只用於機器複驗比對，填錯會讓真事件被丟掉。
 - summary 只寫一句可查證的事實，勿誇大。
 
 只輸出**嚴格單行 JSON 陣列**，每筆物件格式：
-{"eventType":"landslide|bridge-collapse|gas-explosion|fire|flood|storm|volcano|cyclone|wildfire|other","place":"來源原文地名","time":"YYYY-MM-DD","summary":"一句事實","sources":[{"ref":"媒體名","url":"https://…"},{"ref":"媒體名","url":"https://…"}]}
+{"eventType":"landslide|bridge-collapse|gas-explosion|fire|flood|storm|volcano|cyclone|wildfire|aviation|rail|maritime|building-collapse|crowd-crush|industrial|other","place":"來源原文地名","placeEn":"來源若為外文，寫該來源使用的英文／羅馬拼音地名；中文來源或不確定就給空字串","time":"YYYY-MM-DD","summary":"一句事實","sources":[{"ref":"媒體名","url":"https://…"},{"ref":"媒體名","url":"https://…"}]}
 除了這行 JSON 陣列外不要輸出任何其他文字。查無則輸出：[]`;
 
   const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
@@ -85,16 +90,85 @@ async function fetchOk(url) {
   }
 }
 
-// 從 place / summary 萃取可比對的關鍵詞（中文取連續 2+ 漢字片段；再加整串 place）。
-function keywordsOf(cand) {
+// 行政區單位字：地名切段的邊界。缺了它，全漢字長地名會整串當成單一片段。
+const ADMIN_UNIT = /[省市縣県区區鄉郷鎮镇村里屯州府道都郡島岛]/;
+
+/**
+ * 把一段全漢字地名拆成可比對的行政層級片段。
+ * 🔴 2026-08-22 修：原本只做 `place.match(/[一-鿿]{2,}/g)`，那個 regex 對「廣西南丹縣芒場鎮拉麻村
+ * 黃祥坡屯」只會吐回**整串**（中間沒有非漢字可切），而新聞寫的是「廣西南丹縣」，於是永遠對不上。
+ * 實據：2026-08-17 廣西南丹山崩連三輪被丟「無存活來源內容含關鍵詞」，第四輪 LLM 剛好把 place
+ * 寫短成「廣西南丹縣」才通過（見 seo-ops/logs/folk.tw-topical-news.log）。同期韓國巨濟、菲律賓、
+ * 千葉縣、四川宜賓也都是兩個來源 fetch 200 卻被丟掉。
+ * 產出三種片段：累積前綴（廣西南丹縣）、本層段（芒場鎮）、去單位字的本層段（芒場）。
+ */
+export function adminPieces(run) {
+  const out = [];
+  let start = 0;
+  for (let i = 0; i < run.length; i++) {
+    if (!ADMIN_UNIT.test(run[i])) continue;
+    out.push(run.slice(0, i + 1));
+    const seg = run.slice(start, i + 1);
+    out.push(seg);
+    if (seg.length > 2) out.push(seg.slice(0, -1));
+    start = i + 1;
+  }
+  if (start > 0 && start < run.length) out.push(run.slice(start));
+  return out.filter((x) => x.length >= 2);
+}
+
+// 泛詞：切段時會掉出來的通用尾巴（「呂宋島為主」→「為主」），單獨出現不具辨識力，
+// 留著只會讓「真 URL＋假內容」更容易矇混過關。
+const ZH_STOP = new Set(['為主', '等地', '地區', '等地區', '附近', '一帶', '全境', '部分', '多處',
+  '沿海', '山區', '市區', '境內', '以及', '造成', '發生', '目前', '持續']);
+
+// 數量詞頭：緊接在數字後的漢字片段若由這些字起頭，它是「數字＋量詞」的尾巴，不是地名或事件詞。
+const COUNTER_HEAD = /^[人名萬万億亿千百棟栋戶户間间日月年時时分秒起件輛辆架艘層层公毫度歲岁條条處处位個个場场餘余多]/;
+
+/**
+ * 從 place / placeEn / summary 萃取可比對的關鍵詞。
+ * 🔴 2026-08-22 一併修掉 summary 被數字切碎的問題：LLM 摘要寫「…已造成至少 27 人死亡、5 萬人受災」，
+ * 舊版抽出的是 `人死亡`／`萬人受災`／`人被埋` 這種碎片。它們**兩面都壞**——對真事件幾乎不會命中
+ * （來源的措辭不同），對假事件卻很容易命中（任何一篇災難報導都有「人死亡」），等於同時提高誤殺率
+ * 與降低守門力。本檢查的用途是擋「真 URL＋假內容」，所以碎片一律丟掉。
+ */
+export function keywordsOf(cand) {
   const kws = new Set();
   const place = String(cand.place || '');
   if (place) kws.add(normText(place));
-  // 中文詞：地名的漢字段（如「重慶」「彭水」「烏江」）。
-  for (const seg of (place.match(/[一-鿿]{2,}/g) || [])) kws.add(normText(seg));
-  // summary 的顯著中文詞（取較長片段，避免「發生」這種泛詞誤中）。
-  for (const seg of (String(cand.summary || '').match(/[一-鿿]{3,}/g) || [])) kws.add(normText(seg));
-  return [...kws].filter(Boolean);
+  for (const run of (place.match(/[一-鿿]{2,}/g) || [])) {
+    kws.add(normText(run));
+    for (const piece of adminPieces(run)) kws.add(normText(piece));
+  }
+  // summary：取 3 字以上漢字片段，但丟掉緊接數字之後的量詞尾巴。
+  const summary = String(cand.summary || '');
+  const re = /[一-鿿]{3,}/g;
+  let m;
+  while ((m = re.exec(summary)) !== null) {
+    const afterDigit = m.index > 0 && /[0-9０-９]/.test(summary[m.index - 1]);
+    if (afterDigit && COUNTER_HEAD.test(m[0])) continue;
+    kws.add(normText(m[0]));
+  }
+  return [...kws].filter((k) => k && !ZH_STOP.has(k));
+}
+
+// 外文來源比對用的通用詞，單獨出現不具辨識力。
+const LATIN_STOP = new Set(['city', 'province', 'island', 'county', 'region', 'state', 'district',
+  'town', 'village', 'north', 'south', 'east', 'west', 'central', 'northern', 'southern', 'eastern',
+  'western', 'airport', 'national', 'park', 'area', 'areas', 'near', 'from', 'that', 'with', 'their']);
+
+/**
+ * placeEn → 拉丁字關鍵詞。
+ * 🔴 2026-08-22 新增。舊版只有中文關鍵詞，對**外文來源**永遠不可能命中：2026-08-17 菲律賓
+ * （philstar／manilatimes）、韓國巨濟（koreatimes／xinhua 英文版）、千葉縣（japantimes／
+ * newsonjapan）都是兩個來源都活著、內容也真的在講那件事，卻因為頁面是英文而被判「內容對不上」。
+ * placeEn 由偵察員照抄來源裡的拼法（prompt 明令不得自己音譯），只用於比對，不進任何面向使用者的文字。
+ */
+export function latinKeywordsOf(cand) {
+  const en = String(cand.placeEn || '');
+  if (!en) return [];
+  const toks = en.toLowerCase().match(/[a-z]{4,}/g) || [];
+  return [...new Set(toks.filter((t) => !LATIN_STOP.has(t)))];
 }
 
 async function verifyCandidate(cand) {
@@ -130,15 +204,19 @@ async function verifyCandidate(cand) {
   }
 
   // 內容對得上：至少 1 個存活頁 HTML 含事件關鍵詞（擋「真 URL＋假內容」）。
+  // normText 已小寫化並去空白，中文與拉丁字關鍵詞可以掃同一份 body。
   const kws = keywordsOf(cand);
+  const latin = latinKeywordsOf(cand);
   let matched = false, matchInfo = '';
   for (let i = 0; i < aliveHtml.length; i++) {
     const body = normText(stripHtml(aliveHtml[i]));
-    const hit = kws.find((k) => k.length >= 2 && body.includes(k));
+    const hit = kws.find((k) => k.length >= 2 && body.includes(k))
+      || latin.find((k) => body.includes(k));
     if (hit) { matched = true; matchInfo = `「${hit}」命中 ${alive[i].url}`; break; }
   }
   if (!matched) {
-    console.error(`[news-scan]   丟棄：無存活來源內容含關鍵詞（kws=${kws.join('/')}）`); return null;
+    console.error(`[news-scan]   丟棄：無存活來源內容含關鍵詞（kws=${kws.join('/')}${latin.length ? `｜en=${latin.join('/')}` : '｜en=（無 placeEn）'}）`);
+    return null;
   }
   console.error(`[news-scan]   ✓ 通過複驗：存活來源 ${alive.length}，內容 ${matchInfo}`);
   return { ...cand, sources: alive };

@@ -12,10 +12,24 @@
  * 🔴 新增類型＝在此登記一列即可，三支腳本自動跟上；別再回頭在腳本裡自己開一份表。
  */
 export const TYPE_LABEL = {
+  // 天災
   quake: '地震', cyclone: '熱帶氣旋', flood: '水災', volcano: '火山活動', wildfire: '野火',
-  landslide: '山崩', 'bridge-collapse': '橋樑坍塌', fire: '火災', 'gas-explosion': '氣爆',
-  storm: '風災', other: '重大事件',
+  landslide: '山崩', storm: '風災',
+  // 人為重大意外（2026-08-22 補；在此之前整族缺席，見下方註記）
+  'bridge-collapse': '橋樑坍塌', fire: '火災', 'gas-explosion': '氣爆',
+  aviation: '航空事故', rail: '鐵路事故', maritime: '海難',
+  'building-collapse': '建物倒塌', 'crowd-crush': '群眾推擠事故', industrial: '工安事故',
+  other: '重大事件',
 };
+
+// 🔴 2026-08-22 為什麼補「人為重大意外」那一族：
+// 2026-08-15 越南航空 VN34 在慕尼黑機尾觸地、返場衝出跑道，P2 掃描 log（seo-ops/logs/
+// folk.tw-topical-news.log）8/15–8/20 整段**沒有出現任何航空事故候選**——不是被正向閘擋下，
+// 是根本沒進入視野：本表原本只有天災＋火災／氣爆／橋垮，而 news-scan 的偵察 prompt 又照著
+// 本表逐一列舉類型，於是空難／鐵路／海難／建物倒塌／踩踏／工安這一整族從來不會被搜。
+// ⚠️ 補進來**不代表這些事件就會開頁**：是否值得集體祈福仍由 topical-gate.mjs 的正向閘判定
+// （docs/topical-blessing.md §3.8「沒有災害就不用祈福」——VN34 無人罹難，補了類型它照樣該被擋）。
+// 這裡修的是「看不見」，不是「該不該開」。
 
 /** 合法 eventType 集合（P2 用來丟棄 LLM 亂回的類型）。 */
 export const VALID_EVENT_TYPES = new Set(Object.keys(TYPE_LABEL));
