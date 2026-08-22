@@ -11,6 +11,27 @@ cw_begin "[news-scan-cron]"
 OUT="$(/usr/bin/node scripts/topical-news-scan.mjs)" || { echo "[news-scan-cron] 掃描失敗"; exit 1; }
 [ -n "$OUT" ] && echo "$OUT"
 
+# 🔴 偵測器健康告警（2026-08-22）。scanNews() 失敗時回空陣列、腳本照樣 exit 0，
+#    所以「掃描器掛了」與「這輪沒有事件」在這裡長得一模一樣——2026-08-11～08-17 就是這樣
+#    連續失敗 10 輪沒有任何人發現（見 lib/topical-report.mjs 的 reportScanFailed 註解）。
+#    node 那側在連續失敗達門檻時會印 SCAN_FAILED，恢復時印 SCAN_RECOVERED。
+#    ⚠️ 這一段必須排在 cw_commit_push **之前**：那支在無變更時會 exit 0，
+#    而掃描失敗的那一輪正好就是「無變更」。
+SLACK_TOKEN_FILE=/root/.config/folk-tw/slack-bot-token
+notify_scan() {
+  [ -r "$SLACK_TOKEN_FILE" ] || { echo "[news-scan-cron] 讀不到 Slack token，告警未送出"; return; }
+  PAYLOAD="$(TEXT="$1" node -e 'process.stdout.write(JSON.stringify({channel:"C0BCPHBF1ML",text:process.env.TEXT,unfurl_links:false}))')"
+  curl -s -X POST https://slack.com/api/chat.postMessage \
+    -H "Authorization: Bearer $(cat "$SLACK_TOKEN_FILE")" -H "Content-type: application/json; charset=utf-8" \
+    --data "$PAYLOAD" >/dev/null && echo "[news-scan-cron] 已送出告警"
+}
+echo "$OUT" | grep '^SCAN_FAILED' | while IFS=$'\t' read -r _ n detail; do
+  notify_scan "🚨 時事祈福的新聞掃描（P2）已連續失敗 ${n} 次，管線可能整支停擺中（每 8 小時一輪）。最後一次錯誤：${detail}"
+done
+echo "$OUT" | grep '^SCAN_RECOVERED' | while IFS=$'\t' read -r _ n; do
+  notify_scan "✅ 時事祈福的新聞掃描（P2）已恢復（先前連續失敗 ${n} 次）。"
+done
+
 cw_commit_push "[news-scan-cron]" "feat(topical): 新聞掃描自動編排 $(date -u +%FT%H:%MZ)" || { echo "[news-scan-cron] 無變更"; exit 0; }
 
 # 對每個新開的祈福頁發 Slack（過了正向議題閘、開後通知、可事後撤）

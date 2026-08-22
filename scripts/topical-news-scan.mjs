@@ -19,9 +19,19 @@ import { hasBannedNumber, SAFE_EVENT } from './lib/topical-guard.mjs';
 import { geocodePlace } from './lib/topical-geo.mjs';
 import { findDuplicate, normPlace, officialCycloneName, eventText, findTitleClash } from './lib/topical-dedup.mjs';
 import { VALID_EVENT_TYPES, stripHtml, normText } from './lib/topical-text.mjs';
+import { readFileSync as _readSt, writeFileSync as _writeSt, mkdirSync as _mkdirSt } from 'node:fs';
+
+// 偵測器健康狀態（2026-08-22）。**刻意放 repo 外**：cron 在 sparse worktree 執行，
+// 寫進 repo 會被 `git diff --quiet src/data/topical.json` 之外的硬檢查擋下，或被一起 commit。
+const HEALTH = '/root/.config/folk-tw/topical-scan-health.json';
+const readHealth = () => { try { return JSON.parse(_readSt(HEALTH, 'utf8')); } catch { return { consecutiveFailures: 0 }; } };
+const writeHealth = (h) => {
+  try { _mkdirSt('/root/.config/folk-tw', { recursive: true }); _writeSt(HEALTH, JSON.stringify(h, null, 2) + '\n'); }
+  catch (e) { console.error(`[news-scan] 健康狀態寫入失敗（${e.message}）——告警可能失準`); }
+};
 import { gateAndFrame } from './lib/topical-gate.mjs';
 import { readTopical, writeTopical, makeBlessingRecord } from './lib/topical-record.mjs';
-import { reportPublished } from './lib/topical-report.mjs';
+import { reportPublished, reportScanFailed, reportScanRecovered } from './lib/topical-report.mjs';
 
 const DRY = process.argv.includes('--dry');
 const today = new Date().toISOString().slice(0, 10);
@@ -53,8 +63,24 @@ function scanNews() {
   const r = spawnSync('claude', ['-p', PROMPT, '--model', 'claude-sonnet-5'],
     { encoding: 'utf8', timeout: 180000, env: { ...process.env, IS_SANDBOX: '1' } });
   if (r.status !== 0 || !r.stdout) {
-    console.error(`[news-scan] claude 掃描失敗（status=${r.status}）：${(r.stderr || '').slice(0, 300)}`);
+    // 🔴 2026-08-22：這裡原本只 console.error 就 return []，於是腳本 exit 0、cron 印「無變更」，
+    // 整條偵測管線可以**完全靜音地停擺好幾天**（實據見 topical-report.mjs 的 reportScanFailed）。
+    // 現在把連續失敗次數記在 repo 外的健康檔，並用摘要協定往上報，由 cron 決定要不要告警。
+    const h = readHealth();
+    h.consecutiveFailures = (h.consecutiveFailures ?? 0) + 1;
+    h.lastFailureDetail = `status=${r.status} ${(r.stderr || '').slice(0, 200)}`.trim();
+    writeHealth(h);
+    console.error(`[news-scan] claude 掃描失敗（status=${r.status}，連續第 ${h.consecutiveFailures} 次）：${(r.stderr || '').slice(0, 300)}`);
+    // 門檻 2：每 8 小時一輪，連兩次代表已經瞎了約 16 小時，超過單次網路抖動的範圍。
+    if (h.consecutiveFailures >= 2) reportScanFailed(h.consecutiveFailures, h.lastFailureDetail);
     return [];
+  }
+  {
+    const h = readHealth();
+    if ((h.consecutiveFailures ?? 0) > 0) {
+      if (h.consecutiveFailures >= 2) reportScanRecovered(h.consecutiveFailures);
+      writeHealth({ consecutiveFailures: 0 });
+    }
   }
   // 解析容錯：抓第一個 [...] 陣列。
   const m = r.stdout.match(/\[[\s\S]*\]/);

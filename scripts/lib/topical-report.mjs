@@ -7,6 +7,7 @@
 //   scripts/topical-news-scan-cron.sh:18    同上
 //   scripts/topical-followup-cron.sh:64     grep -qE '^(UPDATED|MEMORIAL|RENAMED)' 決定是否 [skip ci]
 //   scripts/topical-followup-cron.sh:84,89,94  逐行切欄位發 Slack
+//   scripts/topical-news-scan-cron.sh          grep '^SCAN_FAILED'／'^SCAN_RECOVERED' → 告警 Slack
 //
 // ── 為什麼只抽「產生端」，不改協定（2026-08-19）────────────────────────────────
 // 協定本身沒有問題：它讓腳本與 git／Slack 解耦，換掉 cron 包裝不必動 node。有問題的是
@@ -26,6 +27,22 @@ const field = (v) => String(v ?? '').replace(/[\t\r\n]+/g, ' ');
 
 /** 印一行摘要（kind ＋ 各欄，tab 分隔）。 */
 const line = (kind, ...fields) => { console.log([kind, ...fields.map(field)].join('\t')); };
+
+/**
+ * 偵測器連續失敗（P2，2026-08-22 加）。cron：連續達門檻就發 Slack 告警。
+ *
+ * 🔴 為什麼需要它：`scanNews()` 抓到 claude 失敗時**回空陣列**，腳本照樣 exit 0，
+ * cron 包裝看到沒有變更就印「無變更」結束——整條管線在**完全靜音**的狀態下停擺。
+ * 實據：seo-ops/logs/folk.tw-topical-news.log 第 788–806 行是連續 10 次
+ * 「claude 掃描失敗（status=1）」（全檔共 16 次），夾在 time=2026-08-11 與第一筆
+ * time=2026-08-17 的候選之間（每 8 小時一輪 → 約 3.3 天），**沒有任何人發現**。
+ * 那三天剛好涵蓋 2026-08-15 的越南航空 VN34，而我一度把「那幾天沒有航空事故候選」
+ * 誤讀成「類型表漏了」——**沒有告警不只是漏事件，還會讓事後歸因指向錯的地方**。
+ */
+export const reportScanFailed = (consecutive, detail) => line('SCAN_FAILED', String(consecutive), detail);
+
+/** 偵測器恢復正常（前一輪還在失敗狀態）。cron：發一則恢復通知，讓人知道洞補起來了。 */
+export const reportScanRecovered = (afterFailures) => line('SCAN_RECOVERED', String(afterFailures));
 
 /** 新開祈福頁（P1／P2）。cron：commit＋push 觸發部署，並對每頁發 Slack。 */
 export const reportPublished = (id, title) => line('PUBLISHED', id, title, blessingUrl(id));
