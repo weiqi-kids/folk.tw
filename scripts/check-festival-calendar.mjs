@@ -23,7 +23,7 @@ if (fullMonth.iso !== '2025-09-21' || fullMonth.label !== '農曆七月三十') 
   problems.push(`2025 七月三十應保持 2025-09-21／農曆七月三十，實際 ${fullMonth.iso}／${fullMonth.label}`);
 }
 
-if (festivals.length !== 69) problems.push(`festivals.json 應有 69 筆（16 個既有頁＋52 個草稿頁＋1 個問題型深頁），目前為 ${festivals.length}`);
+if (festivals.length !== 71) problems.push(`festivals.json 應有 71 筆（16 個既有頁＋52 個草稿頁＋3 個問題型深頁），目前為 ${festivals.length}`);
 const draftWeeks = festivals.filter((festival) => Number.isInteger(festival.draft_week));
 if (draftWeeks.length !== 52 || new Set(draftWeeks.map((festival) => festival.draft_week)).size !== 52) {
   problems.push(`draft_week 應完整涵蓋 1–52，目前為 ${draftWeeks.length} 筆`);

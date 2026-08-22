@@ -146,6 +146,7 @@ build 前跑等於掃一份舊產物空過，乾淨工作目錄則直接拋錯�
 | **節日／地方宗教慶典／民俗活動／情境・比較・行業** | [`docs/decisions/festivals-and-intent.md`](docs/decisions/festivals-and-intent.md) 🔴 |
 | **nav／版位** | [`docs/decisions/nav-and-ui.md`](docs/decisions/nav-and-ui.md) |
 | **部署流程／驗證套件／任何一道 gate／`pnpm notify`** | [`docs/decisions/deploy-and-gates.md`](docs/decisions/deploy-and-gates.md) |
+| 🔴 **要開新頁／補內容／找成長題目——照表操課，不要重談流程** | [`docs/demand-page-playbook.md`](docs/demand-page-playbook.md) 🔴 |
 | **SEO 的「做／不做」裁示**（sitemap／稀釋／索引長尾） | [`docs/decisions/seo-calls.md`](docs/decisions/seo-calls.md) |
 | **慶(祭)典資料**（曆別陷阱／對映規則／來源矛盾） | [`docs/festival-data-import.md`](docs/festival-data-import.md) |
 | **時事集氣祈福管線**（P1／P2／P4（無 P3）） | [`docs/topical-blessing.md`](docs/topical-blessing.md) 🔴 |
